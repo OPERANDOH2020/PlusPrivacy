@@ -1,0 +1,201 @@
+.enlightenment-opacity-slider {
+	margin: 6px 0 -6px;
+}
+
+.enlightenment-opacity-slider input[readonly] {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.enlightenment-jquery-ui-slider {
+	position: relative;
+	width: 200px;
+	height: 6px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 rgba(0,0,0,.08);
+	background: #fff;
+}
+
+.enlightenment-jquery-ui-slider .ui-slider-range {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	height: 6px;
+	background-color: #f7f7f7;
+	/*border: 1px solid transparent;*/
+	border-radius: 4px;
+}
+
+.enlightenment-jquery-ui-slider .ui-slider-handle {
+	position: absolute;
+	top: -3px;
+	z-index: 2;
+	width: 10px;
+	height: 10px;
+	margin-left: -3px;
+	background: #f7f7f7;
+	border: 1px solid #999;
+	border-radius: 6px;
+}
+
+.enlightenment-jquery-ui-slider .ui-slider-handle.ui-state-hover,
+.enlightenment-jquery-ui-slider .ui-slider-handle.ui-state-focus {
+	border-color: #555;
+}
+
+.wp-core-ui .upload-media-button {
+	margin-right: 10px;
+}
+
+.preview-media {
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.preview-media img {
+	max-width: 150px;
+	height: auto;
+}
+
+.font-options {
+	margin: -5px 0 0;
+	line-height: 36px;
+}
+
+.background-options {
+	line-height: 30px;
+}
+
+.font-options select {
+	max-width: 250px;
+	margin-right: 7px;
+}
+
+.font-options-preview {
+	max-width: 600px;
+	margin: 8px 0 8px 2px;
+	background: #fff;
+	padding: 15px;
+}
+
+.form-table td fieldset label.image-radio-button-label {
+	position: relative;
+	display: inline-block;
+	margin-right: 15px !important;
+	background: #fff;
+}
+
+.form-table td fieldset label.image-radio-button-label.checked {
+	background: #777;
+}
+
+.image-radio-button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.image-radio-button-label img {
+	position: relative;
+	display: block;
+	max-width: 136px;
+	height: auto;
+	padding: 10px;
+}
+
+.custom-css {
+	width: 97%;
+	min-height: 300px;	
+	font-family: monospace;
+	background: #f9f9f9;
+}
+
+.local-fonts,
+.google-fonts {
+	max-height: 265px;
+	padding: 15px;
+	background: #fff;
+	overflow: auto;
+}
+
+.local-fonts label,
+.google-fonts label {
+	font-size: 20px;
+}
+
+.select-template {
+	min-width: 300px;
+}
+
+.widget-list {
+	min-height: 93px;
+}
+
+.widget {
+	max-width: 315.625px;
+}
+
+.appearance_page_enlightenment_theme_options #widgets-left #available-widgets .widget,
+#enlightenment_page_builder #widgets-left #available-widgets .widget {
+	width: 100%;
+	margin-bottom: 10px;
+	float: none;
+}
+
+div.widget-liquid-right {
+	float: left;
+	width: 40.1%;
+	margin-left: 30px;
+}
+
+.sidebar-name h3 {
+	border: none;
+}
+
+.sidebar-location {
+	clear: both;
+	margin-bottom: 15px;
+}
+
+.sidebar-location h3 {
+	float: left;
+	min-width: 250px;
+	border: none;
+}
+
+.widget-content .post-types,
+.widget-content .post-type,
+.widget-content .page,
+.widget-content .pages,
+.widget-content .image-gallery,
+.widget-content .author,
+.widget-content .taxonomy,
+.widget-content .term,
+.widget-content .posts-count,
+.widget-content .lead-posts,
+.widget-content .archive-link,
+.widget-content .archive-link-label {
+	display: none;
+}
+
+.widget-content div.pages {
+	margin: 1em 0;
+}
+
+.widget-content .show {
+	display: block;
+}
+
+.widget-content .pages-inner {
+	padding: 10px;
+	background: #f3f3f3;
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,.05);
+}
+
+.widget-content .pages-inner fieldset {
+	max-height: 100px;
+	overflow: scroll;
+}

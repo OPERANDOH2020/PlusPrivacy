@@ -1,0 +1,25 @@
+<div class="alert info-notification fade in">
+
+    <div class="alert_container">
+        <h4>{{notification.title}}</h4>
+            <div class="notification_content" ng-bind-html="notification.description"></div>
+            <br/>
+            <div class="notification_actions">
+                <button class="btn-primary" ng-click="takeAction(notification.action_name)">Take action</button>
+            </div>
+    </div>
+
+    <label class="dont_show_again">
+    <div ng-if="dismissed === false">
+    <input type="checkbox" ng-change="doNotShowNexTime()" ng-model="dismissed" />
+        <span>Never show this warning again</span>
+    </div>
+
+    <div ng-if="dismissed === true">
+        <span>Notification dismissed</span>
+    </div>
+    </label>
+
+
+
+</div>

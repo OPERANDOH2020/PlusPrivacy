@@ -1,0 +1,130 @@
+[
+    {
+        "domain": ".linkedin.com",
+        "httponly": false,
+        "name": "lang",
+        "path": "/",
+        "secure": false,
+        "value": "\"v=2&lang=ro-ro\""
+    },
+    {
+        "domain": "www.linkedin.com",
+        "expires": "Mon, 17 Jun 2019 07:09:21 GMT",
+        "expiry": 1560755361,
+        "httponly": false,
+        "name": "visit",
+        "path": "/",
+        "secure": false,
+        "value": "\"v=1&M\""
+    },
+    {
+        "domain": ".ads.linkedin.com",
+        "expires": "Sat, 16 Dec 2017 19:09:21 GMT",
+        "expiry": 1513451361,
+        "httponly": false,
+        "name": "BizoID",
+        "path": "/",
+        "secure": true,
+        "value": "d5a22f9c-d843-48f1-ac17-9668b24fea73"
+    },
+    {
+        "domain": ".ads.linkedin.com",
+        "expires": "Sat, 16 Dec 2017 19:09:21 GMT",
+        "expiry": 1513451361,
+        "httponly": false,
+        "name": "BizoData",
+        "path": "/",
+        "secure": true,
+        "value": "Jr3BxHJOIisO8dcBN8fLo0IiiHGAKl0mBJKwXt38eFMnd8kVXhDRH80jZXMthf2YipisDm8uLb945H2LLhJUptCJ9dVvZ2qRpnWZjYNqNkSvE78qYAWgUc8iiCrASJZILtiidtv6ipe8buSyipnlLMqHLnRAQ8EiifuQ8Uip1tisVgI79tSHKuTutZfMz4oc4EE6HlmzEKXsGuW7Y0Dhd7nn16Gl0cOtBIVcLhUGoGNptA1e6rLPisSUlzOItGf79JJ0bAwUY8x0ZQCaNoZ0DzMOV3rvl8r30o2emSOGaJpY"
+    },
+    {
+        "domain": ".linkedin.com",
+        "expires": "Sat, 17 Jun 2017 07:19:19 GMT",
+        "expiry": 1497683959,
+        "httponly": false,
+        "name": "RT",
+        "path": "/",
+        "secure": false,
+        "value": "s=1497683359607&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Flogin"
+    },
+    {
+        "domain": ".linkedin.com",
+        "expires": "Sun, 18 Jun 2017 07:08:38 GMT",
+        "expiry": 1497769718,
+        "httponly": false,
+        "name": "lidc",
+        "path": "/",
+        "secure": false,
+        "value": "\"b=OB94:g=250:u=5:i=1497683359:t=1497769718:s=AQF6XZPye1wpIjDLt7gB2ymrEAqI8lHD\""
+    },
+    {
+        "domain": ".www.linkedin.com",
+        "expires": "Fri, 15 Sep 2017 07:09:19 GMT",
+        "expiry": 1505459359,
+        "httponly": false,
+        "name": "JSESSIONID",
+        "path": "/",
+        "secure": true,
+        "value": "\"ajax:2312355772302925623\""
+    },
+    {
+        "domain": ".www.linkedin.com",
+        "expires": "Sun, 17 Jun 2018 07:09:19 GMT",
+        "expiry": 1529219359,
+        "httponly": true,
+        "name": "li_at",
+        "path": "/",
+        "secure": true,
+        "value": "AQEDASJMuNICSyFKAAABXLTidLgAAAFctpnouE4AEdrWDFJu1r__z5j9FdqfZcsTNtgBDlPcFEGXLMeN4tCgmdukRdzR4MLblwJs2GTij3ULlfSIeUPVuiCMGPVxmDq1sO3YH8ukohnwl5EWkJgmAbml"
+    },
+    {
+        "domain": ".linkedin.com",
+        "expires": "Fri, 15 Sep 2017 07:09:19 GMT",
+        "expiry": 1505459359,
+        "httponly": false,
+        "name": "liap",
+        "path": "/",
+        "secure": false,
+        "value": "true"
+    },
+    {
+        "domain": ".www.linkedin.com",
+        "expires": "Fri, 15 Sep 2017 07:09:19 GMT",
+        "expiry": 1505459359,
+        "httponly": false,
+        "name": "sl",
+        "path": "/",
+        "secure": false,
+        "value": "\"v=1&TQGkG\""
+    },
+    {
+        "domain": "accounts.google.com",
+        "expires": "Mon, 17 Jun 2019 07:09:16 GMT",
+        "expiry": 1560755356,
+        "httponly": true,
+        "name": "GAPS",
+        "path": "/",
+        "secure": true,
+        "value": "1:jADlSPg0cv-mtHWrtPtkV_KW-SsRNQ:H_bYtfdPy23MlTMY"
+    },
+    {
+        "domain": ".www.linkedin.com",
+        "expires": "Mon, 17 Jun 2019 18:46:48 GMT",
+        "expiry": 1560797208,
+        "httponly": true,
+        "name": "bscookie",
+        "path": "/",
+        "secure": true,
+        "value": "\"v=1&20170617070916432f9809-6951-49a8-8d69-5a3a0d12cc6fAQEIUR10B4QGWtqnM3Py5ER4iHLWgkYi\""
+    },
+    {
+        "domain": ".linkedin.com",
+        "expires": "Mon, 17 Jun 2019 18:46:48 GMT",
+        "expiry": 1560797208,
+        "httponly": false,
+        "name": "bcookie",
+        "path": "/",
+        "secure": false,
+        "value": "\"v=2&167c76fc-cfae-4db8-835a-5cf40f3e9789\""
+    }
+]

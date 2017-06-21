@@ -1,0 +1,14 @@
+<div ng-repeat="app in apps">
+    <div class="row">
+        <div class="col-md-1"><img ng-src="{{app.iconUrl}}"/></div>
+        <div class="col-md-2">{{app.name}}</div>
+        <div class="col-md-9">
+            <div class="row">
+            <div ng-repeat="permission in app.permissions">
+                <div class="col-md-1">{{permission}}</div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>

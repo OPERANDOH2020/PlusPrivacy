@@ -1,0 +1,9 @@
+.hideContent *:not(iframe){
+display: none;
+}
+iframe.plusprivacyIframe{
+position: fixed;
+height: 100%;
+overflow: hidden;
+width: 100%;
+}

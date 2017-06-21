@@ -1,0 +1,8 @@
+<div class="ui-notification custom_notification">
+    <a class="close" ng-click="hideNotification()" data-dismiss="alert" aria-label="close" title="close">&times;</a>
+    <h3 ng-show="title" ng-bind-html="title"></h3>
+    <div class="message" ng-bind-html="message"></div>
+    <div class="notification_action">
+        <button  class="btn-primary-black" ng-click="takeAction()">{{title}}</button>
+    </div>
+</div>

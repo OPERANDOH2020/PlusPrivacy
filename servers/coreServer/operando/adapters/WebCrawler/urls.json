@@ -1,0 +1,124 @@
+{
+    "facebook": [
+
+        {
+            "name":"facebook",
+            "url": "http://facebook.com",
+            "takeScreenshot": false
+        },
+        {
+            "exec": "loginToFacebook"
+        },
+        {
+            "name":"facebookTimelineSettings",
+            "url": "https://www.facebook.com/settings?tab=timeline"
+        },
+        {
+            "name":"facebookPrivacySettings",
+            "url": "https://www.facebook.com/settings?tab=privacy"
+        },
+        {
+            "name":"facebookFollowersSettings",
+            "url": "https://www.facebook.com/settings?tab=followers"
+        },
+        {
+            "name":"facebookApplications",
+            "url": "https://www.facebook.com/settings?tab=applications"
+        },
+        {
+            "name":"facebookAds",
+            "url": "https://www.facebook.com/settings?tab=ads"
+        }
+    ],
+    "google": [
+        {
+            "exec": "clearCookies"
+        },
+        {
+            "name":"google",
+            "url": "https://accounts.google.com/ServiceLogin?hl=ro&passive=true#identifier",
+            "takeScreenshot": true
+        },
+        {
+            "exec": "insertGoogleEmail"
+        },
+        {
+            "exec": "insertGooglePassword"
+        },
+        {
+            "name":"googlePermissions",
+            "url": "https://security.google.com/settings/security/permissions"
+        },
+        {
+            "name":"googleYoutubeHistory",
+            "url": "https://history.google.com/history/youtube/search?utm_source=sidenav"
+        },
+        {
+            "name":"googleMyAccount",
+            "url": "https://myaccount.google.com/privacy#accounthistory"
+        },
+        {
+            "name":"googleAuthenticatedAds",
+            "url": "https://www.google.com/settings/u/0/ads/authenticated"
+        }
+    ],
+    "linkedin": [
+        {
+            "exec": "clearCookies"
+        },
+        {
+            "name":"linkedin",
+            "url": "https://www.linkedin.com/uas/login",
+            "takeScreenshot": false
+        },
+        {
+            "exec": "loginToLinkedin"
+        },
+        {
+            "name":"linkedInPrivacySettings",
+            "url": "https://www.linkedin.com/psettings/privacy"
+        }
+    ],
+    "twitter": [
+
+        {
+            "name":"twitter",
+            "url": "https://twitter.com/",
+            "takeScreenshot": false
+        },
+        {
+            "exec": "loginToTwitter"
+        },
+        {
+            "name":"twitterPrivacyOptions",
+            "url": "https://twitter.com/settings/safety"
+        }
+    ],
+    "eula":[
+        {
+            "exec": "clearCookies"
+        },
+        {
+            "name":"twitterEula",
+            "url": "https://twitter.com/tos"
+        },
+        {
+            "name":"linkedInEula",
+            "url": "https://www.linkedin.com/legal/privacy-policy"
+        },
+        {
+            "exec":"wait"
+        },
+        {
+            "exec":"wait"
+        },
+        {
+            "name":"googleEula",
+            "url": "https://www.google.com/policies/terms/"
+        },
+        {
+            "name":"facebookEula",
+            "url": "https://www.facebook.com/terms"
+        }
+    ]
+}

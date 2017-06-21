@@ -1,0 +1,83 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+{
+  "manifest_version": 2,
+  {%- if releaseBuild %}
+  "name": "__MSG_name__",
+  {%- else %}
+  "name": "__MSG_name_devbuild__",
+  {%- endif %}
+
+  "short_name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "default_locale": "en_US",
+  "version": {{version|json}},
+
+  {%- if metadata.has_section('compat') and metadata.has_option('compat', 'chrome') %}
+  "minimum_chrome_version": {{metadata.get('compat', 'chrome')|json}},
+  {%- endif %}
+
+  {%- if pageAction %}
+  "page_action": {
+    "default_icon": {{pageAction.icon|json}},
+    {%- if pageAction.popup %}
+    "default_popup": {{pageAction.popup|json}},
+    {%- endif %}
+    "default_title": "__MSG_name__"
+  },
+  {%- endif %}
+
+  {%- if browserAction %}
+  "browser_action": {
+    "default_icon": {{browserAction.icon|json}},
+    {%- if browserAction.popup %}
+    "default_popup": {{browserAction.popup|json}},
+    {%- endif %}
+    "default_title": "__MSG_name__"
+  },
+  {%- endif %}
+
+  {%- if icons %}
+  "icons": {{icons|json}},
+  {%- endif %}
+
+  {%- if permissions %}
+  "permissions": {{permissions|json}},
+  {%- endif %}
+
+  {%- if optionalPermissions %}
+    "optional_permissions": {{optionalPermissions|json}},
+  {%- endif %}
+
+  {%- if backgroundScripts %}
+  "background": {
+    "scripts": {{backgroundScripts|json}}
+  },
+  {%- endif %}
+
+  {%- if metadata.has_option('general', 'options') %}
+  "options_page": {{metadata.get('general', 'options')|json}},
+  {%- endif %}
+
+  {%- if metadata.has_option('general', 'devtools') %}
+  "devtools_page": {{metadata.get('general', 'devtools')|json}},
+  {%- endif %}
+
+  {%- if contentScripts %}
+  "content_scripts": {{contentScripts|json}},
+  {%- endif %}
+
+  {%- if webAccessible %}
+  "web_accessible_resources": {{webAccessible|json}},
+  {%- endif %}
+
+  {%- if metadata.has_option('general', 'managedStorageSchema') %}
+  "storage": {
+    "managed_schema": {{metadata.get('general', 'managedStorageSchema')|json}}
+  },
+  {%- endif %}
+
+  "_dummy": false
+}

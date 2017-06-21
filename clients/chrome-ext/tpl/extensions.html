@@ -1,0 +1,36 @@
+<div>
+    <div id="extensions_container">
+
+        <table class="table table-bordered" id="extensions_table" datatable="ng" dt-column-defs="dtColumnDefs"  dt-options="dtOptions" dt-instance="dtInstance"  >
+            <thead>
+            <tr>
+                <th>Extension/App name</th>
+                <th>Access to private data</th>
+                <th class="no-sort"></th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+            <tr ng-repeat="extension in extensions" class="extension pp-{{extension.privacyPollutionColor}}" >
+
+                <td class="extension_icon" ng-class="{'no_icon':!extension.icon}" >
+                    <img ng-class="extension.enabled?'active':'disabled'" ng-src="{{extension.icon.url}}" width="32px"/>
+                    <span class="extension_name">{{extension.name}}</span>
+                </td>
+
+                <td permissions-row class="privacy_pollution" extension="extension">
+                    <span>{{extension.privacyPollution}}/10</span>
+                    <button class="view_permissions" ng-class="{'no_permission': extension.permissions.length<1}" ng-click="view_permissions()"></button>
+                </td>
+
+
+                <td actions-row extension="extension"></td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

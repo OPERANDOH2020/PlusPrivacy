@@ -1,0 +1,591 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Clean Login\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-16 09:02+0100\n"
+"PO-Revision-Date: 2016-12-09 11:10+0100\n"
+"Last-Translator: admin <ahornero@gmail.com>\n"
+"Language-Team: codection <contacto@codection.com>\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;"
+"_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;"
+"_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;"
+"esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;"
+"comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Loco-Target-Locale: es_ES\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. Name of the plugin
+msgid "Clean Login"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://cleanlogin.codection.com"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Responsive Frontend Login and Registration plugin. A plugin for displaying login, "
+"register, editor and restore password forms through shortcodes. [clean-login] "
+"[clean-login-edit] [clean-login-register] [clean-login-restore]"
+msgstr ""
+
+#. Author of the plugin
+msgid "codection"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://codection.com"
+msgstr ""
+
+#: ../clean-login.php:43
+msgid "Something went wrong while activating your user"
+msgstr "Щось пішло не так під час активації нового користувача"
+
+#: ../clean-login.php:45
+msgid "Your account is currently disabled"
+msgstr "Ваш акаунт відключено"
+
+#: ../clean-login.php:47
+msgid "Successfully activated"
+msgstr "Активація успішна"
+
+#: ../clean-login.php:118
+msgid "Please confirm your account, you will receive an email"
+msgstr ""
+"Будь ласка підтвердіть свій акаунт, через посиллання отримане по електронній пошті"
+
+#: ../clean-login.php:126
+msgid "First name is not valid"
+msgstr "Ім'я не дійсне"
+
+#: ../clean-login.php:128
+msgid "Last name is not valid"
+msgstr "Прізвище не дійсне"
+
+#: ../clean-login.php:408
+#, php-format
+msgid ""
+"Use the following link to activate your account: <a href='%s'>activate your "
+"account</a>.<br/><br/>%s<br/>"
+msgstr ""
+"Використайте наступне посилання, щоб активувати свій акаунт: <a href='%s'> "
+"активувати свій акаунт </a>.<br/><br/>%s<br/>"
+
+#: ../clean-login.php:410
+msgid "Activate your account"
+msgstr "Активувати акаунт"
+
+#: ../clean-login.php:917
+msgid ""
+"This feature allows you to choose the role from the frontend, with the selected "
+"roles you want to show. You can also define an standard predefined role through a "
+"shortcode parameter, e.g. [clean-login-register role=\"contributor\"]. Anyway, you "
+"need to choose only the role(s) you want to accept to avoid security/infiltration "
+"issues."
+msgstr ""
+
+#: ../clean-login.php:966
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: ../clean-login.php:974
+msgid "Add name and surname?"
+msgstr "Додати ім'я та прізвище?"
+
+#: ../clean-login.php:976
+msgid "Validate user registration through an email?"
+msgstr "Підтвердити реєстрацію користувача через електронну пошту?"
+
+#: ../clean-login.php:977
+msgid "This feature cannot be used with the automatic login after registration"
+msgstr "Ця функція не може використовуватися з автоматичним входом після реєстрації"
+
+#: ../clean-login.php:37
+msgid "Successfully logged in!"
+msgstr "Вхід виконано!"
+
+#: ../clean-login.php:39
+msgid "Wrong credentials"
+msgstr "Невірні облікові дані"
+
+#: ../clean-login.php:41
+msgid "Successfully logged out!"
+msgstr "Вихід виконано!"
+
+#: ../clean-login.php:75
+msgid "Information updated"
+msgstr "Інформацію оновлено"
+
+#: ../clean-login.php:77 ../clean-login.php:122 ../clean-login.php:935
+msgid ""
+"Passwords must be eight characters including one upper/lowercase letter, one "
+"special/symbol character and alphanumeric characters. Passwords should not contain "
+"the user's username, email, or first/last name."
+msgstr ""
+"Пароль має складатися з восьми символів, включаючи один символ верхнього/малого "
+"регістру, один спеціальний символ, букву та цифру. Паролі не повинні містити ім'я "
+"користувача, адресу електронної пошти або прізвище."
+
+#: ../clean-login.php:79
+msgid "Passwords must be identical"
+msgstr "Паролі повинні бути однаковими"
+
+#: ../clean-login.php:81
+msgid "Error updating email"
+msgstr "Помилка при оновленні електронної пошти"
+
+#: ../clean-login.php:83
+msgid "Something strange has ocurred"
+msgstr "Сталось щось дивне"
+
+#: ../clean-login.php:89
+msgid "You need to be logged in to edit your profile"
+msgstr "Ви повинні бути зареєстровані, щоб змінити свій профіль"
+
+#: ../clean-login.php:116 ../clean-login.php:118
+msgid "User created"
+msgstr "Користувача створено"
+
+#: ../clean-login.php:120
+msgid "New user created"
+msgstr "Нового користувача створено"
+
+#: ../clean-login.php:124 ../clean-login.php:173
+msgid "Username is not valid"
+msgstr "Ім'я користувача не дійсне"
+
+#: ../clean-login.php:130
+msgid "Passwords must be identical and filled"
+msgstr "Паролі повинні бути однаковими та дійсними"
+
+#: ../clean-login.php:132
+msgid "Email is not valid"
+msgstr "Електронна пошта не дійсна"
+
+#: ../clean-login.php:134
+msgid "CAPTCHA is not valid, please try again"
+msgstr "CAPTCHA, не дійсна, будь-ласка, спробуйте ще раз"
+
+#: ../clean-login.php:136
+msgid "Something strange has ocurred while created the new user"
+msgstr "Щось дивне сталося під час створення нового користувача"
+
+#: ../clean-login.php:138
+msgid "must be checked"
+msgstr "повинні бути перевірені"
+
+#: ../clean-login.php:144
+msgid "You are now logged in. It makes no sense to register a new user"
+msgstr ""
+"Ви вже увійшли у систему. Не має необхідності для реєстрації нового користувача"
+
+#: ../clean-login.php:167
+msgid "You will receive an email with the activation link"
+msgstr "Ви отримаєте лист з посиланням для активації"
+
+#: ../clean-login.php:169
+msgid "You may receive an email with the activation link"
+msgstr "Ви зможете отримати по електронній пошті посилання для активації"
+
+#: ../clean-login.php:171
+msgid "An error has ocurred sending the email"
+msgstr "Сталася помилка при відправленні електронної пошти"
+
+#: ../clean-login.php:184
+msgid "You are now logged in. It makes no sense to restore your account"
+msgstr ""
+"Ви вже увійшли у систему. Немає необхідності, виконувати повторний вхід до аккаунту"
+
+#: ../clean-login.php:437
+#, php-format
+msgid ""
+"New user registered: %s <br/><br/>Please change the role from 'Stand By' to "
+"'Subscriber' or higher to allow full site access"
+msgstr ""
+"Новий користувач зареєстрований: %s <br/><br/>будь-ласка, змініть роль \"Stand By"
+"\" на \"Атор\" або іншу, щоб забезпечити повний доступ до контенту."
+
+#: ../clean-login.php:439
+#, php-format
+msgid "New user registered: %s <br/>"
+msgstr "Новий користувач зареєстрований: %s <br/>"
+
+#: ../clean-login.php:441
+msgid "New user"
+msgstr "Новий користувач"
+
+#: ../clean-login.php:521
+#, php-format
+msgid ""
+"Use the following link to restore your password: <a href='%s'>restore your "
+"password</a> <br/><br/>%s<br/>"
+msgstr ""
+"Використати наступне посилання для відновлення паролю: <a href='%s'> відновити "
+"пароль </a> <br/><br/>%s<br/>"
+
+#: ../clean-login.php:523
+msgid "Restore your password"
+msgstr "Відновити пароль"
+
+#: ../clean-login.php:721
+msgid "Donate"
+msgstr "Підтримати"
+
+#: ../clean-login.php:750
+msgid "Admin area"
+msgstr "Адміністративна панель"
+
+#: ../clean-login.php:763
+msgid "Do you like it?"
+msgstr "Вам подобається?"
+
+#: ../clean-login.php:778
+msgid "Clean Login status"
+msgstr "Очистити статус"
+
+#: ../clean-login.php:780
+msgid ""
+"Below you can check the plugin status regarding the shortcodes usage and the pages/"
+"posts which contain  it."
+msgstr ""
+"Нижче ви можете перевірити стан додатку перевіривши шорткоди на сторінках / "
+"повідомленях, які містять його."
+
+#: ../clean-login.php:788 ../clean-login.php:797 ../clean-login.php:806 ../clean-
+#: login.php:815
+msgid "Currently not used"
+msgstr "В даний час не використовується"
+
+#: ../clean-login.php:790 ../clean-login.php:799 ../clean-login.php:808 ../clean-
+#: login.php:817
+#, php-format
+msgid "Used <a href=\"%s\">here</a>"
+msgstr "Використати <a href=\"%s\">тут</a>"
+
+#: ../clean-login.php:792
+msgid "This shortcode contains login form and login information."
+msgstr ""
+
+#: ../clean-login.php:801
+msgid ""
+"This shortcode contains the profile editor. If you include in a page/post a link "
+"will appear on your login preview."
+msgstr ""
+"Цей шорткод містить редактор профілю. Якщо включити в сторінку / пост з'явиться "
+"посилання на Вашу сторінку попереднього перегляду."
+
+#: ../clean-login.php:810
+msgid ""
+"This shortcode contains the register form. If you include in a page/post a link "
+"will appear on your login form."
+msgstr ""
+"Цей шорткод містить реєстраційну форму. Якщо включити в сторінку / пост з'явиться "
+"посилання на формі входу в систему."
+
+#: ../clean-login.php:819
+msgid ""
+"This shortcode contains the restore (lost password?) form. If you include in a "
+"page/post a link will appear on your login form."
+msgstr ""
+"Цей шорткод містить форму відновлення паролю (забули пароль?). Якщо включити в "
+"сторінку / пост з'явиться посилання на формі входу в систему."
+
+#: ../clean-login.php:824
+msgid "Options"
+msgstr "Опції"
+
+#: ../clean-login.php:857
+msgid "Settings saved."
+msgstr "Зберегти налаштування."
+
+#: ../clean-login.php:890
+msgid "Admin bar"
+msgstr "Панель адміністратора"
+
+#: ../clean-login.php:892
+msgid "Hide admin bar for non-admin users?"
+msgstr "Приховати панель адміністратора для користувачів без прав адміністратора?"
+
+#: ../clean-login.php:896
+msgid "Dashboard access"
+msgstr "Доступ до панелі налаштувань"
+
+#: ../clean-login.php:898
+msgid "Disable dashboard access for non-admin users?"
+msgstr ""
+"Відключити доступ до панелі налаштувань для користувачів без прав адміністратора?"
+
+#: ../clean-login.php:899
+msgid ""
+"Please note that you can only log in through <strong>wp-login.php</strong> and "
+"this plugin. <strong>wp-admin</strong> permalink will be inaccessible."
+msgstr ""
+"Зверніть увагу, що ви зможете увійти у систему тільки через <strong>Wp-login.php</"
+"strong> і цей плагін. <strong>WP-admin</strong> посилання буде недоступне."
+
+#: ../clean-login.php:903
+msgid "Antispam protection"
+msgstr "Захист від спаму"
+
+#: ../clean-login.php:905
+msgid "Enable captcha?"
+msgstr "Увімкнути капчу?"
+
+#: ../clean-login.php:906
+msgid "Honeypot antispam detection is enabled by default."
+msgstr "Увімкнути систему антиспаму Honeypot за замовчуванням."
+
+#: ../clean-login.php:907
+msgid ""
+"For captcha usage the PHP-GD library needs to be enabled in your server/hosting."
+msgstr ""
+"Для використання капчі бібліотека PHP-GD повинна бути увімкнена на вашому "
+"сервері / хостингу."
+
+#: ../clean-login.php:911
+msgid "User role"
+msgstr "Присвоїти роль"
+
+#: ../clean-login.php:913
+msgid "Enable Standby role?"
+msgstr "Увімкнути Standby роль?"
+
+#: ../clean-login.php:914
+msgid ""
+"Standby role disables all the capabilities for new users, until the administrator "
+"changes. It usefull for site with restricted components."
+msgstr ""
+"Standby роль відключає всі можливості для нових користувачів, до підтвердження "
+"адміністратором. Це корисно для сайтів з обмеженим контентом."
+
+#: ../clean-login.php:916
+msgid "Choose the role(s) in the registration form?"
+msgstr "Використовувати ролі у формі реєстрації?"
+
+#: ../clean-login.php:925
+msgid "Hide username"
+msgstr "Сховати ім'я користувача"
+
+#: ../clean-login.php:927
+msgid "Hide username?"
+msgstr "Сховати ім'я користувача?"
+
+#: ../clean-login.php:928
+msgid "Hide username from the preview form."
+msgstr "Приховати ім'я користувача з форми попереднього перегляду."
+
+#: ../clean-login.php:932
+msgid "Password complexity"
+msgstr "Складний пароль"
+
+#: ../clean-login.php:934
+msgid "Enable password complexity?"
+msgstr "Включити складний пароль?"
+
+#: ../clean-login.php:939
+msgid "Email notification"
+msgstr "Повідомлення по електронній пошті"
+
+#: ../clean-login.php:941
+msgid "Enable email notification for new registered users?"
+msgstr ""
+"Включити повідомлення по електронній пошті для нових зареєстрованих користувачів?"
+
+#: ../clean-login.php:942
+msgid "Please use HMTL tags for all formatting. And also you can use:"
+msgstr ""
+"Будь ласка, використовуйте HTML-теги для всіх форматуваннь. А також Ви можете "
+"використовувати:"
+
+#: ../clean-login.php:946
+msgid "Terms and conditions"
+msgstr "Правила та умови"
+
+#: ../clean-login.php:948
+msgid "Accept terms / conditions in the registration form?"
+msgstr "Приймати правила та умови в реєстраційній формі?"
+
+#: ../clean-login.php:949
+msgid "Terms and conditions message"
+msgstr "Повідомлення правил та умов"
+
+#: ../clean-login.php:950
+msgid "Target URL"
+msgstr "Кінцевий URL"
+
+#: ../clean-login.php:954
+msgid "Use Email as Username"
+msgstr "Використати електронну пошти в якості ім'я користувача"
+
+#: ../clean-login.php:956
+msgid ""
+"Allow user to use email as username? If you want to use both, WP Email Login "
+"plugin will help you"
+msgstr ""
+"Дозволити користувачеві використовувати електронну пошту в якості імені "
+"користувача? Якщо ви хочете використовувати обидва способи, WP E-mail додаток "
+"допоможе Вам у цьому"
+
+#: ../clean-login.php:960
+msgid "Single Password"
+msgstr "Одиночний пароль"
+
+#: ../clean-login.php:962
+msgid "Only ask for password once on registration form?"
+msgstr "Однократний запит паролю після реєстрації?"
+
+#: ../clean-login.php:968
+msgid "Automatically Login after registration?"
+msgstr "Автоматичний вхід після реєстрації?"
+
+#: ../clean-login.php:970
+msgid "URL after registration (if blank then homepage)"
+msgstr "URL після реєстрації (якщо поле пусте перехід на домашню сторінку)"
+
+#: ../clean-login.php:981
+msgid "Redirections"
+msgstr "Переадресація"
+
+#: ../clean-login.php:983
+msgid "Redirect after log in?"
+msgstr "Переадресація після входу?"
+
+#: ../clean-login.php:985
+msgid "URL after login (if blank then homepage)"
+msgstr "URL після входу (якщо поле пусте перехід на домашню сторінку)"
+
+#: ../clean-login.php:989
+msgid "Redirect after log out?"
+msgstr "Переадресація після виходу?"
+
+#: ../clean-login.php:991
+msgid "URL after logout (if blank then homepage)"
+msgstr "URL після виходу (якщо поле пусте перехід на домашню сторінку)"
+
+#: ../clean-login.php:1001
+msgid "Save Changes"
+msgstr "Зберегти"
+
+#: ../clean-login.php:1132
+msgid "Use this widget to show the user login status and Clean Login links."
+msgstr ""
+"Використовуйте цей віджет для відображення стану входу користувача та Clean Login "
+"посилання."
+
+#: ../clean-login.php:1160 ../content/login-preview.php:13
+msgid "Edit my profile"
+msgstr "Редагувати мій профіль"
+
+#: ../clean-login.php:1163
+msgid "Logout"
+msgstr "Вихід"
+
+#: ../clean-login.php:1168 ../content/login-form.php:20 ../content/restore-new.
+#: php:15
+msgid "Log in"
+msgstr "Вхід"
+
+#: ../clean-login.php:1169 ../content/login-form.php:36 ../content/register-form.
+#: php:79
+msgid "Register"
+msgstr "Зарееструватися"
+
+#: ../clean-login.php:1170 ../content/login-form.php:32
+msgid "Lost password?"
+msgstr "Втратили пароль?"
+
+#: ../clean-login.php:1183
+msgid "User login status"
+msgstr "Статус користувача"
+
+#: ../clean-login.php:1187
+msgid "Title:"
+msgstr "Назва:"
+
+#: ../clean-login.php:1213
+msgid "Settings"
+msgstr "Налаштування"
+
+#: ../content/login-edit.php:9
+msgid "General information"
+msgstr "Основна інформація"
+
+#: ../content/login-edit.php:14 ../content/register-form.php:8
+msgid "First name"
+msgstr "Ім'я"
+
+#: ../content/login-edit.php:19 ../content/register-form.php:11
+msgid "Last name"
+msgstr "Прізвище"
+
+#: ../content/login-edit.php:24 ../content/register-form.php:22
+msgid "E-mail"
+msgstr "Електронна пошта"
+
+#: ../content/login-edit.php:30
+msgid "Change password"
+msgstr "Змінити пароль"
+
+#: ../content/login-edit.php:32
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave this "
+"blank."
+msgstr ""
+"Якщо ви хочете змінити пароль введіть новий. В іншому випадку залиште це поле "
+"порожнім."
+
+#: ../content/login-edit.php:37 ../content/register-form.php:32
+msgid "New password"
+msgstr "Новий пароль"
+
+#: ../content/login-edit.php:42 ../content/register-form.php:37
+msgid "Confirm password"
+msgstr "Підтвердити пароль"
+
+#: ../content/login-edit.php:49
+msgid "Update profile"
+msgstr "Оновити профіль"
+
+#: ../content/login-form.php:11 ../content/register-form.php:17
+msgid "Username"
+msgstr "Ім'я користувача"
+
+#: ../content/login-form.php:15
+msgid "Password"
+msgstr "Пароль"
+
+#: ../content/login-form.php:25
+msgid "Remember?"
+msgstr "Запам'ятати?"
+
+#: ../content/login-preview.php:11
+msgid "Log out"
+msgstr "Вийти"
+
+#: ../content/register-form.php:44
+msgid "Type the text above"
+msgstr "Введіть текст вказаний вище"
+
+#: ../content/register-form.php:53
+msgid "Choose your role:"
+msgstr "Оберіть Вашу роль:"
+
+#: ../content/restore-form.php:7
+msgid "Username (or E-mail)"
+msgstr "Ім'я користувача (або E-mail)"
+
+#: ../content/restore-form.php:18
+msgid "Restore password"
+msgstr "Відновити пароль"
+
+#: ../content/restore-new.php:6
+msgid "Your new password is"
+msgstr "Ваш новий пароль"

@@ -1,0 +1,28 @@
+<tr>
+    <td class="supplier_logo">
+        <img class="pfb_logo" width="48px" ng-cloak data-ng-src="data:image/png;base64,{{deal.logo}}"/>
+    </td>
+{{deal}}
+    <td class="supplier">
+        <div class="pfbdeal">
+        <div class="pfbdeal_website" style="text-align:center">
+            <a href="http://{{deal.website}}"> <span>{{deal.website}}</span></a>
+        </div>
+        </div>
+    </td>
+    <td class="deal_description">{{deal.name}}</td>
+    <td class="voucher_code">
+        <span ng-bind-html="deal.description | trusthtml"></span>
+        <div class="voucher_container" ng-mouseover="showVoucherFn()" ng-mouseleave="hideVoucherFn()" ng-if="deal.subscribed == true">
+        <button class="voucher_btn" type="button"></button>
+        <voucher ng-if="showVoucher" voucher-code="deal.voucher" website="deal.website", logo="deal.logo", benefit="deal.description"></voucher>
+        </div>
+
+    </td>
+    <td class="actions">
+
+        <label><input ng-checked="deal.subscribed==true" ng-click="toggleDeal()"
+                      type="checkbox"/><span>Subscribe</span></label>
+
+    </td>
+</tr>

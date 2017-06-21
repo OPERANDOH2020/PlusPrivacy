@@ -1,0 +1,87 @@
+<div ng-app="plusprivacy" id="psp-dashboard">
+
+
+    <div class="container" ng-controller="pspDashboardController">
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home" ng-click="getOspRequests()" ng-init = "getOspRequests()" >OSP Requests</a></li>
+            <li><a data-toggle="tab" href="#menu1" ng-click = "listOSPs()">OSP list</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div ng-cloak class="user_logged_in" ng-if="ospRequests">
+
+
+                    <table class="table table-bordered" id="osp_requests_table" datatable="ng"
+                           dt-column-defs="dtColumnDefs" dt-options="dtOptions" dt-instance="dtInstance">
+                        <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Phone</th>
+                            <th>Requested</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="ospRequest in ospRequests">
+
+                            <td>{{ospRequest.email}}</td>
+                            <td>{{ospRequest.name}}</td>
+                            <td>{{ospRequest.website}}</td>
+                            <td>{{ospRequest.phone}}</td>
+                            <td>{{ospRequest.request_time|timeAgo}} ago</td>
+                            <td>
+                                <a type="button"  class="description_popover" href="#" data-placement="auto" title="{{ospRequest.name}}" data-content="{{ospRequest.deals_description}}" data-trigger="click" data-auto-close="true" bs-popover></a>
+
+                            </td>
+                            <td style="width:260px">
+                                <button class="btn btn-primary" ng-click="acceptOSPRequest(ospRequest.userId)">Approve OSP</button>
+                                <button  class="btn btn-primary-black" ng-click="deleteOSPRequest(ospRequest.userId)">Delete request</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <div ng-cloak class="user_logged_in" ng-if="ospList">
+                    <table class="table table-bordered" id="osp_list_table" datatable="ng" dt-column-defs="dtColumnDefs"  dt-options="dtOptions" dt-instance="dtInstance"  >
+                        <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Phone</th>
+                            <th>Membership</th>
+                            <th>Description</th>
+                            <th>Offers Stats</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="osp in ospList">
+
+                            <td>{{osp.email}}</td>
+                            <td>{{osp.name}}</td>
+                            <td>{{osp.website}}</td>
+                            <td>{{osp.phone}}</td>
+                            <td>{{osp.osp_accepted_time|timestampToDateFormat}}</td>
+                            <td><a type="button"  class="description_popover" href="#" data-placement="auto" title="{{osp.name}}" data-content="{{osp.deals_description}}" data-trigger="click" data-auto-close="true" bs-popover></a></td>
+                            <td> <button class="btn btn-primary" ng-click="viewOffersStats(osp.userId)">View</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

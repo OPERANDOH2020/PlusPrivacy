@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Operando</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!-- Login Pages -->
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="rememberMe">Remember me</string>
+    <string name="signIn">Sign In</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="createAccount">Create an account</string>
+    <string name="aboutOperando">About OPERANDO</string>
+    <string name="operandoTitle">OPERANDO</string>
+    <string name="authentication">Authentication</string>
+    <string name="registration">Registration</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="passwordErr">Password does not match</string>
+    <string name="showPassword">Show password</string>
+    <string name="signUp">Sign Up</string>
+    <string name="code">Code</string>
+    <string name="emailVerification">Email verification</string>
+    <string name="emailWasSent">An email was sent to</string>
+    <string name="pleaseVerifyCode">Please verify it or enter the received code here.</string>
+
+    <string name="registerOrLogin">Register or log in for full protection. </string>
+
+
+    <!-- Menu Strings -->
+
+    <string name="dashboard">Dashboard</string>
+    <string name="scanner">Scanner</string>
+    <string name="sensorMonitoring">Sensor Monitoring</string>
+    <string name="dataleek">Data Leakage Prevention</string>
+    <string name="notification">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="privateBrowsing">Private Browsing</string>
+    <string name="identityManager">Identity Management</string>
+    <string name="operandoDashboard">OPERANDO dashboard</string>
+    <string name="accountInfo">Account info</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="url">URL</string>
+
+
+</resources>

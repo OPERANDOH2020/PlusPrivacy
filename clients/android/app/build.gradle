@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "eu.operando"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories{
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
+    // lib for socket io . Last updated : 04.04.2016
+    compile 'uk.co.chrisjenx:calligraphy:2.0.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.jakob-grabner:Circle-Progress-View:v1.2.9'
+    compile project(':SwarmClient')
+    compile 'com.github.delight-im:Android-AdvancedWebView:v2.1.0'
+
+}

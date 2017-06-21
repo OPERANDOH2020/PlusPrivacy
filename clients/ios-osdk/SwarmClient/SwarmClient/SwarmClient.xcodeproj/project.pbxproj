@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD8676081CD2B89000A17F2C /* SwarmClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8676071CD2B89000A17F2C /* SwarmClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD86760F1CD2B89000A17F2C /* SwarmClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8676041CD2B89000A17F2C /* SwarmClient.framework */; };
+		AD8676141CD2B89000A17F2C /* SwarmClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676131CD2B89000A17F2C /* SwarmClientTests.swift */; };
+		AD86763B1CD2B94D00A17F2C /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676201CD2B94D00A17F2C /* SocketAckEmitter.swift */; };
+		AD86763C1CD2B94D00A17F2C /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676211CD2B94D00A17F2C /* SocketAckManager.swift */; };
+		AD86763D1CD2B94D00A17F2C /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676221CD2B94D00A17F2C /* SocketAnyEvent.swift */; };
+		AD86763E1CD2B94D00A17F2C /* SocketClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676231CD2B94D00A17F2C /* SocketClientSpec.swift */; };
+		AD86763F1CD2B94D00A17F2C /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676241CD2B94D00A17F2C /* SocketEngine.swift */; };
+		AD8676401CD2B94D00A17F2C /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676251CD2B94D00A17F2C /* SocketEngineClient.swift */; };
+		AD8676411CD2B94D00A17F2C /* SocketEnginePacketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676261CD2B94D00A17F2C /* SocketEnginePacketType.swift */; };
+		AD8676421CD2B94D00A17F2C /* SocketEnginePollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676271CD2B94D00A17F2C /* SocketEnginePollable.swift */; };
+		AD8676431CD2B94D00A17F2C /* SocketEngineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676281CD2B94D00A17F2C /* SocketEngineSpec.swift */; };
+		AD8676441CD2B94D00A17F2C /* SocketEngineWebsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676291CD2B94D00A17F2C /* SocketEngineWebsocket.swift */; };
+		AD8676451CD2B94D00A17F2C /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762A1CD2B94D00A17F2C /* SocketEventHandler.swift */; };
+		AD8676461CD2B94D00A17F2C /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762B1CD2B94D00A17F2C /* SocketFixUTF8.swift */; };
+		AD8676471CD2B94D00A17F2C /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762C1CD2B94D00A17F2C /* SocketIOClient.swift */; };
+		AD8676481CD2B94D00A17F2C /* SocketIOClientOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762D1CD2B94D00A17F2C /* SocketIOClientOption.swift */; };
+		AD8676491CD2B94D00A17F2C /* SocketIOClientStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762E1CD2B94D00A17F2C /* SocketIOClientStatus.swift */; };
+		AD86764A1CD2B94D00A17F2C /* SocketLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86762F1CD2B94D00A17F2C /* SocketLogger.swift */; };
+		AD86764B1CD2B94D00A17F2C /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676301CD2B94D00A17F2C /* SocketPacket.swift */; };
+		AD86764C1CD2B94D00A17F2C /* SocketParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676311CD2B94D00A17F2C /* SocketParsable.swift */; };
+		AD86764D1CD2B94D00A17F2C /* SocketStringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676321CD2B94D00A17F2C /* SocketStringReader.swift */; };
+		AD86764E1CD2B94D00A17F2C /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676331CD2B94D00A17F2C /* SocketTypes.swift */; };
+		AD86764F1CD2B94D00A17F2C /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676341CD2B94D00A17F2C /* SwiftRegex.swift */; };
+		AD8676501CD2B94D00A17F2C /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676351CD2B94D00A17F2C /* WebSocket.swift */; };
+		AD8676511CD2B94D00A17F2C /* Swarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676371CD2B94D00A17F2C /* Swarm.swift */; };
+		AD8676521CD2B94D00A17F2C /* SwarmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676381CD2B94D00A17F2C /* SwarmClient.swift */; };
+		AD8676531CD2B94D00A17F2C /* SwarmClientErrorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8676391CD2B94D00A17F2C /* SwarmClientErrorGenerator.swift */; };
+		AD8676541CD2B94D00A17F2C /* SwarmClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86763A1CD2B94D00A17F2C /* SwarmClientProtocol.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD8676101CD2B89000A17F2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD8675FB1CD2B89000A17F2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD8676031CD2B89000A17F2C;
+			remoteInfo = SwarmClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD8676041CD2B89000A17F2C /* SwarmClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwarmClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD8676071CD2B89000A17F2C /* SwarmClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwarmClient.h; sourceTree = "<group>"; };
+		AD8676091CD2B89000A17F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD86760E1CD2B89000A17F2C /* SwarmClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD8676131CD2B89000A17F2C /* SwarmClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmClientTests.swift; sourceTree = "<group>"; };
+		AD8676151CD2B89000A17F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD8676201CD2B94D00A17F2C /* SocketAckEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckEmitter.swift; sourceTree = "<group>"; };
+		AD8676211CD2B94D00A17F2C /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckManager.swift; sourceTree = "<group>"; };
+		AD8676221CD2B94D00A17F2C /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
+		AD8676231CD2B94D00A17F2C /* SocketClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientSpec.swift; sourceTree = "<group>"; };
+		AD8676241CD2B94D00A17F2C /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
+		AD8676251CD2B94D00A17F2C /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineClient.swift; sourceTree = "<group>"; };
+		AD8676261CD2B94D00A17F2C /* SocketEnginePacketType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEnginePacketType.swift; sourceTree = "<group>"; };
+		AD8676271CD2B94D00A17F2C /* SocketEnginePollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEnginePollable.swift; sourceTree = "<group>"; };
+		AD8676281CD2B94D00A17F2C /* SocketEngineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineSpec.swift; sourceTree = "<group>"; };
+		AD8676291CD2B94D00A17F2C /* SocketEngineWebsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineWebsocket.swift; sourceTree = "<group>"; };
+		AD86762A1CD2B94D00A17F2C /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEventHandler.swift; sourceTree = "<group>"; };
+		AD86762B1CD2B94D00A17F2C /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketFixUTF8.swift; sourceTree = "<group>"; };
+		AD86762C1CD2B94D00A17F2C /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClient.swift; sourceTree = "<group>"; };
+		AD86762D1CD2B94D00A17F2C /* SocketIOClientOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClientOption.swift; sourceTree = "<group>"; };
+		AD86762E1CD2B94D00A17F2C /* SocketIOClientStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClientStatus.swift; sourceTree = "<group>"; };
+		AD86762F1CD2B94D00A17F2C /* SocketLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketLogger.swift; sourceTree = "<group>"; };
+		AD8676301CD2B94D00A17F2C /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketPacket.swift; sourceTree = "<group>"; };
+		AD8676311CD2B94D00A17F2C /* SocketParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParsable.swift; sourceTree = "<group>"; };
+		AD8676321CD2B94D00A17F2C /* SocketStringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketStringReader.swift; sourceTree = "<group>"; };
+		AD8676331CD2B94D00A17F2C /* SocketTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketTypes.swift; sourceTree = "<group>"; };
+		AD8676341CD2B94D00A17F2C /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		AD8676351CD2B94D00A17F2C /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		AD8676371CD2B94D00A17F2C /* Swarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swarm.swift; sourceTree = "<group>"; };
+		AD8676381CD2B94D00A17F2C /* SwarmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmClient.swift; sourceTree = "<group>"; };
+		AD8676391CD2B94D00A17F2C /* SwarmClientErrorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmClientErrorGenerator.swift; sourceTree = "<group>"; };
+		AD86763A1CD2B94D00A17F2C /* SwarmClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmClientProtocol.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD8676001CD2B89000A17F2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD86760B1CD2B89000A17F2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD86760F1CD2B89000A17F2C /* SwarmClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD8675FA1CD2B89000A17F2C = {
+			isa = PBXGroup;
+			children = (
+				AD8676061CD2B89000A17F2C /* SwarmClient */,
+				AD8676121CD2B89000A17F2C /* SwarmClientTests */,
+				AD8676051CD2B89000A17F2C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD8676051CD2B89000A17F2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD8676041CD2B89000A17F2C /* SwarmClient.framework */,
+				AD86760E1CD2B89000A17F2C /* SwarmClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD8676061CD2B89000A17F2C /* SwarmClient */ = {
+			isa = PBXGroup;
+			children = (
+				AD86761E1CD2B94D00A17F2C /* ExternalFrameworks */,
+				AD8676361CD2B94D00A17F2C /* SwarmClientCore */,
+				AD8676071CD2B89000A17F2C /* SwarmClient.h */,
+				AD8676091CD2B89000A17F2C /* Info.plist */,
+			);
+			path = SwarmClient;
+			sourceTree = "<group>";
+		};
+		AD8676121CD2B89000A17F2C /* SwarmClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD8676131CD2B89000A17F2C /* SwarmClientTests.swift */,
+				AD8676151CD2B89000A17F2C /* Info.plist */,
+			);
+			path = SwarmClientTests;
+			sourceTree = "<group>";
+		};
+		AD86761E1CD2B94D00A17F2C /* ExternalFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD86761F1CD2B94D00A17F2C /* SocketIO */,
+			);
+			path = ExternalFrameworks;
+			sourceTree = "<group>";
+		};
+		AD86761F1CD2B94D00A17F2C /* SocketIO */ = {
+			isa = PBXGroup;
+			children = (
+				AD8676201CD2B94D00A17F2C /* SocketAckEmitter.swift */,
+				AD8676211CD2B94D00A17F2C /* SocketAckManager.swift */,
+				AD8676221CD2B94D00A17F2C /* SocketAnyEvent.swift */,
+				AD8676231CD2B94D00A17F2C /* SocketClientSpec.swift */,
+				AD8676241CD2B94D00A17F2C /* SocketEngine.swift */,
+				AD8676251CD2B94D00A17F2C /* SocketEngineClient.swift */,
+				AD8676261CD2B94D00A17F2C /* SocketEnginePacketType.swift */,
+				AD8676271CD2B94D00A17F2C /* SocketEnginePollable.swift */,
+				AD8676281CD2B94D00A17F2C /* SocketEngineSpec.swift */,
+				AD8676291CD2B94D00A17F2C /* SocketEngineWebsocket.swift */,
+				AD86762A1CD2B94D00A17F2C /* SocketEventHandler.swift */,
+				AD86762B1CD2B94D00A17F2C /* SocketFixUTF8.swift */,
+				AD86762C1CD2B94D00A17F2C /* SocketIOClient.swift */,
+				AD86762D1CD2B94D00A17F2C /* SocketIOClientOption.swift */,
+				AD86762E1CD2B94D00A17F2C /* SocketIOClientStatus.swift */,
+				AD86762F1CD2B94D00A17F2C /* SocketLogger.swift */,
+				AD8676301CD2B94D00A17F2C /* SocketPacket.swift */,
+				AD8676311CD2B94D00A17F2C /* SocketParsable.swift */,
+				AD8676321CD2B94D00A17F2C /* SocketStringReader.swift */,
+				AD8676331CD2B94D00A17F2C /* SocketTypes.swift */,
+				AD8676341CD2B94D00A17F2C /* SwiftRegex.swift */,
+				AD8676351CD2B94D00A17F2C /* WebSocket.swift */,
+			);
+			path = SocketIO;
+			sourceTree = "<group>";
+		};
+		AD8676361CD2B94D00A17F2C /* SwarmClientCore */ = {
+			isa = PBXGroup;
+			children = (
+				AD8676371CD2B94D00A17F2C /* Swarm.swift */,
+				AD8676381CD2B94D00A17F2C /* SwarmClient.swift */,
+				AD8676391CD2B94D00A17F2C /* SwarmClientErrorGenerator.swift */,
+				AD86763A1CD2B94D00A17F2C /* SwarmClientProtocol.swift */,
+			);
+			path = SwarmClientCore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AD8676011CD2B89000A17F2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD8676081CD2B89000A17F2C /* SwarmClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AD8676031CD2B89000A17F2C /* SwarmClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD8676181CD2B89000A17F2C /* Build configuration list for PBXNativeTarget "SwarmClient" */;
+			buildPhases = (
+				AD8675FF1CD2B89000A17F2C /* Sources */,
+				AD8676001CD2B89000A17F2C /* Frameworks */,
+				AD8676011CD2B89000A17F2C /* Headers */,
+				AD8676021CD2B89000A17F2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwarmClient;
+			productName = SwarmClient;
+			productReference = AD8676041CD2B89000A17F2C /* SwarmClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AD86760D1CD2B89000A17F2C /* SwarmClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD86761B1CD2B89000A17F2C /* Build configuration list for PBXNativeTarget "SwarmClientTests" */;
+			buildPhases = (
+				AD86760A1CD2B89000A17F2C /* Sources */,
+				AD86760B1CD2B89000A17F2C /* Frameworks */,
+				AD86760C1CD2B89000A17F2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD8676111CD2B89000A17F2C /* PBXTargetDependency */,
+			);
+			name = SwarmClientTests;
+			productName = SwarmClientTests;
+			productReference = AD86760E1CD2B89000A17F2C /* SwarmClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD8675FB1CD2B89000A17F2C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Operando;
+				TargetAttributes = {
+					AD8676031CD2B89000A17F2C = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					AD86760D1CD2B89000A17F2C = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = AD8675FE1CD2B89000A17F2C /* Build configuration list for PBXProject "SwarmClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AD8675FA1CD2B89000A17F2C;
+			productRefGroup = AD8676051CD2B89000A17F2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD8676031CD2B89000A17F2C /* SwarmClient */,
+				AD86760D1CD2B89000A17F2C /* SwarmClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD8676021CD2B89000A17F2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD86760C1CD2B89000A17F2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD8675FF1CD2B89000A17F2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD86763E1CD2B94D00A17F2C /* SocketClientSpec.swift in Sources */,
+				AD8676491CD2B94D00A17F2C /* SocketIOClientStatus.swift in Sources */,
+				AD86764E1CD2B94D00A17F2C /* SocketTypes.swift in Sources */,
+				AD8676501CD2B94D00A17F2C /* WebSocket.swift in Sources */,
+				AD8676401CD2B94D00A17F2C /* SocketEngineClient.swift in Sources */,
+				AD8676521CD2B94D00A17F2C /* SwarmClient.swift in Sources */,
+				AD86763F1CD2B94D00A17F2C /* SocketEngine.swift in Sources */,
+				AD8676431CD2B94D00A17F2C /* SocketEngineSpec.swift in Sources */,
+				AD8676441CD2B94D00A17F2C /* SocketEngineWebsocket.swift in Sources */,
+				AD86764A1CD2B94D00A17F2C /* SocketLogger.swift in Sources */,
+				AD8676451CD2B94D00A17F2C /* SocketEventHandler.swift in Sources */,
+				AD86764D1CD2B94D00A17F2C /* SocketStringReader.swift in Sources */,
+				AD8676411CD2B94D00A17F2C /* SocketEnginePacketType.swift in Sources */,
+				AD86763C1CD2B94D00A17F2C /* SocketAckManager.swift in Sources */,
+				AD86763B1CD2B94D00A17F2C /* SocketAckEmitter.swift in Sources */,
+				AD8676461CD2B94D00A17F2C /* SocketFixUTF8.swift in Sources */,
+				AD8676511CD2B94D00A17F2C /* Swarm.swift in Sources */,
+				AD8676541CD2B94D00A17F2C /* SwarmClientProtocol.swift in Sources */,
+				AD8676481CD2B94D00A17F2C /* SocketIOClientOption.swift in Sources */,
+				AD8676471CD2B94D00A17F2C /* SocketIOClient.swift in Sources */,
+				AD86764C1CD2B94D00A17F2C /* SocketParsable.swift in Sources */,
+				AD86764F1CD2B94D00A17F2C /* SwiftRegex.swift in Sources */,
+				AD86763D1CD2B94D00A17F2C /* SocketAnyEvent.swift in Sources */,
+				AD86764B1CD2B94D00A17F2C /* SocketPacket.swift in Sources */,
+				AD8676421CD2B94D00A17F2C /* SocketEnginePollable.swift in Sources */,
+				AD8676531CD2B94D00A17F2C /* SwarmClientErrorGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD86760A1CD2B89000A17F2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD8676141CD2B89000A17F2C /* SwarmClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD8676111CD2B89000A17F2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD8676031CD2B89000A17F2C /* SwarmClient */;
+			targetProxy = AD8676101CD2B89000A17F2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AD8676161CD2B89000A17F2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AD8676171CD2B89000A17F2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AD8676191CD2B89000A17F2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwarmClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.operando.SwarmClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AD86761A1CD2B89000A17F2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwarmClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.operando.SwarmClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AD86761C1CD2B89000A17F2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwarmClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.operando.SwarmClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AD86761D1CD2B89000A17F2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwarmClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.operando.SwarmClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD8675FE1CD2B89000A17F2C /* Build configuration list for PBXProject "SwarmClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD8676161CD2B89000A17F2C /* Debug */,
+				AD8676171CD2B89000A17F2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD8676181CD2B89000A17F2C /* Build configuration list for PBXNativeTarget "SwarmClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD8676191CD2B89000A17F2C /* Debug */,
+				AD86761A1CD2B89000A17F2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AD86761B1CD2B89000A17F2C /* Build configuration list for PBXNativeTarget "SwarmClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD86761C1CD2B89000A17F2C /* Debug */,
+				AD86761D1CD2B89000A17F2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD8675FB1CD2B89000A17F2C /* Project object */;
+}

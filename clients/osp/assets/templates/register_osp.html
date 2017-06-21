@@ -1,0 +1,74 @@
+<div class = "container" ng-app="plusprivacy" id="osp_register">
+    <div class="wrapper" ng-controller="OSPSignupController">
+        <form method="post" name="ops_signup_form" class="form-signup" ng-submit="register()" ng-cloak ng-if="success == false" >
+
+            <h3 class="form-signin-heading">OSP Sign Up</h3>
+            <hr class="colorgraph"><br>
+
+            <input type="text" class="form-control" name="Name" placeholder="Name" required="" autofocus="" ng-model="user.name"/>
+            <input type="text" class="form-control" name="Phone"  required="" autofocus="" ng-model="user.phone" ng-intl-tel-input/>
+            <input type="email" class="form-control" name="Email" placeholder="Email" required="" autofocus="" ng-model="user.email"/>
+
+            <input type="password" class="form-control" name="Password" placeholder="Password" required="" ng-model="user.password"/>
+            <input type="password" class="form-control" name="Repeat password" placeholder="Repeat password" required="" ng-model="user.repeat_password"/>
+
+            <br/>
+
+            <input type="text" class="form-control" name="Website" placeholder="Website" required="" autofocus="" ng-model="user.website"/>
+            <textarea class="form-control" placeholder="General description of deals to be offered" rows="5" ng-model="user.deals_description"></textarea>
+            <br/>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="user.accept_conditions"> I read and I agree with <a href="#" data-toggle="modal" data-target="#myModal">terms of this service.</a>
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <button class="btn btn-lg btn-primary btn-block"  id="register-btn" name="Submit" value="Register" type="submit" ng-disabled="!user.accept_conditions">Register</button>
+                </div>
+            </div>
+
+
+            <div ng-show="registerError == true" ng-cloak>
+                <div class="alert alert-danger" role="alert" id="register_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{registerErrorMessage}}
+                </div>
+            </div>
+
+            <ui-loader ng-cloak ng-if="requestInProgress"></ui-loader>
+
+        </form>
+
+        <div ng-show="success == true" ng-cloak class="registration_successfully">
+            <div class="alert alert-success" role="alert" id="register_success">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                We received your request! Check your email for account activation!
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">OSP Terms and Conditions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-include="'/wp-content/plugins/extension-connector/html/osp/terms_conditions.html'"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="acceptTermsAndConditions()" data-dismiss="modal">I accept </button>
+                        <button type="button" class="btn btn-primary-black" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

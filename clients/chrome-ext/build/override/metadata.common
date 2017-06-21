@@ -1,0 +1,202 @@
+[general]
+version = 0.4.4
+backgroundScripts =lib/polyfills/url.js
+  lib/polyfills/promise.js
+  lib/polyfills/fetch.js
+  ext/common.js
+  operando/swarms.js
+  ext/background.js
+  lib/compat.js
+  lib/info.js
+  lib/adblockplus.js
+  lib/punycode.js
+  lib/publicSuffixList.js
+  lib/sha1.js
+  lib/jsbn.js
+  lib/rsa.js
+  messageResponder.js
+  background.js
+  operando/utils/js.cookie.js
+  operando/backgrounds/utils/background_utils.js
+  operando/backgrounds/operando_background.js
+  operando/backgrounds/message_bus.js
+testScripts = ../ext/common.js
+  ../ext/background.js
+  ../lib/compat.js
+  ../lib/info.js
+  ../lib/adblockplus.js
+  ../lib/publicSuffixList.js
+  ../lib/punycode.js
+  ../lib/sha1.js
+  ../lib/jsbn.js
+  ../lib/rsa.js
+  common.js
+  tests/adblockplus.js
+  tests/versionComparator.js
+  tests/url.js
+  tests/signatures.js
+  tests/cssEscaping.js
+permissions = http://*/* https://*/*
+
+webAccessible = operando/assets/images/icons/operando_24.png
+  operando/assets/images/icons/abp-19.png
+  operando/assets/images/icons/operando/operando.png
+  operando/modules/pfb/modal/allow_social_network_modal.html
+
+[contentScripts]
+document_start = ext/common.js ext/content.js cssProperties.js include.preload.js
+document_end = include.postload.js
+
+
+
+[mapping]
+cssProperties.js = adblockpluscore/chrome/content/cssProperties.js
+ext/content.js = chrome/ext/content.js
+ext/popup.js = chrome/ext/popup.js
+subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
+firstRun.html = adblockplusui/firstRun.html
+common.js = adblockplusui/common.js
+firstRun.js = adblockplusui/firstRun.js
+i18n.js = adblockplusui/i18n.js
+messageResponder.js = adblockplusui/messageResponder.js
+icons/detailed/abp-128.png = /operando/assets/images/icons/detailed/abp-128.png
+skin/common.css = adblockplusui/skin/common.css
+skin/firstRun.css = adblockplusui/skin/firstRun.css
+skin/ajax-loader.gif = adblockplusui/skin/ajax-loader.gif
+skin/background.png = adblockplusui/skin/background.png
+skin/background-main.png = adblockplusui/skin/background-main.png
+skin/background-share.png = adblockplusui/skin/background-share.png
+skin/donate.png = adblockplusui/skin/donate.png
+skin/abb-logo.png = adblockplusui/skin/abb-logo.png
+skin/features/malware.png = adblockplusui/skin/features/malware.png
+skin/features/social.png = adblockplusui/skin/features/social.png
+skin/features/tracking.png = adblockplusui/skin/features/tracking.png
+skin/fonts/CreteRound-Italic.otf = adblockplusui/skin/fonts/CreteRound-Italic.otf
+skin/fonts/CreteRound-Regular.otf = adblockplusui/skin/fonts/CreteRound-Regular.otf
+skin/social/facebook.png = adblockplusui/skin/social/facebook.png
+skin/social/googleplus.png = adblockplusui/skin/social/googleplus.png
+skin/social/renren.png = adblockplusui/skin/social/renren.png
+skin/social/twitter.png = adblockplusui/skin/social/twitter.png
+skin/social/weibo.png = adblockplusui/skin/social/weibo.png
+qunit/qunit.js = adblockplustests/chrome/content/qunit.js
+qunit/qunit.css = adblockplustests/chrome/content/qunit.css
+
+[convert_js]
+lib/adblockplus.js = adblockpluscore/lib/events.js
+  lib/prefs.js
+  lib/utils.js
+  lib/io.js
+  adblockpluscore/lib/downloader.js
+  adblockpluscore/lib/filterNotifier.js
+  adblockpluscore/lib/filterClasses.js
+  adblockpluscore/lib/subscriptionClasses.js
+  adblockpluscore/lib/filterStorage.js
+  adblockpluscore/lib/elemHide.js
+  adblockpluscore/lib/matcher.js
+  adblockpluscore/lib/cssRules.js
+  adblockpluscore/lib/filterListener.js
+  adblockpluscore/lib/synchronizer.js
+  adblockpluscore/lib/notification.js
+  adblockpluscore/lib/antiadblockInit.js
+  lib/messaging.js
+  lib/url.js
+  lib/devtools.js
+  lib/whitelisting.js
+  lib/filterValidation.js
+  lib/filterComposer.js
+  lib/icon.js
+  lib/notificationHelper.js
+  lib/subscriptionInit.js
+  lib/requestBlocker.js
+  lib/popupBlocker.js
+  operando/util/RegexUtils.js
+  operando/util/LocalRepo.js
+  operando/libs/observers-pool.js
+  operando/libs/bus-service.js
+  operando/libs/swarm-service.js
+  operando/libs/authentication-service.js
+  operando/libs/identity-service.js
+  operando/libs/pfb-service.js
+  operando/libs/social-network-privacy-settings.js
+  operando/libs/osp-service.js
+  operando/libs/user-service.js
+  operando/libs/website-service.js
+  operando/libs/notification-service.js
+  operando/libs/script-injector-service.js
+  operando/modules/SynchronizedPersistence.js
+  operando/util/DependencyManager.js
+  operando/modules/TabsManager.js
+  --arg module=true source_repo=https://hg.adblockplus.org/adblockpluscore/
+ext/common.js = ext/common.js chrome/ext/common.js
+operando/swarms.js = operando/services/swarm-services/socket.io-1.0.6.js
+                  operando/services/swarm-services/SwarmDebug.js
+                  operando/services/swarm-services/SwarmClient.js
+                  operando/services/swarm-services/SwarmHub.js
+                  operando/util/Constants.js
+                  operando/util/Config.js
+operando/directives.js = operando/directives/deals.js
+                  operando/directives/extensions.js
+                  operando/directives/social-apps.js
+                  operando/directives/identities.js
+                  operando/directives/notification.js
+                  operando/directives/osp-settings.js
+                  operando/directives/single-click-privacy.js
+                  operando/directives/abp_data_leakage_prevention.js
+                  operando/directives/progress-bar.js
+                  operando/directives/setting-editor.js
+                  operando/directives/loader.js
+                  operando/directives/login.js
+
+operando/schema-form.js =operando/utils/angular-sanitize/angular-sanitize.min.js
+                   operando/utils/schema-form/tv4/tv4.js
+                   operando/utils/schema-form/objectpath/ObjectPath.js
+                   operando/utils/schema-form/schema-form.min.js
+                   operando/utils/schema-form/decorator/bootstrap-decorator.min.js
+
+
+ext/background.js = ext/background.js chrome/ext/background.js --arg brace_style=expand
+include.postload.js = subscriptionLink.postload.js composer.postload.js
+
+qunit/tests/adblockplus.js = adblockplustests/chrome/content/tests/domainRestrictions.js
+  adblockplustests/chrome/content/tests/filterClasses.js
+  adblockplustests/chrome/content/tests/filterNotifier.js
+  adblockplustests/chrome/content/tests/filterStorage.js
+  adblockplustests/chrome/content/tests/matcher.js
+  adblockplustests/chrome/content/tests/prefs.js
+  adblockplustests/chrome/content/tests/regexpFilters_matching.js
+  adblockplustests/chrome/content/tests/subscriptionClasses.js
+  --arg source_repo=https://hg.adblockplus.org/adblockplustests/
+
+[import_locales]
+adblockplus/chrome/locale/*/global.properties = subscription_invalid_location
+  remove_subscription_warning
+  notification_antiadblock_title
+  notification_antiadblock_message
+  filter_unknown_option
+  filter_invalid_regexp
+  filter_elemhide_duplicate_id
+  filter_elemhide_nocriteria
+  filter_cssproperty_nodomain
+adblockplus/chrome/locale/*/overlay.dtd = hideplaceholders.label
+  notification.button.yes
+  notification.button.no
+  notification.closing.button.hide
+  notification.closing.button.optout
+  shownotifications.label
+adblockplus/chrome/locale/*/filters.dtd = subscription.lastDownload.inProgress
+  subscription.lastDownload.invalidURL
+  subscription.lastDownload.connectionError
+  subscription.lastDownload.invalidData
+  subscription.lastDownload.checksumMismatch
+  subscription.enabled.label
+  subscription.delete.label
+  addSubscription.label
+  addSubscriptionAdd.label
+  addSubscriptionOther.label
+  acceptableAds2.label
+  viewList.label
+  readMore.label
+adblockplus/chrome/locale/*/subscriptionSelection.dtd = location.label
+  title.label
+adblockplus/chrome/locale/*/meta.properties = =name
+adblockplusui/locale/*/firstRun.json = =*

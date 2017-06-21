@@ -1,0 +1,14 @@
+<div>
+
+<notification ng-repeat="notification in notifications" notification="notification"></notification>
+    <div ng-if="notifications.length == 0">
+
+        <div class="alert alert-info no-notification" role="alert">
+            <h4>No new notifications</h4>
+            <p>All notifications were already read</p>
+
+        </div>
+
+    </div>
+</div>
+

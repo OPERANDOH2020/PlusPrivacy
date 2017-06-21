@@ -1,0 +1,51 @@
+<div class="container" ng-app="plusprivacy" id="login">
+    <div class="wrapper" ng-controller="loginController">
+        <form method="post" name="Login_Form" class="form-signin" ng-submit="submitLoginForm()">
+            <h3 class="form-signin-heading">Sign In</h3>
+            <hr class="colorgraph">
+            <br>
+
+            <input type="email" class="form-control" name="Email" placeholder="Email" required="" autofocus=""
+                   ng-model="user.email"/>
+            <input type="password" class="form-control" name="Password" placeholder="Password" required=""
+                   ng-model="user.password"/>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="user.remember"> Remember me
+                </label>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <button class="btn btn-lg btn-primary btn-block" id="login-btn" name="Submit" value="Login"
+                            type="Submit">Login
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a class="btn btn-lg btn-primary btn-block" id="register-btn" href="/register">Register</a>
+                </div>
+            </div>
+
+
+            <div ng-show="authenticationError == true" ng-cloak>
+                <div class="alert alert-danger" role="alert" id="login_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{errorResponse}}
+                </div>
+            </div>
+            <ui-loader ng-cloak ng-if="requestProcessed"></ui-loader>
+
+        </form>
+
+        <div class="alert alert-danger" role="alert" ng-if="extension_not_active" ng-cloak>
+            <strong>PlusPrivacy Extension is not active!</strong>
+            Please activate it or <a
+                href="https://chrome.google.com/webstore/detail/plusprivacy/boagbmhcbemflaclmnbeebgbfhbegekc"
+                target="_blank" class="alert-link">download it from Chrome Web Store</a>.
+        </div>
+
+
+    </div>
+</div>

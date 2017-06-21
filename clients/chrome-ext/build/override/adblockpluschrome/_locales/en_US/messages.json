@@ -1,0 +1,155 @@
+{
+  "add": {
+    "description": "This is the label for the 'Add' buttons.",
+    "message": "Add"
+  },
+  "add_domain_button": {
+    "message": "Add domain"
+  },
+  "add_filter_button": {
+    "message": "Add filter"
+  },
+  "add_filters_msg": {
+    "message": "Add filter(s)?"
+  },
+  "add_your_own_filters": {
+    "message": "Add your own filters"
+  },
+  "apply_changes": {
+    "message": "Apply changes"
+  },
+  "block_element": {
+    "description": "Context menu item that adds a filter which blocks the selected element",
+    "message": "Block element"
+  },
+  "cancel": {
+    "description": "Cancel button label",
+    "message": "Cancel"
+  },
+  "clickhide_instructions": {
+    "description": "Instructions shown in popup UI before it disapears, when \"Block element\" action is executed",
+    "message": "After closing this popup, click (or right-click) an element on the page."
+  },
+  "description": {
+    "description": "Note: this cannot be longer than 132 characters",
+    "message": "PlusPrivacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy."
+  },
+  "disabled_for_site":
+  {
+    "description": "Popup balloon label to disable blocking",
+    "message": "<strong>Disabled</strong> on this site"
+  },
+  "disabled_for_these_domains": {
+    "message": "Plus Privacy is disabled for the domains listed below."
+  },
+  "easy_create_filter": {
+    "description": "Action in popup UI to add a filter which blocks an element selected from the current page",
+    "message": "Block element"
+  },
+  "edit_filters_raw": {
+    "message": "Edit filters as raw text"
+  },
+  "enable_only_the": {
+    "message": "Enable only the filter lists you need. Too many can make your browser unresponsive."
+  },
+  "enabled_for_site": {
+    "description": "Popup balloon label to enable blocking",
+    "message": "<strong>Enabled</strong> on this site"
+  },
+  "filter_lists": {
+    "description": "This is a tab heading.",
+    "message": "Filter lists"
+  },
+  "general": {
+    "description": "This is a tab heading.",
+    "message": "General"
+  },
+  "last_updated_at": {
+    "description": "e.g. Last updated at 3:00pm on Apr 1, 2011",
+    "message": "Last updated at $time$ on $date$",
+    "placeholders": {
+      "date": {
+        "content": "$2"
+      },
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "last_updated_at_today": {
+    "description": "e.g. Last updated at 3:00pm today",
+    "message": "Last updated at $time$ today",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "name_devbuild": {
+    "description": "Extension name to be shown for development builds. Note: this cannot be longer than 45 characters.",
+    "message": "PlusPrivacy development build"
+  },
+  "notification_configure": {
+    "message": "Configure notification settings"
+  },
+  "notification_open_all": {
+    "message": "Open all links from this notification"
+  },
+  "notification_with_buttons": {
+    "message": "Click 'OK' to open all links in this notification."
+  },
+  "notification_without_buttons": {
+    "message": "Click on the notification to open all links in it."
+  },
+  "options": {
+    "message": "PlusPrivacy Options"
+  },
+  "options_short": {
+    "description": "Link to the options page from the popup balloon.",
+    "message": "Options"
+  },
+  "out_of_date_lists": {
+    "message": "Out-of-date lists are updated periodically."
+  },
+  "remove_button": {
+    "description": "This is the label for the 'Remove selected' buttons.",
+    "message": "Remove selected"
+  },
+  "show_block_element_menu": {
+    "message": "Show 'Block Element' right-click menu item"
+  },
+  "show_devtools_panel": {
+    "message": "Show 'Adblock Plus' panel in the developer tools"
+  },
+  "subscriptionSelection_subscriptionSelector_label": {
+    "message": "Please choose a filter subscription from the list:"
+  },
+  "update_now": {
+    "message": "Update now"
+  },
+  "whitelisted_domains": {
+    "description": "This is a tab heading.",
+    "message": "Whitelisted domains"
+  },
+  "unexpected_filter_list_header": {
+    "description": "Error message shown when the user attempts to add a custom filter that has the format of a header (e.g. \"[Adblock Plus 2.0]\") which are only allowed in filter lists",
+    "message": "Filter list headers aren't allowed here"
+  },
+  "invalid_css_selector": {
+    "message": "$selector$ is not a valid CSS selector",
+    "placeholders": {
+      "selector": {
+        "content": "$1"
+      }
+    }
+  },
+  "line": {
+    "message": "Line $number$",
+    "description": "Prepended to error messages to indicate the line number (e.g. \"Line 42: Some error on this line\")",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  }
+}

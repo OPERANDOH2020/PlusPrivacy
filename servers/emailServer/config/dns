@@ -1,0 +1,26 @@
+
+Add this TXT record to the plusprivacy.com DNS zone.
+
+ian2017._domainkey TXT "v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwCliZSLJ9nNwM3pLvlzjRI+aXAknfcEKMlR+cFPgc4X6Xp5X7AzvPuXFcEbHkYD2EYTYFZgvXpYVk2rC4j8Ht5h89YOn5F+tSm6Q5cbSQtt4Sd/gWx+u0Amu0ANhFMhQpv1X+4cFGzUZ/BgcBkN0L3QrLsGHVAz1gfJ8FLIRKBxV0MyQANFTIs3t1hUeLpXPOHC9d5nS9AtzCNMLfZjI1v1X9VnEc9ZAV8jpXe2Dez8S4eyfzATb6klcjSp4EUJYXITxgTjS+c73IJ0AnawVzh6mW2poUG72qTg4i9O4E70XrqhXF9hxmcEbfUcqYFKrL+iM6PFC9+Qt8H+gd1MxMQIDAQAB"
+
+Tell the world that the ONLY mail servers that send mail from this domain are DKIM signed and/or bear our MX and A records.
+
+With SPF:
+
+        SPF "v=spf1 mx a -all"
+        TXT "v=spf1 mx a -all"
+
+With DMARC:
+
+_dmarc  TXT "v=DMARC1; p=reject; adkim=s; aspf=r; rua=mailto:dmarc-feedback@plusprivacy.com; ruf=mailto:dmarc-feedback@plusprivacy.com; pct=100"
+
+With DomainKeys (deprecated)
+
+_domainkey TXT "o=-; t=y; r=postmaster@plusprivacy.com"
+
+For more information about DKIM and SPF policy, the documentation within each plugin contains a longer discussion and links to more detailed information:
+
+   haraka -h dkim_sign
+   haraka -h spf
+
+

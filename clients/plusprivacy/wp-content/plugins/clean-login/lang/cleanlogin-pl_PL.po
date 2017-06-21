@@ -1,0 +1,460 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Clean Login\n"
+"POT-Creation-Date: 2014-08-28 18:20+0100\n"
+"PO-Revision-Date: 2015-05-04 17:28+0100\n"
+"Last-Translator: Jarosław Idzior <jarek.idzior@gmail.com>\n"
+"Language-Team: \n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: /wp-content/plugins/clean-login/trunk\n"
+"X-Poedit-SearchPath-1: /wp-content/plugins/clean-login\n"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:37
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:37
+msgid "Successfully logged in!"
+msgstr "Prawidłowe logowanie!"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:39
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:39
+msgid "Wrong credentials"
+msgstr "Błędne dane"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:41
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:41
+msgid "Successfully logged out!"
+msgstr "Prawidłowe wylogowanie!"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:69
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:69
+msgid "Information updated"
+msgstr "Informacje uaktualnione"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:71
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:71
+msgid "Passwords must be identical"
+msgstr "Hasła muszą być identyczne"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:73
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:73
+msgid "Error updating email"
+msgstr "Błąd aktualizacji emaila"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:75
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:75
+msgid "Something strange has ocurred"
+msgstr "Stało się coś dziwnego"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:81
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:81
+msgid "You need to be logged in to edit your profile"
+msgstr "Musisz się zalogować by edytować profil"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:104
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:104
+msgid "User created"
+msgstr "Użytkownik utworzony"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:106
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:106
+msgid "New user created"
+msgstr "Nowy użytkownik utworzony"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:108
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:151
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:108
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:151
+msgid "Username is not valid"
+msgstr "Zła nazwa użytkownika"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:110
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:110
+msgid "Passwords must be identical and filled"
+msgstr "Hasła muszą być identyczne i wypełnione"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:112
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:112
+msgid "Email is not valid"
+msgstr "Zły adres email"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:114
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:114
+msgid "CAPTCHA is not valid, please try again"
+msgstr "CAPTCHA jest błędne, spróbuj ponownie"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:116
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:116
+msgid "Something strange has ocurred while created the new user"
+msgstr "Stało się coś dziwnego podczas tworzenia nowego użytkownika"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:122
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:122
+msgid "You are now logged in. It makes no sense to register a new user"
+msgstr "Jesteś już zalogowany. Nie ma sensu rejestrować się ponownie"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:145
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:145
+msgid "You will receive an email with the activation link"
+msgstr "Otrzymasz emaila z linkiem aktywacyjnym"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:147
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:147
+msgid "You may receive an email with the activation link"
+msgstr "Możesz otrzymać emaila z linkiem aktywacyjnym"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:149
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:149
+msgid "An error has ocurred sending the email"
+msgstr "Błąd przy wysyłaniu emaila"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:162
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:162
+msgid "You are now logged in. It makes no sense to restore your account"
+msgstr "Jesteś już zalogowany. Nie ma sensu odtwarzać twojego konta"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:294
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:294
+#, php-format
+msgid ""
+"New user registered: %s <br/><br/>Please change the role from 'Stand By' to "
+"'Subscriber' or higher to allow full site access"
+msgstr ""
+"Nowy użytkownik zarejestrowany: %s <br/><br/> Proszę zmienić jego rolę z "
+"\"Oczekujący\" na \"Subskrybent\" lub wyższy by uzyskał pełen dostęp do "
+"strony"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:296
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:296
+#, php-format
+msgid "New user registered: %s <br/>"
+msgstr "Nowy użytkownik zarejestrowany: %s <br/>"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:338
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:338
+#, php-format
+msgid ""
+"Use the following link to restore your password: <a href='%s'>restore your "
+"password</a> <br/><br/>%s<br/>"
+msgstr ""
+"Używając tego linka odtworzysz swoje hasło: <a href='%s'>przypomnij hasło</"
+"a> <br/><br/>%s<br/>"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:547
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:547
+msgid "Admin area"
+msgstr "Cześć administracyjna"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:560
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:560
+msgid ""
+"Below you can check the plugin status regarding the shortcodes usage and the "
+"pages/posts which contain  it."
+msgstr ""
+"Poniżej możesz sprawdzić stan wtyczki uwzględaniający wykorzystane shortcode "
+"i strony na których się znajdują."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:568
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:577
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:586
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:595
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:568
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:577
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:586
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:595
+msgid "Currently not used"
+msgstr "Aktualnie nie używane"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:570
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:579
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:588
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:597
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:570
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:579
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:588
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:597
+#, php-format
+msgid "Used <a href=\"%s\">here</a>"
+msgstr "Użyte <a href=\"%s\">tutaj</a>"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:572
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:572
+msgid "This shortcode contains login form and login information."
+msgstr "Ten shortcode używa formularza logowania i informacji o logowaniu."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:581
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:581
+msgid ""
+"This shortcode contains the profile editor. If you include in a page/post a "
+"link will appear on your login preview."
+msgstr ""
+"Ten shortcode zawiera edytor profilu. Jeśli dodasz go na stronie, pojawi się "
+"link na stronie po zalogowaniu uzytkownika."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:590
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:590
+msgid ""
+"This shortcode contains the register form. If you include in a page/post a "
+"link will appear on your login form."
+msgstr ""
+"Ten shortcode zawiera formularz rejestracyjny. Jeśli dodasz go na stronie, "
+"pojawi się link na stronie do logowania."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:599
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:599
+msgid ""
+"This shortcode contains the restore (lost password?) form. If you include in "
+"a page/post a link will appear on your login form."
+msgstr ""
+"Ten shortcode zawiera formularz odtwarzania hasła (zapomniane hasło).  Jeśli "
+"dodasz go na stronie, pojawi się link na stronie do logowania."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:620
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:620
+msgid "Settings saved."
+msgstr "Ustawienia zapisane."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:635
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:635
+msgid "Admin bar"
+msgstr "Pasek administracyjny"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:637
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:637
+msgid "Hide admin bar for non-admin users?"
+msgstr "Ukryć pasek administracyjny dla zwykłych użytkowników?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:641
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:641
+msgid "Dashboard access"
+msgstr "Dostęp do kokpitu"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:643
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:643
+msgid "Disable dashboard access for non-admin users?"
+msgstr "Wyłączyć dostęp do kokpitu dla zwykłych użytkowników?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:644
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:644
+msgid ""
+"Please note that you can only log in through <strong>wp-login.php</strong> "
+"and this plugin. <strong>wp-admin</strong> permalink will be inaccessible."
+msgstr ""
+"Proszę pamiętać, że możesz zalogować się tylko przez <strong>wp-login.php</"
+"strong> i tę wtyczkę. Permalink <strong>wp-admin</strong> będzie niedostępny."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:648
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:648
+msgid "Antispam protection"
+msgstr "Zabezpieczenie antyspamowe"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:650
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:650
+msgid "Enable captcha?"
+msgstr "Włączyć captcha?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:651
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:651
+msgid "Honeypot antispam detection is enabled by default."
+msgstr "Zabezpieczenie antyspamowe Honeypot jest domyślnie włączone."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:652
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:652
+msgid ""
+"For captcha usage the PHP-GD library needs to be enabled in your server/"
+"hosting."
+msgstr ""
+"Do korzystania z captcha, biblioteka PHP-GD musi być włączona na twoim "
+"serwerze/hostingu."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:656
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:656
+msgid "User Standby role"
+msgstr "Rola użytkownika Oczekujący"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:658
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:658
+msgid "Enable Standby role?"
+msgstr "Włączyć rolę Oczekującą?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:659
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:659
+msgid ""
+"Standby role disables all the capabilities for new users, until the "
+"administrator changes. It usefull for site with restricted components."
+msgstr ""
+"Rola Oczekująca wyłącza dostęp do całości zasobów dla nowych użytkowników do "
+"momentu zmiany przez administratora. Jest to użyteczne dla strony z "
+"wrażliwymi zasobami."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:663
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:663
+msgid "Hide username"
+msgstr "Ukryj nazwę użytkownika"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:665
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:665
+msgid "Hide username?"
+msgstr "Ukryć nazwę użytkownika?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:666
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:666
+msgid "Hide username from the preview form."
+msgstr "Ukryj nazwę użytkownika po zalogowaniu."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:675
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:675
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:702
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:702
+msgid "Use this widget to show the user login status and Clean Login links."
+msgstr ""
+"Użyj ten widżet by pokazać użytkownikowi stan logowania i linki Clean Login."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:730
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-preview.php:13
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:730
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-preview.php:13
+msgid "Edit my profile"
+msgstr "Edytuj swój profil"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:734
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:20
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/restore-new.php:15
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:734
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:20
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/restore-new.php:15
+msgid "Log in"
+msgstr "Zaloguj"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:735
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:36
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:38
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:735
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:36
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:38
+msgid "Register"
+msgstr "Zarejestruj"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:736
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:32
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:736
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:32
+msgid "Lost password?"
+msgstr "Zapomniałeś hasła?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:749
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:749
+msgid "User login status"
+msgstr "Status logowania użytkownika"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/clean-login.php:753
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/clean-login.php:753
+msgid "Title:"
+msgstr "Tytuł:"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:9
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:9
+msgid "General information"
+msgstr "Informacje ogólne"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:14
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:14
+msgid "First name"
+msgstr "Imię"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:19
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:19
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:24
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:11
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:24
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:11
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/restore-form.php:7
+msgid "E-mail"
+msgstr "E-mail"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:30
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:30
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:32
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:32
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank."
+msgstr ""
+"Jeśli chcesz zmienić hasło to podaj nowe. W przeciwnym razie pozostaw pola "
+"puste."
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:37
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:20
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:37
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:20
+msgid "New password"
+msgstr "Nowe hasło"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:42
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:24
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:42
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:24
+msgid "Confirm password"
+msgstr "Potwierdź hasło"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-edit.php:49
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-edit.php:49
+msgid "Update profile"
+msgstr "Aktualizuj profil"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:11
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:7
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:11
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:7
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/restore-form.php:7
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:15
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:15
+msgid "Password"
+msgstr "Hasło"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-form.php:25
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-form.php:25
+msgid "Remember?"
+msgstr "Zapamiętać?"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/login-preview.php:11
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/login-preview.php:11
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/register-form.php:30
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/register-form.php:30
+msgid "Type the text above"
+msgstr "Wpisz tekst powyżej"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/restore-form.php:7
+msgid "Username (or E-mail)"
+msgstr "Nazwa użytkownika (lub e-mail)"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/restore-form.php:18
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/restore-form.php:18
+msgid "Restore password"
+msgstr "Przypomnij hasło"
+
+#: /Users/ahornero/Documents/wordpress.org/clean-login/trunk/content/restore-new.php:6
+#: /Users/ahornero/www/wordpress/wp-content/plugins/clean-login/content/restore-new.php:6
+msgid "Your new password is"
+msgstr "Twoje nowe hasło to"

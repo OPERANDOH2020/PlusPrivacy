@@ -1,0 +1,457 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Clean Login\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Tue Sep 01 2015 10:23:24 GMT+0200 (Romance Daylight Time)\n"
+"PO-Revision-Date: Fri Jan 29 2016 19:50:51 GMT+0100 (CET)\n"
+"Last-Translator: admin <ahornero@gmail.com>\n"
+"Language-Team: \n"
+"Language: Catalan\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: ca_ES\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../clean-login.php:37
+msgid "Successfully logged in!"
+msgstr ""
+
+#: ../clean-login.php:39
+msgid "Wrong credentials"
+msgstr ""
+
+#: ../clean-login.php:41
+msgid "Successfully logged out!"
+msgstr ""
+
+#: ../clean-login.php:69
+msgid "Information updated"
+msgstr ""
+
+#: ../clean-login.php:71 ../clean-login.php:114 ../clean-login.php:822
+msgid ""
+"Passwords must be eight characters including one upper/lowercase letter, one "
+"special/symbol character and alphanumeric characters. Passwords should not "
+"contain the user's username, email, or first/last name."
+msgstr ""
+
+#: ../clean-login.php:73
+msgid "Passwords must be identical"
+msgstr ""
+
+#: ../clean-login.php:75
+msgid "Error updating email"
+msgstr ""
+
+#: ../clean-login.php:77
+msgid "Something strange has ocurred"
+msgstr ""
+
+#: ../clean-login.php:83
+msgid "You need to be logged in to edit your profile"
+msgstr ""
+
+#: ../clean-login.php:110
+msgid "User created"
+msgstr ""
+
+#: ../clean-login.php:112
+msgid "New user created"
+msgstr ""
+
+#: ../clean-login.php:116 ../clean-login.php:161
+msgid "Username is not valid"
+msgstr ""
+
+#: ../clean-login.php:118
+msgid "Passwords must be identical and filled"
+msgstr ""
+
+#: ../clean-login.php:120
+msgid "Email is not valid"
+msgstr ""
+
+#: ../clean-login.php:122
+msgid "CAPTCHA is not valid, please try again"
+msgstr ""
+
+#: ../clean-login.php:124
+msgid "Something strange has ocurred while created the new user"
+msgstr ""
+
+#: ../clean-login.php:126
+msgid "must be checked"
+msgstr ""
+
+#: ../clean-login.php:132
+msgid "You are now logged in. It makes no sense to register a new user"
+msgstr ""
+
+#: ../clean-login.php:155
+msgid "You will receive an email with the activation link"
+msgstr ""
+
+#: ../clean-login.php:157
+msgid "You may receive an email with the activation link"
+msgstr ""
+
+#: ../clean-login.php:159
+msgid "An error has ocurred sending the email"
+msgstr ""
+
+#: ../clean-login.php:172
+msgid "You are now logged in. It makes no sense to restore your account"
+msgstr ""
+
+#: ../clean-login.php:375
+#, php-format
+msgid ""
+"New user registered: %s <br/><br/>Please change the role from 'Stand By' to "
+"'Subscriber' or higher to allow full site access"
+msgstr ""
+
+#: ../clean-login.php:377
+#, php-format
+msgid "New user registered: %s <br/>"
+msgstr ""
+
+#: ../clean-login.php:379
+msgid "New user"
+msgstr ""
+
+#: ../clean-login.php:433
+#, php-format
+msgid ""
+"Use the following link to restore your password: <a href='%s'>restore your "
+"password</a> <br/><br/>%s<br/>"
+msgstr ""
+
+#: ../clean-login.php:435
+msgid "Restore your password"
+msgstr ""
+
+#: ../clean-login.php:649
+msgid "Admin area"
+msgstr ""
+
+#: ../clean-login.php:662
+msgid "Do you like it?"
+msgstr ""
+
+#: ../clean-login.php:677
+msgid "Clean Login status"
+msgstr ""
+
+#: ../clean-login.php:679
+msgid ""
+"Below you can check the plugin status regarding the shortcodes usage and the "
+"pages/posts which contain  it."
+msgstr ""
+
+#: ../clean-login.php:687 ../clean-login.php:696 ../clean-login.php:705 ../clean-
+#: login.php:714
+msgid "Currently not used"
+msgstr ""
+
+#: ../clean-login.php:689 ../clean-login.php:698 ../clean-login.php:707 ../clean-
+#: login.php:716
+#, php-format
+msgid "Used <a href=\"%s\">here</a>"
+msgstr ""
+
+#: ../clean-login.php:691
+msgid "This shortcode contains login form and login information."
+msgstr ""
+
+#: ../clean-login.php:700
+msgid ""
+"This shortcode contains the profile editor. If you include in a page/post a "
+"link will appear on your login preview."
+msgstr ""
+
+#: ../clean-login.php:709
+msgid ""
+"This shortcode contains the register form. If you include in a page/post a "
+"link will appear on your login form."
+msgstr ""
+
+#: ../clean-login.php:718
+msgid ""
+"This shortcode contains the restore (lost password?) form. If you include in "
+"a page/post a link will appear on your login form."
+msgstr ""
+
+#: ../clean-login.php:723
+msgid "Options"
+msgstr ""
+
+#: ../clean-login.php:750
+msgid "Settings saved."
+msgstr ""
+
+#: ../clean-login.php:777
+msgid "Admin bar"
+msgstr ""
+
+#: ../clean-login.php:779
+msgid "Hide admin bar for non-admin users?"
+msgstr ""
+
+#: ../clean-login.php:783
+msgid "Dashboard access"
+msgstr ""
+
+#: ../clean-login.php:785
+msgid "Disable dashboard access for non-admin users?"
+msgstr ""
+
+#: ../clean-login.php:786
+msgid ""
+"Please note that you can only log in through <strong>wp-login.php</strong> "
+"and this plugin. <strong>wp-admin</strong> permalink will be inaccessible."
+msgstr ""
+
+#: ../clean-login.php:790
+msgid "Antispam protection"
+msgstr ""
+
+#: ../clean-login.php:792
+msgid "Enable captcha?"
+msgstr ""
+
+#: ../clean-login.php:793
+msgid "Honeypot antispam detection is enabled by default."
+msgstr ""
+
+#: ../clean-login.php:794
+msgid ""
+"For captcha usage the PHP-GD library needs to be enabled in your "
+"server/hosting."
+msgstr ""
+
+#: ../clean-login.php:798
+msgid "User role"
+msgstr ""
+
+#: ../clean-login.php:800
+msgid "Enable Standby role?"
+msgstr ""
+
+#: ../clean-login.php:801
+msgid ""
+"Standby role disables all the capabilities for new users, until the "
+"administrator changes. It usefull for site with restricted components."
+msgstr ""
+
+#: ../clean-login.php:803
+msgid "Choose the role(s) in the registration form?"
+msgstr ""
+
+#: ../clean-login.php:804
+msgid ""
+"This feature allows you to choose the role from the frontend, with the "
+"selected roles you want to show. You can also define an standard predefined "
+"role through a shortcode parameter, e.g. [clean-login-register "
+"role=\"contributor\"]. Anyway, you need to choose only the role(s) you want to "
+"accept to avoid security/infiltration issues."
+msgstr ""
+
+#: ../clean-login.php:812
+msgid "Hide username"
+msgstr ""
+
+#: ../clean-login.php:814
+msgid "Hide username?"
+msgstr ""
+
+#: ../clean-login.php:815
+msgid "Hide username from the preview form."
+msgstr ""
+
+#: ../clean-login.php:819
+msgid "Password complexity"
+msgstr ""
+
+#: ../clean-login.php:821
+msgid "Enable password complexity?"
+msgstr ""
+
+#: ../clean-login.php:826
+msgid "Email notification"
+msgstr ""
+
+#: ../clean-login.php:828
+msgid "Enable email notification for new registered users?"
+msgstr ""
+
+#: ../clean-login.php:829
+msgid "Please use HMTL tags for all formatting. And also you can use:"
+msgstr ""
+
+#: ../clean-login.php:833
+msgid "Terms and conditions"
+msgstr ""
+
+#: ../clean-login.php:835
+msgid "Accept terms / conditions in the registration form?"
+msgstr ""
+
+#: ../clean-login.php:836
+msgid "Terms and conditions message"
+msgstr ""
+
+#: ../clean-login.php:837
+msgid "Target URL"
+msgstr ""
+
+#: ../clean-login.php:841
+msgid "Use Email as Username"
+msgstr ""
+
+#: ../clean-login.php:843
+msgid ""
+"Allow user to use email as username? If you want to use both, WP Email Login "
+"plugin will help you"
+msgstr ""
+
+#: ../clean-login.php:847
+msgid "Single Password"
+msgstr ""
+
+#: ../clean-login.php:849
+msgid "Only ask for password once on registration form?"
+msgstr ""
+
+#: ../clean-login.php:853
+msgid "Automatically Login after Registration"
+msgstr ""
+
+#: ../clean-login.php:855
+msgid "Automatically Login after registration?"
+msgstr ""
+
+#: ../clean-login.php:856
+msgid "URL after registration (if blank then homepage)"
+msgstr ""
+
+#: ../clean-login.php:863
+msgid "Save Changes"
+msgstr ""
+
+#: ../clean-login.php:963
+msgid "Use this widget to show the user login status and Clean Login links."
+msgstr ""
+
+#: ../clean-login.php:991 ../content/login-preview.php:13
+msgid "Edit my profile"
+msgstr ""
+
+#: ../clean-login.php:994
+msgid "Logout"
+msgstr ""
+
+#: ../clean-login.php:999 ../content/restore-new.php:15 ../content/login-form.php:
+#: 20
+msgid "Log in"
+msgstr ""
+
+#: ../clean-login.php:1000 ../content/register-form.php:70 ../content/login-form.
+#: php:36
+msgid "Register"
+msgstr ""
+
+#: ../clean-login.php:1001 ../content/login-form.php:32
+msgid "Lost password?"
+msgstr ""
+
+#: ../clean-login.php:1014
+msgid "User login status"
+msgstr ""
+
+#: ../clean-login.php:1018
+msgid "Title:"
+msgstr ""
+
+#: ../content/restore-form.php:7
+msgid "Username (or E-mail)"
+msgstr ""
+
+#: ../content/restore-form.php:18
+msgid "Restore password"
+msgstr ""
+
+#: ../content/register-form.php:8 ../content/login-form.php:11
+msgid "Username"
+msgstr ""
+
+#: ../content/register-form.php:13 ../content/login-edit.php:24
+msgid "E-mail"
+msgstr ""
+
+#: ../content/register-form.php:23 ../content/login-edit.php:37
+msgid "New password"
+msgstr ""
+
+#: ../content/register-form.php:28 ../content/login-edit.php:42
+msgid "Confirm password"
+msgstr ""
+
+#: ../content/register-form.php:35
+msgid "Type the text above"
+msgstr ""
+
+#: ../content/register-form.php:44
+msgid "Choose your role:"
+msgstr ""
+
+#: ../content/login-preview.php:11
+msgid "Log out"
+msgstr ""
+
+#: ../content/restore-new.php:6
+msgid "Your new password is"
+msgstr ""
+
+#: ../content/login-edit.php:9
+msgid "General information"
+msgstr ""
+
+#: ../content/login-edit.php:14
+msgid "First name"
+msgstr ""
+
+#: ../content/login-edit.php:19
+msgid "Last name"
+msgstr ""
+
+#: ../content/login-edit.php:30
+msgid "Change password"
+msgstr ""
+
+#: ../content/login-edit.php:32
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank."
+msgstr ""
+
+#: ../content/login-edit.php:49
+msgid "Update profile"
+msgstr ""
+
+#: ../content/login-form.php:15
+msgid "Password"
+msgstr ""
+
+#: ../content/login-form.php:25
+msgid "Remember?"
+msgstr ""

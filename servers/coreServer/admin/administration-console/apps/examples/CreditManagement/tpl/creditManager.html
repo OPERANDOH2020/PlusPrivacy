@@ -1,0 +1,122 @@
+<div ng-controller="creditManagerController">
+    <div class="ng-scope" ui-view="">
+        <div class="bg-light lter b-b wrapper-md ng-scope">
+            <h1 class="m-n font-thin h3">Credit Manager</h1>
+        </div>
+
+        <div class="panel-body b-b b-light">
+
+        </div>
+
+        <div class="wrapper-md ng-scope">
+            <div class="panel panel-default">
+
+                <div >
+                    <div class="panel-heading">
+                        <div >
+                            Available funds:
+                            <font color="green">{{availableFunds}}$</font>
+                        </div>
+                    </div>
+                    <div class="panel-heading">
+                        <div>Performed transactions</div>
+                    </div>
+                    <table class="table m-b-none footable-loaded footable default" ui-jq="footable" data-filter="#filter" data-page-size="config.pageSize">
+
+                        <thead>
+                            <tr>
+                                <th class="footable-visible footable-first-column " data-toggle="true">
+                                    Type
+                                <th class="footable-visible" data-toggle="true">
+                                    Sender
+                                <th class="footable-visible " data-toggle="true">
+                                    Receiver
+                                <th class="footable-visible ">
+                                    Amount
+                                <th class="footable-visible">
+                                    Description
+                                <th class="footable-visible " data-hide="phone,tablet">
+                                    Formal Type
+                                <th class="footable-visible footable-sortable" data-hide="phone,tablet" ng-click="sortByTime()">
+                                   Timestamp
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="transaction in allTransactions.slice((currentPage-1)*itemsPerPage,currentPage*itemsPerPage)" class="footable-even" style="display: table-row">
+
+                                <td class="glyphicon glyphicon-arrow-down" ng-if="transaction.sourceEmail!=userInfo.email"
+                                    style=' display: inline-block;
+                                            padding:2px 5px;
+                                            margin:0 auto;
+                                            border-radius:50%;
+                                            background-color:lawngreen;
+                                            left:20px;
+                                            position:relative'></td>
+
+                                <td class="glyphicon glyphicon-arrow-up" ng-if="transaction.sourceEmail==userInfo.email"
+                                    style=' display: inline-block;
+                                            padding:2px 5px;
+                                            margin:0 auto;
+                                            border-radius:50%;
+                                            background-color:orangered;
+                                            left:20px;
+                                            position:relative'></td>
+
+
+                                <td class="footable-visible footable-first-column"><span class="footable-toggle" >{{transaction.sourceEmail}}</span></td>
+                                <td class="footable-visible" >{{transaction.targetEmail}}</td>
+                                <td class="footable-visible" >{{transaction.amount}}</td>
+                                <td class="footable-visible" >{{transaction.description}}</td>
+                                <td class="footable-visible" >{{transaction.formalType}}</td>
+                                <td class="footable-visible ">{{transaction.transactionTime}}</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot ng-show="maxNrOfPages>1" class="hide-if-no-paging">
+                            <tr>
+                                <td colspan="5" class="text-center footable-visible">
+                                    <ul class="pagination">
+                                        <li ng-show="currentPage>1" class="footable-page-arrow">
+                                            <a ng-click="changePage(1)">«</a>
+                                        </li>
+                                        <li ng-show="currentPage>1" class="footable-page-arrow">
+                                            <a ng-click="changePage(currentPage-1)">‹</a>
+                                        </li>
+
+                                        <li ng-if="currentPage>1" class="footable-page">
+                                            <a data-page="0" ng-click="changePage(currentPage-1)">{{currentPage-1}}</a>
+                                        </li>
+
+                                        <li class="footable-page active">
+                                            <a>{{currentPage}}</a>
+                                        </li>
+                                        <li ng-if="currentPage<maxNrOfPages" class="footable-page">
+                                            <a ng-click="changePage(currentPage+1)">{{currentPage+1}}</a>
+                                        </li>
+
+                                        <li ng-show="currentPage<maxNrOfPages" class="footable-page-arrow">
+                                            <a ng-click="changePage(currentPage+1)">›</a>
+                                        </li>
+                                        <li ng-show="currentPage<maxNrOfPages" class="footable-page-arrow">
+                                            <a ng-click="changePage(maxNrOfPages)">»</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+                <div class="panel-body b-b b-light">
+
+                    <div class="col-lg-6" style="float: right">
+                        <button style="float: right" class="btn btn-sm btn-primary" ng-click="sendMoney()" type="button">Send money</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

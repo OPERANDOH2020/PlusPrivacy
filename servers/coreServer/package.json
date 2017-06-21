@@ -1,0 +1,77 @@
+{
+  "name": "op-sharedbus",
+  "description": "op-sharedbus package | OPERANDOH2020 project",
+  "version": "0.2.1",
+  "homepage": "https://github.com/OPERANDOH2020/op-sharedbus",
+  "author": {
+    "name": "Alboaie Sinica",
+    "email": "salboaie@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Mastaleru Rafael",
+      "email": "raf@rms.ro"
+    },
+	 {
+      "name": "Talmacel Ciprian",
+      "email": "tac@rms.ro"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OPERANDOH2020/op-sharedbus.git"
+  },
+  "bugs": {
+    "email": "salboaie@gmail.com",
+    "url": "https://github.com/OPERANDOH2020/op-sharedbus/issues"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "main": "./adapters/Core.js",
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "http://www.gnu.org/licenses/gpl.html"
+    }
+  ],
+  "_id": "op-sharedbus@0.1.0",
+  "dependencies" : {
+    "swarmcore"     :"git+https://mastaleru@github.com/PrivateSky/swarmcore.git#master",
+    "acl-magic"    :"git+https://mastaleru@github.com/PrivateSky/acl-magic.git#master",
+    "apersistence":"git+https://mastaleru@github.com/PrivateSky/apersistence.git#master",
+    "double-check" : "git+https://mastaleru@github.com/PrivateSky/double-check.git#master",
+    "transrest" :"git+https://mastaleru@github.com/PrivateSky/transrest.git#master",
+    "callflow"  :"git+https://mastaleru@github.com/PrivateSky/callflow.git#master",
+    "whys" :"git+https://mastaleru@github.com/PrivateSky/whys.git#master",
+	"safebox":"git+https://mastaleru@github.com/PrivateSky/safebox.git#master",
+    "semantic-firewall" : ">=0.5.1",
+    "dateformat"      : ">=1.0.11",
+    "commander"       :   ">=2.8.1",
+    "moment"        : ">=2.10.3",
+    "rts"       :">=0.0.0",
+    "tmp"       :">=0.0.0",
+    "urlencode":">=1.1.0",
+    "windows-cpu":">=0.1.4",
+    "checksum" :">=0.1.0",
+    "nodemailer-smtp-transport":">=2.7.2",
+	"voucher-code-generator":">=1.0.0",
+    "jsonwebtoken":">=7.3.0",
+	"uuid":">=2.0.0",
+    "firebase-admin":">=1.0.0",
+	"url":">=0.11.0",
+	"parse-domain":">=1.1.0",
+    "image-diff":">=1.6.3"
+  },
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.12",
+  "_nodeVersion": "v0.6.14",
+  "_defaultsLoaded": true,
+  "dist": {
+    
+  }
+}

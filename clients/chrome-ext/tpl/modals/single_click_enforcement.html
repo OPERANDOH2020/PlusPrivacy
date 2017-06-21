@@ -1,0 +1,63 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+
+                <div>
+                    <h4 style="text-align:center">Updating your privacy settings</h4>
+                    <hr/>
+
+
+                    <div ng-if="isLoggedIn === false" class="social_network_log_in_container">
+                        <ui-loader class="social_network_log_in" ></ui-loader>
+                        <span class="sn_not_connected">Please log into {{socialNetwork}}!</span>
+                    </div>
+
+
+                    <div ng-if="(progresses | isEmpty) && (osps.length > 0)">
+                        <ui-loader ></ui-loader>
+                    </div>
+                    <div ng-repeat="progress in progresses">
+                        <div class="social_networks_action_progress_container">
+                            <h4>{{progress.ospName}}</h4>
+                            <div class="action_progress"><ui-loader status="progress.status"></ui-loader></div>
+                        </div>
+                        <progress-bar current="progress.current" total="progress.total"
+                                      interval="3"></progress-bar>
+                        <hr ng-if="!$last"/>
+                    </div>
+                </div>
+
+
+                <div ng-if="noSocialNetworkAvailable">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>Please login with your social networks!</h4>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" ng-click="enforce()">Try again now!</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <span ng-if="completed" class="alldone">
+                    <span ng-if="completedFeedback">{{completedFeedback}}</span>
+                    <span ng-if="!completedFeedback">All settings were updated</span>
+                </span>
+                <button type="button" ng-click="close('Yes')" ng-if="completed" class="btn btn-primary-black" data-dismiss="modal">
+                    <span>Close</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

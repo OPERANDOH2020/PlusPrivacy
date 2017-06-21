@@ -1,0 +1,493 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Clean Login\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Tue Sep 01 2015 10:23:24 GMT+0200 (Romance Daylight Time)\n"
+"PO-Revision-Date: 2016-04-27 17:59+0300\n"
+"Last-Translator: Mert Eden | MEDEN Bilgi Teknolojileri <mail@medendata.com>\n"
+"Language-Team: \n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;"
+"_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;"
+"_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;"
+"esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;"
+"comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: tr_TR\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../clean-login.php:39
+msgid "Wrong credentials"
+msgstr "Yanlış bilgiler"
+
+#: ../clean-login.php:41
+msgid "Successfully logged out!"
+msgstr "Tebrikler! Başarıyla çıkış yaptınız."
+
+#: ../clean-login.php:69
+msgid "Information updated"
+msgstr "Güncellendi!"
+
+#: ../clean-login.php:71 ../clean-login.php:114 ../clean-login.php:822
+msgid ""
+"Passwords must be eight characters including one upper/lowercase letter, one "
+"special/symbol character and alphanumeric characters. Passwords should not "
+"contain the user's username, email, or first/last name."
+msgstr ""
+"Parolaları minimum sekiz karakter, bir büyük/küçük harf de dahil olmak üzere, "
+"bir özel/sembol karakter ve alfa sayısal karakterlere sahip olması gerekir. "
+"Parolalarda kullanıcının Kullanıcı Adı, E-Posta veya Adı/Soyadı gibi bilgileri "
+"içermemesi gerekir."
+
+#: ../clean-login.php:73
+msgid "Passwords must be identical"
+msgstr "<strong>Hata:</strong> Parolanız eşleşmiyor."
+
+#: ../clean-login.php:75
+msgid "Error updating email"
+msgstr "E-Posta güncelleştirilirken hata oluştu."
+
+#: ../clean-login.php:77
+msgid "Something strange has ocurred"
+msgstr "Tuhaf birşeyler oluştu. Bizde anlamadık."
+
+#: ../clean-login.php:83
+msgid "You need to be logged in to edit your profile"
+msgstr "Profilinizi düzenlemek için giriş yapmalısınız."
+
+#: ../clean-login.php:110
+msgid "User created"
+msgstr "Kullanıcı Oluşturuldu"
+
+#: ../clean-login.php:112
+msgid "New user created"
+msgstr "Kullanıcı Oluşturuldu"
+
+#: ../clean-login.php:116 ../clean-login.php:161
+msgid "Username is not valid"
+msgstr "Bu kullanıcı adı hatalı gibi gözüküyor."
+
+#: ../clean-login.php:118
+msgid "Passwords must be identical and filled"
+msgstr "Parolalar birebir aynı olarak doldurulmuş olması gerekir"
+
+#: ../clean-login.php:120
+msgid "Email is not valid"
+msgstr "E-Posta hatalı gibi görünüyor."
+
+#: ../clean-login.php:122
+msgid "CAPTCHA is not valid, please try again"
+msgstr "Güvenlik kodu yanlış, lütfen tekrar deneyin."
+
+#: ../clean-login.php:124
+msgid "Something strange has ocurred while created the new user"
+msgstr ""
+"Yeni kullanıcı oluşturulurken tuhaf bir şey meydana geldi. Bizde anlamadık."
+
+#: ../clean-login.php:126
+msgid "must be checked"
+msgstr "kontrol edilmelidir."
+
+#: ../clean-login.php:132
+msgid "You are now logged in. It makes no sense to register a new user"
+msgstr "Şuan oturum açtınız. Hızlı kayıt açmak için mantıklı bir özellik."
+
+#: ../clean-login.php:155
+msgid "You will receive an email with the activation link"
+msgstr "Aktivasyon linki içeren bir E-Posta alacaksınız."
+
+#: ../clean-login.php:157
+msgid "You may receive an email with the activation link"
+msgstr "Aktivasyon linki içeren bir E-Posta alabilirsiniz."
+
+#: ../clean-login.php:159
+msgid "An error has ocurred sending the email"
+msgstr "E-posta gönderilmesi sırasında hata oluştu"
+
+#: ../clean-login.php:172
+msgid "You are now logged in. It makes no sense to restore your account"
+msgstr "Şuan oturum açtınız. Güncellemek için mantıklı bir özellik."
+
+#: ../clean-login.php:375
+#, php-format
+msgid ""
+"New user registered: %s <br/><br/>Please change the role from 'Stand By' to "
+"'Subscriber' or higher to allow full site access"
+msgstr ""
+"Yeni üye kaydı: %s <br/><br/> ‘Bekleme’ veya ‘Abone’ rolü olarak "
+"değiştirilebilir."
+
+#: ../clean-login.php:377
+#, php-format
+msgid "New user registered: %s <br/>"
+msgstr "Yeni Kullanıcı Kayıtlı: %s<br>"
+
+#: ../clean-login.php:379
+msgid "New user"
+msgstr "Yeni kullanıcı"
+
+#: ../clean-login.php:433
+#, php-format
+msgid ""
+"Use the following link to restore your password: <a href='%s'>restore your "
+"password</a> <br/><br/>%s<br/>"
+msgstr ""
+"Şifrenizi yenilemek için: <a href='%s'>buraya tıklayınız.</a> <br/><br/>%s<br/>"
+
+#: ../clean-login.php:435
+msgid "Restore your password"
+msgstr "Parolanızı mı unuttunuz?"
+
+#: ../clean-login.php:649
+msgid "Admin area"
+msgstr "Yönetici alanı"
+
+#: ../clean-login.php:662
+msgid "Do you like it?"
+msgstr "Uygulamamızı sevdin mi?"
+
+#: ../clean-login.php:677
+msgid "Clean Login status"
+msgstr "Clean Login durumu"
+
+#: ../clean-login.php:679
+msgid ""
+"Below you can check the plugin status regarding the shortcodes usage and the "
+"pages/posts which contain  it."
+msgstr ""
+"Aşağıdaki kısa kodlar ve o kod içeren sayfa/yazıların durumunu kontrol "
+"edebilirsiniz."
+
+#: ../clean-login.php:687 ../clean-login.php:696 ../clean-login.php:705 ../clean-
+#: login.php:714
+msgid "Currently not used"
+msgstr "Kullanılmaz"
+
+#: ../clean-login.php:689 ../clean-login.php:698 ../clean-login.php:707 ../clean-
+#: login.php:716
+#, php-format
+msgid "Used <a href=\"%s\">here</a>"
+msgstr "Kullanıcı bilgilerine <a href=\"%s\">buradan bakabilirsiniz.</a>"
+
+#: ../clean-login.php:691
+msgid "This shortcode contains login form and login information."
+msgstr "Bu kısa kod giriş formu ve giriş bilgilerini içerir."
+
+#: ../clean-login.php:700
+msgid ""
+"This shortcode contains the profile editor. If you include in a page/post a "
+"link will appear on your login preview."
+msgstr ""
+"Bu kısa kod profil düzenleme (bilgileri güncelle) formunu içerir. Eğer bir "
+"sayfa/yazı alanına eklerseniz profil bilgilerini güncelleme menüsünü gösterir."
+
+#: ../clean-login.php:709
+msgid ""
+"This shortcode contains the register form. If you include in a page/post a link "
+"will appear on your login form."
+msgstr ""
+"Bu kısa kod kayıt formu (yeni üye) formunu içerir. Eğer bir sayfa/yazı alanına "
+"eklerseniz yeni kayıt menüsünü gösterir."
+
+#: ../clean-login.php:718
+msgid ""
+"This shortcode contains the restore (lost password?) form. If you include in a "
+"page/post a link will appear on your login form."
+msgstr ""
+"Bu kısa kod Parola yenileme (unutulan şifre) hatırlatmasını içerir. Eğer bir "
+"sayfa/yazı alanına eklerseniz şifre hatırlatma menüsünü gösterir."
+
+#: ../clean-login.php:723
+msgid "Options"
+msgstr "Seçenekler"
+
+#: ../clean-login.php:750
+msgid "Settings saved."
+msgstr "Ayarlar kaydedildi."
+
+#: ../clean-login.php:777
+msgid "Admin bar"
+msgstr "Yönetici Çubuğu"
+
+#: ../clean-login.php:779
+msgid "Hide admin bar for non-admin users?"
+msgstr "Yönetici olmayan kullanıcılar için admin çubuğunu gizlesin mi?"
+
+#: ../clean-login.php:783
+msgid "Dashboard access"
+msgstr "Panel Erişimine İzin Ver"
+
+#: ../clean-login.php:785
+msgid "Disable dashboard access for non-admin users?"
+msgstr ""
+"Yönetici olmayanların kullanıcı kontrol paneli erişimi devre dışı bıraksın mı?"
+
+#: ../clean-login.php:786
+msgid ""
+"Please note that you can only log in through <strong>wp-login.php</strong> and "
+"this plugin. <strong>wp-admin</strong> permalink will be inaccessible."
+msgstr ""
+"Unutmayın ki sadece <strong>wp-login.php</strong> ve bu eklenti ile giriş "
+"yapabilirsiniz. <strong>wp-admin</strong> ulaşılamaz olacaktır."
+
+#: ../clean-login.php:790
+msgid "Antispam protection"
+msgstr "Anti Spam Koruması"
+
+#: ../clean-login.php:792
+msgid "Enable captcha?"
+msgstr "CAPTCHA Özelliğini Aç"
+
+#: ../clean-login.php:793
+msgid "Honeypot antispam detection is enabled by default."
+msgstr "Varsayılan olarak Etkin"
+
+#: ../clean-login.php:794
+msgid ""
+"For captcha usage the PHP-GD library needs to be enabled in your server/hosting."
+msgstr ""
+"Sunucu / düşmanlık içeren bot hareketleri için Captcha Usage PHP-GD library "
+"etkinleştirilmesi gerekir."
+
+#: ../clean-login.php:798
+msgid "User role"
+msgstr "Üyelik Unvanı"
+
+#: ../clean-login.php:800
+msgid "Enable Standby role?"
+msgstr "Bekleme Rolünü etkinleştirilsin mi?"
+
+#: ../clean-login.php:801
+msgid ""
+"Standby role disables all the capabilities for new users, until the "
+"administrator changes. It usefull for site with restricted components."
+msgstr ""
+"Bekleme rolü Yönetici kontrol edene kadar yeni kullanıcılar için tüm yetkileri "
+"devre dışı bırakır. Bu site ile sınırlı güvenlik önlemlerini arttırabilirsiniz."
+
+#: ../clean-login.php:803
+msgid "Choose the role(s) in the registration form?"
+msgstr "Kayıt rollerini seçmek ister misiniz?"
+
+#: ../clean-login.php:804
+msgid ""
+"This feature allows you to choose the role from the frontend, with the selected "
+"roles you want to show. You can also define an standard predefined role through "
+"a shortcode parameter, e.g. [clean-login-register role=\"contributor\"]. "
+"Anyway, you need to choose only the role(s) you want to accept to avoid "
+"security/infiltration issues."
+msgstr ""
+"Bu özellik rolü ön yüzü gösterilmek istenen roller ile seçim yapmanızı sağlar. "
+"Ayrıca standart bir önceden tanımlanmış bir rol parametresi aracılığıyla "
+"tanımlayabilirsiniz. Örneğin: [clean-login-register role=\"contributor\"]. "
+"Sonuç olarak, sadece güvenlik sorunlarını önlemek için kabul etmek istediğiniz "
+"rolleri seçmeniz gerekir."
+
+#: ../clean-login.php:812
+msgid "Hide username"
+msgstr "Kullanıcı adı gizle"
+
+#: ../clean-login.php:814
+msgid "Hide username?"
+msgstr "Kullanıcı adı gizlesin mi?"
+
+#: ../clean-login.php:815
+msgid "Hide username from the preview form."
+msgstr "Önizleme formu üzerinden kullanıcı adını gizle."
+
+#: ../clean-login.php:819
+msgid "Password complexity"
+msgstr "Güvenli parola (karışık)"
+
+#: ../clean-login.php:821
+msgid "Enable password complexity?"
+msgstr "Güvenli parola (karışık) etkinleştirilsin mi?"
+
+#: ../clean-login.php:826
+msgid "Email notification"
+msgstr "E-Posta bildirimi"
+
+#: ../clean-login.php:828
+msgid "Enable email notification for new registered users?"
+msgstr "Yeni kayıt olan kullanıcılar için E-Posta bildirimini etkinleştirsin mi?"
+
+#: ../clean-login.php:829
+msgid "Please use HMTL tags for all formatting. And also you can use:"
+msgstr ""
+"Lütfen biçimlendirme için HMTL etiketleri kullanın. Ve de kullanabilirsiniz:"
+
+#: ../clean-login.php:833
+msgid "Terms and conditions"
+msgstr "Şartlar ve Koşullar"
+
+#: ../clean-login.php:835
+msgid "Accept terms / conditions in the registration form?"
+msgstr "Kullanıcı Sözleşmesini & Gizlilik Politikasını kabul ediyorum."
+
+#: ../clean-login.php:836
+msgid "Terms and conditions message"
+msgstr ""
+"Şartlar ve Koşullar Sayfası (Örn. Kullanıcı Sözleşmesini ve Gizlilik "
+"Politikasını okudum ve kabul ediyorum.)"
+
+#: ../clean-login.php:837
+msgid "Target URL"
+msgstr "Hedef URL"
+
+#: ../clean-login.php:841
+msgid "Use Email as Username"
+msgstr "E-Posta adresini Kullanıcı Adı olarak kullan"
+
+#: ../clean-login.php:843
+msgid ""
+"Allow user to use email as username? If you want to use both, WP Email Login "
+"plugin will help you"
+msgstr ""
+"Kullanıcının E-Postasını kullanıcı adı olarak kullanmasına izin verilsin mi? "
+"Her ikisini de kullanmak isteniyorsa, WP Email Login eklentisi size yardımcı "
+"olacaktır."
+
+#: ../clean-login.php:847
+msgid "Single Password"
+msgstr "Tek Şifre"
+
+#: ../clean-login.php:849
+msgid "Only ask for password once on registration form?"
+msgstr "Kayıt formunda parola alanı sadece 1 kere sorulsun mu?"
+
+#: ../clean-login.php:853
+msgid "Automatically Login after Registration"
+msgstr "Kayıttan sonra Otomatik Giriş"
+
+#: ../clean-login.php:855
+msgid "Automatically Login after registration?"
+msgstr "Kayıt olduktan sonra otomatik olarak giriş yapsın mı?"
+
+#: ../clean-login.php:856
+msgid "URL after registration (if blank then homepage)"
+msgstr ""
+"Kayıt oluştuktan sonra yönlendirilecek sayfa (boş bırakılırsa ana sayfaya gider)"
+
+#: ../clean-login.php:863
+msgid "Save Changes"
+msgstr "Değişiklikleri Kaydet"
+
+#: ../clean-login.php:963
+msgid "Use this widget to show the user login status and Clean Login links."
+msgstr ""
+"Oturum açma ve oturum açmış kullanıcıların durumunu ve Clean Login "
+"bağlantılarını göstermek için bu widget kullanılabilir."
+
+#: ../clean-login.php:991 ../content/login-preview.php:13
+msgid "Edit my profile"
+msgstr "Profili Düzenle"
+
+#: ../clean-login.php:994
+msgid "Logout"
+msgstr "Oturumu Kapat"
+
+#: ../clean-login.php:999 ../content/restore-new.php:15 ../content/login-form.php:
+#: 20
+msgid "Log in"
+msgstr "Giriş Yap"
+
+#: ../clean-login.php:1000 ../content/register-form.php:70 ../content/login-form.
+#: php:36
+msgid "Register"
+msgstr "Kayıt Ol"
+
+#: ../clean-login.php:1001 ../content/login-form.php:32
+msgid "Lost password?"
+msgstr "Parolanızı mı unuttunuz?"
+
+#: ../clean-login.php:1014
+msgid "User login status"
+msgstr "Kullanıcının Oturum Açma Durumu"
+
+#: ../clean-login.php:1018
+msgid "Title:"
+msgstr "Başlık:"
+
+#: ../content/restore-form.php:7
+msgid "Username (or E-mail)"
+msgstr "Kullanıcı Adı (veya E-Posta)"
+
+#: ../content/restore-form.php:18
+msgid "Restore password"
+msgstr "Parola hatırlat"
+
+#: ../content/register-form.php:8 ../content/login-form.php:11
+msgid "Username"
+msgstr "Kullanıcı Adı (veya Cattery Name)"
+
+#: ../content/register-form.php:13 ../content/login-edit.php:24
+msgid "E-mail"
+msgstr "E-Posta"
+
+#: ../content/register-form.php:23 ../content/login-edit.php:37
+msgid "New password"
+msgstr "Yeni parola"
+
+#: ../content/register-form.php:28 ../content/login-edit.php:42
+msgid "Confirm password"
+msgstr "Parolayı Doğrula"
+
+#: ../content/register-form.php:35
+msgid "Type the text above"
+msgstr "Yukarıdaki metin yazın"
+
+#: ../content/register-form.php:44
+msgid "Choose your role:"
+msgstr "Rolünü seç:"
+
+#: ../content/login-preview.php:11
+msgid "Log out"
+msgstr "Çıkış"
+
+#: ../content/restore-new.php:6
+msgid "Your new password is"
+msgstr "Yeni parolanızı aşağıya giriniz."
+
+#: ../content/login-edit.php:9
+msgid "General information"
+msgstr "Genel Bilgiler"
+
+#: ../content/login-edit.php:14
+msgid "First name"
+msgstr "İsim"
+
+#: ../content/login-edit.php:19
+msgid "Last name"
+msgstr "Soyisim"
+
+#: ../content/login-edit.php:30
+msgid "Change password"
+msgstr "Parola değiştir"
+
+#: ../content/login-edit.php:32
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave this "
+"blank."
+msgstr "Şifrenizi değiştirmek için, yeni bir şifre girebilirsiniz."
+
+#: ../content/login-edit.php:49
+msgid "Update profile"
+msgstr "Profili güncelle"
+
+#: ../content/login-form.php:15
+msgid "Password"
+msgstr "Şifre"
+
+#: ../content/login-form.php:25
+msgid "Remember?"
+msgstr "Beni Hatırla"
+
+#: ../clean-login.php:37
+msgid "Successfully logged in!"
+msgstr "Tebrikler! Başarıyla oturum açıldı!"

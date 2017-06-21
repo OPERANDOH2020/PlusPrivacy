@@ -1,0 +1,13 @@
+<div class="social_network_settings_panel">
+    <div class="panel-heading">
+        <h2>{{osp.title}} settings editor</h2>
+    </div>
+    <div class="panel-body">
+
+
+        <div ng-repeat="(setting_key,setting) in osp.settings">
+            <setting-editor setting-key="setting_key" setting="setting"></setting-editor>
+         </div>
+
+    </div>
+</div>

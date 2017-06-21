@@ -1,0 +1,130 @@
+[
+    {
+        "domain": "accounts.youtube.com",
+        "expires": "Sat, 17 Jun 2017 07:09:25 GMT",
+        "expiry": 1497683365,
+        "httponly": false,
+        "name": "CheckConnectionTempCookie974",
+        "path": "/accounts/",
+        "secure": false,
+        "value": "643253"
+    },
+    {
+        "domain": "accounts.google.com",
+        "expires": "Mon, 17 Jun 2019 07:09:15 GMT",
+        "expiry": 1560755355,
+        "httponly": true,
+        "name": "GAPS",
+        "path": "/",
+        "secure": true,
+        "value": "1:W92hpLFEtCHjhemFd9-OmH5ldL2gDw:SfagLvEHrk6W_V0k"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Sat, 16 Dec 2017 19:09:14 GMT",
+        "expiry": 1513451354,
+        "httponly": false,
+        "name": "__utmz",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.1497683353.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "httponly": false,
+        "name": "__utmc",
+        "path": "/",
+        "secure": false,
+        "value": "245730968"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Sat, 17 Jun 2017 07:39:14 GMT",
+        "expiry": 1497685154,
+        "httponly": false,
+        "name": "__utmb",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.2.10.1497683353"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Mon, 17 Jun 2019 07:09:14 GMT",
+        "expiry": 1560755354,
+        "httponly": false,
+        "name": "__utma",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.220519462.1497683353.1497683353.1497683353.1"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Sat, 17 Jun 2017 07:10:13 GMT",
+        "expiry": 1497683413,
+        "httponly": false,
+        "name": "_gat",
+        "path": "/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Sun, 18 Jun 2017 07:09:13 GMT",
+        "expiry": 1497769753,
+        "httponly": false,
+        "name": "_gid",
+        "path": "/",
+        "secure": false,
+        "value": "GA1.3.1144171612.1497683354"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Mon, 17 Jun 2019 07:09:13 GMT",
+        "expiry": 1560755353,
+        "httponly": false,
+        "name": "_ga",
+        "path": "/",
+        "secure": false,
+        "value": "GA1.3.644563171.1497683354"
+    },
+    {
+        "domain": "myaccount.google.com",
+        "expires": "Mon, 17 Jul 2017 07:09:12 GMT",
+        "expiry": 1500275352,
+        "httponly": false,
+        "name": "OTZ",
+        "path": "/",
+        "secure": true,
+        "value": "3922989_44_48_123900_44_436380"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Sat, 17 Jun 2017 07:19:12 GMT",
+        "expiry": 1497683952,
+        "httponly": false,
+        "name": "__utmt_t0",
+        "path": "/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Sun, 17 Dec 2017 07:09:11 GMT",
+        "expiry": 1513494551,
+        "httponly": true,
+        "name": "NID",
+        "path": "/",
+        "secure": false,
+        "value": "105=MRW1orHkANIFHYFZNUs1pMCl9-b6bvVL8frP0smCCs95cDiY4ursejpUIqRd27zZhauMfyfaWTagvQ5_hOiXWpF2JBA24aZArU0mWCnz5__H48P51zarmXdSAne5XeP0"
+    },
+    {
+        "domain": "accounts.youtube.com",
+        "expires": "Sat, 17 Jun 2017 07:09:20 GMT",
+        "expiry": 1497683360,
+        "httponly": false,
+        "name": "CheckConnectionTempCookie516",
+        "path": "/accounts/",
+        "secure": false,
+        "value": "129364"
+    }
+]

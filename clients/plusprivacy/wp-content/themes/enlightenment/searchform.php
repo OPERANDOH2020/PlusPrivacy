@@ -1,0 +1,1 @@
+<?php enlightenment_search_form(); ?>

@@ -1,0 +1,1963 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Enlightenment Framework\n"
+"POT-Creation-Date: 2015-04-27 01:34+0200\n"
+"PO-Revision-Date: 2015-04-27 01:34+0200\n"
+"Last-Translator: Daniel <contact@onedesigns.com>\n"
+"Language-Team: One Designs <contact@onedesigns.com>\n"
+"Language: en-US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr_e;_n;_x\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../functions.php:26
+msgid "From The Blog"
+msgstr ""
+
+#: ../functions.php:49
+#, php-format
+msgid "&copy; %1$s %2$s"
+msgstr ""
+
+#: ../functions.php:338
+#, php-format
+msgid "Posted by %s"
+msgstr ""
+
+#: ../functions.php:341
+#, php-format
+msgid "Written by %s"
+msgstr ""
+
+#: ../functions.php:349
+#, php-format
+msgid "On %s"
+msgstr ""
+
+#: ../functions.php:356 ../functions.php:370
+#, php-format
+msgid "Filed under %s"
+msgstr ""
+
+#: ../functions.php:377 ../core/functions/comments.php:42
+#: ../core/functions/template-editor.php:132
+msgid "No Comments"
+msgstr ""
+
+#: ../functions.php:384
+msgid "Edit This"
+msgstr ""
+
+#: ../functions.php:466
+msgid "Scroll To Content"
+msgstr ""
+
+#: ../functions.php:666
+msgid "More"
+msgstr ""
+
+#: ../functions.php:803
+msgid "Newer Posts"
+msgstr ""
+
+#: ../functions.php:804
+msgid "Older Posts"
+msgstr ""
+
+#: ../functions.php:806
+msgid "Later Posts"
+msgstr ""
+
+#: ../functions.php:807
+msgid "Earlier Posts"
+msgstr ""
+
+#: ../functions.php:1042
+#, php-format
+msgid ""
+"Built with <a href=\"%1$s\">Enlightenment Theme</a> by <a href=\"%2$s\" rel="
+"\"designer\">One Designs</a> and <a href=\"%3$s\" rel=\"generator"
+"\">WordPress</a>"
+msgstr ""
+
+#: ../functions.php:1044
+#, php-format
+msgid ""
+"Built with <a href=\"%1$s\">Enlightenment Theme</a> by <a href=\"%2$s\" rel="
+"\"designer\">One Designs</a>"
+msgstr ""
+
+#: ../functions.php:1046
+#, php-format
+msgid ""
+"Built with <a href=\"%1$s\">Enlightenment Theme</a> and <a href=\"%2$s\" rel="
+"\"generator\">WordPress</a>"
+msgstr ""
+
+#: ../functions.php:1048
+#, php-format
+msgid ""
+"Designed by <a href=\"%1$s\" rel=\"designer\">One Designs</a> with <a href="
+"\"%2$s\" rel=\"generator\">WordPress</a>"
+msgstr ""
+
+#: ../functions.php:1050
+#, php-format
+msgid "Built with <a href=\"%1$s\">Enlightenment Theme</a>"
+msgstr ""
+
+#: ../functions.php:1052
+#, php-format
+msgid "Designed by <a href=\"%1$s\" rel=\"designer\">One Designs</a>"
+msgstr ""
+
+#: ../functions.php:1054
+#, php-format
+msgid "Powered by <a href=\"%1$s\" rel=\"generator\">WordPress</a>"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:6
+msgid "Layouts"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:15 ../core/admin/grid-loop.php:15
+#: ../core/admin/template-editor.php:153
+msgid "Select Template"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:21 ../core/admin/grid-loop.php:21
+#: ../core/admin/template-editor.php:159
+#: ../core/admin/unlimited-sidebars.php:298
+msgid "Select Template to Edit"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:32
+msgid "Layout"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:38
+msgid "Select Layout"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:77 ../core/admin/grid-loop.php:94
+#: ../core/functions/jetpack-portfolio.php:56
+msgid "All"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:78
+#: ../core/functions/template-editor.php:209
+#: ../core/functions/unlimited-sidebars.php:20
+msgid "404"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:79 ../core/admin/grid-loop.php:95
+#: ../core/functions/general.php:517 ../core/functions/menu-icons.php:26
+#: ../core/functions/template-editor.php:214
+#: ../core/functions/unlimited-sidebars.php:21
+msgid "Search"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:80 ../core/admin/grid-loop.php:96
+#: ../core/functions/template-editor.php:219
+#: ../core/functions/unlimited-sidebars.php:22
+msgid "Blog"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:81
+#: ../core/functions/template-editor.php:224
+#: ../core/functions/unlimited-sidebars.php:23
+msgid "Post"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:82
+#: ../core/functions/template-editor.php:229
+#: ../core/functions/unlimited-sidebars.php:24
+msgid "Page"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:83 ../core/admin/grid-loop.php:97
+#: ../core/functions/navigation.php:139
+#: ../core/functions/template-editor.php:234
+#: ../core/functions/unlimited-sidebars.php:25 ../inc/theme-options.php:179
+#: ../inc/theme-options.php:217
+msgid "Author"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:84 ../core/admin/grid-loop.php:98
+#: ../core/functions/template-editor.php:239
+#: ../core/functions/unlimited-sidebars.php:26 ../inc/theme-options.php:184
+#: ../inc/theme-options.php:222
+msgid "Date"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:85 ../core/admin/grid-loop.php:99
+#: ../core/functions/template-editor.php:244 ../inc/theme-options.php:189
+msgid "Category"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:86 ../core/admin/grid-loop.php:100
+#: ../core/functions/menu-icons.php:24
+#: ../core/functions/template-editor.php:249
+msgid "Tag"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:90 ../core/admin/grid-loop.php:104
+#: ../core/functions/template-editor.php:263
+#: ../core/functions/unlimited-sidebars.php:30
+#, php-format
+msgid "%1$s Archive"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:98 ../core/admin/grid-loop.php:108
+#: ../core/functions/custom-queries.php:65
+#: ../core/functions/custom-queries.php:678
+#: ../core/functions/unlimited-sidebars.php:37
+msgid "Post Format"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:182
+msgid "Custom Layout"
+msgstr ""
+
+#: ../core/admin/custom-layouts.php:189
+#, php-format
+msgid "Use default layout for %1$s"
+msgstr ""
+
+#: ../core/admin/grid-loop.php:6 ../core/admin/grid-loop.php:32
+msgid "Grid Loop"
+msgstr ""
+
+#: ../core/admin/grid-loop.php:38
+msgid "Select Grid"
+msgstr ""
+
+#: ../core/admin/grid-loop.php:54
+msgid "Lead Posts"
+msgstr ""
+
+#: ../core/admin/init.php:8 ../core/admin/init.php:9
+msgid "Theme Options"
+msgstr ""
+
+#: ../core/admin/init.php:14
+msgid "Theme settings updated successfully."
+msgstr ""
+
+#: ../core/admin/init.php:15
+msgid "Save Settings"
+msgstr ""
+
+#: ../core/admin/init.php:16
+msgid "Reset Defaults"
+msgstr ""
+
+#: ../core/admin/init.php:18
+msgid "General"
+msgstr ""
+
+#: ../core/admin/logo.php:6
+msgid "Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:15
+msgid "Logo Image"
+msgstr ""
+
+#: ../core/admin/logo.php:22
+msgid "Upload Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:31 ../core/admin/logo.php:97
+msgid "Choose Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:32 ../core/admin/logo.php:98
+msgid "Select Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:33 ../core/admin/logo.php:99
+msgid "Use as Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:34 ../core/admin/logo.php:100
+msgid "Remove Logo"
+msgstr ""
+
+#: ../core/admin/logo.php:41 ../core/functions/menu-icons.php:18
+msgid "Settings"
+msgstr ""
+
+#: ../core/admin/logo.php:47
+msgid "Dimmensions"
+msgstr ""
+
+#: ../core/admin/logo.php:60
+msgid "Crop Flag"
+msgstr ""
+
+#: ../core/admin/logo.php:66
+msgid "Crop Logo Image to fixed Dimmensions"
+msgstr ""
+
+#: ../core/admin/logo.php:72 ../inc/theme-options.php:447
+msgid "Site Title"
+msgstr ""
+
+#: ../core/admin/logo.php:80
+msgid "Automatically insert Logo in Site Title"
+msgstr ""
+
+#: ../core/admin/logo.php:85
+msgid "Hide Site Title Text"
+msgstr ""
+
+#: ../core/admin/logo.php:143
+msgid "pixels"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:41
+#, php-format
+msgid "%s (Invalid)"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:45
+#, php-format
+msgid "%s (Pending)"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:58
+msgid "sub item"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:73
+msgid "Move up"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:86
+msgid "Move down"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:88
+#: ../core/admin/menu-icons-walker.php:90
+msgid "Edit Menu Item"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:99
+msgid "URL"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:106
+msgid "Navigation Label"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:112
+msgid "Title Attribute"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:119
+msgid "Open link in a new window/tab"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:124
+msgid "CSS Classes (optional)"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:130
+msgid "Link Relationship (XFN)"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:136
+msgid "Description"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:138
+msgid ""
+"The description will be displayed in the menu if the current theme supports "
+"it."
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:143
+msgid "Menu Item Icon"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:166
+msgid "Move"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:167
+msgid "Up one"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:168
+msgid "Down one"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:171
+msgid "To the top"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:178
+#, php-format
+msgid "Original: %s"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:191 ../core/functions/menu-icons.php:39
+msgid "Remove"
+msgstr ""
+
+#: ../core/admin/menu-icons-walker.php:192
+msgid "Cancel"
+msgstr ""
+
+#: ../core/admin/page-builder.php:4
+msgid "This Feature requires Theme Support for Template Editor."
+msgstr ""
+
+#: ../core/admin/page-builder.php:7
+msgid "This Feature requires Theme Support for Theme Settings."
+msgstr ""
+
+#: ../core/admin/page-builder.php:14
+msgid "Page Builder"
+msgstr ""
+
+#: ../core/admin/page-builder.php:22
+msgid "Please save this post as Draft to use the Page Builder."
+msgstr ""
+
+#: ../core/admin/page-builder.php:30
+#, php-format
+msgid "Use default template hooks for %1$s"
+msgstr ""
+
+#: ../core/admin/post-formats-editor.php:35
+#: ../core/functions/navigation.php:141
+msgid "Post Formats"
+msgstr ""
+
+#: ../core/admin/post-formats-editor.php:69
+msgid "Select Post Format"
+msgstr ""
+
+#: ../core/admin/post-formats-editor.php:75
+msgid "Select Post Format to Edit"
+msgstr ""
+
+#: ../core/admin/post-formats-editor.php:86
+#: ../core/admin/template-editor.php:170
+msgid "Template Hooks"
+msgstr ""
+
+#: ../core/admin/settings-api.php:24
+msgid "Please specify a name attribute for your hidden input."
+msgstr ""
+
+#: ../core/admin/settings-api.php:70
+msgid "Please specify a name attribute for your text field."
+msgstr ""
+
+#: ../core/admin/settings-api.php:114
+msgid "Please specify a name attribute for your checkbox."
+msgstr ""
+
+#: ../core/admin/settings-api.php:118
+msgid "Please specify a label for your checkbox."
+msgstr ""
+
+#: ../core/admin/settings-api.php:177 ../core/admin/settings-api.php:230
+msgid "Please specify a name attribute for your radio buttons."
+msgstr ""
+
+#: ../core/admin/settings-api.php:183
+msgid "Please specify a label for your radio button."
+msgstr ""
+
+#: ../core/admin/settings-api.php:187
+msgid "Please specify a value attribute for your radio button."
+msgstr ""
+
+#: ../core/admin/settings-api.php:282
+msgid "Please specify a name attribute for your textarea."
+msgstr ""
+
+#: ../core/admin/settings-api.php:316
+msgid "Choose Media"
+msgstr ""
+
+#: ../core/admin/settings-api.php:317
+msgid "Insert Media"
+msgstr ""
+
+#: ../core/admin/settings-api.php:318 ../core/functions/custom-queries.php:647
+msgid "Select"
+msgstr ""
+
+#: ../core/admin/settings-api.php:319
+msgid "Remove Media"
+msgstr ""
+
+#: ../core/admin/settings-api.php:328
+msgid "Please specify a name attribute for your upload field."
+msgstr ""
+
+#: ../core/admin/settings-api.php:390
+msgid "Please specify a name attribute for your color picker."
+msgstr ""
+
+#: ../core/admin/settings-api.php:421
+msgid "Opacity:"
+msgstr ""
+
+#: ../core/admin/settings-api.php:432
+msgid "Transparent"
+msgstr ""
+
+#: ../core/admin/settings-api.php:460
+msgid "Please specify a name attribute for your background options."
+msgstr ""
+
+#: ../core/admin/settings-api.php:483
+msgid "Choose Image"
+msgstr ""
+
+#: ../core/admin/settings-api.php:484
+msgid "Select Image"
+msgstr ""
+
+#: ../core/admin/settings-api.php:485
+msgid "Use Image"
+msgstr ""
+
+#: ../core/admin/settings-api.php:486
+msgid "Remove Image"
+msgstr ""
+
+#: ../core/admin/settings-api.php:497
+msgid "Center"
+msgstr ""
+
+#: ../core/admin/settings-api.php:498
+msgid "Center Top"
+msgstr ""
+
+#: ../core/admin/settings-api.php:499
+msgid "Center Bottom"
+msgstr ""
+
+#: ../core/admin/settings-api.php:500
+msgid "Left Top"
+msgstr ""
+
+#: ../core/admin/settings-api.php:501
+msgid "Left Center"
+msgstr ""
+
+#: ../core/admin/settings-api.php:502
+msgid "Left Bottom"
+msgstr ""
+
+#: ../core/admin/settings-api.php:503
+msgid "Right Top"
+msgstr ""
+
+#: ../core/admin/settings-api.php:504
+msgid "Right Center"
+msgstr ""
+
+#: ../core/admin/settings-api.php:505
+msgid "Right Bottom"
+msgstr ""
+
+#: ../core/admin/settings-api.php:515
+msgid "No Repeat"
+msgstr ""
+
+#: ../core/admin/settings-api.php:516
+msgid "Tiled"
+msgstr ""
+
+#: ../core/admin/settings-api.php:517
+msgid "Tiled Horizontally"
+msgstr ""
+
+#: ../core/admin/settings-api.php:518
+msgid "Tiled Vertically"
+msgstr ""
+
+#: ../core/admin/settings-api.php:528
+msgid "Scaled"
+msgstr ""
+
+#: ../core/admin/settings-api.php:529
+msgid "Cover"
+msgstr ""
+
+#: ../core/admin/settings-api.php:530
+msgid "Contained"
+msgstr ""
+
+#: ../core/admin/settings-api.php:540
+msgid "Scroll"
+msgstr ""
+
+#: ../core/admin/settings-api.php:541
+msgid "Fixed"
+msgstr ""
+
+#: ../core/admin/settings-api.php:542
+msgid "Parallax"
+msgstr ""
+
+#: ../core/admin/settings-api.php:573
+msgid "Please specify a name attribute for your font options."
+msgstr ""
+
+#: ../core/admin/settings-api.php:626
+msgid "Light"
+msgstr ""
+
+#: ../core/admin/settings-api.php:627
+msgid "Light Italic"
+msgstr ""
+
+#: ../core/admin/settings-api.php:628
+msgid "Regular"
+msgstr ""
+
+#: ../core/admin/settings-api.php:629
+msgid "Italic"
+msgstr ""
+
+#: ../core/admin/settings-api.php:630
+msgid "Medium"
+msgstr ""
+
+#: ../core/admin/settings-api.php:631
+msgid "Medium Italic"
+msgstr ""
+
+#: ../core/admin/settings-api.php:632
+msgid "Semi-Bold"
+msgstr ""
+
+#: ../core/admin/settings-api.php:633
+msgid "Semi-Bold Italic"
+msgstr ""
+
+#: ../core/admin/settings-api.php:634
+msgid "Bold"
+msgstr ""
+
+#: ../core/admin/settings-api.php:635
+msgid "Bold Italic"
+msgstr ""
+
+#: ../core/admin/settings-api.php:649
+msgid "Please specify a name attribute for your image radio buttons."
+msgstr ""
+
+#: ../core/admin/settings-api.php:654
+msgid "Please specify an image for your image radio button."
+msgstr ""
+
+#: ../core/admin/template-editor.php:35
+msgid "Templates"
+msgstr ""
+
+#: ../core/admin/template-editor.php:328
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:6
+#: ../core/admin/unlimited-sidebars.php:629
+msgid "Sidebars"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:54
+msgid "Edit Dynamic Sidebars"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:111
+msgid "Edit Dynamic Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:111
+msgid "Add Dynamic Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:117
+msgid "Sidebar Title"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:128
+msgid "Display Sidebar Title"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:134
+msgid "Show Title in Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:140
+msgid "Sidebar Description"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:151
+msgid "Display Sidebar Description"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:157
+msgid "Show Description in Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:165
+msgid "Sidebar Grid"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:179
+msgid "Contain Widgets"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:185
+msgid "Center widgets in a fixed-width wrapper"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:193
+msgid "Sidebar Background"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:200
+#: ../core/admin/unlimited-sidebars.php:237
+msgid ""
+"When Transparent is checked, the value passed to background color will be "
+"ignored."
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:205
+msgid "Sidebar Title Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:212
+msgid ""
+"For sidebars with a background image it is recommended to set the title "
+"color to white."
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:217
+msgid "Sidebar Text Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:224
+msgid ""
+"For sidebars with a background image it is recommended to set the text color "
+"to white."
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:229
+msgid "Widgets Background Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:242
+msgid "Widgets Headings Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:253
+msgid "Widgets Text Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:264 ../inc/theme-options.php:607
+msgid "Widgets Link Color"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:292
+msgid "Sidebar Locations"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:354
+#: ../core/admin/unlimited-sidebars.php:386
+msgid "Delete Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:380
+msgid "Edit Sidebar"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:508
+msgid "[None]"
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:634
+msgid "Please save this post as Draft to use Unlimited Sidebars."
+msgstr ""
+
+#: ../core/admin/unlimited-sidebars.php:642
+#, php-format
+msgid "Use default sidebar locations for %1$s"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:6
+msgid "Web Fonts"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:16
+msgid "Subsets"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:22
+msgid "Google Web Fonts Directory"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:29
+msgid "Select your font subsets"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:40
+msgid "Latin"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:46
+msgid "Latin Extended"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:52
+msgid "Greek"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:58
+msgid "Greek Extended"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:64
+msgid "Cyrillic"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:70
+msgid "Cyrillic Extended"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:76
+msgid "Devangari"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:82
+msgid "Khmer"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:88
+msgid "Telugu"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:94
+msgid "Vietnamese"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:101
+msgid "Google Developer API Key"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:108
+#, php-format
+msgid ""
+"Learn how to obtain an API key <a href=\"%s\" target=\"_blank\">here</a>."
+msgstr ""
+
+#: ../core/admin/web-fonts.php:113
+msgid "Filter by Subsets"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:125
+msgid "Live Preview Fonts"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:133
+msgid "Enabling this option will severely impact your browser's performance."
+msgstr ""
+
+#: ../core/admin/web-fonts.php:138
+msgid "Sort by"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:156
+msgid "Fonts in Google Directory"
+msgstr ""
+
+#: ../core/admin/web-fonts.php:202
+msgid ""
+"Obtain a Google Developer API key to see all fonts in the Google Directory."
+msgstr ""
+
+#: ../core/admin/web-fonts.php:204
+msgid "Please wait while the fonts list is being populated."
+msgstr ""
+
+#: ../core/functions/accessibility.php:9
+msgid "Skip to content"
+msgstr ""
+
+#: ../core/functions/accessibility.php:27
+msgid "Menu"
+msgstr ""
+
+#: ../core/functions/accessibility.php:73
+msgid "Search for:"
+msgstr ""
+
+#: ../core/functions/ajax-navigation.php:13
+msgid "Load more posts"
+msgstr ""
+
+#: ../core/functions/ajax-navigation.php:14
+msgid "Loading&#8230;"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:231
+#, php-format
+msgid "%2$s%3$s %1$s"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:238 ../core/functions/navigation.php:145
+msgid "Search Results for"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:238
+msgid "Search Results"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:239 ../core/functions/bootstrap.php:240
+#: ../core/functions/navigation.php:147
+msgid "Archives for"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:239 ../core/functions/bootstrap.php:240
+msgid "Archive"
+msgstr ""
+
+#: ../core/functions/bootstrap.php:310
+msgid "Pages: "
+msgstr ""
+
+#: ../core/functions/comments.php:17
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: ../core/functions/comments.php:41
+#, php-format
+msgid "%1$s for &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: ../core/functions/comments.php:43 ../core/functions/content.php:480
+msgid "1 Comment"
+msgstr ""
+
+#: ../core/functions/comments.php:44 ../core/functions/content.php:481
+msgid "% Comments"
+msgstr ""
+
+#: ../core/functions/comments.php:225
+msgid "says:"
+msgstr ""
+
+#: ../core/functions/comments.php:247
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../core/functions/comments.php:275
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../core/functions/comments.php:343
+msgid "Name"
+msgstr ""
+
+#: ../core/functions/comments.php:347
+msgid "Email"
+msgstr ""
+
+#: ../core/functions/comments.php:351
+msgid "Website"
+msgstr ""
+
+#: ../core/functions/comments.php:372 ../core/functions/menu-icons.php:15
+msgid "Comment"
+msgstr ""
+
+#: ../core/functions/comments.php:385
+msgid "Comments are closed."
+msgstr ""
+
+#: ../core/functions/content.php:231 ../core/functions/content.php:730
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: ../core/functions/content.php:448
+#, php-format
+msgid "Original image: %s pixels"
+msgstr ""
+
+#: ../core/functions/content.php:454
+msgid "Link to full-size image"
+msgstr ""
+
+#: ../core/functions/content.php:479
+msgid "no comments"
+msgstr ""
+
+#: ../core/functions/content.php:515 ../core/functions/menu-icons.php:9
+msgid "Edit"
+msgstr ""
+
+#: ../core/functions/content.php:542
+#, php-format
+msgid "Posted by %1$s on %2$s in %3$s with %5$s"
+msgstr ""
+
+#: ../core/functions/content.php:669
+msgid "Keep reading &rarr;"
+msgstr ""
+
+#: ../core/functions/content.php:706
+msgid "Written by"
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:6
+msgid "Content / Sidebar"
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:14
+msgid "Sidebar / Content"
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:22
+msgid "Full Width"
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:55
+msgid ""
+"An array of supported layouts needs to be specified as second parameter."
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:57
+msgid "At least two layouts need to be supported to use this feature."
+msgstr ""
+
+#: ../core/functions/custom-layouts.php:62
+#, php-format
+msgid ""
+"The layout '%1$s' does not exist. You can create it using the <a href=\"%2$s"
+"\">enlightenment_register_layout()</a> function."
+msgstr ""
+
+#: ../core/functions/custom-queries.php:13
+msgid "Sticky Posts"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:17
+msgid "Post Type Archive"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:21
+msgid "Single Post Type"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:25
+msgid "Single Page"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:29
+msgid "Multiple Pages"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:33
+msgid "Image Gallery"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:37
+msgid "Author Archive"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:41
+msgid "Taxonomy"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:86
+#: ../core/functions/custom-queries.php:592
+msgid "Post:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:106
+#: ../core/functions/custom-queries.php:697
+msgid "Term:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:374
+msgid "Custom Query"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:375
+msgid "Display a custom query of content"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:495
+msgid "See all posts &rarr;"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:502
+msgid "Title:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:512
+msgid "Tagline:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:522
+msgid "List"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:523
+msgid "Gallery"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:524
+msgid "Slider"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:525
+msgid "Carousel"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:528
+msgid "Type:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:543
+msgid "Grid:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:559
+msgid "Query:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:574
+msgid "Post Type:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:610
+msgid "Page:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:633
+msgid "Select Pages:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:645
+msgid "Choose Images"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:646
+msgid "Insert Images"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:664
+msgid "Select Author:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:682
+msgid "Taxonomy:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:708
+msgid "Total number of entries:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:718
+msgid "Number of leading entries:"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:728
+msgid "Show Link to Archive"
+msgstr ""
+
+#: ../core/functions/custom-queries.php:737
+msgid "Link to Archive Label:"
+msgstr ""
+
+#: ../core/functions/general.php:36
+msgid ""
+"This function must be hooked to the 'current_theme_supports-"
+"{$theme_feature}' filter."
+msgstr ""
+
+#: ../core/functions/general.php:77
+msgid "Second parameter can only be 'data' or 'aria'"
+msgstr ""
+
+#: ../core/functions/general.php:132
+msgid "First parameter must be string or associative array."
+msgstr ""
+
+#: ../core/functions/general.php:184
+msgid "Primary Menu"
+msgstr ""
+
+#: ../core/functions/general.php:372
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../core/functions/general.php:513
+msgid "Search this website"
+msgstr ""
+
+#: ../core/functions/general.php:587
+msgid "The Primary Sidebar"
+msgstr ""
+
+#: ../core/functions/general.php:674
+#, php-format
+msgid ""
+"Built with <a href=\"%1$s\" rel=\"designer\">Enlightenment Framework</a> and "
+"<a href=\"%2$s\" rel=\"generator\">WordPress</a>"
+msgstr ""
+
+#: ../core/functions/grid-loop.php:6
+msgid "1 Column"
+msgstr ""
+
+#: ../core/functions/grid-loop.php:15 ../core/functions/grid-loop.php:24
+#: ../core/functions/grid-loop.php:33
+#, php-format
+msgid "%d Columns"
+msgstr ""
+
+#: ../core/functions/infinite-scroll.php:10
+msgid "Loading more posts &#8230;"
+msgstr ""
+
+#: ../core/functions/infinite-scroll.php:11
+msgid "There are no more posts to display."
+msgstr ""
+
+#: ../core/functions/jetpack-portfolio.php:107
+msgid "Project Types Filter"
+msgstr ""
+
+#: ../core/functions/logo.php:18
+msgid "Please add the width parameter for your logo."
+msgstr ""
+
+#: ../core/functions/logo.php:22
+msgid "Please add the height parameter for your logo."
+msgstr ""
+
+#: ../core/functions/menu-icons.php:5
+msgid "None"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:6
+msgid "Home"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:7
+msgid "Pencil"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:8
+msgid "Paper Clip"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:10
+msgid "Picture"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:11
+msgid "Camera"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:12
+msgid "Audio"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:13
+msgid "Video"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:14
+msgid "Cloud"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:16
+msgid "File"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:17
+msgid "Grid"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:19
+msgid "Flag"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:20
+msgid "Folder"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:21
+msgid "Globe"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:22
+msgid "Map Marker"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:23
+msgid "Shopping Cart"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:25
+msgid "User"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:27
+msgid "Calendar"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:28
+msgid "Bookmark"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:29
+msgid "Download"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:30
+msgid "Upload"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:31
+msgid "Eye"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:32
+msgid "Flash"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:33
+msgid "Heart"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:34
+msgid "Leaf"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:35
+msgid "Play"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:36
+msgid "Plus"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:37
+msgid "Pin"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:38
+msgid "Refresh"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:40
+msgid "Star"
+msgstr ""
+
+#: ../core/functions/menu-icons.php:41
+msgid "Time"
+msgstr ""
+
+#: ../core/functions/navigation.php:10
+msgid "Toggle Navigation"
+msgstr ""
+
+#: ../core/functions/navigation.php:120
+#, php-format
+msgid "Browsing %1$s%2$s"
+msgstr ""
+
+#: ../core/functions/navigation.php:122
+msgid "From the Blog"
+msgstr ""
+
+#: ../core/functions/navigation.php:126
+#, php-format
+msgid "%1$s Page %2$s"
+msgstr ""
+
+#: ../core/functions/navigation.php:128
+#, php-format
+msgid "%1$s %2$s%3$s"
+msgstr ""
+
+#: ../core/functions/navigation.php:157
+msgid "Content Not Found"
+msgstr ""
+
+#: ../core/functions/navigation.php:240
+msgid "Previous Page"
+msgstr ""
+
+#: ../core/functions/navigation.php:241
+msgid "Next Page"
+msgstr ""
+
+#: ../core/functions/navigation.php:242
+msgid "Read all Articles"
+msgstr ""
+
+#: ../core/functions/navigation.php:317
+msgid "Older Comments"
+msgstr ""
+
+#: ../core/functions/navigation.php:318
+msgid "Newer Comments"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:7
+msgid "Gallery Shortcode"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:8
+msgid "Video Shortcode"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:9
+msgid "Audio Shortcode"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:10
+msgid "Post Image"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:11
+msgid "Post Blockquote"
+msgstr ""
+
+#: ../core/functions/post-formats-editor.php:12
+msgid "Author Avatar"
+msgstr ""
+
+#: ../core/functions/template-editor.php:6
+msgid "Before Page"
+msgstr ""
+
+#: ../core/functions/template-editor.php:10
+msgid "Before Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:14
+msgid "Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:18
+msgid "After Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:29
+msgid "Before Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:33
+msgid "Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:37
+msgid "Before Entries List"
+msgstr ""
+
+#: ../core/functions/template-editor.php:43
+msgid "After Entries List"
+msgstr ""
+
+#: ../core/functions/template-editor.php:47
+msgid "No Content Found"
+msgstr ""
+
+#: ../core/functions/template-editor.php:51
+msgid "After The Loop"
+msgstr ""
+
+#: ../core/functions/template-editor.php:55
+msgid "After Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:66
+msgid "Before Entry"
+msgstr ""
+
+#: ../core/functions/template-editor.php:70
+msgid "Before Entry Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:74
+msgid "Entry Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:78
+msgid "After Entry Header"
+msgstr ""
+
+#: ../core/functions/template-editor.php:82
+msgid "Before Entry Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:86
+msgid "Entry Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:90
+msgid "After Entry Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:94
+msgid "Before Entry Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:98
+msgid "Entry Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:102
+msgid "After Entry Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:106
+msgid "After Entry"
+msgstr ""
+
+#: ../core/functions/template-editor.php:116
+msgid "Before Comments"
+msgstr ""
+
+#: ../core/functions/template-editor.php:120
+msgid "Before Comments List"
+msgstr ""
+
+#: ../core/functions/template-editor.php:124
+#: ../core/functions/template-editor.php:186
+#: ../core/functions/template-editor.php:254 ../inc/theme-options.php:194
+#: ../inc/theme-options.php:232 ../inc/theme-options.php:674
+msgid "Comments"
+msgstr ""
+
+#: ../core/functions/template-editor.php:128
+msgid "After Comments List"
+msgstr ""
+
+#: ../core/functions/template-editor.php:136
+msgid "After Comments"
+msgstr ""
+
+#: ../core/functions/template-editor.php:146
+msgid "Before Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:150 ../inc/theme-options.php:53
+#: ../inc/theme-options.php:421
+msgid "Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:154
+msgid "After Footer"
+msgstr ""
+
+#: ../core/functions/template-editor.php:175
+msgid "Site Branding"
+msgstr ""
+
+#: ../core/functions/template-editor.php:176
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../core/functions/template-editor.php:177
+msgid "Archive Location"
+msgstr ""
+
+#: ../core/functions/template-editor.php:178
+msgid "The Loop"
+msgstr ""
+
+#: ../core/functions/template-editor.php:179
+msgid "Post Title"
+msgstr ""
+
+#: ../core/functions/template-editor.php:180 ../inc/theme-options.php:171
+#: ../inc/theme-options.php:537
+msgid "Post Meta"
+msgstr ""
+
+#: ../core/functions/template-editor.php:181
+msgid "Post Excerpt"
+msgstr ""
+
+#: ../core/functions/template-editor.php:182
+msgid "Post Thumbnail"
+msgstr ""
+
+#: ../core/functions/template-editor.php:183
+msgid "Post Content"
+msgstr ""
+
+#: ../core/functions/template-editor.php:184
+msgid "Post Meta Utility"
+msgstr ""
+
+#: ../core/functions/template-editor.php:185
+msgid "Author Bio"
+msgstr ""
+
+#: ../core/functions/template-editor.php:187
+msgid "Comments Title"
+msgstr ""
+
+#: ../core/functions/template-editor.php:188
+msgid "Comments Navigation"
+msgstr ""
+
+#: ../core/functions/template-editor.php:189
+msgid "Comments List"
+msgstr ""
+
+#: ../core/functions/template-editor.php:190
+msgid "Comment Form"
+msgstr ""
+
+#: ../core/functions/template-editor.php:191 ../inc/theme-options.php:47
+msgid "Posts Navigation"
+msgstr ""
+
+#: ../core/functions/template-editor.php:192 ../inc/theme-options.php:303
+msgid "Copyright Notice"
+msgstr ""
+
+#: ../core/functions/template-editor.php:193 ../inc/theme-options.php:314
+msgid "Credit Links"
+msgstr ""
+
+#: ../core/functions/template-editor.php:194
+msgid "Custom Function"
+msgstr ""
+
+#: ../core/functions/template-editor.php:297
+msgid "Blog Post Teaser"
+msgstr ""
+
+#: ../core/functions/unlimited-sidebars.php:6
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../core/functions/web-fonts.php:363
+#, php-format
+msgid ""
+"The font \"%1$s\" does not support your selected subset <code>%2$s</code>."
+msgstr ""
+
+#: ../inc/page-design.php:8 ../inc/theme-options.php:342
+msgid "Page Design"
+msgstr ""
+
+#: ../inc/theme-options.php:6
+msgid "Design"
+msgstr ""
+
+#: ../inc/theme-options.php:7
+msgid "Typography"
+msgstr ""
+
+#: ../inc/theme-options.php:8
+msgid "SEO"
+msgstr ""
+
+#: ../inc/theme-options.php:17 ../inc/theme-options.php:397
+msgid "Navbar"
+msgstr ""
+
+#: ../inc/theme-options.php:23 ../inc/theme-options.php:403
+#: ../inc/theme-options.php:487 ../inc/theme-options.php:662
+msgid "Page Header"
+msgstr ""
+
+#: ../inc/theme-options.php:29
+msgid "Post Thumbnails"
+msgstr ""
+
+#: ../inc/theme-options.php:35
+msgid "Entry Meta"
+msgstr ""
+
+#: ../inc/theme-options.php:41
+msgid "Lightbox"
+msgstr ""
+
+#: ../inc/theme-options.php:59
+msgid "Navbar Position"
+msgstr ""
+
+#: ../inc/theme-options.php:73
+msgid "Navbar Background Color"
+msgstr ""
+
+#: ../inc/theme-options.php:87
+msgid "Navbar Size"
+msgstr ""
+
+#: ../inc/theme-options.php:97
+msgid "Menu Item Descriptions are hidden in the small Navbar."
+msgstr ""
+
+#: ../inc/theme-options.php:102
+msgid "Shrink Navbar"
+msgstr ""
+
+#: ../inc/theme-options.php:108
+msgid "Shrink Fixed Navbar when scrolling"
+msgstr ""
+
+#: ../inc/theme-options.php:113
+msgid "Blog Pages Header Text"
+msgstr ""
+
+#: ../inc/theme-options.php:123
+msgid "Blog Pages Description"
+msgstr ""
+
+#: ../inc/theme-options.php:133
+msgid "Thumbnail Header Image"
+msgstr ""
+
+#: ../inc/theme-options.php:139
+msgid "Display post thumbnail as header image on single posts"
+msgstr ""
+
+#: ../inc/theme-options.php:144
+msgid "Crop Thumbnails"
+msgstr ""
+
+#: ../inc/theme-options.php:150
+msgid "Hard crop post thumbnails"
+msgstr ""
+
+#: ../inc/theme-options.php:151
+#, php-format
+msgid ""
+"After changing this option, it is recommended to recreate your thumbnails "
+"using a plugin like <a href=\"%s\">AJAX Thumbnail Rebuild</a>"
+msgstr ""
+
+#: ../inc/theme-options.php:156
+msgid "Thumbnails Size"
+msgstr ""
+
+#: ../inc/theme-options.php:199
+msgid "Edit Post Link"
+msgstr ""
+
+#: ../inc/theme-options.php:209
+msgid "Portfolio Meta"
+msgstr ""
+
+#: ../inc/theme-options.php:227
+msgid "Project Type"
+msgstr ""
+
+#: ../inc/theme-options.php:237
+msgid "Edit Project Link"
+msgstr ""
+
+#: ../inc/theme-options.php:246
+msgid "Enable Lightbox"
+msgstr ""
+
+#: ../inc/theme-options.php:252
+msgid "Open image links in a lightbox"
+msgstr ""
+
+#: ../inc/theme-options.php:257
+msgid "Lightbox Script"
+msgstr ""
+
+#: ../inc/theme-options.php:264
+msgid "Colorbox"
+msgstr ""
+
+#: ../inc/theme-options.php:265
+msgid "Fluidbox"
+msgstr ""
+
+#: ../inc/theme-options.php:266
+msgid "ImageLightbox.js"
+msgstr ""
+
+#: ../inc/theme-options.php:272
+msgid "Posts Navigation Style"
+msgstr ""
+
+#: ../inc/theme-options.php:279
+msgid "Static Links"
+msgstr ""
+
+#: ../inc/theme-options.php:287
+msgid "Static Links Labels"
+msgstr ""
+
+#: ../inc/theme-options.php:294
+msgid "Next Page / Previous Page"
+msgstr ""
+
+#: ../inc/theme-options.php:295
+msgid "Older Posts / Newer Posts"
+msgstr ""
+
+#: ../inc/theme-options.php:296
+msgid "Earlier Posts / Later Posts"
+msgstr ""
+
+#: ../inc/theme-options.php:297
+msgid "Numbered Pagination"
+msgstr ""
+
+#: ../inc/theme-options.php:309
+msgid "%year% = Current Year, %sitename% = Website Name"
+msgstr ""
+
+#: ../inc/theme-options.php:348
+msgid "Custom CSS"
+msgstr ""
+
+#: ../inc/theme-options.php:354
+msgid "Select Default Page Design"
+msgstr ""
+
+#: ../inc/theme-options.php:376
+msgid "Enter your custom CSS Rules"
+msgstr ""
+
+#: ../inc/theme-options.php:391
+msgid "Links"
+msgstr ""
+
+#: ../inc/theme-options.php:409
+msgid "Posts"
+msgstr ""
+
+#: ../inc/theme-options.php:415
+msgid "Widgets"
+msgstr ""
+
+#: ../inc/theme-options.php:427
+msgid "Link Color"
+msgstr ""
+
+#: ../inc/theme-options.php:437
+msgid "Link Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:457
+msgid "Site Title Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:467
+msgid "Menu Items"
+msgstr ""
+
+#: ../inc/theme-options.php:477
+msgid "Menu Items Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:497 ../inc/theme-options.php:668
+msgid "Post Titles"
+msgstr ""
+
+#: ../inc/theme-options.php:507
+msgid "Teaser Post Titles"
+msgstr ""
+
+#: ../inc/theme-options.php:517
+msgid "Single Post Title"
+msgstr ""
+
+#: ../inc/theme-options.php:527
+msgid "Post Titles Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:547
+msgid "Post Meta Links Color"
+msgstr ""
+
+#: ../inc/theme-options.php:557
+msgid "Post Meta Links Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:567
+msgid "Body Copy"
+msgstr ""
+
+#: ../inc/theme-options.php:577
+msgid "Excerpts"
+msgstr ""
+
+#: ../inc/theme-options.php:587 ../inc/theme-options.php:680
+msgid "Widget Titles"
+msgstr ""
+
+#: ../inc/theme-options.php:597
+msgid "Widget Content"
+msgstr ""
+
+#: ../inc/theme-options.php:617
+msgid "Widgets Link Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:627
+msgid "Footer Text"
+msgstr ""
+
+#: ../inc/theme-options.php:637
+msgid "Footer Link Color"
+msgstr ""
+
+#: ../inc/theme-options.php:647
+msgid "Footer Link Hover Color"
+msgstr ""
+
+#: ../inc/theme-options.php:694
+msgid "Page Header Tag on Archive Pages"
+msgstr ""
+
+#: ../inc/theme-options.php:705
+msgid "Page Header Tag on Single Posts"
+msgstr ""
+
+#: ../inc/theme-options.php:716
+msgid "Post Title Tag"
+msgstr ""
+
+#: ../inc/theme-options.php:727
+msgid "Teaser Post Title Tag"
+msgstr ""
+
+#: ../inc/theme-options.php:738
+msgid "Single Post Title Tag"
+msgstr ""
+
+#: ../inc/theme-options.php:749
+msgid "Comments Title Tag"
+msgstr ""
+
+#: ../inc/theme-options.php:760
+msgid "Widget Title Tag"
+msgstr ""

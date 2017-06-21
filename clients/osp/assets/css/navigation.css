@@ -1,0 +1,27 @@
+#site-navigation{
+    width:570px;
+    float:right;
+}
+
+.dropdown .logged_in_as{
+    white-space: nowrap;
+    padding:10px;
+}
+
+li.logged_in_feature ul{
+    padding: 0;
+}
+.current_user_email{
+    padding: 5px 10px;
+}
+.current_user_email .glyphicon{
+    position: absolute;
+    top:15px;
+}
+.current_user_email span.user_email{
+    margin-left: 20px;
+}
+
+.dropdown-menu > li > a.user_logout{
+    padding-left: 10px;
+}

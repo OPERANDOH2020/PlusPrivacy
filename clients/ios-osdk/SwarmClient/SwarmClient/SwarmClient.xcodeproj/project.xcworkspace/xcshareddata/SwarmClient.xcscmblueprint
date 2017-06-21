@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69" : 0,
+    "DAB89CDEB487E445388C1CDB928723C18EC4D210" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "46C79FFB-2C2A-4656-87E3-A3857FE331ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69" : "op-clients\/",
+    "DAB89CDEB487E445388C1CDB928723C18EC4D210" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwarmClient",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "op-clients-ios-osdk\/SwarmClient\/SwarmClient\/SwarmClient.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OPERANDOH2020\/op-clients.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/tfs2015.ad.rms.intern:8080\/tfs\/DefaultCollection2\/_git\/SIMAP%2520with%2520Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAB89CDEB487E445388C1CDB928723C18EC4D210"
+    }
+  ]
+}

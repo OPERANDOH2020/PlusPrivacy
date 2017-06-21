@@ -1,0 +1,48 @@
+<div class = "container" ng-app="plusprivacy" id="user_register">
+    <div class="wrapper" ng-controller="signupController">
+        <form method="post" name="signup_form" class="form-signup" ng-submit="register()" ng-cloak ng-if="success == false" >
+
+            <h3 class="form-signin-heading">Sign Up</h3>
+            <hr class="colorgraph"><br>
+
+            <input type="email" class="form-control" name="Email" placeholder="Email" required="" autofocus="" ng-model="user.email"/>
+            <input type="password" class="form-control" name="Password" placeholder="Password" required="" ng-model="user.password"/>
+            <input type="password" class="form-control" name="Repeat password" placeholder="Repeat password" required="" ng-model="user.repeat_password"/>
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <button class="btn btn-lg btn-primary btn-block"  id="register-btn" name="Submit" value="Register" type="submit">Register</button>
+                </div>
+            </div>
+
+
+
+            <div ng-show="registerError == true" ng-cloak>
+                <div class="alert alert-danger" role="alert" id="register_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{registerErrorMessage}}
+                </div>
+            </div>
+
+            <ui-loader ng-cloak ng-if="requestInProgress"></ui-loader>
+
+        </form>
+
+
+        <div ng-show="success == true" ng-cloak class="registration_successfully">
+            <div class="alert alert-success" role="alert" id="register_success">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                Check your email for account activation!
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <a class="btn btn-lg btn-primary btn-block"  href="/login" id="login-btn" name="Submit" value="Login" type="button" >Login</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

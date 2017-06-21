@@ -1,0 +1,170 @@
+<div class="edit-setting" ng-class="{editMode:editMode}">
+
+    <div class="panel panel-default panel-setting">
+        <div class="panel-heading">
+            <span>{{setting.read.name}}</span>
+
+            <div class="setting_actions">
+                <button class="edit-setting-edit" ng-click="edit()">Edit</button>
+                <button class="edit-setting-deactivate">Deactivate</button>
+                <button class="edit-setting-delete">Delete</button>
+            </div>
+        </div>
+        <div ng-switch="editMode">
+
+            <div class="panel-body" ng-switch-when="false">
+                <span>Status:{{setting.isActive?"Active":"Inactive"}}</span>
+            </div>
+
+            <div class="panel-body" ng-switch-when="true">
+                <div class="row">
+
+                    <div class="col-lg-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="setting_key">Setting Key</span>
+                            <input type="text" class="form-control" placeholder="Unique setting key"
+                                   aria-describedby="setting_key" ng-model="settingKey">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                                    <span class="setting_is_active">
+                                        <label>
+                                            <input type="checkbox" aria-describedby="setting_active" ng-model="setting.isActive"/>
+                                            <span>Active</span>
+                                        </label>
+                                    </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="setting_name">Setting Name</span>
+                            <input type="text" class="form-control" placeholder="Setting name"
+                                   aria-describedby="setting_name" ng-model="setting.read.name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="tags">Setting Tags</span>
+                            <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="setting.tags"
+                                       theme="bootstrap" sortable="true" title="Choose a tag">
+                                <ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
+                                <ui-select-choices repeat="tag in availableTags | filter:$select.search">
+                                    {{tag}}
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 read_write_settings">
+                    <h4>Read Settings</h4>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="url">Setting url</span>
+                        <input type="text" class="form-control" placeholder="Setting url"
+                               aria-describedby="setting_name" ng-model="setting.read.url">
+                    </div>
+
+                    <hr/>
+
+                    <h5>Available settings</h5>
+
+                    <div ng-repeat="(option, value) in setting.read.availableSettings">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{option}}</span>
+                            <input type="text" class="form-control" placeholder="Option name"
+                                   value="{{value.name}}"/>
+                            <button class="delete-btn" ng-click="removeReadOption(option)">x</button>
+                        </div>
+                    </div>
+
+                    <!-- new option placeholder -->
+                    <div class="input-group" ng-if="addNewOptionIsVisible">
+                        <span class="input-group-addon">{{newOption.key?newOption.key:"Option Key"}}</span>
+                        <input type="text" class="form-control" placeholder="Option Name"
+                               ng-value="newOption.name" disabled/>
+                        <button class="delete-btn" ng-click="toggleAddNewOption()">x</button>
+                    </div>
+
+                    <!-- new option input fields -->
+
+                    <div class="add_new_option" ng-if="addNewOptionIsVisible">
+                        <div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Option key</span>
+                                <input type="text" class="form-control" placeholder="Option key"
+                                       ng-model="newOption.key"/>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Option value</span>
+                                <input type="text" class="form-control" placeholder="Option name"
+                                       ng-model="newOption.name"/>
+                            </div>
+                            <button class="btn-primary" ng-click="insertReadOption()">Insert Option</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" ng-click="toggleAddNewOption()" ng-if="!addNewOptionIsVisible">Add
+                        new
+                        Option
+                    </button>
+
+                    <hr/>
+
+                    <h5>jQuery selector</h5>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Element Selector</span>
+                            <textarea type="text" class="form-control" placeholder="jQuery Selector"
+                                      ng-model="setting.read.jquery_selector.element">{{setting.read.jquery_selector.element}}</textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Element Type</span>
+                        <ui-select ng-model="setting.read.jquery_selector.valueType"
+                                   theme="bootstrap" sortable="true" title="Choose an element type">
+                            <ui-select-match placeholder="Select element Type...">{{$select.selected}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="valueType in jqueryElementTypes | filter:$select.search">
+                                {{valueType}}
+                            </ui-select-choices>
+                        </ui-select>
+
+                    </div>
+
+                    <hr/>
+
+                </div>
+
+                <div class="col-lg-6 read_write_settings">
+                    <h4>Write Settings</h4>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="write_page">Page url</span>
+                        <input type="text" class="form-control" placeholder="Setting url"
+                               aria-describedby="write_page" ng-model="setting.write.page">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="url_template">Url template</span>
+                        <input type="text" class="form-control" placeholder="Url template"
+                               aria-describedby="write_page" ng-model="setting.write.url_template">
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

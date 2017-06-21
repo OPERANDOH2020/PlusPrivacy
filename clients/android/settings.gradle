@@ -1,0 +1,2 @@
+include ':app', ':SwarmClient'
+project(':SwarmClient').projectDir = new File('../op-clients-android-osdk/SwarmClient')

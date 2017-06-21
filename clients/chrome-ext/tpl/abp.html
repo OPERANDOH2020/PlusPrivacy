@@ -1,0 +1,20 @@
+<div>
+    <div class="feature-image feature-{{subscription.feature}}-image"></div>
+    <div class="feature-description">
+        <div class="feature-description-textblock">
+            <h3 class="i18n_firstRun_feature_{{subscription.feature}} feature-title">{{subscription.feature_title}}</h3>
+            <span class="i18n_firstRun_feature_{{subscription.feature}}_description">{{subscription.feature_description}}</span>
+        </div>
+
+
+        <div class="toggle" >
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" ng-checked="subscription.checked"
+                   id="toggle-{{subscription.feature}}" ng-click="toggleOnOffButton()">
+            <label class="onoffswitch-label" for="toggle-{{subscription.feature}}" >
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+
+    </div>
+</div>

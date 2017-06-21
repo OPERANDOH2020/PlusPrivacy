@@ -1,0 +1,39 @@
+<div ng-app="plusprivacy" id="osp-offers">
+    <div ng-controller="ospOffersController as ctrl">
+
+        <div ng-cloak class="user_logged_in" ng-if="userIsLoggedIn === false">
+            <h3> You don't have enough privileges to access this content</b>!</h3>
+        </div>
+
+        <div ng-cloak class="user_logged_in" ng-if="offers">
+            <table class="table table-bordered" id="osp_offers_table" datatable="ng" dt-column-defs="dtColumnDefs"
+                   dt-options="dtOptions" dt-instance="dtInstance">
+                <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Name</th>
+                    <th style="width:40%">Description</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th style="width:190px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="offer in offers">
+                    <td><img width="16px" ng-cloak data-ng-src="data:image/png;base64,{{offer.logo}}"></td>
+                    <td>{{offer.name}}</td>
+                    <td>{{offer.description}}</td>
+                    <td>{{offer.start_date|timestampToDateFormat}}</td>
+                    <td>{{offer.end_date|timestampToDateFormat}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="modifyOffer(offer.offerId)">Modify</button>
+                        <button class="btn btn-primary-black" ng-click="deleteOspOffer(offer.offerId)">Delete offer</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-primary" ng-click="addNewOfferModal()">Add new offer</button>
+    </div>
+</div>

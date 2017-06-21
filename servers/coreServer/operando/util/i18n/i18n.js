@@ -1,0 +1,4 @@
+
+exports.getLocaleKey = function(key){
+
+}

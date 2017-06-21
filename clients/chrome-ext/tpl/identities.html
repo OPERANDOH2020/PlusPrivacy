@@ -1,0 +1,32 @@
+<div>
+    <div id="identities_container">
+        <div class="table-responsive">
+        <table class="table table-bordered">
+
+            <tbody>
+
+            <tr  identity-row ng-repeat="identity in identities | filter:{isReal:true} " identity="identity">
+            </tr>
+
+
+            <tr class="thead">
+                <td colspan="3">Alternative identities</td>
+            </tr>
+
+
+            <tr  identity-row ng-repeat="identity in identities | filter:{isReal:false}" identity="identity">
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+        <p><small>The selected identity will be automatically suggested as your email address when you register at web sites. Emails sent to any of your alternative identities will be relayed to your real email address. If you delete an alternative identity, emails sent to it will bounce.</small></p>
+    </div>
+
+    <button class="btn-primary" ng-disabled="identities.length==20" ng-click="add_new_sid()">Add identity</button>
+
+    <div ng-if="20 - identities.length>0" style="margin-top: 20px"><span>You have {{20 - identities.length}} identities left</span></div>
+    <div ng-if="20 - identities.length==0" style="margin-top: 20px"><span>You cannot add more identities</span></div>
+</div>
+

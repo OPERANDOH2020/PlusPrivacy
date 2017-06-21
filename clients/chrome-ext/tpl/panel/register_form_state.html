@@ -1,0 +1,50 @@
+<div>
+    <div class="item_icon user_icon"></div>
+    <div id="user_area_register">
+        <div class="row">
+            <div class="col-lg-12">
+                <form role="form" class="form-horizontal" name="RegistrationForm">
+
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="email" id="user_email" validator="email" required autofocus ng-model="user.email"
+                               placeholder="{{'email'|i18n}}" class="form-control"/>
+                    </div>
+
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="user_pass" validator="minlength=8" ng-model="user.password"
+                               placeholder="{{'password'|i18n}}" class="form-control"/>
+                    </div>
+
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="user_pass_repeat" validator="minlength=8"
+                               ng-model="user.repeat_password" placeholder="{{'confirmPassword'|i18n}}" class="form-control"/>
+                    </div>
+
+                    <hr/>
+
+                    <div class="form-group form_submit user_actions">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <button ng-click="register()" type="submit" ng-disabled="requestIsProcessed">
+                                    {{"signUp"|i18n}}
+                                </button>
+                            </div>
+                            <div class="col-xs-5">
+                                <button ng-click="cancel()" type="submit" validation-reset="RegistrationForm">{{"back"|i18n}}
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

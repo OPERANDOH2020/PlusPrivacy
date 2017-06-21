@@ -1,0 +1,20 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Accept OSP Request</h3>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to approve this OSP request?</p>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="acceptOspRequest()" class="btn btn-primary" data-dismiss="modal">Approve OSP</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

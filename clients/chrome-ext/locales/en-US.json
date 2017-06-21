@@ -1,0 +1,20 @@
+{
+    "accountNotActivated": "Account was not activated!",
+    "invalidCredentials": "Invalid credentials!",
+    "login": "Login",
+    "logout":"Log out",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "keepMeLoggedIn": "Keep me logged in",
+    "forgotPassword": "Forgot Password",
+    "cancel": "Cancel",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "resetPassword": "Reset password",
+    "passwordsNotMatch": "Passwords don't match",
+    "emailIsUnavailable": "Email is unavailable",
+    "back": "Back",
+    "privacyDashboard":"Privacy Dashboard",
+    "adblockerOptions":"AdBlocker Options"
+  }

@@ -1,0 +1,10 @@
+.add_offer_logo {
+    width: 16px;
+    height: 16px;
+    max-width: none;
+}
+
+.input-group textarea.form-control, .input-group textarea.form-control:last-child {
+text-indent: 0px!important;
+border-radius: 0px 4px 4px 0px!important;
+}

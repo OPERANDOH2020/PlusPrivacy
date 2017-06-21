@@ -1,0 +1,237 @@
+# WordPress Blank Pot
+# Copyright (C) 2014 ...
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: venobox-lightbox\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2016-07-10 13:30+1000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Neil Gee <ngowran@mac.com>\n"
+"Language-Team: WP Beaches <web@wpbeaches.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/options-page-wrapper.php:3 venobox.php:129
+msgid "VenoBox Lightbox Plugin"
+msgstr ""
+
+#: inc/options-page-wrapper.php:9
+msgid "VenoBox"
+msgstr ""
+
+#: inc/options-page-wrapper.php:16
+msgid "Markup Instructions"
+msgstr ""
+
+#: inc/options-page-wrapper.php:17
+msgid "Plugin Options"
+msgstr ""
+
+#: inc/options-page-wrapper.php:43
+msgid "Markup instructions on how to use the VenoBox Lightbox"
+msgstr ""
+
+#: inc/options-page-wrapper.php:46
+msgid ""
+"Below are manual instructions for using the VenoBox Lightbox for your code."
+msgstr ""
+
+#: inc/options-page-wrapper.php:47
+msgid "In the"
+msgstr ""
+
+#: inc/options-page-wrapper.php:47
+msgid " tab some of these tasks can be automated, in particular for images."
+msgstr ""
+
+#: inc/options-page-wrapper.php:49
+msgid ""
+"Typically for the lightbox to work  you wrap a link around a text or image "
+"element."
+msgstr ""
+
+#: inc/options-page-wrapper.php:52
+msgid "Video - Vimeo Example"
+msgstr ""
+
+#: inc/options-page-wrapper.php:58
+msgid "When clicked the lightbox will execute showing the linked content."
+msgstr ""
+
+#: inc/options-page-wrapper.php:60
+msgid "To use"
+msgstr ""
+
+#: inc/options-page-wrapper.php:60
+msgid " you need to ensure the CSS class"
+msgstr ""
+
+#: inc/options-page-wrapper.php:60
+msgid ""
+"is used in the link mark up and also if the lightbox content is not an image "
+"the"
+msgstr ""
+
+#: inc/options-page-wrapper.php:60
+msgid "attribute is also required"
+msgstr ""
+
+#: inc/options-page-wrapper.php:60
+msgid "or other Data Type, see below under Data Types"
+msgstr ""
+
+#: inc/options-page-wrapper.php:61
+msgid "Data Types"
+msgstr ""
+
+#: inc/options-page-wrapper.php:62
+msgid ""
+"If the content is not an image you have to specify its type via data "
+"attribute"
+msgstr ""
+
+#: inc/options-page-wrapper.php:63
+msgid "Available data-type values"
+msgstr ""
+
+#: inc/options-page-wrapper.php:72
+msgid "Image Example"
+msgstr ""
+
+#: inc/options-page-wrapper.php:82
+msgid ""
+"Image example above has titles, pagination, gallery and infinite gallery"
+msgstr ""
+
+#: inc/options-page-wrapper.php:84
+msgid "Title Attribute"
+msgstr ""
+
+#: inc/options-page-wrapper.php:85
+msgid "Optional: set "
+msgstr ""
+
+#: inc/options-page-wrapper.php:85
+msgid ""
+" attribute to show a description, it will appear at the top of the lightbox."
+msgstr ""
+
+#: inc/options-page-wrapper.php:89
+msgid "Auto Play"
+msgstr ""
+
+#: inc/options-page-wrapper.php:91
+msgid "Use "
+msgstr ""
+
+#: inc/options-page-wrapper.php:91
+msgid ""
+" to automatically start Vimeo and YouTube videos once the text or image link "
+"is clicked"
+msgstr ""
+
+#: inc/options-page-wrapper.php:97
+msgid "Overlay colors"
+msgstr ""
+
+#: inc/options-page-wrapper.php:98
+msgid "Examples"
+msgstr ""
+
+#: inc/options-page-wrapper.php:105
+msgid "Just add a "
+msgstr ""
+
+#: inc/options-page-wrapper.php:105
+msgid "attribute value to your links for colored backgrounds"
+msgstr ""
+
+#: inc/options-page-wrapper.php:112
+msgid "Gallery"
+msgstr ""
+
+#: inc/options-page-wrapper.php:114
+msgid ""
+"To activate navigation previous and next icons whilst in lighbox mode "
+"between multiple types of content on the same page, assign the same data "
+"attribute "
+msgstr ""
+
+#: inc/options-page-wrapper.php:114
+msgid ""
+" to each link, like the example below, you can see this in the colors "
+"example above."
+msgstr ""
+
+#: inc/options-page-wrapper.php:127 inc/options-page-wrapper.php:133
+#: inc/options-page-wrapper.php:139 inc/options-page-wrapper.php:145
+msgid "set different custom overlay colors for each link"
+msgstr ""
+
+#: inc/options-page-wrapper.php:173
+msgid "Further Reference"
+msgstr ""
+
+#: inc/options-page-wrapper.php:177
+msgid "Online examples and documentation"
+msgstr ""
+
+#: inc/options-page-wrapper.php:178
+msgid "VenoBox is the work of "
+msgstr ""
+
+#: venobox.php:130
+msgid "VenoBox Lightbox"
+msgstr ""
+
+#: venobox.php:275
+msgid "Add Lightbox for all linked images & galleries"
+msgstr ""
+
+#: venobox.php:296
+msgid ""
+"Add Previous & Next icons in Lightbox, to navigate multiple items, "
+"(Galleries do this by default)"
+msgstr ""
+
+#: venobox.php:318
+msgid "ALT text value"
+msgstr ""
+
+#: venobox.php:322
+msgid "Title text value"
+msgstr ""
+
+#: venobox.php:326
+msgid "Caption text value"
+msgstr ""
+
+#: venobox.php:348
+msgid "Show Pagination of Multiple Items in Top Left in Title Bar"
+msgstr ""
+
+#: venobox.php:369
+msgid ""
+"Add Infinite gallery, which allows continous toggling of items on page in "
+"lightbox mode"
+msgstr ""
+
+#: venobox.php:439
+msgid "Disable VenoBox"
+msgstr ""
+
+#: venobox.php:491
+msgid "Disable VenoBox Lightbox"
+msgstr ""

@@ -1,0 +1,15 @@
+<tr  ng-class="{'defaultIdentity':identity.isDefault == true}" ng-click="changeDefaultIdentity()">
+    <td class="td_text td_radio">
+        <label>
+            <input type="radio" class="no_content" name="default_sid" ng-checked="identity.isDefault">
+        </label>
+    </td>
+    <td colspan="{{identity.isReal ? '2' : '1'}}" class="td_text">
+        <span>{{identity.email}}</span>
+        <copy-to-clipboard ng-if="identity.isReal === false" data="identity.email" ng-click="stopEventPropagation($event)" class="copy_to_clipboard_identity"></copy-to-clipboard>
+    </td>
+
+    <td class="actions" ng-if="!identity.isReal">
+        <button class="trash" ng-click="removeIdentity()"></button>
+    </td>
+</tr>

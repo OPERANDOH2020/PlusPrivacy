@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UIIdentityCell" id="KGk-i7-Jjw" customClass="UIIdentityCell" customModule="Operando" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfq-Fl-Wgx" userLabel="identityLabel">
+                        <rect key="frame" x="8" y="11" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oes-VD-5jm" userLabel="separatorView">
+                        <rect key="frame" x="8" y="43" width="304" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="uI9-je-Qms"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvO-Ww-2bJ">
+                        <rect key="frame" x="226" y="8" width="86" height="27"/>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.76078431369999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="Jqp-aG-q4h"/>
+                            <constraint firstAttribute="width" constant="86" id="rdf-aM-e1l"/>
+                        </constraints>
+                        <state key="normal" title="Delete">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="deleteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Rtf-Nb-GTS"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vvO-Ww-2bJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="10t-jY-cAc"/>
+                    <constraint firstItem="oes-VD-5jm" firstAttribute="leading" secondItem="Rfq-Fl-Wgx" secondAttribute="leading" id="8Rm-cJ-Q4T"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="Rfq-Fl-Wgx" secondAttribute="leading" id="Ryf-tt-MIU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oes-VD-5jm" secondAttribute="bottom" id="VKE-iq-lho"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vvO-Ww-2bJ" secondAttribute="trailing" id="Yxe-s7-ouh"/>
+                    <constraint firstItem="vvO-Ww-2bJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="a4y-lR-eCV"/>
+                    <constraint firstItem="oes-VD-5jm" firstAttribute="top" secondItem="vvO-Ww-2bJ" secondAttribute="bottom" constant="8" id="aGy-zK-HcG"/>
+                    <constraint firstAttribute="bottom" secondItem="vvO-Ww-2bJ" secondAttribute="bottom" constant="8" id="aL1-rx-Btt"/>
+                    <constraint firstItem="Rfq-Fl-Wgx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hTF-IL-6Tr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oes-VD-5jm" secondAttribute="trailing" id="zdE-xE-1Sl"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="VKE-iq-lho"/>
+                        <exclude reference="10t-jY-cAc"/>
+                        <exclude reference="aL1-rx-Btt"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="1000" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="identityLabel" destination="Rfq-Fl-Wgx" id="LFm-RZ-3Gd"/>
+            </connections>
+            <point key="canvasLocation" x="81" y="309"/>
+        </tableViewCell>
+    </objects>
+</document>

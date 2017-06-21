@@ -1,0 +1,113 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h3 class="modal-title">{{modalTitle}}</h3>
+            </div>
+            <div class="modal-body">
+                <form method="post" name="offer_form" class="form-add-offer" ng-submit="formError === undefined && addOspOffer()">
+
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Offer Name</label>
+
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Enter your offer name" required="" autofocus=""
+                                       ng-model="offer.name"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="icon" class="cols-sm-2 control-label">Offer logo
+                            <small>(32x32 64x64, 128x128), maximum size 128 KB</small>
+                        </label>
+
+                        <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-picture" ng-hide="offer.logo"></i>
+                                        <img ng-show="offer.logo" data-ng-src="data:image/png;base64,{{offer.logo}}" class="add_offer_logo"/>
+                                    </span>
+                                    <input type="file" class="form-control" name="logo" id="icon"
+                                           placeholder="Offer logo" ng-required="!offer.logo" ng-model="offer.logo"
+                                           onchange="AddOspOfferController.prototype.changeInput(this)"/>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="offer_description" class="cols-sm-2 control-label">Description</label>
+
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-list"></i>
+                                    </span>
+                                <textarea type="text" id="offer_description" class="form-control" name="description" placeholder="Offer description"
+                                          required="" ng-model="offer.description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="start_date" class="cols-sm-2 control-label">Start date</label>
+
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </span>
+                                <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Offer start date" required="" ng-change="startDate($event)"
+                                       ng-model="offer.start_date"/>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="end_date" class="cols-sm-2 control-label">End date</label>
+
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </span>
+
+                                <input type="date" class="form-control" id="end_date" name="end_date" placeholder="Offer end date" required="" ng-change="endDate($event)"
+                                       ng-model="offer.end_date"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="formError">
+                        <div class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            {{formError.message}}
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit"  class="btn btn-primary" data-backdrop="false" ng-disabled="formError" >{{saveBtn}}</button>
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Close
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

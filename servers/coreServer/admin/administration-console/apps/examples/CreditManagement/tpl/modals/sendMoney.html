@@ -1,0 +1,35 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Create a transaction</h4>
+            </div>
+
+            <div class="modal-body">
+                <form name="form" class="form-validation">
+                    <div class="list-group list-group-sm">
+
+                        <div class="list-group-item">
+                            <input  placeholder="The email address of the receiver" class="form-control no-border" ng-model="transaction.receiverEmail" required>
+                        </div>
+                        <div class="list-group-item" >
+                            <input  placeholder="The amount of money to send" class="form-control no-border" ng-model="transaction.amount" required>
+                        </div>
+
+                        <div class="list-group-item" >
+                            <input  placeholder="The formal type of the transaction" class="form-control no-border" ng-model="transaction.formalType">
+                        </div>
+                        <div class="list-group-item">
+                            <input  placeholder="The description of the transaction" class="form-control no-border" ng-model="transaction.description" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-primary btn-block" ng-click="sendMoney()" ng-disabled='form.$invalid||transaction.amount>availableFunds'>Perform transaction</button>
+            </div>
+        </div>
+    </div>
+</div>

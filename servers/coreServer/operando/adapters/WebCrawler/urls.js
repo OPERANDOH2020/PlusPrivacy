@@ -1,0 +1,95 @@
+/**
+ * Created by ciprian on 4/5/17.
+ */
+
+var urls = {
+    facebook:[
+        {
+            "facebookEula":"https://www.facebook.com/terms"
+        },
+        {
+            'facebook':'http://facebook.com',
+            takeScreenshot:false
+        },
+        {
+            "exec":"loginToFacebook"
+        },
+        {
+            "facebookTimelineSettings":"https://www.facebook.com/settings?tab=timeline"
+        },
+        {
+            "facebookPrivacySettings":"https://www.facebook.com/settings?tab=privacy"
+        },
+        {
+            "facebookFollowersSettings":"https://www.facebook.com/settings?tab=followers"
+        },
+        {
+            "facebookApplications":"https://www.facebook.com/settings?tab=applications"
+        },
+        {
+            "facebookAds": "https://www.facebook.com/settings?tab=ads"
+        }
+    ],
+    google:[
+        {
+            "googleEula":"https://www.google.com/policies/terms/"
+        },
+        {
+            "exec":"clearCookies"
+        },
+        {
+            "google":"https://accounts.google.com/ServiceLogin?hl=ro&passive=true#identifier",
+            takeScreenshot:false
+        },
+        {
+            "exec":"insertGoogleEmail"
+        },
+        {
+            "exec":"insertGooglePassword"
+        },
+        {
+            "googleYoutubeHistory":"https://history.google.com/history/youtube/search?utm_source=sidenav"
+        },
+        {
+            "googlePermissions":"https://security.google.com/settings/security/permissions"
+        },
+        {
+            "googleMyAccount":"https://myaccount.google.com/privacy#accounthistory"
+        },
+        {
+            "googleAuthenticatedAds":"https://www.google.com/settings/u/0/ads/authenticated"
+        }
+    ],
+    linkedin:[
+        {
+            "linkedInEula":"https://www.linkedin.com/legal/privacy-policy"
+        },
+        {
+            "linkedin":"https://www.linkedin.com/uas/login",
+            takeScreenshot:false
+        },
+        {
+            "exec":"loginToLinkedin"
+        },
+        {
+            'linkedInPrivacySettings':"https://www.linkedin.com/psettings/privacy"
+        }
+    ],
+    twitter:[
+        {
+            "twitterEula":"https://twitter.com/tos"
+        },
+        {
+            'twitter':"https://twitter.com/",
+            takeScreenshot:false
+        },
+        {
+            "exec":"loginToTwitter"
+        },
+        {
+            'twitterPrivacyOptions':"https://twitter.com/settings/safety"
+        }
+    ]
+}
+
+require('fs').writeFileSync("./urls.json",JSON.stringify(urls,null,4))

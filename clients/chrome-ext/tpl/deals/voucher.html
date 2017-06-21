@@ -1,0 +1,43 @@
+<div class="voucher">
+
+    <div class="voucher_content">
+        <div class="voucher_header">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="voucher_icon">
+                        <img class="voucher_logo" width="48px" data-ng-src="data:image/png;base64,{{logo}}"/>
+                    </div>
+                </div>
+            <div class="voucher_website col-xs-5">
+                <span>{{website}}</span>
+            </div>
+
+            <div class="voucher_benefit col-xs-5">
+                <span ng-bind-html="benefit | trusthtml"></span>
+            </div>
+            </div>
+
+            <div class="voucher_number_container">
+                <div>
+                    <span class="code_label">Voucher code</span>
+                    <div class="col-xs-12 no-gutter">
+                        <div class="input-group">
+                            <div class="voucher_number">
+                                <span>{{voucherCode}}</span>
+                            </div>
+                          <span class="input-group-btn">
+
+                            <copy-to-clipboard data="voucherCode"></copy-to-clipboard>
+
+                          </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,95 @@
+{
+ "development":false,
+ "logsPath":"logs",
+ "verbose":false,
+ "systemId": "operandoDemo",
+ "PlusPrivacy":{
+    "OSPHost":"http://osp.plusprivacy.com"
+ },
+ "Core":{
+     "coreId":"operando",
+     "redisHost":"localhost",
+     "redisPort":6379,
+     "mysqlHost":"localhost",
+     "mysqlPort":"3306",
+     "mysqlDatabasePassword":"operando",
+     "mysqlDatabaseName":"operando",
+     "operandoHost":"plusprivacy.com",
+     "adminEmail":"insert_here_address_of_@admin",
+     "phantomJsPath":"/home/ciprian/phantomjs-2.1.1-linux-x86_64/bin/",
+     "supportTeam":["insert","here","email","addresses"],
+     "checkAccess":false,
+     "paths":[
+        {"core":"etc/coreSwarms"      ,"enabled":true},
+	    {"core":"etc/xSwarms"         ,"enabled":false},
+        {"core":"etc/testSwarms"      ,"enabled":true},
+        {"folder":"admin/swarms"      ,"enabled":true},
+        {"folder":"swarms"            ,"enabled":true},
+        {"folder":"operando/swarms"   ,"enabled":true},
+        {"folder":"operando/swarms/PfB"   ,"enabled":true},
+        {"folder":"operando/swarms/WD"   ,"enabled":true},
+        {"folder":"operando/swarms/OSP"   ,"enabled":true}
+     ]
+  },
+ "Logger":{},
+ "Launcher":{
+            "stepsDelay":300,
+            "pingTimeout":2000,
+            "responseTimeout":5000,
+            "serverAlias":"development",
+            "watch":[
+                        {"core":"etc/adapters/Core.js",                               "enabled":true, "step":1},
+                        {"core":"etc/relay/RedisRelay.js",                            "enabled":true, "args":["-n", "RESEARCH", "-r", "localhost", "-p", "6379" ], "step":2},
+                        {"core":"etc/adapters/DefaultLogger.js",                      "enabled":true, "step":3},
+                        {"node":"admin/adapters/UsersManager/UsersManager.js",        "enabled":true  , "step":4},
+                        {"node":"admin/adapters/SessionManager.js",                   "enabled":true  , "step":4},
+                        {"node":"operando/adapters/ES/IdentityAdapter.js",            "enabled":true  , "step":4},
+                        {"node":"operando/adapters/OSP/OSPAdapter.js",                "enabled":true  , "step":4},
+                        {"node":"operando/adapters/OSP/OSPRequests.js",               "enabled":true  , "step":4},
+                        {"node":"admin/adapters/SwarmMonitor.js",                     "enabled":true  , "step":5},
+                        {"core":"etc/adapters/ClientAdapter.js",                      "enabled":true  , "step":6},
+                        {"node":"operando/adapters/GuardianAdapter.js",               "enabled":false  , "step":7},
+                        {"node":"operando/adapters/AuthorizationAdapter.js",          "enabled":false  , "step":8},
+                        {"node":"operando/adapters/uam/NotificationUAM.js",           "enabled":true  , "step":9},
+                        {"node":"operando/adapters/RESTAdapter.js",                   "enabled":false  , "step":10},
+                        {"core":"etc/adapters/WSServer.js",                           "enabled":true  , "step":10},
+                        {"node":"operando/adapters/CBE/PrivacyForBenefitsAdapter.js", "enabled":true  , "step":10},
+                        {"node":"operando/adapters/PSW/WatchDogAdapter.js",           "enabled":true  , "step":10},
+                        {"node":"operando/adapters/EmailAdapter.js",                  "enabled":true  ,"args":["-host", "localhost", "-port", "25" ], "step":10},
+                        {"node":"operando/adapters/WD/SocialNetworkSettingsAdapter.js","enabled":true  , "step":10},
+                        {"node":"operando/adapters/WebCrawler/CrawlerAdapter.js"      ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/UDE/UDEAdapter.js"                 ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/FormsAdapter.js"                   ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/CreditAdapter.js"                  ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/UserPreferencesAdapter.js"       ,"enabled":true  , "step":10},
+                        {"node":"admin/adapters/TestsManager.js",                      "enabled":false, "step":5}
+
+            ]
+   },
+  "ClientAdapter":{
+        "startSwarmThrottler":{
+              "limit":1000,
+              "timeUnit":"minute"
+    },
+    "outletThrottler":{
+              "limit":100,
+              "timeUnit":"minute"
+           }
+  },
+  "WSServer":{
+           "host":"0.0.0.0",
+           "port":"8080",
+           "ssl":{
+               "key":"etc/ssl/privatekey.pem",
+               "cert":"etc/ssl/cert.pem"
+           },
+           "wwwroot":"admin/administration-console"
+  },
+
+  "RESTAdapter":{
+            "port":7000
+  },
+  "SessionManager":{
+        "sessionTime":"2678400000"
+  }
+}
