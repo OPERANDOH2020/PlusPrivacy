@@ -14,7 +14,6 @@ container.declareDependency("UsersManager",['userFunctionality','accessFunctiona
     if(outOfService){
         console.log("UsersManager failed");
     }else{
-
         makeAPIGlobal(userFunctionality);
         makeAPIGlobal(accessFunctionality);
         console.log("UsersManager available");

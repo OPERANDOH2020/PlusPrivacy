@@ -71,10 +71,104 @@
                 "data": {},
                 "recommended": "friends"
             },
-            "id": 0,
             "tags": [
                 "exposure"
-            ]
+            ],
+            "id": 0
+        },
+        "who_can_see_friends": {
+            "read": {
+                "name": "Who can see your friends list?",
+                "url": "https://www.facebook.com/settings?tab=privacy",
+                "availableSettings": {
+                    "public": {
+                        "name": "Public",
+                        "index": 3
+                    },
+                    "friends": {
+                        "name": "Friends",
+                        "index": 4
+                    },
+                    "friends_except_acquaintances": {
+                        "name": "Friends except Acquaintances",
+                        "index": 5
+                    },
+                    "only_me": {
+                        "name": "Only Me",
+                        "index": 6
+                    }
+                },
+                "jquery_selector": {
+                    "element": ".fbSettingsList:eq(0) .fbSettingsListItem:eq(1) ._nlm",
+                    "valueType": "inner"
+                }
+            },
+            "write": {
+                "name": "Who can see your friends list?",
+                "page": "https://www.facebook.com/settings?tab=privacy&section=friendlist&view",
+                "url_template": "https://www.facebook.com/privacy/selector/update/?privacy_fbid={OPERANDO_PRIVACY_FBID}&post_param={OPERANDO_POST_PARAM}&render_location=22&is_saved_on_select=true&should_return_tooltip=true&prefix_tooltip_with_app_privacy=false&replace_on_select=false&ent_id=0&dpr=1",
+                "availableSettings": {
+                    "public": {
+                        "params": {
+                            "privacy_fbid": {
+                                "placeholder": "OPERANDO_PRIVACY_FBID",
+                                "value": 8787365733
+                            },
+                            "post_param": {
+                                "placeholder": "OPERANDO_POST_PARAM",
+                                "value": 300645083384735
+                            }
+                        },
+                        "name": "Public"
+                    },
+                    "friends": {
+                        "params": {
+                            "privacy_fbid": {
+                                "placeholder": "OPERANDO_PRIVACY_FBID",
+                                "value": 8787365733
+                            },
+                            "post_param": {
+                                "placeholder": "OPERANDO_POST_PARAM",
+                                "value": 291667064279714
+                            }
+                        },
+                        "name": "Friends"
+                    },
+                    "friends_except_acquaintances": {
+                        "params": {
+                            "privacy_fbid": {
+                                "placeholder": "OPERANDO_PRIVACY_FBID",
+                                "value": 8787365733
+                            },
+                            "post_param": {
+                                "placeholder": "OPERANDO_POST_PARAM",
+                                "value": 284920934947802
+                            }
+                        },
+                        "name": "Friends except Acquaintances"
+                    },
+                    "only_me": {
+                        "params": {
+                            "privacy_fbid": {
+                                "placeholder": "OPERANDO_PRIVACY_FBID",
+                                "value": 8787365733
+                            },
+                            "post_param": {
+                                "placeholder": "OPERANDO_POST_PARAM",
+                                "value": 286958161406148
+                            }
+                        },
+                        "name": "Only Me"
+                    }
+                },
+                "data": {},
+                "recommended": "only_me"
+            },
+            "tags": [
+                "exposure",
+                "contact"
+            ],
+            "id": 1
         },
         "who_can_contact": {
             "read": {
@@ -83,11 +177,11 @@
                 "availableSettings": {
                     "everyone": {
                         "name": "Everyone",
-                        "index": 3
+                        "index": 7
                     },
                     "friends_of_friends": {
                         "name": "Friends of Friends",
-                        "index": 4
+                        "index": 8
                     }
                 },
                 "jquery_selector": {
@@ -130,11 +224,7 @@
                 "data": {},
                 "recommended": "friends_of_friends"
             },
-            "id": 1,
-            "tags": [
-                "contact",
-                "control"
-            ]
+            "id": 2
         },
         "lookup_email": {
             "read": {
@@ -143,15 +233,15 @@
                 "availableSettings": {
                     "everyone": {
                         "name": "Everyone",
-                        "index": 5
-                    },
-                    "friends_of_friends": {
-                        "name": "Friends of Friends",
-                        "index": 6
+                        "index": 9
                     },
                     "friends": {
                         "name": "Friends",
-                        "index": 7
+                        "index": 10
+                    },
+                    "friends_of_friends": {
+                        "name": "Friends of Friends",
+                        "index": 11
                     }
                 },
                 "jquery_selector": {
@@ -207,12 +297,12 @@
                 "data": {},
                 "recommended": "friends"
             },
-            "id": 2,
             "tags": [
                 "contact",
                 "discovery",
                 "control"
-            ]
+            ],
+            "id": 3
         },
         "lookup_phone": {
             "read": {
@@ -221,15 +311,15 @@
                 "availableSettings": {
                     "everyone": {
                         "name": "Everyone",
-                        "index": 8
-                    },
-                    "friends_of_friends": {
-                        "name": "Friends of Friends",
-                        "index": 9
+                        "index": 12
                     },
                     "friends": {
                         "name": "Friends",
-                        "index": 10
+                        "index": 13
+                    },
+                    "friends_of_friends": {
+                        "name": "Friends of Friends",
+                        "index": 14
                     }
                 },
                 "jquery_selector": {
@@ -238,7 +328,7 @@
                 }
             },
             "write": {
-                "name": "Who can look you up using the phone number you provided?",
+                "name": "Who can look me up by phone",
                 "page": "https://www.facebook.com/settings?tab=privacy&section=findphone&view",
                 "url_template": "https://www.facebook.com/privacy/selector/update/?privacy_fbid={OPERANDO_PRIVACY_FBID}&post_param={OPERANDO_POST_PARAM}&render_location=11&is_saved_on_select=true&should_return_tooltip=false&prefix_tooltip_with_app_privacy=false&replace_on_select=false&ent_id=0&tag_expansion_button=friends_of_tagged&__pc=EXP1%3ADEFAULT",
                 "availableSettings": {
@@ -285,12 +375,12 @@
                 "data": {},
                 "recommended": "friends"
             },
-            "id": 3,
             "tags": [
                 "contact",
                 "discovery",
                 "control"
-            ]
+            ],
+            "id": 4
         },
         "search_engine": {
             "read": {
@@ -299,11 +389,11 @@
                 "availableSettings": {
                     "yes": {
                         "name": "Yes",
-                        "index": 11
+                        "index": 15
                     },
                     "no": {
                         "name": "No",
-                        "index": 12
+                        "index": 16
                     }
                 },
                 "jquery_selector": {
@@ -312,7 +402,7 @@
                 }
             },
             "write": {
-                "name": "Allow engines outside Facebook to link to your profile?",
+                "name": "Who can look me up by search engines?",
                 "page": "https://www.facebook.com/settings?tab=privacy&section=search&view",
                 "url_template": "https://www.facebook.com/ajax/settings_page/search_filters.php?dpr=1",
                 "availableSettings": {
@@ -334,25 +424,25 @@
                 "data": {},
                 "recommended": "no"
             },
-            "id": 4,
             "tags": [
                 "contact",
                 "discovery",
                 "control"
-            ]
+            ],
+            "id": 5
         },
         "limit_timeline": {
             "read": {
                 "name": "Who can add things to your timeline?",
                 "url": "https://www.facebook.com/settings?tab=timeline",
                 "availableSettings": {
-                    "friends": {
-                        "name": "Friends",
-                        "index": 13
-                    },
                     "only_me": {
                         "name": "Only Me",
-                        "index": 14
+                        "index": 17
+                    },
+                    "friends": {
+                        "name": "Friends",
+                        "index": 18
                     }
                 },
                 "jquery_selector": {
@@ -381,24 +471,24 @@
                 "data": {},
                 "recommended": "only_me"
             },
-            "id": 5,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 6
         },
         "control_timeline": {
             "read": {
                 "name": "Review tags people add to your own posts before the tags appear on Facebook",
                 "url": "https://www.facebook.com/settings?tab=timeline",
                 "availableSettings": {
-                    "disabled": {
-                        "name": "Off",
-                        "index": 15
-                    },
                     "enabled": {
                         "name": "On",
-                        "index": 16
+                        "index": 19
+                    },
+                    "disabled": {
+                        "name": "Off",
+                        "index": 20
                     }
                 },
                 "jquery_selector": {
@@ -427,11 +517,11 @@
                 "data": {},
                 "recommended": "enabled"
             },
-            "id": 6,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 7
         },
         "timeline_posts_tags": {
             "read": {
@@ -440,23 +530,23 @@
                 "availableSettings": {
                     "everyone": {
                         "name": "Everyone",
-                        "index": 17
+                        "index": 21
                     },
                     "friends_of_friends": {
                         "name": "Friends of Friends",
-                        "index": 18
+                        "index": 22
                     },
                     "friends": {
                         "name": "Friends",
-                        "index": 19
+                        "index": 23
                     },
                     "friends_except_acquaintances": {
                         "name": "Friends except Acquaintances",
-                        "index": 20
+                        "index": 24
                     },
                     "only_me": {
                         "name": "Only Me",
-                        "index": 21
+                        "index": 25
                     }
                 },
                 "jquery_selector": {
@@ -537,10 +627,10 @@
                 },
                 "recommended": "only_me"
             },
-            "id": 7,
             "tags": [
                 "exposure"
-            ]
+            ],
+            "id": 8
         },
         "timeline_other_posts": {
             "read": {
@@ -549,23 +639,23 @@
                 "availableSettings": {
                     "everyone": {
                         "name": "Everyone",
-                        "index": 22
+                        "index": 26
                     },
                     "friends_of_friends": {
                         "name": "Friends of Friends",
-                        "index": 23
+                        "index": 27
                     },
                     "friends": {
                         "name": "Friends",
-                        "index": 24
+                        "index": 28
                     },
                     "friends_except_acquaintances": {
                         "name": "Friends except Acquaintances",
-                        "index": 25
+                        "index": 29
                     },
                     "only_me": {
                         "name": "Only Me",
-                        "index": 26
+                        "index": 30
                     }
                 },
                 "jquery_selector": {
@@ -646,10 +736,10 @@
                 },
                 "recommended": "only_me"
             },
-            "id": 8,
             "tags": [
                 "exposure"
-            ]
+            ],
+            "id": 9
         },
         "photo_tags_audience": {
             "read": {
@@ -658,11 +748,11 @@
                 "availableSettings": {
                     "friends": {
                         "name": "Friends",
-                        "index": 27
+                        "index": 31
                     },
                     "only_me": {
                         "name": "Only Me",
-                        "index": 28
+                        "index": 32
                     }
                 },
                 "jquery_selector": {
@@ -704,24 +794,24 @@
                 },
                 "recommended": "only_me"
             },
-            "id": 9,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 10
         },
         "control_followers": {
             "read": {
                 "name": "Who can be your follower?",
                 "url": "https://www.facebook.com/settings?tab=followers",
                 "availableSettings": {
-                    "public": {
-                        "name": "Public",
-                        "index": 29
-                    },
                     "friends": {
                         "name": "Friends",
-                        "index": 30
+                        "index": 33
+                    },
+                    "public": {
+                        "name": "Public",
+                        "index": 34
                     }
                 },
                 "jquery_selector": {
@@ -730,7 +820,7 @@
                 }
             },
             "write": {
-                "name": "Who can be your follower?",
+                "name": "Who Can Follow Me",
                 "url_template": "https://www.facebook.com/ajax/follow/enable_follow.php?dpr=1",
                 "page": "https://www.facebook.com/settings?tab=followers",
                 "availableSettings": {
@@ -757,12 +847,12 @@
                 },
                 "recommended": "friends"
             },
-            "id": 10,
             "tags": [
                 "contact",
                 "control",
                 "exposure"
-            ]
+            ],
+            "id": 11
         },
         "permissions_for_apps": {
             "read": {
@@ -799,13 +889,13 @@
                 "name": "Allow use of apps, plugins, games and websites on Facebook and elsewhere?",
                 "url": "https://www.facebook.com/settings?tab=applications",
                 "availableSettings": {
-                    "enabled": {
-                        "name": "Allow",
-                        "index": 31
-                    },
                     "disabled": {
                         "name": "Disalow",
-                        "index": 32
+                        "index": 35
+                    },
+                    "enabled": {
+                        "name": "Allow",
+                        "index": 36
                     }
                 },
                 "jquery_selector": {
@@ -837,14 +927,14 @@
                         "name": "Disabled."
                     }
                 },
-                "recommended": "enabled"
+                "recommended": "disabled"
             },
-            "id": 11,
             "tags": [
                 "applications",
                 "control",
                 "personal data"
-            ]
+            ],
+            "id": 12
         },
         "control_personal_info": {
             "read": {
@@ -883,11 +973,11 @@
                 "availableSettings": {
                     "yes": {
                         "name": "Yes",
-                        "index": 33
+                        "index": 37
                     },
                     "no": {
                         "name": "No",
-                        "index": 34
+                        "index": 38
                     }
                 },
                 "jquery_selector": {
@@ -915,13 +1005,13 @@
                 },
                 "recommended": "no"
             },
-            "id": 12,
             "tags": [
                 "advertising",
                 "profiling",
                 "personal data",
                 "control"
-            ]
+            ],
+            "id": 13
         },
         "facebook_companies_ads": {
             "read": {
@@ -930,11 +1020,11 @@
                 "availableSettings": {
                     "yes": {
                         "name": "Yes",
-                        "index": 35
+                        "index": 39
                     },
                     "no": {
                         "name": "No",
-                        "index": 36
+                        "index": 40
                     }
                 },
                 "jquery_selector": {
@@ -962,13 +1052,13 @@
                 },
                 "recommended": "no"
             },
-            "id": 13,
             "tags": [
                 "personal_data",
                 "profiling",
                 "advertising",
                 "control"
-            ]
+            ],
+            "id": 14
         },
         "control_friends_ads": {
             "read": {
@@ -977,11 +1067,11 @@
                 "availableSettings": {
                     "only_friends": {
                         "name": "Only my friends",
-                        "index": 37
+                        "index": 41
                     },
                     "no_one": {
                         "name": "No one",
-                        "index": 38
+                        "index": 42
                     }
                 },
                 "jquery_selector": {
@@ -1009,14 +1099,14 @@
                 },
                 "recommended": "no_one"
             },
-            "id": 14,
             "tags": [
                 "personal_data",
                 "profiling",
                 "advertising",
                 "control",
                 "exposure"
-            ]
+            ],
+            "id": 15
         },
         "control_preferences": {
             "read": {
@@ -1053,21 +1143,21 @@
                 "name": "Control your profile photo and visibility.",
                 "url": "https://www.linkedin.com/psettings/profile-photo-visibility",
                 "availableSettings": {
-                    "Everyone": {
-                        "name": "Everyone",
-                        "index": 39
-                    },
-                    "Your_Network": {
-                        "name": "Your Network",
-                        "index": 40
+                    "No_One": {
+                        "name": "No One",
+                        "index": 43
                     },
                     "Your_Connections": {
                         "name": "Your Connections",
-                        "index": 41
+                        "index": 44
                     },
-                    "No_One": {
-                        "name": "No One",
-                        "index": 42
+                    "Your_Network": {
+                        "name": "Your Network",
+                        "index": 45
+                    },
+                    "Everyone": {
+                        "name": "Everyone",
+                        "index": 46
                     }
                 },
                 "jquery_selector": {
@@ -1109,73 +1199,25 @@
                 "data": {},
                 "recommended": "No_One"
             },
-            "id": 15,
             "tags": [
                 "exposure",
                 "personal data",
                 "control"
-            ]
-        },
-        "control_third_party": {
-            "read": {
-                "name": "Third party apps",
-                "url": "https://www.linkedin.com/psettings/third-party-applications",
-                "jquery_selector": {
-                    "element": "li[id='setting-third-party-applications'] .state",
-                    "valueType": "inner"
-                }
-            },
-            "write": {
-                "name": "Third party apps",
-                "page": "https://www.linkedin.com/psettings/profile-photo-visibility",
-                "data": {},
-                "recommended": "0 connected apps"
-            }
-        },
-        "manage_twitter": {
-            "read": {
-                "name": "Manage your Twitter info and activity on your LinkedIn account",
-                "url": "https://www.linkedin.com/psettings/account",
-                "jquery_selector": {
-                    "element": "li[id='setting-twitter'] .state",
-                    "valueType": "inner"
-                }
-            },
-            "write": {
-                "name": "Manage your Twitter info and activity on your LinkedIn account",
-                "page": "https://www.linkedin.com/psettings/account",
-                "data": {},
-                "recommended": "Not connected"
-            }
-        },
-        "manage_wechat": {
-            "read": {
-                "name": "setting-wechat",
-                "url": "https://www.linkedin.com/psettings/wechat-accounts",
-                "jquery_selector": {
-                    "element": "li[id='setting-wechat'] .state",
-                    "valueType": "inner"
-                }
-            },
-            "write": {
-                "name": "setting-wechat",
-                "page": "https://www.linkedin.com/psettings/wechat-accounts",
-                "data": {},
-                "recommended": "Not connected"
-            }
+            ],
+            "id": 16
         },
         "see_connections_list": {
             "read": {
                 "name": "Who can see the list of your connections?",
                 "url": "https://www.linkedin.com/psettings/connections-visibility",
                 "availableSettings": {
-                    "Your_Connections": {
-                        "name": "Your Connections",
-                        "index": 43
-                    },
                     "Only_you": {
                         "name": "Only you",
-                        "index": 44
+                        "index": 47
+                    },
+                    "Your_Connections": {
+                        "name": "Your Connections",
+                        "index": 48
                     }
                 },
                 "jquery_selector": {
@@ -1205,24 +1247,24 @@
                 "data": {},
                 "recommended": "Only_you"
             },
-            "id": 16,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 17
         },
         "how_you_rank": {
             "read": {
                 "name": "Show \"How You Rank\" to you and other people?",
                 "url": "https://www.linkedin.com/psettings/how-you-rank",
                 "availableSettings": {
-                    "No": {
-                        "name": "No",
-                        "index": 45
-                    },
                     "Yes": {
                         "name": "Yes",
-                        "index": 46
+                        "index": 49
+                    },
+                    "No": {
+                        "name": "No",
+                        "index": 50
                     }
                 },
                 "jquery_selector": {
@@ -1252,24 +1294,24 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 17,
             "tags": [
                 "personal data",
                 "control"
-            ]
+            ],
+            "id": 18
         },
         "profile_viewers_feature": {
             "read": {
                 "name": "Allow \"Viewers of this profile also viewed\" feature on your profile?",
                 "url": "https://www.linkedin.com/psettings/browse-map",
                 "availableSettings": {
-                    "No": {
-                        "name": "No",
-                        "index": 47
-                    },
                     "Yes": {
                         "name": "Yes",
-                        "index": 48
+                        "index": 51
+                    },
+                    "No": {
+                        "name": "No",
+                        "index": 52
                     }
                 },
                 "jquery_selector": {
@@ -1299,11 +1341,11 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 18,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 19
         },
         "share_edits": {
             "read": {
@@ -1312,11 +1354,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 49
+                        "index": 53
                     },
                     "No": {
                         "name": "No",
-                        "index": 50
+                        "index": 54
                     }
                 },
                 "jquery_selector": {
@@ -1346,11 +1388,11 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 19,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 20
         },
         "profile_viewing_options": {
             "read": {
@@ -1359,15 +1401,15 @@
                 "availableSettings": {
                     "Full_profile": {
                         "name": "Full profile",
-                        "index": 51
+                        "index": 55
                     },
                     "Characteristics": {
                         "name": "Characteristics",
-                        "index": 52
+                        "index": 56
                     },
                     "Private_mode": {
                         "name": "Private mode",
-                        "index": 53
+                        "index": 57
                     }
                 },
                 "jquery_selector": {
@@ -1403,11 +1445,11 @@
                 "data": {},
                 "recommended": "Private_mode"
             },
-            "id": 20,
             "tags": [
                 "personal data",
                 "control"
-            ]
+            ],
+            "id": 21
         },
         "share_you_news": {
             "read": {
@@ -1416,11 +1458,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 54
+                        "index": 58
                     },
                     "No": {
                         "name": "No",
-                        "index": 55
+                        "index": 59
                     }
                 },
                 "jquery_selector": {
@@ -1450,24 +1492,24 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 21,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 22
         },
         "control_followers": {
             "read": {
                 "name": "Who can follow you and see your public updates?",
                 "url": "https://www.linkedin.com/psettings/allow-follow",
                 "availableSettings": {
-                    "Everyone": {
-                        "name": "Everyone",
-                        "index": 56
-                    },
                     "Your_Connections": {
                         "name": "Your Connections",
-                        "index": 57
+                        "index": 60
+                    },
+                    "Everyone": {
+                        "name": "Everyone",
+                        "index": 61
                     }
                 },
                 "jquery_selector": {
@@ -1497,12 +1539,12 @@
                 "data": {},
                 "recommended": "Your_Connections"
             },
-            "id": 22,
             "tags": [
                 "contact",
                 "control",
                 "exposure"
-            ]
+            ],
+            "id": 23
         },
         "suggest_you_email": {
             "read": {
@@ -1511,15 +1553,15 @@
                 "availableSettings": {
                     "Everyone": {
                         "name": "Everyone",
-                        "index": 58
+                        "index": 62
                     },
                     "second_degree": {
                         "name": "2nd degree",
-                        "index": 59
+                        "index": 63
                     },
                     "Nobody": {
                         "name": "Nobody",
-                        "index": 60
+                        "index": 64
                     }
                 },
                 "jquery_selector": {
@@ -1559,12 +1601,12 @@
                 },
                 "recommended": "Nobody"
             },
-            "id": 23,
             "tags": [
                 "contact",
                 "personal data",
                 "discovery"
-            ]
+            ],
+            "id": 24
         },
         "suggest_you_phone": {
             "read": {
@@ -1573,15 +1615,15 @@
                 "availableSettings": {
                     "Everyone": {
                         "name": "Everyone",
-                        "index": 61
+                        "index": 65
                     },
                     "second_degree": {
                         "name": "2nd degree",
-                        "index": 62
+                        "index": 66
                     },
                     "Nobody": {
                         "name": "Nobody",
-                        "index": 63
+                        "index": 67
                     }
                 },
                 "jquery_selector": {
@@ -1621,12 +1663,12 @@
                 },
                 "recommended": "Nobody"
             },
-            "id": 24,
             "tags": [
                 "contact",
                 "personal data",
                 "discovery"
-            ]
+            ],
+            "id": 25
         },
         "meet_the_team": {
             "read": {
@@ -1635,11 +1677,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 64
+                        "index": 68
                     },
                     "No": {
                         "name": "No",
-                        "index": 65
+                        "index": 69
                     }
                 },
                 "jquery_selector": {
@@ -1669,12 +1711,12 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 25,
             "tags": [
                 "control",
                 "exposure",
                 "personal data"
-            ]
+            ],
+            "id": 26
         },
         "share_data_with_third_party_applications": {
             "read": {
@@ -1683,11 +1725,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 66
+                        "index": 70
                     },
                     "No": {
                         "name": "No",
-                        "index": 67
+                        "index": 71
                     }
                 },
                 "jquery_selector": {
@@ -1717,12 +1759,12 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 26,
             "tags": [
                 "applications",
                 "personal data",
                 "profiling"
-            ]
+            ],
+            "id": 27
         },
         "share_data_with_third_party_platforms": {
             "read": {
@@ -1731,11 +1773,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 68
+                        "index": 72
                     },
                     "No": {
                         "name": "No",
-                        "index": 69
+                        "index": 73
                     }
                 },
                 "jquery_selector": {
@@ -1766,11 +1808,11 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 27,
             "tags": [
                 "personal data",
                 "profiling"
-            ]
+            ],
+            "id": 28
         },
         "cookie_personalised_ads": {
             "read": {
@@ -1779,11 +1821,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 70
+                        "index": 74
                     },
                     "No": {
                         "name": "No",
-                        "index": 71
+                        "index": 75
                     }
                 },
                 "jquery_selector": {
@@ -1813,207 +1855,17 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 28,
             "tags": [
                 "advertising",
                 "profiling",
                 "personal data",
                 "control"
-            ]
+            ],
+            "id": 29
         },
         "control_messages_invitations": {
             "read": {
                 "name": "Receive requests to join your network?",
-                "url": "https://www.linkedin.com/psettings/email-controls",
-                "availableSettings": {
-                    "On": {
-                        "name": "On",
-                        "index": 72
-                    },
-                    "Off": {
-                        "name": "Off",
-                        "index": 73
-                    }
-                },
-                "jquery_selector": {
-                    "element": "input[id='invitationsGroup']",
-                    "valueType": "checkbox"
-                }
-            },
-            "write": {
-                "name": "Receive requests to join your network?",
-                "page": "https://www.linkedin.com/psettings/email-controls",
-                "url_template": "https://www.linkedin.com/psettings/email-controls/updateSettings?csrfToken={CSRF_TOKEN}",
-                "type": "application/json",
-                "availableSettings": {
-                    "On": {
-                        "params": {
-                            "csrfToken": {
-                                "placeholder": "CSRF_TOKEN",
-                                "type": "dynamic"
-                            }
-                        },
-                        "data": {
-                            "topLevelNodeId": "root",
-                            "changedNodes": [
-                                {
-                                    "nodeId": "invitationPrefs",
-                                    "newValue": "AUTOMATIC"
-                                },
-                                {
-                                    "nodeId": "groupInvitationPrefs",
-                                    "newValue": "AUTOMATIC"
-                                },
-                                {
-                                    "nodeId": "inviteAcceptNotification",
-                                    "newValue": "AUTOMATIC"
-                                },
-                                {
-                                    "nodeId": "invitationsGroup",
-                                    "newValue": true
-                                }
-                            ]
-                        },
-                        "name": "On"
-                    },
-                    "Off": {
-                        "params": {
-                            "csrfToken": {
-                                "placeholder": "CSRF_TOKEN",
-                                "type": "dynamic"
-                            }
-                        },
-                        "data": {
-                            "topLevelNodeId": "root",
-                            "changedNodes": [
-                                {
-                                    "nodeId": "invitationPrefs",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "groupInvitationPrefs",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "inviteAcceptNotification",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "invitationsGroup",
-                                    "newValue": false
-                                }
-                            ]
-                        },
-                        "name": "Off"
-                    }
-                },
-                "data": {},
-                "recommended": "Off"
-            },
-            "id": 29,
-            "tags": [
-                "contact",
-                "control"
-            ]
-        },
-        "control_messages_messages": {
-            "read": {
-                "name": "Receive messages from other LinkedIn members?",
-                "url": "https://www.linkedin.com/psettings/email-controls",
-                "availableSettings": {
-                    "On": {
-                        "name": "On",
-                        "index": 74
-                    },
-                    "Off": {
-                        "name": "Off",
-                        "index": 75
-                    }
-                },
-                "jquery_selector": {
-                    "element": "input[id='invitationsGroup']",
-                    "valueType": "checkbox"
-                }
-            },
-            "write": {
-                "name": "Receive messages from other LinkedIn members?",
-                "page": "https://www.linkedin.com/psettings/email-controls",
-                "url_template": "https://www.linkedin.com/psettings/email-controls/updateSettings?csrfToken={CSRF_TOKEN}",
-                "type": "application/json",
-                "availableSettings": {
-                    "On": {
-                        "params": {
-                            "csrfToken": {
-                                "placeholder": "CSRF_TOKEN",
-                                "type": "dynamic"
-                            }
-                        },
-                        "data": {
-                            "topLevelNodeId": "root",
-                            "changedNodes": [
-                                {
-                                    "nodeId": "repliesPreference",
-                                    "newValue": "AUTOMATIC"
-                                },
-                                {
-                                    "nodeId": "inmailNotification",
-                                    "newValue": "AUTOMATIC"
-                                },
-                                {
-                                    "nodeId": "profileForwardsPrefs",
-                                    "newValue": true
-                                },
-                                {
-                                    "nodeId": "messagesGroup",
-                                    "newValue": true
-                                }
-                            ]
-                        },
-                        "name": "On"
-                    },
-                    "Off": {
-                        "params": {
-                            "csrfToken": {
-                                "placeholder": "CSRF_TOKEN",
-                                "type": "dynamic"
-                            }
-                        },
-                        "data": {
-                            "topLevelNodeId": "root",
-                            "changedNodes": [
-                                {
-                                    "nodeId": "repliesPreference",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "inmailNotification",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "profileForwardsPrefs",
-                                    "newValue": false
-                                },
-                                {
-                                    "nodeId": "messagesGroup",
-                                    "newValue": false
-                                }
-                            ]
-                        },
-                        "name": "Off"
-                    }
-                },
-                "data": {},
-                "recommended": "Off"
-            },
-            "id": 30,
-            "tags": [
-                "contact",
-                "control"
-            ]
-        },
-        "control_messages_notifications": {
-            "read": {
-                "name": "Receive news about activity related to your profile and what you share?",
                 "url": "https://www.linkedin.com/psettings/email-controls",
                 "availableSettings": {
                     "On": {
@@ -2031,6 +1883,196 @@
                 }
             },
             "write": {
+                "name": "Receive requests to join your network?",
+                "page": "https://www.linkedin.com/psettings/email-controls",
+                "url_template": "https://www.linkedin.com/psettings/email-controls/updateSettings?csrfToken={CSRF_TOKEN}",
+                "type": "application/json",
+                "availableSettings": {
+                    "On": {
+                        "params": {
+                            "csrfToken": {
+                                "placeholder": "CSRF_TOKEN",
+                                "type": "dynamic"
+                            }
+                        },
+                        "data": {
+                            "topLevelNodeId": "root",
+                            "changedNodes": [
+                                {
+                                    "nodeId": "invitationPrefs",
+                                    "newValue": "AUTOMATIC"
+                                },
+                                {
+                                    "nodeId": "groupInvitationPrefs",
+                                    "newValue": "AUTOMATIC"
+                                },
+                                {
+                                    "nodeId": "inviteAcceptNotification",
+                                    "newValue": "AUTOMATIC"
+                                },
+                                {
+                                    "nodeId": "invitationsGroup",
+                                    "newValue": true
+                                }
+                            ]
+                        },
+                        "name": "On"
+                    },
+                    "Off": {
+                        "params": {
+                            "csrfToken": {
+                                "placeholder": "CSRF_TOKEN",
+                                "type": "dynamic"
+                            }
+                        },
+                        "data": {
+                            "topLevelNodeId": "root",
+                            "changedNodes": [
+                                {
+                                    "nodeId": "invitationPrefs",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "groupInvitationPrefs",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "inviteAcceptNotification",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "invitationsGroup",
+                                    "newValue": false
+                                }
+                            ]
+                        },
+                        "name": "Off"
+                    }
+                },
+                "data": {},
+                "recommended": "Off"
+            },
+            "tags": [
+                "contact",
+                "control"
+            ],
+            "id": 30
+        },
+        "control_messages_messages": {
+            "read": {
+                "name": "Receive messages from other LinkedIn members?",
+                "url": "https://www.linkedin.com/psettings/email-controls",
+                "availableSettings": {
+                    "On": {
+                        "name": "On",
+                        "index": 78
+                    },
+                    "Off": {
+                        "name": "Off",
+                        "index": 79
+                    }
+                },
+                "jquery_selector": {
+                    "element": "input[id='invitationsGroup']",
+                    "valueType": "checkbox"
+                }
+            },
+            "write": {
+                "name": "Receive messages from other LinkedIn members?",
+                "page": "https://www.linkedin.com/psettings/email-controls",
+                "url_template": "https://www.linkedin.com/psettings/email-controls/updateSettings?csrfToken={CSRF_TOKEN}",
+                "type": "application/json",
+                "availableSettings": {
+                    "On": {
+                        "params": {
+                            "csrfToken": {
+                                "placeholder": "CSRF_TOKEN",
+                                "type": "dynamic"
+                            }
+                        },
+                        "data": {
+                            "topLevelNodeId": "root",
+                            "changedNodes": [
+                                {
+                                    "nodeId": "repliesPreference",
+                                    "newValue": "AUTOMATIC"
+                                },
+                                {
+                                    "nodeId": "inmailNotification",
+                                    "newValue": "AUTOMATIC"
+                                },
+                                {
+                                    "nodeId": "profileForwardsPrefs",
+                                    "newValue": true
+                                },
+                                {
+                                    "nodeId": "messagesGroup",
+                                    "newValue": true
+                                }
+                            ]
+                        },
+                        "name": "On"
+                    },
+                    "Off": {
+                        "params": {
+                            "csrfToken": {
+                                "placeholder": "CSRF_TOKEN",
+                                "type": "dynamic"
+                            }
+                        },
+                        "data": {
+                            "topLevelNodeId": "root",
+                            "changedNodes": [
+                                {
+                                    "nodeId": "repliesPreference",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "inmailNotification",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "profileForwardsPrefs",
+                                    "newValue": false
+                                },
+                                {
+                                    "nodeId": "messagesGroup",
+                                    "newValue": false
+                                }
+                            ]
+                        },
+                        "name": "Off"
+                    }
+                },
+                "data": {},
+                "recommended": "Off"
+            },
+            "tags": [
+                "contact",
+                "control"
+            ],
+            "id": 31
+        },
+        "control_messages_notifications": {
+            "read": {
+                "name": "Receive news about activity related to your profile and what you share?",
+                "url": "https://www.linkedin.com/psettings/email-controls",
+                "availableSettings": {
+                    "On": {
+                        "name": "On",
+                        "index": 80
+                    },
+                    "Off": {
+                        "name": "Off",
+                        "index": 81
+                    }
+                },
+                "jquery_selector": {
+                    "element": "input[id='invitationsGroup']",
+                    "valueType": "checkbox"
+                }
+            },
+            "write": {
                 "name": "Receive news about activity related to your profile and what you share?",
                 "page": "https://www.linkedin.com/psettings/email-controls",
                 "url_template": "https://www.linkedin.com/psettings/email-controls/updateSettings?csrfToken={CSRF_TOKEN}",
@@ -2124,11 +2166,11 @@
                 "data": {},
                 "recommended": "Off"
             },
-            "id": 31,
             "tags": [
                 "profiling",
                 "control"
-            ]
+            ],
+            "id": 32
         },
         "control_messages_network_updates": {
             "read": {
@@ -2137,11 +2179,11 @@
                 "availableSettings": {
                     "On": {
                         "name": "On",
-                        "index": 78
+                        "index": 82
                     },
                     "Off": {
                         "name": "Off",
-                        "index": 79
+                        "index": 83
                     }
                 },
                 "jquery_selector": {
@@ -2227,11 +2269,11 @@
                 "data": {},
                 "recommended": "Off"
             },
-            "id": 32,
             "tags": [
                 "profiling",
                 "control"
-            ]
+            ],
+            "id": 33
         },
         "control_messages_jobs_and_opportunities": {
             "read": {
@@ -2240,11 +2282,11 @@
                 "availableSettings": {
                     "On": {
                         "name": "On",
-                        "index": 80
+                        "index": 84
                     },
                     "Off": {
                         "name": "Off",
-                        "index": 81
+                        "index": 85
                     }
                 },
                 "jquery_selector": {
@@ -2330,11 +2372,11 @@
                 },
                 "recommended": "Off"
             },
-            "id": 33,
             "tags": [
                 "profiling",
                 "control"
-            ]
+            ],
+            "id": 34
         },
         "control_messages_news": {
             "read": {
@@ -2343,11 +2385,11 @@
                 "availableSettings": {
                     "On": {
                         "name": "On",
-                        "index": 82
+                        "index": 86
                     },
                     "Off": {
                         "name": "Off",
-                        "index": 83
+                        "index": 87
                     }
                 },
                 "jquery_selector": {
@@ -2417,11 +2459,11 @@
                 },
                 "recommended": "Off"
             },
-            "id": 34,
             "tags": [
                 "profiling",
                 "control"
-            ]
+            ],
+            "id": 35
         },
         "control_messages_from_linkedIn": {
             "read": {
@@ -2430,11 +2472,11 @@
                 "availableSettings": {
                     "On": {
                         "name": "On",
-                        "index": 84
+                        "index": 88
                     },
                     "Off": {
                         "name": "Off",
-                        "index": 85
+                        "index": 89
                     }
                 },
                 "jquery_selector": {
@@ -2496,12 +2538,12 @@
                 },
                 "recommended": "Off"
             },
-            "id": 35,
             "tags": [
                 "profiling",
                 "control",
                 "contact"
-            ]
+            ],
+            "id": 36
         },
         "control_messages_from_linkedIn_learning": {
             "read": {
@@ -2510,11 +2552,11 @@
                 "availableSettings": {
                     "On": {
                         "name": "On",
-                        "index": 86
+                        "index": 90
                     },
                     "Off": {
                         "name": "Off",
-                        "index": 87
+                        "index": 91
                     }
                 },
                 "jquery_selector": {
@@ -2576,12 +2618,12 @@
                 },
                 "recommended": "Off"
             },
-            "id": 36,
             "tags": [
                 "profiling",
                 "control",
                 "contact"
-            ]
+            ],
+            "id": 37
         },
         "who_can_invite_you": {
             "read": {
@@ -2590,15 +2632,15 @@
                 "availableSettings": {
                     "Everyone": {
                         "name": "Everyone",
-                        "index": 88
+                        "index": 92
                     },
                     "Email_and_Imported_contacts": {
                         "name": "Email and Imported contacts",
-                        "index": 89
+                        "index": 93
                     },
                     "Imported_contacts": {
                         "name": "Imported contacts",
-                        "index": 90
+                        "index": 94
                     }
                 },
                 "jquery_selector": {
@@ -2634,24 +2676,24 @@
                 "data": {},
                 "recommended": "Imported_contacts"
             },
-            "id": 37,
             "tags": [
                 "contact",
                 "control"
-            ]
+            ],
+            "id": 38
         },
         "enable_group_invitations": {
             "read": {
-                "name": "Receive invitations to join groups?",
+                "name": "Receive invitations to join groups? ",
                 "url": "https://www.linkedin.com/psettings/group-invitations",
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 91
+                        "index": 95
                     },
                     "No": {
                         "name": "No",
-                        "index": 92
+                        "index": 96
                     }
                 },
                 "jquery_selector": {
@@ -2660,7 +2702,7 @@
                 }
             },
             "write": {
-                "name": "Receive invitations to join groups?",
+                "name": "Receive invitations to join groups? ",
                 "page": "https://www.linkedin.com/psettings/group-invitations",
                 "url_template": "https://www.linkedin.com/psettings/group-invitations",
                 "type": "multipart/form-data",
@@ -2681,11 +2723,11 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 38,
             "tags": [
                 "contact",
                 "control"
-            ]
+            ],
+            "id": 39
         },
         "enable_group_notifications": {
             "read": {
@@ -2694,11 +2736,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 93
+                        "index": 97
                     },
                     "No": {
                         "name": "No",
-                        "index": 94
+                        "index": 98
                     }
                 },
                 "jquery_selector": {
@@ -2728,24 +2770,24 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 39,
             "tags": [
                 "exposure",
                 "control"
-            ]
+            ],
+            "id": 40
         },
         "enable_research_invitations": {
             "read": {
                 "name": "Turn on/off invitations to participate in research",
                 "url": "https://www.linkedin.com/psettings/research-invitations",
                 "availableSettings": {
-                    "Yes": {
-                        "name": "Yes",
-                        "index": 95
+                    "On": {
+                        "name": "On",
+                        "index": 99
                     },
-                    "No": {
-                        "name": "No",
-                        "index": 96
+                    "Off": {
+                        "name": "Off",
+                        "index": 100
                     }
                 },
                 "jquery_selector": {
@@ -2759,26 +2801,26 @@
                 "url_template": "https://www.linkedin.com/psettings/research-invitations",
                 "type": "multipart/form-data",
                 "availableSettings": {
-                    "Yes": {
+                    "On": {
                         "data": {
                             "researchInvitation": true
                         },
-                        "name": "Yes"
+                        "name": "On"
                     },
-                    "No": {
+                    "Off": {
                         "data": {
                             "researchInvitation": false
                         },
-                        "name": "No"
+                        "name": "Off"
                     }
                 },
                 "data": {},
                 "recommended": "No"
             },
-            "id": 40,
             "tags": [
                 "contact"
-            ]
+            ],
+            "id": 41
         },
         "allow_partner_inmail": {
             "read": {
@@ -2787,11 +2829,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 97
+                        "index": 101
                     },
                     "No": {
                         "name": "No",
-                        "index": 98
+                        "index": 102
                     }
                 },
                 "jquery_selector": {
@@ -2827,10 +2869,10 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 41,
             "tags": [
                 "contact"
-            ]
+            ],
+            "id": 42
         },
         "allow_hiring_campaign_partner_inmail": {
             "read": {
@@ -2839,11 +2881,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 99
+                        "index": 103
                     },
                     "No": {
                         "name": "No",
-                        "index": 100
+                        "index": 104
                     }
                 },
                 "jquery_selector": {
@@ -2878,11 +2920,11 @@
                 "data": {},
                 "recommended": "No"
             },
-            "id": 42,
             "tags": [
                 "contact",
                 "advertising"
-            ]
+            ],
+            "id": 43
         }
     },
     "twitter": {
@@ -2897,11 +2939,11 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 101
+                        "index": 105
                     },
                     "No": {
                         "name": "No",
-                        "index": 102
+                        "index": 106
                     }
                 }
             },
@@ -2924,41 +2966,45 @@
                     }
                 },
                 "data": {},
-                "recommended": "Yes"
+                "recommended": "No"
             },
-            "id": 43
+            "tags": [
+                "discovery",
+                "control"
+            ],
+            "id": 44
         },
         "tweet_location": {
             "read": {
-                "name": "Add a location to my Tweets",
+                "name": "Add a location to my tweets?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[name='user[geo_enabled]']",
                     "valueType": "checkbox"
                 },
                 "availableSettings": {
-                    "allow": {
-                        "name": "Allow",
-                        "index": 103
+                    "Yes": {
+                        "name": "Yes",
+                        "index": 107
                     },
-                    "disallow": {
-                        "name": "Disallow",
-                        "index": 104
+                    "No": {
+                        "name": "No",
+                        "index": 108
                     }
                 }
             },
             "write": {
-                "name": "Add a location to my Tweets",
+                "name": "Add a location to my tweets?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
-                    "allow": {
+                    "Yes": {
                         "data": {
                             "user[geo_enabled]": 1
                         },
                         "name": "Yes"
                     },
-                    "disallow": {
+                    "No": {
                         "data": {
                             "user[geo_enabled]": 0
                         },
@@ -2966,13 +3012,17 @@
                     }
                 },
                 "data": {},
-                "recommended": "disallow"
+                "recommended": "No"
             },
-            "id": 44
+            "tags": [
+                "discovery",
+                "exposure"
+            ],
+            "id": 45
         },
         "allow_photo_tag": {
             "read": {
-                "name": "Allow/disallow anyone to tag you in photos.",
+                "name": "Allow anyone to tag you in photos?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[name='user[allow_media_tagging]']",
@@ -2981,20 +3031,20 @@
                 "availableSettings": {
                     "all": {
                         "name": "Allow anyone to tag me in photos",
-                        "index": 105
+                        "index": 109
                     },
                     "following": {
                         "name": "Only allow people I follow to tag me in photos",
-                        "index": 106
+                        "index": 110
                     },
                     "none": {
                         "name": "Do not allow anyone to tag me in photos",
-                        "index": 107
+                        "index": 111
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow anyone to tag you in photos.",
+                "name": "Allow anyone to tag you in photos?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3020,11 +3070,15 @@
                 "data": {},
                 "recommended": "none"
             },
-            "id": 45
+            "tags": [
+                "discovery",
+                "exposure"
+            ],
+            "id": 46
         },
         "allow_email_search": {
             "read": {
-                "name": "Allow/disallow others find you by your email address",
+                "name": "Allow others find you by your email address?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[id='user_discoverable_by_email']",
@@ -3033,16 +3087,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 108
+                        "index": 112
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 109
+                        "index": 113
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow others find you by your email address",
+                "name": "Allow others find you by your email address?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3061,11 +3115,15 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 46
+            "tags": [
+                "contact",
+                "exposure"
+            ],
+            "id": 47
         },
         "allow_phone_search": {
             "read": {
-                "name": "Allow/disallow others find you by your mobile phone number",
+                "name": "Allow others find you by your mobile phone number?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[id='user_mobile_discoverable']",
@@ -3074,16 +3132,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 110
+                        "index": 114
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 111
+                        "index": 115
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow others find you by your mobile phone number",
+                "name": "Allow others find you by your mobile phone number?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3102,11 +3160,16 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 47
+            "tags": [
+                "contact",
+                "discovery",
+                "control"
+            ],
+            "id": 48
         },
         "allow_promoted_content": {
             "read": {
-                "name": "Allow/disallow Twitter to display ads about things you've already shown interest in (aka \"promoted content\"",
+                "name": "Allow Twitter to display ads about things you've already shown interest in (aka \"promoted content\")?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[id='allow_ads_personalization']",
@@ -3115,16 +3178,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 112
+                        "index": 116
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 113
+                        "index": 117
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow Twitter to display ads about things you've already shown interest in (aka \"promoted content\"",
+                "name": "Allow Twitter to display ads about things you've already shown interest in (aka \"promoted content\")?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3143,11 +3206,17 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 48
+            "tags": [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ],
+            "id": 49
         },
         "allow_tweetdeck": {
             "read": {
-                "name": "Allow/disallow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck ?",
+                "name": "Allow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[name='user[allow_contributor_request]']",
@@ -3156,20 +3225,20 @@
                 "availableSettings": {
                     "all": {
                         "name": "Allow anyone to add me to their team",
-                        "index": 114
+                        "index": 118
                     },
                     "following": {
                         "name": "Only allow people I follow to add me to their team",
-                        "index": 115
+                        "index": 119
                     },
                     "none": {
                         "name": "Do not allow anyone to add me to their team",
-                        "index": 116
+                        "index": 120
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck ?",
+                "name": "Allow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3195,11 +3264,17 @@
                 "data": {},
                 "recommended": "none"
             },
-            "id": 49
+            "tags": [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ],
+            "id": 50
         },
         "allow_direct_message": {
             "read": {
-                "name": "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
+                "name": "Allow any Twitter user to send you a direct message even if you do not follow them?",
                 "url": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[id='allow_dms_from_anyone']",
@@ -3208,16 +3283,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 117
+                        "index": 121
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 118
+                        "index": 122
                     }
                 }
             },
             "write": {
-                "name": "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
+                "name": "Allow any Twitter user to send you a direct message even if you do not follow them?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3236,11 +3311,16 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 50
+            "tags": [
+                "profiling",
+                "personal data",
+                "control"
+            ],
+            "id": 51
         },
         "send_read_receipts": {
             "read": {
-                "name": "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
+                "name": "Allow that when someone sends you a message, people in the conversation will know when you have seen it?",
                 "page": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[id='allow_dm_receipts']",
@@ -3249,16 +3329,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 119
+                        "index": 123
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 120
+                        "index": 124
                     }
                 }
             },
             "write": {
-                "name": "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
+                "name": "Allow that when someone sends you a message, people in the conversation will know when you have seen it?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3277,11 +3357,17 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 51
+            "tags": [
+                "exposure",
+                "profiling",
+                "personal data",
+                "control"
+            ],
+            "id": 52
         },
         "display_sensitive_content": {
             "read": {
-                "name": "Allow/Disallow to display media that may contain sensitive content",
+                "name": "Allow to display media that may contain sensitive content?",
                 "page": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[name='user[nsfw_view]']",
@@ -3290,16 +3376,16 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 121
+                        "index": 125
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 122
+                        "index": 126
                     }
                 }
             },
             "write": {
-                "name": "Allow/Disallow to display media that may contain sensitive content",
+                "name": "Allow to display media that may contain sensitive content?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3318,11 +3404,16 @@
                 },
                 "recommended": "disallow"
             },
-            "id": 52
+            "tags": [
+                "exposure",
+                "profiling",
+                "control"
+            ],
+            "id": 53
         },
         "mark_tweeted_media_sensitive_content": {
             "read": {
-                "name": "Mark media I Tweet as containing material that may be sensitive",
+                "name": "Mark media I tweet as containing material that may be sensitive?",
                 "page": "https://twitter.com/settings/safety",
                 "jquery_selector": {
                     "element": "input[name='user[nsfw_user]']",
@@ -3331,16 +3422,16 @@
                 "availableSettings": {
                     "Yes": {
                         "name": "Yes",
-                        "index": 123
+                        "index": 127
                     },
                     "No": {
                         "name": "No",
-                        "index": 124
+                        "index": 128
                     }
                 }
             },
             "write": {
-                "name": "Mark media I Tweet as containing material that may be sensitive",
+                "name": "Mark media I tweet as containing material that may be sensitive?",
                 "page": "https://twitter.com/settings/safety",
                 "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
@@ -3359,7 +3450,11 @@
                 },
                 "recommended": "No"
             },
-            "id": 53
+            "tags": [
+                "exposure",
+                "profiling"
+            ],
+            "id": 54
         }
     }
 }

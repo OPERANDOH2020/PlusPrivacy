@@ -59,7 +59,7 @@ tls
 #attachment
 #clamd
 #spamassassin
-
+aliases
 dkim_verify
 forward_emails
 dkim_sign

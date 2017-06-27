@@ -31,11 +31,17 @@ exports.createUser = function (userData, callback) {
             callback(new Error("User with email "+userData.email+" already exists"));
         }else{
             var user = apersistence.createRawObject("DefaultUser",uuid.v1());
-            var activationCode = new Buffer(user.userId).toString('base64');
-            if(thisAdapter.config.development === true){
-                activationCode = "0";
+
+            if(userData.activationCode){
+                user.activationCode = userData.activationCode
+            }else{
+                user.activationCode = new Buffer(user.userId).toString('base64');
             }
-            user.activationCode = activationCode;
+            if(thisAdapter.config.development === true){
+                user.activationCode = "0";
+            }
+            
+
             userData.salt = crypto.randomBytes(saltLength).toString('base64');
             hashThisPassword(userData.password,userData.salt,function(err,hashedPassword){
                 userData.password = hashedPassword;
@@ -237,6 +243,76 @@ exports.getUserId = function(email, callback){
         }
     });
 };
+
+exports.genereateResetPasswordToken = function(userId,callback){
+    flow.create("Create reset link", {
+        begin: function () {
+            persistence.lookup("PasswordResetRequest", uuid.v1(), this.continue("createLink"));
+        },
+        createLink: function (err, obj) {
+            if(err){
+                throw err;
+            }else if(obj.__meta.freshRawObject===false){
+                this.begin();
+            }else{
+                obj.issueDate = new Date();
+                obj.user = userId;
+                persistence.save(obj,callback)
+            }
+        },
+        error:function(err){
+            console.error(err);
+            callback(err);
+        }
+    })();
+}
+
+exports.validateResetPasswordToken = function(token,callback){
+    flow.create("Validate reset token", {
+        begin: function () {
+            persistence.find("PasswordResetRequest", token, this.continue("createLink"));
+        },
+        validate: function (err, obj) {
+            var oneDay = 24*60*60*1000 //in ms
+
+            if (err) {
+                throw err //this error has to do with the flow and so it could be treated internally by the 'error' function
+
+            } else if (!obj || obj.alreadyUsed || ((new Date() - obj.issueDate) > oneDay)){
+                callback(new Error("The reset token is invalid"))
+
+            } else {
+                callback(null, obj)
+            }
+        },
+        error: function (err) {
+            console.error(err);
+            callback(err);
+        }
+    })();
+}
+
+exports.invalidateResetPasswordToken = function(token,callback){
+    flow.create("Validate reset token", {
+        begin: function () {
+            persistence.find("PasswordResetRequest", token, this.continue("createLink"));
+        },
+        validate: function (err, obj) {
+            if (err) {
+                throw err //this error has to do with the flow and so it could be treated internally by the 'error' function
+            } else if (!obj) {
+                callback(new Error("The reset token does not exist"))
+            } else {
+                obj.alreadyUsed = true;
+                persistence.save(obj,callback);
+            }
+        },
+        error: function (err) {
+            console.error(err);
+            callback(err);
+        }
+    })();
+}
 
 exports.changeUserPassword = function(userId, currentPassword, newPassword, callback){
     flow.create("Validate Password", {

@@ -133,42 +133,50 @@ var initOperando = {
                     {
                         password: "swarm",
                         email: "admin@plusprivacy.com",
-                        organisationId: "SystemAdministrators"
+                        organisationId: "SystemAdministrators",
+                        activationCode:"0"
                     },
                     {
                         password: "operando",
                         email: thisAdapter.config.Core.adminEmail,
-                        organisationId: "SystemAdministrators"
+                        organisationId: "SystemAdministrators",
+                        activationCode:"0"
                     },
                     {
                         password: "guest",
                         email: "guest@operando.eu",
-                        organisationId: "Public"
+                        organisationId: "Public",
+                        activationCode:"0"
                     },
                     {
                         password: "analyst",
                         email: "analyst@rms.ro",
-                        organisationId: "Analysts"
+                        organisationId: "Analysts",
+                        activationCode:"0"
                     },
                     {
                         password: "psp4",
                         email: "psp@rms.ro",
-                        organisationId: "PSP"
+                        organisationId: "PSP",
+                        activationCode:"0"
                     },
                     {
                         password: "wizard",
                         email: "privacy_wizard@rms.ro",
-                        organisationId: "Public"
+                        organisationId: "Public",
+                        activationCode:"0"
                     },
                     {
                         password: "haraka",
                         email: "iAmAnEmailServer@plusprivacy.com",
-                        organisationId: "Public"
+                        organisationId: "Public",
+                        activationCode:"0"
                     },
                     {
                         password: "test",
                         email: "test@plusprivacy.com",
-                        organisationId: "Public"
+                        organisationId: "Public",
+                        activationCode:"0"
                     }
                 ];
 

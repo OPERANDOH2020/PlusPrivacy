@@ -10,6 +10,7 @@ var persistence = undefined;
 
 container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(outOfService,mysqlPersistence){
     persistence = mysqlPersistence;
+
     var models = [
         {
             modelName:"DefaultUser",
@@ -111,6 +112,28 @@ container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(out
                     relation:"zoneName:zoneName"
                 }
             }
+        },
+        {
+            modelName:"PasswordResetRequest",
+            structure:{
+                id:{
+                    type:"string",
+                    pk:true,
+                    index:true,
+                    length:255
+                },
+                issueDate:{
+                    type:"datetime"
+                },
+                user:{
+                    type: "string",
+                    length:255
+                },
+                alreadyUsed:{
+                    type:"boolean",
+                    default:false
+                }
+            }
         }
     ];
     
@@ -140,7 +163,5 @@ container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(out
             }
         }
     })();
-
     return null;
-
 });

@@ -55,13 +55,13 @@
                         {"core":"etc/adapters/WSServer.js",                           "enabled":true  , "step":10},
                         {"node":"operando/adapters/CBE/PrivacyForBenefitsAdapter.js", "enabled":true  , "step":10},
                         {"node":"operando/adapters/PSW/WatchDogAdapter.js",           "enabled":true  , "step":10},
-                        {"node":"operando/adapters/EmailAdapter.js",                  "enabled":true  ,"args":["-host", "localhost", "-port", "25" ], "step":10},
+                        {"node":"operando/adapters/EmailAdapter.js",                  "enabled":false  ,"args":["-host", "localhost", "-port", "25" ], "step":10},
                         {"node":"operando/adapters/WD/SocialNetworkSettingsAdapter.js","enabled":true  , "step":10},
                         {"node":"operando/adapters/WebCrawler/CrawlerAdapter.js"      ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/UDE/UDEAdapter.js"                 ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/FormsAdapter.js"                   ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/CreditAdapter.js"                  ,"enabled":true  , "step":10},
-                        {"node":"operando/adapters/UserPreferencesAdapter.js"       ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/UserPreferencesAdapter.js"         ,"enabled":true  , "step":10},
                         {"node":"admin/adapters/TestsManager.js",                      "enabled":false, "step":5}
 
             ]

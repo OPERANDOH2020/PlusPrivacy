@@ -209,9 +209,14 @@ var identitySwarming = {
                 For this particular proxy the emails must be forwarded to multiple destinations.
                 A little confusing and ugly, but just ignore it.
                  */
-                this.realEmail = thisAdapter.config.Core.supportTeam
+                this.realEmail = thisAdapter.config.Core.supportTeam;
                 this.home('gotRealEmail')
                 return;
+            }
+            else if(this.proxy==="contact@plusprivacy.com") {
+                this.realEmail = thisAdapter.config.Core.adminEmail;
+                this.home('gotRealEmail')
+                return
             }
 
             var self = this;
