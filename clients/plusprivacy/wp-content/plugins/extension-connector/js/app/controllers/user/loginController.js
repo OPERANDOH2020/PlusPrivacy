@@ -1,6 +1,5 @@
 privacyPlusApp.controller("loginController", function ($scope, connectionService, messengerService, userService, SharedService, $window) {
 
-    $scope.authenticationError = false;
     $scope.requestProcessed = false;
     $scope.user = {
         email: "",
@@ -19,26 +18,47 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
     });
 
     $scope.submitLoginForm = function () {
+        $scope.successMessage = false;
         $scope.requestProcessed = true;
-        $scope.authenticationError = false;
-        connectionService.loginUser($scope.user, "Public", function (user) {
+        $scope.accountNotActivated = false;
+        delete $scope.errorResponse;
+        connectionService.loginUser($scope.user, function (user) {
                 $window.location = "/user-dashboard";
 
             },
             function (error) {
 
-                if (error == "account_not_activated") {
+                if (error == "accountNotActivated") {
                     $scope.errorResponse = "Account not activated!";
+                    $scope.accountNotActivated = true;
                 }
                 else {
                     $scope.errorResponse = "Invalid credentials!";
                 }
 
                 $scope.requestProcessed = false;
-                $scope.authenticationError = true;
                 $scope.$apply();
             });
     };
+
+
+    $scope.resendActivationCode = function(){
+        $scope.requestProcessed = true;
+        $scope.accountNotActivated = false;
+        delete $scope.errorResponse;
+
+        connectionService.resendActivationCode($scope.user.email, function(){
+            $scope.successMessage = "Activation email sent! Check your inbox!";
+            $scope.requestProcessed = false;
+            $scope.$apply();
+        }, function(error){
+            delete $scope.successMessage;
+            $scope.errorResponse = error;
+            $scope.requestProcessed = false;
+            $scope.$apply();
+        })
+    };
+
 
     /*setTimeout(function () {
         var relayResponded = messengerService.extensionIsActive();
