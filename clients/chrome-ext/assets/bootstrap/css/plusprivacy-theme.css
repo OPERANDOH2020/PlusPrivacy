@@ -403,7 +403,8 @@ padding-left: 0px;
 }
 
 #identity_management_tab,
-#extensions_tab
+#extensions_tab,
+#privacy_policy_tab
 {
  padding: 20px;
 }
@@ -1945,6 +1946,14 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/ad_block_selected.png");
 }
 
+.menu_icon.privacy_policy_icon{
+    background-image:url("/operando/assets/images/menu_icons/privacy_policy.png");
+}
+
+.active .menu_icon.privacy_policy_icon{
+    background-image:url("/operando/assets/images/menu_icons/privacy_policy_selected.png");
+}
+
 .menu_icon.user-account{
     background-image:url("/operando/assets/images/menu_icons/user_account.png");
 }
@@ -2482,26 +2491,23 @@ h4.modal-title.plusprivacy{
     margin-left: 10px;
 }
 
-.privacy_policy{
-    position: absolute;
-    bottom: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #FFF;
-    font-family: Dosis;
-    font-size: 20px;
-    width: 100%;
-    background: url("/operando/assets/images/menu_icons/privacy_policy.png") no-repeat 15px center;
-    padding-left: 48px;
+#privacy_policy h2{
+ font-weight:300;
+}
+#privacy_policy{
+    font-family: 'Dosis', sans-serif;
+    font-size: 18px;
 }
 
-.privacy_policy:hover{
-    background-color: #000;
-    color:#FFF;
-    text-decoration: none;
+.privacyPolicyNotLoggedIn #privacy_policy_tab{
+    width: 80%;
+    background: #fdfaef;
+    max-width: 1250px;
+    margin: 40px auto;
 }
-.privacy_policy:focus,
-.privacy_policy:active{
-    color:#FFF;
-    text-decoration: none;
+
+#privacy_policy_tab h1{
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
 }

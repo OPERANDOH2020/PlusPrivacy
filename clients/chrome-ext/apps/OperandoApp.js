@@ -362,7 +362,13 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             .state('account.billing', {
                 url: "/billing",
                 templateUrl: "views/account/billing.html"
+            })
+            .state('privacyPolicy', {
+            url: "/privacy-policy",
+            templateUrl: "views/privacy_policy.html"
             });
+
+
 
             // For any unmatched url, redirect to /home
             //TODO fix this, reminder about notifications
