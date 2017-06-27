@@ -141,6 +141,8 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     var desiredPort = portObserversPool.findPortByName(request.message.sendToPort);
                     if(desiredPort){
                         desiredPort.postMessage(request.message);
+                    }else{
+                        console.log("PORT negasit");
                     }
                     return;
                 }
@@ -230,17 +232,47 @@ chrome.runtime.onConnect.addListener(function (_port) {
             });
         }
         else if(clientPort.name === "applyFacebookSettings" || clientPort.name === "applyLinkedinSettings"
-            || clientPort.name === "applyTwitterSettings"
-            || clientPort.name === "allowSocialNetworkPopup"){
+            || clientPort.name === "applyTwitterSettings"){
             clientPort.onMessage.addListener(function(request){
 
-                console.log(request);
                 if (bus.hasAction(request.action)) {
                     var action = bus.getAction(request.action);
                     var args = [];
                     if (request.data) {
                         args.push(request.data);
                     }
+                    action.apply(action, args);
+                }
+            });
+        }
+        else if (clientPort.name === "allowSocialNetworkPopup") {
+            clientPort.onMessage.addListener(function (request) {
+                if (bus.hasAction(request.action)) {
+                    var action = bus.getAction(request.action);
+                    var args = [];
+                    if (request.data) {
+                        args.push(request.data);
+                    }
+
+                    args.push(function (data) {
+                        var response = data;
+                        if (clientPort) {
+                            clientPort.postMessage({
+                                action: request.action,
+                                message: {status: "success", data: response}
+                            });
+                        }
+                    });
+
+                    args.push(function (err) {
+                        if (clientPort) {
+                            clientPort.postMessage({
+                                action: request.action,
+                                message: {error: err.message ? err.message : err}
+                            });
+                        }
+                    });
+
                     action.apply(action, args);
                 }
             });

@@ -20,12 +20,10 @@ operandoCore
 
 
         var responseHandler = function (response) {
-            console.log(response);
             if (response.type === "SOLVED_REQUEST") {
                 if (response.action && callbacks[response.action]) {
                     while (callbacks[response.action].length > 0) {
                         var messageCallback = callbacks[response.action].pop();
-                        //console.log(response.message);
                         messageCallback(response.message);
                     }
                 }

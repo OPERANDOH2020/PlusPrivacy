@@ -34,6 +34,18 @@ var pfbService = exports.pfbService = {
         unsubscribePfbDealHandler.onResponse("dealUnsubscribed", function(swarm){
             success_callback(swarm.deal);
         })
+    },
+    getWebsiteDeal:function(data, success_callback, failCallback){
+        var pfbHandler = swarmHub.startSwarm("pfb.js", "getWebsiteOffer", data.tabUrl);
+        pfbHandler.onResponse("success", function (swarm) {
+            var offer = swarm.offers[0];
+            console.log(offer);
+            success_callback(offer);
+        });
+
+        pfbHandler.onResponse("no_pfb", function (swarm) {
+            failCallback("no_pfb");
+        });
     }
 }
 

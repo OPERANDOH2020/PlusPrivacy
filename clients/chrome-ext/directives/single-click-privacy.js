@@ -92,6 +92,15 @@ angular.module("singleClickPrivacy",[])
                                                             $scope.$apply();
                                                         }, function () {
                                                             $scope.completed = true;
+
+                                                            $scope.osps.forEach(function(osp){
+                                                                messengerService.send("removePreferences",osp, function(response){
+                                                                    if(response.error){
+                                                                        console.log("Error occured:",response.error);
+                                                                    }
+                                                                });
+                                                            });
+
                                                         });
                                                     }
                                                     else{

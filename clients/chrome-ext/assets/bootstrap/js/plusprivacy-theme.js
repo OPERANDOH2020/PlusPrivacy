@@ -18,6 +18,9 @@ $(document).ready(function () {
                         else {
                             $('#return-to-top').fadeOut();
                         }
+                    },
+                    onOverflowYNone: function(){
+                        $('#return-to-top').hide();
                     }
                 }
             });

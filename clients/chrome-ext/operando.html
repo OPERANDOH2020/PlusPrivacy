@@ -37,7 +37,10 @@
     <script type="text/javascript" src="/operando/utils/angular-ui-notification/angular-ui-notification.min.js"></script>
     <script type="text/javascript" src="/operando/utils/jquery-tipsy/jquery.tipsy.js"></script>
     <script type="text/javascript" src="/operando/utils/polyglot/polyglot.min.js"></script>
-    <!--<script type="text/javascript" src="/operando/swarms.js"></script>-->
+
+    <script type="text/javascript" src="/operando/utils/angular-strap/angular-strap.min.js"></script>
+    <script type="text/javascript" src="/operando/utils/angular-strap/angular-strap.tpl.js"></script>
+
     <script type="text/javascript" src="/operando/utils/angular-cookies.js"></script>
     <script type="text/javascript" src="/operando/utils/angular-messages/angular-messages.js"></script>
     <script type="text/javascript" src="/operando/directives.js" charset="utf-8"></script>
@@ -67,7 +70,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="http://b2c.operando.eu" target="_blank">
+                <a class="navbar-brand" href="http://plusprivacy.com" target="_blank">
                     <img class="image_logo" alt="Brand" src="/operando/assets/images/icons/logo-light-big.png">
                 </a>
             </div>
@@ -139,6 +142,23 @@
                         </ul>
                     </li>
 
+                    <li  class="no-sub-menu">
+                        <a class="menu_icon extensions_icon" ui-sref="extensions">Extensions & Apps</a>
+                        <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
+                            ng-controller="socialAppsController">
+                            <li>
+                                <a ui-sref="extensions" ui-sref-active="active" class="menu_icon plugin_icon">
+                                    Chrome Extensions</a>
+                            </li>
+                            <li ng-repeat="sn in sns">
+                                <a
+                                        class="menu_icon" ng-class="sn+'_icon'"
+                                        ui-sref-active="active"
+                                        ui-sref="network.apps({sn:sn})">{{sn}} Apps</a>
+                            </li>
+                        </ul>
+                    </li>
+
 
                     <li ui-sref-active="active" class="no-sub-menu">
                         <a class="menu_icon privacy_deals_icon" ui-sref="deals">Privacy Deals</a>
@@ -147,26 +167,6 @@
                     <li ui-sref-active="active" class="no-sub-menu">
                         <a class="menu_icon identity_management_icon" ui-sref="identityManagement">My Identities</a>
                     </li>
-
-
-
-                    <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon extensions_icon" ui-sref="extensions">Extensions & Apps</a>
-                    <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
-                        ng-controller="socialAppsController">
-                        <li ng-repeat="sn in sns">
-                            <a
-                                    class="menu_icon" ng-class="sn+'_icon'"
-                                    ui-sref-active="active"
-                                    ui-sref="network.apps({sn:sn})">{{sn}}</a>
-                        </li>
-                    </ul>
-                    </li>
-
-
-                  <!--  <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon extensions_icon" ui-sref="extensions">Extensions & Apps</a>
-                    </li>-->
 
 
                     <li ng-class="{active: $state.includes('admin')||$state.includes('analyst')}" ng-if="user.organisationId =='Analysts'"
@@ -229,9 +229,6 @@
                     <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon abp_icon"
                                                                        ui-sref="abp">Ad blocking & anti-tracking</a></li>
 
-                    <!--<li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon mobile_icon"
-                                                                       ui-sref="preferences.mobile">Mobile</a></li>-->
-
                 </ul>
             </div>
         </div>
@@ -250,7 +247,7 @@
         <div id="footer-copyright">
             <div id="footer-copyright-content" class="clearfix">
 
-                <p>This work is supported by the European Commission under the Horizon 2020 Programme (H2020), as part
+                <p>This service is supported by the European Commission under the Horizon 2020 Programme (H2020), as part
                     of the OPERANDO project (GA no. 653704).
                 </p>
 

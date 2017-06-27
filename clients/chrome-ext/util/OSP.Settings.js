@@ -120,48 +120,100 @@ var ospSettingsConfigPreferences = {
 
                data: {},
                recommended: "friends"
-           }
+           },
+           tags: [
+               "exposure"
+           ]
         },
-        /*activity_log:{
-            read:{
-                name: "Keep/delete your activity log",
+        who_can_see_friends: {
+            read: {
+                name: "Who can see your friends list?",
                 url: "https://www.facebook.com/settings?tab=privacy",
-                availableSettings:["Keep", "Delete"],
-
-                jquery_selector:{
-
+                availableSettings: {
+                    public: {
+                        name: "Public"
+                    },
+                    friends: {
+                        name: "Friends"
+                    },
+                    friends_except_acquaintances:{
+                        name:"Friends except Acquaintances"
+                    },
+                    only_me: {
+                        name: "Only Me"
+                    }
+                },
+                jquery_selector: {
+                    element: ".fbSettingsList:eq(0) .fbSettingsListItem:eq(1) ._nlm",
+                    valueType: "inner"
                 }
             },
-            write:{
-                recommended:"Delete"
-            }
-        },*/
-        /*friends_of_friends:{
-            read:{
-                name: "Choose if only Friends or also Friends of Friends can see your Facebook data",
-                url: "https://www.facebook.com/settings?tab=privacy",
-                availableSettings:["Friends", "Friends of Friends"],
-                jquery_selector:{
-
-                }
+            write: {
+                name: "Who can see your friends list?",
+                page: "https://www.facebook.com/settings?tab=privacy&section=friendlist&view",
+                url_template: "https://www.facebook.com/privacy/selector/update/?privacy_fbid={OPERANDO_PRIVACY_FBID}&post_param={OPERANDO_POST_PARAM}&render_location=22&is_saved_on_select=true&should_return_tooltip=true&prefix_tooltip_with_app_privacy=false&replace_on_select=false&ent_id=0&dpr=1",
+                availableSettings: {
+                    public: {
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 8787365733
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.public
+                            }
+                        },
+                        name: "Public"
+                    },
+                    friends: {
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 8787365733
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.friends
+                            }
+                        },
+                        name: "Friends"
+                    },
+                    friends_except_acquaintances:{
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 8787365733
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.friends_except_acquaintances
+                            }
+                        },
+                        name: "Friends except Acquaintances"
+                    },
+                    only_me: {
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 8787365733
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.only_me
+                            }
+                        },
+                        name: "Only Me"
+                    }
+                },
+                data: {},
+                recommended: "only_me"
             },
-            write:{
-                recommended:"Friends"
-            }
-        },*/
-        /*limit_old_posts:{
-            read:{
-                name: "Limit (or not) viewing content on your timeline you have shared with Friends of Friends or Public, to Friends only.",
-                url: "https://www.facebook.com/settings?tab=privacy",
-                availableSettings:["Public", "Friends of Friends", "Friends"],
-                jquery_selector:{
-
-                }
-            },
-            write:{
-                recommended:"Friends"
-            }
-        },*/
+            tags: [
+                "exposure",
+                "contact"
+            ]
+        },
         who_can_contact:{
             read:{
                 name: "Who can contact you/send you friend requests?",
@@ -282,7 +334,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data:{},
                 recommended:"friends"
-            }
+            },
+            tags: [
+                "contact",
+                "discovery",
+                "control"
+            ]
         },
         lookup_phone:{
             read:{
@@ -351,7 +408,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data:{},
                 recommended:"friends"
-            }
+            },
+            tags: [
+                "contact",
+                "discovery",
+                "control"
+            ]
         },
         search_engine:{
             read:{
@@ -393,7 +455,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data:{},
                 recommended:"no"
-            }
+            },
+            tags: [
+                "contact",
+                "discovery",
+                "control"
+            ]
         },
         limit_timeline:{
             read:{
@@ -433,7 +500,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data:{},
                 recommended:"only_me"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         control_timeline:{
             read:{
@@ -472,7 +543,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data:{},
                 recommended:"enabled"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
 
         timeline_posts_tags:{
@@ -575,7 +650,10 @@ var ospSettingsConfigPreferences = {
 
                 },
                 recommended:"only_me"
-            }
+            },
+            tags: [
+                "exposure"
+            ]
         },
 
         timeline_other_posts:{
@@ -678,7 +756,10 @@ var ospSettingsConfigPreferences = {
 
                 },
                 recommended:"only_me"
-            }
+            },
+            tags: [
+                "exposure"
+            ]
 
         },
 
@@ -732,30 +813,12 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"only_me"
-            }
-        },
-        /*control_tag_suggestions:{
-            //It seems not to be available for EUROPE
-            read:{
-                name: "Control who sees tag suggestions when photos that look like you are uploaded",
-                url: "https://www.facebook.com/settings?tab=timeline",
-                availableSettings:{
-                    friends:{
-                        name:"Friends"
-                    },
-                    only_me:{
-                        name:"Only Me"
-                    }
-                },
-                jquery_selector:{
-                    element: ".fbSettingsList:eq(2) .fbSettingsListItem:eq(2) ._nlm",
-                    valueType: "inner"
-                }
             },
-            write:{
-                recommended:"only_me"
-            }
-        },*/
+            tags: [
+                "exposure",
+                "control"
+            ]
+        },
         control_followers:{
             read:{
                 name: "Who can be your follower?",
@@ -798,7 +861,12 @@ var ospSettingsConfigPreferences = {
                     hideable_ids: ["#following_plugin_item"]
                 },
                 recommended:"friends"
-            }
+            },
+            tags: [
+                "contact",
+                "control",
+                "exposure"
+            ]
         },
         permissions_for_apps:{
             read:{
@@ -867,7 +935,12 @@ var ospSettingsConfigPreferences = {
 
                 },
                 recommended:"disabled"
-            }
+            },
+            tags: [
+                "applications",
+                "control",
+                "personal data"
+            ]
         },
         control_personal_info:{
             read:{
@@ -932,7 +1005,13 @@ var ospSettingsConfigPreferences = {
                 },
 
                 recommended:"no"
-            }
+            },
+            tags: [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ]
         },
         facebook_companies_ads:{
             read:{
@@ -972,7 +1051,13 @@ var ospSettingsConfigPreferences = {
                 },
 
                 recommended:"no"
-            }
+            },
+            tags: [
+                "personal_data",
+                "profiling",
+                "advertising",
+                "control"
+            ]
         },
         control_friends_ads:{
             read:{
@@ -1011,7 +1096,14 @@ var ospSettingsConfigPreferences = {
                 },
 
                 recommended:"no_one"
-            }
+            },
+            tags: [
+                "personal_data",
+                "profiling",
+                "advertising",
+                "control",
+                "exposure"
+            ]
         },
         control_preferences:{
             read:{
@@ -1042,7 +1134,7 @@ var ospSettingsConfigPreferences = {
 
     },
 
-    "google": {
+    /*"google": {
         keep_app_activity:{
             read:{
                 name: "Delete or keep all Web and app activity",
@@ -1141,31 +1233,7 @@ var ospSettingsConfigPreferences = {
                 recommended:"Revoke access by unused applications"
             }
         },
-        /*share_location:{
-            read:{
-                name: "Allow/disallow  sharing your location with Google and other users",
-                url: "https://myaccount.google.com/privacy#accounthistory",
-                jquery_selector:{
-                    //TODO: Not applicable.
-                }
-            },
-            write:{
-                recommended:"Disallow"
-            }
-        },*/
-        /*keep_history:{
-            read:{
-                name: "Turn on/off Google collecting your search and browsing activity ",
-                url: "https://myaccount.google.com/privacy#accounthistory",
-                jquery_selector:{
-                    //TODO: Not applicable.
-                }
-            },
-            write:{
-                recommended:"Off"
-            }
-        },*/
-        pause_location_tracking:{
+       pause_location_tracking:{
             read:{
                 name: "Pause Google and related apps tracking your location. ",
                 url: "https://myaccount.google.com/activitycontrols/location",
@@ -1194,7 +1262,7 @@ var ospSettingsConfigPreferences = {
                 recommended:"false"
             }
         }
-    },
+    },*/
 
     "linkedin": {
         //=============================================================================================================
@@ -1258,61 +1326,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No_One"
-            }
-        },
-        control_third_party:{
-            read:{
-                name: "Third party apps",
-                url: "https://www.linkedin.com/psettings/third-party-applications",
-                jquery_selector:{
-                    element:"li[id='setting-third-party-applications'] .state",
-                    valueType:"inner"
-                }
             },
-            write:{
-                name: "Third party apps",
-                page: "https://www.linkedin.com/psettings/profile-photo-visibility",
-                //url_template: "https://www.linkedin.com/psettings/profile-photo-visibility",
-                data: {},
-                //Manual review and removal of redundant apps
-                recommended:"0 connected apps"
-            }
-        },
-        manage_twitter:{
-            read:{
-                name: "Manage your Twitter info and activity on your LinkedIn account",
-                url: "https://www.linkedin.com/psettings/account",
-                jquery_selector:{
-                    element:"li[id='setting-twitter'] .state",
-                    valueType:"inner"
-                }
-            },
-            write:{
-                name: "Manage your Twitter info and activity on your LinkedIn account",
-                page: "https://www.linkedin.com/psettings/account",
-                //url: "https://www.linkedin.com/psettings/account",
-                data: {},
-                //Manual review and removal of connected twitter accounts.
-                recommended:"Not connected"
-            }
-        },
-        manage_wechat:{
-            read:{
-                name: "setting-wechat",
-                url: "https://www.linkedin.com/psettings/wechat-accounts",
-                jquery_selector:{
-                    element:"li[id='setting-wechat'] .state",
-                    valueType:"inner"
-                }
-            },
-            write:{
-                name: "setting-wechat",
-                page: "https://www.linkedin.com/psettings/wechat-accounts",
-                //url: "https://www.linkedin.com/psettings/wechat-accounts",
-                data: {},
-                //Manual review and removal of connected wechat accounts.
-                recommended:"Not connected"
-            }
+            tags: [
+                "exposure",
+                "personal data",
+                "control"
+            ]
         },
         //=============================================================================================================
         //================================================Privacy======================================================
@@ -1601,7 +1620,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Only_you"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         how_you_rank:{
             read:{
@@ -1641,7 +1664,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "personal data",
+                "control"
+            ]
         },
         profile_viewers_feature:{
             read:{
@@ -1682,7 +1709,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         share_edits:{
             read:{
@@ -1722,7 +1753,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         profile_viewing_options:{
             read:{
@@ -1771,7 +1806,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Private_mode"
-            }
+            },
+            tags: [
+                "personal data",
+                "control"
+            ]
         },
         share_you_news:{
             read:{
@@ -1811,7 +1850,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         control_followers:{
             read:{
@@ -1851,10 +1894,13 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Your_Connections"
-            }
+            },
+            tags: [
+                "contact",
+                "control",
+                "exposure"
+            ]
         },
-        //TODO: Add management capabilities for Blocking list. (https://www.linkedin.com/psettings/member-blocking)
-        //TODO: Add management capabilities for Unfollowed list. (https://www.linkedin.com/psettings/customize-stream)
         suggest_you_email:{
             read:{
                 name: "Who can see you as a suggested connection if they have your email address?",
@@ -1906,7 +1952,12 @@ var ospSettingsConfigPreferences = {
                     handleType:"EMAIL"
                 },
                 recommended:"Nobody"
-            }
+            },
+            tags: [
+                "contact",
+                "personal data",
+                "discovery"
+            ]
         },
         suggest_you_phone:{
             read:{
@@ -1959,7 +2010,12 @@ var ospSettingsConfigPreferences = {
                     handleType:"PHONE"
                 },
                 recommended:"Nobody"
-            }
+            },
+            tags: [
+                "contact",
+                "personal data",
+                "discovery"
+            ]
         },
 
         meet_the_team:{
@@ -2000,7 +2056,13 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "control",
+                "exposure",
+                "personal data"
+            ]
+
         },
         //============================================
         share_data_with_third_party_applications:{
@@ -2041,7 +2103,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "applications",
+                "personal data",
+                "profiling"
+            ]
         },
         share_data_with_third_party_platforms:{
             read:{
@@ -2083,7 +2150,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "personal data",
+                "profiling"
+            ]
         },
         cookie_personalised_ads:{
             read:{
@@ -2123,108 +2194,15 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
-        },
-        /**
-         * TODO skip this. need to add phone
-         */
-        /*two_step_verification:{
-            read:{
-                name: "Toggle on/off two-factor authentication",
-                url: "https://www.linkedin.com/psettings/two-step-verification",
-                availableSettings:{
-                    On:{
-                        name:"On"
-                    },
-                    Off:{
-                        name:"Off"
-                    }
-                },
-                jquery_selector:{
-                    element:"#setting-two-step-verification .state",
-                    valueType:"inner"
-                }
             },
-            write:{
-                name: "Allow LinkedIn to use cookies and trackers on third party sites to target you with ads and personalized services?",
-                page: "https://www.linkedin.com/psettings/enhanced-advertising",
-                //url: "https://www.linkedin.com/psettings/enhanced-advertising",
-                availableSettings:{
-                    On: {
-                        params: {
-                            privacy_lnid: {
-                                placeholder: "OPERANDO_PRIVACY_LNID",
-                                value: 0
-                            },
-                            post_param: {
-                                placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.on
-                            }
-                        },
-                        name: "On"
-                    },
-                    Off:{
-                        params: {
-                            privacy_lnid: {
-                                placeholder: "OPERANDO_PRIVACY_LNID",
-                                value: 0
-                            },
-                            post_param: {
-                                placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.off
-                            }
-                        },
-                        name:"Off"
-                    }
-                },
-                data: {},
-                recommended:"Off"
-            }
-        },*/
-        /*control_others_see:{
-         read:{
-         name: "What will people see when you have viewed their profile?",
-         url: "https://www.linkedin.com/psettings/account",
-         jquery_selector:{
-         }
-         },
-         write:{
-         recommended:"Limit to your name and headline"
-         }
-         },*/
-        /*control_also_viewed:{
-         read:{
-         name: "Control display of 'Viewers of this profile also viewed' box on your Profile page.",
-         url: "https://www.linkedin.com/psettings/account",
-         jquery_selector:{
-         }
-         },
-         write:{
-         recommended:"Do not display"
-         }
-         },*/
-        /*contrl_phone_info:{
-         read:{
-         name: "Control how your phone number can be used.",
-         url: "https://www.linkedin.com/psettings/account",
-         jquery_selector:{
-         }
-         },
-         write:{
-         recommended:"Limit to your 1st degree connections"
-         }
-         },*/
-        /*meet_the_team:{
-         read:{
-         name: "Control \"Meet the team\"",
-         url: "https://www.linkedin.com/psettings/account",
-         jquery_selector:{
-         }
-         },
-         write:{
-         recommended:"Disallow"
-         }
-         },*/
+            tags: [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ]
+        },
+
         //=============================================================================================================
         //================================================Communications===============================================
         //=============================================================================================================
@@ -2316,7 +2294,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "contact",
+                "control"
+            ]
         },
         control_messages_messages:{
             read:{
@@ -2406,7 +2388,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "contact",
+                "control"
+            ]
         },
         control_messages_notifications:{
             read:{
@@ -2436,7 +2422,7 @@ var ospSettingsConfigPreferences = {
                             csrfToken: {
                                 placeholder: "CSRF_TOKEN",
                                 type:'dynamic'
-                            },
+                            }
                         },
                         data:{
                             topLevelNodeId:"root",
@@ -2520,7 +2506,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control"
+            ]
         },
         control_messages_network_updates:{
             read:{
@@ -2618,7 +2608,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control"
+            ]
         },
         control_messages_jobs_and_opportunities:{
             read:{
@@ -2716,7 +2710,11 @@ var ospSettingsConfigPreferences = {
                     topLevelNodeId:"root"
                 },
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control"
+            ]
         },
         control_messages_news:{
             read:{
@@ -2798,7 +2796,11 @@ var ospSettingsConfigPreferences = {
                     topLevelNodeId:"root"
                 },
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control"
+            ]
         },
         /**
          * TODO do it later.. reading dynamic settings from the site
@@ -2941,7 +2943,12 @@ var ospSettingsConfigPreferences = {
                     topLevelNodeId:"root"
                 },
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control",
+                "contact"
+            ]
         },
         control_messages_from_linkedIn_learning:{
             read:{
@@ -3015,7 +3022,12 @@ var ospSettingsConfigPreferences = {
                     topLevelNodeId:"root"
                 },
                 recommended:"Off"
-            }
+            },
+            tags: [
+                "profiling",
+                "control",
+                "contact"
+            ]
         },
         who_can_invite_you:{
             read:{
@@ -3064,20 +3076,12 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"Imported_contacts"
-            }
+            },
+            tags: [
+                "contact",
+                "control"
+            ]
         },
-        /*messages_from_members:{
-         read:{
-         name: "Select what type of member messages you'd prefer to receive",
-         url: "https://www.linkedin.com/psettings/message-preferences",
-         jquery_selector:{
-         //TODO: See if this setting is required?
-         }
-         },
-         write:{
-         recommended:undefined
-         }
-         },*/
         enable_group_invitations:{
             read:{
                 name: "Receive invitations to join groups? ",
@@ -3116,7 +3120,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "contact",
+                "control"
+            ]
         },
         enable_group_notifications:{
             read:{
@@ -3156,18 +3164,22 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "exposure",
+                "control"
+            ]
         },
         enable_research_invitations:{
             read:{
                 name: "Turn on/off invitations to participate in research",
                 url: "https://www.linkedin.com/psettings/research-invitations",
                 availableSettings:{
-                    Yes:{
-                        name:"Yes"
+                    On:{
+                        name:"On"
                     },
-                    No:{
-                        name:"No"
+                    Off:{
+                        name:"Off"
                     }
                 },
                 jquery_selector:{
@@ -3181,22 +3193,25 @@ var ospSettingsConfigPreferences = {
                 url_template: "https://www.linkedin.com/psettings/research-invitations",
                 type:"multipart/form-data",
                 availableSettings:{
-                    Yes: {
+                    On: {
                         data: {
                             researchInvitation : true
                         },
-                        name: "Yes"
+                        name: "On"
                     },
-                    No:{
+                    Off:{
                         data: {
                             researchInvitation : false
                         },
-                        name:"No"
+                        name:"Off"
                     }
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "contact"
+            ]
         },
         allow_partner_inmail:{
             read:{
@@ -3242,7 +3257,10 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "contact"
+            ]
         },
         allow_hiring_campaign_partner_inmail:{
             read:{
@@ -3287,7 +3305,11 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended:"No"
-            }
+            },
+            tags: [
+                "contact",
+                "advertising"
+            ]
         }
     },
 
@@ -3329,39 +3351,43 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 data: {},
-                recommended:"Yes"
-            }
+                recommended:"No"
+            },
+            tags: [
+                "discovery",
+                "control"
+            ]
         },
       tweet_location:{
             read:{
-                name: "Add a location to my Tweets",
+                name: "Add a location to my tweets?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[name='user[geo_enabled]']",
                     valueType:"checkbox"
                 },
                 availableSettings:{
-                    allow:{
-                        name:"Allow"
+                    Yes:{
+                        name:"Yes"
                     },
 
-                    disallow:{
-                        name:"Disallow"
+                    No:{
+                        name:"No"
                     }
                 }
             },
             write:{
-                name: "Add a location to my Tweets",
+                name: "Add a location to my tweets?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
-                    allow: {
+                    Yes: {
                         data: {
                             "user[geo_enabled]":1
                         },
                         name: "Yes"
                     },
-                    disallow:{
+                    No:{
                         data: {
                             "user[geo_enabled]":0
                         },
@@ -3369,13 +3395,17 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 data: {},
-                recommended:"disallow"
-            }
+                recommended:"No"
+            },
+          tags: [
+              "discovery",
+              "exposure"
+          ]
         },
 
        allow_photo_tag: {
             read: {
-                name: "Allow/disallow anyone to tag you in photos.",
+                name: "Allow anyone to tag you in photos?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector: {
                     element: "input[name='user[allow_media_tagging]']",
@@ -3394,7 +3424,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write: {
-                name: "Allow/disallow anyone to tag you in photos.",
+                name: "Allow anyone to tag you in photos?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings: {
@@ -3419,11 +3449,15 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended: "none"
-            }
+            },
+           tags: [
+               "discovery",
+               "exposure"
+           ]
         },
         allow_email_search:{
             read:{
-                name: "Allow/disallow others find you by your email address",
+                name: "Allow others find you by your email address?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[id='user_discoverable_by_email']",
@@ -3439,7 +3473,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/disallow others find you by your email address",
+                name: "Allow others find you by your email address?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3457,11 +3491,15 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "contact",
+                "exposure"
+            ]
         },
         allow_phone_search:{
             read:{
-                name: "Allow/disallow others find you by your mobile phone number",
+                name: "Allow others find you by your mobile phone number?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[id='user_mobile_discoverable']",
@@ -3477,7 +3515,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/disallow others find you by your mobile phone number",
+                name: "Allow others find you by your mobile phone number?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3495,12 +3533,17 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "contact",
+                "discovery",
+                "control"
+            ]
         },
         allow_promoted_content:{
             read:{
-                name: "Allow/disallow Twitter to display ads about things you've already shown " +
-                "interest in (aka \"promoted content\"",
+                name: "Allow Twitter to display ads about things you've already shown " +
+                "interest in (aka \"promoted content\")?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[id='allow_ads_personalization']",
@@ -3516,8 +3559,8 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/disallow Twitter to display ads about things you've already shown " +
-                "interest in (aka \"promoted content\"",
+                name: "Allow Twitter to display ads about things you've already shown " +
+                "interest in (aka \"promoted content\")?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3535,12 +3578,18 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ]
         },
         allow_tweetdeck:{
             read:{
-                name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck ?",
+                name: "Allow organizations to invite anyone to tweet from their account using " +
+                "the teams feature in TweetDeck?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[name='user[allow_contributor_request]']",
@@ -3559,8 +3608,8 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck ?",
+                name: "Allow organizations to invite anyone to tweet from their account using " +
+                "the teams feature in TweetDeck?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings: {
@@ -3585,7 +3634,13 @@ var ospSettingsConfigPreferences = {
                 },
                 data: {},
                 recommended: "none"
-            }
+            },
+            tags: [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ]
         },
 
         //=============================================================================================================
@@ -3593,7 +3648,7 @@ var ospSettingsConfigPreferences = {
         //=============================================================================================================
         allow_direct_message:{
             read:{
-                name: "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
+                name: "Allow any Twitter user to send you a direct message even if you do not follow them?",
                 url: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[id='allow_dms_from_anyone']",
@@ -3609,7 +3664,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
+                name: "Allow any Twitter user to send you a direct message even if you do not follow them?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3627,12 +3682,17 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "profiling",
+                "personal data",
+                "control"
+            ]
         },
 
         send_read_receipts:{
             read:{
-                name: "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
+                name: "Allow that when someone sends you a message, people in the conversation will know when you have seen it?",
                 page: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[id='allow_dm_receipts']",
@@ -3648,7 +3708,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
+                name: "Allow that when someone sends you a message, people in the conversation will know when you have seen it?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3666,50 +3726,18 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "exposure",
+                "profiling",
+                "personal data",
+                "control"
+            ]
         },
 
-        send_read_receipts:{
-            read:{
-                name: "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
-                page: "https://twitter.com/settings/safety",
-                jquery_selector:{
-                    element:"input[id='allow_dm_receipts']",
-                    valueType:"checkbox"
-                },
-                availableSettings: {
-                    allow: {
-                        name: "Allow"
-                    },
-                    disallow: {
-                        name: "Disallow"
-                    }
-                }
-            },
-            write:{
-                name: "Allow/Disallow that when someone sends you a message, people in the conversation will know when you have seen it.",
-                page: "https://twitter.com/settings/safety",
-                url_template: "https://twitter.com/settings/safety/update",
-                availableSettings:{
-                    allow: {
-                        data: {
-                            "user[allow_dm_receipts]":1
-                        },
-                        name: "Allow"
-                    },
-                    disallow:{
-                        data: {
-                            "user[allow_dm_receipts]":0
-                        },
-                        name:"Disallow"
-                    }
-                },
-                recommended:"disallow"
-            }
-        },
         display_sensitive_content:{
             read:{
-                name: "Allow/Disallow to display media that may contain sensitive content",
+                name: "Allow to display media that may contain sensitive content?",
                 page: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[name='user[nsfw_view]']",
@@ -3725,7 +3753,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Allow/Disallow to display media that may contain sensitive content",
+                name: "Allow to display media that may contain sensitive content?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3743,11 +3771,16 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"disallow"
-            }
+            },
+            tags: [
+                "exposure",
+                "profiling",
+                "control"
+            ]
         },
         mark_tweeted_media_sensitive_content:{
             read:{
-                name: "Mark media I Tweet as containing material that may be sensitive",
+                name: "Mark media I tweet as containing material that may be sensitive?",
                 page: "https://twitter.com/settings/safety",
                 jquery_selector:{
                     element:"input[name='user[nsfw_user]']",
@@ -3763,7 +3796,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write:{
-                name: "Mark media I Tweet as containing material that may be sensitive",
+                name: "Mark media I tweet as containing material that may be sensitive?",
                 page: "https://twitter.com/settings/safety",
                 url_template: "https://twitter.com/settings/safety/update",
                 availableSettings:{
@@ -3781,14 +3814,18 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 recommended:"No"
-            }
+            },
+            tags: [
+                "exposure",
+                "profiling"
+            ]
         }
     }
 }
 
 
-//var fs = require('fs');
-//fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_with_twitter.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
+var fs = require('fs');
+fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
 
 
 

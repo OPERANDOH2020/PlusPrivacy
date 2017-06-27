@@ -41,8 +41,30 @@ function secureAccount(callback){
         for (var key in setting["data"]) {
             SafetyForm[key] = setting["data"][key];
         }
-
     });
+
+    var customSubmit = function(event){
+        event.preventDefault();
+        SafetyForm["auth_password"] = $("#auth_password").val();
+        $.ajax({
+            type: "POST",
+            url: "https://twitter.com/settings/safety/update",
+            data: SafetyForm,
+            success: function(data){
+                if(data.indexOf("Incorrect password! Please enter your current password to change your settings.")>0){
+                    $("#auth_password").val("");
+                    alert("Please enter your valid password!");
+                }
+                else{
+                    callback();
+                }
+
+            },
+            dataType: "html"
+        });
+
+        port.postMessage({action: "waitingTwitterCommand", data:{status:"takeMeBackInExtension"}});
+    };
 
     setTimeout(function(){
         $("#settings_save").removeAttr("disabled");
@@ -63,33 +85,19 @@ function secureAccount(callback){
         });
         $("#password_dialog-dialog").tooltipster('open');
 
-        $("#account-form").on("submit", function(event){
-            event.preventDefault();
-            SafetyForm["auth_password"] = $("#auth_password").val();
+        $("#save_password").attr("type","button");
+        $("#account-form").on("submit", customSubmit);
+        $("#save_password").on("click",customSubmit);
+        $("#auth_password").on("keypress", function(event){
+            if (event.which == 13 || event.keyCode == 13) {
+                customSubmit(event);
+                return false;
+            }
+        })
 
-
-            $.ajax({
-                type: "POST",
-                url: "https://twitter.com/settings/safety/update",
-                data: SafetyForm,
-                success: function(data){
-
-                    callback();
-
-                },
-                dataType: "html"
-            });
-
-            port.postMessage({action: "waitingTwitterCommand", data:{status:"takeMeBackInExtension"}});
-        });
-
-    },100);
-
+    },200);
     port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(0)}});
-
 }
-
-
 
 function getAuthenticityToken(){
     return $("#authenticity_token").val();

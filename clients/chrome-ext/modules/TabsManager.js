@@ -7,7 +7,7 @@ var BrowserTab = function (tab){
     this.tab = tab;
     this.isActive = false;
     this.notificationId = null;
-    this.hasOffers = false;
+    this.history = [];
 };
 
 BrowserTab.prototype = {
@@ -33,9 +33,22 @@ BrowserTab.prototype = {
     removeNotification:function(){
         delete this.notificationId;
     },
-    setWebsiteOffers:function(value){
-        this.hasOffers = value;
+    addUrlInHistory: function(url){
+        this.history.push(url);
+    },
+    getHistory:function(){
+        return this.history;
+    },
+    getLastVisited:function(){
+        if(this.history.length>0){
+            return this.history[this.history.length-1];
+        }
+        else{
+            return null;
+        }
+
     }
+
 };
 
 var TabsManager = function(){
@@ -62,6 +75,10 @@ var TabsManager = function(){
 
     function onUpdatedListener(tabId, changeInfo, tab) {
         self.browserTabs[tab.id].update(tab);
+        if(isGoodToAddInHistory(changeInfo.url)){
+            self.browserTabs[tab.id].addUrlInHistory(changeInfo.url);
+        }
+
     }
     function onRemovedListener(tabId) {
         delete self.browserTabs[tabId];
@@ -69,32 +86,37 @@ var TabsManager = function(){
 
     chrome.tabs.onCreated.addListener(function (tab){
         self.browserTabs[tab.id]= new BrowserTab(tab);
+        if(isGoodToAddInHistory(tab.url)){
+            self.browserTabs[tab.id].addUrlInHistory(tab.url);
+        }
+
     });
 
     chrome.webNavigation.onCreatedNavigationTarget.addListener(function (details){
         var parentTab = self.getTab(details.sourceTabId);
             if(parentTab){
-                self.getTab(details.tabId).setWebsiteOffers(parentTab.hasOffers);
+                self.getTab(details.tabId).addUrlInHistory(parentTab.getLastVisited());
             }
     });
 
     chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
         onUpdatedListener(tabId,changeInfo,tab);
 
-        if(self.getTab(tabId).hasOffers === false){
-            checkConnectWithSNApisUrls(tabId,changeInfo,tab);
+        if (authenticationService.isLoggedIn()) {
+            checkConnectWithSNApisUrls(tabId, changeInfo, tab);
         }
 
         if (tab.url) {
-            if (changeInfo.status === "complete" && tab.url.indexOf(ExtensionConfig.WEBSITE_HOST) != -1) {
-                establishPlusPrivacyWebsiteCommunication(tabId);
-            }
-            if (authenticationService.isLoggedIn()) {
-                if (changeInfo.status === "complete" && tab.url.indexOf("http") != -1) {
-                    self.suggestSubstituteIdentities(tab.id);
-                    self.suggestPrivacyForBenefits(tab);
-                }
 
+            if (changeInfo.status === "complete") {
+                if (tab.url.indexOf(ExtensionConfig.WEBSITE_HOST) != -1) {
+                    establishPlusPrivacyWebsiteCommunication(tabId);
+                }
+                else if (isAllowedToInsertScripts(tab.url)) {
+                    if (authenticationService.isLoggedIn()) {
+                        self.suggestSubstituteIdentities(tab.id);
+                    }
+                }
             }
         }
     });
@@ -118,9 +140,11 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
     browserTab.removeNotification();
     var tab = browserTab.tab;
 
-
     if(data.status === "allow" && data.notificationId){
         chrome.tabs.executeScript(tab.id, {file: "/operando/modules/pfb/allowSNContent.js"});
+        authenticationService.getCurrentUser(function(user){
+            SyncPersistence.set("PfbNotificationsAccepted", "offerUserId", data.offerId.toString()+user.userId.toString());
+        });
     }
     else{
 
@@ -133,92 +157,49 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
            }
         });
     }
-}
+};
 
-TabsManager.prototype.suggestSubstituteIdentities=function(tabId){
-    injectScript(tabId, "operando/modules/identity/input-track.js", ["jQuery","Tooltipster","UserPrefs","DOMElementProvider"], function(){
+TabsManager.prototype.suggestSubstituteIdentities = function(tabId){
+    injectScript(tabId, "operando/modules/identity/input-track.js", ["jQuery","UserPrefs","DOMElementProvider","Tooltipster"], function(){
         insertCSS(tabId,"operando/assets/css/change-identity.css");
         insertCSS(tabId,"operando/utils/tooltipster/tooltipster.bundle.min.css");
         insertCSS(tabId,"operando/utils/tooltipster/tooltipster-plus-privacy.css");
     });
-}
+};
 
-TabsManager.prototype.suggestPrivacyForBenefits = function (tab) {
 
-    var self = this;
-    var pfbHandler = swarmHub.startSwarm("pfb.js", "getWebsiteOffer", tab.url);
-    pfbHandler.onResponse("success", function (swarm) {
-
-        var offer = swarm.offers[0];
-        self.getTab(tab.id).setWebsiteOffers(true);
-
-        SyncPersistence.exists("PfbNotificationsDismissed", "offerId", offer.offerId, function (existence) {
-            if (existence === false) {
-                chrome.notifications.create("PfB#" + offer.offerId, {
-                    type: "image",
-                    iconUrl: "/operando/assets/images/icons/detailed/abp-64.png",
-                    title: offer.name,
-                    contextMessage: "Privacy deal",
-                    message: offer.description,
-                    imageUrl: "data:image/png;base64," + offer.logo,
-                    requireInteraction: true,
-                    buttons: [{
-                        title: "Accept Deal",
-                        iconUrl: "/operando/assets/images/icons/accept_offer.png"
-
-                    }, {
-                        title: "Deny Offer",
-                        iconUrl: "/operando/assets/images/icons/reject_offer.png"
-                    }]
-
-                }, function () {
-
-                });
-
-                /*chrome.tabs.get(swarm.tabId, function (tab) {
-                 if (tab) {
-                 var deal = swarm.deal;
-                 var tabId = tab.id;
-                 insertJavascriptFile(tabId, "operando/utils/jquery.min.js");
-                 insertJavascriptFile(tabId, "operando/utils/jquery.visible.min.js");
-                 insertJavascriptFile(tabId, "operando/utils/webui-popover/jquery.webui-popover.js");
-                 chrome.tabs.insertCSS(tabId, {file: "operando/utils/webui-popover/jquery.webui-popover.css"});
-                 insertJavascriptFile(tabId, "operando/modules/pfb/operando_content.js", function () {
-                 chrome.tabs.sendMessage(tabId, {pfbDeal: deal}, {}, function (response) {
-                 if (response !== undefined) {
-                 swarmHub.startSwarm("pfb.js", "acceptDeal", deal.serviceId);
-                 }
-                 });
-                 });
-                 }
-                 });*/
-            }
-        })
+TabsManager.prototype.offerIsAccepted = function(offerId, callback){
+    authenticationService.getCurrentUser(function(user){
+        SyncPersistence.exists("PfbNotificationsAccepted", "offerUserId", offerId.toString()+user.userId.toString(), function (existence) {
+            callback(existence);
+        });
     });
 
-    pfbHandler.onResponse("no_pfb", function (swarm) {
-        self.getTab(tab.id).setWebsiteOffers(false);
-    });
 
-}
+};
+
+TabsManager.prototype.getLastVisitedUrl = function(notificationId, callback){
+    var tab = TabsMng.getBrowserTabByNotificationId(notificationId);
+    var visited = tab.getLastVisited();
+    console.log(visited);
+    callback(visited);
+};
 
 function establishPlusPrivacyWebsiteCommunication(tabId){
     insertJavascriptFile(tabId, "operando/modules/communication/message-relay.js");
 }
 
-
 function checkConnectWithSNApisUrls(tabId, changeInfo, tab){
 
-    if(changeInfo.url && urlIsApiUrl(changeInfo.url)){
+    if(changeInfo.url && urlIsApiUrl(changeInfo.url)==true){
         chrome.tabs.insertCSS(tabId, {file: "operando/modules/pfb/css/style.css", runAt:"document_start"},function(){
             var notificationId = new Date().getTime();
             var extensionId = chrome.runtime.id;
-            chrome.tabs.executeScript(tabId, {code:"var notificationId="+notificationId+";var extensionId='"+extensionId+"'"}, function(){
+            chrome.tabs.executeScript(tabId, {code:"var notificationId="+notificationId+";var extensionId='"+extensionId+"';"}, function(){
                 chrome.tabs.executeScript(tabId, {file:'operando/modules/pfb/hideSNContent.js',runAt:"document_start"}, function(){
                     TabsMng.getTab(tabId).setNotification(notificationId);
                 });
             });
-
         });
     }
 }
@@ -228,39 +209,6 @@ function init() {
         tabs.forEach(function (tab) {
             establishPlusPrivacyWebsiteCommunication(tab.id);
         });
-    });
-
-    chrome.notifications.onButtonClicked.addListener(function(notificationId, index){
-        if(notificationId.indexOf("PfB#")==0){
-
-            var offerId = notificationId.split('PfB#')[1];
-            if(index == 0){
-                var acceptPfBDeal = swarmHub.startSwarm("pfb.js", "acceptDeal", offerId);
-                acceptPfBDeal.onResponse("dealAccepted", function(swarm){
-                    chrome.notifications.create("accepted",{
-                        type:"basic",
-                        iconUrl:"/operando/assets/images/icons/detailed/abp-64.png",
-                        title:"Deal accepted",
-                        message:"Please check your dashboard to see your reward!"
-                    });
-                })
-
-            }
-            else{
-                chrome.notifications.create("notAccepted",{
-                    type:"basic",
-                    iconUrl:"/operando/assets/images/icons/detailed/abp-64.png",
-                    title:"Offer not accepted!",
-                    message:"You did not accept this offer. If you changed your mind please subscribe to it from dashboard!",
-                    buttons:[]
-                });
-
-            }
-
-            SyncPersistence.set("PfbNotificationsDismissed", "offerId", offerId);
-            chrome.notifications.clear(notificationId);
-        }
-
     });
 }
 
@@ -275,6 +223,27 @@ function urlIsApiUrl(url){
         default: return false;
     }
 }
+
+function isGoodToAddInHistory(url){
+    if (url) {
+        if (url.indexOf("google.com") == -1 &&
+            url.indexOf("facebook.com") == -1 &&
+            url.indexOf("linkedin.com") == -1 &&
+            url.indexOf("twitter.com") == -1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
+    var tabId = details.tabId;
+    if (isGoodToAddInHistory(details.url)) {
+        TabsMng.getTab(tabId).addUrlInHistory(details.url);
+    }
+
+});
+
 var TabsMng = exports.TabsManager = new TabsManager();
 bus.registerService(exports.TabsManager.__proto__);
 

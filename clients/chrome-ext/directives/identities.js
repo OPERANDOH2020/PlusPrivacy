@@ -19,6 +19,8 @@ angular.module('identities', [])
                 scope: {},
 
                 controller: function ($scope, ModalService) {
+
+                    $scope.max_identities_nr = 20;
                     $scope.identities = [];
 
 
@@ -137,7 +139,8 @@ angular.module('identities', [])
                         });
                     };
 
-                    $scope.removeIdentity = function () {
+                    $scope.removeIdentity = function ($event) {
+                        $scope.stopEventPropagation($event);
                         var identity = $scope.identity;
                         var emitToParent = function (event) {
                             $scope.$emit(event);

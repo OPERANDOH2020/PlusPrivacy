@@ -50,10 +50,7 @@ RegexUtis = {
 
         var values = [];
         if (!rawValues) {
-            /*
-             * if (must) { reportRegexBug(data, regex, "Could not find Values-Array for: " + label) throw 'Could not find Values-Array: ' + label + ', with
-             * regex: "' + regex + '"'; }
-             */
+
             return values;
         }
 

@@ -498,6 +498,7 @@ padding-left: 0px;
 #can-do-more .feature-description-textblock > span
 {
     margin-top: 15px;
+    font-size: 120%;
 }
 
 #can-do-more .feature-image
@@ -964,8 +965,9 @@ border-left:2px solid #fe9901;
     background:#fdfaef;
 }
 
-#identities_container p small{
-    font-size: 95%;
+#identities_container p small,
+#identity_management_tab .identities_number{
+    font-size: 120%;
 }
 
 #identities_container tr:not(.thead){
@@ -986,6 +988,75 @@ border-left:2px solid #fe9901;
 #identities_container .table>thead>tr>th.defaultIdentity{
     background: #ffebba;
     font-weight: bold;
+}
+
+a.add_identitiy_popover{
+    background: url("/operando/assets/images/question_identities.png") no-repeat left center;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+}
+
+.add_new_identity_btn{
+    float:left;
+    margin-right: 15px;
+}
+
+div.popover{
+    width:410px!important;
+    max-width:410px!important;
+    border: 1px solid #e6c678;
+    outline: none;
+}
+
+.popover-title {
+    padding: 8px 14px;
+    margin: 0;
+    font-size: 14px;
+    background-color: #f9e3ad;
+    border-bottom: 1px solid #e6c678;
+    color: #9c8243;
+    border-radius: 5px 5px 0 0;
+    font-weight: 400;
+}
+.popover-content{
+    background: #fdf3dc;
+    font-family: dosis;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.popover.top>.arrow {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-color: #e6c678;
+    border-bottom-width: 0;
+}
+
+.popover.right>.arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #e6c678;
+    border-left-width: 0;
+}
+
+
+.popover.top>.arrow:after {
+    bottom: 2px;
+    margin-left: -10px;
+    content: " ";
+    border-top-color: #fdf3dc;
+    border-bottom-width: 0;
+}
+
+.popover.right>.arrow:after {
+    bottom: -10px;
+    left: 2px;
+    content: " ";
+    border-right-color: #fdf3dc;
+    border-left-width: 0;
 }
 
 .table tr>td.td_text{
@@ -1822,6 +1893,14 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/extensions_selected.png");
 }
 
+.menu_icon.plugin_icon{
+    background-image:url("/operando/assets/images/menu_icons/plugin.png");
+}
+
+.active.menu_icon.plugin_icon{
+    background-image:url("/operando/assets/images/menu_icons/plugin_selected.png");
+}
+
 .menu_icon.dashboard_icon{
     background-image:url("/operando/assets/images/menu_icons/dashboard.png");
 }
@@ -2280,7 +2359,7 @@ padding-left: 5px;
     background: url("/operando/assets/images/twitter32.png") no-repeat left center;
 }
 
-.anti-tracking-settings{
+.filter-settings{
  margin-top: 10px;
  float:right;
 }
@@ -2310,3 +2389,96 @@ table.table thead th.sorting
     padding: 15px 0px 15px 25px;
     position: relative;
 }
+
+.social_app{
+    padding: 10px;
+    border-bottom: 1px solid #F5A43C;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sn_app_icon{
+    width:32px;
+}
+td.app_icon,
+td.app_name,
+td.app_visibility,
+td.app_actions,
+td.app_permissions{
+    vertical-align: middle!important;
+    text-align: center;
+}
+
+td.readonly{
+    background: green;
+    color:#FFF;
+}
+
+td.publicprofilerequired,
+td.sendfacebooknotifications{
+    background: greenyellow;
+}
+td.emailaddress{
+    background: gold;
+}
+td.friendlist
+{
+    background: orange;
+}
+
+td.birthday,
+td.personaldescription,
+td.readandwrite{
+    background: orangered;
+    color:#FFF;
+}
+td.currentcity,
+td.postonyourbehalf,
+td.readwriteanddirectmessages{
+    background: red;
+    color:#FFF;
+}
+
+#network_tab h2{
+    text-transform: capitalize;
+}
+h4.modal-title.plusprivacy{
+    background: url("/operando/assets/images/icons/operando_48.png") no-repeat left center;
+    padding-left: 60px;
+    font-size: 21px;
+}
+.modal-body.plusprivacy{
+    font-size: 17px;
+}
+
+
+#offerDetails div.row{
+    padding: 10px 0px;
+    background: #ffe8b2;
+}
+
+#offerDetails div.row .col-md-4{
+    margin-top: 10px;
+    padding-left: 20px;
+}
+#offerDetails div.row .col-md-7{
+    margin-top: 10px;
+}
+
+.social_network_name{
+    text-transform: capitalize;
+}
+
+.recommended+span{
+    color:green;
+}
+
+.recommended+span:after{
+    content: "(Recommended)";
+    font-size: 13px;
+    margin-left: 10px;
+}
+

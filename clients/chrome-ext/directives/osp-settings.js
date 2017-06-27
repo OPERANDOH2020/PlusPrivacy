@@ -3,36 +3,77 @@ angular.module('osp', ['cfp.loadingBar'])
 
         var ospSettingsConfig = {};
 
-        function generateAngularForm(ospname) {
-            var schema = {
-                type: "object"
-            }
+        function generateAngularForm(ospname, callback) {
 
-            schema.properties = {};
-            for (var v in ospSettingsConfig[ospname]) {
-                var conf = ospSettingsConfig[ospname][v];
+            messengerService.send("getUserPreferences", ospname, function(response){
 
-                var availableSettings = conf["read"].availableSettings;
-                var jquerySelector = conf["read"].jquery_selector;
-
-                if (Object.keys(jquerySelector).length !== 0 && availableSettings) {
-                    var settingEnum = [];
-                    for (var key in availableSettings) {
-                        settingEnum.push({
-                            value: key,
-                            name: availableSettings[key].name
-                        })
-                    }
-                    schema.properties[v] = {
-                        title: conf["read"].name,
-                        type: "string",
-                        enum: conf["read"].availableSettings ? settingEnum : ["Yes", "No"],
-                        recommended:conf["write"].recommended
-
-                    };
+                if(response.status === "success"){
+                        var schemaCompleted = completeForm(response.data);
+                        callback (schemaCompleted);
                 }
+            });
+
+            function completeForm(preferences){
+                console.log(preferences);
+
+                var hasPreferences  = preferences.length > 0;
+                if(hasPreferences){
+                    var preferencesObject = {};
+                    preferences.forEach(function (preference) {
+                        preferencesObject[preference.setting_key] = preference.setting_value;
+                    });
+                }
+                console.log(preferencesObject);
+
+                var schema = {
+                    type: "object"
+                };
+
+                schema.properties = {};
+                for (var v in ospSettingsConfig[ospname]) {
+                    var conf = ospSettingsConfig[ospname][v];
+
+                    var availableSettings = conf["read"].availableSettings;
+                    var jquerySelector = conf["read"].jquery_selector;
+
+                    if (Object.keys(jquerySelector).length !== 0 && availableSettings) {
+                        var settingEnum = [];
+                        for (var key in availableSettings) {
+                            settingEnum.push({
+                                index:availableSettings[key].index,
+                                value: key,
+                                name: availableSettings[key].name
+                            })
+                        }
+
+                        var checkedValue = conf["write"].recommended;
+                        if(hasPreferences){
+                            if(preferencesObject[v]){
+                                if(conf["write"].availableSettings[preferencesObject[v]]){
+                                    checkedValue = preferencesObject[v];
+                                }
+                            }
+                        }
+
+                        schema.properties[v] = {
+                            id:conf.id,
+                            title: conf["read"].name,
+                            type: "string",
+                            enum: conf["read"].availableSettings ? settingEnum : ["Yes", "No"],
+                            preferred:checkedValue,
+                            recommended:conf["write"].recommended
+
+
+                        };
+                    }
+                }
+
+                return schema;
             }
-            return schema;
+
+
+
+
         }
 
         function getOSPSettings(callback, ospname) {

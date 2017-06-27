@@ -1,5 +1,5 @@
 [general]
-version = 0.4.4
+version = 0.5.3
 backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js
@@ -41,6 +41,7 @@ permissions = http://*/* https://*/*
 webAccessible = operando/assets/images/icons/operando_24.png
   operando/assets/images/icons/abp-19.png
   operando/assets/images/icons/operando/operando.png
+  operando/assets/images/close_popup.png
   operando/modules/pfb/modal/allow_social_network_modal.html
 
 [contentScripts]

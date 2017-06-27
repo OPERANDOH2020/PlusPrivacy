@@ -102,3 +102,24 @@ webRequest.onBeforeSendHeaders.addListener(function(details) {
     {urls: ["<all_urls>"]},
     ["blocking", "requestHeaders"]);
 
+
+webRequest.onBeforeSendHeaders.addListener(
+    function(details) {
+        if(details['url'].indexOf("https://www.facebook.com/ajax/settings/apps/delete_app.php")>=0){
+
+            for (var i = 0; i < details.requestHeaders.length; ++i) {
+                if (details.requestHeaders[i].name === "Origin") {
+                    details.requestHeaders[i].value = "https://www.facebook.com";
+                    break;
+                }
+            }
+            details.requestHeaders.push({
+                name:"referer",
+                value:"https://www.facebook.com/settings?tab=applications"
+            });
+        }
+
+        return {requestHeaders: details.requestHeaders};
+    },
+    {urls: ["*://www.facebook.com/*"]},
+    ["blocking", "requestHeaders"]);

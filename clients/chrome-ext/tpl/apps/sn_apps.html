@@ -1,14 +1,43 @@
-<div ng-repeat="app in apps">
-    <div class="row">
-        <div class="col-md-1"><img ng-src="{{app.iconUrl}}"/></div>
-        <div class="col-md-2">{{app.name}}</div>
-        <div class="col-md-9">
-            <div class="row">
-            <div ng-repeat="permission in app.permissions">
-                <div class="col-md-1">{{permission}}</div>
-            </div>
-            </div>
-        </div>
-
+<div>
+    <div ng-if="isLoggedInSocialNetwork == false">
+        You are not logged in <span class="social_network_name">{{sn}}</span>! <a href="{{sn_url}}" target="_blank">Log in</a>
     </div>
+
+<table class="table table-bordered" ng-if="isLoggedInSocialNetwork == true">
+    <thead>
+    <tr>
+        <th ng-if="sn!='linkedin'">Logo</th>
+        <th>App name</th>
+        <th ng-if="sn=='facebook'">Visibility</th>
+        <th ng-if="sn!='linkedin'">Permissions</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+<tr ng-repeat="app in apps">
+        <td class="app_icon" ng-if="sn!='linkedin'">
+            <img ng-if="sn!='facebook'" class="sn_app_icon" ng-src="{{app.iconUrl}}"/>
+            <i ng-if="sn=='facebook'" class="sn_app_icon" style="background-image: url('{{app.iconUrl}}');background-repeat:no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;width:32px;height:32px; display: inline-block;"></i>
+        </td>
+        <td class="app_name"><h4>{{app.name}}</h4></td>
+        <td ng-if="sn=='facebook'" class="app_visibility">{{app.visibility}}</td>
+        <td class="app_permissions" ng-if="sn!='linkedin'">
+            <table class="table table-bordered">
+            <tr ng-repeat="permission in app.permissions">
+                <td class="{{permission|removeWhiteSpace}}" >{{permission}}</td>
+            </tr>
+            </table>
+        </td>
+        <td class="app_actions">
+            <button ng-disabled="app.removing == true" class="trash"  ng-click="removeSocialApp(app.appId)"></button>
+        </td>
+</tr>
+<tr ng-if="apps.length==0">
+    <td colspan="5">
+        <ui-loader ng-if="requestIsMade==false"></ui-loader>
+        <div ng-if="requestIsMade==true">
+            <p>No {{sn}} apps installed</p>
+        </div>
+    </td>
+</tr>
+</table>
 </div>

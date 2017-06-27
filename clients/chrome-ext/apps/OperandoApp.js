@@ -13,7 +13,7 @@
 angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClickPrivacy',
     'notifications','socialApps', 'osp', 'angularModalService', 'operandoCore', 'schemaForm', 'abp',
     'settingEditor','angular-loading-bar','UIComponent','login','ui.select',
-    'ngAnimate','ngMessages','datatables','ngResource'])
+    'ngAnimate','ngMessages','datatables','ngResource','mgcrea.ngStrap'])
     .config([
         '$compileProvider',
         function ($compileProvider) {   //to accept chrome protocol
@@ -38,6 +38,14 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     .filter('isEmpty', [function() {
         return function(object) {
             return angular.equals({}, object);
+        }
+    }])
+    .filter("removeWhiteSpace", [function() {
+        return function(text){
+            var w = text.replace(/[^A-Za-z0-9]/g, "");
+            w = w.toLowerCase();
+            w = w.replace(/\s/g,'');
+            return w;
         }
     }])
     .run(['$rootScope', '$state', '$stateParams',
@@ -362,17 +370,15 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     })
     .run(["firstRunService","subscriptionsService", "$ocLazyLoad", function(firstRunService, subscriptionsService, $ocLazyLoad){
 
-        firstRunService.onFirstRun(function(){
-
-            subscriptionsService.getFeatureSubscriptions(function (subscriptions) {
-                $ocLazyLoad.load(
-                    ['../ext/common.js',
-                        '../ext/content.js',
-                        'util/hooks.js'
-                    ]).then(function () {
-
+        $ocLazyLoad.load(
+            ['../ext/common.js',
+                '../ext/content.js',
+                'util/hooks.js'
+            ]).then(function () {
+            subscriptionsService.init();
+            firstRunService.onFirstRun(function(){
+                subscriptionsService.getFeatureSubscriptions(function (subscriptions) {
                     subscriptions.forEach(function (subscription) {
-
                         ext.backgroundPage.sendMessage({
                             type: "subscriptions.toggle",
                             url: subscription.url,
@@ -388,8 +394,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     });
                 });
             });
+
         });
-    }])
+
+    }]);
+
 
 
 

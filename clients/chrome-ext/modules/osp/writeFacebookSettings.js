@@ -52,12 +52,13 @@ function postToFacebook(settings, item, total) {
                             data[prop] = settings.data[prop];
                         }
 
-                        console.log(JSON.stringify(data));
                         $.ajax({
                             type: "POST",
                             url: settings.url,
                             data: data,
-                            dataType: "text",
+                            contentType: "multipart/form-data",
+                            processData: true,
+                            dataType:"text",
                             beforeSend: function (request) {
 
                                 if (settings.headers) {
@@ -68,7 +69,7 @@ function postToFacebook(settings, item, total) {
                                 }
                                 request.setRequestHeader("accept", "*/*");
                                 request.setRequestHeader("accept-language", "en-US,en;q=0.8");
-                                request.setRequestHeader("content-type", "application/x-javascript; charset=utf-8");
+                                request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                                 request.setRequestHeader("X-Alt-Referer", settings.page);
 
                             },
@@ -158,11 +159,11 @@ function extractHeaders(content, callback) {
         for (var y = 0; y < data['fb_dtsg'].length; y++) {
             x += data['fb_dtsg'].charCodeAt(y);
         }
-        data["ttstamp"] = '2' + x;
+        //data["ttstamp"] = '2' + x;
     }
     else{
         data["fb_dtsg"] = fbdata.fb_dtsg;
-        data["ttstamp"] = fbdata.ttstamp;
+        //data["ttstamp"] = fbdata.ttstamp;
     }
 
     //__rev
@@ -185,10 +186,15 @@ function extractHeaders(content, callback) {
     if(match && match[1]){
         data['__user'] = match[1];
     }
-
+    console.log(fbdata);
     data['__a']=1;
     data['__dyn'] = fbdata.__dyn;
     data['__req'] = (++ fbdata.__req).toString(36);
-
+    data['jazoest'] = fbdata.jazoest;
+    data['__spin_r'] = fbdata.__spin_r;
+    data['__spin_b'] = fbdata.__spin_b;
+    data['__spin_t'] = fbdata.__spin_t;
+    data['__be'] = fbdata.__be;
+    data['__pc'] = fbdata.__pc;
     callback(data);
 }

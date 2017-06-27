@@ -211,6 +211,9 @@ angular.module('extensions', [])
                 }
 
             },
+            controller:function($scope){
+                $scope.plusPrivacyExtensionId = chrome.runtime.id;
+            },
             templateUrl: '/operando/tpl/extension_actions.html'
         }
     });

@@ -20,8 +20,12 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
 
     insertTwitterIncreasePrivacyScript:function(data){
-        injectScript(data.tabId, "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery"], function(){
+        injectScript(data.tabId,  "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery", "Tooltipster"], function(){
             insertCSS(data.tabId, "operando/assets/css/feedback.css");
+            insertCSS(data.tabId, "operando/assets/css/change-identity.css");
+            insertCSS(data.tabId, "operando/utils/tooltipster/tooltipster.bundle.min.css");
+            insertCSS(data.tabId, "operando/utils/tooltipster/tooltipster-plus-privacy.css");
+
         });
     },
 

@@ -8,7 +8,7 @@
     display: inline-block;
     clear: both;
     overflow: hidden;
-    width:320px;
+
 }
 .pp_twitter_popup{
     width:480px;
@@ -21,9 +21,10 @@ button.pp_button{
     font-size: 16px!important;
     border:none!important;
     color:#FFF!important;
-    padding: 8px 16px!important;
+    padding: 8px 14px !important;
     cursor:pointer;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+    max-width: 52px!important;
 }
 
 select.pp_select{
@@ -38,11 +39,17 @@ select.pp_select{
     margin: 0px;
     border-radius: 0px;
     font-family: sans-serif;
+    background: white;
 }
 select.pp_select option{
     font-size: 12px!important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
 }
+
+div.pp_container{
+    width: auto;
+}
+
 div.pp-popup-header{
 all:initial;
 color:#FFF;
@@ -50,6 +57,16 @@ background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/image
 padding-left: 24px!important;
 font-size: 13px!important;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+}
+
+div.pp-popup-close{
+    right:5px;
+    top:5px;
+    background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/close_popup.png') no-repeat left center transparent;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    cursor: pointer;
 }
 
 div.pp-twitter-header{

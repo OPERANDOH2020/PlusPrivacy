@@ -772,3 +772,19 @@ input[type="checkbox"]:checked + span {
   background-size: 22px;
 }
 
+.row.privacy_policy{
+  background: #f7e1ae;
+  position: absolute;
+  right: 25px;
+  left: 24px;
+  margin-top: 24px;
+  color: #FFB400;
+  padding-left: 95px;
+  height: 30px;
+  bottom: 4px;
+}
+
+.row.privacy_policy a{
+  padding: 4px;
+  color: #886718;
+}

@@ -31,8 +31,14 @@ operandoCore
                         "__a": null,
                         "fb_dtsg": null,
                         "__user": null,
-                        "ttstamp": null,
-                        "__rev": null
+                        "__af": null,
+                        "__rev": null,
+                        "jazoest":null,
+                        "__spin_r":null,
+                        "__spin_b":null,
+                        "__spin_t":null,
+                        "__be":null,
+                        "__pc":null
                     }
                 }, function (response) {
                     messengerService.send("insertFacebookIncreasePrivacyScript", {
@@ -53,7 +59,7 @@ operandoCore
                     }
                     else {
                         if (msg.data.status == "progress") {
-                            console.log(msg.data.progress);
+                            //console.log(msg.data.progress);
                             callback("facebook", msg.data.progress, settings.length);
                         }
                     }
@@ -67,22 +73,7 @@ operandoCore
         function  increaseLinkedInPrivacy(settings, callback, jobFinished) {
             chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "selected": false}, function (tab) {
                 linkedinTabId = tab.id;
-                chrome.runtime.sendMessage({
-                    message: "waitForAPost",
-                    template: {
-                        "__req": null,
-                        "__dyn": null,
-                        "__a": null,
-                        "fb_dtsg": null,
-                        "__user": null,
-                        "ttstamp": null,
-                        "__rev": null
-                    }
-                }, function (response) {
-
-                    messengerService.send("insertLinkedinIncreasePrivacyScript", {tabId:linkedinTabId});
-
-                });
+                messengerService.send("insertLinkedinIncreasePrivacyScript", {tabId:linkedinTabId});
             });
 
             var handleLinkedinMessages = function(msg){
@@ -97,7 +88,7 @@ operandoCore
                     }
                     else {
                         if (msg.data.status == "progress") {
-                            console.log(msg.data.progress);
+                            //console.log(msg.data.progress);
                             callback("linkedin", msg.data.progress, settings.length);
                         }
                     }
@@ -108,10 +99,9 @@ operandoCore
 
         }
 
-        function increaseTwitterPrivacy(settings, callback, jobFinished) {
+        function increaseTwitterPrivacy(settings, callback, jobFinished, passwordWasPromptedCallback) {
 
             chrome.tabs.getCurrent(function(currentTab){
-
 
                 chrome.tabs.create({url: TWITTER_PRIVACY_URL, "selected": false}, function (tab) {
                     twitterTabId = tab.id;
@@ -136,6 +126,9 @@ operandoCore
                                 chrome.tabs.update(twitterTabId, {active: true});
                             } else if(msg.data.status=="takeMeBackInExtension"){
                                 chrome.tabs.update(currentTab.id, {active: true});
+                                if(passwordWasPromptedCallback){
+                                    passwordWasPromptedCallback();
+                                }
                             }
                         }
                     }
@@ -143,20 +136,14 @@ operandoCore
 
                 messengerService.on("twitterMessage", handleTwitterMessages);
 
-
             });
-
-
-
         }
-
 
         var secureAccount = function (desiredSettings, callback, completedCallback) {
 
             var desiredSettings = desiredSettings.sort(function (a, b) {
                 return a - b
             });
-
 
             ospService.getOSPSettings(function (settings) {
 
@@ -211,17 +198,25 @@ operandoCore
                 }
             }
 
-            for (ospname in settings) {
-                switch (ospname) {
-                    case "facebook":
-                        increaseFacebookPrivacy(settings[ospname],callback, jobFinished);
-                        break;
-                    case "linkedin":
-                        increaseLinkedInPrivacy(settings[ospname],callback, jobFinished);
-                        break;
-                    case "twitter":
-                        increaseTwitterPrivacy(settings[ospname],callback, jobFinished);
+            function checkSettings(){
+                for (ospname in settings) {
+                    callback(ospname, 0, settings[ospname].length);
+                    switch (ospname) {
+                        case "facebook":
+                            increaseFacebookPrivacy(settings[ospname],callback, jobFinished);
+                            break;
+                        case "linkedin":
+                            increaseLinkedInPrivacy(settings[ospname],callback, jobFinished);
+                            break;
+                    }
                 }
+            }
+
+            if(Object.keys(settings).indexOf("twitter")>-1){
+                increaseTwitterPrivacy(settings["twitter"],callback, jobFinished, checkSettings);
+            }
+            else{
+                checkSettings();
             }
 
         }

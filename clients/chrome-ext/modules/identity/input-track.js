@@ -3,15 +3,26 @@ var Preferences = UserPreferences.getInstance();
 var myIdentities = [];
 var myRealIdentity = null;
 var elementsProvider = ElementsProvider.getInstance();
-
 port.onMessage.addListener(function (response) {
+
     myIdentities = response.message.data;
     myRealIdentity = myIdentities.find(function (identity) {
         return identity.isReal;
     });
-    if(myRealIdentity == undefined){
+    if (myRealIdentity == undefined) {
         myRealIdentity = myIdentities[0];
     }
+
+    Preferences.getPreferences("websitePreferences", {
+        url: window.location.hostname,
+        accept: false
+    }, function (preferences) {
+        if (Object.keys(preferences).length === 0) {
+            elementsProvider.addJob(checkElement);
+            elementsProvider.addSelector("input[type=email], input[name=email], input[id=user_login]");
+            elementsProvider.searchTextInputSelector("input[type=text]");
+        }
+    });
 
 });
 
@@ -20,12 +31,13 @@ function sendMessage(message) {
 }
 
 var tooltipTemplate = "<div class='pp_identity_popup'>"
+    + "<div class='pp-popup-close'></div>"
     + "<div class='pp-popup-header'>Would you like to use a substitute identity?</div><br/>"
-    + "<select class='pp_select' id='pp_identities'>"
+    + "<div class='pp_container'><select class='pp_select' id='pp_identities'>"
     + "</select>"
     + "<button id='accept_identity_substitution' class='pp_button'>Yes</button>"
     + "<button id='deny_identity_substitution' class='pp_button'>No</button>"
-    + "</div>";
+    + "</div></div>";
 
 
 function validateEmail(email) {
@@ -48,28 +60,19 @@ function denySubstituteIdentity(element) {
     Preferences.addPreference("websitePreferences", {url: window.location.hostname, accept: false});
 }
 
-Preferences.getPreferences("websitePreferences", {
-    url: window.location.hostname,
-    accept: false
-}, function (preferences) {
-    if (Object.keys(preferences).length === 0) {
-        elementsProvider.addJob(checkElement);
-        elementsProvider.addSelector("input[type=email], input[name=email], input[id=user_login]");
-        elementsProvider.searchTextInputSelector("input[type=text]");
-    }
-});
-
 
 var checkElement = function (element, whenEmailCompleted) {
     (function (element) {
         element.on("sleepAll", function () {
             element.off("keyup paste focus", checkIfEmailIsValid);
-            element.off("blur", handleTooltipsOnBlur);
         });
 
         var checkIfEmailIsValid = function () {
             if ($(element).is(":focus")) {
                 if (whenEmailCompleted == false || validateEmail(element.val())) {
+
+                    $('.tooltipstered').tooltipster('close');
+
                     element
                         .tooltipster({
                             contentAsHTML: true,
@@ -83,7 +86,7 @@ var checkElement = function (element, whenEmailCompleted) {
 
                                 var content = instance.content();
                                 var identities = myIdentities;
-
+                                var closeButton = content.find(".pp-popup-close")[0];
                                 var identitiesSelect = content.find("select")[0];
                                 identities.forEach(function (identity) {
                                     var opt = document.createElement('option');
@@ -94,19 +97,12 @@ var checkElement = function (element, whenEmailCompleted) {
                                     }
                                     identitiesSelect.appendChild(opt);
                                 });
-
-                                $(identitiesSelect).on("click", function () {
-                                    element.tooltipster('open');
-                                });
-
-                                $(content).on("click", function (event) {
-                                    event.stopPropagation();
-                                });
+                                $(closeButton).on("click", closePopup);
 
                                 instance.content(content);
 
                             },
-                            functionReady: function () {
+                            functionReady: function (instance) {
                                 $("#accept_identity_substitution").on("click", function () {
                                     element.val($("#pp_identities").val());
                                     element.tooltipster('close');
@@ -118,6 +114,12 @@ var checkElement = function (element, whenEmailCompleted) {
                                     element.hasTooltip = false;
                                     element.trigger("sleepAll");
                                 });
+                            },
+                            functionAfter: function (instance) {
+                                instance.destroy();
+                                if (element.hasTooltip) {
+                                    element.hasTooltip = false;
+                                }
                             }
                         })
                         .tooltipster('open');
@@ -132,7 +134,7 @@ var checkElement = function (element, whenEmailCompleted) {
             }
         };
 
-        var handleTooltipsOnBlur = function (event) {
+        var closePopup = function () {
             if (element.hasTooltip) {
                 element.tooltipster('close');
                 element.hasTooltip = false;
@@ -140,7 +142,6 @@ var checkElement = function (element, whenEmailCompleted) {
         };
 
         element.on("keyup paste focus", checkIfEmailIsValid);
-        element.on("blur", handleTooltipsOnBlur);
         checkIfEmailIsValid();
     })($(element))
 }
