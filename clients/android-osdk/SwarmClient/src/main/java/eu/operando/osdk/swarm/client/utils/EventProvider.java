@@ -8,8 +8,14 @@ import java.util.List;
 import java.util.ServiceLoader;
 import java.util.Set;
 
+import eu.operando.osdk.swarm.client.events.CreateIdentitySuccessEvent;
+import eu.operando.osdk.swarm.client.events.DealResultEvent;
+import eu.operando.osdk.swarm.client.events.DomainsListSuccessEvent;
+import eu.operando.osdk.swarm.client.events.GenerateIdentitySuccessEvent;
 import eu.operando.osdk.swarm.client.events.ISwarmEvent;
+import eu.operando.osdk.swarm.client.events.PFBListEvent;
 import eu.operando.osdk.swarm.client.events.SwarmEvent;
+import eu.operando.osdk.swarm.client.events.SwarmIdentityListEvent;
 import eu.operando.osdk.swarm.client.events.SwarmLoginEvent;
 import eu.operando.osdk.swarm.client.events.SwarmLogoutEvent;
 
@@ -19,9 +25,9 @@ import eu.operando.osdk.swarm.client.events.SwarmLogoutEvent;
 public class EventProvider {
     private static EventProvider instance = null;
 
-    HashMap<String, Class> eventDictionary = new HashMap<String, Class>();
+    private HashMap<String, Class> eventDictionary = new HashMap<String, Class>();
 
-    public EventProvider() {
+    private EventProvider() {
         prepareSwarmEvents();
     }
 
@@ -39,11 +45,17 @@ public class EventProvider {
     private void prepareSwarmEvents() {
         insertEventInDictionary("login.js", "success", SwarmLoginEvent.class);
         insertEventInDictionary("login.js", "logoutSucceed", SwarmLogoutEvent.class);
+        insertEventInDictionary("identity.js","getMyIdentities_success",SwarmIdentityListEvent.class);
+        insertEventInDictionary("identity.js","generateIdentity_success",GenerateIdentitySuccessEvent.class);
+        insertEventInDictionary("identity.js","createIdentity_success",CreateIdentitySuccessEvent.class);
+        insertEventInDictionary("identity.js","gotDomains",DomainsListSuccessEvent.class);
+        insertEventInDictionary("pfb.js","gotAllDeals", PFBListEvent.class);
+        insertEventInDictionary("pfb.js","dealAccepted",DealResultEvent.class);
+        insertEventInDictionary("pfb.js","dealUnsubscribed",DealResultEvent.class);
     }
 
     public Class<?> getEvent(String swarmName, String swarmPhase) {
-        Class<?> eventClass = eventDictionary.get(swarmName + swarmPhase);
-        return eventClass;
+        return (Class<?>) eventDictionary.get(swarmName + swarmPhase);
     }
 
 }

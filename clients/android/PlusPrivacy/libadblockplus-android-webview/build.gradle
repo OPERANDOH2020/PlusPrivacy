@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+  compileSdkVersion 21
+  buildToolsVersion "25.0.0"
+
+  defaultConfig {
+    minSdkVersion 17
+    targetSdkVersion 21
+    versionCode 1
+    versionName "1.0"
+  }
+
+  sourceSets {
+    main {
+      manifest.srcFile 'AndroidManifest.xml'
+      java.srcDirs = ['src']
+      resources.srcDirs = ['src']
+      res.srcDirs = ['res']
+      assets.srcDirs = ['assets']
+
+      jni {
+        dependencies {
+          project ":libadblockplus-android"
+        }
+      }
+    }
+  }
+}
+
+dependencies {
+    compile project(':libadblockplus-android')
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+  mavenCentral()
+}

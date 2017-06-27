@@ -1,0 +1,6 @@
+framework module PPContactApiHooks {
+  umbrella header "PPContactApiHooks.h"
+
+  export *
+  module * { export * }
+}

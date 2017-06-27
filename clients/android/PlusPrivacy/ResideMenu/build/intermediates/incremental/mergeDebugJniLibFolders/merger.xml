@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\projects\OPERANDO\op-cl\op-clients-android\PlusPrivacy\ResideMenu\libs"><file name="nineoldandroids-library-2.4.0.jar" path="D:\projects\OPERANDO\op-cl\op-clients-android\PlusPrivacy\ResideMenu\libs\nineoldandroids-library-2.4.0.jar"/></source></dataSet><dataSet config="debug"><source path="D:\projects\OPERANDO\op-cl\op-clients-android\PlusPrivacy\ResideMenu\src\debug\jniLibs"/></dataSet></merger>

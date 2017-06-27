@@ -1,0 +1,350 @@
+[
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_browser.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_browser.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_spinner.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\toolbar_spinner.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\connect_dialog.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\connect_dialog.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_scrollable_text.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\dialog_scrollable_text.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_dashboard.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_pfb_details.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\dialog_pfb_details.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\access_points_details_popup.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\access_points_details_popup.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_list_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\notification_list_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_toolbar.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\main_toolbar.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sensor_list_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\sensor_list_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_about.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_about.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\user_domain_filter_dialog.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\user_domain_filter_dialog.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pfb.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_pfb.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pfb_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\pfb_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_create_account.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_create_account.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_identities.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_identities.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\about_content.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\about_content.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_spinner_item_actionbar.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\toolbar_spinner_item_actionbar.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_login.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\scan_interval_dialog.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\scan_interval_dialog.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\scanner_list_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\scanner_list_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\filter_row.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\filter_row.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_identity.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_create_identity.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sensors.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_sensors.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_scanner.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_scanner.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\access_points_details.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\access_points_details.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\access_points_content.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\access_points_content.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_navigation_drawer.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\fragment_navigation_drawer.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\filters_content.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\filters_content.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_activity.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\main_activity.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_spinner_item_dropdown.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\toolbar_spinner_item_dropdown.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\identity_list_item.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\identity_list_item.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_notifications.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\activity_notifications.xml"
+    },
+    {
+        "merged": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_connection.xml",
+        "source": "D:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\src\\main\\res\\layout\\main_connection.xml"
+    }
+]

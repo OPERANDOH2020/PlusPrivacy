@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="eu.operando.activity.BrowserActivity"
+    tools:showIn="@layout/activity_browser2">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:background="@color/main_background"
+        app:tabBackground="@drawable/edittext_border"
+        app:tabPadding="3dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/toolbar"/>
+    <FrameLayout
+        android:layout_below="@id/tabhost"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu_icon="@drawable/ic_wand"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_new_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_add"
+            app:fab_label="New Tab"
+            fab:fab_colorNormal="@color/colorAccent"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_close_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="45"
+            android:src="@drawable/ic_action_add"
+            app:fab_label="Close tab"
+            fab:fab_colorNormal="@color/colorAccent"/>
+    </com.github.clans.fab.FloatingActionMenu>
+</RelativeLayout>

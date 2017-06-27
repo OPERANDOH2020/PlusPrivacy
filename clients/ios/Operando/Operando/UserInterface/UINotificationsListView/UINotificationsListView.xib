@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UINotificationsListView" customModule="Operando" customModuleProvider="target">
+            <connections>
+                <outlet property="noNotificationsLabel" destination="bj3-yw-BXQ" id="s4c-1Y-5Tj"/>
+                <outlet property="tableView" destination="71a-KU-LIl" id="Lfv-tm-86i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj3-yw-BXQ" userLabel="noNotificationsLabel">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="71a-KU-LIl">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bj3-yw-BXQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1Oe-DE-JPH"/>
+                <constraint firstAttribute="trailing" secondItem="bj3-yw-BXQ" secondAttribute="trailing" constant="5" id="2eQ-Jd-brK"/>
+                <constraint firstItem="71a-KU-LIl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6SA-eD-6LP"/>
+                <constraint firstAttribute="bottom" secondItem="71a-KU-LIl" secondAttribute="bottom" id="Aej-QH-mRo"/>
+                <constraint firstAttribute="trailing" secondItem="71a-KU-LIl" secondAttribute="trailing" id="GXE-DJ-oEf"/>
+                <constraint firstItem="bj3-yw-BXQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Gi3-Ir-cME"/>
+                <constraint firstItem="71a-KU-LIl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x8U-qG-we4"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

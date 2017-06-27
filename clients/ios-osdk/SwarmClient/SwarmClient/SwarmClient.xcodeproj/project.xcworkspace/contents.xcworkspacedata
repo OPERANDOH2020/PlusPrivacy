@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwarmClient.xcodeproj">
+      location = "self:/Users/Costin/Desktop/Projects/Internal/Frameworks/SwarmClient/SwarmClient.xcodeproj">
    </FileRef>
 </Workspace>

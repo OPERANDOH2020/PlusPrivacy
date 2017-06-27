@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIBrowsingNavigationBar" customModule="Operando" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="GwV-ib-efK" id="Ycv-vg-CI4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="444" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-LI-LsG" userLabel="backButton">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="M71-7O-H24"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <state key="normal" title="&lt;">
+                        <color key="titleColor" red="0.1843137255" green="0.12941176469999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="SWr-2N-rNO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYe-Gh-2c1" userLabel="goButton">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="HMk-H8-bdk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="GO">
+                        <color key="titleColor" red="0.1843137255" green="0.12941176469999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressSearchButton:" destination="-1" eventType="touchUpInside" id="SbT-hI-xUl"/>
+                    </connections>
+                </button>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="GwV-ib-efK">
+                    <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.90980392160000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uBx-LI-LsG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6H7-DD-gpY"/>
+                <constraint firstAttribute="trailing" secondItem="uYe-Gh-2c1" secondAttribute="trailing" constant="8" id="HHR-qt-YRR"/>
+                <constraint firstItem="GwV-ib-efK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="L4X-OO-n47"/>
+                <constraint firstItem="uBx-LI-LsG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="NZG-aK-bm2"/>
+                <constraint firstItem="uYe-Gh-2c1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RmV-ER-cfc"/>
+                <constraint firstItem="GwV-ib-efK" firstAttribute="leading" secondItem="uBx-LI-LsG" secondAttribute="trailing" id="cV7-tb-R9G"/>
+                <constraint firstItem="GwV-ib-efK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="jSG-HJ-erC"/>
+                <constraint firstItem="uYe-Gh-2c1" firstAttribute="leading" secondItem="GwV-ib-efK" secondAttribute="trailing" id="nRY-T9-HPH"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="65" y="-34"/>
+        </view>
+    </objects>
+</document>

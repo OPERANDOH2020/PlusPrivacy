@@ -1,0 +1,105 @@
+
+/* Class = "UINavigationItem"; title = "Notifications"; ObjectID = "2dR-9P-kFQ"; */
+"2dR-9P-kFQ.title" = "Notifications";
+
+/* Class = "UILabel"; text = "Private browsing"; ObjectID = "3Pg-L3-aC4"; */
+"3Pg-L3-aC4.text" = "Private browsing";
+
+/* Class = "UIButton"; normalTitle = "Add new substitue identity"; ObjectID = "7YK-YU-fIk"; */
+"7YK-YU-fIk.normalTitle" = "Add new substitue identity";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "8Pv-Ee-nlK"; */
+"8Pv-Ee-nlK.title" = "Back";
+
+/* Class = "UIButton"; normalTitle = "About OPERANDO"; ObjectID = "8yx-N2-dBX"; */
+"8yx-N2-dBX.normalTitle" = "About OPERANDO";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "CQG-TG-X5E"; */
+"CQG-TG-X5E.text" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cd0-PC-BXC"; */
+"Cd0-PC-BXC.text" = "Label";
+
+/* Class = "UILabel"; text = "Identity management"; ObjectID = "F77-BV-MXL"; */
+"F77-BV-MXL.text" = "Identity management";
+
+/* Class = "UINavigationItem"; title = "Authentication"; ObjectID = "GzU-iC-a1m"; */
+"GzU-iC-a1m.title" = "Authentication";
+
+/* Class = "UILabel"; text = "Data leakage prevention"; ObjectID = "IH4-gN-yRY"; */
+"IH4-gN-yRY.text" = "Data leakage prevention";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "NEv-iD-n0y"; */
+"NEv-iD-n0y.normalTitle" = "Sign In";
+
+/* Class = "UILabel"; text = "Updated apps have new permissions"; ObjectID = "SQ1-kd-yMd"; */
+"SQ1-kd-yMd.text" = "Updated apps have new permissions";
+
+/* Class = "UILabel"; text = "Operando dashboard"; ObjectID = "SlG-vp-4xP"; */
+"SlG-vp-4xP.text" = "Operando dashboard";
+
+/* Class = "UILabel"; text = "OPERANDO"; ObjectID = "Vnh-qI-uII"; */
+"Vnh-qI-uII.text" = "OPERANDO";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WgR-g9-cZw"; */
+"WgR-g9-cZw.text" = "Label";
+
+/* Class = "UILabel"; text = "Apps have changed terms and EULA"; ObjectID = "Xvb-0F-6HO"; */
+"Xvb-0F-6HO.text" = "Apps have changed terms and EULA";
+
+/* Class = "UILabel"; text = "Account info"; ObjectID = "b0a-J6-Dzw"; */
+"b0a-J6-Dzw.text" = "Account info";
+
+/* Class = "UILabel"; text = "Deals"; ObjectID = "b1f-eH-5bc"; */
+"b1f-eH-5bc.text" = "Deals";
+
+/* Class = "UILabel"; text = "Identities"; ObjectID = "cp4-Ew-yt1"; */
+"cp4-Ew-yt1.text" = "Identities";
+
+/* Class = "UIButton"; normalTitle = "Account"; ObjectID = "dQP-b3-33V"; */
+"dQP-b3-33V.normalTitle" = "Account";
+
+/* Class = "UIButton"; normalTitle = "Create an account"; ObjectID = "e6C-NH-ohR"; */
+"e6C-NH-ohR.normalTitle" = "Create an account";
+
+/* Class = "UILabel"; text = "About Operando"; ObjectID = "fUl-sG-web"; */
+"fUl-sG-web.text" = "About Operando";
+
+/* Class = "UILabel"; text = "email@operando.eu"; ObjectID = "h6s-xM-ePL"; */
+"h6s-xM-ePL.text" = "email@operando.eu";
+
+/* Class = "UILabel"; text = "Enable notifications"; ObjectID = "h95-o9-lcx"; */
+"h95-o9-lcx.text" = "Enable notifications";
+
+/* Class = "UILabel"; text = "Connections"; ObjectID = "hMw-kx-x93"; */
+"hMw-kx-x93.text" = "Connections";
+
+/* Class = "UILabel"; text = "Allow notifications when"; ObjectID = "kZE-zZ-46O"; */
+"kZE-zZ-46O.text" = "Allow notifications when";
+
+/* Class = "UINavigationItem"; title = "IDENTITY MANAGEMENT"; ObjectID = "oJ4-Yn-hXO"; */
+"oJ4-Yn-hXO.title" = "IDENTITY MANAGEMENT";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "onK-JH-v4P"; */
+"onK-JH-v4P.text" = "Label";
+
+/* Class = "UILabel"; text = "SN Settings Reader"; ObjectID = "p2p-x3-p09"; */
+"p2p-x3-p09.text" = "SN Settings Reader";
+
+/* Class = "UILabel"; text = "Malicious apps have been found"; ObjectID = "qpL-v9-dZx"; */
+"qpL-v9-dZx.text" = "Malicious apps have been found";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "rPE-Kt-KZU"; */
+"rPE-Kt-KZU.text" = "Notifications";
+
+/* Class = "UINavigationItem"; title = "Registration"; ObjectID = "wEI-3r-1lV"; */
+"wEI-3r-1lV.title" = "Registration";
+
+/* Class = "UIButton"; normalTitle = "About OPERANDO"; ObjectID = "waH-hn-SG9"; */
+"waH-hn-SG9.normalTitle" = "About OPERANDO";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "x19-i7-lmX"; */
+"x19-i7-lmX.text" = "Label";
+
+/* Class = "UILabel"; text = "Dashboard"; ObjectID = "xgG-GI-wo7"; */
+"xgG-GI-wo7.text" = "Dashboard";

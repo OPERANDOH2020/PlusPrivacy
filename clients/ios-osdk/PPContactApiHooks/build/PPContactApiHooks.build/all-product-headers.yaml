@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPContactApiHooks/build/Release-iphonesimulator/PPContactApiHooks.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "PPContactApiHooks-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPContactApiHooks/build/Release-iphonesimulator/PPContactApiHooks.framework/Headers/PPContactApiHooks-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPContactApiHooks.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPContactApiHooks/GenericFrameworkProject/PPContactApiHooks.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPContactApiHooks/build/Release-iphonesimulator/PPContactApiHooks.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPContactApiHooks/build/PPContactApiHooks.build/Release-iphonesimulator/PPContactApiHooks.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

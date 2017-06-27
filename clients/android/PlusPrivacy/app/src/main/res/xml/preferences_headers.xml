@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header
+        android:fragment="eu.operando.lightning.fragment.GeneralSettingsFragment"
+        android:title="@string/settings_general"/>
+    <header
+        android:fragment="eu.operando.lightning.fragment.BookmarkSettingsFragment"
+        android:title="@string/bookmark_settings"/>
+    <header
+        android:fragment="eu.operando.lightning.fragment.DisplaySettingsFragment"
+        android:title="@string/settings_display"/>
+    <header
+        android:fragment="eu.operando.lightning.fragment.PrivacySettingsFragment"
+        android:title="@string/settings_privacy"/>
+    <header
+        android:fragment="eu.operando.lightning.fragment.AdvancedSettingsFragment"
+        android:title="@string/settings_advanced"/>
+
+    <header
+        android:fragment="eu.operando.lightning.fragment.DebugSettingsFragment"
+        android:title="@string/debug_title"/>
+</preference-headers>

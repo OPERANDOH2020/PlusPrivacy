@@ -1,0 +1,65 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+In order to build PlusPrivacy for iOS, the following requirements need to be satisfied: \
+\
+	1. OS: OS X 10.12\
+	2. Build Environment: Xcode v8.2\
+\
+Pull the 'op-clients' repository, and then switch to the 'master' branch. \
+Assuming you have been given access, the repository is located at \
+https://github.com/OPERANDOH2020/op-clients.git \
+\
+Navigate to "op-clients / op-clients-ios / Operando" and double-click to open the file PlusPrivacy.xcodeproj \
+\
+You can now run the app in the simulator with the full functionality. See "/Videos/RunInSimulator.mov"\
+\
+At the moment there is no official way to make an adhoc build without being part of a developer team, which registered the app's bundle id and created an Adhoc provisioning profile.  \
+\
+You would need to have an account and be registered in that development team, such as: \
+email:  l2652150@mvrht.com\
+password:  PPdevaccount123\
+\
+(Note: This account is used only for the purpose of the video demonstration) \
+\
+You can add an account by going to Xcode (top-Left menu item) -> Preferences -> Accounts \
+Click the + button, select "Add Apple ID" and then copy and paste the credentials and confirm.\
+\
+If not selected, select ( by clicking ) the top-most item on the list view on the left, named "PlusPrivacy" ( with a blue icon on the left ).\
+\
+On the right panel, select "Operando", the first under the "TARGETS" section. The panel right to it should update.  \
+\
+\
+There should be 3 sections present: "Signing", "Signing (Debug)", "Signing (Release)". \
+\
+\
+	- For "Release" do the following:  \
+		-from "Provisioning Profile" select an adhoc provisioning profile ( Xcode downloads these automatically, in the video example it is called "OperandoAdHoc").\
+ 	\
+	- For "Debug" leave it as is. ( App debugging is not covered in this document )\
+\
+\
+Press "alt + CMD + R". This will bring up a window with a list on the left, from which you will select "Archive" and then press the "Archive" button on the bottom-right. Make sure the "Reveal Archive in Organizer" checkbox is checked. \
+\
+Xcode will compile and generate an archive (this process should take around 10 - 30 seconds) and then a new window should automatically pop-up. \
+\
+With everything selected as-is, press the "Export" button on the right panel. \
+Choose "Save for AdHoc deployment" click "Next"\
+Choose your development team ( in the video example this is called "ROMSOFT SRL" ) from the development teams list\
+Select "Export one app for all compatible devices" click "Next"\
+Select the location where the folder containing the .ipa file will be created, "Export"\
+\
+The .ipa is ready to be installed on the device. You can use tools such as iFunBox or iMazing, but a simpler way to do it is this: \
+ 1. Go to www.diawi.com\
+ 2. Upload the .ipa\
+ 3. A link will be generated. Access this link on the device using Safari. \
+\
+The .ipa can be installed only on the devices registered in the provisioning profile. \
+You will find a video demonstration of the process in the "/Videos" directory.\
+\
+ }

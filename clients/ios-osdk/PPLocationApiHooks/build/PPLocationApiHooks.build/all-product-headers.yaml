@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPLocationApiHooks/build/Release-iphonesimulator/PPLocationApiHooks.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "PPLocationApiHooks-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPLocationApiHooks/build/Release-iphonesimulator/PPLocationApiHooks.framework/Headers/PPLocationApiHooks-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPLocationApiHooks.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPLocationApiHooks/GenericFrameworkProject/PPLocationApiHooks.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPLocationApiHooks/build/Release-iphonesimulator/PPLocationApiHooks.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPLocationApiHooks/build/PPLocationApiHooks.build/Release-iphonesimulator/PPLocationApiHooks.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

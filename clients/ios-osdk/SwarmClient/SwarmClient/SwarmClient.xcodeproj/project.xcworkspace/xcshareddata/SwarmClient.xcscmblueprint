@@ -4,10 +4,10 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69" : 0,
-    "DAB89CDEB487E445388C1CDB928723C18EC4D210" : 0
+    "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69" : 9223372036854775807,
+    "DAB89CDEB487E445388C1CDB928723C18EC4D210" : 9223372036854775807
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "46C79FFB-2C2A-4656-87E3-A3857FE331ED",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6079A211-847B-481F-9BD3-4F6374A52E01",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69" : "op-clients\/",
     "DAB89CDEB487E445388C1CDB928723C18EC4D210" : ""
@@ -22,7 +22,7 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2BB2F3FED24FC561FA0D89B3FFE8AA514B275A69"
     },
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/tfs2015.ad.rms.intern:8080\/tfs\/DefaultCollection2\/_git\/SIMAP%2520with%2520Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/tfs2015.ad.rms.intern:8080\/tfs\/DefaultCollection2\/_git\/SIMAP%20with%20Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAB89CDEB487E445388C1CDB928723C18EC4D210"
     }

@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/BCKEY.DSA'
+        exclude 'META-INF/BCKEY.SF'
+        exclude 'AUTHORS'
+    }
+
+
+    defaultConfig {
+        applicationId "eu.operando"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        multiDexEnabled true
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+}
+
+repositories{
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    // lib for socket io . Last updated : 04.04.2016
+    compile 'uk.co.chrisjenx:calligraphy:2.0.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.jakob-grabner:Circle-Progress-View:v1.2.9'
+    compile project(':SwarmClient')
+    compile 'com.github.delight-im:Android-AdvancedWebView:v2.1.0'
+
+
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'be.shouldit:android-proxy-library:4.2.6'
+    compile 'io.netty:netty-all:4.1.0.CR6'
+    compile 'org.bouncycastle:bcpkix-jdk15on:1.51'
+    compile('org.littleshoot:littleproxy:1.1.0-beta2'){
+        exclude group:'io.netty'
+    }
+    compile group: 'com.joanzapata.android', name: 'base-adapter-helper', version: '1.1.11'
+
+    //TableView
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
+    compile 'com.squareup:otto:1.3.+'
+    compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.getbase:floatingactionbutton:1.9.0'
+    compile 'com.android.support:multidex:1.0.0'
+
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--iAdd Identity Alert View Controller-->
+        <scene sceneID="j9x-Xz-IfD">
+            <objects>
+                <viewController storyboardIdentifier="UIAddIdentityAlertViewController" id="ntd-Hp-frb" customClass="UIAddIdentityAlertViewController" customModule="Operando" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="81S-00-JZF"/>
+                        <viewControllerLayoutGuide type="bottom" id="LjN-EP-AJp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i4a-5U-Lxv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SnO-W4-wJA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRT-R3-4xI" customClass="UIAddIdentityView" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="10" y="20" width="355" height="637"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nRT-R3-4xI" secondAttribute="trailing" constant="10" id="052-vY-9yu"/>
+                            <constraint firstItem="LjN-EP-AJp" firstAttribute="top" secondItem="nRT-R3-4xI" secondAttribute="bottom" constant="10" id="86s-fg-CKT"/>
+                            <constraint firstItem="nRT-R3-4xI" firstAttribute="leading" secondItem="i4a-5U-Lxv" secondAttribute="leading" constant="10" id="FN0-cg-XeV"/>
+                            <constraint firstItem="nRT-R3-4xI" firstAttribute="top" secondItem="81S-00-JZF" secondAttribute="bottom" id="IGw-Er-gHA"/>
+                            <constraint firstItem="SnO-W4-wJA" firstAttribute="top" secondItem="i4a-5U-Lxv" secondAttribute="top" id="Jxw-OG-sXO"/>
+                            <constraint firstItem="LjN-EP-AJp" firstAttribute="top" secondItem="SnO-W4-wJA" secondAttribute="bottom" id="LI2-R7-f27"/>
+                            <constraint firstItem="SnO-W4-wJA" firstAttribute="leading" secondItem="i4a-5U-Lxv" secondAttribute="leading" id="ncx-V2-nHC"/>
+                            <constraint firstAttribute="trailing" secondItem="SnO-W4-wJA" secondAttribute="trailing" id="y73-bu-Xqu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addIdentityView" destination="nRT-R3-4xI" id="DYG-T6-Ve8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vqr-L7-Rcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="121.88905547226388"/>
+        </scene>
+        <!--Pfb Details Alert View Controller-->
+        <scene sceneID="vw2-Bw-C9o">
+            <objects>
+                <viewController storyboardIdentifier="UIPfbDetailsAlertViewController" automaticallyAdjustsScrollViewInsets="NO" id="PwT-CM-Avn" customClass="UIPfbDetailsAlertViewController" customModule="Operando" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BQT-gL-MmY"/>
+                        <viewControllerLayoutGuide type="bottom" id="3UX-YJ-WwC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hdS-ZZ-HNM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocE-V9-19X" userLabel="blackBackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-hg-6yv" customClass="UIPfbDetailsView" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="10" y="20" width="355" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ocE-V9-19X" secondAttribute="trailing" id="2Mt-fU-A92"/>
+                            <constraint firstItem="ocE-V9-19X" firstAttribute="top" secondItem="hdS-ZZ-HNM" secondAttribute="top" id="9DL-1O-xf2"/>
+                            <constraint firstItem="wIf-hg-6yv" firstAttribute="top" secondItem="hdS-ZZ-HNM" secondAttribute="topMargin" constant="20" id="AAm-dI-lZZ"/>
+                            <constraint firstAttribute="bottom" secondItem="wIf-hg-6yv" secondAttribute="bottom" constant="20" id="HYL-6x-6r0"/>
+                            <constraint firstItem="wIf-hg-6yv" firstAttribute="leading" secondItem="hdS-ZZ-HNM" secondAttribute="leading" constant="10" id="Jmp-hW-KPo"/>
+                            <constraint firstItem="3UX-YJ-WwC" firstAttribute="top" secondItem="ocE-V9-19X" secondAttribute="bottom" id="qyE-Rk-FMx"/>
+                            <constraint firstAttribute="trailing" secondItem="wIf-hg-6yv" secondAttribute="trailing" constant="10" id="tMZ-4b-NEF"/>
+                            <constraint firstItem="ocE-V9-19X" firstAttribute="leading" secondItem="hdS-ZZ-HNM" secondAttribute="leading" id="u12-PI-pOi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blackBackgroundView" destination="ocE-V9-19X" id="rF9-Ma-Ynd"/>
+                        <outlet property="pfbDetailsView" destination="wIf-hg-6yv" id="qE9-wi-yBx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gD6-9e-0u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-834" y="191"/>
+        </scene>
+    </scenes>
+</document>

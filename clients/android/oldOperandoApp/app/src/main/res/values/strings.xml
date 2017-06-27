@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">Operando</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!-- Login Pages -->
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="rememberMe">Remember me</string>
+    <string name="signIn">Sign In</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="createAccount">Create an account</string>
+    <string name="aboutOperando">About OPERANDO</string>
+    <string name="operandoTitle">OPERANDO</string>
+    <string name="authentication">Authentication</string>
+    <string name="registration">Registration</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="passwordErr">Password does not match</string>
+    <string name="showPassword">Show password</string>
+    <string name="signUp">Sign Up</string>
+    <string name="code">Code</string>
+    <string name="emailVerification">Email verification</string>
+    <string name="emailWasSent">An email was sent to</string>
+    <string name="pleaseVerifyCode">Please verify it or enter the received code here.</string>
+
+    <string name="registerOrLogin">Register or log in for full protection. </string>
+
+
+    <!-- Menu Strings -->
+
+    <string name="dashboard">Dashboard</string>
+    <string name="scanner">Scanner</string>
+    <string name="sensorMonitoring">Sensor Monitoring</string>
+    <string name="dataleek">Data Leakage Prevention</string>
+    <string name="notification">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="pfb">Privacy for Benefits</string>
+    <string name="privateBrowsing">Private Browsing</string>
+    <string name="identityManager">Identity Management</string>
+    <string name="operandoDashboard">OPERANDO dashboard</string>
+    <string name="accountInfo">Account info</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="url">URL</string>
+
+
+    <!--Proxy-->
+    <string name="help_menu">Help</string>
+
+    <string name="about_menu">About</string>
+
+    <!-- TODO: CHANGE-->
+    <string name="response_filters">Response Filters</string>
+    <string name="domain_filters">Domain Filters</string>
+    <string name="msg_downloading">Downloading\n%1s</string>
+    <string name="msg_downloaded">File downloaded</string>
+    <string name="text_close">Close</string>
+    <string name="channel_short_name">CH</string>
+    <string name="channel_frequency_range">Range:</string>
+    <string name="action_access_points">Access Points</string>
+    <string name="action_channel_available">Available Channels</string> 
+    <string name="action_apn">APN Configuration</string>
+    <string name="action_about">About</string>
+
+    <string name="button_ok" translatable="false">OK</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="no_data">No Data</string>
+
+    <string name="app_company_name">University of Piraeus Research Centre</string>
+    <string name="app_copyright">Copyright \u00A9 2016</string>
+    <string name="app_url" translatable="false">https://github.com/OPERANDOH2020/op-android-privacy-app</string>
+    <!-- application end -->
+
+    <string name="group_by_title">Group Access Points By</string>
+    <string name="group_by_summary" translatable="false">%s</string>
+    <string name="group_by_key" translatable="false">group_by</string>
+    <string name="group_by_default" translatable="false">0</string>
+
+    <string name="wifi_band_title">WiFi Band</string>
+    <string name="wifi_band_summary" translatable="false">%s</string>
+    <string name="wifi_band_key" translatable="false">wifi_band</string>
+    <string name="wifi_band_default" translatable="false">0</string>
+
+    <string name="scan_interval_title">Scan Interval</string>
+    <string name="scan_interval_summary">%d seconds between each scan</string>
+    <string name="scan_interval_key" translatable="false">scan_interval</string>
+    <integer name="scan_interval_min">5</integer>
+    <integer name="scan_interval_max">30</integer>
+    <integer name="scan_interval_default">15</integer>
+
+    <string name="sort_by_title">Sort Access Points By</string>
+    <string name="sort_by_summary" translatable="false">%s</string>
+    <string name="sort_by_key" translatable="false">sort_by</string>
+    <string name="sort_by_default" translatable="false">0</string>
+    <string name="theme_title">Theme</string>
+    <string name="theme_summary" translatable="false">%s</string>
+    <string name="theme_key" translatable="false">theme</string>
+    <string name="theme_default" translatable="false">0</string>
+    <!-- settings end -->
+
+    <!-- about start -->
+    <string name="about_license_title">License:</string>
+    <string name="about_license_name">Licensed under the GNU General Public License v3.0</string>
+    <string name="about_license_url" translatable="false">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
+    <string name="about_description_title">Description:</string>
+    <string name="about_description_text">Lorem Ipsum</string>
+    <string name="about_libraries_title">Open Source Projects Used:</string>
+    <string name="about_library_apache" translatable="false">Apache Commons</string>
+    <string name="about_library_apache_url" translatable="false">https://commons.apache.org</string>
+    <string name="about_LittleProxy_mitm" translatable="false">LittleProxy-mitm</string>
+    <string name="about_LittleProxy_mitm_url" translatable="false">https://github.com/ganskef/LittleProxy-mitm</string>
+    <string name="about_LittleProxy" translatable="false">LittleProxy</string>
+    <string name="about_LittleProxy_url" translatable="false">https://github.com/adamfisk/LittleProxy</string>
+    <string name="about_WiFiAnalyzer" translatable="false">WiFi Analyzer</string>
+    <string name="about_WiFiAnalyzer_url" translatable="false">https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer</string>
+    <string name="about_AndroidProxySetter" translatable="false">AndroidProxySetter</string>
+    <string name="about_AndroidProxySetter_url" translatable="false">https://github.com/jpkrause/AndroidProxySetter</string>
+    <string name="about_APL" translatable="false">Android Proxy Library (APL)</string>
+    <string name="about_APL_url" translatable="false">https://github.com/shouldit/android-proxy/tree/master/android-proxy-library</string>
+    <string name="about_otto" translatable="false">Otto</string>
+    <string name="about_otto_url" translatable="false">https://square.github.io/otto</string>
+    <string name="about_nogotofail" translatable="false">nogotofail</string>
+    <string name="about_nogotofail_url" translatable="false">https://github.com/google/nogotofail</string>
+    <string name="about_netguard" translatable="false">NetGuard</string>
+    <string name="about_netguard_url" translatable="false">https://github.com/M66B/NetGuard</string>
+    <string name="about_library_material">Material Design Icons</string>
+    <string name="about_library_material_url" translatable="false">https://design.google.com/icons</string>
+
+    <string name="about_contributor_title">Contributors:</string>
+    <string name="about_contributor_list" translatable="false">Nikos Lykousas, Constantinos Patsakis</string>
+    <string name="identities">Identities</string>
+    <string name="real_identity">This is your real identity</string>
+    <string name="alternative_identities">Alternative identities</string>
+    <string name="add_identity">Add identity</string>
+    <string name="domain">Domain:</string>
+    <!-- about end -->
+
+
+
+</resources>

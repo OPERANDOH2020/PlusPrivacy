@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/C:/Users/mpagliar/Development/Git/android-proxy/android-proxy-library/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="feedback_ignored_packages">
+        <item>android</item>
+        <item>android.tts</item>
+        <item>com.lechucksoftware.proxy.proxysettings</item>
+    </string-array>
+    <string-array name="wifi_ap_security" translatable="false">
+        <item>Open</item>
+        <!-- Do not translate. -->
+        <item>WPA PSK</item>
+        <!-- Do not translate. -->
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <!-- Do not translate. -->
+        <item>PEAP</item>
+        <!-- Do not translate. -->
+        <item>TLS</item>
+        <!-- Do not translate. -->
+        <item>TTLS</item>
+        <!-- Do not translate. -->
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Connected</item>
+        <item>Invited</item>
+        <item>Unsuccessful</item>
+        <item>Available</item>
+        <item>Out-of-range</item>
+   </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <!-- Push button based configuration involves pushing a button on two connecting devices [CHAR LIMIT=30]-->
+        <item>Push button</item>
+        <!-- This involves entering a pin obtained from a peer device [CHAR LIMIT=30] -->
+        <item>PIN from peer device</item>
+        <!-- This involves generating a pin from this device [CHAR LIMIT=20] -->
+        <item>PIN from this device</item>
+    </string-array>
+    <string-array name="wifi_security">
+        <!-- The Wi-Fi network does not have any security. -->
+        <item>@string/wifi_security_none</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_wep</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_psk_generic</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_eap</item>
+    </string-array>
+    <string-array name="wifi_security_no_eap">
+        <!-- The Wi-Fi network does not have any security. -->
+        <item>@string/wifi_security_none</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_wep</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_psk_generic</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <!-- Status message of Wi-Fi when it is idle. -->
+        <item/>
+        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item>Scanning\u2026</item>
+        <!-- Status message of Wi-Fi when it is connecting. -->
+        <item>Connecting\u2026</item>
+        <!-- Status message of Wi-Fi when it is authenticating. -->
+        <item>Authenticating\u2026</item>
+        <!-- Status message of Wi-Fi when it is obtaining IP address. -->
+        <item>Obtaining IP address\u2026</item>
+        <!-- Status message of Wi-Fi when it is connected. -->
+        <item>Connected</item>
+        <!-- Status message of Wi-Fi when it is suspended. -->
+        <item>Suspended</item>
+        <!-- Status message of Wi-Fi when it is disconnecting. -->
+        <item>Disconnecting\u2026</item>
+        <!-- Status message of Wi-Fi when it is disconnected. -->
+        <item>Disconnected</item>
+        <!-- Status message of Wi-Fi when it is a failure. -->
+        <item>Unsuccessful</item>
+        <!-- Status message of Wi-Fi when it is blocked. -->
+        <item>Blocked</item>
+        <!-- Status message of Wi-Fi when connectiong is being verified. -->
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <!-- Status message of Wi-Fi when it is idle. -->
+        <item/>
+        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item>Scanning\u2026</item>
+        <!-- Status message of Wi-Fi when it is connecting to a network. -->
+        <item>Connecting to <ns1:g id="network_name">%1$s</ns1:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is authenticating with a network. -->
+        <item>Authenticating with <ns1:g id="network_name">%1$s</ns1:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
+        <item>Obtaining IP address from <ns1:g id="network_name">%1$s</ns1:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is connected to a network. -->
+        <item>Connected to <ns1:g id="network_name">%1$s</ns1:g></item>
+        <!-- Status message of Wi-Fi when it is suspended. -->
+        <item>Suspended</item>
+        <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
+        <item>Disconnecting from <ns1:g id="network_name">%1$s</ns1:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is disconnected. -->
+        <item>Disconnected</item>
+        <!-- Status message of Wi-Fi when it is a failure. -->
+        <item>Unsuccessful</item>
+        <!-- Status message of Wi-Fi when it is blocked. -->
+        <item>Blocked</item>
+        <!-- Status message of Wi-Fi when connectiong is being verified. -->
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+    <declare-styleable name="WifiEncryptionState"><attr format="boolean" name="state_encrypted"/></declare-styleable>
+    <!-- From: file:/C:/Users/mpagliar/Development/Git/android-proxy/android-proxy-library/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="available">Available</string>
+    <string name="connected">Connected</string>
+    <string name="direct_connection">Direct connection</string>
+    <string name="not_available">Not available</string>
+    <string name="not_set">NOT SET</string>
+    <string name="not_valid_proxy_setting">Not valid proxy setting</string>
+    <string name="proxy">Proxy</string>
+    <string name="status_description_checking">Proxy Settings is validating your proxy configuration …</string>
+    <string name="status_description_enabled">Proxy (Host:Port): </string>
+    <string name="status_description_invalid_host">Please check your configuration …</string>
+    <string name="status_description_invalid_port">Please check your configuration …</string>
+    <string name="status_description_not_enabled">Proxy is not enabled</string>
+    <string name="status_description_not_reachable">Please check your configuration …</string>
+    <string name="status_description_web_not_reachable"> Please check proxy configuration …</string>
+    <string name="status_exclusion_item_empty">Proxy exclusion IP/hostname cannot be empty</string>
+    <string name="status_exclusion_item_notvalid">Proxy exclusion IP/hostname seems not valid</string>
+    <string name="status_exclusion_item_valid">Proxy exclusion IP/hostname is: </string>
+    <string name="status_exclusion_list_notvalid">Proxy exclusion IP/hostname list seems not valid</string>
+    <string name="status_exclusion_list_valid">Proxy exclusion IP/hostname list is: </string>
+    <string name="status_hostname_empty">Proxy IP/hostname cannot be empty</string>
+    <string name="status_hostname_notvalid">Proxy IP/Hostname seems not valid address</string>
+    <string name="status_hostname_valid">Proxy IP/Hostname is: </string>
+    <string name="status_pac_cannot_retrieve_uri">Cannot retrieve URI content</string>
+    <string name="status_pac_empty_invalid">Got an empty PAC file</string>
+    <string name="status_pac_invalid_uri">Not a valid URI</string>
+    <string name="status_pac_valid">Got a valid PAC file</string>
+    <string name="status_pac_valid_uri">PAC valid URI</string>
+    <string name="status_port_empty">Proxy port cannot be empty</string>
+    <string name="status_port_notvalid">Proxy port number must be a number between 1 and 65535</string>
+    <string name="status_port_valid">Proxy port is: </string>
+    <string name="status_proxy_disabled">Proxy disabled</string>
+    <string name="status_proxy_enabled">Proxy enabled</string>
+    <string name="status_proxy_mobile_disabled">Proxy cannot be configured for Mobile connectivity</string>
+    <string name="status_proxy_not_reachable">Proxy seems not reachable</string>
+    <string name="status_proxy_not_valid_informations">Not enough information to ping the proxy</string>
+    <string name="status_proxy_reachable">Proxy is reachable</string>
+    <string name="status_title_checking">Checking proxy configuration …</string>
+    <string name="status_title_enabled">Proxy Enabled</string>
+    <string name="status_title_invalid_host">Invalid Proxy Host</string>
+    <string name="status_title_invalid_pac">Not valid PAC configuration</string>
+    <string name="status_title_invalid_port">Invalid Proxy Port</string>
+    <string name="status_title_not_enabled">Proxy Not Enabled</string>
+    <string name="status_title_not_reachable">Proxy Not Reachable</string>
+    <string name="status_title_web_not_reachable">WEB Not Reachable</string>
+    <string name="status_web_not_reachable">WEB is not reachable</string>
+    <string name="status_web_reachable">WEB is reachable</string>
+    <string name="status_wifi_enabled">Wi-Fi enabled</string>
+    <string name="status_wifi_enabled_disconnected">Not connected to any Wi-Fi Access point</string>
+    <string name="status_wifi_not_enabled">Wi-Fi not enabled</string>
+    <string name="status_wifi_not_selected">Connected to another Wi-Fi Access point</string>
+    <string name="status_wifi_selected">Wi-Fi connected to: %1$s</string>
+    <string name="wifi_security_eap">802.1x EAP</string>
+    <string name="wifi_security_none">OPEN</string>
+    <string name="wifi_security_psk_generic">@string/wifi_security_wpa_wpa2</string>
+    <string name="wifi_security_short_eap">802.1x</string>
+    <string name="wifi_security_short_psk_generic">@string/wifi_security_short_wpa_wpa2</string>
+    <string name="wifi_security_short_wep">WEP</string>
+    <string name="wifi_security_short_wpa">WPA</string>
+    <string name="wifi_security_short_wpa2">WPA2</string>
+    <string name="wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifi_security_wep">WEP</string>
+    <string name="wifi_security_wpa">WPA PSK</string>
+    <string name="wifi_security_wpa2">WPA2 PSK</string>
+    <string name="wifi_security_wpa_wpa2">WPA/WPA2 PSK</string>
+</resources>

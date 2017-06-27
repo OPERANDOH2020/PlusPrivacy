@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:background="@color/white"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:src="@drawable/operando_logi"/>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical|center_horizontal">
+
+        <Button
+            android:id="@+id/scan_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/sensor_monitoring"/>
+
+        <Button
+            android:id="@+id/notification_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="40dp"
+            android:padding="3dp"
+            android:background="@drawable/ic_info_orange"/>
+
+        <Button
+            android:id="@+id/sensor_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/data_leak_prevention"/>
+
+        <Button
+            android:id="@+id/proxy_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/permission_scanner"/>
+
+      <FrameLayout
+          android:id="@+id/browser_button"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_centerInParent="true"
+          android:layout_marginBottom="50dp"
+          android:layout_marginRight="40dp">
+
+          <ImageView
+              android:layout_width="100dp"
+              android:background="@drawable/globe"
+              android:layout_height="100dp"/>
+          <ImageView
+          android:layout_width="60dp"
+          android:background="@drawable/logo_bevel"
+          android:layout_gravity="center"
+          android:layout_height="60dp"/>
+      </FrameLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"
+            android:src="@drawable/circles_one"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginTop="105dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/circles_four"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="100dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/circles_two"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginTop="105dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/circles_three"/>
+    </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" android:background="@color/blackTitle"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/registerOrLoginRL"
+        android:layout_height="50dp" android:background="@color/lightOrange" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/LoginPageTextView"
+            android:gravity="center_horizontal" android:text="@string/registerOrLogin"/>
+
+    </RelativeLayout>
+</LinearLayout>
+</RelativeLayout>

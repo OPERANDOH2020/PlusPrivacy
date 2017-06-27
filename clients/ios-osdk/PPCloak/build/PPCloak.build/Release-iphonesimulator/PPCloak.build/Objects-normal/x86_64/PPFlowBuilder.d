@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.m \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/build/PPCloak.build/Release-iphonesimulator/PPCloak.build/module.modulemap \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonUI.framework/Modules/module.modulemap \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonUI.framework/Headers/PlusPrivacyCommonUI-Swift.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonUI.framework/Headers/PlusPrivacyCommonUI.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonTypes.framework/Modules/module.modulemap \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonTypes.framework/Headers/PlusPrivacyCommonTypes-Swift.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PlusPrivacyCommonTypes.framework/Headers/PlusPrivacyCommonTypes.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/ReportsStorageProtocol.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/BaseReportWithDate/BaseReportWithDate.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPPrivacyLevelViolationReport.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/OPMonitorSettings/OPMonitorSettings.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsViewController/UILocationSettingsViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/UserDefinedLocationsSwizzlerSettings.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/CommonLocationViewModels/CommonLocationViewModels.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/RandomWalkSwizzlerSettings.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/RandomWalkGenerator/RandomWalkGenerator.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPReportsSourcesBundle.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationStatusViewController/UILocationStatusViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIViolationReportsViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIPPOptionsViewController/UIPPOptionsViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIEncapsulatorViewController/UIEncapsulatorViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UISCDViewController/UISCDViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/NSBundle+RSFrameworkHooks/NSBundle+RSFrameworkHooks.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputUsageGraphsViewController/UIUsageViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputGraphViewController/UIInputGraphViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationSettingsViewController/UIRandomWalkLocationSettingsViewController.h \
+  /Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationStatusViewController/UIRandomWalkLocationStatusViewController.h

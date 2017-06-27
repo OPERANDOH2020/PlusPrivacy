@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UIWebTabCollectionCell" id="gTV-IL-0wX" customClass="UIWebTabCollectionCell" customModule="Operando" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="195" height="232"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="195" height="232"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GLt-lD-hQF">
+                        <rect key="frame" x="0.0" y="33" width="195" height="199"/>
+                        <color key="backgroundColor" red="0.56470588239999997" green="0.64313725489999995" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHE-Ff-EF9">
+                        <rect key="frame" x="0.0" y="10" width="190" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.26872381099999998" green="0.2169422006" blue="0.054481502360000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvi-65-jC5">
+                        <rect key="frame" x="0.0" y="202" width="195" height="30"/>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.66274509803921566" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="3i6-4N-LkH"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-cq-eCL">
+                        <rect key="frame" x="75.5" y="183" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="PQl-3c-OM1"/>
+                            <constraint firstAttribute="height" constant="44" id="Tb0-0A-WWn"/>
+                        </constraints>
+                        <state key="normal" image="tabCloseButton"/>
+                        <connections>
+                            <action selector="didPressClose:" destination="gTV-IL-0wX" eventType="touchUpInside" id="bkU-pY-nZn"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ftI-cq-eCL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3gm-kD-CBW"/>
+                <constraint firstItem="GLt-lD-hQF" firstAttribute="top" secondItem="yHE-Ff-EF9" secondAttribute="bottom" constant="5" id="Eq1-W4-cJ2"/>
+                <constraint firstItem="yHE-Ff-EF9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="JpM-Ei-cOs"/>
+                <constraint firstAttribute="bottom" secondItem="ftI-cq-eCL" secondAttribute="bottom" constant="5" id="KYa-Tb-B9Z"/>
+                <constraint firstAttribute="trailing" secondItem="xvi-65-jC5" secondAttribute="trailing" id="P88-IV-yVw"/>
+                <constraint firstItem="xvi-65-jC5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PZo-SL-4vF"/>
+                <constraint firstAttribute="trailing" secondItem="yHE-Ff-EF9" secondAttribute="trailing" constant="5" id="STn-R3-0kt"/>
+                <constraint firstItem="GLt-lD-hQF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YTV-W0-JQQ"/>
+                <constraint firstAttribute="trailing" secondItem="GLt-lD-hQF" secondAttribute="trailing" id="aLF-UV-wCH"/>
+                <constraint firstAttribute="bottom" secondItem="GLt-lD-hQF" secondAttribute="bottom" id="aVN-xm-5zE"/>
+                <constraint firstAttribute="bottom" secondItem="xvi-65-jC5" secondAttribute="bottom" id="kJr-bd-2JQ"/>
+                <constraint firstItem="yHE-Ff-EF9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yCc-4Y-giv"/>
+            </constraints>
+            <size key="customSize" width="195" height="232"/>
+            <connections>
+                <outlet property="imageView" destination="GLt-lD-hQF" id="IbU-44-JhB"/>
+                <outlet property="titleLabel" destination="yHE-Ff-EF9" id="HW9-Ov-c9v"/>
+            </connections>
+            <point key="canvasLocation" x="-105.5" y="-70"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="tabCloseButton" width="38" height="38"/>
+    </resources>
+</document>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE8CF"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_above="@+id/addIdentityBtn"
+                  android:background="#FFE8CF"
+                  android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolb"
+            layout="@layout/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fec742">
+
+            <ImageView
+                android:id="@+id/mailIV"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/real_identity"/>
+
+            <TextView
+                android:id="@+id/realIdentityTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/mailIV"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/realIdentityTV"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/mailIV"
+                android:text="@string/real_identity"
+                android:textColor="#af7d08"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/identitiesIV"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/identities"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/identitiesIV"
+                android:text="@string/alternative_identities"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/identitiesLV"
+            android:divider="@android:color/black"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/addIdentityBtn"
+        android:background="#00a493"
+        android:textColor="@android:color/white"
+        android:text="@string/add_identity"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>
+</RelativeLayout>

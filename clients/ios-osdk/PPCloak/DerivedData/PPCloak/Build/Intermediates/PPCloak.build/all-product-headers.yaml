@@ -1,0 +1,78 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/DerivedData/PPCloak/Build/Products/Release-iphoneos/PPCloak.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CommonReportKeys.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/CommonReportKeys/CommonReportKeys.h"
+        },
+        {
+          'type': 'file',
+          'name': "LocationInputSupervisor.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/InputSupervisors/LocationInputSupervisor/LocationInputSupervisor.h"
+        },
+        {
+          'type': 'file',
+          'name': "OPMonitor.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/OPMonitor/OPMonitor.h"
+        },
+        {
+          'type': 'file',
+          'name': "OPMonitorInputSourceEvent.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/OPMonitor/OPMonitorInputSourceReport/OPMonitorInputSourceEvent.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPAccessFrequencyViolationReport.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPAccessUnlistedHostReport.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPCloak-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/DerivedData/PPCloak/Build/Products/Release-iphoneos/PPCloak.framework/Headers/PPCloak-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPCloak.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/PPCloak.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPPrivacyLevelViolationReport.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPPrivacyLevelViolationReport.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPUnlistedInputAccessViolation.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h"
+        },
+        {
+          'type': 'file',
+          'name': "SupervisorProtocols.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/GenericFrameworkProject/Common/SupervisorProtocols.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/DerivedData/PPCloak/Build/Products/Release-iphoneos/PPCloak.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPCloak/DerivedData/PPCloak/Build/Intermediates/PPCloak.build/Release-iphoneos/PPCloak.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

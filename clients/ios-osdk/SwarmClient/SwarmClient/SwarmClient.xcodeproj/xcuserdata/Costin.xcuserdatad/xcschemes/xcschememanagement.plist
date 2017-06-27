@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SwarmClient.xcscheme</key>
+		<key>AggregateUniversal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GenericFrameworkProject.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>AD8676031CD2B89000A17F2C</key>
+		<key>98584F3C1D3F9E18009FB89F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD86760D1CD2B89000A17F2C</key>
+		<key>98584F481D3F9E43009FB89F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

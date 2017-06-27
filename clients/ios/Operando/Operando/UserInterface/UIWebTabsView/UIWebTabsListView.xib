@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIWebTabsListView" customModule="Operando" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="sMl-QP-7L0" id="Hjr-y9-EQ5"/>
+                <outlet property="collectionView" destination="gA9-u2-mj4" id="1YE-jy-ARm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KX3-z3-2xc">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="577"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gA9-u2-mj4">
+                    <rect key="frame" x="0.0" y="0.0" width="334" height="533"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="0CY-vA-BjG">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="sMl-QP-7L0">
+                    <rect key="frame" x="149" y="233" width="37" height="37"/>
+                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-yV-ZNC">
+                    <rect key="frame" x="0.0" y="533" width="334" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIp-3f-P5d">
+                            <rect key="frame" x="144" y="0.0" width="46" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="vad-9z-Zva"/>
+                            </constraints>
+                            <state key="normal" image="whitePlus"/>
+                            <connections>
+                                <action selector="didPressToAdd:" destination="-1" eventType="touchUpInside" id="HFG-sY-1jU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-Si-tsS">
+                            <rect key="frame" x="288" y="0.0" width="46" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="NM7-Lx-zwf"/>
+                            </constraints>
+                            <state key="normal" image="whiteX"/>
+                            <connections>
+                                <action selector="didPressClose:" destination="-1" eventType="touchUpInside" id="dhd-pz-iec"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.66292496469999995" blue="0.62572978440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="UIp-3f-P5d" firstAttribute="centerX" secondItem="fP9-yV-ZNC" secondAttribute="centerX" id="8Z6-dd-xEN"/>
+                        <constraint firstAttribute="height" constant="44" id="AJG-2T-03i"/>
+                        <constraint firstItem="UIp-3f-P5d" firstAttribute="top" secondItem="fP9-yV-ZNC" secondAttribute="top" id="N6I-xc-Lel"/>
+                        <constraint firstAttribute="trailing" secondItem="cAu-Si-tsS" secondAttribute="trailing" id="PbY-TZ-85k"/>
+                        <constraint firstAttribute="bottom" secondItem="cAu-Si-tsS" secondAttribute="bottom" id="VwE-3s-klg"/>
+                        <constraint firstItem="cAu-Si-tsS" firstAttribute="top" secondItem="fP9-yV-ZNC" secondAttribute="top" id="cCg-c0-m2z"/>
+                        <constraint firstAttribute="bottom" secondItem="UIp-3f-P5d" secondAttribute="bottom" id="xoW-Nq-9rI"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gA9-u2-mj4" firstAttribute="top" secondItem="KX3-z3-2xc" secondAttribute="top" id="7DD-VV-z9P"/>
+                <constraint firstAttribute="trailing" secondItem="fP9-yV-ZNC" secondAttribute="trailing" id="CTd-e9-WcA"/>
+                <constraint firstItem="fP9-yV-ZNC" firstAttribute="top" secondItem="gA9-u2-mj4" secondAttribute="bottom" id="QiA-Mm-WN3"/>
+                <constraint firstItem="sMl-QP-7L0" firstAttribute="centerY" secondItem="KX3-z3-2xc" secondAttribute="centerY" id="iRy-W4-Q7q"/>
+                <constraint firstAttribute="trailing" secondItem="gA9-u2-mj4" secondAttribute="trailing" id="pBw-fs-9dD"/>
+                <constraint firstItem="sMl-QP-7L0" firstAttribute="centerX" secondItem="KX3-z3-2xc" secondAttribute="centerX" id="qmp-Xt-bxr"/>
+                <constraint firstAttribute="bottom" secondItem="fP9-yV-ZNC" secondAttribute="bottom" id="wd8-ab-EZe"/>
+                <constraint firstItem="gA9-u2-mj4" firstAttribute="leading" secondItem="KX3-z3-2xc" secondAttribute="leading" id="wsP-HS-4f4"/>
+                <constraint firstItem="fP9-yV-ZNC" firstAttribute="leading" secondItem="KX3-z3-2xc" secondAttribute="leading" id="xiZ-3z-yR3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="178" y="-59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="whitePlus" width="32" height="32"/>
+        <image name="whiteX" width="32" height="32"/>
+    </resources>
+</document>

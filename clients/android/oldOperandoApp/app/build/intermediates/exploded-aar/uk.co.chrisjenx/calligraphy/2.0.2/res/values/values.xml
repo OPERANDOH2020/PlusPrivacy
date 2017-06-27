@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/chris/Git/chrisjenx/Calligraphy/calligraphy/src/main/res/values/attrs.xml -->
+    <eat-comment/>
+    <attr format="string" name="fontPath"/>
+    <!-- From: file:/Users/chris/Git/chrisjenx/Calligraphy/calligraphy/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="calligraphy_tag_id" type="id"/>
+</resources>

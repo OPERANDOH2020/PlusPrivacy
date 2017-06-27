@@ -1,0 +1,7 @@
+#Wed Feb 15 15:08:37 EET 2017
+base.0=D\:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_dbb092a1c29a7221f9a742c21023a1de9fbad0d9
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_eab3551f54ba5d1352207dc921d5a4c82aeb7467\\classes.dex
+base.1=D\:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_eab3551f54ba5d1352207dc921d5a4c82aeb7467
+file.0=D\:\\github\\GIT-MOBILE\\op-clients\\op-clients-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_dbb092a1c29a7221f9a742c21023a1de9fbad0d9\\classes.dex

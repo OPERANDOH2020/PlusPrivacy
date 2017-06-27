@@ -1,5 +1,7 @@
 package eu.operando.osdk.swarm.client;
 
+import android.util.Log;
+
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
 
@@ -21,13 +23,11 @@ import io.socket.emitter.Emitter;
  */
 public class SwarmHub {
 
-    private Socket ioSocket;
-    private List<Swarm> swarms = new ArrayList<Swarm>();
     private static SwarmHub instance = null;
     private EventProvider eventProvider;
 
     protected SwarmHub(){
-        eventProvider = eventProvider.getInstance();
+        eventProvider = EventProvider.getInstance();
     }
     public static SwarmHub getInstance(){
         if(instance == null){
@@ -41,7 +41,6 @@ public class SwarmHub {
             JSONObject metaResponse = new JSONObject(data.get("meta").toString());
             String swarmingName = metaResponse.getString(SwarmConstants.SWARMING_NAME);
             String currentPhase = metaResponse.getString(SwarmConstants.CURRENT_PHASE);
-
             System.out.println(swarmingName);
             System.out.println(currentPhase);
 
@@ -63,13 +62,7 @@ public class SwarmHub {
             Object instance = constructor.newInstance(swarm.getName(), swarm.getPhase(), swarm.getData());
             EventBus.getDefault().post(instance);
 
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
     }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-SemiBold.otf">
+            <string>Dosis-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIRibonHeaderView" customModule="FBSecurityQuestionnaire" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="Tpq-Zc-eAm" id="phw-eC-OBv"/>
+                <outlet property="title" destination="SJ3-Jl-ucy" id="CRF-Ml-OMd"/>
+                <outlet property="upArrowImageView" destination="sNR-8S-6p4" id="S51-GW-P7e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIRibonHeaderView" customModule="FBSecurityQuestionnaire" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpq-Zc-eAm">
+                    <rect key="frame" x="0.0" y="10" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ3-Jl-ucy">
+                            <rect key="frame" x="8" y="10" width="359" height="21"/>
+                            <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.21522358029152697" green="0.68501621701955817" blue="0.72336632013320923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6ul-Hw-PLy"/>
+                        <constraint firstItem="SJ3-Jl-ucy" firstAttribute="top" secondItem="Tpq-Zc-eAm" secondAttribute="top" constant="10" id="UZN-N5-c2r"/>
+                        <constraint firstItem="SJ3-Jl-ucy" firstAttribute="leading" secondItem="Tpq-Zc-eAm" secondAttribute="leading" constant="8" id="WEH-Fp-SWy"/>
+                        <constraint firstAttribute="trailing" secondItem="SJ3-Jl-ucy" secondAttribute="trailing" constant="8" id="ggc-8e-Goq"/>
+                        <constraint firstAttribute="bottom" secondItem="SJ3-Jl-ucy" secondAttribute="bottom" constant="9" id="tjD-CZ-GBs"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up_indicator_" translatesAutoresizingMaskIntoConstraints="NO" id="sNR-8S-6p4">
+                    <rect key="frame" x="177" y="2" width="20" height="10"/>
+                    <color key="tintColor" red="0.43921568989999998" green="0.01176470611" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="bzR-9s-Z8T"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sNR-8S-6p4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="2" id="9gm-fC-4sn"/>
+                <constraint firstItem="sNR-8S-6p4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DzU-46-dGA"/>
+                <constraint firstAttribute="trailing" secondItem="Tpq-Zc-eAm" secondAttribute="trailing" id="dFK-2f-QG3"/>
+                <constraint firstItem="Tpq-Zc-eAm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dZB-A7-HYX"/>
+                <constraint firstItem="Tpq-Zc-eAm" firstAttribute="top" secondItem="sNR-8S-6p4" secondAttribute="bottom" constant="-2" id="kMm-j3-T7b"/>
+                <constraint firstAttribute="bottom" secondItem="Tpq-Zc-eAm" secondAttribute="bottom" id="tfc-h4-Xgf"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34.5" y="-250"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="up_indicator_" width="20" height="20"/>
+    </resources>
+</document>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIWebToolbarView" customModule="Operando" customModuleProvider="target">
+            <connections>
+                <outlet property="numOfItemsLabel" destination="kfS-2A-fq9" id="RaV-do-evC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhf-re-BVg">
+                    <rect key="frame" x="338" y="0.0" width="40" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="nhe-KF-7DX"/>
+                    </constraints>
+                    <state key="normal" image="whiteFolder">
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="tabsButtonPressed:" destination="-1" eventType="touchUpInside" id="sZT-qt-O6H"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfS-2A-fq9">
+                    <rect key="frame" x="354.5" y="13.5" width="7.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.66292496469999995" blue="0.62572978440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFS-4p-ajQ">
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="ts2-pd-1d3"/>
+                    </constraints>
+                    <state key="normal" image="doubleBack"/>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="kWn-p9-6CT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB4-lU-5fH">
+                    <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="PmY-7T-aY2"/>
+                    </constraints>
+                    <state key="normal" image="doubleForward"/>
+                    <connections>
+                        <action selector="forwardButtonPressed:" destination="-1" eventType="touchUpInside" id="T5a-jc-Szd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.66292496469999995" blue="0.62572978440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uhf-re-BVg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0Gp-Z9-DaM"/>
+                <constraint firstItem="jB4-lU-5fH" firstAttribute="leading" secondItem="pFS-4p-ajQ" secondAttribute="trailing" id="0IN-Da-DLE"/>
+                <constraint firstItem="kfS-2A-fq9" firstAttribute="centerX" secondItem="uhf-re-BVg" secondAttribute="centerX" id="7aS-Nl-Aqx"/>
+                <constraint firstAttribute="bottom" secondItem="uhf-re-BVg" secondAttribute="bottom" id="HmA-sq-v91"/>
+                <constraint firstItem="jB4-lU-5fH" firstAttribute="width" secondItem="pFS-4p-ajQ" secondAttribute="width" id="I4O-0b-asy"/>
+                <constraint firstAttribute="bottom" secondItem="pFS-4p-ajQ" secondAttribute="bottom" id="Ilb-4Z-T4J"/>
+                <constraint firstItem="pFS-4p-ajQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T2m-0h-iFI"/>
+                <constraint firstItem="pFS-4p-ajQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cNj-Qr-aYc"/>
+                <constraint firstAttribute="trailing" secondItem="uhf-re-BVg" secondAttribute="trailing" constant="6" id="lt0-6i-a1O"/>
+                <constraint firstItem="kfS-2A-fq9" firstAttribute="centerY" secondItem="uhf-re-BVg" secondAttribute="centerY" constant="1" id="mJL-BV-Ifu"/>
+                <constraint firstItem="jB4-lU-5fH" firstAttribute="height" secondItem="pFS-4p-ajQ" secondAttribute="height" id="skS-ur-ccO"/>
+                <constraint firstItem="jB4-lU-5fH" firstAttribute="centerY" secondItem="pFS-4p-ajQ" secondAttribute="centerY" id="vqy-Qd-emX"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-248" y="-142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="doubleBack" width="32" height="32"/>
+        <image name="doubleForward" width="32" height="32"/>
+        <image name="whiteFolder" width="32" height="32"/>
+    </resources>
+</document>

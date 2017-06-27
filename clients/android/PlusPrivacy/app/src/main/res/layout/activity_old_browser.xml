@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scanner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@android:color/white"
+    tools:context="eu.operando.activity.ScannerActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/secondary_toolbar"/>
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/toolbar"
+        android:padding="8dp"
+        android:rotation="180"
+        android:src="@drawable/ic_right_arrow"/>
+
+    <ImageView
+        android:id="@+id/btn_go"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/toolbar"
+        android:padding="12dp"
+        android:rotation="180"
+        android:src="@drawable/ic_back"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/urlET"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:minHeight="500dp"
+            android:background="@color/main_background"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/urlET"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:ellipsize="end"
+        android:imeOptions="actionGo"
+        android:scrollHorizontally="true"
+        android:inputType="textUri"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="?attr/actionBarSize"
+        android:layout_toRightOf="@id/btn_back"
+        android:layout_toStartOf="@+id/btn_go"
+        android:hint="@string/url"
+        android:lines="1"
+        android:maxLines="1"/>
+
+</RelativeLayout>

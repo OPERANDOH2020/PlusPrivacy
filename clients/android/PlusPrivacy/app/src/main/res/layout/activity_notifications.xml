@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_background"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolb"
+        layout="@layout/secondary_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolb">
+
+        <ListView
+            android:id="@+id/notifications_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:background="@android:color/white"
+            android:dividerHeight="1dp"/>
+    </RelativeLayout>
+</RelativeLayout>

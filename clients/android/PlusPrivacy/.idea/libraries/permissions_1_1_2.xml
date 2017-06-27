@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="permissions-1.1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.anthonycr.grant/permissions/1.1.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.anthonycr.grant/permissions/1.1.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.anthonycr.grant/permissions/1.1.2/ab65a768077058c6c120201bd47ed168aa1f343f/permissions-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blackTitle">#505050</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkGray">#CCCCCC</color>
+    <color name="lightOrange">#F2D9AF</color>
+
+    <color name="connected">#2196F3</color>
+    <color name="connected_background">#616161</color>
+
+    <color name="channel">#9E9E9E</color>
+    <color name="channel_number">#607D8B</color>
+    <color name="security">#669999</color>
+    <color name="distance">#009688</color>
+
+    <color name="icons_color">#9E9E9E</color>
+    <color name="error_color">#DD2C00</color>
+    <color name="warning_color">#FFC107</color>
+    <color name="success_color">#2E7D32</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="brightOrange">#fec742</color>
+</resources>

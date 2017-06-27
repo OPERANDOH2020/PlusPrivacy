@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import eu.operando.osdk.swarm.client.utils.EventProvider;
 import eu.operando.osdk.swarm.client.utils.SwarmConstants;
@@ -21,7 +22,13 @@ public class SwarmClient {
     private SwarmHub swarmHub;
     private String tenantId;
     private static SwarmClient instance = null;
-
+    private static ArrayList<String> specialSwarms;
+    static{
+        specialSwarms = new ArrayList<>();
+        specialSwarms.add("createIdentity");
+        specialSwarms.add("removeIdentity");
+        specialSwarms.add("updateDefaultSubstituteIdentity");
+    }
     protected SwarmClient(String connectionURL, String tenantId) {
 
         this.tenantId = tenantId;
@@ -74,6 +81,10 @@ public class SwarmClient {
             swarmMeta.put("tenantId", this.tenantId);
             if (data.length > 0) {
                 JSONArray jsonArray = new JSONArray(data[0]);
+                if(specialSwarms.contains(ctor)) {
+                    jsonArray = new JSONArray();
+                    jsonArray.put(new JSONObject(data[0][0]));
+                }
                 swarmMeta.put("commandArguments", jsonArray);
             }
 

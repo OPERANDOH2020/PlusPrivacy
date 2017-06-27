@@ -13,74 +13,143 @@
 import UIKit
 
 enum SocketIOEventsNames: String {
-    case Message = "message"
-    case Connect = "connect"
+    case message = "message"
+    case connect = "connect"
+    case disconnect = "disconnect"
+    case error = "error"
 }
 
-public class SwarmClient: NSObject {
+open class SwarmClient: NSObject {
     
     // MARK: - Properties
-    private var socketIO: SocketIOClient?
-    private var tenantId: String
-    private var connectionURL: String
-    private var didConnect: Bool
-    private var emitsArray: [NSDictionary]
+    fileprivate var socketIO: SocketIOClient?
+    fileprivate var tenantId: String
+    fileprivate var connectionURL: String
+    fileprivate var didConnect: Bool
+    fileprivate var emitsArray: [NSDictionary]
     
-    public var delegate: SwarmClientProtocol?
+    private var onReconnectIfAny: (() -> Void)?
+    private var onDisconnect: ((_ data: [Any]) -> Void)?
+    private var onErrorWithReason: ((_ reason: String) -> Void)?
+    
+    open var delegate: SwarmClientProtocol?
     
     // MARK: - Lifecycle
     public init(connectionURL: String) {
         self.connectionURL = connectionURL
-        tenantId = ""
+        tenantId = "ios"
         didConnect = false
         emitsArray = []
+        super.init()
+        
+        weak var weakSel = self
+        self.onDisconnect = { data in
+            weakSel?.delegate?.socketDidDisconnect(data)
+        }
+        
+        self.onErrorWithReason = { reason in
+            weakSel?.delegate?.didFailOperationWith(reason: reason)
+        }
     }
     
     // MARK: - Private Methods
-    private func setupListeners(socketIO: SocketIOClient) {
-        socketIO.on(SocketIOEventsNames.Message.rawValue) { (receivedData, emitterSocket) in
+    fileprivate func setupListeners(_ socketIO: SocketIOClient) {
+        socketIO.on(SocketIOEventsNames.message.rawValue) { (receivedData, emitterSocket) in
             self.delegate?.didReceiveData(receivedData)
         }
         
-        socketIO.on(SocketIOEventsNames.Connect.rawValue) { (receivedData, emitterSocket) in
+        socketIO.on(SocketIOEventsNames.connect.rawValue) { (receivedData, emitterSocket) in
             self.handleSocketCreationEvent()
+        }
+        
+        socketIO.on(SocketIOEventsNames.disconnect.rawValue) { (data, emitterSocket) in
+            self.onDisconnect?(data)
+        }
+        
+        socketIO.on(SocketIOEventsNames.error.rawValue) { (data, emitter) in
+            let reason = (data.first as? String) ?? "Unknown socket error"
+            self.onErrorWithReason?(reason)
+            
+            
         }
     }
     
-    private func handleSocketCreationEvent() {
+    fileprivate func handleSocketCreationEvent()
+    {
         didConnect = true
         for swarmDictionary in self.emitsArray {
             emitSwarmMessage(swarmDictionary)
         }
+        
+        self.onReconnectIfAny?()
     }
     
-    private func createSocket() {
+    fileprivate func createSocket() {
         didConnect = false
-        if let url = NSURL(string: connectionURL) {
+        if !NetworkReachability.hasInternetConnection() {
+            delegate?.didFailedToCreateSocket(SwarmClientErrorGenerator.getInternetConnectionError())
+        } else if let url = URL(string: connectionURL) {
             initSocket(url)
         } else {
             delegate?.didFailedToCreateSocket(SwarmClientErrorGenerator.getInvalidURLError())
         }
     }
     
-    private func initSocket(url: NSURL) {
+    fileprivate func initSocket(_ url: URL) {
         socketIO = SocketIOClient(socketURL: url)
         setupListeners(socketIO!)
         socketIO!.connect()
+        print("Swarm client did init a new socket!")
     }
     
-    private func emitSwarmMessage(swarmDictionary: NSDictionary) {
-        socketIO?.emit(SocketIOEventsNames.Message.rawValue, swarmDictionary)
+    fileprivate func emitSwarmMessage(_ swarmDictionary: NSDictionary) {
+        socketIO?.emit(SocketIOEventsNames.message.rawValue, swarmDictionary)
     }
     
     // MARK: - Public Methods
-    public func startSwarm(swarmName: String, phase: String, ctor: String, arguments: [AnyObject]) {
+    
+    public func startSwarm(_ swarmName: String, phase: String, ctor: String, arguments: [AnyObject]) {
         let swarmDictionary = Swarm.getSwarmDictionary(tenantId, swarmName: swarmName, phase: phase, ctor: ctor, arguments: arguments)
         if didConnect {
             emitSwarmMessage(swarmDictionary)
         } else {
+            
+            print("asked to start swarm \(swarmName) with ctor \(ctor) but didConnect is false")
             emitsArray.append(swarmDictionary)
             createSocket()
         }
+    }
+    
+    public func disconnectAndReconnectWith(completion: ((_ errorMessage: String?) -> Void)? ) {
+        self.didConnect = false
+        
+        let currentOnDisconnect = self.onDisconnect
+        let currentOnFailWithReason = self.onErrorWithReason
+        
+        weak var weakSelf = self
+        
+        self.onDisconnect = { data in
+            print("Swarm client did disconnect. Will re-create socket")
+            weakSelf?.createSocket()
+            weakSelf?.delegate?.socketDidDisconnect(data)
+        }
+
+        self.onErrorWithReason = { reason in
+            completion?(reason)
+        }
+        
+        self.onReconnectIfAny = {
+            weakSelf?.onDisconnect = currentOnDisconnect
+            weakSelf?.onErrorWithReason = currentOnFailWithReason
+            print("Swarm client did reconnect")
+            completion?(nil)
+        }
+        
+        self.socketIO?.disconnect()
+    }
+    
+    public func disconnect() {
+        self.didConnect = false
+        self.socketIO?.disconnect()
     }
 }

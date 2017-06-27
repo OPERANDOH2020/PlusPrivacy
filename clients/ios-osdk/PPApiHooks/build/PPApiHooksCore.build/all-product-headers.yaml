@@ -1,0 +1,68 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/build/Release-iphonesimulator/PPApiHooksCore.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Common.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/Common.h"
+        },
+        {
+          'type': 'file',
+          'name': "IdentifiedHandler.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/EventsPipeline/PPEventDispatcher/IdentifiedHandler/IdentifiedHandler.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+AutoSwizzle.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/NSObject+SwizzleMethods/NSObject+AutoSwizzle.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPApiHooksCore-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/build/Release-iphonesimulator/PPApiHooksCore.framework/Headers/PPApiHooksCore-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPApiHooksCore.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/PPApiHooksCore.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPApiHooksStart.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/PPApiHooksStart/PPApiHooksStart.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPEvent.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/EventsPipeline/PPEvent/PPEvent.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPEventDispatcher.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/EventsPipeline/PPEventDispatcher/PPEventDispatcher.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPEventIdentifier.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/GenericFrameworkProject/EventsPipeline/PPEvent/PPEventIdentifier/PPEventIdentifier.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/build/Release-iphonesimulator/PPApiHooksCore.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPApiHooks/build/PPApiHooksCore.build/Release-iphonesimulator/PPApiHooksCore.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

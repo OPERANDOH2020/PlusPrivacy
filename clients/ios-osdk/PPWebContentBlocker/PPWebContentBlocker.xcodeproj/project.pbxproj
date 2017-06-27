@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		98584F481D3F9E43009FB89F /* AggregateUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */;
+			buildPhases = (
+				98584F4C1D3F9E4B009FB89F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = AggregateUniversal;
+			productName = AggregateUniversal;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		98584F411D3F9E18009FB89F /* PPWebContentBlocker.h in Headers */ = {isa = PBXBuildFile; fileRef = 98584F401D3F9E18009FB89F /* PPWebContentBlocker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9896F4701E89563F00BA0D6E /* PPWebContentBlockerEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9896F46E1E89563F00BA0D6E /* PPWebContentBlockerEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9896F4711E89563F00BA0D6E /* PPWebContentBlockerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9896F46F1E89563F00BA0D6E /* PPWebContentBlockerEngine.m */; };
+		9896F4761E8957C400BA0D6E /* PPActionForWebContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9896F4741E8957C400BA0D6E /* PPActionForWebContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9896F4771E8957C400BA0D6E /* PPActionForWebContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9896F4751E8957C400BA0D6E /* PPActionForWebContent.m */; };
+		98F10DF91E8A795E00AA5A74 /* ad_block_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DDF1E8A795E00AA5A74 /* ad_block_client.cc */; };
+		98F10DFA1E8A795E00AA5A74 /* ad_block_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DE01E8A795E00AA5A74 /* ad_block_client.h */; };
+		98F10DFB1E8A795E00AA5A74 /* base.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DE11E8A795E00AA5A74 /* base.h */; };
+		98F10DFC1E8A795E00AA5A74 /* BloomFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DE21E8A795E00AA5A74 /* BloomFilter.cpp */; };
+		98F10DFD1E8A795E00AA5A74 /* BloomFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DE31E8A795E00AA5A74 /* BloomFilter.h */; };
+		98F10E001E8A795E00AA5A74 /* cosmetic_filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DE61E8A795E00AA5A74 /* cosmetic_filter.cc */; };
+		98F10E011E8A795E00AA5A74 /* cosmetic_filter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DE71E8A795E00AA5A74 /* cosmetic_filter.h */; };
+		98F10E021E8A795E00AA5A74 /* brave-unbreak.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DE91E8A795E00AA5A74 /* brave-unbreak.txt */; };
+		98F10E031E8A795E00AA5A74 /* disconnect-simple-malware.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEA1E8A795E00AA5A74 /* disconnect-simple-malware.txt */; };
+		98F10E041E8A795E00AA5A74 /* easylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEB1E8A795E00AA5A74 /* easylist.txt */; };
+		98F10E051E8A795E00AA5A74 /* short-sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEC1E8A795E00AA5A74 /* short-sitelist.txt */; };
+		98F10E061E8A795E00AA5A74 /* sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DED1E8A795E00AA5A74 /* sitelist.txt */; };
+		98F10E071E8A795E00AA5A74 /* spam404-main-blacklist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEE1E8A795E00AA5A74 /* spam404-main-blacklist.txt */; };
+		98F10E081E8A795E00AA5A74 /* top500-sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEF1E8A795E00AA5A74 /* top500-sitelist.txt */; };
+		98F10E091E8A795E00AA5A74 /* ublock-unbreak.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DF01E8A795E00AA5A74 /* ublock-unbreak.txt */; };
+		98F10E0A1E8A795E00AA5A74 /* filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DF11E8A795E00AA5A74 /* filter.cc */; };
+		98F10E0B1E8A795E00AA5A74 /* filter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DF21E8A795E00AA5A74 /* filter.h */; };
+		98F10E0C1E8A795E00AA5A74 /* hashFn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DF31E8A795E00AA5A74 /* hashFn.cpp */; };
+		98F10E0D1E8A795E00AA5A74 /* hashFn.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DF41E8A795E00AA5A74 /* hashFn.h */; };
+		98F10E0E1E8A795E00AA5A74 /* HashItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DF51E8A795E00AA5A74 /* HashItem.h */; };
+		98F10E0F1E8A795E00AA5A74 /* HashSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DF61E8A795E00AA5A74 /* HashSet.cpp */; };
+		98F10E101E8A795E00AA5A74 /* HashSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DF71E8A795E00AA5A74 /* HashSet.h */; };
+		98F10E111E8A795E00AA5A74 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DF81E8A795E00AA5A74 /* LICENSE */; };
+		98F10E131E8A7A5600AA5A74 /* bad_fingerprint.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10E121E8A7A5600AA5A74 /* bad_fingerprint.h */; };
+		98F10E151E8A7A7800AA5A74 /* bad_fingerprints.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10E141E8A7A7800AA5A74 /* bad_fingerprints.h */; };
+		98F10E1D1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10E1B1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.h */; };
+		98F10E1E1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98F10E1C1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.mm */; };
+		98F10E201E8A84F000AA5A74 /* ABPFilterParserData.dat in Resources */ = {isa = PBXBuildFile; fileRef = 98F10E1F1E8A84F000AA5A74 /* ABPFilterParserData.dat */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		98584F3D1D3F9E18009FB89F /* PPWebContentBlocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PPWebContentBlocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98584F401D3F9E18009FB89F /* PPWebContentBlocker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPWebContentBlocker.h; sourceTree = "<group>"; };
+		98584F421D3F9E18009FB89F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9896F46E1E89563F00BA0D6E /* PPWebContentBlockerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPWebContentBlockerEngine.h; path = PPWebContentBlockerEngine/PPWebContentBlockerEngine.h; sourceTree = "<group>"; };
+		9896F46F1E89563F00BA0D6E /* PPWebContentBlockerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPWebContentBlockerEngine.m; path = PPWebContentBlockerEngine/PPWebContentBlockerEngine.m; sourceTree = "<group>"; };
+		9896F4741E8957C400BA0D6E /* PPActionForWebContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPActionForWebContent.h; path = PPActionForWebContent/PPActionForWebContent.h; sourceTree = "<group>"; };
+		9896F4751E8957C400BA0D6E /* PPActionForWebContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPActionForWebContent.m; path = PPActionForWebContent/PPActionForWebContent.m; sourceTree = "<group>"; };
+		98F10DDF1E8A795E00AA5A74 /* ad_block_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ad_block_client.cc; sourceTree = "<group>"; };
+		98F10DE01E8A795E00AA5A74 /* ad_block_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ad_block_client.h; sourceTree = "<group>"; };
+		98F10DE11E8A795E00AA5A74 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		98F10DE21E8A795E00AA5A74 /* BloomFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BloomFilter.cpp; sourceTree = "<group>"; };
+		98F10DE31E8A795E00AA5A74 /* BloomFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloomFilter.h; sourceTree = "<group>"; };
+		98F10DE61E8A795E00AA5A74 /* cosmetic_filter.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cosmetic_filter.cc; sourceTree = "<group>"; };
+		98F10DE71E8A795E00AA5A74 /* cosmetic_filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cosmetic_filter.h; sourceTree = "<group>"; };
+		98F10DE91E8A795E00AA5A74 /* brave-unbreak.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "brave-unbreak.txt"; sourceTree = "<group>"; };
+		98F10DEA1E8A795E00AA5A74 /* disconnect-simple-malware.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "disconnect-simple-malware.txt"; sourceTree = "<group>"; };
+		98F10DEB1E8A795E00AA5A74 /* easylist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = easylist.txt; sourceTree = "<group>"; };
+		98F10DEC1E8A795E00AA5A74 /* short-sitelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "short-sitelist.txt"; sourceTree = "<group>"; };
+		98F10DED1E8A795E00AA5A74 /* sitelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sitelist.txt; sourceTree = "<group>"; };
+		98F10DEE1E8A795E00AA5A74 /* spam404-main-blacklist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "spam404-main-blacklist.txt"; sourceTree = "<group>"; };
+		98F10DEF1E8A795E00AA5A74 /* top500-sitelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "top500-sitelist.txt"; sourceTree = "<group>"; };
+		98F10DF01E8A795E00AA5A74 /* ublock-unbreak.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ublock-unbreak.txt"; sourceTree = "<group>"; };
+		98F10DF11E8A795E00AA5A74 /* filter.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filter.cc; sourceTree = "<group>"; };
+		98F10DF21E8A795E00AA5A74 /* filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filter.h; sourceTree = "<group>"; };
+		98F10DF31E8A795E00AA5A74 /* hashFn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hashFn.cpp; sourceTree = "<group>"; };
+		98F10DF41E8A795E00AA5A74 /* hashFn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashFn.h; sourceTree = "<group>"; };
+		98F10DF51E8A795E00AA5A74 /* HashItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashItem.h; sourceTree = "<group>"; };
+		98F10DF61E8A795E00AA5A74 /* HashSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashSet.cpp; sourceTree = "<group>"; };
+		98F10DF71E8A795E00AA5A74 /* HashSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashSet.h; sourceTree = "<group>"; };
+		98F10DF81E8A795E00AA5A74 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		98F10E121E8A7A5600AA5A74 /* bad_fingerprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bad_fingerprint.h; sourceTree = "<group>"; };
+		98F10E141E8A7A7800AA5A74 /* bad_fingerprints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bad_fingerprints.h; sourceTree = "<group>"; };
+		98F10E1B1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABPFilterLibWrapper.h; sourceTree = "<group>"; };
+		98F10E1C1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABPFilterLibWrapper.mm; sourceTree = "<group>"; };
+		98F10E1F1E8A84F000AA5A74 /* ABPFilterParserData.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = ABPFilterParserData.dat; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98584F391D3F9E18009FB89F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		98584F331D3F9E18009FB89F = {
+			isa = PBXGroup;
+			children = (
+				98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */,
+				98584F3E1D3F9E18009FB89F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98584F3E1D3F9E18009FB89F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98584F3D1D3F9E18009FB89F /* PPWebContentBlocker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */ = {
+			isa = PBXGroup;
+			children = (
+				98F10CE61E8A683000AA5A74 /* External */,
+				98584F401D3F9E18009FB89F /* PPWebContentBlocker.h */,
+				98584F421D3F9E18009FB89F /* Info.plist */,
+				9896F4731E8957AB00BA0D6E /* PPActionForWebContent */,
+				9896F4721E89564200BA0D6E /* PPWebContentBlockerEngine */,
+			);
+			path = GenericFrameworkProject;
+			sourceTree = "<group>";
+		};
+		9896F4721E89564200BA0D6E /* PPWebContentBlockerEngine */ = {
+			isa = PBXGroup;
+			children = (
+				9896F46E1E89563F00BA0D6E /* PPWebContentBlockerEngine.h */,
+				9896F46F1E89563F00BA0D6E /* PPWebContentBlockerEngine.m */,
+			);
+			name = PPWebContentBlockerEngine;
+			sourceTree = "<group>";
+		};
+		9896F4731E8957AB00BA0D6E /* PPActionForWebContent */ = {
+			isa = PBXGroup;
+			children = (
+				9896F4741E8957C400BA0D6E /* PPActionForWebContent.h */,
+				9896F4751E8957C400BA0D6E /* PPActionForWebContent.m */,
+			);
+			name = PPActionForWebContent;
+			sourceTree = "<group>";
+		};
+		98F10CE61E8A683000AA5A74 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				98F10E1A1E8A7D3A00AA5A74 /* ABPFilterLibWrapper */,
+				98F10DDE1E8A795E00AA5A74 /* adBlockPlusBrave */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		98F10DDE1E8A795E00AA5A74 /* adBlockPlusBrave */ = {
+			isa = PBXGroup;
+			children = (
+				98F10E141E8A7A7800AA5A74 /* bad_fingerprints.h */,
+				98F10E121E8A7A5600AA5A74 /* bad_fingerprint.h */,
+				98F10DDF1E8A795E00AA5A74 /* ad_block_client.cc */,
+				98F10DE01E8A795E00AA5A74 /* ad_block_client.h */,
+				98F10DE11E8A795E00AA5A74 /* base.h */,
+				98F10DE21E8A795E00AA5A74 /* BloomFilter.cpp */,
+				98F10DE31E8A795E00AA5A74 /* BloomFilter.h */,
+				98F10DE61E8A795E00AA5A74 /* cosmetic_filter.cc */,
+				98F10DE71E8A795E00AA5A74 /* cosmetic_filter.h */,
+				98F10DE81E8A795E00AA5A74 /* data */,
+				98F10DF11E8A795E00AA5A74 /* filter.cc */,
+				98F10DF21E8A795E00AA5A74 /* filter.h */,
+				98F10DF31E8A795E00AA5A74 /* hashFn.cpp */,
+				98F10DF41E8A795E00AA5A74 /* hashFn.h */,
+				98F10DF51E8A795E00AA5A74 /* HashItem.h */,
+				98F10DF61E8A795E00AA5A74 /* HashSet.cpp */,
+				98F10DF71E8A795E00AA5A74 /* HashSet.h */,
+				98F10DF81E8A795E00AA5A74 /* LICENSE */,
+			);
+			path = adBlockPlusBrave;
+			sourceTree = "<group>";
+		};
+		98F10DE81E8A795E00AA5A74 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				98F10DE91E8A795E00AA5A74 /* brave-unbreak.txt */,
+				98F10DEA1E8A795E00AA5A74 /* disconnect-simple-malware.txt */,
+				98F10DEB1E8A795E00AA5A74 /* easylist.txt */,
+				98F10DEC1E8A795E00AA5A74 /* short-sitelist.txt */,
+				98F10DED1E8A795E00AA5A74 /* sitelist.txt */,
+				98F10DEE1E8A795E00AA5A74 /* spam404-main-blacklist.txt */,
+				98F10DEF1E8A795E00AA5A74 /* top500-sitelist.txt */,
+				98F10DF01E8A795E00AA5A74 /* ublock-unbreak.txt */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		98F10E1A1E8A7D3A00AA5A74 /* ABPFilterLibWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				98F10E1F1E8A84F000AA5A74 /* ABPFilterParserData.dat */,
+				98F10E1B1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.h */,
+				98F10E1C1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.mm */,
+			);
+			path = ABPFilterLibWrapper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98584F3A1D3F9E18009FB89F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F10E0D1E8A795E00AA5A74 /* hashFn.h in Headers */,
+				9896F4701E89563F00BA0D6E /* PPWebContentBlockerEngine.h in Headers */,
+				9896F4761E8957C400BA0D6E /* PPActionForWebContent.h in Headers */,
+				98F10DFB1E8A795E00AA5A74 /* base.h in Headers */,
+				98F10DFA1E8A795E00AA5A74 /* ad_block_client.h in Headers */,
+				98F10E101E8A795E00AA5A74 /* HashSet.h in Headers */,
+				98F10E0B1E8A795E00AA5A74 /* filter.h in Headers */,
+				98F10DFD1E8A795E00AA5A74 /* BloomFilter.h in Headers */,
+				98F10E011E8A795E00AA5A74 /* cosmetic_filter.h in Headers */,
+				98F10E0E1E8A795E00AA5A74 /* HashItem.h in Headers */,
+				98F10E131E8A7A5600AA5A74 /* bad_fingerprint.h in Headers */,
+				98F10E1D1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.h in Headers */,
+				98F10E151E8A7A7800AA5A74 /* bad_fingerprints.h in Headers */,
+				98584F411D3F9E18009FB89F /* PPWebContentBlocker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98584F3C1D3F9E18009FB89F /* PPWebContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98584F451D3F9E18009FB89F /* Build configuration list for PBXNativeTarget "PPWebContentBlocker" */;
+			buildPhases = (
+				98584F381D3F9E18009FB89F /* Sources */,
+				98584F391D3F9E18009FB89F /* Frameworks */,
+				98584F3A1D3F9E18009FB89F /* Headers */,
+				98584F3B1D3F9E18009FB89F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PPWebContentBlocker;
+			productName = GenericFrameworkProject;
+			productReference = 98584F3D1D3F9E18009FB89F /* PPWebContentBlocker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98584F341D3F9E18009FB89F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = RomSoft;
+				TargetAttributes = {
+					98584F3C1D3F9E18009FB89F = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					98584F481D3F9E43009FB89F = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 98584F371D3F9E18009FB89F /* Build configuration list for PBXProject "PPWebContentBlocker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 98584F331D3F9E18009FB89F;
+			productRefGroup = 98584F3E1D3F9E18009FB89F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98584F3C1D3F9E18009FB89F /* PPWebContentBlocker */,
+				98584F481D3F9E43009FB89F /* AggregateUniversal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98584F3B1D3F9E18009FB89F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F10E031E8A795E00AA5A74 /* disconnect-simple-malware.txt in Resources */,
+				98F10E071E8A795E00AA5A74 /* spam404-main-blacklist.txt in Resources */,
+				98F10E081E8A795E00AA5A74 /* top500-sitelist.txt in Resources */,
+				98F10E021E8A795E00AA5A74 /* brave-unbreak.txt in Resources */,
+				98F10E051E8A795E00AA5A74 /* short-sitelist.txt in Resources */,
+				98F10E091E8A795E00AA5A74 /* ublock-unbreak.txt in Resources */,
+				98F10E201E8A84F000AA5A74 /* ABPFilterParserData.dat in Resources */,
+				98F10E111E8A795E00AA5A74 /* LICENSE in Resources */,
+				98F10E041E8A795E00AA5A74 /* easylist.txt in Resources */,
+				98F10E061E8A795E00AA5A74 /* sitelist.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98584F4C1D3F9E4B009FB89F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98584F381D3F9E18009FB89F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F10E1E1E8A7D3A00AA5A74 /* ABPFilterLibWrapper.mm in Sources */,
+				98F10DF91E8A795E00AA5A74 /* ad_block_client.cc in Sources */,
+				9896F4771E8957C400BA0D6E /* PPActionForWebContent.m in Sources */,
+				98F10E0F1E8A795E00AA5A74 /* HashSet.cpp in Sources */,
+				98F10E0C1E8A795E00AA5A74 /* hashFn.cpp in Sources */,
+				9896F4711E89563F00BA0D6E /* PPWebContentBlockerEngine.m in Sources */,
+				98F10E001E8A795E00AA5A74 /* cosmetic_filter.cc in Sources */,
+				98F10DFC1E8A795E00AA5A74 /* BloomFilter.cpp in Sources */,
+				98F10E0A1E8A795E00AA5A74 /* filter.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98584F431D3F9E18009FB89F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98584F441D3F9E18009FB89F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98584F461D3F9E18009FB89F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GenericFrameworkProject/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusprivacy.PPWebContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		98584F471D3F9E18009FB89F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GenericFrameworkProject/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusprivacy.PPWebContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		98584F4A1D3F9E43009FB89F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		98584F4B1D3F9E43009FB89F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98584F371D3F9E18009FB89F /* Build configuration list for PBXProject "PPWebContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98584F431D3F9E18009FB89F /* Debug */,
+				98584F441D3F9E18009FB89F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98584F451D3F9E18009FB89F /* Build configuration list for PBXNativeTarget "PPWebContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98584F461D3F9E18009FB89F /* Debug */,
+				98584F471D3F9E18009FB89F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98584F4A1D3F9E43009FB89F /* Debug */,
+				98584F4B1D3F9E43009FB89F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98584F341D3F9E18009FB89F /* Project object */;
+}

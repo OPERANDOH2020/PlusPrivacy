@@ -1,0 +1,36 @@
+
+
+"kIdentitiesManagementLocalizableKey" = "Identities management";
+"kPrivacyForBenefitsLocalizableKey" = "Privacy for benefits";
+"kPrivateBrowsingLocalizableKey" = "Private browsing";
+"kNotificationsLocalizableKey" = "Notifications";
+
+"kUnknownErrorLocalizableKey" = "Unknown error. Please try again later";
+"kInvalidInputLocalizableKey" = "Invalid input. Please try again";
+"kInvalidServerResponseLocalizableKey" = "The server replied with an invalid response. Please try again later";
+"kConnectionLostLocalizableKey" = "The connection with the server has been lost. Please wait while we try to re-establish";
+
+"kNoIdentityProvidedLocalizableKey" = "No identity provided. Please try again";
+"kIdentityDoesntExistLocalizableKey" = "The identity doesn't exist. Please try again later or contact the developers";
+"kEmptyEmailLocalizableKey" = "The email field is empty. Please try again";
+"kUserIdIsRequiredLocalizableKey" = "The user id is required. Please try again";
+"kIdentityEmailShouldBeUnique" = "The identity is already taken. Please try again";
+"kMakeDefaultLocalizableKey" = "Make default";
+"kDeleteLocalizableKey" = "Delete";
+"kNewSIDGeneratedLocalizableKey" = "The new alias has been generated";
+"kDoYouWantToDeleteSIDLocalizableKey" = "Are you sure you want to delete this identity?";
+"kAddNewIdentityLocalizableKey" = "Add a new identity";
+"kNoIncompleteFieldsLocalizableKey" = "Some fields are incomplete. Please try again";
+"kNoIdentitiesAtTheMomentLocalizableKey" = "You have no identities at the moment.";
+"kPleaseConfirmEmailLocalizableKey" = "Thank you for your registration. Please confirm your e-mail and then login with the provided e-mail and password";
+"kDismissLocalizableKey" = "Dismiss";
+"kNoNotificationsLocalizableKey" = "You have no notifications at the moment";
+"kDashboardLocalizableKey" = "Dashboard";
+"kEmailIsNotValidLocalizableKey" = "The email provided is not a valid one!";
+"kResetPasswordAlertTitleLocalizableKey" = "Reset password";
+"kResetPasswordAlertDescriptionLocalizableKey" = "Please write your email so we can send you further instructions";
+"kResetLocalizableKey" = "Reset";
+"kCancelLocalizableKey" = "Cancel";
+"kPleaseCheckEmailResetLocalizableKey" = "Please check your e-mail for further instructions on how to reset your password";
+"kPasswordChangedSuccesfullyLocalizableKey" = "The password has been changed succesfully";
+"kNoDealsAtTheMomentLocalizableKey" = "There are no deals at the moment";

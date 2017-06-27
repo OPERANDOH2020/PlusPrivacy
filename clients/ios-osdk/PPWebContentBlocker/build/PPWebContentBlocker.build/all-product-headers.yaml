@@ -1,0 +1,43 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/build/Release-iphonesimulator/PPWebContentBlocker.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "PPActionForWebContent.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/GenericFrameworkProject/PPActionForWebContent/PPActionForWebContent.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPWebContentBlocker-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/build/Release-iphonesimulator/PPWebContentBlocker.framework/Headers/PPWebContentBlocker-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPWebContentBlocker.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/GenericFrameworkProject/PPWebContentBlocker.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPWebContentBlockerEngine.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/GenericFrameworkProject/PPWebContentBlockerEngine/PPWebContentBlockerEngine.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/build/Release-iphonesimulator/PPWebContentBlocker.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/op-clients/op-clients-ios-osdk/PPWebContentBlocker/build/PPWebContentBlocker.build/Release-iphonesimulator/PPWebContentBlocker.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

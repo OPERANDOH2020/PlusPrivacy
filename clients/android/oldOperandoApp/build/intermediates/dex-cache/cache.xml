@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.jakewharton.timber\timber\2.7.1\8fa5f11686c7a44386b41a6890e655cf2b7d5e70\timber-2.7.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8fa5f11686c7a44386b41a6890e655cf2b7d5e70">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\timber-2.7.1_640223ba58a51656ad34da3dd375c99ea0cfb51c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\guava\guava\18.0\guava-18.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\guava-18.0_23ae9d619c9ad952ac11ce7bff78df802e3e98c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\io.socket\engine.io-client\0.7.0\c1b1d30e2d2231b2eae1438a44943a409b976dac\engine.io-client-0.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c1b1d30e2d2231b2eae1438a44943a409b976dac">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\engine.io-client-0.7.0_04ff4a27adcc0fd5474c16d899952ec3bdbe153c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.19\3bf03cd91f15d55330e916cff9a1ebe236725bdd\slf4j-api-1.7.19.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3bf03cd91f15d55330e916cff9a1ebe236725bdd">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\slf4j-api-1.7.19_c090f0c299e0e258291e8b19185b4aa1627b7e83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_37becf14cec65c96b4fcf95687f44d4f42ff4171\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.barchart.udt\barchart-udt-bundle\2.3.0\3d1a29b2b08d20533ad08918411528dd1880515e\barchart-udt-bundle-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3d1a29b2b08d20533ad08918411528dd1880515e">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\barchart-udt-bundle-2.3.0_e2894429ae9d145772a29b6ec2c1fc53fdd155f7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_c7578505977bd8ec8c973f1799846d81f4280be2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\io.socket\socket.io-client\0.7.0\ce278c97bc9f74c7945d647f6d441d6013163362\socket.io-client-0.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ce278c97bc9f74c7945d647f6d441d6013163362">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\socket.io-client-0.7.0_75bd33d9fdfaf7f074042f786b4fcf492730a01c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_fd8e69517dda868708da4900b55a6ce6413769e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.0.0_08c82f919acb4428c16af393e5df71259bbf01f7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.0_b585e550a9dca830d390c3c0157e330fb4f17f64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_28918722b32f4e317f33155c7f8c40e07b9fdadc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.bouncycastle\bcprov-jdk15on\1.51\9ab8afcc2842d5ef06eb775a0a2b12783b99aa80\bcprov-jdk15on-1.51.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9ab8afcc2842d5ef06eb775a0a2b12783b99aa80">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bcprov-jdk15on-1.51_1ece1ad32009ac2509cf5d88bbfcef0ce71b3648\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.squareup\otto\1.3.8\cf615176cd1177edf71d3c9605f8dc148fede6be\otto-1.3.8.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cf615176cd1177edf71d3c9605f8dc148fede6be">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\otto-1.3.8_ae0e59e7c30811fa2c7473fb7b5e8ab3e85b2b3d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_98da946873830f6545076677f3c992438e6913c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.1.1\ab19bfb23f641f189b6dca9a4d393f8dc291103a\picasso-2.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ab19bfb23f641f189b6dca9a4d393f8dc291103a">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.1.1_43c0b20242ff17d39a3a129559ddbdb46feb3512\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.bouncycastle\bcpkix-jdk15on\1.51\6c8c1f61bf27a09f9b1a8abc201523669bba9597\bcpkix-jdk15on-1.51.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6c8c1f61bf27a09f9b1a8abc201523669bba9597">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bcpkix-jdk15on-1.51_3712b38504241dc4af2652cc1332c6865063154f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\be.shouldit\android-proxy-library\4.2.6\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2a52dbae51d0bc8fd0163b3473c9fa4dc5e77fcb">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\be.shouldit-android-proxy-library-4.2.6_6f0bf6130701a61e7061847cd6c21a9114700737\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.9.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2b8a750df2a5d485d0c40b379b44371c5e6d98d">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.getbase-floatingactionbutton-1.9.0_a8c190697f4282713152489a4dc988b03cb44796\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\commons-cli\commons-cli\1.3.1\1303efbc4b181e5a58bf2e967dc156a3132b97c0\commons-cli-1.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1303efbc4b181e5a58bf2e967dc156a3132b97c0">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-cli-1.3.1_41a0bce69ac612b6ca4facde44d39b7e8c68d013\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_4b1ccbe53dbed7f01bf269f2988337d9796bcf94\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.1.0.CR6\a02b0df698e31bceb17d968929c304c6b028c049\netty-all-4.1.0.CR6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a02b0df698e31bceb17d968929c304c6b028c049">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-all-4.1.0.CR6_42a182346901f61a1bd2911df3e73e6a06fea96e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.github.jakob-grabner\Circle-Progress-View\v1.2.9\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5d355f2fcfdc841c9c5583998df279ba4427e0b3">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.jakob-grabner-Circle-Progress-View-v1.2.9_e1564be9f95ce19d7f77b1d42ae3aa18882f3fbf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ecf7b9d66eedf60410275400e9a45aa47f5e4be2">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_eab3551f54ba5d1352207dc921d5a4c82aeb7467\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.littleshoot\littleproxy\1.1.0-beta2\60a3b7088062164c12450edfa38d1b156b75bfa3\littleproxy-1.1.0-beta2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="60a3b7088062164c12450edfa38d1b156b75bfa3">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\littleproxy-1.1.0-beta2_9629280f3befe02c23eaf861a326124c0065a4a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_5e5c27c96cfe45a420b424270d11a59a60470d9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\uk.co.chrisjenx\calligraphy\2.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ddb8ff19c902eab4a3e970ed63fa6c2e2bc1e848">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\uk.co.chrisjenx-calligraphy-2.0.2_37645783433d3cc9b5c4dce241056de17a50f65a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.0.1_70ec6bb18bd8d5d8083856b9db2682d4e5c284ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.joanzapata.android\base-adapter-helper\1.1.11\d86e2fb7131ec0bb37fab3421b9d27727200fda\base-adapter-helper-1.1.11.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0d86e2fb7131ec0bb37fab3421b9d27727200fda">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\base-adapter-helper-1.1.11_106052c90767f072dcfead4ef6261a8140fb0c31\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-ws\3.0.1\bd9b51a0188fc8f14bf840a0d326755545206116\okhttp-ws-3.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="bd9b51a0188fc8f14bf840a0d326755545206116">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-ws-3.0.1_7da4e4afdedb556641956c58ac399c212759f6b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4b95f4897fa13f2cd904aee711aeafc0c5295cd8">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-codec-1.10_77183437e43d03fbf04d48242f704eeda6368256\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.github.delight-im\Android-AdvancedWebView\v2.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b55dc33b1e944e4e9dacfd87544997aad7545677">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.delight-im-Android-AdvancedWebView-v2.1.0_e9d5800c7d0514167dd309e9d726521a384ea809\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_88ee843aaae1a08193d791e339256ffaf2ce3ff5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7a71748bb4fae35f38991898a413978ec7ad89ab">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_dbb092a1c29a7221f9a742c21023a1de9fbad0d9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5fe28b9518e58819180a43a850fbc0dd24b7c050">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-lang3-3.4_913faa2cb7ff43161e7585cab4c7c2b64b51641d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Rafa\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_f05f71af4e411eb2dde0605bef8a6c74a20f3f72\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.2.1_6d3a3c1627aac573692ca13cf84ed5a60a8375c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_ee67724ddafc653e2f052b2f3362f2d2271c862c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="D:\github\GIT-MOBILE\op-clients\op-clients-android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_4b1b19c64c261aa829a006d6c23a757887c40274\classes.dex" />
+    </item>
+
+</items>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Enter KEY"
+        android:ems="10"
+        android:padding="@dimen/abc_control_padding_material"
+        android:id="@+id/et_connect_pwd" />
+    <CheckBox
+        android:id="@+id/cb_check_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show password"
+        android:checked="false"
+        android:padding="@dimen/abc_control_padding_material" />
+</LinearLayout>

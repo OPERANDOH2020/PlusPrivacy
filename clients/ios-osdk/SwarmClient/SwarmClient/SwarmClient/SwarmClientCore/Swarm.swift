@@ -25,7 +25,7 @@ enum SwarmParameters: String {
 
 class Swarm: NSObject {
     
-    class func getSwarmDictionary(tenandId: String, swarmName: String, phase: String, ctor: String, arguments: [AnyObject]) -> NSDictionary {
+    class func getSwarmDictionary(_ tenandId: String, swarmName: String, phase: String, ctor: String, arguments: [AnyObject]) -> NSDictionary {
         let swarmDate = NSMutableDictionary()
         let swarmMeta = NSMutableDictionary()
         

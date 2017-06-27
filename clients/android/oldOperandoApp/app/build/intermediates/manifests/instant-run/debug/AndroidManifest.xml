@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="eu.operando"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BLUETOOTH_SHARE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Request Filters -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name="com.android.tools.fd.runtime.BootstrapApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/operando_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="eu.operando.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="eu.operando.activity.PermissionsActivity"
+            android:label="Permissions" />
+        <activity
+            android:name="eu.operando.proxy.MainProxyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="Data Leakage Prevention" >
+        </activity>
+        <activity
+            android:name="eu.operando.proxy.wifi.AccessPointsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="Access"
+            android:parentActivityName="eu.operando.proxy.MainProxyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".proxy.MainProxyActivity" />
+        </activity>
+        <activity
+            android:name="eu.operando.proxy.settings.SettingActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName="eu.operando.proxy.MainProxyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".proxy.MainProxyActivity" />
+        </activity>
+        <activity
+            android:name="eu.operando.proxy.about.AboutActivity"
+            android:label="@string/action_about"
+            android:parentActivityName="eu.operando.proxy.MainProxyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".proxy.MainProxyActivity" />
+        </activity>
+        <activity
+            android:name="eu.operando.proxy.filters.response.ResponseFiltersActivity"
+            android:label="@string/response_filters" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".proxy.MainProxyActivity" />
+        </activity>
+        <activity
+            android:name="eu.operando.proxy.filters.domain.DomainFiltersActivity"
+            android:label="@string/domain_filters" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".proxy.MainProxyActivity" />
+        </activity>
+        <activity
+            android:name="eu.operando.activity.IdentitiesActivity"
+            android:label="@string/identities" />
+
+        <!-- Declaring broadcast receiver for BOOT_COMPLETED event. -->
+        <receiver
+            android:name="eu.operando.proxy.service.receivers.BootEventReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="eu.operando.proxy.service.receivers.ConnectivityStateReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="eu.operando.proxy.service.BootNotificationService"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name="eu.operando.proxy.service.ProxyService"
+            android:enabled="true" >
+        </service>
+
+        <activity
+            android:name="eu.operando.activity.NotificationsActivity"
+            android:label="Notifications" />
+        <activity
+            android:name="eu.operando.activity.SensorsActivity"
+            android:label="Sensors" />
+        <activity
+            android:name="eu.operando.activity.FeaturesActivity"
+            android:label="Sensors" />
+        <activity android:name="eu.operando.activity.CreateIdentityActivity" />
+        <activity
+            android:name="eu.operando.activity.PFBActivity"
+            android:label="Privacy for Benefits" />
+    </application>
+
+</manifest>
