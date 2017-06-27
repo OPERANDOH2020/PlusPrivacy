@@ -73,6 +73,11 @@ class UINavigationManager
         return leftMenu.instantiateViewController(withIdentifier: "UIAccountViewController") as! UIAccountViewController
     }
     
+    static var privacyPolicyController: UIPrivacyPolicyViewController {
+        return utility.instantiateViewController(withIdentifier: "UIPrivacyPolicyViewController") as! UIPrivacyPolicyViewController
+    }
     
-    
+    static var aboutViewController: UIViewController {
+        return utility.instantiateViewController(withIdentifier: "AboutViewController")
+    }
 }

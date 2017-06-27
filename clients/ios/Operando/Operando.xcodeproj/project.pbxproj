@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		980635631EFA642B0004527B /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635611EFA640F0004527B /* PPCloak.framework */; };
-		980635641EFA642B0004527B /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980635611EFA640F0004527B /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635591EFA64070004527B /* PPCommonUI.framework */; };
 		980635661EFA642B0004527B /* PPCommonUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980635591EFA64070004527B /* PPCommonUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9806355A1EFA64070004527B /* PPCommonTypes.framework */; };
@@ -84,12 +82,6 @@
 		98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; };
 		98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863E8AF1DEC28F50095CA30 /* IdentitiesManagementRepository.swift */; };
-		98668B591DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B4D1DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.m */; };
-		98668B5A1DB0D0D900FDE63A /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B4F1DB0D0D800FDE63A /* ECSlidingAnimationController.m */; };
-		98668B5B1DB0D0D900FDE63A /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B521DB0D0D800FDE63A /* ECSlidingInteractiveTransition.m */; };
-		98668B5C1DB0D0D900FDE63A /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B541DB0D0D800FDE63A /* ECSlidingSegue.m */; };
-		98668B5D1DB0D0D900FDE63A /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B561DB0D0D800FDE63A /* ECSlidingViewController.m */; };
-		98668B5E1DB0D0D900FDE63A /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98668B581DB0D0D800FDE63A /* UIViewController+ECSlidingViewController.m */; };
 		98668B611DB0D1F100FDE63A /* UIFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B601DB0D1F100FDE63A /* UIFlowController.swift */; };
 		98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B621DB1018600FDE63A /* OPErrorContainer.swift */; };
 		98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B6A1DB1346600FDE63A /* UIIdentitiesListView.swift */; };
@@ -134,12 +126,15 @@
 		989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */; };
 		98B89E601EC1DF22009570EC /* LongPress.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B89E5F1EC1DF22009570EC /* LongPress.js */; };
 		98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B89E621EC1E0D5009570EC /* LongPressHelper.swift */; };
+		98BE1FA91F02580900223926 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA71F0257A700223926 /* PPCloak.framework */; };
+		98BE1FAA1F02580900223926 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA71F0257A700223926 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */; };
+		98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */; };
+		98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */; };
 		98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */; };
 		98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */; };
 		98D220BE1E80009D00B3BD06 /* UIWebTabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */; };
 		98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */; };
-		98D9A59F1EF4245500973A02 /* SwizzleTestFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D9A59D1EF4244800973A02 /* SwizzleTestFramework.framework */; };
-		98D9A5A01EF4245500973A02 /* SwizzleTestFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98D9A59D1EF4244800973A02 /* SwizzleTestFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98EAF66F1CCF86DC00C77649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */; };
 		98EAF6711CCF86DC00C77649 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAF6701CCF86DC00C77649 /* ViewController.swift */; };
 		98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6721CCF86DC00C77649 /* Main.storyboard */; };
@@ -193,12 +188,11 @@
 			files = (
 				980635661EFA642B0004527B /* PPCommonUI.framework in Embed Frameworks */,
 				980635681EFA642B0004527B /* PPCommonTypes.framework in Embed Frameworks */,
-				98D9A5A01EF4245500973A02 /* SwizzleTestFramework.framework in Embed Frameworks */,
 				9806356C1EFA642B0004527B /* PPApiHooksCore.framework in Embed Frameworks */,
 				98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */,
 				983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */,
-				980635641EFA642B0004527B /* PPCloak.framework in Embed Frameworks */,
 				9806356A1EFA642B0004527B /* iOSNM.framework in Embed Frameworks */,
+				98BE1FAA1F02580900223926 /* PPCloak.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +204,6 @@
 		9806355A1EFA64070004527B /* PPCommonTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonTypes.framework; sourceTree = "<group>"; };
 		9806355B1EFA64070004527B /* iOSNM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSNM.framework; sourceTree = "<group>"; };
 		9806355C1EFA64070004527B /* PPApiHooksCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPApiHooksCore.framework; sourceTree = "<group>"; };
-		980635611EFA640F0004527B /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
 		9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAddIdentityAlertViewController.swift; path = UserInterface/UIAddIdentityAlertViewController/UIAddIdentityAlertViewController.swift; sourceTree = "<group>"; };
 		9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UtilityControllers.storyboard; sourceTree = "<group>"; };
 		982227541DC8EBD40053B993 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILocalizable.swift; path = UserInterface/UILocalizableLabel/UILocalizable.swift; sourceTree = "<group>"; };
@@ -287,19 +280,6 @@
 		9860B4541DB136C600AFE113 /* UIIdentitiesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIIdentitiesListView.xib; path = UserInterface/UIIdentityManagementViewController/UIIdentitiesListView/UIIdentitiesListView.xib; sourceTree = "<group>"; };
 		98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPWebContentBlocker.framework; sourceTree = "<group>"; };
 		9863E8AF1DEC28F50095CA30 /* IdentitiesManagementRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentitiesManagementRepository.swift; sourceTree = "<group>"; };
-		98668B4C1DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
-		98668B4D1DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
-		98668B4E1DB0D0D800FDE63A /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
-		98668B4F1DB0D0D800FDE63A /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
-		98668B501DB0D0D800FDE63A /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
-		98668B511DB0D0D800FDE63A /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
-		98668B521DB0D0D800FDE63A /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
-		98668B531DB0D0D800FDE63A /* ECSlidingSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingSegue.h; sourceTree = "<group>"; };
-		98668B541DB0D0D800FDE63A /* ECSlidingSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingSegue.m; sourceTree = "<group>"; };
-		98668B551DB0D0D800FDE63A /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
-		98668B561DB0D0D800FDE63A /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
-		98668B571DB0D0D800FDE63A /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
-		98668B581DB0D0D800FDE63A /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
 		98668B601DB0D1F100FDE63A /* UIFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIFlowController.swift; path = UserInterface/UIFlowController/UIFlowController.swift; sourceTree = "<group>"; };
 		98668B621DB1018600FDE63A /* OPErrorContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPErrorContainer.swift; path = Utilities/OPErrorContainer.swift; sourceTree = "<group>"; };
 		98668B6A1DB1346600FDE63A /* UIIdentitiesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIIdentitiesListView.swift; path = UserInterface/UIIdentityManagementViewController/UIIdentitiesListView/UIIdentitiesListView.swift; sourceTree = "<group>"; };
@@ -361,11 +341,14 @@
 		989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIRealIdentityView.xib; path = UserInterface/UIRealIdentityView/UIRealIdentityView.xib; sourceTree = "<group>"; };
 		98B89E5F1EC1DF22009570EC /* LongPress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LongPress.js; path = UserInterface/UIWebViewTab/LongPress.js; sourceTree = "<group>"; };
 		98B89E621EC1E0D5009570EC /* LongPressHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressHelper.swift; path = UserInterface/UIWebViewTab/LongPressHelper/LongPressHelper.swift; sourceTree = "<group>"; };
+		98BE1FA71F0257A700223926 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
+		98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPrivacyPolicyViewController.swift; path = UserInterface/UIPrivacyPolicyViewController/UIPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiserSettingsModel.swift; path = UiserSettingsModel/UiserSettingsModel.swift; sourceTree = "<group>"; };
+		98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserSettingsViewController.swift; path = UIUserSettingsViewController/UIUserSettingsViewController.swift; sourceTree = "<group>"; };
 		98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabsListView.swift; path = UserInterface/UIWebTabsView/UIWebTabsListView.swift; sourceTree = "<group>"; };
 		98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabsListView.xib; path = UserInterface/UIWebTabsView/UIWebTabsListView.xib; sourceTree = "<group>"; };
 		98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabCollectionCell.swift; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.swift; sourceTree = "<group>"; };
 		98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabCollectionCell.xib; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.xib; sourceTree = "<group>"; };
-		98D9A59D1EF4244800973A02 /* SwizzleTestFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwizzleTestFramework.framework; sourceTree = "<group>"; };
 		98EAF66B1CCF86DC00C77649 /* Operando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Operando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98EAF6701CCF86DC00C77649 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -413,10 +396,9 @@
 			files = (
 				98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */,
 				980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */,
-				980635631EFA642B0004527B /* PPCloak.framework in Frameworks */,
-				98D9A59F1EF4245500973A02 /* SwizzleTestFramework.framework in Frameworks */,
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
 				9806356B1EFA642B0004527B /* PPApiHooksCore.framework in Frameworks */,
+				98BE1FA91F02580900223926 /* PPCloak.framework in Frameworks */,
 				980635691EFA642B0004527B /* iOSNM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,13 +496,12 @@
 		982D31601E84252F00FE2FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				980635611EFA640F0004527B /* PPCloak.framework */,
+				98BE1FA71F0257A700223926 /* PPCloak.framework */,
 				980635591EFA64070004527B /* PPCommonUI.framework */,
 				9806355A1EFA64070004527B /* PPCommonTypes.framework */,
 				9806355B1EFA64070004527B /* iOSNM.framework */,
 				9806355C1EFA64070004527B /* PPApiHooksCore.framework */,
 				98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */,
-				98D9A59D1EF4244800973A02 /* SwizzleTestFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -795,26 +776,6 @@
 			path = IdentitiesManagementRepository;
 			sourceTree = "<group>";
 		};
-		98668B4B1DB0D0D800FDE63A /* ECSlidingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				98668B4C1DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.h */,
-				98668B4D1DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.m */,
-				98668B4E1DB0D0D800FDE63A /* ECSlidingAnimationController.h */,
-				98668B4F1DB0D0D800FDE63A /* ECSlidingAnimationController.m */,
-				98668B501DB0D0D800FDE63A /* ECSlidingConstants.h */,
-				98668B511DB0D0D800FDE63A /* ECSlidingInteractiveTransition.h */,
-				98668B521DB0D0D800FDE63A /* ECSlidingInteractiveTransition.m */,
-				98668B531DB0D0D800FDE63A /* ECSlidingSegue.h */,
-				98668B541DB0D0D800FDE63A /* ECSlidingSegue.m */,
-				98668B551DB0D0D800FDE63A /* ECSlidingViewController.h */,
-				98668B561DB0D0D800FDE63A /* ECSlidingViewController.m */,
-				98668B571DB0D0D800FDE63A /* UIViewController+ECSlidingViewController.h */,
-				98668B581DB0D0D800FDE63A /* UIViewController+ECSlidingViewController.m */,
-			);
-			path = ECSlidingViewController;
-			sourceTree = "<group>";
-		};
 		98668B5F1DB0D1D500FDE63A /* UIFlowController */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +899,7 @@
 		9881D2321D0EC845005EE1FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98BE1FAE1F0293EE00223926 /* UiserSettingsModel */,
 				9896F46B1E892D1200BA0D6E /* WebAdBlocker */,
 				9863E8AE1DEC28F50095CA30 /* IdentitiesManagementRepository */,
 				985BA6B11DC23EEB00BC645B /* NotificationsRepository */,
@@ -998,6 +960,30 @@
 				98B89E621EC1E0D5009570EC /* LongPressHelper.swift */,
 			);
 			name = LongPressCustomActionSheet;
+			sourceTree = "<group>";
+		};
+		98BE1FAB1F02665600223926 /* UIPrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */,
+			);
+			name = UIPrivacyPolicyViewController;
+			sourceTree = "<group>";
+		};
+		98BE1FAE1F0293EE00223926 /* UiserSettingsModel */ = {
+			isa = PBXGroup;
+			children = (
+				98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */,
+			);
+			name = UiserSettingsModel;
+			sourceTree = "<group>";
+		};
+		98BE1FB11F02990E00223926 /* UserSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */,
+			);
+			name = UserSettingsViewController;
 			sourceTree = "<group>";
 		};
 		98D045D91E8AA7A600D97E56 /* UIWebOptionsView */ = {
@@ -1083,6 +1069,8 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				98BE1FB11F02990E00223926 /* UserSettingsViewController */,
+				98BE1FAB1F02665600223926 /* UIPrivacyPolicyViewController */,
 				98D045D91E8AA7A600D97E56 /* UIWebOptionsView */,
 				98D220B61E7FFC8D00B3BD06 /* UIWebTabsListView */,
 				98F6B1271E7BFC2D00D193FF /* UIWebViewTab */,
@@ -1151,7 +1139,6 @@
 				985A0D3E1DCCB0E40010C799 /* Locksmith */,
 				989C41801DBE18E800951AE5 /* MGSwipeTableCell */,
 				ADB2AD4C1DB7FC85003E3AC1 /* SSASideMenu */,
-				98668B4B1DB0D0D800FDE63A /* ECSlidingViewController */,
 				98EAF6AC1CCF995B00C77649 /* IHKeyboardAvoiding */,
 				98EAF69A1CCF899500C77649 /* UIView+Utilities */,
 				98EAF69C1CCF899500C77649 /* UIViewController+Extensions */,
@@ -1479,8 +1466,8 @@
 				982DF05B1DB65D2800231BBD /* UIPfbDealsViewController.swift in Sources */,
 				982D31891E842A9B00FE2FB7 /* AFNetworkReachabilityManager.m in Sources */,
 				987084101E8E938E00D9F8E9 /* UIImageView+AFNetworking.m in Sources */,
-				98668B5E1DB0D0D900FDE63A /* UIViewController+ECSlidingViewController.m in Sources */,
 				982DF0241DB6388800231BBD /* UIPfbDetailsView.swift in Sources */,
+				98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */,
 				9852C6FD1CD10C7200AF2BE5 /* UISensorMonitoringViewController.swift in Sources */,
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
@@ -1490,7 +1477,6 @@
 				987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */,
 				986A58F81DB3A43700B622F5 /* UserInfoRepository.swift in Sources */,
-				98668B5D1DB0D0D900FDE63A /* ECSlidingViewController.m in Sources */,
 				98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */,
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
 				989C8A7C1DD3467E003BF341 /* UIRealIdentityView.swift in Sources */,
@@ -1519,7 +1505,6 @@
 				987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */,
 				982750131D08497400C73411 /* UIDashboardView.swift in Sources */,
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
-				98668B5B1DB0D0D900FDE63A /* ECSlidingInteractiveTransition.m in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
 				98500BC31E0985D100DF87E8 /* SCDRepository.swift in Sources */,
@@ -1528,11 +1513,11 @@
 				9852C7031CD1191B00AF2BE5 /* UIRootViewController.swift in Sources */,
 				985A0D481DCCB0E40010C799 /* LocksmithAccessibleOption.swift in Sources */,
 				982D318A1E842A9B00FE2FB7 /* AFSecurityPolicy.m in Sources */,
-				98668B5C1DB0D0D900FDE63A /* ECSlidingSegue.m in Sources */,
 				9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */,
 				986E3E631DB3CA5600453DC6 /* UIAddIdentityView.swift in Sources */,
 				986D4CAC1DB27F940006DA0B /* PrivacyForBenefitsRepository.swift in Sources */,
 				98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */,
+				98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */,
 				98F6B1241E7BE5A200D193FF /* UIWebToolbarView.swift in Sources */,
 				98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */,
 				988509B61E0845AA0088272D /* SchemaProvider.swift in Sources */,
@@ -1543,8 +1528,8 @@
 				986F1A5E1E81331900107F23 /* WebTabsControllerLogic.swift in Sources */,
 				982DF05E1DB660B600231BBD /* UIPfbDealsListView.swift in Sources */,
 				982750201D0849EB00C73411 /* SwarmClientHelper.swift in Sources */,
-				98668B5A1DB0D0D900FDE63A /* ECSlidingAnimationController.m in Sources */,
 				9827502D1D084A4B00C73411 /* WKWebViewUtilities.swift in Sources */,
+				98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */,
 				ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */,
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
@@ -1573,7 +1558,6 @@
 				98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */,
 				ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */,
 				982D318D1E842A9B00FE2FB7 /* AFURLSessionManager.m in Sources */,
-				98668B591DB0D0D800FDE63A /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				982D318B1E842A9B00FE2FB7 /* AFURLRequestSerialization.m in Sources */,
 				985A0D4A1DCCB0E40010C799 /* LocksmithInternetAuthenticationType.swift in Sources */,
 				98EAF69E1CCF899500C77649 /* UIView+Utilities.swift in Sources */,

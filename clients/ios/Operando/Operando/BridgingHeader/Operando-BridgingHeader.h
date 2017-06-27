@@ -10,7 +10,6 @@
 #define Operando_BridgingHeader_h
 
 #include "IHKeyboardAvoiding.h"
-#include "ECSlidingViewController.h"
 #include "MGSwipeTableCell.h"
 #include "ProgressHUD.h"
 #include "KiteJSONValidator.h"

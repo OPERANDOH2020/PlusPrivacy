@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PPCloak
 
 typealias NotificationActionCallback = (_ action: NotificationAction, _ notification: OPNotification) -> Void
 typealias ForgotPasswordCallback = ((_ email: String) -> Void)
@@ -18,7 +19,6 @@ struct Dependencies{
     let privacyForBenefitsRepo: PrivacyForBenefitsRepository?
     let userInfoRepo: UserInfoRepository?
     let notificationsRepository: NotificationsRepository?
-//    let scdDocumentsRepository: PlusPrivacyCommonUI.SCDRepository?
     let accountCallbacks: AccountCallbacks?
     let whenTakingActionForNotification: NotificationActionCallback?
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
@@ -150,6 +150,16 @@ class UIFlowController: SSASideMenuDelegate
         self.rootController.setMainControllerTo(newController: vc)
     }
     
+    func displayPrivacyPolicyViewController(){
+        let vc = UINavigationManager.privacyPolicyController
+        self.rootController.setMainControllerTo(newController: vc);
+    }
+    
+    func displayAboutViewController(){
+        let vc = UINavigationManager.aboutViewController
+        self.rootController.setMainControllerTo(newController: vc)
+    }
+    
     func setupBaseHierarchyInWindow(_ window: UIWindow){
         let sideMenu = SSASideMenu(contentViewController: self.rootController, leftMenuViewController: getLeftSideMenuViewController())
         sideMenu.configure(configuration: SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false, parallaxEnabled: true, bouncesHorizontally: false, statusBarStyle: SSASideMenu.SSAStatusBarStyle.Black))
@@ -203,22 +213,14 @@ class UIFlowController: SSASideMenuDelegate
             weakSelf?.displayDashboard()
             weakSelf?.sideMenu?.hideMenuViewController()
         }, whenChoosingMonitor: {
-            weakSelf?.displaySCDDocumentsViewController()
+            PPCloak.OPMonitor.displayFlow()
+        }, whenChoosingPrivacyPolicy: {
+            weakSelf?.displayPrivacyPolicyViewController()
+            weakSelf?.sideMenu?.hideMenuViewController()
+        }, whenChoosingAbout: {
+            weakSelf?.displayAboutViewController()
+            weakSelf?.sideMenu?.hideMenuViewController()
         })
-    }
-    
-    
-    private func displaySCDDocumentsViewController() {
-//        let displayModel = CommonUIDisplayModel()
-//        displayModel.exitButtonType = .NoneInvisible
-//        displayModel.titleBarHeight = 50
-//        guard let repository = self.dependencies.scdDocumentsRepository,
-//            let controller = CommonUIBUilder.buildFlow(for: repository, displayModel: displayModel, whenExiting: nil) else {
-//            return
-//        }
-//        
-//        self.rootController.setMainControllerTo(newController: controller)
-        
     }
     
     

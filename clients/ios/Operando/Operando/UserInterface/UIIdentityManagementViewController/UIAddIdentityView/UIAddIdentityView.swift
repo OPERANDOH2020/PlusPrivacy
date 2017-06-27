@@ -85,6 +85,13 @@ class UIAddIdentityView: RSNibDesignableView, UITableViewDelegate, UITableViewDa
         if self.aliasTF != nil && self.domainTF != nil {
             self.aliasTF.text = ""
             self.domainTF.text = ""
+            
+            if domains.count == 1 {
+                self.domainTF.text  = domains.first?.name
+                self.selectedDomainIndex = 0
+                self.currentlyShownDomains = domains;
+            }
+            
         }
         
     }
@@ -173,7 +180,7 @@ class UIAddIdentityView: RSNibDesignableView, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.userDidChooseAt(index: indexPath.row)
+        self.applySelectionLogicForDomainAt(index: indexPath.row)
     }
     
     //MARK: internal utils
@@ -197,7 +204,7 @@ class UIAddIdentityView: RSNibDesignableView, UITableViewDelegate, UITableViewDa
         }
     }
     
-    private func userDidChooseAt(index: Int){
+    private func applySelectionLogicForDomainAt(index: Int){
         self.selectedDomainIndex = index
         let domain = self.currentlyShownDomains[index]
         self.domainTF.text = domain.name

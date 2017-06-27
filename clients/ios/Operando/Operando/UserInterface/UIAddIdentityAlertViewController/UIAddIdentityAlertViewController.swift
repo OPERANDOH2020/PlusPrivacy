@@ -28,7 +28,6 @@ class UIAddIdentityAlertViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addIdentityView.isHidden = false        
-//        self.addIdentityView.attachPopUpAnimationWithDuration(0.1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +46,23 @@ class UIAddIdentityAlertViewController: UIViewController {
     {
         
         weak var weakVC = vc
+        
+        let generateRandomIdentity: VoidBlock = {
+            
+            ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+            identitiesRepository?.generateNewIdentityWith(completion: { identity, error in
+                ProgressHUD.dismiss()
+                
+                if let error = error {
+                    OPErrorContainer.displayError(error: error)
+                    return
+                }
+                
+                weakVC?.addIdentityView.changeAlias(to: identity)
+            })
+        }
+        
+        
         let callbacks = UIAddIdentityViewCallbacks(whenPressedClose: {
                 weakVC?.dismiss(animated: false, completion: nil)
             },
@@ -76,19 +92,8 @@ class UIAddIdentityAlertViewController: UIViewController {
                 })
                 
                 
-            }) {
-                ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
-                identitiesRepository?.generateNewIdentityWith(completion: { identity, error in
-                    ProgressHUD.dismiss()
-                    
-                    if let error = error {
-                        OPErrorContainer.displayError(error: error)
-                        return
-                    }
-                    
-                    weakVC?.addIdentityView.changeAlias(to: identity)
-                })
-        }
+        }, whenPressedRefresh: generateRandomIdentity)
+        
         
         identitiesRepository?.getCurrentListOfDomainsWith(completion: { domains, error in
             if let error = error {
@@ -99,6 +104,8 @@ class UIAddIdentityAlertViewController: UIViewController {
             let _ = vc.view
             vc.addIdentityView.setupWith(domains: domains, andCallbacks: callbacks)
             UIApplication.shared.keyWindow?.rootViewController?.topMostPresentedControllerOrSelf.present(vc, animated: false, completion: nil)
+            
+            generateRandomIdentity()
             
         })
         

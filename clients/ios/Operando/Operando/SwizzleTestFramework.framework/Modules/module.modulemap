@@ -1,6 +1,0 @@
-framework module SwizzleTestFramework {
-  umbrella header "SwizzleTestFramework.h"
-
-  export *
-  module * { export * }
-}
