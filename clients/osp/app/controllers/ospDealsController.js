@@ -1,9 +1,4 @@
-ospApp.requires.push('datatables');
-ospApp.requires.push('chart.js');
-
-var dealsController = function ($scope, connectionService, messengerService, $window, DTColumnDefBuilder, ModalService, Notification, SharedService) {
-
-
+var dealsController = function ($scope, connectionService, $window, DTColumnDefBuilder, ModalService) {
     $scope.offerStatsInstance = {};
     $scope.offerStatsColumnDefs = [
         DTColumnDefBuilder.newColumnDef(0).notSortable(),
@@ -74,7 +69,7 @@ var dealsController = function ($scope, connectionService, messengerService, $wi
 
     $scope.viewDetails = function(offer){
         ModalService.showModal({
-            templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/osp/modals/deal_impact.html',
+            templateUrl: '/assets/templates/modals/deal_impact.html',
 
             controller: function ($scope, close) {
 
@@ -129,9 +124,5 @@ var dealsController = function ($scope, connectionService, messengerService, $wi
 };
 
 
-ospApp.controller("ospDashboardController", dealsController);
+angular.module("ospApp").controller("ospDashboardController", dealsController);
 
-
-angular.element(document).ready(function() {
-    angular.bootstrap(document.getElementById('osp_dashboard'), ['plusprivacy']);
-});

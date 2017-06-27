@@ -7,7 +7,9 @@ menuApp.directive("navigation", function( userService, $window){
             location:"="
         },
         link:function(scope, element){
-            jQuery("#site-navigation ul.navbar-nav").append(element);
+            console.log(element)
+                jQuery("#site-navigation ul.navbar-nav").append(element);
+
         },
         templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/navigation/navbar.html',
         controller: function ($scope) {
@@ -28,7 +30,6 @@ menuApp.directive("navigation", function( userService, $window){
 
             userService.isAuthenticated(function(authenticated){
                if(authenticated){
-
                    $scope.navigationModel.forEach(function(i){
                        accessService.hasAccess(i.zone, function(access){
                            i.visible = access;

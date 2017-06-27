@@ -1,0 +1,1871 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Email Subscribers & Newsletters 3.2.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-20 04:54:56+00:00\n"
+"PO-Revision-Date: 2017-04-01 07:46+0200\n"
+"Last-Translator: Edelényi Zsolt <batyuvitez@gmail.com>\n"
+"Language-Team: Icegram <hello@icegram.com>\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.0\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;"
+"_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;"
+"_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;"
+"esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;"
+"comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: hu_HU\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: base/es-defined.php:32
+msgid ""
+"If you like <strong>Email Subscribers</strong>, please consider leaving us a <a "
+"target=\"_blank\" href=\"https://wordpress.org/support/plugin/email-subscribers/"
+"reviews/?filter=5#new-post\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge "
+"thank you from Icegram in advance!"
+msgstr ""
+"Ha tetszett az <strong>Email Subscribers bővítmény </strong>, kérem adjon "
+"értékelést:<a target=\"_blank\" href=\"https://wordpress.org/support/plugin/email-"
+"subscribers/reviews/?filter=5#new-post\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> . "
+"Köszönjük előre is. "
+
+#: classes/es-register.php:257
+msgctxt "widget-enhanced-select"
+msgid "Please enter email address"
+msgstr "Kérjük adja meg az e-mail címét"
+
+#: classes/es-register.php:258
+msgctxt "widget-enhanced-select"
+msgid "Please provide a valid email address"
+msgstr "Kérem adjon meg egy érvényes e-mail címet!"
+
+#: classes/es-register.php:261
+msgctxt "widget-enhanced-select"
+msgid "Successfully Subscribed."
+msgstr "Sikeres feliratkozás"
+
+#: classes/es-register.php:263
+msgctxt "widget-enhanced-select"
+msgid "Email Address already exists!"
+msgstr "Ez az e-mail cím már létezik"
+
+#: classes/es-register.php:265
+msgctxt "widget-enhanced-select"
+msgid "Invalid email address"
+msgstr "Hibás e-mail cím"
+
+#: classes/es-register.php:266
+msgctxt "widget-enhanced-select"
+msgid "Please try after some time"
+msgstr "Kérem próbálja meg kicsit később!"
+
+#: classes/es-register.php:267
+msgctxt "widget-enhanced-select"
+msgid "There was a problem with the request"
+msgstr "Sajnos valami hiba történt."
+
+#: classes/es-register.php:274
+msgctxt "widget-page-enhanced-select"
+msgid "Please enter email address"
+msgstr "KÉrem adja meg az e-mail címét!"
+
+#: classes/es-register.php:275
+msgctxt "widget-page-enhanced-select"
+msgid "Please provide a valid email address"
+msgstr "Kérem adjon meg egy érvényes e-mail címet."
+
+#: classes/es-register.php:278
+msgctxt "widget-page-enhanced-select"
+msgid "Successfully Subscribed."
+msgstr "Sikeres feliratkozás."
+
+#: classes/es-register.php:280
+msgctxt "widget-page-enhanced-select"
+msgid "Email Address already exists!"
+msgstr "Ilyen e-mail cím már létezik. "
+
+#: classes/es-register.php:282
+msgctxt "widget-page-enhanced-select"
+msgid "Invalid email address"
+msgstr "Hibás e-mail cím."
+
+#: classes/es-register.php:283
+msgctxt "widget-page-enhanced-select"
+msgid "Please try after some time"
+msgstr "Kérem próbálja meg később. "
+
+#: classes/es-register.php:284
+msgctxt "widget-page-enhanced-select"
+msgid "There was a problem with the request"
+msgstr "Valami hiba történt. "
+
+#: classes/es-register.php:604
+msgid "Short description about subscription form"
+msgstr "A feliratkozó űrlap rövid leírása"
+
+#: cron/cron-add.php:97
+msgid "Email Count"
+msgstr "E-mail számláló."
+
+#: cron/cron-add.php:98
+msgid "Number of emails that you want to trigger per hour."
+msgstr "Ennyi e-mail küldünk ki egy óra alatt. "
+
+#: sendmail/sendmail.php:105
+msgid "Select Email Subject from available list"
+msgstr "Válassza ki az e-mail tárgyát az alábbi listából!"
+
+#: sendmail/sendmail.php:132
+msgid "Select Email Type"
+msgstr "Válassza ki az e-mail típusát!"
+
+#: sendmail/sendmail.php:146
+msgid "Select Subscribers group to Send Email"
+msgstr "Válassza ki, melyik előfizetői csoportnak kíván e-mailt küldteni"
+
+#: settings/settings-edit.php:231
+msgid "Opt-In Option"
+msgstr "Opt-in kiválasztása"
+
+#: settings/settings-edit.php:256
+msgid "Double Opt In Email Subject (Confirmation Email)"
+msgstr "E-mail cím megerősítést kérő levél tárgya"
+
+#: settings/settings-edit.php:257
+msgid ""
+"Enter the subject for the confirmation email to be sent for Double Opt In whenever "
+"a user signs up."
+msgstr "Kérem adja meg a tárgyát az e-mail cím megerősítését kérő levélnek!"
+
+#: settings/settings-edit.php:263
+msgid "Double Opt In Email Content (Confirmation Email)"
+msgstr "Az e-mail cím megerősítést kérő levél tartalma"
+
+#: settings/settings-edit.php:264
+msgid ""
+"Enter the content for the confirmation email to be sent for Double Opt In whenever "
+"a user signs up. (Keyword: ###NAME###, ###LINK###)"
+msgstr "Kérem adja meg az e-mail megerősítő üzenet tartalmát!"
+
+#: settings/settings-edit.php:277
+msgid ""
+"Text to display after an email address is successfully subscribed from Double Opt "
+"In (confirmation) Email"
+msgstr "Ez az üzenet jelenik meg, miután az e-mailt sikeresen visszaigazolták. "
+
+#: settings/settings-edit.php:298
+msgid ""
+"Enter the subject for the subscriber welcome email. This will be sent whenever a "
+"user's email is either confirmed (if Double Opt In) / subscribed (if Single Opt In) "
+"successfully."
+msgstr ""
+"Adja meg a tárgyát az új előfizetőt üdvözlő levélnek. Ezt a levelet küldjük ki, "
+"miután visszaigzolta az e-mail címét, illetve anélkül is, (ha nincs kettős opt-in)"
+
+#: settings/settings-edit.php:305
+msgid ""
+"Enter the content for the subscriber welcome email whenever a user's email is "
+"either confirmed (if Double Opt In) / subscribed (if Single Opt In) successfully. "
+"(Keyword: ###NAME###, ###LINK###)"
+msgstr ""
+"Kérem gépelje be az új előfizetőt üdvözlő levél tartalmát!  (Rövidítések: "
+"###NAME###, ###LINK###)"
+
+#: settings/settings-edit.php:314
+msgid ""
+"The unsubscribe link gets added automatically to all emails that are sent from this "
+"plugin. It is a readonly field and you are advised not to modify it."
+msgstr "A leiratkozó linket automatikusan a levélhez tesszük. Ne változtassa meg!"
+
+#: settings/settings-edit.php:327
+msgid "Text to display after an email address is unsubscribed"
+msgstr "A leiratkozás után megjelenő szöveg."
+
+#: settings/settings-edit.php:335
+msgid "Error in the Confirmation Link"
+msgstr "Az e-mailt visszaigazoló link hibás."
+
+#: settings/settings-edit.php:342
+msgid "Error in the Unsubscribe Link"
+msgstr "A leriratkozó link hibás."
+
+#: settings/settings-edit.php:357
+msgid "Notify admin when a new subscriber signs up"
+msgstr "Értesítse az adminisztrátort, ha új elfőizető regisztrál"
+
+#: settings/settings-edit.php:370
+msgid "Admin Email Subject when a new subscriber signs up"
+msgstr "Az új előfizetőről értesítő adminisztrátornak szóló levél tárgya."
+
+#: settings/settings-edit.php:371
+msgid ""
+"Enter the subject for the admin email which will be sent whenever a new email is "
+"added and confirmed."
+msgstr ""
+"Adja meg az új előfizetőről értesítő, adminisztrátornak címzett levél tárgyát. "
+
+#: settings/settings-edit.php:377
+msgid "Admin Email Content when a new subscriber signs up"
+msgstr "Az új előfizetőről értesítő levél tartalma."
+
+#: settings/settings-edit.php:378
+msgid ""
+"Enter the email content for the admin email which will be sent whenever a new email "
+"is added and confirmed. (Keyword: ###NAME###, ###EMAIL###)"
+msgstr ""
+"Gépelje be az új előfizetőről értesítő levél tartalmát (Rövidítések: ###NAME###, "
+"###EMAIL###)"
+
+#: settings/settings-edit.php:386
+msgid "Enter the subject for the sent email report. It will be emailed to Admin."
+msgstr "Az e-mail kiküldéséről szóló jelentés tartalma"
+
+#: settings/settings-edit.php:393
+msgid ""
+"Enter the content for the sent email report. It will be emailed to Admin. (Keyword: "
+"###COUNT###, ###UNIQUE###, ###STARTTIME###, ###ENDTIME###)"
+msgstr ""
+"Géplje be a tartalmát az e-mail kiküldéséről szóló értesítésnek  (Rövidítések: "
+"###COUNT###, ###UNIQUE###, ###STARTTIME###, ###ENDTIME###)"
+
+#: subscribers/view-subscriber-export.php:39 subscribers/view-subscriber-export.php:47
+msgid "Total Emails Count"
+msgstr "Összes e-mail"
+
+#: subscribers/view-subscriber-export.php:54
+msgid "Active Subscribers List"
+msgstr "Összes aktív előfizető"
+
+#: subscribers/view-subscriber-show.php:299
+msgid "Select Status"
+msgstr "Válassza ki a státuszát"
+
+#: classes/es-common.php:13
+msgid "<span style=\"color:#006600;font-weight:bold;\">Confirmed</span>"
+msgstr "<span style=\"color:#006600;font-weight:bold;\">Visszaigazolt</span>"
+
+#: classes/es-common.php:16
+msgid "<span style=\"color:#FF0000\">Unconfirmed</span>"
+msgstr "<span style=\"color:#FF0000\">Nincs visszaigazolva</span>"
+
+#: classes/es-common.php:19
+msgid "<span style=\"color:#999900\">Unsubscribed</span>"
+msgstr "<span style=\"color:#999900\">Leiratkozott</span>"
+
+#: classes/es-common.php:22
+msgid "<span style=\"color:#0000FF\">Single Opt In</span>"
+msgstr "<span style=\"color:#0000FF\">Megerősítés nélkül</span>"
+
+#: classes/es-common.php:25
+msgid "<span style=\"color:#00CC00;font-weight:bold;\">Viewed</span>"
+msgstr "<span style=\"color:#00CC00;font-weight:bold;\">Megtekintett</span>"
+
+#: classes/es-common.php:28
+msgid "<span style=\"color:#999900;\">Nodata</span>"
+msgstr "<span style=\"color:#999900;\">Nincs visszajelzés</span>"
+
+#: classes/es-common.php:31
+msgid "<span style=\"color:#FF0000\">Disabled</span>"
+msgstr "<span style=\"color:#FF0000\">Letiltva</span>"
+
+#: classes/es-common.php:34
+msgid "<span style=\"color:#FF0000\">In Queue</span>"
+msgstr "<span style=\"color:#FF0000\">Kiküldésre vár</span>"
+
+#: classes/es-common.php:37
+msgid "<span style=\"color:#00FF00;font-weight:bold;\">Sent</span>"
+msgstr "<span style=\"color:#00FF00;font-weight:bold;\">Kiküldve</span>"
+
+#: classes/es-common.php:40
+msgid "<span style=\"color:#20b2aa;font-weight:bold;\">via Cron</span>"
+msgstr "<span style=\"color:#20b2aa;font-weight:bold;\">Időzített</span>"
+
+#: classes/es-common.php:43
+msgid "<span style=\"color:#993399;\">Immediately</span>"
+msgstr "<span style=\"color:#993399;\">Azonnal</span>"
+
+#: classes/es-loadwidget.php:28 classes/es-register.php:552
+#: subscribers/view-subscriber-show.php:354 subscribers/view-subscriber-show.php:368
+msgid "Name"
+msgstr "Név"
+
+#: classes/es-loadwidget.php:33 classes/es-register.php:557
+msgid "Email *"
+msgstr "E-mail"
+
+#: classes/es-loadwidget.php:38 classes/es-register.php:562
+msgid "Subscribe"
+msgstr "Feliratkozás"
+
+#: classes/es-register.php:144 classes/es-register.php:145
+msgid "Email Subscribers"
+msgstr "Email Subscribers"
+
+#: classes/es-register.php:147 classes/es-register.php:148
+#: subscribers/view-subscriber-show.php:241
+msgid "Subscribers"
+msgstr "Feliratkozottak"
+
+#: classes/es-register.php:150 classes/es-register.php:151 compose/compose-show.php:64
+msgid "Compose"
+msgstr "E-mail szerkesztése"
+
+#: classes/es-register.php:153 classes/es-register.php:154
+#: notification/notification-show.php:52
+msgid "Post Notifications"
+msgstr "Új bejegyzés értesítés"
+
+#: classes/es-register.php:156 classes/es-register.php:157 sendmail/sendmail.php:93
+msgid "Newsletters"
+msgstr "Hírlevél"
+
+#: classes/es-register.php:159 classes/es-register.php:160 cron/cron-add.php:79
+msgid "Cron Settings"
+msgstr "Időzítés beállításai"
+
+#: classes/es-register.php:162 classes/es-register.php:163
+#: settings/settings-edit.php:197
+msgid "Email Settings"
+msgstr "E-mail beállítások"
+
+#: classes/es-register.php:165 classes/es-register.php:166 roles/roles-add.php:110
+msgid "User Roles"
+msgstr "Felhasználói jogosultságok"
+
+#: classes/es-register.php:168 classes/es-register.php:169
+#: sentmail/sentmail-show.php:96
+msgid "Reports"
+msgstr "Jelentések"
+
+#: classes/es-register.php:171
+msgid "Help & Info"
+msgstr "Segítség & Információ"
+
+#: classes/es-register.php:172
+msgid "<span style=\"color:#f18500;font-weight:bolder;\">Help & Info"
+msgstr "<span style=\"color:#f18500;font-weight:bolder;\">Segítség"
+
+#: classes/es-register.php:183
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please enter subscriber email address."
+msgstr "Adja meg az előfizető e-mail címét!"
+
+#: classes/es-register.php:184
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select subscriber email status."
+msgstr "Válassza ki az előfizető e-mail státuszát!"
+
+#: classes/es-register.php:185
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select or create group for this subscriber."
+msgstr "Törölni akarja ezt az adatot? "
+
+#: classes/es-register.php:186
+msgctxt "view-subscriber-enhanced-select"
+msgid "Do you want to delete this record?"
+msgstr "Töürölni "
+
+#: classes/es-register.php:187
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select the bulk action."
+msgstr "Kérem válassza a tömeges műveleteket!"
+
+#: classes/es-register.php:188
+msgctxt "view-subscriber-enhanced-select"
+msgid "Are you sure you want to delete selected records?"
+msgstr "Biztosan törlöd ezeket az adatokat? "
+
+#: classes/es-register.php:189
+msgctxt "view-subscriber-enhanced-select"
+msgid ""
+"Do you want to resend confirmation email? \\nAlso please note, this will update "
+"subscriber current status to 'Unconfirmed'."
+msgstr ""
+"Valóban újra akarja küldeni az e-mail visszaigazoló levelet? \vHa igen, akkor az "
+"előfizető ismét 'nem igazolt' státuszú lesz. "
+
+#: classes/es-register.php:190
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select new subscriber group."
+msgstr "KÉrem válassza ki az előfizetői csoportot"
+
+#: classes/es-register.php:191
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select new status for subscribers"
+msgstr "Add meg az előfizetők új státuszát!"
+
+#: classes/es-register.php:192
+msgctxt "view-subscriber-enhanced-select"
+msgid "Do you want to update subscribers group?"
+msgstr "Frissíteni akarja az előfizetői csoportokat? "
+
+#: classes/es-register.php:193
+msgctxt "view-subscriber-enhanced-select"
+msgid "Do you want to update subscribers status?"
+msgstr "Frissítsük a feliratkozók státuszát?"
+
+#: classes/es-register.php:194
+msgctxt "view-subscriber-enhanced-select"
+msgid "Do you want to export the emails?"
+msgstr "Exportálni akarja az e-maleket? "
+
+#: classes/es-register.php:195
+msgctxt "view-subscriber-enhanced-select"
+msgid "Please select only csv file. Please check official website for csv structure.."
+msgstr "Csak csv fájlt választhat. Kérem ellenőrizze a csv megfelelő formátumát!"
+
+#: classes/es-register.php:203
+msgctxt "compose-enhanced-select"
+msgid "Please enter name for configuration."
+msgstr "Mi legyen a konfiguráció neve? "
+
+#: classes/es-register.php:204
+msgctxt "compose-enhanced-select"
+msgid "Please select template for this configuration."
+msgstr "Válsssza ki a megfelelő levélsablont ehhez a konfigurációhoz."
+
+#: classes/es-register.php:205
+msgctxt "compose-enhanced-select"
+msgid "Do you want to delete this record?"
+msgstr "Valóban ki akarja törölni ezt az adatot? "
+
+#: classes/es-register.php:213
+msgctxt "notification-enhanced-select"
+msgid "Please select subscribers group."
+msgstr "Kérem válassza ki az előfizetői csoportot!"
+
+#: classes/es-register.php:214
+msgctxt "notification-enhanced-select"
+msgid "Please select notification mail subject. Use compose menu to create new."
+msgstr "KÉrem válassza ki az értesítőlevél tárgyát!"
+
+#: classes/es-register.php:215
+msgctxt "notification-enhanced-select"
+msgid "Please select notification status."
+msgstr "Válassza ki az értesítőlevél  státuszát!"
+
+#: classes/es-register.php:216
+msgctxt "notification-enhanced-select"
+msgid "Do you want to delete this record?"
+msgstr "Valóban törölni akarja ezt az adatot? "
+
+#: classes/es-register.php:224
+msgctxt "sendmail-enhanced-select"
+msgid "Please select your mail subject."
+msgstr "Kérem töltse ki a levél tárgyát!"
+
+#: classes/es-register.php:225
+msgctxt "sendmail-enhanced-select"
+msgid "Please select your mail type."
+msgstr "Az e-mail típusa (időzített vagy azonnali)"
+
+#: classes/es-register.php:226
+msgctxt "sendmail-enhanced-select"
+msgid ""
+"Have you double checked your selected group? If so, let's go ahead and send this."
+msgstr ""
+"Ellenőrizd még egyszer, hogy megfelelő csoportnak küldjük ki a leveleket. Ha "
+"rendben, akkor klikkelj megint."
+
+#: classes/es-register.php:234
+msgctxt "sentmail-enhanced-select"
+msgid "Do you want to delete this record?"
+msgstr "Szeretné törölni ezt az adatot? "
+
+#: classes/es-register.php:235
+msgctxt "sentmail-enhanced-select"
+msgid "Do you want to delete all records except latest 10?"
+msgstr "Minden adatot törölni szeretne az utolsó 10 kivételével?"
+
+#: classes/es-register.php:243
+msgctxt "cron-enhanced-select"
+msgid "Please select enter number of mails you want to send per hour/trigger."
+msgstr ""
+"Kérem írja be, hány darab e-mailt szeretne óránként vagy ciklusonként küldeni?"
+
+#: classes/es-register.php:244
+msgctxt "cron-enhanced-select"
+msgid "Please enter the mail count, only number."
+msgstr "Kérem egy számot adjon meg, hány e-mail? "
+
+#: classes/es-register.php:259
+msgctxt "widget-enhanced-select"
+msgid "loading..."
+msgstr "betöltés..."
+
+#: classes/es-register.php:260
+msgctxt "widget-enhanced-select"
+msgid "Cannot create XMLHTTP instance"
+msgstr "Nem lehet ilyen XMLHTTP-t létrehozni"
+
+#: classes/es-register.php:262
+msgctxt "widget-enhanced-select"
+msgid ""
+"Your subscription was successful! Within a few minutes, kindly check the mail in "
+"your mailbox and confirm your subscription. If you can't see the mail in your "
+"mailbox, please check your spam folder."
+msgstr ""
+"Sikeresen feliratkoztál. Most egy automatikus visszaigazoló levelet küldünk. Ha nem "
+"érkezett meg, légy szíves ellenőrizd a levélszemét mappát. Ha akkor sincs meg, "
+"akkor próbáld meg még egyszer a feliratkozást, hátha hibás e-mail címet adtál meg. "
+
+#: classes/es-register.php:264
+msgctxt "widget-enhanced-select"
+msgid "Oops.. Unexpected error occurred."
+msgstr "Váratlan hiba"
+
+#: classes/es-register.php:276
+msgctxt "widget-page-enhanced-select"
+msgid "loading..."
+msgstr "Kis türelmet..."
+
+#: classes/es-register.php:277
+msgctxt "widget-page-enhanced-select"
+msgid "Cannot create XMLHTTP instance"
+msgstr "Nem lehet ilyen XMLHTTP-t létrehozni"
+
+#: classes/es-register.php:279
+msgctxt "widget-page-enhanced-select"
+msgid ""
+"Your subscription was successful! Within a few minutes, kindly check the mail in "
+"your mailbox and confirm your subscription. If you can't see the mail in your "
+"mailbox, please check your spam folder."
+msgstr ""
+"Sikeresen feliratkoztál. Most egy automatikus visszaigazoló levelet küldünk. Ha nem "
+"érkezett meg, légy szíves ellenőrizd a levélszemét mappát. Ha akkor sincs meg, "
+"akkor próbáld meg még egyszer a feliratkozást, hátha hibás e-mail címet adtál meg. "
+
+#: classes/es-register.php:281
+msgctxt "widget-page-enhanced-select"
+msgid "Oops.. Unexpected error occurred."
+msgstr "Váratlan hiba lépett fel"
+
+#: classes/es-register.php:461
+msgid ""
+"Email Subscribers recommends free plugin <b>Rainmaker</b> to collect leads instantly"
+msgstr "A <b>Rainmaker</b>bővítményt javasoljuk az előfizetők gyűjtésére."
+
+#: classes/es-register.php:462
+msgid "Yes, I want this"
+msgstr "Szeretném."
+
+#: classes/es-register.php:462
+msgid "No, I don't want it"
+msgstr "Nem szeretném. "
+
+#: classes/es-register.php:600
+msgid "Widget Title"
+msgstr "Widget Cím"
+
+#: classes/es-register.php:608
+msgid "Display Name Field"
+msgstr "Feliratkozásnál kérjük a nevet is? "
+
+#: classes/es-register.php:610 settings/settings-edit.php:290
+#: settings/settings-edit.php:363 subscribers/view-subscriber-sync.php:107
+msgid "YES"
+msgstr "Igen"
+
+#: classes/es-register.php:611 settings/settings-edit.php:291
+#: settings/settings-edit.php:364 subscribers/view-subscriber-sync.php:106
+msgid "NO"
+msgstr "Nem"
+
+#: classes/es-register.php:615
+msgid "Subscriber Group"
+msgstr "Előfizetői csoport"
+
+#: compose/compose-add.php:31 compose/compose-edit.php:48
+msgid "Please enter template heading."
+msgstr "Mi legyen a sablon címe? "
+
+#: compose/compose-add.php:43
+msgid "Template successfully created. "
+msgstr "Sikeresen létrehoztad a  sablont"
+
+#: compose/compose-add.php:74
+msgid "Add new Email"
+msgstr "Új e-mail hozzáadása"
+
+#: compose/compose-add.php:75 compose/compose-edit.php:86
+#: compose/compose-preview.php:28 compose/compose-show.php:66 cron/cron-add.php:80
+#: notification/notification-add.php:113 notification/notification-edit.php:124
+#: notification/notification-show.php:54 roles/roles-add.php:111
+#: sendmail/sendmail.php:94 sentmail/deliverreport-show.php:61
+#: sentmail/sentmail-preview.php:28 sentmail/sentmail-show.php:97
+#: settings/settings-edit.php:198 subscribers/view-subscriber-add.php:114
+#: subscribers/view-subscriber-edit.php:113 subscribers/view-subscriber-export.php:30
+#: subscribers/view-subscriber-import.php:146 subscribers/view-subscriber-show.php:246
+#: subscribers/view-subscriber-sync.php:92
+msgid "Help"
+msgstr "Segítség"
+
+#: compose/compose-add.php:78 compose/compose-edit.php:89
+msgid "Select your Mail Template"
+msgstr "Választ ki az e-mail sablont!"
+
+#: compose/compose-add.php:80 compose/compose-edit.php:91
+msgid "Newsletter"
+msgstr "Hírlevél"
+
+#: compose/compose-add.php:81 compose/compose-edit.php:92
+msgid "Post Notification"
+msgstr "Értesítés az új bejegyzésről"
+
+#: compose/compose-add.php:85 compose/compose-edit.php:96
+msgid "Enter your Email Subject"
+msgstr "Írd be az e-mail tárgyát!"
+
+#: compose/compose-add.php:87 compose/compose-edit.php:98
+msgid "Keyword: ###POSTTITLE###"
+msgstr "Kulcsszó: ###POSTTITLE###"
+
+#: compose/compose-add.php:89 compose/compose-edit.php:100
+msgid "Enter Content for your Email"
+msgstr "Írd be az e-mail tartalmát!"
+
+#: compose/compose-add.php:93 compose/compose-edit.php:104
+#, c-format
+msgid ""
+"%s : ###NAME###, ###EMAIL###, ###DATE###, ###POSTTITLE###, ###POSTLINK###, "
+"###POSTLINK-WITHTITLE###, ###POSTLINK-ONLY###, ###POSTIMAGE###, ###POSTDESC###, "
+"###POSTFULL###"
+msgstr ""
+"%s : ###NAME###, ###EMAIL###, ###DATE###, ###POSTTITLE###, ###POSTLINK###, "
+"###POSTLINK-WITHTITLE###, ###POSTLINK-ONLY###, ###POSTIMAGE###, ###POSTDESC###, "
+"###POSTFULL###"
+
+#: compose/compose-add.php:93 compose/compose-edit.php:104
+msgid "Available Keywords"
+msgstr "Választható kulcsszavak"
+
+#: compose/compose-add.php:97 compose/compose-edit.php:108
+#: sentmail/deliverreport-show.php:73 sentmail/deliverreport-show.php:84
+#: sentmail/sentmail-show.php:113 sentmail/sentmail-show.php:126
+#: subscribers/view-subscriber-show.php:355 subscribers/view-subscriber-show.php:369
+msgid "Status"
+msgstr "Státusz"
+
+#: compose/compose-add.php:99 compose/compose-edit.php:110
+msgid "Published"
+msgstr "Közzétéve"
+
+#: compose/compose-add.php:101 compose/compose-edit.php:112
+msgid "Please select your mail status"
+msgstr "Válaszd ki az e-mail státuszát"
+
+#: compose/compose-add.php:105 compose/compose-edit.php:117 cron/cron-add.php:120
+#: notification/notification-add.php:253 notification/notification-edit.php:290
+#: roles/roles-add.php:207 subscribers/view-subscriber-edit.php:191
+msgid "Save"
+msgstr "Mentés"
+
+#: compose/compose-edit.php:20 compose/compose-preview.php:18
+#: compose/compose-show.php:33 notification/notification-edit.php:20
+#: notification/notification-show.php:21 sentmail/sentmail-preview.php:18
+#: sentmail/sentmail-show.php:22 settings/settings-edit.php:20
+#: subscribers/view-subscriber-edit.php:22
+msgid "Oops, selected details does not exists."
+msgstr "A részleteket add meg kérlek"
+
+#: compose/compose-edit.php:61
+msgid "Template successfully updated. "
+msgstr "A sablont sikeresen frissítetted. "
+
+#: compose/compose-edit.php:84
+msgid "Edit Email"
+msgstr "E-mail szerkesztése"
+
+#: compose/compose-edit.php:85 compose/compose-show.php:65
+#: notification/notification-edit.php:123 notification/notification-show.php:53
+msgid "Add New"
+msgstr "Új hozzáadása"
+
+#: compose/compose-preview.php:27 sentmail/sentmail-preview.php:27
+msgid "Preview Mail"
+msgstr "E-mail megtekintés"
+
+#: compose/compose-preview.php:40 compose/compose-show.php:101
+#: notification/notification-show.php:100 subscribers/view-subscriber-show.php:399
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: compose/compose-show.php:14 sendmail/sendmail.php:18
+#: subscribers/view-subscriber-show.php:17
+msgid "Click Here"
+msgstr "Klikk ide"
+
+#: compose/compose-show.php:47 notification/notification-show.php:35
+#: sentmail/sentmail-show.php:36
+msgid "Selected record deleted."
+msgstr "Sikeresen törölve"
+
+#: compose/compose-show.php:77 compose/compose-show.php:84
+#: notification/notification-show.php:68 notification/notification-show.php:76
+msgid "Email Subject"
+msgstr "Tárgy"
+
+#: compose/compose-show.php:78 compose/compose-show.php:85
+msgid "Email Template"
+msgstr "E-mail sablon"
+
+#: compose/compose-show.php:79 compose/compose-show.php:86
+msgid "Actions"
+msgstr "Tevékenységek"
+
+#: compose/compose-show.php:102 notification/notification-show.php:103
+#: subscribers/view-subscriber-show.php:278 subscribers/view-subscriber-show.php:404
+msgid "Delete"
+msgstr "Törlés"
+
+#: compose/compose-show.php:103 sentmail/sentmail-show.php:111
+#: sentmail/sentmail-show.php:124
+msgid "Preview"
+msgstr "Előnézet"
+
+#: compose/compose-show.php:111 notification/notification-show.php:143
+#: sentmail/deliverreport-show.php:127 sentmail/sentmail-show.php:183
+#: subscribers/view-subscriber-show.php:427
+msgid "No records available."
+msgstr "Nincs ilyen adat."
+
+#: cron/cron-add.php:24
+msgid "Please enter valid mail count."
+msgstr "Kérem, hogy egy számot írjon be!"
+
+#: cron/cron-add.php:34
+msgid "Successfully updated."
+msgstr "Sikeresen frissítve"
+
+#: cron/cron-add.php:87
+msgid "Cron job URL"
+msgstr "Időzítés URL-je"
+
+#: cron/cron-add.php:88
+msgid ""
+"This is your Cron Job URL. It is a readonly field and you are advised not to modify "
+"it."
+msgstr "Ez a időzített kiküldés URL-je. Ezta mezőt nem lehet módosítani. "
+
+#: cron/cron-add.php:103
+msgid "(Your web host has limits. We suggest 50 emails per hour to be safe)"
+msgstr ""
+"(A tárhelyszolgáltató által beállított limitnél kevesebbet. Általában 50 e-mail "
+"óránként bele szokott férni)"
+
+#: cron/cron-add.php:108
+msgid "Admin Report"
+msgstr "Adminisztrátori jelentés"
+
+#: cron/cron-add.php:109
+msgid ""
+"Email to admin whenever cron URL is triggered from your server. (Keywords: "
+"###DATE###, ###SUBJECT###, ###COUNT###)"
+msgstr ""
+"Értesítsük az adminisztrátort, ha az időzítés elindult. (rövidítések: : ###DATE###, "
+"###SUBJECT###, ###COUNT###)"
+
+#: cron/cron-add.php:126
+msgid "What is Cron (auto emails) and how to setup Cron Job?"
+msgstr "Mi az időzített kiküldés, és hogyan állíthatod be? "
+
+#: cron/cron-add.php:127
+msgid ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails/\">What is Cron?</a>"
+msgstr ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails/\">What is Cron?</a>"
+
+#: cron/cron-add.php:128
+msgid ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails-in-parallels-plesk/\">Setup cron job in Plesk</a>"
+msgstr ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails-in-parallels-plesk/\">Az időzítés beállítása a Plesk-en - angol</a>"
+
+#: cron/cron-add.php:129
+msgid ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails-in-cpanel/\">Setup cron job in cPanal</a>"
+msgstr ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-how-to-schedule-"
+"cron-emails-in-cpanel/\">Az időzítés beállítása a cPanelen - angolul l</a>"
+
+#: cron/cron-add.php:130
+msgid ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-what-to-do-if-"
+"hosting-doesnt-support-cron-jobs/\">Hosting does not support cron jobs?</a>"
+msgstr ""
+"<a target=\"_blank\" href=\"http://www.icegram.com/documentation/es-what-to-do-if-"
+"hosting-doesnt-support-cron-jobs/\">A tárhelyszolgáltató nem támogatja az időzített "
+"feladatokat (angol)</a>"
+
+#: export/export-email-address.php:33 export/export-email-address.php:37
+msgid "Unexpected url submit has been detected"
+msgstr "Nem jó az URL"
+
+#: help/help.php:47
+msgid "Welcome to Email Subscribers!"
+msgstr "Üdvözöljük!"
+
+#: help/help.php:48
+msgid "Thanks for installing and we hope you will enjoy using Email Subscribers."
+msgstr "Köszönjük, hogy telepítette a bővítményünket és reméljük elégedett lesz. "
+
+#: help/help.php:52
+msgid "For more help and tips..."
+msgstr "Még több segítség..."
+
+#: help/help.php:67
+#, c-format
+msgid "Like Email Subscribers? Please consider %s."
+msgstr "Ha tetszik, légyszíves %s;"
+
+#: help/help.php:67
+msgid "contributing to us"
+msgstr "Adományozás"
+
+#: help/help.php:99
+msgid "Frequently Asked Questions"
+msgstr "Gyakran Ismételt Kérdések"
+
+#: help/help.php:118 help/help.php:127 help/help.php:130 help/help.php:133
+#: help/help.php:136 help/help.php:139 help/help.php:142 help/help.php:145
+#: help/help.php:148 help/help.php:151 help/help.php:154 help/help.php:157
+#: help/help.php:160 help/help.php:163 help/help.php:166 help/help.php:169
+#: help/help.php:172 help/help.php:175 help/help.php:178
+#, c-format
+msgid "%s"
+msgstr "%s"
+
+#: help/help.php:118
+msgid "How to Add Subscription box to website?"
+msgstr "Hogyan lehet a feliratkozó űrlapot elhelyezni a honlapon?"
+
+#: help/help.php:127
+msgid "General Plugin Settings"
+msgstr "Általános beállítások"
+
+#: help/help.php:127
+msgid ""
+" (How to modify the existing email content like Confirmation email, Welcome email, "
+"Admin emails)"
+msgstr ""
+"(Hogyan módosíthatod a létező e-mail tartalmát pl. visszaigazoló e-mail, üdvözlő e-"
+"mail, értesítő e-mail. )"
+
+#: help/help.php:130
+msgid "How to Import or Export Email Addresses?"
+msgstr "A feliratkozók importálása és exportálása"
+
+#: help/help.php:133
+msgid "How to change/update/translate any texts from Email Subscribers?"
+msgstr ""
+"Hogyan tudsz szerkeszteni, fordítani vagy új szöveget feltölteni a feliratkozóknak "
+"küldendő e-mailbe?"
+
+#: help/help.php:136
+msgid "How to add Unsubscribe link in emails?"
+msgstr "Hogyan tudod az e-mailbe a leiratkozás linket elhelyezni?"
+
+#: help/help.php:139
+msgid "What are Static Templates and Dynamic Templates?"
+msgstr "Mi a statikus és mi a dinamikus sablon?"
+
+#: help/help.php:142
+msgid "How to Compose and Send Newsletter Emails?"
+msgstr "Hogyan tudsz hírlevelet szerkeszteni és küldeni? "
+
+#: help/help.php:145
+msgid ""
+"How to Configure and Send Post Notification emails to subscribers when new posts "
+"are published?"
+msgstr ""
+"Hogyan tudod beállítani az admin értesítő leveleket, amikor új bejegyzésről küldünk "
+"értesítést? "
+
+#: help/help.php:148
+msgid "How to Send a sample new post notification email to testgroup/myself?"
+msgstr "Hogyan tudsz egy próba e-mailt  küldeni a tesztelőknek vagy magadnak? "
+
+#: help/help.php:151
+msgid "How to check Sent emails reports?"
+msgstr "Hogyan tudod az elküldött e-mailekről szóló jelentést megnézni? "
+
+#: help/help.php:154
+msgid "How to Add/Update Existing Subscribers Group?"
+msgstr "Hogyan adjunk hozzá vagy módosítsunk a z előfizetői csoportokon?"
+
+#: help/help.php:157
+msgid "Subscribers are not receiving Emails?"
+msgstr "Az előfizetőid nem kapták meg az e-mailc? "
+
+#: help/help.php:160
+msgid "How to show subscribe form inside a popup?"
+msgstr "Hogyan lehet a feliratkozú űrlapot egy előugró ablakba helyezni? "
+
+#: help/help.php:163
+msgid "How to use Rainmaker’s form in Email Subscribers?"
+msgstr "Hogyan tudod a Rainmaker űrlapját használni a feliratkozáshoz?"
+
+#: help/help.php:166
+msgid "How to Schedule Cron Mails?"
+msgstr "Hogyan tudod az időzítést beállítani?"
+
+#: help/help.php:169
+msgid "How to Schedule Cron Emails in cPanel?"
+msgstr "Hogyan tudod az időzítést a cPanelen beállítani"
+
+#: help/help.php:172
+msgid "How to Schedule Cron Emails in Parallels Plesk?"
+msgstr "Hogyan tudod az időzítést beállítani a Plesk-en ? "
+
+#: help/help.php:175
+msgid "What to do if Hosting doesn’t support Cron Jobs?"
+msgstr "Mit tehetsz, ha a tárhelyszolgáltató nem engedélyezi az időzítéseket (Cron)"
+
+#: help/help.php:178
+msgid "Commonly Asked Questions"
+msgstr "GY.I.K."
+
+#: job/es-optin.php:58 job/es-optin.php:68 job/es-unsubscribe.php:55
+#: job/es-unsubscribe.php:62
+msgid "Oops.. We are getting some technical error. Please try again or contact admin."
+msgstr ""
+"Sajnos valamilyen hiba csúszott be. Ismételje meg, vagy pedig értesítsen egy "
+"szakembert."
+
+#: job/es-optin.php:61
+msgid "This email address has already been confirmed."
+msgstr "Ilyen e-mail cím már szerepel."
+
+#: notification/notification-add.php:33
+msgid "Please select subscribers group."
+msgstr "Kérem válassza ki az előfizetői csoportot"
+
+#: notification/notification-add.php:39
+msgid "Please select notification status."
+msgstr "Kérem válassza ki az értesítés státuszát."
+
+#: notification/notification-add.php:45 notification/notification-edit.php:61
+msgid "Please select notification mail subject. Use compose menu to create new."
+msgstr ""
+"Az értesítő levél tárgya. Az e-mail szerkesztése menüpontban tud újat létrehozni. "
+
+#: notification/notification-add.php:51 notification/notification-edit.php:67
+msgid "Please select post categories."
+msgstr "Kérem válassza ki, mely kategóriák érintettek."
+
+#: notification/notification-add.php:71
+msgid "Notification successfully created. "
+msgstr "Az értesítőlevél sikeresen elkészült."
+
+#: notification/notification-add.php:112
+msgid "Add Notification"
+msgstr "Új bejegyzés-értesítő hozzáadása"
+
+#: notification/notification-add.php:120
+msgid "Select Subscribers Group"
+msgstr "Válaszd ki az előfizetői csoportot"
+
+#: notification/notification-add.php:124 notification/notification-add.php:148
+#: notification/notification-edit.php:135 notification/notification-edit.php:168
+#: sendmail/sendmail.php:110 sendmail/sendmail.php:137 sendmail/sendmail.php:151
+#: subscribers/view-subscriber-add.php:162 subscribers/view-subscriber-edit.php:162
+#: subscribers/view-subscriber-import.php:190 subscribers/view-subscriber-sync.php:119
+msgid "Select"
+msgstr "Választ"
+
+#: notification/notification-add.php:142 notification/notification-edit.php:162
+msgid "Select Notification Email Subject"
+msgstr "Mi legyen az értesítő levél tárgya? "
+
+#: notification/notification-add.php:143 notification/notification-edit.php:163
+msgid "(Use compose menu to create new)"
+msgstr "(Üzenet sablonok  menüben létrehozhatsz újat)"
+
+#: notification/notification-add.php:167 notification/notification-edit.php:190
+msgid "Select Post Categories"
+msgstr "Válszd ki a bejegyzés kategóriáját"
+
+#: notification/notification-add.php:195 notification/notification-edit.php:225
+msgid "Check All"
+msgstr "Mindegyik kijelölése"
+
+#: notification/notification-add.php:196 notification/notification-edit.php:226
+msgid "Uncheck All"
+msgstr "Kijelölések visszavonása"
+
+#: notification/notification-add.php:202 notification/notification-edit.php:233
+msgid "Select your Custom Post Type"
+msgstr "Válaszd ki e bejegyzés típusát"
+
+#: notification/notification-add.php:203 notification/notification-edit.php:234
+msgid "(Optional)"
+msgstr "(választható)"
+
+#: notification/notification-add.php:232 notification/notification-edit.php:268
+msgid "No Custom Post Types Available"
+msgstr "Nincsen egyéni bejegyzés típus"
+
+#: notification/notification-add.php:239 notification/notification-edit.php:275
+msgid "Select Notification Status when a new post is published"
+msgstr "Mi legyen az új bejegyzésről értesítő levél tárgya? "
+
+#: notification/notification-add.php:243 notification/notification-edit.php:279
+#: notification/notification-show.php:130 sendmail/sendmail.php:138
+msgid "Send email immediately"
+msgstr "Levéküldés azonnal"
+
+#: notification/notification-add.php:244 notification/notification-edit.php:280
+#: notification/notification-show.php:132
+msgid "Add to cron and send email via cron job"
+msgstr "Időzített feladathoz adjuk és időzítve küldjük ki"
+
+#: notification/notification-add.php:245 notification/notification-edit.php:281
+msgid "Disable email notification"
+msgstr "Az új bejegyzések értesítésének letiltása"
+
+#: notification/notification-edit.php:49
+msgid "Please select subscribers group"
+msgstr "Válaszd ki az előfizetői csoportot"
+
+#: notification/notification-edit.php:55
+msgid "Please select notification status"
+msgstr "Mit tegyünk az új bejegyzés értesítővel? "
+
+#: notification/notification-edit.php:89
+msgid "Notification successfully updated. "
+msgstr "Értesítés sikeresen módosítva"
+
+#: notification/notification-edit.php:122
+msgid "Edit Notification"
+msgstr "Új bejegyzés értesítés szerkesztése"
+
+#: notification/notification-edit.php:131 subscribers/view-subscriber-show.php:280
+msgid "Update Subscribers Group"
+msgstr "Előfizetői csoport frissítése"
+
+#: notification/notification-show.php:57
+msgid ""
+"Use this to setup and send notification emails to your subscribers when a new post "
+"is published in your blog."
+msgstr ""
+"Új bejegyzés értesítő: amikor az új bejegyzés elkészül, itt tudod beállítani, "
+"milyen értesítést küldjön a feliratkozottaknak. "
+
+#: notification/notification-show.php:69 notification/notification-show.php:77
+msgid "Subscribers Group"
+msgstr "Előfieztői csoportok"
+
+#: notification/notification-show.php:70 notification/notification-show.php:78
+msgid "Post Categories / Custom Post Types"
+msgstr "Bejegyzés kategóriája / egyedi bejegyzés típus"
+
+#: notification/notification-show.php:71 notification/notification-show.php:79
+msgid "Notification Status"
+msgstr "Értesítés sttusza"
+
+#: roles/roles-add.php:53
+msgid "Role Updated. "
+msgstr "Szabályok mentve"
+
+#: roles/roles-add.php:114
+msgid "Select user roles who can access following menus. Only Admin can change this."
+msgstr ""
+"Jogosultságok beállítása. Az adminisztrátor jogosultságot adhat másoknak a menük "
+"kezelésére."
+
+#: roles/roles-add.php:121
+msgid "Subscribers Menu"
+msgstr "Előfizetők"
+
+#: roles/roles-add.php:125 roles/roles-add.php:137 roles/roles-add.php:149
+#: roles/roles-add.php:161 roles/roles-add.php:173 roles/roles-add.php:185
+#: roles/roles-add.php:197
+msgid "Administrator Only"
+msgstr "Csak adminisztrátor"
+
+#: roles/roles-add.php:126 roles/roles-add.php:138 roles/roles-add.php:150
+#: roles/roles-add.php:162 roles/roles-add.php:174 roles/roles-add.php:186
+#: roles/roles-add.php:198
+msgid "Administrator/Editor"
+msgstr "Adminisztrátor/Szerkesztő"
+
+#: roles/roles-add.php:127 roles/roles-add.php:139 roles/roles-add.php:151
+#: roles/roles-add.php:163 roles/roles-add.php:175 roles/roles-add.php:187
+#: roles/roles-add.php:199
+msgid "Administrator/Editor/Author/Contributor"
+msgstr "Adminisztrátor/Szerkesztő/Szerző/Közreműködő"
+
+#: roles/roles-add.php:133
+msgid "Compose Menu"
+msgstr "Szerkesztés"
+
+#: roles/roles-add.php:145
+msgid "Post Notifications Menu"
+msgstr "Új bejegyzésről értesítés"
+
+#: roles/roles-add.php:157
+msgid "Newsletters + Cron Settings Menu"
+msgstr "Hírlevél + időzítések beállítása"
+
+#: roles/roles-add.php:169
+msgid "Email Settings Menu"
+msgstr "E-mail beállítások"
+
+#: roles/roles-add.php:181
+msgid "Reports Menu"
+msgstr "Jelentések"
+
+#: roles/roles-add.php:193
+msgid "Help & Info Menu"
+msgstr "Segítség"
+
+#: sendmail/sendmail.php:40
+msgid "Please select your mail subject."
+msgstr "Mi legyen a levél tárgya? "
+
+#: sendmail/sendmail.php:46
+msgid "Please select your mail type."
+msgstr "Az e-mail kiküldés típusaa"
+
+#: sendmail/sendmail.php:52
+msgid "Please select your group."
+msgstr "Válaszd ki az előfizetői csoportot"
+
+#: sendmail/sendmail.php:59
+msgid "Mail sent successfully. "
+msgstr "Sikeres kiküldés"
+
+#: sendmail/sendmail.php:63
+msgid "Click here to check Statistics"
+msgstr "Itt megnézheted a statisztikákat"
+
+#: sendmail/sendmail.php:69
+msgid "Oops.. We are getting some error. mail not sending."
+msgstr "Sajnos nem sikerült elküldeni a levelet. A hiba ismeretlen. "
+
+#: sendmail/sendmail.php:97
+msgid "Use this to send newsletter emails to your subscribers."
+msgstr "Ezzel tudsz hírlevelet küldeni az előfizetőknek"
+
+#: sendmail/sendmail.php:139
+msgid "Send email via cron job"
+msgstr "Időzített e-mail küldés"
+
+#: sendmail/sendmail.php:178
+msgid "Recipients : 0 "
+msgstr "Címzettek: 0"
+
+#: sendmail/sendmail.php:180
+#, c-format
+msgid "Recipients : %s"
+msgstr "Címzettek: %s"
+
+#: sendmail/sendmail.php:183
+msgid ""
+"<br><br><strong>Your Recipients count is above 100.<br>We strongly recommend that "
+"you change above Mail Type to Cron and Send Mail via Cron Job.</strong><br>Click on "
+"Help for more information."
+msgstr ""
+"<br><br><strong>Több mint 100 címzettnek küldünk levelet<br>Szerintünk ne most "
+"egysxzerre küldjed, hanem használd az időzítést. </strong><br>Kattints a súgóra "
+"további segítségért!"
+
+#: sendmail/sendmail.php:194 sendmail/sendmail.php:196
+msgid "Send Email"
+msgstr "Hírlevél küldése"
+
+#: sendmail/sendmail.php:199
+msgid "Reset"
+msgstr "Alapbeállítások visszaállítása"
+
+#: sentmail/deliverreport-show.php:14
+msgid "Oops.. Unexpected error occurred. Please try again."
+msgstr "Hiba történt, ismét próbáld meg. "
+
+#: sentmail/deliverreport-show.php:50 sentmail/sentmail-show.php:86
+msgid " &lt;&lt; "
+msgstr " &lt;&lt; "
+
+#: sentmail/deliverreport-show.php:51 sentmail/sentmail-show.php:87
+msgid " &gt;&gt; "
+msgstr " &gt;&gt; "
+
+#: sentmail/deliverreport-show.php:60
+msgid "Delivery Report"
+msgstr "Kézbesítési jelentés"
+
+#: sentmail/deliverreport-show.php:71 sentmail/deliverreport-show.php:82
+#: subscribers/view-subscriber-export.php:37 subscribers/view-subscriber-export.php:45
+#: subscribers/view-subscriber-show.php:352 subscribers/view-subscriber-show.php:366
+msgid "Sno"
+msgstr "Sno"
+
+#: sentmail/deliverreport-show.php:72 sentmail/deliverreport-show.php:83
+msgid "Email"
+msgstr "Email címed"
+
+#: sentmail/deliverreport-show.php:74 sentmail/deliverreport-show.php:85
+#: sentmail/sentmail-show.php:114 sentmail/sentmail-show.php:127
+msgid "Sent"
+msgstr "Elküldve"
+
+#: sentmail/deliverreport-show.php:75 sentmail/deliverreport-show.php:86
+msgid "Sent Date"
+msgstr "Kiküldés dátuma"
+
+#: sentmail/deliverreport-show.php:76 sentmail/deliverreport-show.php:87
+msgid "Viewed Status"
+msgstr "Megnyitás státusza"
+
+#: sentmail/deliverreport-show.php:77 sentmail/deliverreport-show.php:88
+msgid "Viewed Date"
+msgstr "Megnyitás dátuma"
+
+#: sentmail/sentmail-preview.php:42
+msgid "Back"
+msgstr "Előző"
+
+#: sentmail/sentmail-show.php:43
+msgid "Successfully deleted all reports except latest 10."
+msgstr "Minden jelentést törölték, kivéve az utolsó tizet. "
+
+#: sentmail/sentmail-show.php:100
+msgid "It will show reports for all Newsletters & Post Notification emails sent."
+msgstr ""
+"Ez mindent jelentést megmutat a kiküldött hírlevelekről és bejegyzés-értesítő "
+"levelekről"
+
+#: sentmail/sentmail-show.php:110 sentmail/sentmail-show.php:123
+msgid "View Reports"
+msgstr "Jelentés megtekintése"
+
+#: sentmail/sentmail-show.php:112 sentmail/sentmail-show.php:125
+msgid "Type"
+msgstr "Típus"
+
+#: sentmail/sentmail-show.php:115 sentmail/sentmail-show.php:128
+msgid "Start Date"
+msgstr "Indulás Dátuma"
+
+#: sentmail/sentmail-show.php:116 sentmail/sentmail-show.php:129
+msgid "End Date"
+msgstr "Zárás dátuma"
+
+#: sentmail/sentmail-show.php:117 sentmail/sentmail-show.php:130
+msgid "Total"
+msgstr "Teljes"
+
+#: sentmail/sentmail-show.php:118 sentmail/sentmail-show.php:131
+#: subscribers/view-subscriber-export.php:40 subscribers/view-subscriber-export.php:48
+#: subscribers/view-subscriber-show.php:358 subscribers/view-subscriber-show.php:372
+msgid "Action"
+msgstr "Action"
+
+#: sentmail/sentmail-show.php:193
+msgid "Optimize Table & Delete Records"
+msgstr "Az előfizetői adatbázis optimalizálása, előfizetők törlése"
+
+#: sentmail/sentmail-show.php:202
+msgid ""
+"Note: Please click on <strong>Optimize Table & Delete Records</strong> button to "
+"delete all reports except latest 10."
+msgstr ""
+"Kattintson a <strong>Táblázat optimalizálása és adatok törlése</strong> gombra, "
+"hogy az utolsó 10 kivételével törölje az eddigi jelentéseket. "
+
+#: settings/setting-sync.php:16
+msgid "Table sync completed successfully."
+msgstr "Sikeresen szinkronizáltuk a táblákat"
+
+#: settings/setting-sync.php:29
+msgid "Sync plugin tables"
+msgstr "Táblák szinkronizálása"
+
+#: settings/setting-sync.php:33
+msgid "Click to sync tables"
+msgstr "Ide kattintva elkezdődik a táblák szinkronizálása"
+
+#: settings/settings-edit.php:117
+msgid "Please enter sender of notifications from name."
+msgstr "Az értesítőlevél feladójának neve"
+
+#: settings/settings-edit.php:122
+msgid "Please enter sender of notifications from email."
+msgstr "Az értesítőlevél levél feladójának e-mail címe"
+
+#: settings/settings-edit.php:155
+msgid "Settings Saved."
+msgstr "Sikeres mentés"
+
+#: settings/settings-edit.php:158
+msgid "Oops, unable to update."
+msgstr "Nem sikerült menteni. "
+
+#: settings/settings-edit.php:205
+msgid "Sender of Notifications"
+msgstr "Az értesítések küldőjw"
+
+#: settings/settings-edit.php:206
+msgid ""
+"Choose a FROM name and FROM email address for all the emails to be sent from this "
+"plugin."
+msgstr "Add megy, hogy milyen e-mail címről küldjük és mi legyen a küldő neve?"
+
+#: settings/settings-edit.php:216
+msgid "Mail Type"
+msgstr "Az e-mail típusa"
+
+#: settings/settings-edit.php:217
+msgid ""
+"Option 1 & 2 is to send mails with default Wordpress method wp_mail(). Option 3 & 4 "
+"is to send mails with PHP method mail()."
+msgstr ""
+"Az 1. és 2. lehetőség a WordPress beépített levélküldőjét használja, a 3. és 4. "
+"lehetőség pedig a PHP mail funkcióját."
+
+#: settings/settings-edit.php:221
+msgid "1. WP HTML MAIL"
+msgstr "1. WordPress HTML e-mail"
+
+#: settings/settings-edit.php:222
+msgid "2. WP PLAINTEXT MAIL"
+msgstr "2. WordPress e-mail csak szöveg"
+
+#: settings/settings-edit.php:223
+msgid "3. PHP HTML MAIL"
+msgstr "3. PHP HTML e-mail"
+
+#: settings/settings-edit.php:224
+msgid "4. PHP PLAINTEXT MAIL"
+msgstr "4. PHP csak szöveges e-mail"
+
+#: settings/settings-edit.php:232
+msgid ""
+"Double Opt In means subscribers need to confirm their email address by an "
+"activation link sent them on a activation email message.<br />Single Opt In means "
+"subscribers do not need to confirm their email address."
+msgstr ""
+"Kettős opt-in azt jelenti, hogy a feliratkozó egy e-mail cím megerősítő levelet "
+"kap. Az -emailben lévő hivatkozásra kattintva visszaigazolja az e-mail címét, és "
+"utána fogunk csak hírlevelet vagy értesítő levelet küldeni számára."
+
+#: settings/settings-edit.php:236
+msgid "Double Opt In"
+msgstr "Kettős opt-in"
+
+#: settings/settings-edit.php:237 subscribers/view-subscriber-add.php:151
+#: subscribers/view-subscriber-edit.php:150 subscribers/view-subscriber-import.php:178
+#: subscribers/view-subscriber-show.php:303 subscribers/view-subscriber-show.php:330
+msgid "Single Opt In"
+msgstr "Visszaigazolás nélkül"
+
+#: settings/settings-edit.php:243
+msgid "Image Size"
+msgstr "Képméret"
+
+#: settings/settings-edit.php:244
+msgid ""
+"Select image size for ###POSTIMAGE### to be shown in the Post Notification Emails."
+msgstr "Az értesítőlevélben a  ###POTIMAGE### képméretének kiválasztása "
+
+#: settings/settings-edit.php:248
+msgid "Full Size"
+msgstr "Teljes méretű kép"
+
+#: settings/settings-edit.php:249
+msgid "Medium Size"
+msgstr "Közepes méretű kép"
+
+#: settings/settings-edit.php:250
+msgid "Thumbnail"
+msgstr "Bélyegkép"
+
+#: settings/settings-edit.php:270
+msgid "Double Opt In Confirmation Link"
+msgstr "E-mail visszaigazoló linke"
+
+#: settings/settings-edit.php:271
+msgid "It is a readonly field and you are advised not to modify it."
+msgstr "Csak olvasható mező"
+
+#: settings/settings-edit.php:278
+msgid ""
+"This text will be displayed once user clicks on email confirmation link from the "
+"Double Opt In (confirmation) Email."
+msgstr ""
+"Ez a szöveg fog megjelenni, amikor a felhasználó az e-mail visszaigazoló linkre "
+"kattint"
+
+#: settings/settings-edit.php:285
+msgid "Subscriber Welcome Email"
+msgstr "Az előfizetőt üdvözlő e-mail"
+
+#: settings/settings-edit.php:286
+msgid ""
+"To send welcome email to subscriber after successful signup. This option must be "
+"set to YES."
+msgstr "Ha szeretnéd egy levélben üdvözölni az új feliratkozót, állítsd IGEN-re"
+
+#: settings/settings-edit.php:297
+msgid "Subscriber Welcome Email Subject"
+msgstr "Az üdvözlő levél tárgya"
+
+#: settings/settings-edit.php:304
+msgid "Subscriber Welcome Email Content"
+msgstr "Az új feliratkozót üdvözlő e-mail tartalma"
+
+#: settings/settings-edit.php:313
+msgid "Unsubscribe Link"
+msgstr "Leiratkozó link"
+
+#: settings/settings-edit.php:320
+msgid "Unsubscribe Text in Email"
+msgstr "A leiratkozó link szövete"
+
+#: settings/settings-edit.php:321
+msgid ""
+"Enter the text for the unsubscribe link. This text is added with unsubscribe link "
+"in the emails. (Keyword: ###LINK###)"
+msgstr ""
+"A leiratkozó link szövege. Ezt a szöveget adjuk a leiratkozó linkhez. (rövidítés: "
+"###LINK###)"
+
+#: settings/settings-edit.php:328
+msgid "This text will be displayed once user clicks on unsubscribe link."
+msgstr "Ezt a szöveget írjuk ki, ha valaki leiratkozik listáról"
+
+#: settings/settings-edit.php:336
+msgid ""
+"Default message to display if there is any issue while clicking on confirmation "
+"link from the Double Opt In (confirmation) Emails."
+msgstr ""
+"Ezt a hibaüzenetet írjuk ki, ha bármi miatt nem fogadjuk el a visszaigazoló linkre "
+"kattintást. "
+
+#: settings/settings-edit.php:343
+msgid ""
+"Default message to display if there is any issue while clicking on unsubscribe link "
+"from the Emails."
+msgstr ""
+"Ezt az üzenetet írjuk ki, ha valamiért nem tudjuk a leiratkozást megvalósítani"
+
+#: settings/settings-edit.php:350
+msgid "Admin Email Addresses"
+msgstr "Az adminisztrátor e-mail címei"
+
+#: settings/settings-edit.php:351
+msgid ""
+"Enter the admin email addresses that should receive notifications (separated by "
+"comma)."
+msgstr ""
+"Azoknak az adminisztrátoroknak az e-mail címe, akik értesítést kapnak a levelek "
+"küldéséről"
+
+#: settings/settings-edit.php:358
+msgid ""
+"To send admin email notifications for the new subscriber. This option must be set "
+"to YES."
+msgstr ""
+"Ha szeretnénk, hogy az adminisztrátor értesüljön egy új feliratkozóról, állítsuk "
+"\"IGEN\"-re. "
+
+#: settings/settings-edit.php:385
+msgid "Sent Report Subject"
+msgstr "A levél kiküldés értesítőlevelének tárgya"
+
+#: settings/settings-edit.php:392
+msgid "Sent Report Content"
+msgstr "Az elküldött levelek értesítőlevelének tartalma"
+
+#: settings/settings-edit.php:403
+msgid "Save Settings"
+msgstr "Beállítások mentése"
+
+#: subscribers/view-subscriber-add.php:36 subscribers/view-subscriber-edit.php:54
+msgid "Please enter subscriber email address."
+msgstr "Írd be az előfizető e-mail címét!"
+
+#: subscribers/view-subscriber-add.php:49
+msgid "Please select or create your group for this email."
+msgstr "Melyik előfizetői csoportnak küldöd ki az e-mailt? "
+
+#: subscribers/view-subscriber-add.php:56
+msgid ""
+"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in the "
+"group name."
+msgstr ""
+"HIBA: Ne legyenek ilyen karakterek a csoport nevében: ['^$%&*()}{@#~?><>,|=_+\\\"]"
+
+#: subscribers/view-subscriber-add.php:66
+msgid "Subscriber has been saved."
+msgstr "Feliratkozót mentettem."
+
+#: subscribers/view-subscriber-add.php:68
+msgid "Subscriber already exists."
+msgstr "Ilyen címmel már feliratkoztak"
+
+#: subscribers/view-subscriber-add.php:71
+msgid "Invalid Email."
+msgstr "Hibás e-mail cím"
+
+#: subscribers/view-subscriber-add.php:110 subscribers/view-subscriber-edit.php:109
+#: subscribers/view-subscriber-export.php:27
+#: subscribers/view-subscriber-import.php:143 subscribers/view-subscriber-show.php:242
+#: subscribers/view-subscriber-sync.php:89
+msgid "Add New Subscriber"
+msgstr "Új előfizető hozzáadása"
+
+#: subscribers/view-subscriber-add.php:111 subscribers/view-subscriber-edit.php:110
+#: subscribers/view-subscriber-export.php:28
+#: subscribers/view-subscriber-import.php:210 subscribers/view-subscriber-show.php:243
+#: subscribers/view-subscriber-sync.php:90
+msgid "Import"
+msgstr "Importálás"
+
+#: subscribers/view-subscriber-add.php:112 subscribers/view-subscriber-edit.php:111
+#: subscribers/view-subscriber-import.php:144 subscribers/view-subscriber-show.php:244
+#: subscribers/view-subscriber-sync.php:91
+msgid "Export"
+msgstr "Exportálás"
+
+#: subscribers/view-subscriber-add.php:113 subscribers/view-subscriber-edit.php:112
+#: subscribers/view-subscriber-export.php:29
+#: subscribers/view-subscriber-import.php:145 subscribers/view-subscriber-show.php:245
+#: subscribers/view-subscriber-sync.php:143
+msgid "Sync"
+msgstr "Szinkronizálás"
+
+#: subscribers/view-subscriber-add.php:123
+msgid "Enter Subscriber's Full name"
+msgstr "Írd be az előfizető nevét!"
+
+#: subscribers/view-subscriber-add.php:133
+msgid "Enter Subscriber's Email Address"
+msgstr "Írd be az előfizető e-mail címét!"
+
+#: subscribers/view-subscriber-add.php:143
+msgid "Select Subscriber's Status"
+msgstr "Előfizető státuszának kiválasztása"
+
+#: subscribers/view-subscriber-add.php:148 subscribers/view-subscriber-edit.php:147
+#: subscribers/view-subscriber-import.php:175 subscribers/view-subscriber-show.php:300
+#: subscribers/view-subscriber-show.php:327
+msgid "Confirmed"
+msgstr "Megerősítve"
+
+#: subscribers/view-subscriber-add.php:149 subscribers/view-subscriber-edit.php:148
+#: subscribers/view-subscriber-import.php:176 subscribers/view-subscriber-show.php:301
+#: subscribers/view-subscriber-show.php:328
+msgid "Unconfirmed"
+msgstr "Nem megerősített"
+
+#: subscribers/view-subscriber-add.php:150 subscribers/view-subscriber-edit.php:149
+#: subscribers/view-subscriber-import.php:177 subscribers/view-subscriber-show.php:302
+#: subscribers/view-subscriber-show.php:329
+msgid "Unsubscribed"
+msgstr "Leiratkozva"
+
+#: subscribers/view-subscriber-add.php:158
+msgid "Select (or) Create Group for Subscriber"
+msgstr "Előfizetői csoport kiválasztása vagy létrehozása"
+
+#: subscribers/view-subscriber-add.php:174 subscribers/view-subscriber-import.php:202
+msgid "(or)"
+msgstr "(vagy)"
+
+#: subscribers/view-subscriber-add.php:183
+msgid "Add Subscriber"
+msgstr "Új előfizető hozzáadása"
+
+#: subscribers/view-subscriber-edit.php:64
+msgid "Error: Special characters are not allowed in the group name."
+msgstr "HIBA: csak betű és szám legyen a csoport nevében"
+
+#: subscribers/view-subscriber-edit.php:74
+msgid "Subscriber details updated."
+msgstr "Az előfizető adatainak mentése"
+
+#: subscribers/view-subscriber-edit.php:76
+msgid "Subscriber already exists for this group."
+msgstr "Ilyen felhasználó már szerepel ebben a csoportban"
+
+#: subscribers/view-subscriber-edit.php:108
+msgid "Edit Subscriber"
+msgstr "Előfizetők szerkesztése"
+
+#: subscribers/view-subscriber-edit.php:122
+msgid "Subscriber's Full Name"
+msgstr "Az előfizető teljes neve"
+
+#: subscribers/view-subscriber-edit.php:132
+msgid "Subscriber's Email Address"
+msgstr "A feliratkozó e-mail címe"
+
+#: subscribers/view-subscriber-edit.php:142
+msgid "Update Subscriber's Status"
+msgstr "Előfizető státuszának mentése"
+
+#: subscribers/view-subscriber-edit.php:157
+msgid "Update Subscriber's Group"
+msgstr "Az előfizetői csoport mentése"
+
+#: subscribers/view-subscriber-export.php:26
+msgid "Export Email Addresses"
+msgstr "E-mail címek exportálása"
+
+#: subscribers/view-subscriber-export.php:38 subscribers/view-subscriber-export.php:46
+msgid "Type of List to Export"
+msgstr "Milyen típusú fájlba exportáljunk? "
+
+#: subscribers/view-subscriber-export.php:53
+msgid "1"
+msgstr "1"
+
+#: subscribers/view-subscriber-export.php:56 subscribers/view-subscriber-export.php:62
+#: subscribers/view-subscriber-export.php:68
+msgid "Click to Export in CSV"
+msgstr "CSV fájl exportálása"
+
+#: subscribers/view-subscriber-export.php:59
+msgid "2"
+msgstr "2"
+
+#: subscribers/view-subscriber-export.php:60
+msgid "WordPress Registered Users"
+msgstr "Regisztrált felhasználó"
+
+#: subscribers/view-subscriber-export.php:65
+msgid "3"
+msgstr "3"
+
+#: subscribers/view-subscriber-export.php:66
+msgid "Commented Authors"
+msgstr "Hozzászóló felhasználó"
+
+#: subscribers/view-subscriber-import.php:44
+msgid ""
+"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in the "
+"Group name."
+msgstr "HIBA: Az alábbi karakterek nem engedélyezettek: ['^$%&*()}{@#~?><>,|=_+\\\"])"
+
+#: subscribers/view-subscriber-import.php:92
+msgid "email imported."
+msgstr "Az e-maileket sikeresen importáltuk"
+
+#: subscribers/view-subscriber-import.php:93
+msgid "email already exists."
+msgstr "Már létező e-mail cím"
+
+#: subscribers/view-subscriber-import.php:94
+msgid "email are invalid."
+msgstr "Érvénytelen az e-mail cím"
+
+#: subscribers/view-subscriber-import.php:97
+#: subscribers/view-subscriber-import.php:126
+msgid "Click here"
+msgstr "Kattintás ide"
+
+#: subscribers/view-subscriber-import.php:97
+#: subscribers/view-subscriber-import.php:126
+msgid " to view details."
+msgstr "a részletek megtekintése"
+
+#: subscribers/view-subscriber-import.php:105
+msgid "File Upload Failed."
+msgstr "Nem sikerült az importálás"
+
+#: subscribers/view-subscriber-import.php:142
+msgid "Import Email Addresses"
+msgstr "E-mail címek importálása"
+
+#: subscribers/view-subscriber-import.php:155
+msgid "Select CSV file"
+msgstr "CSV fájl kiválasztása"
+
+#: subscribers/view-subscriber-import.php:157
+msgid "Check CSV structure "
+msgstr "A  CSV fájl struktúrájának ellenőrzése"
+
+#: subscribers/view-subscriber-import.php:158
+msgid "from here"
+msgstr "Inne"
+
+#: subscribers/view-subscriber-import.php:169
+msgid "Select Subscribers Email Status"
+msgstr "Válaszd ki az előfizetők státuszát"
+
+#: subscribers/view-subscriber-import.php:185
+msgid "Select (or) Create Group for Subscribers"
+msgstr "Válasszd ki az előfizetői csoportot, vagy hozz létre újat"
+
+#: subscribers/view-subscriber-show.php:45
+msgid "Selected details does not exists."
+msgstr "A kiválasztottak nincsenek meg"
+
+#: subscribers/view-subscriber-show.php:56 subscribers/view-subscriber-show.php:95
+msgid "Record deleted."
+msgstr "Törölve"
+
+#: subscribers/view-subscriber-show.php:67
+msgid "To send confirmation email, please change the Opt-in option to Double Opt In."
+msgstr ""
+"Ha szeretnél visszagiazoló levelet küldeni, a Beállítások menüben az Opt-in "
+"beállítást \"kettős opt-in\" - re kell változtatni."
+
+#: subscribers/view-subscriber-show.php:75 subscribers/view-subscriber-show.php:134
+msgid "Confirmation emails Resent Successfully."
+msgstr "A visszaigazolást kérő levelet ismét kiküldtük."
+
+#: subscribers/view-subscriber-show.php:100 subscribers/view-subscriber-show.php:139
+#: subscribers/view-subscriber-show.php:177 subscribers/view-subscriber-show.php:216
+msgid "No record was selected."
+msgstr "Nem választottál ki egyetlen adatot sem"
+
+#: subscribers/view-subscriber-show.php:115
+msgid "To send confirmation mail, please change the Opt-in option to Double Opt In."
+msgstr "Ha szeretnél e-mail visszaigazoló levelet küldeni, válaszd a kettős opt-in-t!"
+
+#: subscribers/view-subscriber-show.php:163
+msgid "Subscribers Group updated."
+msgstr "A feliratkozók csoportját frissítettük"
+
+#: subscribers/view-subscriber-show.php:168
+msgid "Please select New group to update."
+msgstr "Választ ki egy új feliratkozói csoportot"
+
+#: subscribers/view-subscriber-show.php:202
+msgid "Subscribers Status updated."
+msgstr "A feliratkozók státuszát frissítettük. "
+
+#: subscribers/view-subscriber-show.php:207
+msgid "Please select New Status to update."
+msgstr "Válaszd ki a feliratkozók új státuszát"
+
+#: subscribers/view-subscriber-show.php:277
+msgid "Bulk Actions"
+msgstr "Tömeges műveletek"
+
+#: subscribers/view-subscriber-show.php:279 subscribers/view-subscriber-show.php:412
+msgid "Resend Confirmation"
+msgstr "A visszaigazoló levél újbóli kiküldése"
+
+#: subscribers/view-subscriber-show.php:281
+msgid "Update Subscribers Status"
+msgstr "Frissítettük a feliratkozók státuszát"
+
+#: subscribers/view-subscriber-show.php:284
+msgid "Select Group"
+msgstr "Előfizetői csoport kiválasztása"
+
+#: subscribers/view-subscriber-show.php:305
+msgid "Apply"
+msgstr "Alkalmaz"
+
+#: subscribers/view-subscriber-show.php:309
+msgid "All Groups"
+msgstr "Minden előfizetői csoport"
+
+#: subscribers/view-subscriber-show.php:326
+msgid "All Status"
+msgstr "Minden státusz"
+
+#: subscribers/view-subscriber-show.php:333
+msgid "1 to 200 emails"
+msgstr "1 - 200"
+
+#: subscribers/view-subscriber-show.php:334
+msgid "201 to 400"
+msgstr "201 - 400"
+
+#: subscribers/view-subscriber-show.php:335
+msgid "401 to 600"
+msgstr "401 - 600"
+
+#: subscribers/view-subscriber-show.php:336
+msgid "601 to 800"
+msgstr "601 - 800"
+
+#: subscribers/view-subscriber-show.php:337
+msgid "801 to 1000"
+msgstr "801 - 1000"
+
+#: subscribers/view-subscriber-show.php:338
+msgid "1001 to 2000"
+msgstr "1001 - 2000"
+
+#: subscribers/view-subscriber-show.php:339
+msgid "2001 to 5000"
+msgstr "2001 - 5000"
+
+#: subscribers/view-subscriber-show.php:340
+msgid "5001 to 10000"
+msgstr "5001 - 10000"
+
+#: subscribers/view-subscriber-show.php:341
+msgid "Display All"
+msgstr "Mindent megjelenít"
+
+#: subscribers/view-subscriber-show.php:353 subscribers/view-subscriber-show.php:367
+msgid "Email Address"
+msgstr "E-mail cím"
+
+#: subscribers/view-subscriber-show.php:356 subscribers/view-subscriber-show.php:370
+msgid "Group"
+msgstr "Előfizetői csoport"
+
+#: subscribers/view-subscriber-show.php:357 subscribers/view-subscriber-show.php:371
+msgid "Signup Date<br>(YYYY-MM-DD)"
+msgstr "A feliratkozás dátuma: <br>(YYYY-MM-DD)"
+
+#: subscribers/view-subscriber-sync.php:36
+msgid "Please select default group to newly registered user."
+msgstr "Válaszd ki, hogy melyik csoportba kerüljenek az új feliratkozók"
+
+#: subscribers/view-subscriber-sync.php:50
+msgid "Emails Successfully Synced."
+msgstr "Sikeres szinkronizálás"
+
+#: subscribers/view-subscriber-sync.php:88
+msgid "Sync Email"
+msgstr "E-mailek szinkronizálása"
+
+#: subscribers/view-subscriber-sync.php:101
+msgid "Sync newly registered users to subscribers list"
+msgstr "Az újjonan feliratkozottak szinkronizálása a meglévőkkel"
+
+#: subscribers/view-subscriber-sync.php:114
+msgid "Select group to add newly registered users to"
+msgstr "Válaszd ki, hogy az új feliratkozók melyik csoportba kerüljenek!"
+
+#. Plugin Name of the plugin/theme
+msgid "Email Subscribers & Newsletters"
+msgstr "Email Subscribers & Newsletters"
+
+#. #-#-#-#-#  tmp-email-subscribers.pot (Email Subscribers & Newsletters 3.2.3)
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tmp-email-subscribers.pot (Email Subscribers & Newsletters 3.2.3)
+#. Author URI of the plugin/theme
+msgid "http://www.icegram.com/"
+msgstr "http://www.icegram.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"Add subscription forms on website, send HTML newsletters & automatically notify "
+"subscribers about new blog posts once it is published."
+msgstr ""
+"A feliratkozó űrlap hozzáadása, HTML hírlevél és új bejegyzés értesítő (e-mail "
+"küldése, amikor egy bejegyzést közzétesznek)"
+
+#. Author of the plugin/theme
+msgid "Icegram"
+msgstr "Icegram"

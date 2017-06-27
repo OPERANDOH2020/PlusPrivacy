@@ -1,15 +1,4 @@
-ospApp.requires.push('ngIntlTelInput');
-
-ospApp
-    .config(function (ngIntlTelInputProvider) {
-        ngIntlTelInputProvider.set({
-            initialCountry: 'gb',
-            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                return "Phone e.g. " + selectedCountryPlaceholder;
-            }
-        });
-    });
-ospApp.controller("OSPSignupController", function ($scope, connectionService, SharedService) {
+angular.module("ospApp").controller("OSPSignupController", function ($scope, connectionService) {
 
     $scope.requestInProgress = false;
     $scope.user = {};
@@ -38,9 +27,5 @@ ospApp.controller("OSPSignupController", function ($scope, connectionService, Sh
         $scope.$apply();
     };
 
-    SharedService.setLocation("ospRegister");
 });
 
-angular.element(document).ready(function() {
-    angular.bootstrap(document.getElementById('osp_register'), ['plusprivacy']);
-});

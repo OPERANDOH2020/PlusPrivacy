@@ -1,8 +1,3 @@
-ospApp.requires.push('ngMaterial');
-ospApp.requires.push('ngMessages');
-ospApp.requires.push('mdPickers');
-ospApp.requires.push('datatables');
-
 function AddOspOfferController($scope, $element, $rootScope, close, connectionService, Notification, offer, modalTitle, saveBtn) {
 
     $scope.offer = offer;
@@ -55,12 +50,13 @@ function AddOspOfferController($scope, $element, $rootScope, close, connectionSe
             $rootScope.$broadcast("newOfferAdded", offer);
 
             Notification.success({
-                message: 'OSP request approved!',
+                message: 'Offer updated!',
                 positionY: 'bottom',
                 positionX: 'center',
                 delay: 2000
             });
         }, function (error) {
+            $scope.closeModal();
             Notification.error({
                 message: 'An error occurred! Please try again or refresh this page!',
                 positionY: 'bottom',
@@ -82,7 +78,7 @@ function AddOspOfferController($scope, $element, $rootScope, close, connectionSe
     };
 }
 
-function OspOffersController($scope, $rootScope, connectionService, DTColumnDefBuilder, ModalService, Notification, userService, SharedService) {
+function OspOffersController($scope, $rootScope, connectionService, DTColumnDefBuilder, ModalService, Notification, userService) {
 
     $scope.$on("newOfferAdded", function (event, offer) {
         if (!$scope.offers) {
@@ -156,7 +152,7 @@ function OspOffersController($scope, $rootScope, connectionService, DTColumnDefB
 
     $scope.addNewOfferModal = function () {
         ModalService.showModal({
-            templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/osp/modals/addNewOffer.html',
+            templateUrl: '/assets/templates/modals/addNewOffer.html',
             controller: AddOspOfferController,
             inputs: {
                 offer: {},
@@ -170,7 +166,7 @@ function OspOffersController($scope, $rootScope, connectionService, DTColumnDefB
 
     $scope.modifyOffer = function (offerId) {
         ModalService.showModal({
-            templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/osp/modals/addNewOffer.html',
+            templateUrl: '/assets/templates/modals/addNewOffer.html',
             controller: AddOspOfferController,
             inputs: {
                 offer: angular.copy(getOfferById(offerId)),
@@ -187,7 +183,7 @@ function OspOffersController($scope, $rootScope, connectionService, DTColumnDefB
 
     $scope.deleteOspOffer = function (offerId) {
         ModalService.showModal({
-            templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/osp/modals/deleteOffer.html',
+            templateUrl: '/assets/templates/modals/deleteOffer.html',
             controller: function ($scope, close) {
                 $scope.deleteOffer = function () {
                     connectionService.deleteOspOffer(offerId, function () {
@@ -218,11 +214,6 @@ function OspOffersController($scope, $rootScope, connectionService, DTColumnDefB
     };
 
     userService.getUser(listOffers);
-    SharedService.setLocation("ospZone");
 };
 
-ospApp.controller("ospOffersController", OspOffersController);
-
-angular.element(document).ready(function () {
-    angular.bootstrap(document.getElementById('osp-offers'), ['plusprivacy']);
-});
+angular.module("ospApp").controller("ospOffersController", OspOffersController);

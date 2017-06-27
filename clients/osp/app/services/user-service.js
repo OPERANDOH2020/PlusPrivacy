@@ -1,4 +1,4 @@
-angular.module('sharedService').factory("userService", ["connectionService", function (connectionService){
+angular.module('ospApp').factory("userService", ["connectionService", function (connectionService){
     var UserService;
     UserService = (function () {
 
@@ -39,10 +39,15 @@ angular.module('sharedService').factory("userService", ["connectionService", fun
             isAuthenticated = true;
             user = _user;
 
-            while(waitingUserCallbacks.length>0){
+
+            for(var c = 0; c<waitingUserCallbacks.length; c++){
+                waitingUserCallbacks[c](user);
+            }
+            /*while(waitingUserCallbacks.length>0){
                 var waitingUserCbk = waitingUserCallbacks.pop();
                 waitingUserCbk(user);
-            }
+            }*/
+
         };
 
         UserService.prototype.getUser = function (callback) {

@@ -1,4 +1,4 @@
-angular.module("ospApp").controller("ospLoginController", function ($scope, connectionService, messengerService, userService,SharedService,$window) {
+angular.module("ospApp").controller("ospLoginController", function ($scope, connectionService, userService, Notification) {
 
     $scope.requestProcessed = false;
     $scope.user = {
@@ -10,9 +10,17 @@ angular.module("ospApp").controller("ospLoginController", function ($scope, conn
         $scope.successMessage = false;
         $scope.requestProcessed = true;
         $scope.accountNotActivated = false;
-        connectionService.loginUser($scope.user, "OSP", function (user) {
+        connectionService.loginUser($scope.user, function (user) {
 
-                $window.location="/osp-offers";
+                userService.setUser(user);
+                Notification.success({
+                    message: 'Logged in!',
+                    positionY: 'bottom',
+                    positionX: 'center',
+                    delay: 2000
+                });
+
+                window.location.assign("/#offers");
 
             },
             function (error) {
@@ -49,10 +57,5 @@ angular.module("ospApp").controller("ospLoginController", function ($scope, conn
         })
     };
 
-    SharedService.setLocation("ospLogin");
-
 });
 
-angular.element(document).ready(function() {
-    angular.bootstrap(document.getElementById('osp_login'), ['plusprivacy']);
-});

@@ -1,3 +1,105 @@
-<div>
-    Account
+<h2>Account Details</h2>
+
+<div class="tab-pane active" id="personal_details" ng-controller="accountCtrl as account">
+
+    <div class="account_panel">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <label>Email address (main identity)</label>
+
+                <form ng-submit="updateEmail()">
+                    <div class="input-group">
+                        <input type="email" class="form-control" ng-model="email"
+                               ng-disabled="emailIsEditMode == false">
+                                <span class="input-group-btn" ng-switch on="emailIsEditMode">
+                                    <button ng-click="changeEmailState()" class="btn btn-secondary edit_email" type="button"
+                                            ng-switch-when="false">Edit
+                                    </button>
+                                    <button class="btn btn-secondary save_email" type="submit"
+                                            ng-switch-when="true">Save
+                                    </button>
+                                </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12" ng-switch on="passwordIsEditMode">
+
+                <div ng-switch-when="false">
+                    <label>Password</label>
+
+                    <div class="input-group">
+                        <input type="password" class="form-control" value="************" disabled>
+
+                                <span class="input-group-btn" ng-switch on="passwordIsEditMode">
+                                    <button ng-click="changePassword()" class="btn btn-secondary change_password" type="button">Change
+                                    </button>
+                                </span>
+                    </div>
+                </div>
+
+                <div ng-switch-when="true">
+                    <div>
+                        <form ng-submit="account.savePassword()" name="account.changePasswordForm">
+                            <fieldset class="form-group">
+                                <label>Change your password</label>
+                                <input type="password" class="form-control" placeholder="Current password"
+                                       ng-model="user.currentPassword" required name="currentPassword">
+
+                                <div class="invalid-field"
+                                     ng-messages="account.changePasswordForm.currentPassword.$error"
+                                     ng-show="account.changePasswordForm.currentPassword.$touched">
+                                    <div ng-messages-include="/assets/templates/messages/messages.html"></div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group has-feedback"
+                                      ng-class="{'has-success':account.changePasswordForm.newPassword.$valid}">
+                                <input type="password" class="form-control" placeholder="New password"
+                                       ng-model="user.newPassword" required different-from="user.currentPassword"
+                                       name="newPassword">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"
+                                      ng-if="account.changePasswordForm.newPassword.$valid"></span>
+
+                                <div class="invalid-field" ng-messages="account.changePasswordForm.newPassword.$error"
+                                     ng-show="account.changePasswordForm.newPassword.$touched">
+                                    <div ng-messages-include="/assets/templates/messages/messages.html"></div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group has-feedback"
+                                      ng-class="{'has-success':account.changePasswordForm.confirmPassword.$valid}">
+                                <input type="password" class="form-control" placeholder="Repeat password"
+                                       ng-model="user.confirmPassword" required compare-to="user.newPassword"
+                                       name="confirmPassword">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"
+                                      ng-if="account.changePasswordForm.confirmPassword.$valid"></span>
+
+                                <div class="invalid-field"
+                                     ng-messages="account.changePasswordForm.confirmPassword.$error"
+                                     ng-show="account.changePasswordForm.confirmPassword.$touched">
+                                    <div ng-messages-include="/assets/templates/messages/messages.html"></div>
+                                </div>
+                            </fieldset>
+
+                            <div>
+                                <button class="btn btn-secondary" type="submit" ng-click="loading($event)"
+                                        ng-disabled="account.changePasswordForm.$invalid"
+                                        data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
 </div>

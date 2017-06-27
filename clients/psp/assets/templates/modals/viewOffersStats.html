@@ -1,0 +1,40 @@
+<div class="modal fade" ng-controller="TableController">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">{{ospTitleOffer}} offers statistics</h3>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordered" id="osp_offers_table" datatable="ng" dt-column-defs="offerStatsColumnDefs"
+                       dt-options="offerStatsOptions" dt-instance="offerStatsInstance" id="offer_stats">
+                    <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Nr. of contracts</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="offer in offersStats">
+                        <td><img width="16px" ng-cloak data-ng-src="data:image/png;base64,{{offer.logo}}"></td>
+                        <td>{{offer.name}}</td>
+                        <td>{{offer.description}}</td>
+                        <td>{{offer.start_date|timestampToDateFormat}}</td>
+                        <td>{{offer.end_date|timestampToDateFormat}}</td>
+                        <td>{{offer.deals_number}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

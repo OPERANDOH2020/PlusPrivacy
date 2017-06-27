@@ -32,9 +32,6 @@ angular.module('sharedService', []).factory('SharedService', function () {
             }
         };
 
-
-        SharedService.prototype.hasAccess
-
         return SharedService;
     })();
 

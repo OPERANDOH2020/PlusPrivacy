@@ -71,6 +71,9 @@ function TableController ($scope, DTColumnDefBuilder,$q){
             }
         ]
     };
+
+
+
 }
 
 privacyPlusApp.controller("TableController",TableController);

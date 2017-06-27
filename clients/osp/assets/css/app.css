@@ -9,8 +9,8 @@
     max-width: 500px;
     padding: 30px 38px 66px;
     margin: 0 auto;
-    background-color: #eee;
-    border: 1px solid rgba(0,0,0,0.1);
+    background-color: #fff6e0;
+    border: 1px solid #d4a83b;
 }
 .registration_successfully{
     max-width: 560px;
@@ -246,7 +246,12 @@ body {
 }
 #content {
     height: 100%;
+    margin-top: -80px;
+    padding-top: 80px;
+    overflow: auto;
+    background: url("/assets/css/images/background.jpg") no-repeat center center;
 }
+
 .md-datepicker {
     max-height: initial;
 }
@@ -376,6 +381,13 @@ clear:both;
 content: "";
 }
 
+td.offers_description{
+    width: 40%;
+}
+td.offers_logo{
+    vertical-align: middle;
+    text-align: center;
+}
 
 a.dt-button.buttons-excel,
 a.dt-button.buttons-csv,
@@ -526,7 +538,7 @@ ul.nav-tabs>li.active>a, ul.nav-tabs>li.active>a:focus, ul.nav-tabs>li.active>a:
     height:32px;
     display:block;
     margin: 0 auto;
-
+    cursor: pointer;
 }
 .description_popover + .popover{
     max-width:700px
@@ -556,3 +568,58 @@ ul.nav-tabs>li.active>a, ul.nav-tabs>li.active>a:focus, ul.nav-tabs>li.active>a:
     vertical-align: middle;
 }
 
+#landing_page {
+    background: url(/assets/css/images/osp_background.jpg) no-repeat center 0%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    background-size: cover;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.table-bordered {
+    border: 1px solid #d4a83b;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #D4A83A;
+}
+
+.account_panel{
+    padding: 20px;
+    background: #fff6e0;
+    border: 1px solid #d4a83b;
+}
+.account_panel button.change_password,
+.account_panel button.save_email,
+.account_panel button.edit_email{
+height: 40px;
+border: 1px solid #CCC;
+}
+
+.dropdown .logged_in_as{
+    white-space: nowrap;
+    padding:10px;
+}
+
+li.logged_in_feature ul{
+    padding: 0;
+}
+.current_user_email{
+    padding: 5px 10px;
+}
+.current_user_email .glyphicon{
+    position: absolute;
+    top:15px;
+}
+.current_user_email span.user_email{
+    margin-left: 20px;
+}
+.content-wrapper h2{
+    color: #af861f;
+    padding: 0px 0px 10px;
+}

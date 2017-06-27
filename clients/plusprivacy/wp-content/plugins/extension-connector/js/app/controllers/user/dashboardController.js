@@ -25,7 +25,7 @@ privacyPlusApp.controller("dashboardController", function ($scope, userService,S
         });
     };
 
-    SharedService.setLocation("userZone");
+    SharedService.setLocation("userDashboard");
 });
 angular.element(document).ready(function() {
     angular.bootstrap(document.getElementById('user_dashboard'), ['plusprivacy']);

@@ -11,7 +11,7 @@
  */
 
 
-angular.module('sharedService').service("swarmService", function () {
+angular.module('ospApp').service("swarmService", function () {
 
     var SwarmService = (function () {
 

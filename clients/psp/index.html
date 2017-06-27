@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>PlusPrivacy - PSP</title>
+
+    <base href="/">
+    <link rel="stylesheet" href="imports/angular-ui-notification/angular-ui-notification.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.vertical-tabs.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap/plusprivacy-theme.css"/>
+    <link rel="stylesheet" href="assets/css/app.css"/>
+    <link rel="stylesheet" href="assets/css/page.css"/>
+    <link rel="stylesheet" href="assets/css/custom_page.css"/>
+    <link rel="stylesheet" href="imports/ng-intel-tel-input/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="imports/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="imports/mdPickers/mdPickers.min.css"/>
+    <link rel="stylesheet" href="imports/angular-datatables/datatables.bootstrap.min.css"/>
+
+    <script type="text/javascript" src="imports/jQuery/jquery.js"></script>
+    <script type="text/javascript" src="imports/js.cookie.js"></script>
+    <script type="text/javascript" src="assets/js/globals.js"></script>
+    <script type="text/javascript" src="imports/bootstrap/bootstrap.min.js"></script>
+    <!--swarm client-->
+    <script type="text/javascript" src="imports/swarm-services/socket.io-1.0.6.js"></script>
+    <script type="text/javascript" src="imports/swarm-services/SwarmDebug.js"></script>
+    <script type="text/javascript" src="imports/swarm-services/SwarmClient.js"></script>
+    <script type="text/javascript" src="imports/swarm-services/SwarmHub.js"></script>
+    <!--Angular dependencies-->
+    <script type="text/javascript" src="imports/angular/angular.min.js"></script>
+    <script type="text/javascript" src="imports/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="imports/momentjs/moment.js"></script>
+    <script type="text/javascript" src="imports/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="imports/angular-chart/chart.js"></script>
+    <script type="text/javascript" src="imports/angular-chart/angular-chart.min.js"></script>
+    <script type="text/javascript" src="imports/angular-strap/angular-strap.min.js"></script>
+    <script type="text/javascript" src="imports/angular-strap/angular-strap.tpl.js"></script>
+    <script type="text/javascript" src="imports/angular-modal/angular-modal-service.js"></script>
+    <script type="text/javascript" src="imports/angular-ui-notification/angular-ui-notification.min.js"></script>
+    <script type="text/javascript" src="imports/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="imports/oc-lazy-load/ocLazyLoad.min.js"></script>
+    <script type="text/javascript" src="imports/ng-intel-tel-input/js/intlTelInput.min.js"></script>
+    <script type="text/javascript" src="imports/ng-intel-tel-input/js/utils.js"></script>
+    <script type="text/javascript" src="imports/ng-intel-tel-input/ng-intl-tel-input.directive.js"></script>
+    <script type="text/javascript" src="imports/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="imports/angular-messages/angular-messages.min.js"></script>
+    <script type="text/javascript" src="imports/mdPickers/mdPickers.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/angular-datatables.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/angular-datatables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/exports/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/exports/jszip.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/exports/pdfmake.min.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/exports/vfs_fonts.js"></script>
+    <script type="text/javascript" src="imports/angular-datatables/exports/buttons.html5.min.js"></script>
+
+    <script type="text/javascript" src="app/config.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+
+    <script type="text/javascript" src="app/directives/datePicker.js"></script>
+    <script type="text/javascript" src="app/directives/loader.js"></script>
+    <script type="text/javascript" src="app/directives/navigation-menu.js"></script>
+
+    <script type="text/javascript" src="app/services/connectionService.js"></script>
+    <script type="text/javascript" src="app/services/messengerService.js"></script>
+    <script type="text/javascript" src="app/services/swarm-service.js"></script>
+    <script type="text/javascript" src="app/services/user-service.js"></script>
+
+    <script type="text/javascript" src="/app/controllers/layoutController.js"></script>
+
+    <script type="text/javascript" src="/app/controllers/pspDashboardController.js"></script>
+    <script type="text/javascript" src="/app/controllers/pspLoginController.js"></script>
+
+</head>
+
+
+<body ng-app="pspApp" class="design-full-screen navbar-large-offset navbar-offset layout-full-width">
+<header id="masthdead" class="site-hedader navbar-large navbar navbar-fixed-top navbar-default" role="banner">
+
+    <div class="container">
+        <div class="branding navbar-header" itemscope="" itemtype="http://schema.org/WPHeader">
+            <button class="navicon navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" rel="home">
+                <img src="/assets/css/images/psp_logo.png" class="site-logo"  alt="PlusPrivacy" > <span class="site-title-text hidden">PlusPrivacy</span></a>
+        </div>
+        <nav id="site-navigation" class="menu-container navbar-collapse collapse" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement"><h2 class="screen-reader-text sr-only" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">Menu</h2>
+            <navigation-menu></navigation-menu>
+        </nav>
+
+    </div>
+</header>
+
+
+
+<div id="content" class="site-content" ng-controller="layoutController" ng-switch on="pagename()">
+
+    <div class="full-width" ng-switch-when="/">
+        <div ng-view></div>
+    </div>
+
+    <div class="container" ng-switch-default >
+        <div class="content-sidebar-wrapper" >
+            <div class="row">
+                <main id="primary" class="content-area hfeed col-md-12" role="main" itemscope="" itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+                    <div class="content-wrapper">
+                        <div ng-view></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="sidebar-footer" class="widget-area sidebar sidebar-footer custom-sidebar custom-sidebar-7" role="complementary" >
+    <div class="container">
+        <div>
+            <aside id="text-2" class="widget widget_text">
+                <div class="textwidget">This work was supported by the European Commission under the Horizon 2020 Programme (H2020), as part of the OPERANDO project (GA no. 653704).</div>
+            </aside></div>
+
+    </div>
+</div>
+</body>
+
+</html>

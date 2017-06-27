@@ -1,5 +1,5 @@
 //var SERVER_HOST = "plusprivacy.com";
-var SERVER_HOST = "localhost";
+var SERVER_HOST = "plusprivacy.com";
 var SERVER_PORT = "8080";
 var GUEST_EMAIL = "guest@operando.eu";
 var GUEST_PASSWORD = "guest";

@@ -1,0 +1,18 @@
+
+<ul class="menu nav nav navbar-nav navbar-right" role="navigation">
+    <li class="menu-item page_item menu-item-has-icon" role="navigation" ng-repeat="menuItem in menuItems" active-link="active" path="{{menuItem.path}}" ng-if="menuItem.isAuthenticated == authenticated">
+        <a title="{{menuItem.name}}" target="" rel="" href="{{menuItem.path}}" itemprop="url"><span class="glyphicon {{menuItem.glyph}}" role="navigation" ></span> {{menuItem.name}}</a>
+    </li>
+
+
+    <li class="dropdown" ng-if="authenticated" ng-cloak>
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+        <ul class="dropdown-menu" ng-switch="authenticated">
+            <li class="current_user_email" class="dropdown"><span class="glyphicon glyphicon-envelope"></span><span class="user_email">{{user.email}}</span></li>
+            <li role="separator" class="divider"></li>
+            <li ng-switch-when="true"><a class="user_logout" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+        </ul>
+    </li>
+
+</ul>

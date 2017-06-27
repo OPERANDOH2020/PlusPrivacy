@@ -1,4 +1,4 @@
-<div class = "container" ng-app="plusprivacy" id="osp_register">
+<div class = "container" id="osp_register">
     <div class="wrapper" ng-controller="OSPSignupController">
         <form method="post" name="ops_signup_form" class="form-signup" ng-submit="register()" ng-cloak ng-if="success == false" >
 
@@ -20,7 +20,7 @@
 
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" ng-model="user.accept_conditions"> I read and I agree with <a href="#" data-toggle="modal" data-target="#myModal">terms of this service.</a>
+                    <input type="checkbox" ng-model="user.accept_conditions"> I read and I agree with <a data-toggle="modal" data-target="#myModal">terms of this service.</a>
                 </label>
             </div>
 
@@ -59,7 +59,7 @@
                         <h4 class="modal-title" id="myModalLabel">OSP Terms and Conditions</h4>
                     </div>
                     <div class="modal-body">
-                        <div ng-include="'/wp-content/plugins/extension-connector/html/osp/terms_conditions.html'"></div>
+                        <div ng-include="'/assets/templates/terms_conditions.html'"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" ng-click="acceptTermsAndConditions()" data-dismiss="modal">I accept </button>

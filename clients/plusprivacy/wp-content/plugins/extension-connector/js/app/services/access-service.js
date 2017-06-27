@@ -4,6 +4,7 @@ angular.module('sharedService').factory("accessService", ["userService", functio
         ospZone: ['OSP'],
         pspZone: ['PSP', 'Admin'],
         userZone: ["OSP", "PSP", "Public", "Admin"],
+        userDashboard: ["Public", "Admin"],
         guestZone:"notLoggedIn"
     };
 
@@ -17,7 +18,7 @@ angular.module('sharedService').factory("accessService", ["userService", functio
             if (accessRules[zone]) {
                 userService.isAuthenticated(function (authenticated) {
                     if (authenticated === true) {
-                        userService.getUser(function (user) {
+                        /*userService.getUser(function (user) {
                             var userZone = user["organisationId"];
                             if (accessRules[zone].indexOf(userZone) > -1) {
                                 callback(true);
@@ -26,7 +27,10 @@ angular.module('sharedService').factory("accessService", ["userService", functio
                                 callback(false);
                             }
 
-                        });
+                        });*/
+                      if(zone !== "guestZone"){
+                          callback(true);
+                      }
                     } else if (zone === "guestZone") {
                         callback(true);
                     }

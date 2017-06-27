@@ -1,0 +1,20 @@
+<div class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Nr. of contracts</h3>
+            </div>
+            <div class="modal-body">
+                <canvas id="line" class="chart chart-line" chart-data="data" chart-colors="colors"
+                        chart-labels="labels" chart-series="series" chart-options="options">
+                </canvas>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+</div>

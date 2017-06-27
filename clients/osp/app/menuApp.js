@@ -1,1 +1,0 @@
-var menuApp = window.menuApp = angular.module("menuApp",['sharedService']);

@@ -1,3 +1,6 @@
-<li  ng-class="location.indexOf(item.key)>-1?'active':''" ng-show="accessGranted" ng-cloak>
-    <a href="{{item.path}}">{{item.title}}</a>
+<li class="menu-item page_item menu-item-has-icon" role="navigation" itemprop="name" ng-class="location.indexOf(item.key)>-1?'active':''" ng-show="accessGranted">
+    <a title="" target="" rel="" href="{{item.path}}" itemprop="url" ng-cloak>
+    <span class="glyphicon glyphicon-{{item.glyphicon}}" role="navigation" ></span>
+    {{item.title}}
+</a>
 </li>

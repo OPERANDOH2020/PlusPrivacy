@@ -1,0 +1,49 @@
+<div>
+    <h2>OSP Requests</h2>
+
+    <div ng-controller="pspDashboardController" ng-init="getOspRequests()">
+        <div ng-cloak class="user_logged_in" ng-if="ospRequests">
+
+            <table class="table table-bordered" id="osp_requests_table" datatable="ng"
+                   dt-column-defs="dtColumnDefs" dt-options="dtOptions" dt-instance="dtInstance">
+                <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Website</th>
+                    <th>Phone</th>
+                    <th>Requested</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="ospRequest in ospRequests">
+
+                    <td>{{ospRequest.email}}</td>
+                    <td>{{ospRequest.name}}</td>
+                    <td>{{ospRequest.website}}</td>
+                    <td>{{ospRequest.phone}}</td>
+                    <td>{{ospRequest.request_time|timeAgo}} ago</td>
+                    <td>
+                        <a type="button" class="description_popover" data-placement="auto"
+                           title="{{ospRequest.name}}" data-content="{{ospRequest.deals_description}}"
+                           data-trigger="click"
+                           data-auto-close="true" bs-popover></a>
+
+                    </td>
+                    <td style="width:260px">
+                        <button class="btn btn-primary" ng-click="acceptOSPRequest(ospRequest.userId)">Approve OSP
+                        </button>
+                        <button class="btn btn-primary-black" ng-click="deleteOSPRequest(ospRequest.userId)">Delete
+                            request
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

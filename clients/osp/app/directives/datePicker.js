@@ -56,7 +56,7 @@ ospApp.factory("$mdDatePicker", ["$mdDialog", function($mdDialog) {
         return $mdDialog.show({
             controller: 'DatePickerCtrl',
             controllerAs: 'datepicker',
-            templateUrl: '/wp-content/plugins/extension-connector/js/app/templates/osp/modals/modal.datepicker.html',
+            templateUrl: '/assets/templates/modals/modal.datepicker.html',
             targetEvent: targetEvent,
             locals: {
                 currentDate: currentDate

@@ -1,0 +1,25 @@
+.es_caption {
+	padding-bottom:1em;
+	padding-right:0.5em;
+}
+.es_msg {
+	padding-top:5px;
+	padding-bottom:5px;
+	color:#F00;
+}
+.es_textbox {
+	padding-bottom:10px;
+}
+.es_button {
+	padding-top:10px;
+	padding-bottom:5px;
+}
+.es_textbox_class {
+	width:200px;
+}
+.es_textbox_button {
+	width:130px;
+}
+.es_lablebox {
+	padding-bottom:3px;
+}
