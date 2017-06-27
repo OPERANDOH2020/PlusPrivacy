@@ -121,7 +121,6 @@
 
             <div class="col-xs-2"> <!-- required for floating -->
 
-
                 <ul class="nav nav-tabs tabs-left primary-menu panel-group" id="accordion" role="tablist"
                     aria-multiselectable="true">
 
@@ -228,6 +227,8 @@
 
                     <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon abp_icon"
                                                                        ui-sref="abp">Ad blocking & anti-tracking</a></li>
+                    <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon privacy_policy_icon"
+                                                                       ui-sref="privacyPolicy">Privacy Policy</a></li>
 
                 </ul>
             </div>
@@ -256,7 +257,10 @@
     </footer>
 </div>
 <div ng-switch-when="false" class="loggedin_status_false">
-    <div class="big-loader">
+    <div ng-if="state.current.name == 'privacyPolicy'" class="privacyPolicyNotLoggedIn">
+        <div ng-include src="'/operando/views/privacy_policy.html'"></div>
+    </div>
+    <div class="big-loader" ng-if="state.current.name  != 'privacyPolicy'">
         <div class="sk-fading-circle">
             <div class="sk-circle1 sk-circle"></div>
             <div class="sk-circle2 sk-circle"></div>
