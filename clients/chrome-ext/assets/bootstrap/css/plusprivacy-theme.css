@@ -2482,3 +2482,26 @@ h4.modal-title.plusprivacy{
     margin-left: 10px;
 }
 
+.privacy_policy{
+    position: absolute;
+    bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 20px;
+    width: 100%;
+    background: url("/operando/assets/images/menu_icons/privacy_policy.png") no-repeat 15px center;
+    padding-left: 48px;
+}
+
+.privacy_policy:hover{
+    background-color: #000;
+    color:#FFF;
+    text-decoration: none;
+}
+.privacy_policy:focus,
+.privacy_policy:active{
+    color:#FFF;
+    text-decoration: none;
+}
