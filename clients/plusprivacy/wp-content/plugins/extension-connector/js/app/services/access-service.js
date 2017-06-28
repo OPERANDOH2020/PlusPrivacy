@@ -1,9 +1,7 @@
 angular.module('sharedService').factory("accessService", ["userService", function (userService) {
 
     var accessRules = {
-        ospZone: ['OSP'],
-        pspZone: ['PSP', 'Admin'],
-        userZone: ["OSP", "PSP", "Public", "Admin"],
+        userZone: ["Public", "Admin"],
         userDashboard: ["Public", "Admin"],
         guestZone:"notLoggedIn"
     };
