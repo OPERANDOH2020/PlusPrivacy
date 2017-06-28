@@ -5,6 +5,7 @@
 
 .form-signin,
 .form-signup,
+.form-reset-password,
 .registration_successfully{
     max-width: 500px;
     padding: 30px 38px 66px;
@@ -89,11 +90,13 @@ http://tobiasahlin.com/spinkit/
 #login_error,
 #register_error,
 #register_success,
+#reset_success,
 #sent_activate_email{
     margin: 10px 0px 0px 0px;
 }
 
-#register_success{
+#register_success,
+#reset_success{
     margin-bottom: 20px;
 }
 .spin-container .spin-container{

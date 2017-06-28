@@ -16,24 +16,14 @@ function insertPlusPrivacyHeader(){
 }
 //USER
 add_shortcode('confirm-account', 'confirm_user_account');
+add_shortcode('reset-password', 'reset_user_password');
 add_shortcode('account-login', 'account_login');
 add_shortcode('account-register', 'register_account');
 add_shortcode('user-dashboard', 'user_dashboard');
-//OSP
-/*add_shortcode('osp-login', 'osp_login');
-add_shortcode('osp-register', 'osp_register_account');
-add_shortcode('osp-confirm-account', 'osp_confirm_account');
-add_shortcode('osp-dashboard-offers', 'osp_dashboard_offers');
-add_shortcode('osp-dashboard-deals', 'osp_dashboard_deals');
-add_shortcode('osp-certifications', 'osp_certifications');
-add_shortcode('osp-dashboard-account', 'osp_dashboard_account');
-//PSP
-add_shortcode('psp-login', 'psp_login');
-add_shortcode('psp-dashboard', 'psp_dashboard');
-*/
 
 add_action('wp_enqueue_scripts', 'load_swarm_resources');
 add_action('wp_enqueue_scripts', 'confirmUserController');
+add_action('wp_enqueue_scripts', 'resetPasswordController');
 add_action('wp_enqueue_scripts', 'loginController');
 add_action('wp_enqueue_scripts', 'signupController');
 add_action('wp_enqueue_scripts', 'userDashboardController');
@@ -89,6 +79,13 @@ function confirm_user_account()
     }
 }
 
+function reset_user_password()
+{
+    if (isset ($_GET['reset_id']) && $_GET['reset_id']) {
+            echo file_get_contents(plugins_url('/html/reset_password_tpl.html', __FILE__));
+        }
+}
+
 function account_login()
 {
     echo file_get_contents(plugins_url('/html/user/user_login.html', __FILE__));
@@ -113,6 +110,12 @@ function confirmUserController()
 {
     insertScriptIfShortcode("confirmUserController", 'confirm-account', plugins_url('/js/app/controllers/user/confirmUserController.js', __FILE__));
 }
+
+function resetPasswordController()
+{
+    insertScriptIfShortcode("resetPasswordController", 'reset-password', plugins_url('/js/app/controllers/user/resetPasswordController.js', __FILE__));
+}
+
 
 function loginController()
 {

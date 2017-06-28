@@ -7,7 +7,6 @@ menuApp.directive("navigation", function( userService, $window){
             location:"="
         },
         link:function(scope, element){
-            console.log(element)
                 jQuery("#site-navigation ul.navbar-nav").append(element);
 
         },

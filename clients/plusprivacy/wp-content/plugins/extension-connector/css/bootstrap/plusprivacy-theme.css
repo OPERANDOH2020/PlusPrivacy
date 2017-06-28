@@ -8,3 +8,29 @@
 text-indent: 0px!important;
 border-radius: 0px 4px 4px 0px!important;
 }
+
+#password_strength_container{
+width:100%;
+background: #F8F8F8;
+box-shadow: 1px 1px 1px #CCC inset;
+height: 12px;
+display: block;
+margin-bottom: 20px;
+border-radius: 2px;
+}
+
+#password_strength{
+    height: 100%;
+    transition: all 1s ease-out;
+    border-radius: 2px;
+}
+#password_strength.weak{
+    background: red;
+}
+#password_strength.good{
+    background: orange;
+}
+
+#password_strength.strong{
+    background: green;
+}
