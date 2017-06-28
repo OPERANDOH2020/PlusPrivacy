@@ -206,7 +206,7 @@ var userInfoSwarming =
         }
     },
 
-    performResetPassword:function(resetToken,newPassword){
+    performResetPassword:function(resetToken, newPassword){
         this.resetToken = resetToken;
         this.newPassword = newPassword;
         this.swarm("reset");
@@ -215,12 +215,12 @@ var userInfoSwarming =
         node:"UsersManager",
         code:function(){
             var self = this;
-            validateResetPasswordToken(self.resetToken,S(function(err,resetPasswordRequest){
+            validateResetPasswordToken(self.resetToken,S(function(err,user){
                 if(err){
                     self.error = err.message;
                     self.home('resetPasswordFailed')
                 }else{
-                    setNewPassword(resetPasswordRequest.user,self.newPassword,S(function(err,result){
+                    setNewPassword(user,self.newPassword,S(function(err,result){
                         if(err){
                             self.error = err.message;
                             self.home('resetPasswordFailed')
