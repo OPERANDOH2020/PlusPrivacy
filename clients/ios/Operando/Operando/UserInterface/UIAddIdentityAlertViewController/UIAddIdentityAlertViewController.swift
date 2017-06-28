@@ -12,7 +12,7 @@ import UIKit
 
 class UIAddIdentityAlertViewController: UIViewController {
     
-    static let vc = UINavigationManager.addIdentityController
+    static let vc = UIViewControllerFactory.addIdentityController
 
     
     @IBOutlet weak var addIdentityView: UIAddIdentityView!

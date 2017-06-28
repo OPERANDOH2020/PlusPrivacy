@@ -38,15 +38,13 @@ class OPConfigObject: NSObject
         
         weak var weakSelf = self
         
-        let plistRepositoryPath = OPConfigObject.pathForFile(named: "SCDRepository")
-//        let scdRepository = PlistSCDRepository(plistFilePath: plistRepositoryPath)
-
         
         let dependencies = Dependencies(identityManagementRepo:  self.swarmClientHelper,
                                          privacyForBenefitsRepo:  self.swarmClientHelper,
                                          userInfoRepo:            self.swarmClientHelper,
                                          notificationsRepository: self.notificationsRepository,
                                          accountCallbacks: self.createAccountCallbacks(),
+                                         userSettingsCallbacks: self.createUserSettingsCallbacks(),
             whenTakingActionForNotification: { weakSelf?.dismiss(notification: $1, andTakeAction: $0) },
             whenRequestingNumOfNotifications: { callback in
                 weakSelf?.notificationsRepository?.getAllNotifications(in: { notifications, error in
@@ -69,6 +67,8 @@ class OPConfigObject: NSObject
                                             {flowCntroler?.displayPrivateBrowsing()},
                                            NotificationAction.privacyForBenefits:
                                             {flowCntroler?.displayPfbDeals()}]
+        
+        self.applyAndSaveUserSettings(self.currentUserSettings)
     }
     
     
@@ -268,6 +268,27 @@ class OPConfigObject: NSObject
         }, passwordChangeCallback: weakSelf?.createPasswordChangeCallback())
         
         
+    }
+    
+    private var currentUserSettings: UserSettingsModel {
+        guard let savedSettings = UserSettingsModel.createFrom(defaults: UserDefaults.standard) else {
+            return UserSettingsModel.defaultSettings
+        }
+        
+        return savedSettings
+    }
+    
+    private func applyAndSaveUserSettings(_ settings: UserSettingsModel){
+        settings.writeTo(defaults: UserDefaults.standard)
+        self.adBlocker.adBlockingEnabled = settings.enableAdBlock
+    }
+    
+    private func createUserSettingsCallbacks() -> UserSettingsModelCallbacks {
+        return UserSettingsModelCallbacks(retrieveCallback: { [unowned self] () -> UserSettingsModel in
+            return self.currentUserSettings
+        }, updateCallback: { [unowned self] settings in
+            self.applyAndSaveUserSettings(settings)
+        })
     }
     
     private static func deleteAllWebsiteDataWith(callback: @escaping VoidBlock) {

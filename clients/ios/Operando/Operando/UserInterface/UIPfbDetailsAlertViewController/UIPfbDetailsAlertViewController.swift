@@ -36,7 +36,7 @@ class UIPfbDetailsAlertViewController: UIViewController {
     
     
     static func displayWith(deal: PfbDeal, andCallbacks cbs: UIPfbDisplayingViewCallbacks?){
-        let vc = UINavigationManager.pfbDealDetailsAlertViewController
+        let vc = UIViewControllerFactory.pfbDealDetailsAlertViewController
         weak var weakVC = vc
         
         vc.whenViewWillAppear = {

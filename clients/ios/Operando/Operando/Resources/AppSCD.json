@@ -2,5 +2,10 @@
     "title": "PlusPrivacy",
     "bundleId": "eu.romsoft.PlusPrivacy",
     "accessedHosts": ["plusprivacy.com", "maxcdn.icons8.com", "192.168.100.86"],
-    "accessedInputs": []
+    "accessedInputs": [{
+    "inputType": "loc",
+                       "privacyDescription": {
+                       "privacyLevel": "1"
+                       }
+    }]
 }

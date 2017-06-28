@@ -118,6 +118,12 @@
 		9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF91D1448BA00C7A70F /* UIScanningView.swift */; };
 		9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9882DCFB1D14498400C7A70F /* UIScanningView.xib */; };
 		988509B61E0845AA0088272D /* SchemaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988509B51E0845AA0088272D /* SchemaProvider.swift */; };
+		988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988E45D51F039B62003D92C5 /* UISettingsView.swift */; };
+		988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 988E45D71F039C3F003D92C5 /* UISettingsView.xib */; };
+		988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */; };
+		988E45DC1F03C30D003D92C5 /* PPLocationApiHooks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		988E45DF1F03C7A2003D92C5 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45DD1F03C798003D92C5 /* PPCloak.framework */; };
+		988E45E01F03C7A2003D92C5 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45DD1F03C798003D92C5 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9896F46D1E892D7B00BA0D6E /* WebAdBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F46C1E892D7B00BA0D6E /* WebAdBlocker.swift */; };
 		989C41861DBE18E800951AE5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989C41811DBE18E800951AE5 /* Info.plist */; };
 		989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 989C41831DBE18E800951AE5 /* MGSwipeButton.m */; };
@@ -126,8 +132,6 @@
 		989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */; };
 		98B89E601EC1DF22009570EC /* LongPress.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B89E5F1EC1DF22009570EC /* LongPress.js */; };
 		98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B89E621EC1E0D5009570EC /* LongPressHelper.swift */; };
-		98BE1FA91F02580900223926 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA71F0257A700223926 /* PPCloak.framework */; };
-		98BE1FAA1F02580900223926 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA71F0257A700223926 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */; };
 		98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */; };
 		98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */; };
@@ -192,7 +196,8 @@
 				98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */,
 				983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */,
 				9806356A1EFA642B0004527B /* iOSNM.framework in Embed Frameworks */,
-				98BE1FAA1F02580900223926 /* PPCloak.framework in Embed Frameworks */,
+				988E45DC1F03C30D003D92C5 /* PPLocationApiHooks.framework in Embed Frameworks */,
+				988E45E01F03C7A2003D92C5 /* PPCloak.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +336,10 @@
 		9882DCF91D1448BA00C7A70F /* UIScanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScanningView.swift; path = UserInterface/UIScanningView/UIScanningView.swift; sourceTree = "<group>"; };
 		9882DCFB1D14498400C7A70F /* UIScanningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScanningView.xib; path = UserInterface/UIScanningView/UIScanningView.xib; sourceTree = "<group>"; };
 		988509B51E0845AA0088272D /* SchemaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchemaProvider.swift; path = OPCloak/SchemaProvider.swift; sourceTree = "<group>"; };
+		988E45D51F039B62003D92C5 /* UISettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISettingsView.swift; path = UserInterface/UISettingsView/UISettingsView.swift; sourceTree = "<group>"; };
+		988E45D71F039C3F003D92C5 /* UISettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UISettingsView.xib; path = UserInterface/UISettingsView/UISettingsView.xib; sourceTree = "<group>"; };
+		988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPLocationApiHooks.framework; sourceTree = "<group>"; };
+		988E45DD1F03C798003D92C5 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
 		9896F46C1E892D7B00BA0D6E /* WebAdBlocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebAdBlocker.swift; path = WebAdBlocker/WebAdBlocker.swift; sourceTree = "<group>"; };
 		989C41811DBE18E800951AE5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		989C41821DBE18E800951AE5 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
@@ -341,7 +350,6 @@
 		989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIRealIdentityView.xib; path = UserInterface/UIRealIdentityView/UIRealIdentityView.xib; sourceTree = "<group>"; };
 		98B89E5F1EC1DF22009570EC /* LongPress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LongPress.js; path = UserInterface/UIWebViewTab/LongPress.js; sourceTree = "<group>"; };
 		98B89E621EC1E0D5009570EC /* LongPressHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressHelper.swift; path = UserInterface/UIWebViewTab/LongPressHelper/LongPressHelper.swift; sourceTree = "<group>"; };
-		98BE1FA71F0257A700223926 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
 		98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPrivacyPolicyViewController.swift; path = UserInterface/UIPrivacyPolicyViewController/UIPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiserSettingsModel.swift; path = UiserSettingsModel/UiserSettingsModel.swift; sourceTree = "<group>"; };
 		98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserSettingsViewController.swift; path = UIUserSettingsViewController/UIUserSettingsViewController.swift; sourceTree = "<group>"; };
@@ -398,8 +406,9 @@
 				980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */,
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
 				9806356B1EFA642B0004527B /* PPApiHooksCore.framework in Frameworks */,
-				98BE1FA91F02580900223926 /* PPCloak.framework in Frameworks */,
 				980635691EFA642B0004527B /* iOSNM.framework in Frameworks */,
+				988E45DF1F03C7A2003D92C5 /* PPCloak.framework in Frameworks */,
+				988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +505,8 @@
 		982D31601E84252F00FE2FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				98BE1FA71F0257A700223926 /* PPCloak.framework */,
+				988E45DD1F03C798003D92C5 /* PPCloak.framework */,
+				988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */,
 				980635591EFA64070004527B /* PPCommonUI.framework */,
 				9806355A1EFA64070004527B /* PPCommonTypes.framework */,
 				9806355B1EFA64070004527B /* iOSNM.framework */,
@@ -924,6 +934,15 @@
 			name = UIScanningView;
 			sourceTree = "<group>";
 		};
+		988E45D41F039A55003D92C5 /* UISettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				988E45D51F039B62003D92C5 /* UISettingsView.swift */,
+				988E45D71F039C3F003D92C5 /* UISettingsView.xib */,
+			);
+			name = UISettingsView;
+			sourceTree = "<group>";
+		};
 		9896F46B1E892D1200BA0D6E /* WebAdBlocker */ = {
 			isa = PBXGroup;
 			children = (
@@ -981,6 +1000,7 @@
 		98BE1FB11F02990E00223926 /* UserSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				988E45D41F039A55003D92C5 /* UISettingsView */,
 				98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */,
 			);
 			name = UserSettingsViewController;
@@ -1397,6 +1417,7 @@
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
 				9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */,
+				988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */,
 				98516FD41E042089007428F3 /* ProgressHUD.bundle in Resources */,
 				982DF0261DB638B900231BBD /* UIPfbDetailsView.xib in Resources */,
 				982D31791E8427DB00FE2FB7 /* AppSCD.json in Resources */,
@@ -1497,6 +1518,7 @@
 				98387BBE1DB75A8400A76F01 /* UIDashboardButton.swift in Sources */,
 				98516FD51E042089007428F3 /* ProgressHUD.m in Sources */,
 				98EAF6911CCF884000C77649 /* OPUtils.swift in Sources */,
+				988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */,
 				ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
 				9870840E1E8E938E00D9F8E9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

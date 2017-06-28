@@ -110,6 +110,7 @@
     self.indexOfCurrentSentLocation = 0;
     
     if (!settings.enabled) {
+        NSLog(@"Settings not enabled!!!");
         return;
     }
     

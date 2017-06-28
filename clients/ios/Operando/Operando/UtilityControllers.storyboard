@@ -69,37 +69,55 @@
             </objects>
             <point key="canvasLocation" x="-836" y="887"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="2U0-zb-WGx">
+        <!--User Settings View Controller-->
+        <scene sceneID="ZEL-C6-uPx">
             <objects>
-                <tableViewController id="xgH-Te-qNK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="e5h-17-Jtr">
+                <viewController storyboardIdentifier="UIUserSettingsViewController" id="Zwe-aT-yZw" customClass="UIUserSettingsViewController" customModule="Operando" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Kf-Iw-ceh"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ls-SA-FZm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cKk-Bk-AE6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-aj-hc2" customClass="UISettingsView" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKa-Dg-5wc" userLabel="applyButton">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.58431372550000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="oNC-jo-7Ak"/>
+                                </constraints>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressApply:" destination="Zwe-aT-yZw" eventType="touchUpInside" id="cI5-uY-hI1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="rG9-Zt-DjJ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6Mb-ES-LCe">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Mb-ES-LCe" id="S6d-wh-Ihd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="xgH-Te-qNK" id="aEV-0j-B11"/>
-                            <outlet property="delegate" destination="xgH-Te-qNK" id="uzd-1g-2XW"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v5R-pa-42q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wKa-Dg-5wc" secondAttribute="bottom" id="6ML-1Q-lvG"/>
+                            <constraint firstItem="EOr-aj-hc2" firstAttribute="top" secondItem="cKk-Bk-AE6" secondAttribute="top" id="7gl-HI-Mxg"/>
+                            <constraint firstAttribute="trailing" secondItem="EOr-aj-hc2" secondAttribute="trailing" id="84h-3X-QzR"/>
+                            <constraint firstAttribute="trailing" secondItem="wKa-Dg-5wc" secondAttribute="trailing" id="D7E-Bc-nre"/>
+                            <constraint firstItem="wKa-Dg-5wc" firstAttribute="top" secondItem="EOr-aj-hc2" secondAttribute="bottom" id="KEP-n9-d0E"/>
+                            <constraint firstItem="EOr-aj-hc2" firstAttribute="leading" secondItem="cKk-Bk-AE6" secondAttribute="leading" id="OUg-eO-Dab"/>
+                            <constraint firstItem="wKa-Dg-5wc" firstAttribute="leading" secondItem="cKk-Bk-AE6" secondAttribute="leading" id="tPM-TX-3lm"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="settingsView" destination="EOr-aj-hc2" id="qis-Yj-zsv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cre-L2-qSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-834.39999999999998" y="1553.0734632683659"/>
+            <point key="canvasLocation" x="-849" y="1560"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Yhv-JL-6jY">
@@ -124,12 +142,12 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 We place the highest value on the protection and security of your data. Protecting your online privacy and maximising your control over your private data is the essence and the purpose of PlusPrivacy service.
 The legal basis for privacy in connection with our services is provided by the EU General Data Protection (GDPR) regulation and the upcoming ePrivacy regulation. Where possible, we will go beyond the most stringent requirements of these regulations in order to protect your privacy.
 This privacy policy will be updated from time to time to reflect the changes in our offering or in applicable laws. For example, currently our services are delivered free of charge, and a free tier will always be offered. In the future, additional paid or free tiers may be introduced that may require changes in this privacy policy, in which case it will be amended.
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -159,11 +177,11 @@ We will never collect or store any information that is not required for the deli
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 We do not log your IP address. We do not fingerprint you in any way and do not mine the device and software that you use to access our services (such as browser and personal computer) for information that can lead to your identification. We do not obtain in any way and do not store any information about you that you do not provide to us explicitly. We do store some personally identifiable information as required for delivery of some of our services, as explained below.
 
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -176,10 +194,10 @@ We do not log your IP address. We do not fingerprint you in any way and do not m
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 The only piece of personally identifiable information (PII) that we currently store is your email address. We will never share your PII with a 3rd party without your explicit consent. You are not required to provide any PII other than your email address to register to the PlusPrivacy service.
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -192,10 +210,10 @@ The only piece of personally identifiable information (PII) that we currently st
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 Information is considered to be non-personally identifiable (n-PII) if it cannot be linked to you unless your email address or other personally identifying information is provided with it. We collect and store in your account record the following (n-PII):
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -277,11 +295,11 @@ CgoKA
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 Our identity management service involves relaying of email to and from your correspondents. We do not inspect and do not store the content (message body and attachments) of the email messages. We do inspect and rewrite part of the email message headers in order to provide the service. Once the transmission of an email message through our servers is completed, no trace of it is left on our servers.
 
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -295,11 +313,11 @@ Our identity management service involves relaying of email to and from your corr
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 We plan in the future to offer the service of privacy-for-benefit (PfB) deal brokerage between you and participating online service providers (OSPs). To deliver such services, we will provide certain PII, such as your email address, to the participating OSPs. By using such services, you agree to such transfer of information to OSPs. If you do not explicitly subscribe to a PfB deal, no such information will be provided to OSPs. We will amend this section with more specific description of the data provided to the OSPs once we start offering the PfB services.
 
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -313,11 +331,11 @@ We plan in the future to offer the service of privacy-for-benefit (PfB) deal bro
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 For authentication we use so-called session cookies in the user menu and webmail. The data that is saved to your computer serves exclusively for authentication and is, in particular, not used to compile user profiles or the like. The cookies are deleted at the end of the respective session. If you use the simple version of the homepage (ECO switch), a cookie will be permanently saved. In this cookie, only one piece of information is saved: the information that says that when you visit our site you would like to see the simple version of the homepage. This cookie will not be used to track you or compile a user profile.
 
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -333,10 +351,10 @@ For authentication we use so-called session cookies in the user menu and webmail
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">We will obey a valid court order or subpoena if these require us to provide the information that we store to law enforcement authorities or a court of law. We will only do so upon legal scrutiny and confirmation of validity of such requirement in the country where we operate. Currently our servers operate from Romania, an EU Member State where the GDPR is in full force.
+                                        <string key="content">We will obey a valid court order or subpoena if these require us to provide the information that we store to law enforcement authorities or a court of law. We will only do so upon legal scrutiny and confirmation of validity of such requirement in the country where we operate. Currently our servers operate from Romania, an EU Member State where the GDPR is in full force.
 
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>

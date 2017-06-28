@@ -1,5 +1,5 @@
 //
-//  UINavigationManager.swift
+//  UIViewControllerFactory.swift
 //  Operando
 //
 //  Created by Costin Andronache on 4/27/16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UINavigationManager
+class UIViewControllerFactory
 {
     static let main = UIStoryboard(name: "Main", bundle: nil);
     static let utility = UIStoryboard(name: "UtilityControllers", bundle: nil)
@@ -80,4 +80,9 @@ class UINavigationManager
     static var aboutViewController: UIViewController {
         return utility.instantiateViewController(withIdentifier: "AboutViewController")
     }
+    
+    static var settingsViewController: UIUserSettingsViewController {
+        return utility.instantiateViewController(withIdentifier: "UIUserSettingsViewController") as! UIUserSettingsViewController
+    }
+    
 }

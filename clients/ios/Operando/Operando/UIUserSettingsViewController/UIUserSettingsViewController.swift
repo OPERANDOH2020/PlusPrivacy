@@ -8,18 +8,27 @@
 
 import UIKit
 
-typealias UserSettingsModelUpdateCallback = (_ settingsModel: UserSettingsModel) -> Void
 
-class UIUserSettingsViewController: UITableViewController {
+
+class UIUserSettingsViewController: UIViewController {
     
     private var callback: UserSettingsModelUpdateCallback?
     
+    @IBOutlet weak var settingsView: UISettingsView!
+    
+    
     func setupWith(settingsModel: UserSettingsModel, callback: UserSettingsModelUpdateCallback?){
-        self.callback = callback
+        _ = self.view
         
+        self.callback = callback
+        self.settingsView.setupWith(settings: settingsModel)
         
     }
     
     
+    @IBAction func didPressApply(_ sender: Any) {
+        self.callback?(self.settingsView.currentSettings)
+        RSCommonUtilities.showOKAlertWithMessage(message: "Done")
+    }
     
 }

@@ -21,7 +21,7 @@ typedef void(^LocationsCallback)(NSArray<CLLocation*>* _Nonnull locations);
 
 -(void)setupWithSettings:(RandomWalkSwizzlerSettings* _Nullable)settings eventsDispatcher:(PPEventDispatcher* _Nonnull)eventsDispatcher whenLocationsAreRequested:(LocationsCallback _Nonnull)whenLocationsAreRequested;
 
-//-(void)applyNewUserDefinedLocationsSettings:(UserDefinedLocationsSwizzlerSettings* _Nonnull)settings;
+
 -(void)applyNewRandomWalkSettings:(RandomWalkSwizzlerSettings* _Nonnull)randomWalkSettings;
 
 -(void)registerNewChangeCallback:(CurrentActiveLocationIndexChangedCallback _Nonnull)callback;

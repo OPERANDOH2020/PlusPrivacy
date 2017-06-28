@@ -20,6 +20,7 @@ struct Dependencies{
     let userInfoRepo: UserInfoRepository?
     let notificationsRepository: NotificationsRepository?
     let accountCallbacks: AccountCallbacks?
+    let userSettingsCallbacks: UserSettingsModelCallbacks?
     let whenTakingActionForNotification: NotificationActionCallback?
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
 }
@@ -38,13 +39,13 @@ class UIFlowController: SSASideMenuDelegate
     let dependencies: Dependencies
     let rootController: UIRootViewController
     
-    let sharedBrowserController: UIPrivateBrowsingViewController = UINavigationManager.privateBrowsingViewController
+    let sharedBrowserController: UIPrivateBrowsingViewController = UIViewControllerFactory.privateBrowsingViewController
     private var sideMenu: SSASideMenu?
     
     init(dependencies: Dependencies)
     {
         self.dependencies = dependencies
-        self.rootController = UINavigationManager.rootViewController
+        self.rootController = UIViewControllerFactory.rootViewController
         
         weak var weakSelf = self
         let rootControllerCallbacks = UIRootViewControllerCallbacks(whenMenuButtonPressed: {
@@ -58,8 +59,8 @@ class UIFlowController: SSASideMenuDelegate
     
     func setSideMenu(enabled: Bool) {
         if enabled {
-            sideMenu?.leftMenuViewController = getLeftSideMenuViewController()
-            sideMenu?.rightMenuViewController = getRightMenuViewController()
+            sideMenu?.leftMenuViewController = createLeftSideMenuViewController()
+            sideMenu?.rightMenuViewController = createRightMenuViewController()
         } else {
             sideMenu?.leftMenuViewController = nil
             sideMenu?.rightMenuViewController = nil
@@ -70,8 +71,8 @@ class UIFlowController: SSASideMenuDelegate
     {
         self.sideMenu?.hideMenuViewController()
         
-        let loginVC = UINavigationManager.loginViewController
-        let registrationViewController = UINavigationManager.registerViewController
+        let loginVC = UIViewControllerFactory.loginViewController
+        let registrationViewController = UIViewControllerFactory.registerViewController
         weak var weakLoginVC = loginVC
         
         let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
@@ -95,7 +96,7 @@ class UIFlowController: SSASideMenuDelegate
     }
     
     private func createRegisterViewController() -> UIRegistrationViewController {
-        return UINavigationManager.registerViewController
+        return UIViewControllerFactory.registerViewController
     }
     
     func setupHierarchyStartingWithDashboardIn(_ window: UIWindow)
@@ -106,7 +107,7 @@ class UIFlowController: SSASideMenuDelegate
     
     
     func displayDashboard(){
-        let dashBoardVC = UINavigationManager.dashboardViewController
+        let dashBoardVC = UIViewControllerFactory.dashboardViewController
         
         weak var weakSelf = self
         
@@ -127,13 +128,13 @@ class UIFlowController: SSASideMenuDelegate
     }
     
     func displayIdentitiesManagement(){
-        let vc = UINavigationManager.identityManagementViewController
+        let vc = UIViewControllerFactory.identityManagementViewController
         vc.setupWith(identitiesRepository: dependencies.identityManagementRepo)
         self.rootController.setMainControllerTo(newController: vc)
     }
     
     func displayPfbDeals() {
-        let vc = UINavigationManager.pfbDealsController
+        let vc = UIViewControllerFactory.pfbDealsController
         vc.setupWith(dealsRepository: dependencies.privacyForBenefitsRepo)
         self.rootController.setMainControllerTo(newController: vc)
     }
@@ -144,24 +145,34 @@ class UIFlowController: SSASideMenuDelegate
     
     
     func displayNotifications() {
-        let vc = UINavigationManager.notificationsViewController
+        let vc = UIViewControllerFactory.notificationsViewController
         
         vc.setup(with: self.dependencies.notificationsRepository, notificationCallback: self.dependencies.whenTakingActionForNotification)
         self.rootController.setMainControllerTo(newController: vc)
     }
     
     func displayPrivacyPolicyViewController(){
-        let vc = UINavigationManager.privacyPolicyController
+        let vc = UIViewControllerFactory.privacyPolicyController
         self.rootController.setMainControllerTo(newController: vc);
     }
     
     func displayAboutViewController(){
-        let vc = UINavigationManager.aboutViewController
+        let vc = UIViewControllerFactory.aboutViewController
         self.rootController.setMainControllerTo(newController: vc)
     }
     
+    func displaySettingsViewController() {
+        guard let currentSettings = self.dependencies.userSettingsCallbacks?.retrieveCallback() else {
+            return
+        }
+        let settingsVC = UIViewControllerFactory.settingsViewController
+        settingsVC.setupWith(settingsModel: currentSettings, callback: self.dependencies.userSettingsCallbacks?.updateCallback)
+        
+        self.rootController.setMainControllerTo(newController: settingsVC)
+    }
+    
     func setupBaseHierarchyInWindow(_ window: UIWindow){
-        let sideMenu = SSASideMenu(contentViewController: self.rootController, leftMenuViewController: getLeftSideMenuViewController())
+        let sideMenu = SSASideMenu(contentViewController: self.rootController, leftMenuViewController: createLeftSideMenuViewController())
         sideMenu.configure(configuration: SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false, parallaxEnabled: true, bouncesHorizontally: false, statusBarStyle: SSASideMenu.SSAStatusBarStyle.Black))
         window.rootViewController = sideMenu
         self.sideMenu = sideMenu
@@ -171,9 +182,9 @@ class UIFlowController: SSASideMenuDelegate
     
     
     
-    private func getRightMenuViewController() -> UIAccountViewController {
+    private func createRightMenuViewController() -> UIAccountViewController {
         
-        let accountController = UINavigationManager.accountViewController
+        let accountController = UIViewControllerFactory.accountViewController
         accountController.setupWith(model: UIAccountViewControllerModel(repository: self.dependencies.userInfoRepo,
                                                                         whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
                                                                         whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback))
@@ -182,8 +193,8 @@ class UIFlowController: SSASideMenuDelegate
     }
     
     
-    private func getLeftSideMenuViewController() -> UILeftSideMenuViewController {
-        let leftSideMenu = UINavigationManager.leftMenuViewController
+    private func createLeftSideMenuViewController() -> UILeftSideMenuViewController {
+        let leftSideMenu = UIViewControllerFactory.leftMenuViewController
         leftSideMenu.callbacks = getLeftSideMenuCallbacks()
         return leftSideMenu
     }
@@ -214,7 +225,11 @@ class UIFlowController: SSASideMenuDelegate
             weakSelf?.sideMenu?.hideMenuViewController()
         }, whenChoosingMonitor: {
             PPCloak.OPMonitor.displayFlow()
-        }, whenChoosingPrivacyPolicy: {
+        }, whenChoosingSettings: {
+            weakSelf?.displaySettingsViewController()
+            weakSelf?.sideMenu?.hideMenuViewController()
+        },
+           whenChoosingPrivacyPolicy: {
             weakSelf?.displayPrivacyPolicyViewController()
             weakSelf?.sideMenu?.hideMenuViewController()
         }, whenChoosingAbout: {

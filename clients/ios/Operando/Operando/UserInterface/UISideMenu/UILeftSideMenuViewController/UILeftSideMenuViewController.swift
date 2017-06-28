@@ -14,6 +14,7 @@ struct UILeftSideMenuViewControllerCallbacks {
     let dashboardCallbacks: UIDashBoardViewControllerCallbacks?
     let whenChoosingHome: VoidBlock?
     let whenChoosingMonitor: VoidBlock?
+    let whenChoosingSettings: VoidBlock?
     let whenChoosingPrivacyPolicy: VoidBlock?
     let whenChoosingAbout: VoidBlock?
 }
@@ -36,7 +37,7 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - @IBActions
     @IBAction func didTapProfileButton(_ sender: AnyObject) {
-//        self.sideMenuViewController?.contentViewController = UINavigationManager.profileNavigationViewController
+//        self.sideMenuViewController?.contentViewController = UIViewControllerFactory.profileNavigationViewController
         self.sideMenuViewController?.hideMenuViewController()
     }
     

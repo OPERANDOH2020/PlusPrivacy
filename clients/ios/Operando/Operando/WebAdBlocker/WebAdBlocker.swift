@@ -16,7 +16,7 @@ class WebAdBlocker: NSObject {
     private let contentBlockingEngine: PPWebContentBlockerEngine = PPWebContentBlockerEngine()
     private var didInitEngine: Bool = false
     
-    
+    var adBlockingEnabled: Bool = true
     
     private func initEngineWith(completion: VoidBlock?) {
         weak var weakSelf = self;
@@ -48,7 +48,7 @@ class WebAdBlocker: NSObject {
 
                 
                 let actionType = self.contentBlockingEngine.action(for: request)
-                if actionType == WebContentActionType.TypeBlockContent {
+                if actionType == WebContentActionType.TypeBlockContent && self.adBlockingEnabled {
                     event.eventData?[kPPAllowWebViewRequestValue] = NSNumber(booleanLiteral: false)
                 } else {
                     event.eventData?[kPPAllowWebViewRequestValue] = NSNumber(booleanLiteral: true)

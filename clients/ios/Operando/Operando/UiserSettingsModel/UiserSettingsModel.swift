@@ -8,6 +8,14 @@
 
 import Foundation
 
+typealias UserSettingsModelUpdateCallback = (_ settingsModel: UserSettingsModel) -> Void
+typealias UserSettingsModelRetrieveCallback = () -> UserSettingsModel
+
+struct UserSettingsModelCallbacks {
+    let retrieveCallback: UserSettingsModelRetrieveCallback
+    let updateCallback: UserSettingsModelUpdateCallback
+}
+
 struct UserSettingsModel {
     let enableAdBlock: Bool
     
@@ -25,5 +33,5 @@ struct UserSettingsModel {
         return UserSettingsModel(enableAdBlock: enabledAdBlockBool)
     }
     
-    
+    static let defaultSettings: UserSettingsModel = UserSettingsModel(enableAdBlock: true)
 }

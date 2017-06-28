@@ -14,5 +14,5 @@
 //+(instancetype __nonnull)sharedInstance;
 //-(UIButton* _Nullable)getHandle;
 //+(void)initializeMonitoring;
-+(void)displayFlow;
+//-(void)displayFlowIfNecessary;
 @end
