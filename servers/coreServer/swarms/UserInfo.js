@@ -194,7 +194,7 @@ var userInfoSwarming =
                                 users[0].email,
                                 "Reset password",
                                 "A password reset request was issued for your account.\nPlease access the following link to reset the password.\n\n" +
-                                "https://www."+thisAdapter.config.Core.operandoHost + "/resetPassword?resetId="+passwordResetRequest.id+"\n\nThe link expires in 24 hours."
+                                "https://www."+thisAdapter.config.Core.operandoHost + "/resetPassword?reset_id="+passwordResetRequest.id+"\n\nThe link expires in 24 hours."
                             );
 
                             self.home('newPasswordWasSet');  //not really, but it needs to be compatible with the extension
