@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-               BuildableName = "PPCloak.framework"
-               BlueprintName = "PPCloak"
-               ReferencedContainer = "container:PPCloak.xcodeproj">
+               BlueprintIdentifier = "AD42FB331DF598130034FA99"
+               BuildableName = "FBSecurityQuestionnaire.app"
+               BlueprintName = "FBSecurityQuestionnaire"
+               ReferencedContainer = "container:FBSecurityQuestionnaire.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,31 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AD42FB471DF598130034FA99"
+               BuildableName = "FBSecurityQuestionnaireTests.xctest"
+               BlueprintName = "FBSecurityQuestionnaireTests"
+               ReferencedContainer = "container:FBSecurityQuestionnaire.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AD42FB331DF598130034FA99"
+            BuildableName = "FBSecurityQuestionnaire.app"
+            BlueprintName = "FBSecurityQuestionnaire"
+            ReferencedContainer = "container:FBSecurityQuestionnaire.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-<<<<<<< HEAD
       buildConfiguration = "Debug"
-=======
-      buildConfiguration = "Release"
->>>>>>> master
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -46,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-            BuildableName = "PPCloak.framework"
-            BlueprintName = "PPCloak"
-            ReferencedContainer = "container:PPCloak.xcodeproj">
+            BlueprintIdentifier = "AD42FB331DF598130034FA99"
+            BuildableName = "FBSecurityQuestionnaire.app"
+            BlueprintName = "FBSecurityQuestionnaire"
+            ReferencedContainer = "container:FBSecurityQuestionnaire.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -64,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-            BuildableName = "PPCloak.framework"
-            BlueprintName = "PPCloak"
-            ReferencedContainer = "container:PPCloak.xcodeproj">
+            BlueprintIdentifier = "AD42FB331DF598130034FA99"
+            BuildableName = "FBSecurityQuestionnaire.app"
+            BlueprintName = "FBSecurityQuestionnaire"
+            ReferencedContainer = "container:FBSecurityQuestionnaire.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

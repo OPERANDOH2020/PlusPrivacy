@@ -132,15 +132,19 @@
 		989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */; };
 		98B89E601EC1DF22009570EC /* LongPress.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B89E5F1EC1DF22009570EC /* LongPress.js */; };
 		98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B89E621EC1E0D5009570EC /* LongPressHelper.swift */; };
+<<<<<<< HEAD
 		98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */; };
 		98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */; };
 		98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */; };
+=======
+		98BE1FA51F02511F00223926 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA31F02511600223926 /* PPCloak.framework */; };
+		98BE1FA61F02511F00223926 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA31F02511600223926 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+>>>>>>> master
 		98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */; };
 		98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */; };
 		98D220BE1E80009D00B3BD06 /* UIWebTabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */; };
 		98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */; };
 		98EAF66F1CCF86DC00C77649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */; };
-		98EAF6711CCF86DC00C77649 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAF6701CCF86DC00C77649 /* ViewController.swift */; };
 		98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6721CCF86DC00C77649 /* Main.storyboard */; };
 		98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6751CCF86DC00C77649 /* Assets.xcassets */; };
 		98EAF6791CCF86DC00C77649 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6771CCF86DC00C77649 /* LaunchScreen.storyboard */; };
@@ -196,8 +200,12 @@
 				98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */,
 				983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */,
 				9806356A1EFA642B0004527B /* iOSNM.framework in Embed Frameworks */,
+<<<<<<< HEAD
 				988E45DC1F03C30D003D92C5 /* PPLocationApiHooks.framework in Embed Frameworks */,
 				988E45E01F03C7A2003D92C5 /* PPCloak.framework in Embed Frameworks */,
+=======
+				98BE1FA61F02511F00223926 /* PPCloak.framework in Embed Frameworks */,
+>>>>>>> master
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,16 +358,19 @@
 		989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIRealIdentityView.xib; path = UserInterface/UIRealIdentityView/UIRealIdentityView.xib; sourceTree = "<group>"; };
 		98B89E5F1EC1DF22009570EC /* LongPress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LongPress.js; path = UserInterface/UIWebViewTab/LongPress.js; sourceTree = "<group>"; };
 		98B89E621EC1E0D5009570EC /* LongPressHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressHelper.swift; path = UserInterface/UIWebViewTab/LongPressHelper/LongPressHelper.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPrivacyPolicyViewController.swift; path = UserInterface/UIPrivacyPolicyViewController/UIPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiserSettingsModel.swift; path = UiserSettingsModel/UiserSettingsModel.swift; sourceTree = "<group>"; };
 		98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserSettingsViewController.swift; path = UIUserSettingsViewController/UIUserSettingsViewController.swift; sourceTree = "<group>"; };
+=======
+		98BE1FA31F02511600223926 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
+>>>>>>> master
 		98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabsListView.swift; path = UserInterface/UIWebTabsView/UIWebTabsListView.swift; sourceTree = "<group>"; };
 		98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabsListView.xib; path = UserInterface/UIWebTabsView/UIWebTabsListView.xib; sourceTree = "<group>"; };
 		98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabCollectionCell.swift; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.swift; sourceTree = "<group>"; };
 		98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabCollectionCell.xib; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.xib; sourceTree = "<group>"; };
 		98EAF66B1CCF86DC00C77649 /* Operando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Operando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98EAF6701CCF86DC00C77649 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		98EAF6731CCF86DC00C77649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98EAF6751CCF86DC00C77649 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98EAF6781CCF86DC00C77649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -404,11 +415,20 @@
 			files = (
 				98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */,
 				980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */,
+<<<<<<< HEAD
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
+=======
+>>>>>>> master
 				9806356B1EFA642B0004527B /* PPApiHooksCore.framework in Frameworks */,
+				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
 				980635691EFA642B0004527B /* iOSNM.framework in Frameworks */,
+<<<<<<< HEAD
 				988E45DF1F03C7A2003D92C5 /* PPCloak.framework in Frameworks */,
 				988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */,
+=======
+				98BE1FA51F02511F00223926 /* PPCloak.framework in Frameworks */,
+				98D9A59F1EF4245500973A02 /* SwizzleTestFramework.framework in Frameworks */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,8 +525,12 @@
 		982D31601E84252F00FE2FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				988E45DD1F03C798003D92C5 /* PPCloak.framework */,
 				988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */,
+=======
+				98BE1FA31F02511600223926 /* PPCloak.framework */,
+>>>>>>> master
 				980635591EFA64070004527B /* PPCommonUI.framework */,
 				9806355A1EFA64070004527B /* PPCommonTypes.framework */,
 				9806355B1EFA64070004527B /* iOSNM.framework */,
@@ -1062,7 +1086,6 @@
 				98EAF68F1CCF87B800C77649 /* Utilities */,
 				98EAF68E1CCF87AD00C77649 /* UserInterface */,
 				98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */,
-				98EAF6701CCF86DC00C77649 /* ViewController.swift */,
 				98EAF6721CCF86DC00C77649 /* Main.storyboard */,
 				9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */,
 				ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */,
@@ -1502,7 +1525,6 @@
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
 				989C8A7C1DD3467E003BF341 /* UIRealIdentityView.swift in Sources */,
 				987E71881E8BC8D40006B240 /* UIWebViewTabHelperModels.swift in Sources */,
-				98EAF6711CCF86DC00C77649 /* ViewController.swift in Sources */,
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */,

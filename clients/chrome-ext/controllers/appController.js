@@ -12,10 +12,9 @@
 
 
 angular.module("operando").
-controller("appCtrl", ["$scope", "messengerService","$window", function ($scope, messengerService,$window) {
-
+controller("appCtrl", ["$scope", "messengerService","$window","$state", function ($scope, messengerService, $window, $state) {
     $scope.userIsLoggedIn = false;
-
+    $scope.state = $state;
     $scope.logout = function () {
         messengerService.send("logout", logoutHandler);
     }

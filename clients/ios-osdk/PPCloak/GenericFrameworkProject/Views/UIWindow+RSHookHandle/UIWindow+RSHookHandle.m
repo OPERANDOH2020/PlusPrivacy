@@ -21,6 +21,7 @@ static UIButton *handle = nil;
 static NSTimer *repositionHandleTimer = nil;
 
 +(void)load {
+    return;
     [self jr_swizzleMethod:@selector(addSubview:) withMethod:@selector(rsHook_addSubview:) error:nil];
 }
 

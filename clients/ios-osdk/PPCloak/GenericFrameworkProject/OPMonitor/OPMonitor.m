@@ -102,6 +102,10 @@
 }
 
 
++(void)displayFlow{
+    [[self sharedInstance] displayFlowIfNecessary];
+}
+
 -(void)beginMonitoringWithAppDocument:(NSDictionary *)document {
     
     [[CommonTypeBuilder sharedInstance] buildSCDDocumentWith:document in: ^void(SCDDocument * _Nullable scdDocument, NSError * _Nullable error) {
