@@ -16,6 +16,8 @@ static NSString *kOverrideLocationLongitudesKey = @"kOverrideLocationLongitudesK
 static NSString *kOverrideLocationCycleKey = @"kOverrideLocationCycleKey";
 static NSString *kOverrideLocationChangeInterval = @"kOverrideLocationChangeInterval";
 
+static NSString *kErrorDomain = @"com.plusPrivacy.UserDefinedLocationsError";
+
 @interface UserDefinedLocationsSwizzlerSettings()
 
 @property (readwrite, nonatomic, strong) NSArray<CLLocation*> *locations;
@@ -24,7 +26,7 @@ static NSString *kOverrideLocationChangeInterval = @"kOverrideLocationChangeInte
 @property (readwrite, assign, nonatomic) NSTimeInterval changeInterval;
 @end
 
-static NSString *kErrorDomain = @"com.plusPrivacy.LocationSettings";
+
 
 @implementation UserDefinedLocationsSwizzlerSettings
 

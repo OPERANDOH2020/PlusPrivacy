@@ -261,18 +261,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<I
 
 
 @interface NSError (SWIFT_EXTENSION(PPCommonTypes))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull LocalSchemaProviderDomain;)
-+ (NSString * _Nonnull)LocalSchemaProviderDomain SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _Nonnull jsonSchemaNotFound;)
-+ (NSError * _Nonnull)jsonSchemaNotFound SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull SchemaValidatorDomain;)
++ (NSString * _Nonnull)SchemaValidatorDomain SWIFT_WARN_UNUSED_RESULT;
++ (NSError * _Nonnull)jsonNotValidAccordingToSchema:(NSString * _Nonnull)errors SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NSError (SWIFT_EXTENSION(PPCommonTypes))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull SchemaValidatorDomain;)
-+ (NSString * _Nonnull)SchemaValidatorDomain SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _Nonnull jsonNotValidAccordingToSchema;)
-+ (NSError * _Nonnull)jsonNotValidAccordingToSchema SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull LocalSchemaProviderDomain;)
++ (NSString * _Nonnull)LocalSchemaProviderDomain SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _Nonnull jsonSchemaNotFound;)
++ (NSError * _Nonnull)jsonSchemaNotFound SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

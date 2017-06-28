@@ -33,11 +33,7 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: Bundle.localizedStringFor(key: kNotificationsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingNotifications))
         
-<<<<<<< HEAD
         result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Settings", action: self.callbacks?.whenChoosingSettings))
-=======
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Research OSDK", action: self.callbacks?.whenChoosingMonitor))
->>>>>>> master
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Research OSDK", action: self.callbacks?.whenChoosingMonitor))
         

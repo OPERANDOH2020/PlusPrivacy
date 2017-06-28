@@ -15,8 +15,8 @@ protocol SchemaValidator {
 
 public extension NSError {
     static let SchemaValidatorDomain = "com.swiftSchemaValidator"
-    static var jsonNotValidAccordingToSchema: NSError {
-        return NSError(domain: SchemaValidatorDomain, code: 1, userInfo: nil)
+    static func jsonNotValidAccordingToSchema(_ errors: String) -> NSError {
+        return NSError(domain: SchemaValidatorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: errors])
     }
 }
 
@@ -38,7 +38,7 @@ class SwiftSchemaValidator: SchemaValidator {
                 totalErrors.append("\n")
             }
             
-            completion?(.jsonNotValidAccordingToSchema)
+            completion?(.jsonNotValidAccordingToSchema(totalErrors))
             
         }
 

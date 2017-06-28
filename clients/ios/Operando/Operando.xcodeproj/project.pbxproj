@@ -47,14 +47,9 @@
 		98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */; };
 		98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */; };
 		983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 987E717B1E8BB90C0006B240 /* SwarmClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9840B24D1E2664F300C4FC86 /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9840B24B1E2664F300C4FC86 /* JSONSchema.swift */; };
-		9840B24E1E2664F300C4FC86 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9840B24C1E2664F300C4FC86 /* Validators.swift */; };
 		9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */; };
-		98500BB51E092CEE00DF87E8 /* SchemaValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98500BB41E092CEE00DF87E8 /* SchemaValidator.swift */; };
 		98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 98500BBD1E0935ED00DF87E8 /* KiteJSONValidator.m */; };
 		98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 98500BBF1E0935ED00DF87E8 /* KiteValidationPair.m */; };
-		98500BC31E0985D100DF87E8 /* SCDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98500BC21E0985D100DF87E8 /* SCDRepository.swift */; };
-		98500BCF1E09A25800DF87E8 /* SCDSchema.json in Resources */ = {isa = PBXBuildFile; fileRef = 98500BCE1E09A25800DF87E8 /* SCDSchema.json */; };
 		98516FCF1E040C51007428F3 /* OPCloak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98516FCE1E040C51007428F3 /* OPCloak.swift */; };
 		98516FD41E042089007428F3 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 98516FD11E042089007428F3 /* ProgressHUD.bundle */; };
 		98516FD51E042089007428F3 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 98516FD31E042089007428F3 /* ProgressHUD.m */; };
@@ -117,13 +112,12 @@
 		9882DCF71D140F3F00C7A70F /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */; };
 		9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF91D1448BA00C7A70F /* UIScanningView.swift */; };
 		9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9882DCFB1D14498400C7A70F /* UIScanningView.xib */; };
-		988509B61E0845AA0088272D /* SchemaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988509B51E0845AA0088272D /* SchemaProvider.swift */; };
 		988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988E45D51F039B62003D92C5 /* UISettingsView.swift */; };
 		988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 988E45D71F039C3F003D92C5 /* UISettingsView.xib */; };
 		988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */; };
 		988E45DC1F03C30D003D92C5 /* PPLocationApiHooks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		988E45DF1F03C7A2003D92C5 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45DD1F03C798003D92C5 /* PPCloak.framework */; };
-		988E45E01F03C7A2003D92C5 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45DD1F03C798003D92C5 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		988E45E31F03D2DA003D92C5 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45E11F03D2C9003D92C5 /* PPCloak.framework */; };
+		988E45E41F03D2DA003D92C5 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45E11F03D2C9003D92C5 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9896F46D1E892D7B00BA0D6E /* WebAdBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F46C1E892D7B00BA0D6E /* WebAdBlocker.swift */; };
 		989C41861DBE18E800951AE5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989C41811DBE18E800951AE5 /* Info.plist */; };
 		989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 989C41831DBE18E800951AE5 /* MGSwipeButton.m */; };
@@ -132,14 +126,9 @@
 		989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */; };
 		98B89E601EC1DF22009570EC /* LongPress.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B89E5F1EC1DF22009570EC /* LongPress.js */; };
 		98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B89E621EC1E0D5009570EC /* LongPressHelper.swift */; };
-<<<<<<< HEAD
 		98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */; };
 		98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */; };
 		98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */; };
-=======
-		98BE1FA51F02511F00223926 /* PPCloak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA31F02511600223926 /* PPCloak.framework */; };
-		98BE1FA61F02511F00223926 /* PPCloak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE1FA31F02511600223926 /* PPCloak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
->>>>>>> master
 		98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */; };
 		98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */; };
 		98D220BE1E80009D00B3BD06 /* UIWebTabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */; };
@@ -200,12 +189,8 @@
 				98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */,
 				983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */,
 				9806356A1EFA642B0004527B /* iOSNM.framework in Embed Frameworks */,
-<<<<<<< HEAD
 				988E45DC1F03C30D003D92C5 /* PPLocationApiHooks.framework in Embed Frameworks */,
-				988E45E01F03C7A2003D92C5 /* PPCloak.framework in Embed Frameworks */,
-=======
-				98BE1FA61F02511F00223926 /* PPCloak.framework in Embed Frameworks */,
->>>>>>> master
+				988E45E41F03D2DA003D92C5 /* PPCloak.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,16 +240,11 @@
 		98387BBD1DB75A8400A76F01 /* UIDashboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDashboardButton.swift; path = UserInterface/UIDashboardButton/UIDashboardButton.swift; sourceTree = "<group>"; };
 		98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIDashboardButton.xib; path = UserInterface/UIDashboardButton/UIDashboardButton.xib; sourceTree = "<group>"; };
 		98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Utilities.swift"; path = "UserInterface/Extensions/UIColor+Utilities.swift"; sourceTree = "<group>"; };
-		9840B24B1E2664F300C4FC86 /* JSONSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
-		9840B24C1E2664F300C4FC86 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Utilities.swift"; path = "Extensions/NSError+Utilities.swift"; sourceTree = "<group>"; };
-		98500BB41E092CEE00DF87E8 /* SchemaValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchemaValidator.swift; path = OPCloak/SchemaValidator.swift; sourceTree = "<group>"; };
 		98500BBC1E0935ED00DF87E8 /* KiteJSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiteJSONValidator.h; sourceTree = "<group>"; };
 		98500BBD1E0935ED00DF87E8 /* KiteJSONValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiteJSONValidator.m; sourceTree = "<group>"; };
 		98500BBE1E0935ED00DF87E8 /* KiteValidationPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiteValidationPair.h; sourceTree = "<group>"; };
 		98500BBF1E0935ED00DF87E8 /* KiteValidationPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiteValidationPair.m; sourceTree = "<group>"; };
-		98500BC21E0985D100DF87E8 /* SCDRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCDRepository.swift; path = OPCloak/SCDRepository.swift; sourceTree = "<group>"; };
-		98500BCE1E09A25800DF87E8 /* SCDSchema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SCDSchema.json; path = OPCloak/SCDSchema.json; sourceTree = "<group>"; };
 		98516FCE1E040C51007428F3 /* OPCloak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPCloak.swift; path = OPCloak/OPCloak.swift; sourceTree = "<group>"; };
 		98516FD11E042089007428F3 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		98516FD21E042089007428F3 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -343,11 +323,10 @@
 		9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Utilities.swift"; path = "Utilities/NSDate+Utilities.swift"; sourceTree = "<group>"; };
 		9882DCF91D1448BA00C7A70F /* UIScanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScanningView.swift; path = UserInterface/UIScanningView/UIScanningView.swift; sourceTree = "<group>"; };
 		9882DCFB1D14498400C7A70F /* UIScanningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScanningView.xib; path = UserInterface/UIScanningView/UIScanningView.xib; sourceTree = "<group>"; };
-		988509B51E0845AA0088272D /* SchemaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchemaProvider.swift; path = OPCloak/SchemaProvider.swift; sourceTree = "<group>"; };
 		988E45D51F039B62003D92C5 /* UISettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISettingsView.swift; path = UserInterface/UISettingsView/UISettingsView.swift; sourceTree = "<group>"; };
 		988E45D71F039C3F003D92C5 /* UISettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UISettingsView.xib; path = UserInterface/UISettingsView/UISettingsView.xib; sourceTree = "<group>"; };
 		988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPLocationApiHooks.framework; sourceTree = "<group>"; };
-		988E45DD1F03C798003D92C5 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
+		988E45E11F03D2C9003D92C5 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
 		9896F46C1E892D7B00BA0D6E /* WebAdBlocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebAdBlocker.swift; path = WebAdBlocker/WebAdBlocker.swift; sourceTree = "<group>"; };
 		989C41811DBE18E800951AE5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		989C41821DBE18E800951AE5 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
@@ -358,13 +337,9 @@
 		989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIRealIdentityView.xib; path = UserInterface/UIRealIdentityView/UIRealIdentityView.xib; sourceTree = "<group>"; };
 		98B89E5F1EC1DF22009570EC /* LongPress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LongPress.js; path = UserInterface/UIWebViewTab/LongPress.js; sourceTree = "<group>"; };
 		98B89E621EC1E0D5009570EC /* LongPressHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressHelper.swift; path = UserInterface/UIWebViewTab/LongPressHelper/LongPressHelper.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPrivacyPolicyViewController.swift; path = UserInterface/UIPrivacyPolicyViewController/UIPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		98BE1FAF1F0294A900223926 /* UiserSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiserSettingsModel.swift; path = UiserSettingsModel/UiserSettingsModel.swift; sourceTree = "<group>"; };
 		98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserSettingsViewController.swift; path = UIUserSettingsViewController/UIUserSettingsViewController.swift; sourceTree = "<group>"; };
-=======
-		98BE1FA31F02511600223926 /* PPCloak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCloak.framework; sourceTree = "<group>"; };
->>>>>>> master
 		98D220B71E7FFCEA00B3BD06 /* UIWebTabsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabsListView.swift; path = UserInterface/UIWebTabsView/UIWebTabsListView.swift; sourceTree = "<group>"; };
 		98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabsListView.xib; path = UserInterface/UIWebTabsView/UIWebTabsListView.xib; sourceTree = "<group>"; };
 		98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabCollectionCell.swift; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.swift; sourceTree = "<group>"; };
@@ -415,20 +390,12 @@
 			files = (
 				98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */,
 				980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */,
-<<<<<<< HEAD
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
-=======
->>>>>>> master
 				9806356B1EFA642B0004527B /* PPApiHooksCore.framework in Frameworks */,
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
 				980635691EFA642B0004527B /* iOSNM.framework in Frameworks */,
-<<<<<<< HEAD
-				988E45DF1F03C7A2003D92C5 /* PPCloak.framework in Frameworks */,
 				988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */,
-=======
-				98BE1FA51F02511F00223926 /* PPCloak.framework in Frameworks */,
-				98D9A59F1EF4245500973A02 /* SwizzleTestFramework.framework in Frameworks */,
->>>>>>> master
+				988E45E31F03D2DA003D92C5 /* PPCloak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,12 +492,8 @@
 		982D31601E84252F00FE2FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				988E45DD1F03C798003D92C5 /* PPCloak.framework */,
+				988E45E11F03D2C9003D92C5 /* PPCloak.framework */,
 				988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */,
-=======
-				98BE1FA31F02511600223926 /* PPCloak.framework */,
->>>>>>> master
 				980635591EFA64070004527B /* PPCommonUI.framework */,
 				9806355A1EFA64070004527B /* PPCommonTypes.framework */,
 				9806355B1EFA64070004527B /* iOSNM.framework */,
@@ -632,15 +595,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		9840B24A1E2664F300C4FC86 /* SwiftJSONSchema */ = {
-			isa = PBXGroup;
-			children = (
-				9840B24B1E2664F300C4FC86 /* JSONSchema.swift */,
-				9840B24C1E2664F300C4FC86 /* Validators.swift */,
-			);
-			path = SwiftJSONSchema;
-			sourceTree = "<group>";
-		};
 		9848B2D41D67409100E0FD72 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,12 +620,7 @@
 			children = (
 				982D31691E84254000FE2FB7 /* Bundles */,
 				982D31601E84252F00FE2FB7 /* Frameworks */,
-				9840B24A1E2664F300C4FC86 /* SwiftJSONSchema */,
 				98516FCE1E040C51007428F3 /* OPCloak.swift */,
-				988509B51E0845AA0088272D /* SchemaProvider.swift */,
-				98500BB41E092CEE00DF87E8 /* SchemaValidator.swift */,
-				98500BC21E0985D100DF87E8 /* SCDRepository.swift */,
-				98500BCE1E09A25800DF87E8 /* SCDSchema.json */,
 			);
 			name = OPCloak;
 			sourceTree = "<group>";
@@ -1450,7 +1399,6 @@
 				9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */,
 				98F647591ED30662008EB91E /* PPCommonTypesBundle.bundle in Resources */,
 				98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */,
-				98500BCF1E09A25800DF87E8 /* SCDSchema.json in Resources */,
 				9866A7B41DBF4B1000907D05 /* Localizable.strings in Resources */,
 				98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */,
 				9860B4551DB136C600AFE113 /* UIIdentitiesListView.xib in Resources */,
@@ -1516,7 +1464,6 @@
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
 				982D31881E842A9B00FE2FB7 /* AFHTTPSessionManager.m in Sources */,
-				98500BB51E092CEE00DF87E8 /* SchemaValidator.swift in Sources */,
 				989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */,
 				987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */,
@@ -1551,7 +1498,6 @@
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
-				98500BC31E0985D100DF87E8 /* SCDRepository.swift in Sources */,
 				98EAF6A11CCF8A1800C77649 /* UILoginView.swift in Sources */,
 				9827501D1D0849E200C73411 /* CredentialsStore.swift in Sources */,
 				9852C7031CD1191B00AF2BE5 /* UIRootViewController.swift in Sources */,
@@ -1564,9 +1510,7 @@
 				98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */,
 				98F6B1241E7BE5A200D193FF /* UIWebToolbarView.swift in Sources */,
 				98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */,
-				988509B61E0845AA0088272D /* SchemaProvider.swift in Sources */,
 				985A0D4C1DCCB0E40010C799 /* LocksmithSecurityClass.swift in Sources */,
-				9840B24E1E2664F300C4FC86 /* Validators.swift in Sources */,
 				9866A7BB1DBF701400907D05 /* UIAccountViewController.swift in Sources */,
 				98516FCF1E040C51007428F3 /* OPCloak.swift in Sources */,
 				986F1A5E1E81331900107F23 /* WebTabsControllerLogic.swift in Sources */,
@@ -1577,7 +1521,6 @@
 				ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */,
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
-				9840B24D1E2664F300C4FC86 /* JSONSchema.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,
 				982DF0631DB6618700231BBD /* UIPfbDealTableViewCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,

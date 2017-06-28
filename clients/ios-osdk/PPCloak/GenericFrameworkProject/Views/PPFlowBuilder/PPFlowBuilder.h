@@ -18,7 +18,7 @@
 
 
 @interface PPFlowBuilderLocationModel : NSObject
-@property (strong, nonatomic) GetCurrentRandomWalkSettingsCallback getCurrentRandomWalkSettingsCallback;
+@property (strong, nonatomic) GetCurrentRandomWalkSettingsCallback getCurrentRandomWalkSettings;
 @property (strong, nonatomic) void (^onSaveCurrentRandomWalkSettings)(RandomWalkSwizzlerSettings* settings);
 
 @property (strong, nonatomic) NSInteger(^getCurrentActiveLocationIndex)();

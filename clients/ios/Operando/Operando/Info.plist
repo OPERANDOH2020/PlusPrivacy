@@ -2,13 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<<<<<<< HEAD
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>&quot;The website wants to access your location&quot;</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>&quot;The website wants to access your location&quot;</string>
-=======
->>>>>>> master
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

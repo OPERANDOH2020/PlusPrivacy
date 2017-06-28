@@ -81,7 +81,7 @@
     callbacks.whenChoosingOverrideLocation = ^{
         UIRandomWalkLocationSettingsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UIRandomWalkLocationSettingsViewController"];
         
-        RandomWalkLocationSettingsModel *randomWalkModel = model.eveythingLocationRelated.getCurrentRandomWalkSettingsCallback();
+        RandomWalkLocationSettingsModel *randomWalkModel = model.eveythingLocationRelated.getCurrentRandomWalkSettings();
         
         UIRandomWalkLocationSettingsVCCallbacks *callbacks = [[UIRandomWalkLocationSettingsVCCallbacks alloc] init];
         callbacks.onExit = ^{
@@ -100,7 +100,7 @@
         
         RandomWalkLocationStatusModel *statusModel = [[RandomWalkLocationStatusModel alloc] init];
         statusModel.currentSentLocationIndex = model.eveythingLocationRelated.getCurrentActiveLocationIndex();
-        statusModel.currentSettings = model.eveythingLocationRelated.getCurrentRandomWalkSettingsCallback().currentSettings;
+        statusModel.currentSettings = model.eveythingLocationRelated.getCurrentRandomWalkSettings().currentSettings;
         statusModel.registerCallbackForChanges = model.eveythingLocationRelated.registerChangeCallback;
         statusModel.removeCallbackForChanges = model.eveythingLocationRelated.removeChangeCallback;
         
@@ -111,30 +111,7 @@
         [weakNavgController pushViewController:vc animated:YES];
     };
     
-//    callbacks.whenChoosingOverrideLocation = ^{
-//        UILocationSettingsViewController *locSettingsVC = [storyboard instantiateViewControllerWithIdentifier:@"UILocationSettingsViewController"];
-//        [locSettingsVC setupWithModel:model.eveythingLocationRelated.UserDefinedLocationsSettingsModel onExit:^{
-//            [weakNavgController popViewControllerAnimated:YES];
-//        }];
-//        [weakNavgController pushViewController:locSettingsVC animated:YES];
-//    };
-    
-//    callbacks.whenChoosingLocationStatus = ^{
-//        UILocationStatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"UILocationStatusViewController"];
-//        
-//        UILocationStatusModel *locStatusModel = [[UILocationStatusModel alloc] init];
-//        locStatusModel.removeChangeCallback = model.eveythingLocationRelated.removeChangeCallback;
-//        locStatusModel.registerChangeCallback = model.eveythingLocationRelated.registerChangeCallback;
-//        locStatusModel.currentActiveLocationIndex = model.eveythingLocationRelated.getCurrentActiveLocationIndex();
-//        locStatusModel.currentSettings = model.eveythingLocationRelated.UserDefinedLocationsSettingsModel.getCallback();
-//        
-//        [statusVC setupWithModel:locStatusModel onExit:^{
-//            [weakNavgController popViewControllerAnimated:YES];
-//        }];
-//        
-//        [weakNavgController pushViewController:statusVC animated:YES];
-//    };
-    
+
     
     callbacks.whenExiting = model.onExitCallback;
     [optionsVC setupWithCallbacks:callbacks andMonitorSettings:model.monitoringSettings];

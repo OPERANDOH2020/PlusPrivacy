@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RandomWalkGenerator.h"
 
+static const NSString *kLocationSettingsErrorDomain = @"com.plusPrivacy.LocationSettings";
 static NSString *kCircleCenterLatitude = @"kCircleCenterLatitude";
 static NSString *kCircleCenterLongitude = @"kCircleCenterLongitude";
 static NSString *kCircleRadiusKM = @"kCircleRadiusKM";

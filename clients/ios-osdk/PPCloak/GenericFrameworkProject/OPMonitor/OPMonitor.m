@@ -107,13 +107,19 @@
 }
 
 -(void)beginMonitoringWithAppDocument:(NSDictionary *)document {
-    
+    NSLog(@"building document!!");
+
     [[CommonTypeBuilder sharedInstance] buildSCDDocumentWith:document in: ^void(SCDDocument * _Nullable scdDocument, NSError * _Nullable error) {
         
+        NSLog(@"document built!");
         if (error || !scdDocument) {
-            NSString *errorMessage = [error description];
-            [CommonViewUtils showOkAlertWithMessage:errorMessage completion:nil];
-            [self displayNotificationIfPossible:errorMessage];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSString *errorMessage = [error description];
+                [CommonViewUtils showOkAlertWithMessage:errorMessage completion:nil];
+                [CommonViewUtils showOkAlertWithMessage:@"PlusPrivacy will not begin monitoring!" completion:nil];
+                [self displayNotificationIfPossible:errorMessage];
+            });
             return;
             
         }
@@ -126,7 +132,7 @@
         
         LocationInputSupervisor *locSupervisor = [self.supervisorsArray firstObjectOfClass:[LocationInputSupervisor class]];
         [self setupLocationInputSwizzlerUsingSupervisor:locSupervisor];
-        
+        NSLog(@"everything done!");
     }];
     
 
@@ -190,10 +196,13 @@
         [weakSelf.locationInputSwizzler removeChangeCallback:callback];
     };
     
-    locationRelated.getCurrentRandomWalkSettingsCallback = ^RandomWalkLocationSettingsModel * _Nonnull{
+    locationRelated.getCurrentRandomWalkSettings = ^RandomWalkLocationSettingsModel * _Nonnull{
         RandomWalkLocationSettingsModel *model = [[RandomWalkLocationSettingsModel alloc] init];
         model.currentSettings = weakSelf.locationInputSwizzler.currentSettings;
         model.randomWalkGenerator = [[RandomWalkGenerator alloc] init];
+        
+        NSLog(@"%@", model.currentSettings);
+        
         return model;
     };
     
@@ -294,11 +303,15 @@
 }
 
 -(void)setupLocationInputSwizzlerUsingSupervisor:(LocationInputSupervisor*)supervisor {
+    
+    
     NSError *error = nil;
     RandomWalkSwizzlerSettings *defaultLocationSettings = [RandomWalkSwizzlerSettings createFromDefaults: [NSUserDefaults standardUserDefaults] error:&error];
     
+    NSLog(@"error %@, settings: %@", error, defaultLocationSettings);
+    
     if (error) {
-        RandomWalkBoundCircle *circle = [[RandomWalkBoundCircle alloc] initWithCenter:CLLocationCoordinate2DMake(90, 90) radiusInKm:1];
+        RandomWalkBoundCircle *circle = [[RandomWalkBoundCircle alloc] initWithCenter:CLLocationCoordinate2DMake(64.754800,  -147.343051) radiusInKm:1];
         defaultLocationSettings = [RandomWalkSwizzlerSettings createWithCircle:circle walkPath:@[] enabled:NO error:nil];
     }
     

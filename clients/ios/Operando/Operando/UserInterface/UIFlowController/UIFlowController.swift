@@ -8,10 +8,7 @@
 
 import UIKit
 import PPCloak
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 
 typealias NotificationActionCallback = (_ action: NotificationAction, _ notification: OPNotification) -> Void
 typealias ForgotPasswordCallback = ((_ email: String) -> Void)
@@ -228,7 +225,6 @@ class UIFlowController: SSASideMenuDelegate
             weakSelf?.displayDashboard()
             weakSelf?.sideMenu?.hideMenuViewController()
         }, whenChoosingMonitor: {
-<<<<<<< HEAD
             PPCloak.OPMonitor.displayFlow()
         }, whenChoosingSettings: {
             weakSelf?.displaySettingsViewController()
@@ -240,18 +236,11 @@ class UIFlowController: SSASideMenuDelegate
         }, whenChoosingAbout: {
             weakSelf?.displayAboutViewController()
             weakSelf?.sideMenu?.hideMenuViewController()
-=======
-            OPMonitor.displayFlow()
->>>>>>> master
         })
     }
     
     
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> master
+
     func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
         if let leftMenuVC = menuViewController as? UILeftSideMenuViewController {
             leftMenuVC.prepareToAppear()

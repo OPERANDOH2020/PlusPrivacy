@@ -16,6 +16,7 @@ PPEventDispatcher *_locDispatcher;
     if (NSClassFromString(@"CLLocationManager")) {
         [self autoSwizzleMethodsWithThoseBeginningWith:PPHOOKPREFIX];
         PPApiHooks_registerHookedClass(self);
+        NSLog(@"Registered CLLocationHooks");
     }
 }
 

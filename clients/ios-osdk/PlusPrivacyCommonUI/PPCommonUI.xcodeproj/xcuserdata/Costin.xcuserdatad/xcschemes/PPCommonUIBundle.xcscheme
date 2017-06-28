@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-               BuildableName = "PPCloak.framework"
-               BlueprintName = "PPCloak"
-               ReferencedContainer = "container:PPCloak.xcodeproj">
+               BlueprintIdentifier = "98331C891E56F725005D3A84"
+               BuildableName = "PPCommonUIBundle.bundle"
+               BlueprintName = "PPCommonUIBundle"
+               ReferencedContainer = "container:PPCommonUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,11 +33,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-<<<<<<< HEAD
       buildConfiguration = "Debug"
-=======
-      buildConfiguration = "Release"
->>>>>>> master
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -49,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-            BuildableName = "PPCloak.framework"
-            BlueprintName = "PPCloak"
-            ReferencedContainer = "container:PPCloak.xcodeproj">
+            BlueprintIdentifier = "98331C891E56F725005D3A84"
+            BuildableName = "PPCommonUIBundle.bundle"
+            BlueprintName = "PPCommonUIBundle"
+            ReferencedContainer = "container:PPCommonUI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98584F3C1D3F9E18009FB89F"
-            BuildableName = "PPCloak.framework"
-            BlueprintName = "PPCloak"
-            ReferencedContainer = "container:PPCloak.xcodeproj">
+            BlueprintIdentifier = "98331C891E56F725005D3A84"
+            BuildableName = "PPCommonUIBundle.bundle"
+            BlueprintName = "PPCommonUIBundle"
+            ReferencedContainer = "container:PPCommonUI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

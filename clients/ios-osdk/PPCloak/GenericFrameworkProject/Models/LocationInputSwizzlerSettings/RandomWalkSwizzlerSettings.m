@@ -8,6 +8,18 @@
 
 #import "RandomWalkSwizzlerSettings.h"
 
+@interface NSError(RandomWalkSwizzlerSettings)
++(NSError*)randomWalkDefaultsError;
+@end
+
+@implementation NSError(RandomWalkSwizzlerSettings)
+
++(NSError *)randomWalkDefaultsError{
+    return [NSError errorWithDomain:kLocationSettingsErrorDomain code:(-1) userInfo:nil];
+}
+
+@end
+
 
 @interface RandomWalkSwizzlerSettings()
 @property (readwrite, strong, nonatomic) RandomWalkBoundCircle *boundCircle;
@@ -24,6 +36,11 @@
     
     NSArray *latitudesArray = [defaults arrayForKey:kRandomWalkPathLatitudes];
     NSArray *longitudesArray = [defaults arrayForKey:kRandomWalkPathLongitudes];
+    
+    if (!(latitudesArray || longitudesArray || (latitudesArray.count + longitudesArray.count))) {
+        *error = [NSError randomWalkDefaultsError];
+        return nil;
+    }
     
     Class numberClass = [NSNumber class];
     NSMutableArray *locationsArray = [[NSMutableArray alloc] init];
@@ -79,6 +96,10 @@
     settings.boundCircle = circle;
     
     return settings;
+}
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"Enabled: (%d), walkPathCount: %ld", self.enabled, self.walkPath.count];
 }
 
 @end

@@ -72,12 +72,7 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         guard let dataSource = dataSource else { return cell }
         
         let indexOfNotificationsCell = 4
-<<<<<<< HEAD
         let numOfNotificationsRequest: NumOfNotificationsRequestCallback? = indexPath.row ==  indexOfNotificationsCell ? self.callbacks?.dashboardCallbacks?.numOfNotificationsRequestCallback : nil
-=======
-        let numOfNotificationsRequest: NumOfNotificationsRequestCallback? = indexPath.row == indexOfNotificationsCell ? self.callbacks?.dashboardCallbacks?.numOfNotificationsRequestCallback : nil
->>>>>>> master
-        
         cell.setup(withObject: UILeftSideMenuTVCellObject(categoryImageName: dataSource[indexPath.row].categoryImageName, title: dataSource[indexPath.row].categoryName, numOfNotificationsRequestCallbackIfAny: numOfNotificationsRequest))
         
         return cell
