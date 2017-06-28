@@ -38,9 +38,6 @@ class OPConfigObject: NSObject
         
         weak var weakSelf = self
         
-        let plistRepositoryPath = OPConfigObject.pathForFile(named: "SCDRepository")
-//        let scdRepository = PlistSCDRepository(plistFilePath: plistRepositoryPath)
-
         
         let dependencies = Dependencies(identityManagementRepo:  self.swarmClientHelper,
                                          privacyForBenefitsRepo:  self.swarmClientHelper,
