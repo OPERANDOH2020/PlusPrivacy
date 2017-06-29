@@ -5,14 +5,6 @@
 var core = require("swarmcore");
 thisAdapter = core.createAdapter("EmailAdapter");
 
-
-const mailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
-var transporter = mailer.createTransport(smtpTransport({host:emailHost, port: emailPort, ignoreTLS:true}));
-var jwt = require('jsonwebtoken');
-var fs = require('fs');
-var encryptionKey = fs.readFileSync(thisAdapter.config.Core.emailEncryptionKey).toString();
-
 var emailPort = process.argv.indexOf("-port");
 if(emailPort===-1){
     emailPort = 25;
@@ -26,17 +18,26 @@ if(emailPort===-1){
 }else{
     emailHost = process.argv[emailHost+1];
 }
+const mailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+var transporter = mailer.createTransport(smtpTransport({host:emailHost, port: emailPort, ignoreTLS:true}));
+var jwt = require('jsonwebtoken');
+var fs = require('fs');
+var encryptionKey = fs.readFileSync(thisAdapter.config.Core.emailEncryptionKey).toString();
+
+
 
 sendEmail = function(from,to,subject,text,callback){
     to = jwt.sign(JSON.stringify({
         "alias":from,
         "sender":to
     }),encryptionKey,{algorithm: "HS256"});
-
     transporter.sendMail({
         "from": from,
-        "to": to+"@"+thisAdapter.config.Core.operandoHost,
+        "to": "reply_anonymously_to_sender_"+to+"@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text
     }, callback)
 };
+
+
