@@ -50,6 +50,7 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
         connectionService.resendActivationCode($scope.user.email, function(){
             $scope.successMessage = "Activation email sent! Check your inbox!";
             $scope.requestProcessed = false;
+            delete $scope.errorResponse;
             $scope.$apply();
         }, function(error){
             delete $scope.successMessage;
@@ -58,6 +59,27 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
             $scope.$apply();
         })
     };
+
+
+    $scope.showForgotPassword = function(){
+        $scope.showForgotPasswordBox = true;
+    };
+
+    $scope.recoverPassword = function(){
+        $scope.requestProcessed = true;
+        delete $scope.errorResponse;
+        connectionService.forgotPassword($scope.user.email, function(){
+            $scope.successMessage = "Please check your email inbox and click on the link to reset your password!";
+            $scope.passwordResetSent = true;
+            $scope.requestProcessed = false;
+            $scope.$apply();
+        }, function(error){
+            delete $scope.successMessage;
+            $scope.errorResponse = error;
+            $scope.requestProcessed = false;
+            $scope.$apply();
+        })
+    }
 
 
     /*setTimeout(function () {
