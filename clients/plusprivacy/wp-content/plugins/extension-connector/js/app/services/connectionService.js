@@ -1,5 +1,5 @@
+var SERVER_HOST = "localhost";
 //var SERVER_HOST = "plusprivacy.com";
-var SERVER_HOST = "plusprivacy.com";
 var SERVER_PORT = "8080";
 var GUEST_EMAIL = "guest@operando.eu";
 var GUEST_PASSWORD = "guest";
@@ -43,19 +43,11 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
             });
         };
 
-        ConnectionService.prototype.loginUser = function (user, userType, successCallback, failCallback) {
-
-            var loginCtor;
-            switch (userType){
-                case "Public" : loginCtor = "userLogin"; break;
-                case "OSP": loginCtor = "ospLogin"; break;
-                case "PSP": loginCtor ="pspLogin"; break;
-            }
+        ConnectionService.prototype.loginUser = function (user, successCallback, failCallback) {
 
             var self = this;
-
             swarmService.initConnection(SERVER_HOST, SERVER_PORT, user.email, user.password,
-                "plusprivacy-website", loginCtor, function (error) {
+                "plusprivacy-website", "userLogin", function (error) {
                 });
 
             var userLoginSuccess = function (swarm) {
@@ -232,7 +224,8 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
             });
         };
 
-        ConnectionService.prototype.registerNewOSPOrganisation = function (user, successCallback, failCallback) {
+        ConnectionService.prototype.resetPassword = function (resetToken, newPassword, successCallback, failCallback) {
+
             swarmService.initConnection(SERVER_HOST, SERVER_PORT, GUEST_EMAIL, GUEST_PASSWORD,
                 "plusprivacy-website", "userLogin", function () {
                     console.log("reconnect cbk");
@@ -240,134 +233,22 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                     console.log("connect cbk");
                 });
 
+
             swarmHub.on("login.js", "success_guest", function guestLoginForUserVerification(swarm) {
                 swarmHub.off("login.js", "success_guest", guestLoginForUserVerification);
                 if (swarm.authenticated) {
 
-                    var registerOSPHandler = swarmHub.startSwarm("login.js", "registerNewOSPOrganisation", user);
-                    registerOSPHandler.onResponse("success", function (swarm) {
-                        successCallback("success");
-                        swarmService.removeConnection();
+                    var resetPasswordHandler = swarmHub.startSwarm("UserInfo.js", "performResetPassword", resetToken, newPassword);
+                    resetPasswordHandler.onResponse("resetPasswordSuccessful", function () {
+                        successCallback();
                     });
 
-                    registerOSPHandler.onResponse("error", function (swarm) {
+                    resetPasswordHandler.onResponse("resetPasswordFailed", function (swarm) {
                         failCallback(swarm.error);
-                        swarmService.removeConnection();
-                    });
+                    })
                 }
             });
         };
-
-        ConnectionService.prototype.getOspRequests = function (successCallback, failCallback) {
-            var getRequestsHandler = swarmHub.startSwarm("osp.js", "getRequests");
-            getRequestsHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.ospRequests);
-            });
-
-            getRequestsHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.deleteOSPRequest = function (userId, dismissFeedback, successCallback, failCallback) {
-            var getDeleteRequestHandler = swarmHub.startSwarm("osp.js", "removeOSPRequest", userId, dismissFeedback);
-            getDeleteRequestHandler.onResponse("success", function (swarm) {
-                successCallback();
-            });
-
-            getDeleteRequestHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.acceptOSPRequest = function (userId, successCallback, failCallback) {
-            var acceptRequestHandler = swarmHub.startSwarm("osp.js", "acceptOSPRequest", userId);
-            acceptRequestHandler.onResponse("success", function (swarm) {
-                successCallback();
-            });
-
-            acceptRequestHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.listOSPs = function (successCallback, failCallback) {
-            var listOSPsHandler = swarmHub.startSwarm("osp.js", "listOSPs");
-            listOSPsHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.ospList);
-            });
-
-            listOSPsHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-        ConnectionService.prototype.addOspOffer = function (offerDetails, successCallback, failCallback) {
-            var addOspOfferHandler = swarmHub.startSwarm("osp.js", "addOspOffer", offerDetails);
-            addOspOfferHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.offer);
-            });
-
-            addOspOfferHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-        ConnectionService.prototype.deleteOspOffer = function (offerId, successCallback, failCallback) {
-            var deleteOspOfferHandler = swarmHub.startSwarm("osp.js", "deleteOspOffer", offerId);
-            deleteOspOfferHandler.onResponse("success", function (swarm) {
-                successCallback();
-            });
-
-            deleteOspOfferHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.listOSPOffers = function (successCallback, failCallback) {
-            var listOspOffersHandler = swarmHub.startSwarm("osp.js", "listOSPOffers");
-            listOspOffersHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.offers);
-            });
-
-            listOspOffersHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.getOffersStats = function(ospId, successCallback, failCallback){
-            var listOspOffersHandler = swarmHub.startSwarm("osp.js", "getOffersStats",ospId);
-            listOspOffersHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.offersStats);
-            });
-
-            listOspOffersHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-
-        ConnectionService.prototype.getMyOffersDetails = function(successCallback, failCallback){
-            var listOspOffersHandler = swarmHub.startSwarm("osp.js", "getCurrentUserOffers");
-            listOspOffersHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.offersStats);
-            });
-
-            listOspOffersHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-        ConnectionService.prototype.getOfferStatistics = function(offerId,successCallback, failCallback){
-            var listOspOffersHandler = swarmHub.startSwarm("osp.js", "getOfferStatistics",offerId);
-            listOspOffersHandler.onResponse("success", function (swarm) {
-                successCallback(swarm.offerStats);
-            });
-
-            listOspOffersHandler.onResponse("failed", function (swarm) {
-                failCallback(swarm.error);
-            });
-        };
-
-
 
         return ConnectionService;
 

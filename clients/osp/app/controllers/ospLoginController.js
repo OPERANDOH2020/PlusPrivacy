@@ -10,6 +10,7 @@ angular.module("ospApp").controller("ospLoginController", function ($scope, conn
         $scope.successMessage = false;
         $scope.requestProcessed = true;
         $scope.accountNotActivated = false;
+        delete $scope.errorResponse;
         connectionService.loginUser($scope.user, function (user) {
 
                 userService.setUser(user);

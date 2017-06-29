@@ -1,22 +1,13 @@
-Haraka
+This is a plugin for Haraka. Haraka is a Node.js email server.  For more information please visit https://haraka.github.io .
+The core function of this plugin is to manage the identities feature of PlusPrivacy.
 
-Congratulations on creating a new installation of Haraka.
+To get it up and running you need to go through the following steps:
 
-This directory contains two key directories for how Haraka will function:
+1. Setup the PlusPrivacy coreServer,
+2. Install Haraka
+3. Acquire a SSL pair of certificate and private key. See the tls plugin information for more details.
+4. Enable the DKIM feature. For the specific steps please see the dkim_sign plugin description.
+5. Generate a secret key to use when encrypting conversations. Add the path to it in the operando.ini file.
+6. Start the server by running "haraka -c /path/to/emailServer"
 
- - config
-           This directory contains configuration files for Haraka. The
-           directory contains the default configuration. You probably want
-           to modify some files in here, particularly `smtp.ini`.
- - plugins
-           This directory contains custom plugins which you write to run in
-           Haraka. The plugins which ship with Haraka are still available
-           to use.
- - docs/plugins
-           This directory contains documentation for your plugins.
 
-Documentation for Haraka is available via `haraka -h <name> where the name
-is either the name of a plugin (without the .js extension) or the name of
-a core Haraka module, such as `Connection` or `Transaction`.
-
-To get documentation on writing a plugin type `haraka -h Plugins`.

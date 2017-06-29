@@ -270,7 +270,7 @@ exports.genereateResetPasswordToken = function(userId,callback){
 exports.validateResetPasswordToken = function(token,callback){
     flow.create("Validate reset token", {
         begin: function () {
-            persistence.find("PasswordResetRequest", token, this.continue("createLink"));
+            persistence.findById("PasswordResetRequest", token, this.continue("validate"));
         },
         validate: function (err, obj) {
             var oneDay = 24*60*60*1000 //in ms
@@ -282,7 +282,24 @@ exports.validateResetPasswordToken = function(token,callback){
                 callback(new Error("The reset token is invalid"))
 
             } else {
-                callback(null, obj)
+                this.request = obj;
+                this.next("getUser");
+            }
+        },
+        getUser:function(){
+            persistence.findById("DefaultUser", this.request.user,this.continue("validateUser"));
+        },
+        validateUser:function(err, user){
+            if(err){
+                callback(err);
+            }
+            else{
+                if(!user){
+                    callback(new Error("No user found!"))
+                }
+                else{
+                    callback(null, user);
+                }
             }
         },
         error: function (err) {
@@ -295,7 +312,7 @@ exports.validateResetPasswordToken = function(token,callback){
 exports.invalidateResetPasswordToken = function(token,callback){
     flow.create("Validate reset token", {
         begin: function () {
-            persistence.find("PasswordResetRequest", token, this.continue("createLink"));
+            persistence.findById("PasswordResetRequest", token, this.continue("validate"));
         },
         validate: function (err, obj) {
             if (err) {
