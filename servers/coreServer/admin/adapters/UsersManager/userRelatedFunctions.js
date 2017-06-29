@@ -248,7 +248,7 @@ exports.getUserId = function(email, callback){
 exports.genereateResetPasswordToken = function(userId,callback){
     flow.create("Create reset link", {
         begin: function () {
-            persistence.lookup("PasswordResetRequest", md5.update(uuid.v1()).digest('hex'), this.continue("createLink"));
+            persistence.lookup("PasswordResetRequest", crypto.createHash('md5').update(uuid.v1()).digest('hex'), this.continue("createLink"));
         },
         createLink: function (err, obj) {
             if(err){
