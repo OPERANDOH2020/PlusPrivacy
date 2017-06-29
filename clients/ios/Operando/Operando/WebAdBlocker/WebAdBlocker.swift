@@ -17,6 +17,15 @@ class WebAdBlocker: NSObject {
     private var didInitEngine: Bool = false
     
     var adBlockingEnabled: Bool = true
+    var protectionEnabled: Bool = true {
+        didSet {
+            if protectionEnabled {
+                PPApiHooks_enableWebKitURLMonitoring();
+            } else {
+                PPApiHooks_disableWebKitURLMonitoring();
+            }
+        }
+    }
     
     private func initEngineWith(completion: VoidBlock?) {
         weak var weakSelf = self;
@@ -43,15 +52,17 @@ class WebAdBlocker: NSObject {
                 
                 guard event.eventIdentifier.eventType == PPEventType.PPWKWebViewEvent,
                     let request = event.eventData?[kPPWebViewRequest] as? URLRequest else {
+                        next?()
                         return
                 }
-
+                
+                print(request)
                 
                 let actionType = self.contentBlockingEngine.action(for: request)
                 if actionType == WebContentActionType.TypeBlockContent && self.adBlockingEnabled {
-                    event.eventData?[kPPAllowWebViewRequestValue] = NSNumber(booleanLiteral: false)
+                    event.eventData?[kPPBlockWebViewRequestValue] = NSNumber(booleanLiteral: true)
                 } else {
-                    event.eventData?[kPPAllowWebViewRequestValue] = NSNumber(booleanLiteral: true)
+                    event.eventData?[kPPBlockWebViewRequestValue] = NSNumber(booleanLiteral: false)
                 }
                 
             })

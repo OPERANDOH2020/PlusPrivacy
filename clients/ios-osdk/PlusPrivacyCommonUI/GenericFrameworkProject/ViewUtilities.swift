@@ -53,7 +53,7 @@ public class PPNibDesignableView: UIView
     public func commonInit() {
         let myClass : AnyClass = self.classForCoder;
         var nibName : NSString = NSStringFromClass(myClass) as NSString;
-        nibName = nibName.replacingOccurrences(of: "PlusPrivacyCommonUI" + ".", with: "") as NSString;
+        nibName = nibName.replacingOccurrences(of: "PPCommonUI" + ".", with: "") as NSString;
 
         let bundle = Bundle.commonUIBundle
                 

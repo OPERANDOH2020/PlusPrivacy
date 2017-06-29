@@ -81,28 +81,26 @@ class OPConfigObject: NSObject
         self.flowController?.setSideMenu(enabled: false)
         weak var weakSelf = self
         
-        OPConfigObject.deleteAllWebsiteDataWith {
-            if let (email, password) = CredentialsStore.retrieveLastSavedCredentialsIfAny()
-            {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                ProgressHUD.show(kConnecting)
-                weakSelf?.userRepository?.loginWith(email: email, password: password, withCompletion: { (error, data) in
-                    ProgressHUD.dismiss()
-                    
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    if let error = error {
-                        OPErrorContainer.displayError(error: error)
-                        weakSelf?.flowController?.displayLoginHierarchy()
-                        return
-                    }
-                    weakSelf?.currentUserIdentity = data
-                    weakSelf?.flowController?.setupHierarchyStartingWithDashboardIn(window)
-                    weakSelf?.flowController?.setSideMenu(enabled: true)
-                })
-            }
-            else {
-                weakSelf?.flowController?.displayLoginHierarchy()
-            }
+        if let (email, password) = CredentialsStore.retrieveLastSavedCredentialsIfAny()
+        {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            ProgressHUD.show(kConnecting)
+            weakSelf?.userRepository?.loginWith(email: email, password: password, withCompletion: { (error, data) in
+                ProgressHUD.dismiss()
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                if let error = error {
+                    OPErrorContainer.displayError(error: error)
+                    weakSelf?.flowController?.displayLoginHierarchy()
+                    return
+                }
+                weakSelf?.currentUserIdentity = data
+                weakSelf?.flowController?.setupHierarchyStartingWithDashboardIn(window)
+                weakSelf?.flowController?.setSideMenu(enabled: true)
+            })
+        }
+        else {
+            weakSelf?.flowController?.displayLoginHierarchy()
         }
         
     }
@@ -111,6 +109,15 @@ class OPConfigObject: NSObject
         return false
     }
     
+    
+    func applicationWillTerminate(app: UIApplication) {
+        if self.currentUserSettings.clearWebsiteDataOnExit {
+            let bgTaskIdentifier = app.beginBackgroundTask(expirationHandler: nil)
+            OPConfigObject.deleteAllWebsiteDataWith {
+                app.endBackgroundTask(bgTaskIdentifier);
+            }
+        }
+    }
     
     private func eraseCredentialsIfFreshAppReinstall() {
         let key = "DoNotEraseCredentials"
@@ -281,6 +288,7 @@ class OPConfigObject: NSObject
     private func applyAndSaveUserSettings(_ settings: UserSettingsModel){
         settings.writeTo(defaults: UserDefaults.standard)
         self.adBlocker.adBlockingEnabled = settings.enableAdBlock
+        self.adBlocker.protectionEnabled = !settings.disableWebsiteProtection
     }
     
     private func createUserSettingsCallbacks() -> UserSettingsModelCallbacks {

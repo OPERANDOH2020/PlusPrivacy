@@ -282,6 +282,22 @@ public class AccessedInput: NSObject {
     }
 }
 
+@objc
+public class AccessedHosts: NSObject {
+    public let hostList: [String]?
+    public let reasonNonDisclosure: String?
+    internal init?(dict: [String: Any]){
+        let reasonNonDisclosure: String? = dict["reasonNonDisclosure"] as? String
+        let hostsListArray: [String]? = dict["hostList"] as? [String]
+        if reasonNonDisclosure == nil && hostsListArray == nil {
+            return nil
+        }
+        
+        self.hostList = hostsListArray
+        self.reasonNonDisclosure = reasonNonDisclosure
+        super.init()
+    }
+}
 
 @objc
 public class SCDDocument: NSObject {
@@ -289,13 +305,14 @@ public class SCDDocument: NSObject {
     public let bundleId: String
     public let appIconURL: String?
     
-    public let accessedHosts: [String]
+    public let accessedHosts: AccessedHosts
     public let accessedInputs: [AccessedInput]
     
     internal init?(scd: [String: Any]) {
         guard let title = scd["title"] as? String,
             let bundleId = scd["bundleId"] as? String,
-            let accessedHosts = scd["accessedHosts"] as? [String],
+            let accessedHostsDict = scd["accessedHosts"] as? [String: Any],
+            let accessedHosts = AccessedHosts(dict: accessedHostsDict),
             let accessedSensorsDictArray = scd["accessedInputs"] as? [[String: Any]],
             let accessedSensors = AccessedInput.buildFromJsonArray(accessedSensorsDictArray) else {
                 return nil

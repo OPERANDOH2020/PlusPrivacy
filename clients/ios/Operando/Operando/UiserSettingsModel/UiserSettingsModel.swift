@@ -18,20 +18,29 @@ struct UserSettingsModelCallbacks {
 
 struct UserSettingsModel {
     let enableAdBlock: Bool
-    
+    let clearWebsiteDataOnExit: Bool
+    let disableWebsiteProtection: Bool
     
     
     func writeTo(defaults: UserDefaults){
         defaults.set(self.enableAdBlock, forKey: "enableAdBlock")
+        defaults.set(self.clearWebsiteDataOnExit, forKey: "clearWebsiteDataOnExit")
+        defaults.set(self.disableWebsiteProtection, forKey: "disableWebsiteProtection")
     }
     
     static func createFrom(defaults: UserDefaults) -> UserSettingsModel? {
-        guard let enabledAdBlockBool = defaults.object(forKey: "enableAdBlock") as? Bool else {
+        guard let enabledAdBlockBool = defaults.object(forKey: "enableAdBlock") as? Bool,
+            let clearWebsiteDataOnExit = defaults.object(forKey: "clearWebsiteDataOnExit") as? Bool,
+            let disableWebsiteProtection = defaults.object(forKey: "disableWebsiteProtection") as? Bool else {
             return nil
         }
         
-        return UserSettingsModel(enableAdBlock: enabledAdBlockBool)
+        return UserSettingsModel(enableAdBlock: enabledAdBlockBool,
+                                 clearWebsiteDataOnExit: clearWebsiteDataOnExit,
+                                 disableWebsiteProtection:disableWebsiteProtection)
     }
     
-    static let defaultSettings: UserSettingsModel = UserSettingsModel(enableAdBlock: true)
+    static let defaultSettings: UserSettingsModel = UserSettingsModel(enableAdBlock: true,
+                                                                      clearWebsiteDataOnExit: true,
+                                                                      disableWebsiteProtection: false)
 }

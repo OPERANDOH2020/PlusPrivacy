@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		980635541EFA60BC0004527B /* PPCommonTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635531EFA60BC0004527B /* PPCommonTypes.framework */; };
 		9807875A1E3F44E40099B642 /* UINotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980787591E3F44E40099B642 /* UINotificationViewController.swift */; };
 		98331C901E56F848005D3A84 /* Cloak.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985635F71E30B0FF0033788A /* Cloak.storyboard */; };
 		98331C911E56F848005D3A84 /* SCDDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 985636041E30BEA50033788A /* SCDDocumentCell.xib */; };
@@ -42,11 +41,11 @@
 		985635FE1E30B98C0033788A /* CommonUIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985635FD1E30B98C0033788A /* CommonUIBuilder.swift */; };
 		985636011E30BD000033788A /* UISCDDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985636001E30BD000033788A /* UISCDDocumentsViewController.swift */; };
 		985636051E30BEA50033788A /* SCDDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985636031E30BEA50033788A /* SCDDocumentCell.swift */; };
+		9856A1D01F04F56A0079C42F /* PPCommonTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9856A1CF1F04F56A0079C42F /* PPCommonTypes.framework */; };
 		98584F411D3F9E18009FB89F /* PPCommonUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 98584F401D3F9E18009FB89F /* PPCommonUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		980635531EFA60BC0004527B /* PPCommonTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonTypes.framework; sourceTree = "<group>"; };
 		980787591E3F44E40099B642 /* UINotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationViewController.swift; sourceTree = "<group>"; };
 		98331C8A1E56F725005D3A84 /* PPCommonUIBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPCommonUIBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		98331C8C1E56F725005D3A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		985636031E30BEA50033788A /* SCDDocumentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCDDocumentCell.swift; sourceTree = "<group>"; };
 		985636041E30BEA50033788A /* SCDDocumentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDDocumentCell.xib; sourceTree = "<group>"; };
 		9856360F1E30CEA70033788A /* PPCommonAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PPCommonAssets.xcassets; sourceTree = "<group>"; };
+		9856A1CF1F04F56A0079C42F /* PPCommonTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonTypes.framework; sourceTree = "<group>"; };
 		98584F3D1D3F9E18009FB89F /* PPCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PPCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98584F401D3F9E18009FB89F /* PPCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCommonUI.h; sourceTree = "<group>"; };
 		98584F421D3F9E18009FB89F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				980635541EFA60BC0004527B /* PPCommonTypes.framework in Frameworks */,
+				9856A1D01F04F56A0079C42F /* PPCommonTypes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +217,7 @@
 		98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */ = {
 			isa = PBXGroup;
 			children = (
-				980635531EFA60BC0004527B /* PPCommonTypes.framework */,
+				9856A1CF1F04F56A0079C42F /* PPCommonTypes.framework */,
 				985635FD1E30B98C0033788A /* CommonUIBuilder.swift */,
 				985635F91E30B2130033788A /* ViewUtilities.swift */,
 				985635F71E30B0FF0033788A /* Cloak.storyboard */,

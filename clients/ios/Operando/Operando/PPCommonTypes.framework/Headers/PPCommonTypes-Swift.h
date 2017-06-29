@@ -168,6 +168,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<A
 + (NSDictionary<AccessFrequencyType *, NSString *> * _Nonnull)accessFrequenciesDescriptions SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+SWIFT_CLASS("_TtC13PPCommonTypes13AccessedHosts")
+@interface AccessedHosts : NSObject
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable hostList;
+@property (nonatomic, readonly, copy) NSString * _Nullable reasonNonDisclosure;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
 @class InputType;
 @class PrivacyDescription;
 
@@ -310,7 +318,7 @@ SWIFT_CLASS("_TtC13PPCommonTypes11SCDDocument")
 @property (nonatomic, readonly, copy) NSString * _Nonnull appTitle;
 @property (nonatomic, readonly, copy) NSString * _Nonnull bundleId;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIconURL;
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull accessedHosts;
+@property (nonatomic, readonly, strong) AccessedHosts * _Nonnull accessedHosts;
 @property (nonatomic, readonly, copy) NSArray<AccessedInput *> * _Nonnull accessedInputs;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end

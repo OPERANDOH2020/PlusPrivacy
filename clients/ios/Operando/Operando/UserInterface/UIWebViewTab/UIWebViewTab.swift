@@ -56,6 +56,7 @@ LongPressGestureDelegate {
     }
     
     private func buildWebView(with param: WebViewSetupParameter) -> WKWebView {
+        
         switch param {
         case .fullConfiguration(let configuration):
             return WKWebView(frame: .zero, configuration: configuration)
@@ -118,11 +119,10 @@ LongPressGestureDelegate {
         let snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.getFavIconURL { urlString  in
-            self.getPageTitle { pageTitle in
-                handler?(WebTabDescription(name: pageTitle ?? "", screenshot: snapshotImage, favIconURL: urlString))
-            }
+        self.getPageTitle { pageTitle in
+            handler?(WebTabDescription(name: pageTitle ?? "", screenshot: snapshotImage, favIconURL: ""))
         }
+        
     }
     
     
@@ -130,16 +130,6 @@ LongPressGestureDelegate {
         callback?(self.webView?.title)
     }
     
-    func getFavIconURL(in callback: ((_ url: String?) -> Void)?) {
-        self.webView?.evaluateJavaScript(self.iconURLListScript(), completionHandler: { result, error  in
-            if let resultArray = result as? [String],
-                let first = resultArray.first {
-                callback?(first)
-            } else {
-                callback?(nil)
-            }
-        })
-    }
     
     @IBAction func didPressGoButton(_ sender: Any) {
         guard let text = self.addressTF.text else {
@@ -361,13 +351,6 @@ LongPressGestureDelegate {
         return true
     }
     
-    func iconURLListScript() -> String {
-        return "(function(){for(var a=document.getElementsByTagName(\"link\"),b=[],c=0;c<a.length;c++){var d=a[c],e=d.getAttribute(\"rel\");if(e&&e.toLowerCase().indexOf(\"icon\")>-1){var f=d.getAttribute(\"href\");if(f)if(f.toLowerCase().indexOf(\"https:\")==-1&&f.toLowerCase().indexOf(\"http:\")==-1&&0!=f.indexOf(\"//\")){var g=window.location.protocol+\"//\"+window.location.host;if(window.location.port&&(g+=\":\"+window.location.port),0==f.indexOf(\"/\"))g+=f;else{var h=window.location.pathname.split(\"/\");h.pop();var i=h.join(\"/\");g+=i+\"/\"+f}b.push(g)}else if(0==f.indexOf(\"//\")){var j=window.location.protocol+f;b.push(j)}else b.push(f)}}  return b;})()"
-    }
-    
-    func pageTitleScript() -> String {
-        return "(function(){return document.title;})()"
-    }
     
     //MARK: LongPressRecognizer delegate
     

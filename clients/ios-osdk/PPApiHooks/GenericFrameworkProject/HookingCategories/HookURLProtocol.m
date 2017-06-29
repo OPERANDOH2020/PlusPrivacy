@@ -14,17 +14,33 @@
 
 PPEventDispatcher *_urlDispatcher;
 
+static BOOL _webKitMonitoringOn = YES;
+
+void PPApiHooks_disableWebKitURLMonitoring(){
+    if (!_webKitMonitoringOn) {
+        return;
+    }
+    
+    _webKitMonitoringOn = NO;
+    
+    [NSURLProtocol wk_unregisterScheme:@"http"];
+    [NSURLProtocol wk_unregisterScheme:@"https"];
+}
+void PPApiHooks_enableWebKitURLMonitoring(){
+    if (_webKitMonitoringOn) {
+        return;
+    }
+    
+    _webKitMonitoringOn = YES;
+    [NSURLProtocol wk_registerScheme:@"http"];
+    [NSURLProtocol wk_registerScheme:@"https"];
+}
 
 @implementation HookURLProtocol
 
 +(void)load {
-    if([NSURLProtocol registerClass:[HookURLProtocol class]]){
-        NSLog(@"did register HookURLProtocol class");
-    }
-    
-    [NSURLProtocol wk_registerScheme:@"http"];
-    [NSURLProtocol wk_registerScheme:@"https"];
-    
+    [NSURLProtocol registerClass:[HookURLProtocol class]];
+    PPApiHooks_enableWebKitURLMonitoring();
     PPApiHooks_registerHookedClass(self);
 }
 
@@ -42,14 +58,12 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
     SAFEADD(evData, kPPWebViewRequest, request)
     PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventAllowWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
     
-    
-      
         [_urlDispatcher fireEvent:event  ];
        
     
     // this method returning YES means that the request will be blocked
     // 
-    return ![evData[kPPAllowWebViewRequestValue] boolValue];
+    return [evData[kPPBlockWebViewRequestValue] boolValue];
 }
 
 -(void)startLoading {

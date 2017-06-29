@@ -248,7 +248,7 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #pragma mark - 
 
 #define kPPWebViewRequest @"kPPWebViewRequest"
-#define kPPAllowWebViewRequestValue @"kPPAllowWebViewRequestValue"
+#define kPPBlockWebViewRequestValue @"kPPBlockWebViewRequest"
 
 #pragma mark - NSURLSession related keys
 

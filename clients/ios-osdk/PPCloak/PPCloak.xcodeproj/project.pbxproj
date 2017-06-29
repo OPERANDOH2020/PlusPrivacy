@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		980635501EFA559E0004527B /* PPApiHooksCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9806354F1EFA559E0004527B /* PPApiHooksCore.framework */; };
 		980635521EFA5EC60004527B /* iOSNM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635511EFA5EC60004527B /* iOSNM.framework */; };
-		980635561EFA60E70004527B /* PPCommonTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635551EFA60E70004527B /* PPCommonTypes.framework */; };
 		980635581EFA60ED0004527B /* PPCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635571EFA60ED0004527B /* PPCommonUI.framework */; };
 		981A4A6B1E58ABFE002C4876 /* OPMonitorSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 981A4A691E58ABFE002C4876 /* OPMonitorSettings.h */; };
 		981A4A6C1E58ABFE002C4876 /* OPMonitorSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A4A6A1E58ABFE002C4876 /* OPMonitorSettings.m */; };
@@ -59,6 +58,7 @@
 		985419001E9502390004370F /* UILocationSettingsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 985418FE1E9502390004370F /* UILocationSettingsView.h */; };
 		985419011E9502390004370F /* UILocationSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 985418FF1E9502390004370F /* UILocationSettingsView.m */; };
 		985419031E9502500004370F /* UILocationSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 985419021E9502500004370F /* UILocationSettingsView.xib */; };
+		9856A1D21F0504F00079C42F /* PPCommonTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9856A1D11F0504F00079C42F /* PPCommonTypes.framework */; };
 		985810C31EF955C2000EBF6B /* Strings.c in Sources */ = {isa = PBXBuildFile; fileRef = 985810C11EF955C2000EBF6B /* Strings.c */; };
 		985810C41EF955C2000EBF6B /* Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = 985810C21EF955C2000EBF6B /* Strings.h */; };
 		98584F411D3F9E18009FB89F /* PPCloak.h in Headers */ = {isa = PBXBuildFile; fileRef = 98584F401D3F9E18009FB89F /* PPCloak.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -200,7 +200,6 @@
 /* Begin PBXFileReference section */
 		9806354F1EFA559E0004527B /* PPApiHooksCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPApiHooksCore.framework; sourceTree = "<group>"; };
 		980635511EFA5EC60004527B /* iOSNM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSNM.framework; sourceTree = "<group>"; };
-		980635551EFA60E70004527B /* PPCommonTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonTypes.framework; sourceTree = "<group>"; };
 		980635571EFA60ED0004527B /* PPCommonUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonUI.framework; sourceTree = "<group>"; };
 		981A4A691E58ABFE002C4876 /* OPMonitorSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OPMonitorSettings.h; path = OPMonitorSettings/OPMonitorSettings.h; sourceTree = "<group>"; };
 		981A4A6A1E58ABFE002C4876 /* OPMonitorSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OPMonitorSettings.m; path = OPMonitorSettings/OPMonitorSettings.m; sourceTree = "<group>"; };
@@ -235,6 +234,7 @@
 		985418FE1E9502390004370F /* UILocationSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILocationSettingsView.h; path = Views/UILocationSettingsView/UILocationSettingsView.h; sourceTree = "<group>"; };
 		985418FF1E9502390004370F /* UILocationSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILocationSettingsView.m; path = Views/UILocationSettingsView/UILocationSettingsView.m; sourceTree = "<group>"; };
 		985419021E9502500004370F /* UILocationSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UILocationSettingsView.xib; path = Views/UILocationSettingsView/UILocationSettingsView.xib; sourceTree = "<group>"; };
+		9856A1D11F0504F00079C42F /* PPCommonTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonTypes.framework; sourceTree = "<group>"; };
 		985810C11EF955C2000EBF6B /* Strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Strings.c; path = Strings/Strings.c; sourceTree = "<group>"; };
 		985810C21EF955C2000EBF6B /* Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Strings.h; path = Strings/Strings.h; sourceTree = "<group>"; };
 		98584F3D1D3F9E18009FB89F /* PPCloak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PPCloak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,8 +387,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				980635581EFA60ED0004527B /* PPCommonUI.framework in Frameworks */,
+				9856A1D21F0504F00079C42F /* PPCommonTypes.framework in Frameworks */,
 				980635501EFA559E0004527B /* PPApiHooksCore.framework in Frameworks */,
-				980635561EFA60E70004527B /* PPCommonTypes.framework in Frameworks */,
 				980635521EFA5EC60004527B /* iOSNM.framework in Frameworks */,
 				983C3FAC1E8D27ED00014F25 /* MapKit.framework in Frameworks */,
 			);
@@ -1016,8 +1016,8 @@
 		9895FB361E5B332A00B1F56D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9856A1D11F0504F00079C42F /* PPCommonTypes.framework */,
 				980635571EFA60ED0004527B /* PPCommonUI.framework */,
-				980635551EFA60E70004527B /* PPCommonTypes.framework */,
 				980635511EFA5EC60004527B /* iOSNM.framework */,
 				9806354F1EFA559E0004527B /* PPApiHooksCore.framework */,
 			);

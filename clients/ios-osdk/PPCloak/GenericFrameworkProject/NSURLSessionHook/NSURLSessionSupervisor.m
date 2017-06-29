@@ -27,15 +27,11 @@
     
     __weak typeof(self) weakSelf = self;
     [dispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-        SAFECALL(nextHandlerIfAny)
-        return;
-        
+
         if (event.eventIdentifier.eventSubtype == EventURLSessionStartDataTaskForRequest) {
             [weakSelf processRequestEvent:event];
-        } else {
-            SAFECALL(nextHandlerIfAny)
         }
-        
+        SAFECALL(nextHandlerIfAny)
     }];
 }
 
@@ -55,9 +51,13 @@
 
 
 -(PPAccessUnlistedHostReport*)accessesUnspecifiedLink:(NSURLRequest*)request {
+    if (self.model.scdDocument.accessedHosts.reasonNonDisclosure) {
+        return nil;
+    }
+    
     NSString *host = request.URL.host;
     
-    for (NSString *listedHost in self.model.scdDocument.accessedHosts) {
+    for (NSString *listedHost in self.model.scdDocument.accessedHosts.hostList) {
         if ([listedHost isEqualToString:host]) {
             return nil;
         }

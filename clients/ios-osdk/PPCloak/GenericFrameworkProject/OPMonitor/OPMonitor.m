@@ -245,11 +245,11 @@
 
 
 -(void)newPrivacyLevelViolationReported:(PPPrivacyLevelViolationReport *)report {
-    // must complete later
+    // must complete
 }
 
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport *)report{
-    // must complete later
+    // must complete 
 }
 
 

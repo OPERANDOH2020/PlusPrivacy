@@ -1,7 +1,9 @@
 {
     "title": "PlusPrivacy",
     "bundleId": "eu.romsoft.PlusPrivacy",
-    "accessedHosts": ["plusprivacy.com", "maxcdn.icons8.com", "192.168.100.86"],
+    "accessedHosts": {
+        "reasonNonDisclosure": "PlusPrivacy integrates a web browser."
+    },
     "accessedInputs": [{
     "inputType": "loc",
                        "privacyDescription": {

@@ -56,12 +56,24 @@ class EULATextBuilder: NSObject {
     }
     
     private static func buildDownloadDataPart(for scd: SCDDocument) -> NSAttributedString {
-        guard scd.accessedHosts.count > 0 else {
-            return NSAttributedString(string: "")
+        if let hostList = scd.accessedHosts.hostList {
+            return buildHostListPart(hostList)
         }
         
+        if let reason = scd.accessedHosts.reasonNonDisclosure {
+            return buildReasonNonDisclosurePart(reason)
+        }
+        
+        return NSAttributedString()
+    }
+    
+    private static func buildReasonNonDisclosurePart(_ reason: String) -> NSAttributedString {
+        return NSAttributedString(string: "The app does not list the accessed hosts, for the following reason(s):\n\(reason)")
+    }
+    
+    private static func buildHostListPart(_ hostList: [String]) -> NSAttributedString {
         var story: String = "The app downloads data from the following third party sources:\n";
-        for urlSource in scd.accessedHosts {
+        for urlSource in hostList {
             story.append("\n" + urlSource)
         }
         
@@ -69,7 +81,6 @@ class EULATextBuilder: NSObject {
         
         return NSAttributedString(string: story)
     }
-    
     
     private static func buildSensorsPart(for scd: SCDDocument) -> NSAttributedString {
         guard scd.accessedInputs.count > 0 else {
@@ -158,7 +169,7 @@ class EULATextBuilder: NSObject {
                 }
                 
                 if afArray.count > 1 {story.append("have ")} else {story.append("has ")}
-                story.append("an access frequency of type \"\(af)\". ")
+                story.append("an access frequency of type \"\(af.rawValue)\". ")
                 story.append(AccessFrequencyType.accessFrequenciesDescriptions[af] ?? "");
             }
         }

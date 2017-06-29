@@ -32,5 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         return OPConfigObject.sharedInstance.open(url: url)
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        OPConfigObject.sharedInstance.applicationWillTerminate(app: application)
+    }
 }
 

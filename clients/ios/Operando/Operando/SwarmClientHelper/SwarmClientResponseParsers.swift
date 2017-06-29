@@ -314,7 +314,7 @@ class SwarmClientResponseParsers
     }
     
     static func parseResetPasswordSuccessStatus(from dataDict: [String: Any]) -> Bool? {
-        return parseMetaCurrentPhaseEqualTo(item: "newPasswordWasSet", in: dataDict)
+        return parseMetaCurrentPhaseEqualTo(item: "resetRequestDone", in: dataDict)
     }
     
     static func parseNotificationDismissedSuccessStatus(from dataDict: [String: Any]) -> Bool? {
@@ -324,13 +324,11 @@ class SwarmClientResponseParsers
     static private func parseMetaCurrentPhaseEqualTo(item: String, in dataDict: [String: Any]) -> Bool?
     {
         guard let metaDict = dataDict["meta"] as? [String: Any],
-            let currentPhaseStatus = metaDict["currentPhase"] as? String else
-        {
+            let currentPhaseStatus = metaDict["currentPhase"] as? String else {
             return nil
         }
         
-        if currentPhaseStatus == item
-        {
+        if currentPhaseStatus == item {
             return true
         }
         

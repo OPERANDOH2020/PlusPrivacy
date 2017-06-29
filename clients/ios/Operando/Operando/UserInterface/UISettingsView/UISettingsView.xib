@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UISettingsView" customModule="Operando" customModuleProvider="target">
             <connections>
                 <outlet property="adblockEnabledSwitch" destination="R3S-WE-Qff" id="8N0-39-SbV"/>
+                <outlet property="clearWebsiteDataSwitch" destination="5sF-f8-zXT" id="Q01-O3-pSz"/>
+                <outlet property="disableWebProtectionSwitch" destination="cEy-cZ-YJ0" id="vfX-jd-w60"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG2-0H-sYR">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG2-0H-sYR" userLabel="adblockEnabled">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adblock enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvI-Tx-lGg">
@@ -41,12 +43,71 @@
                         <constraint firstAttribute="trailing" secondItem="R3S-WE-Qff" secondAttribute="trailing" constant="20" id="s12-cn-vf4"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-I8-Iay" userLabel="clearWebsiteData">
+                    <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear website data on exit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV0-HS-nAk">
+                            <rect key="frame" x="20" y="20" width="197" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-f8-zXT">
+                            <rect key="frame" x="306" y="14" width="51" height="31"/>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="NV0-HS-nAk" firstAttribute="centerY" secondItem="SMP-I8-Iay" secondAttribute="centerY" id="QkZ-wO-J5P"/>
+                        <constraint firstItem="5sF-f8-zXT" firstAttribute="centerY" secondItem="NV0-HS-nAk" secondAttribute="centerY" id="gz7-YH-NYl"/>
+                        <constraint firstAttribute="trailing" secondItem="5sF-f8-zXT" secondAttribute="trailing" constant="20" id="pEV-bd-j6L"/>
+                        <constraint firstItem="NV0-HS-nAk" firstAttribute="leading" secondItem="SMP-I8-Iay" secondAttribute="leading" constant="20" id="rGK-HL-ZV7"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2z-ra-kgt" userLabel="disableWebProtection">
+                    <rect key="frame" x="0.0" y="120" width="375" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable web protection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGG-ZL-MHi">
+                            <rect key="frame" x="20" y="20" width="176" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEy-cZ-YJ0">
+                            <rect key="frame" x="306" y="14" width="51" height="31"/>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have difficulties logging in on certain websites, temporarily disable web protection and re-enable it after you're done" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTE-pE-fsP">
+                            <rect key="frame" x="20" y="50.5" width="335" height="54"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="AGG-ZL-MHi" firstAttribute="top" secondItem="r2z-ra-kgt" secondAttribute="top" constant="20" id="D70-6X-JmU"/>
+                        <constraint firstItem="tTE-pE-fsP" firstAttribute="leading" secondItem="AGG-ZL-MHi" secondAttribute="leading" id="FqL-dl-Srb"/>
+                        <constraint firstItem="AGG-ZL-MHi" firstAttribute="leading" secondItem="r2z-ra-kgt" secondAttribute="leading" constant="20" id="PXz-GW-Vjh"/>
+                        <constraint firstItem="tTE-pE-fsP" firstAttribute="trailing" secondItem="cEy-cZ-YJ0" secondAttribute="trailing" id="bOJ-rS-IMq"/>
+                        <constraint firstItem="tTE-pE-fsP" firstAttribute="top" secondItem="AGG-ZL-MHi" secondAttribute="bottom" constant="10" id="btF-DX-1tQ"/>
+                        <constraint firstAttribute="trailing" secondItem="cEy-cZ-YJ0" secondAttribute="trailing" constant="20" id="cTh-CV-nmF"/>
+                        <constraint firstItem="cEy-cZ-YJ0" firstAttribute="centerY" secondItem="AGG-ZL-MHi" secondAttribute="centerY" id="mbk-WT-8ba"/>
+                        <constraint firstAttribute="height" constant="120" id="reg-vo-1E1"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="YG2-0H-sYR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8cI-HN-CMM"/>
                 <constraint firstItem="YG2-0H-sYR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GpF-gK-HBH"/>
+                <constraint firstItem="r2z-ra-kgt" firstAttribute="top" secondItem="SMP-I8-Iay" secondAttribute="bottom" id="Hk2-5t-CT1"/>
                 <constraint firstAttribute="trailing" secondItem="YG2-0H-sYR" secondAttribute="trailing" id="TL5-B2-jIR"/>
+                <constraint firstItem="r2z-ra-kgt" firstAttribute="trailing" secondItem="SMP-I8-Iay" secondAttribute="trailing" id="Tbi-id-TsO"/>
+                <constraint firstItem="SMP-I8-Iay" firstAttribute="leading" secondItem="YG2-0H-sYR" secondAttribute="leading" id="cS3-wK-PbX"/>
+                <constraint firstItem="SMP-I8-Iay" firstAttribute="top" secondItem="YG2-0H-sYR" secondAttribute="bottom" id="gSf-Et-HoQ"/>
+                <constraint firstItem="SMP-I8-Iay" firstAttribute="trailing" secondItem="YG2-0H-sYR" secondAttribute="trailing" id="hro-TH-hW5"/>
+                <constraint firstItem="r2z-ra-kgt" firstAttribute="leading" secondItem="SMP-I8-Iay" secondAttribute="leading" id="jpM-zG-S8I"/>
+                <constraint firstItem="SMP-I8-Iay" firstAttribute="height" secondItem="YG2-0H-sYR" secondAttribute="height" id="mKd-xo-g3a"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
