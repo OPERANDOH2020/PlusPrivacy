@@ -91,7 +91,9 @@ http://tobiasahlin.com/spinkit/
 #register_error,
 #register_success,
 #reset_success,
-#sent_activate_email{
+#reset_password_error,
+#sent_activate_email,
+#reset_password_success{
     margin: 10px 0px 0px 0px;
 }
 

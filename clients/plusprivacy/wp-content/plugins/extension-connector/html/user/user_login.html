@@ -1,6 +1,6 @@
 <div class="container" ng-app="plusprivacy" id="login">
     <div class="wrapper" ng-controller="loginController">
-        <form method="post" name="Login_Form" class="form-signin" ng-submit="submitLoginForm()">
+        <form method="post" name="Login_Form" class="form-signin" ng-submit="submitLoginForm()" ng-show="showForgotPasswordBox!=true" ng-cloak>
             <h3 class="form-signin-heading">Sign In</h3>
             <hr class="colorgraph">
             <br>
@@ -10,10 +10,22 @@
             <input type="password" class="form-control" name="Password" placeholder="Password" required=""
                    ng-model="user.password"/>
 
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" ng-model="user.remember"> Remember me
-                </label>
+
+
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="user.remember"> Remember me
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkbox col-lg-5">
+
+                    <a class="forgot-password" ng-click="showForgotPassword()">Forgot Password?</a>
+
+                </div>
             </div>
 
 
@@ -45,6 +57,46 @@
             </div>
 
             <div ng-show="successMessage" ng-cloak id="sent_activate_email">
+
+                <div class="alert alert-success" role="alert">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    {{successMessage}}
+                </div>
+
+
+            </div>
+
+            <ui-loader ng-cloak ng-if="requestProcessed"></ui-loader>
+
+        </form>
+
+
+        <form method="post" name="Forgot_Password_Form" class="form-signin" ng-submit="recoverPassword()" ng-show="showForgotPasswordBox==true"  ng-cloak>
+           <div ng-show="!passwordResetSent">
+            <h3 class="form-signin-heading">Forgot Password</h3>
+            <hr class="colorgraph">
+            <br>
+            <p>Please enter your email to recover your account</p>
+            <input type="email" class="form-control" name="Email" placeholder="Email" required="" autofocus=""
+                   ng-model="user.email"/>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <button class="btn btn-lg btn-primary btn-block" id="recover-btn" name="Send" value="Send" type="submit" ng-disabled="Forgot_Password_Form.$invalid" >Send</button>
+                </div>
+            </div>
+           </div>
+
+
+
+            <div ng-show="errorResponse" ng-cloak>
+
+                <div class="alert alert-danger" role="alert" id="reset_password_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{errorResponse}}
+                </div>
+            </div>
+
+            <div ng-show="successMessage" ng-cloak id="reset_password_success">
 
                 <div class="alert alert-success" role="alert">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
