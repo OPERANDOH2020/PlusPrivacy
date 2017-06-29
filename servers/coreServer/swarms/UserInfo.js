@@ -176,14 +176,7 @@ var userInfoSwarming =
                     self.home('resetPasswordFailed');
                 }
                 else {
-                    
-                    console.log("GENERATE TOKEN");
-                    
                     genereateResetPasswordToken(users[0].userId,S(function(err,passwordResetRequest){
-
-                        console.log("GENERATE TOKEN",arguments);
-
-
                         if(err){
                             self.error = err.message;
                             self.home('resetPasswordFailed')
@@ -197,7 +190,7 @@ var userInfoSwarming =
                                 "https://www."+thisAdapter.config.Core.operandoHost + "/resetPassword?reset_id="+passwordResetRequest.id+"\n\nThe link expires in 24 hours."
                             );
 
-                            self.home('newPasswordWasSet');  //not really, but it needs to be compatible with the extension
+                            self.home('resetRequestDone');
 
                         }
                     }))
@@ -206,7 +199,7 @@ var userInfoSwarming =
         }
     },
 
-    performResetPassword:function(resetToken,newPassword){
+    performResetPassword:function(resetToken, newPassword){
         this.resetToken = resetToken;
         this.newPassword = newPassword;
         this.swarm("reset");
@@ -215,12 +208,12 @@ var userInfoSwarming =
         node:"UsersManager",
         code:function(){
             var self = this;
-            validateResetPasswordToken(self.resetToken,S(function(err,resetPasswordRequest){
+            validateResetPasswordToken(self.resetToken,S(function(err,user){
                 if(err){
                     self.error = err.message;
                     self.home('resetPasswordFailed')
                 }else{
-                    setNewPassword(resetPasswordRequest.user,self.newPassword,S(function(err,result){
+                    setNewPassword(user,self.newPassword,S(function(err,result){
                         if(err){
                             self.error = err.message;
                             self.home('resetPasswordFailed')

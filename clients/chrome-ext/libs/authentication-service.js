@@ -90,7 +90,7 @@ var authenticationService = exports.authenticationService = {
             if (swarm.authenticated) {
 
                 var resetPassHandler = swarmHub.startSwarm("UserInfo.js", "resetPassword", email);
-                resetPassHandler.onResponse("newPasswordWasSet", function (swarm) {
+                resetPassHandler.onResponse("resetRequestDone", function (swarm) {
                     successCallback("success");
                     self.logoutCurrentUser();
                 });

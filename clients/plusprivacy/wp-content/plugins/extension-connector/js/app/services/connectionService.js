@@ -1,5 +1,5 @@
+var SERVER_HOST = "localhost";
 //var SERVER_HOST = "plusprivacy.com";
-var SERVER_HOST = "plusprivacy.com";
 var SERVER_PORT = "8080";
 var GUEST_EMAIL = "guest@operando.eu";
 var GUEST_PASSWORD = "guest";
@@ -220,6 +220,32 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                 swarmService.removeConnection();
                 if (callback) {
                     callback();
+                }
+            });
+        };
+
+        ConnectionService.prototype.resetPassword = function (resetToken, newPassword, successCallback, failCallback) {
+
+            swarmService.initConnection(SERVER_HOST, SERVER_PORT, GUEST_EMAIL, GUEST_PASSWORD,
+                "plusprivacy-website", "userLogin", function () {
+                    console.log("reconnect cbk");
+                }, function () {
+                    console.log("connect cbk");
+                });
+
+
+            swarmHub.on("login.js", "success_guest", function guestLoginForUserVerification(swarm) {
+                swarmHub.off("login.js", "success_guest", guestLoginForUserVerification);
+                if (swarm.authenticated) {
+
+                    var resetPasswordHandler = swarmHub.startSwarm("UserInfo.js", "performResetPassword", resetToken, newPassword);
+                    resetPasswordHandler.onResponse("resetPasswordSuccessful", function () {
+                        successCallback();
+                    });
+
+                    resetPasswordHandler.onResponse("resetPasswordFailed", function (swarm) {
+                        failCallback(swarm.error);
+                    })
                 }
             });
         };
