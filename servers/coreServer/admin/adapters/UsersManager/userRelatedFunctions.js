@@ -11,6 +11,7 @@ var passwordMinLength = 4;
 var persistence = undefined;
 var saltLength = 48;
 var apersistence = require('apersistence');
+var md5 = crypto.createHash('md5');
 
 
 container.declareDependency("userFunctionality",["mysqlPersistence",'userRelatedTypes'],function(outOfService,mysqlPersistence,types){
@@ -247,7 +248,7 @@ exports.getUserId = function(email, callback){
 exports.genereateResetPasswordToken = function(userId,callback){
     flow.create("Create reset link", {
         begin: function () {
-            persistence.lookup("PasswordResetRequest", uuid.v1(), this.continue("createLink"));
+            persistence.lookup("PasswordResetRequest", md5.update(uuid.v1()).digest('hex'), this.continue("createLink"));
         },
         createLink: function (err, obj) {
             if(err){
