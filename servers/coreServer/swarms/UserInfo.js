@@ -176,14 +176,7 @@ var userInfoSwarming =
                     self.home('resetPasswordFailed');
                 }
                 else {
-                    
-                    console.log("GENERATE TOKEN");
-                    
                     genereateResetPasswordToken(users[0].userId,S(function(err,passwordResetRequest){
-
-                        console.log("GENERATE TOKEN",arguments);
-
-
                         if(err){
                             self.error = err.message;
                             self.home('resetPasswordFailed')
@@ -197,7 +190,7 @@ var userInfoSwarming =
                                 "https://www."+thisAdapter.config.Core.operandoHost + "/resetPassword?reset_id="+passwordResetRequest.id+"\n\nThe link expires in 24 hours."
                             );
 
-                            self.home('newPasswordWasSet');  //not really, but it needs to be compatible with the extension
+                            self.home('resetRequestDone');
 
                         }
                     }))
