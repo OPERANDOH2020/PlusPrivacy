@@ -47,6 +47,7 @@
 		98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */; };
 		98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */; };
 		983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 987E717B1E8BB90C0006B240 /* SwarmClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9843340C1F06364A0016564E /* LocalizedStringKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843340B1F06364A0016564E /* LocalizedStringKeys.swift */; };
 		9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */; };
 		98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 98500BBD1E0935ED00DF87E8 /* KiteJSONValidator.m */; };
 		98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 98500BBF1E0935ED00DF87E8 /* KiteValidationPair.m */; };
@@ -240,6 +241,7 @@
 		98387BBD1DB75A8400A76F01 /* UIDashboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDashboardButton.swift; path = UserInterface/UIDashboardButton/UIDashboardButton.swift; sourceTree = "<group>"; };
 		98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIDashboardButton.xib; path = UserInterface/UIDashboardButton/UIDashboardButton.xib; sourceTree = "<group>"; };
 		98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Utilities.swift"; path = "UserInterface/Extensions/UIColor+Utilities.swift"; sourceTree = "<group>"; };
+		9843340B1F06364A0016564E /* LocalizedStringKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedStringKeys.swift; path = UserInterface/LocalizedStringKeys/LocalizedStringKeys.swift; sourceTree = "<group>"; };
 		9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Utilities.swift"; path = "Extensions/NSError+Utilities.swift"; sourceTree = "<group>"; };
 		98500BBC1E0935ED00DF87E8 /* KiteJSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiteJSONValidator.h; sourceTree = "<group>"; };
 		98500BBD1E0935ED00DF87E8 /* KiteJSONValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiteJSONValidator.m; sourceTree = "<group>"; };
@@ -593,6 +595,14 @@
 				98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9843340A1F06362B0016564E /* LocalizedStringKeys */ = {
+			isa = PBXGroup;
+			children = (
+				9843340B1F06364A0016564E /* LocalizedStringKeys.swift */,
+			);
+			name = LocalizedStringKeys;
 			sourceTree = "<group>";
 		};
 		9848B2D41D67409100E0FD72 /* Extensions */ = {
@@ -1061,6 +1071,7 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				9843340A1F06362B0016564E /* LocalizedStringKeys */,
 				98BE1FB11F02990E00223926 /* UserSettingsViewController */,
 				98BE1FAB1F02665600223926 /* UIPrivacyPolicyViewController */,
 				98D045D91E8AA7A600D97E56 /* UIWebOptionsView */,
@@ -1536,6 +1547,7 @@
 				989C41881DBE18E800951AE5 /* MGSwipeTableCell.m in Sources */,
 				982750261D0849FA00C73411 /* OPConfigObject.swift in Sources */,
 				9870840F1E8E938E00D9F8E9 /* UIButton+AFNetworking.m in Sources */,
+				9843340C1F06364A0016564E /* LocalizedStringKeys.swift in Sources */,
 				98668B611DB0D1F100FDE63A /* UIFlowController.swift in Sources */,
 				9827501A1D0849D400C73411 /* UserIdentityModel.swift in Sources */,
 				982DF0681DB6796500231BBD /* UIPfbDetailsAlertViewController.swift in Sources */,

@@ -1,5 +1,4 @@
 
-
 "kIdentitiesManagementLocalizableKey" = "Identities management";
 "kPrivacyForBenefitsLocalizableKey" = "Privacy for benefits";
 "kPrivateBrowsingLocalizableKey" = "Private browsing";
@@ -31,6 +30,15 @@
 "kResetPasswordAlertDescriptionLocalizableKey" = "Please write your email so we can send you further instructions";
 "kResetLocalizableKey" = "Reset";
 "kCancelLocalizableKey" = "Cancel";
+"kThisIsYourRealIdentityLocalizableKey" = "This is your real identity";
+"kAlternativeIdentitiesLocalizableKey" = "Alternative identities";
+"kSignInLocalizableKey" = "Sign in";
+"kSignUpLocalizableKey" = "Sign up";
+"kChangePasswordLocalizableKey" = "Change password";
 "kPleaseCheckEmailResetLocalizableKey" = "Please check your e-mail for further instructions on how to reset your password";
 "kPasswordChangedSuccesfullyLocalizableKey" = "The password has been changed succesfully";
 "kNoDealsAtTheMomentLocalizableKey" = "There are no deals at the moment";
+"kSettingsLocalizableKey" = "Settings";
+"kResearchOSDKLocalizableKey" = "Research OSDK";
+"kPrivacyPolicyLocalizableKey" = "Privacy Policy";
+"kAboutLocalizableKey" = "About";=

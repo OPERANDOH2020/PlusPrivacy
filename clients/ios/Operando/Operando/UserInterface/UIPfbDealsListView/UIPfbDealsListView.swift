@@ -13,7 +13,7 @@ struct UIPfbDealsListViewCallbacks{
     let cellCallbacks: UIPfbDisplayingViewCallbacks?
 }
 
-let kNoDealsAtTheMomentLocalizableKey = "kNoDealsAtTheMomentLocalizableKey"
+
 
 class UIPfbDealsListView: RSNibDesignableView, UITableViewDelegate, UITableViewDataSource
 {

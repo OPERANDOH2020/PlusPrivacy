@@ -10,7 +10,6 @@ import UIKit
 
 typealias LoginCallback = (_ loginInfo: LoginInfo) -> Void
 
-let kEmailIsNotValidLocalizableKey = "kEmailIsNotValidLocalizableKey"
 
 struct UISignInViewControllerCallbacks
 {

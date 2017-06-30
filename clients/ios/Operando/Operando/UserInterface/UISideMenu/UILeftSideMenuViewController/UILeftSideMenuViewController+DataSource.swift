@@ -8,8 +8,6 @@
 
 import UIKit
 
-let kDashboardLocalizableKey = "kDashboardLocalizableKey"
-
 
 extension UILeftSideMenuViewController {
     
@@ -33,13 +31,13 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: Bundle.localizedStringFor(key: kNotificationsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingNotifications))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Settings", action: self.callbacks?.whenChoosingSettings))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "settings", categoryName: Bundle.localizedStringFor(key: kSettingsLocalizableKey), action: self.callbacks?.whenChoosingSettings))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Research OSDK", action: self.callbacks?.whenChoosingMonitor))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "research_osdk", categoryName: Bundle.localizedStringFor(key: kResearchOSDKLocalizableKey), action: self.callbacks?.whenChoosingMonitor))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "Privacy Policy", action: self.callbacks?.whenChoosingPrivacyPolicy))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: "About", action: self.callbacks?.whenChoosingAbout))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))
         
         return result
     }

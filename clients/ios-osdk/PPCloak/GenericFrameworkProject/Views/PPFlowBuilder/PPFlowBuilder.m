@@ -17,6 +17,7 @@
 #import "UIInputGraphViewController.h"
 #import "UIRandomWalkLocationSettingsViewController.h"
 #import "UIRandomWalkLocationStatusViewController.h"
+#import "UIAboutViewController.h"
 
 @implementation PPFlowBuilderLocationModel
 @end
@@ -111,7 +112,18 @@
         [weakNavgController pushViewController:vc animated:YES];
     };
     
-
+    
+    callbacks.whenChoosingAbout = ^{
+        UIAboutViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UIAboutViewController"];
+        
+        [vc setupWithCallback:^{
+            [weakNavgController popViewControllerAnimated:YES];
+        }];
+        
+        [weakNavgController pushViewController:vc animated:YES];
+    };
+    
+    
     
     callbacks.whenExiting = model.onExitCallback;
     [optionsVC setupWithCallbacks:callbacks andMonitorSettings:model.monitoringSettings];

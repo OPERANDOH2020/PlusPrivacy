@@ -7,7 +7,7 @@
     "accessedInputs": [{
     "inputType": "loc",
                        "privacyDescription": {
-                       "privacyLevel": 1
+                       "privacyLevel": 6
                        },
                        "accessFrequency": "continuously",
                        "userControl": true

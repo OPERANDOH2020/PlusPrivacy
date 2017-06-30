@@ -17,10 +17,7 @@ struct UIDashBoardViewControllerCallbacks
     let numOfNotificationsRequestCallback: NumOfNotificationsRequestCallback?
 }
 
-let kIdentitiesManagementLocalizableKey = "kIdentitiesManagementLocalizableKey"
-let kPrivacyForBenefitsLocalizableKey = "kPrivacyForBenefitsLocalizableKey"
-let kPrivateBrowsingLocalizableKey = "kPrivateBrowsingLocalizableKey"
-let kNotificationsLocalizableKey = "kNotificationsLocalizableKey"
+
 
 class UIDashboardViewController: UIViewController
 {

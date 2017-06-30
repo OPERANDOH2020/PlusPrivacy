@@ -8,8 +8,7 @@
 
 import UIKit
 
-let kMakeDefaultLocalizableKey = "kMakeDefaultLocalizableKey"
-let kDeleteLocalizableKey = "kDeleteLocalizableKey"
+
 
 typealias IdentityIndexCallback = ((_ item: String, _ index: Int ) -> Void)
 

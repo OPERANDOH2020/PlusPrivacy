@@ -23,8 +23,7 @@ protocol UIPfbDisplayingView{
     func refreshWithOwnModel()
 }
 
-let kBenefitLocalizableKey = "kBenefitLocalizableKey"
-let kVoucherLocalizableKey = "kVoucherLocalizableKey"
+
 
 class UIPfbDetailsView: RSNibDesignableView, UIPfbDisplayingView {
 

@@ -8,8 +8,6 @@
 
 import UIKit
 
-let kDismissLocalizableKey = "kDismissLocalizableKey"
-let kNoNotificationsLocalizableKey = "kNoNotificationsLocalizableKey"
 
 struct UINotificationsListViewCallbacks {
     let whenDismissingNotificationAtIndex: ((_ notification: OPNotification, _ index: Int) -> Void)?

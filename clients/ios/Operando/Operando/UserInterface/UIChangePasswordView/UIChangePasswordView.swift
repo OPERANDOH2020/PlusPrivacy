@@ -16,9 +16,7 @@ struct UIChangePasswordViewCallbacks{
 }
 
 
-let kPasswordsMustMatchLocalizableKey = "kPasswordsMustMatchLocalizableKey"
-let kPasswordTooShortLocalizableKey = "kPasswordTooShortLocalizableKey"
-let kPasswordsAreTheSameLocalizableKey = "kPasswordsAreTheSameLocalizableKey"
+
 
 let kMinimumPasswordChars = 5
 

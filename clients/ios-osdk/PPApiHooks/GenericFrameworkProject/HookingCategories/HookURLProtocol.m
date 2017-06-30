@@ -14,7 +14,7 @@
 
 PPEventDispatcher *_urlDispatcher;
 
-static BOOL _webKitMonitoringOn = YES;
+static BOOL _webKitMonitoringOn = NO;
 
 void PPApiHooks_disableWebKitURLMonitoring(){
     if (!_webKitMonitoringOn) {

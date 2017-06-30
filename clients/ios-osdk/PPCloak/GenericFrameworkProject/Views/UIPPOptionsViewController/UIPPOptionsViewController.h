@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) void (^whenChoosingOverrideLocation)();
 @property (strong, nonatomic) void (^whenChoosingLocationStatus)();
+@property (strong, nonatomic) void (^whenChoosingAbout)();
 
 @end
 

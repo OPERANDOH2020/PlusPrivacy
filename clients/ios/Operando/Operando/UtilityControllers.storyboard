@@ -135,95 +135,16 @@
                                 <rect key="frame" x="10" y="30" width="355" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Overview">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
                                     <fragment>
-                                        <string key="content">
-We place the highest value on the protection and security of your data. Protecting your online privacy and maximising your control over your private data is the essence and the purpose of PlusPrivacy service.
-The legal basis for privacy in connection with our services is provided by the EU General Data Protection (GDPR) regulation and the upcoming ePrivacy regulation. Where possible, we will go beyond the most stringent requirements of these regulations in order to protect your privacy.
-This privacy policy will be updated from time to time to reflect the changes in our offering or in applicable laws. For example, currently our services are delivered free of charge, and a free tier will always be offered. In the future, additional paid or free tiers may be introduced that may require changes in this privacy policy, in which case it will be amended.
-
-</string>
+                                        <mutableString key="content">PlusPrivacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy. It will enable you to control the privacy settings in your social network accounts, hide your email identity, block ads, trackers and malware and prevent unwanted apps and browser extensions from tracking you and collecting your private data.</mutableString>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Data minimization">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-We will never collect or store any information that is not required for the delivery of the services to which you subscribe. Any information that we do collect is and will always be explicitly accounted for in this Privacy policy.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Fingerprinting and IP address logging">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-We do not log your IP address. We do not fingerprint you in any way and do not mine the device and software that you use to access our services (such as browser and personal computer) for information that can lead to your identification. We do not obtain in any way and do not store any information about you that you do not provide to us explicitly. We do store some personally identifiable information as required for delivery of some of our services, as explained below.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="The personally identifiable information (PII) that we store">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-The only piece of personally identifiable information (PII) that we currently store is your email address. We will never share your PII with a 3rd party without your explicit consent. You are not required to provide any PII other than your email address to register to the PlusPrivacy service.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="The non-personally identifiable information (n-PII) that we store">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-Information is considered to be non-personally identifiable (n-PII) if it cannot be linked to you unless your email address or other personally identifying information is provided with it. We collect and store in your account record the following (n-PII):
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">	Your privacy settings in the supported social networks, which currently include Facebook, Twitter and LinkedIn.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-LightOblique"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -231,138 +152,24 @@ Information is considered to be non-personally identifiable (n-PII) if it cannot
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">	The privacy-for-benefit (PfB) deals that you subscribe to</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-LightOblique"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-LightOblique"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content" base64-UTF8="YES">
-Cg
+Cgo
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">	Your alternative email identities</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-LightOblique"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-LightOblique"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">	Your ad blocking and anti-tracking settings
-	Your PlusPrivacy account password</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-LightOblique"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-LightOblique"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-CgoKA
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Transient email data">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-Our identity management service involves relaying of email to and from your correspondents. We do not inspect and do not store the content (message body and attachments) of the email messages. We do inspect and rewrite part of the email message headers in order to provide the service. Once the transmission of an email message through our servers is completed, no trace of it is left on our servers.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Privacy-for-benefit deal-related data">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-We plan in the future to offer the service of privacy-for-benefit (PfB) deal brokerage between you and participating online service providers (OSPs). To deliver such services, we will provide certain PII, such as your email address, to the participating OSPs. By using such services, you agree to such transfer of information to OSPs. If you do not explicitly subscribe to a PfB deal, no such information will be provided to OSPs. We will amend this section with more specific description of the data provided to the OSPs once we start offering the PfB services.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Cookies (web interface)">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-For authentication we use so-called session cookies in the user menu and webmail. The data that is saved to your computer serves exclusively for authentication and is, in particular, not used to compile user profiles or the like. The cookies are deleted at the end of the respective session. If you use the simple version of the homepage (ECO switch), a cookie will be permanently saved. In this cookie, only one piece of information is saved: the information that says that when you visit our site you would like to see the simple version of the homepage. This cookie will not be used to track you or compile a user profile.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Compliance with court orders
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We will obey a valid court order or subpoena if these require us to provide the information that we store to law enforcement authorities or a court of law. We will only do so upon legal scrutiny and confirmation of validity of such requirement in the country where we operate. Currently our servers operate from Romania, an EU Member State where the GDPR is in full force.
-
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Acknowledgements">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Medium"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -372,13 +179,13 @@ For authentication we use so-called session cookies in the user menu and webmail
 Multiple open-source libraries have been used in the development of PlusPrivacy, of which we mention: 
 	</string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="SocketIO">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -388,13 +195,13 @@ Multiple open-source libraries have been used in the development of PlusPrivacy,
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="AFNetworking">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -404,13 +211,13 @@ Cgk
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="LockSmith">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -420,13 +227,13 @@ Cgk
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="ProgressHUD">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -436,13 +243,13 @@ Cgk
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="SASideMenu">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -452,13 +259,13 @@ Cgk
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="MGSwipeTableCell">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -468,13 +275,13 @@ Cgk
 Cgk
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="PPWebContentBlocker">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -484,52 +291,40 @@ Cgk
 CgoKA
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="PPWebContentBlocker">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-BoldOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> is a library that aggregates the core components of Brave’s (iOS browser, https://github.com/brave/browser-ios) ad-blocking engine, along with sources originally made by Brian R. Bondy (https://github.com/bbondy?utf8=</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="✓">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="LucidaGrande"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">&amp;tab=repositories&amp;q=&amp;type=&amp;language=c%2B%2B) under MPL 2.0, created as part of the OSDK. It is released under MPL 2.0, and can be located at the following address:
+                                        <mutableString key="content"> is a library that aggregates the core components of Brave’s (iOS browser, https://github.com/brave/browser-ios) ad-blocking engine, along with sources originally made by Brian R. Bondy (https://github.com/bbondy?utf8=✓&amp;tab=repositories&amp;q=&amp;type=&amp;language=c%2B%2B) under MPL 2.0, created as part of the OSDK. It is released under MPL 2.0, and can be located at the following address:
 
-</string>
+</mutableString>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="https://github.com/OPERANDOH2020/PlusPrivacy/tree/master/clients/ios-osdk/PPWebContentBlocker">
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica-LightOblique"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <font key="NSOriginalFont" size="12" name="Helvetica-LightOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content" base64-UTF8="YES">
-CgoKA
+                                        <string key="content">
+
+The full source code of the OPERANDO H2020 project is available on github, at:   https://github.com/OPERANDOH2020/PlusPrivacy 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

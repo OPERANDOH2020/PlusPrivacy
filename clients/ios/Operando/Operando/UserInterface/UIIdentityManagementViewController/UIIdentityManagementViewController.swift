@@ -9,11 +9,7 @@
 import UIKit
 
 
-let kNewSIDGeneratedLocalizableKey = "kNewSIDGeneratedLocalizableKey"
-let kDoYouWantToDeleteSIDLocalizableKey = "kDoYouWantToDeleteSIDLocalizableKey"
-let kAddNewIdentityLocalizableKey = "kAddNewIdentityLocalizableKey"
-let kNoIncompleteFieldsLocalizableKey = "kNoIncompleteFieldsLocalizableKey"
-let kNoIdentitiesAtTheMomentLocalizableKey = "kNoIdentitiesAtTheMomentLocalizableKey"
+
 
 let kMaxNumOfIdentities: Int = 20
 
@@ -68,7 +64,7 @@ class UIIdentityManagementViewController: UIViewController
             self.realIdentityView.setupWith(identity: realIdentity)
         })
         
-        ProgressHUD.show(kConnecting, autoDismissAfter: 3.0);
+        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 3.0);
         repository?.getCurrentIdentitiesListWith(completion: { (identities, error) in
             ProgressHUD.dismiss()
             if let error = error {
@@ -103,7 +99,7 @@ class UIIdentityManagementViewController: UIViewController
         
         OPViewUtils.displayAlertWithMessage(message: Bundle.localizedStringFor(key: kDoYouWantToDeleteSIDLocalizableKey), withTitle: identity, addCancelAction: true) {
         
-            ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
             self.identitiesRepository?.remove(identity: identity, withCompletion: { nextDefaultIdentity, error  in
                 ProgressHUD.dismiss()
                 if let error = error {
@@ -130,7 +126,7 @@ class UIIdentityManagementViewController: UIViewController
     
     private func setAsDefault(identity: String)
     {
-        ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
         self.identitiesRepository?.updateDefaultIdentity(to: identity, withCompletion: { success, error  in
             ProgressHUD.dismiss()
             if let error = error {

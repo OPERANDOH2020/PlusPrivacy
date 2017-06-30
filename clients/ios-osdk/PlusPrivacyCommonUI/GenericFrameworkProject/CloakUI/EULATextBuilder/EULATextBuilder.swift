@@ -102,7 +102,7 @@ class EULATextBuilder: NSObject {
                 story.append(sensorsNames)
                 if sensorsAtI.count > 1 { story.append("are ") } else {story.append("is ")}
                 
-                story.append(" located under the privacy level PL\(i), that is \"\(EULATextBuilder.privacyLevelShortNames[i] ?? "")\". ")
+                story.append(" located under the privacy level PL\(i.rawValue), that is \"\(EULATextBuilder.privacyLevelShortNames[i] ?? "")\". ")
                 story.append(EULATextBuilder.privacyLevelDescriptions[i] ?? "")
                 
                 if i == .SharedWithThirdParty {

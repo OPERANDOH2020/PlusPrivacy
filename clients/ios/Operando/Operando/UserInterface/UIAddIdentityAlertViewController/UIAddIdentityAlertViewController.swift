@@ -49,7 +49,7 @@ class UIAddIdentityAlertViewController: UIViewController {
         
         let generateRandomIdentity: VoidBlock = {
             
-            ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
             identitiesRepository?.generateNewIdentityWith(completion: { identity, error in
                 ProgressHUD.dismiss()
                 
@@ -72,7 +72,7 @@ class UIAddIdentityAlertViewController: UIViewController {
                     return
                 }
                 
-                ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+                ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
                 identitiesRepository?.add(identity: finalIdentity, withCompletion: { success, error  in
                     ProgressHUD.dismiss()
                     

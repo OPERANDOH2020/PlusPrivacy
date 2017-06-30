@@ -11,10 +11,7 @@ import WebKit
 import PPCommonUI
 import PPCommonTypes
 
-let kPleaseConfirmEmailLocalizableKey = "kPleaseConfirmEmailLocalizableKey"
-let kPleaseCheckEmailResetLocalizableKey = "kPleaseCheckEmailResetLocalizableKey"
-let kPasswordChangedSuccesfullyLocalizableKey = "kPasswordChangedSuccesfullyLocalizableKey"
-let kConnecting = "Connecting"
+
 
 
 
@@ -84,7 +81,7 @@ class OPConfigObject: NSObject
         if let (email, password) = CredentialsStore.retrieveLastSavedCredentialsIfAny()
         {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            ProgressHUD.show(kConnecting)
+            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
             weakSelf?.userRepository?.loginWith(email: email, password: password, withCompletion: { (error, data) in
                 ProgressHUD.dismiss()
                 
@@ -157,7 +154,7 @@ class OPConfigObject: NSObject
     private func registerWithInfoAndUpdateUI(_ info: RegistrationInfo){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        ProgressHUD.show(kConnecting)
+        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
         self.userRepository?.registerNewUserWith(email: info.email, password: info.password) { error in
             ProgressHUD.dismiss()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -220,7 +217,7 @@ class OPConfigObject: NSObject
     }
     
     private func resetPasswordAndUpdateUIFor(email: String) {
-        ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
         self.userRepository?.resetPasswordFor(email: email) { error in
             ProgressHUD.dismiss()
             
@@ -238,7 +235,7 @@ class OPConfigObject: NSObject
         
         return { oldPassword, newPassword, successCallback in
             
-            ProgressHUD.show(kConnecting, autoDismissAfter: 5.0)
+            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
             weakSelf?.userRepository?.changeCurrent(password: oldPassword, to: newPassword, withCompletion: { error in
                 ProgressHUD.dismiss()
                 if let error = error {

@@ -41,8 +41,8 @@
 
 
 -(void(^ __nullable)())getCallbackForCellAtIndex:(NSIndexPath*)indexPath {
-    if (indexPath.section == 1) {
-        return nil;
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        return self.callbacks.whenChoosingAbout;
     }
     
     if (indexPath.section == 2) {

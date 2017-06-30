@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-let kResetLocalizableKey = "kResetLocalizableKey"
-let kCancelLocalizableKey = "kCancelLocalizableKey"
-let kResetPasswordAlertTitleLocalizableKey = "kResetPasswordAlertTitleLocalizableKey"
-let kResetPasswordAlertDescriptionLocalizableKey = "kResetPasswordAlertDescriptionLocalizableKey"
+
 
 class OPViewUtils
 {
