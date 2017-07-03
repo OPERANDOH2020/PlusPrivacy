@@ -12,14 +12,23 @@
 
 
 var bus = require("bus-service").bus;
-
+var currentDeals = false;
+var lastUpdate = new Date();
+const oneDay = 24*60*60*1000
 var pfbService = exports.pfbService = {
-
     getAllPfbDeals: function (success_callback) {
-        var getAllDealsHandler = swarmHub.startSwarm('pfb.js', 'getAllDeals');
-        getAllDealsHandler.onResponse("gotAllDeals", function(swarm){
-            success_callback(swarm.deals);
-        })
+
+        if(!currentDeals || (new Date() - lastUpdate > oneDay)){
+            var getAllDealsHandler = swarmHub.startSwarm('pfb.js', 'getAllDeals');
+            getAllDealsHandler.onResponse("gotAllDeals", function(swarm){
+                currentDeals = swarm.deals;
+                lastUpdate = new Date();
+                success_callback(currentDeals);
+            })
+        }
+        else{
+            success_callback(currentDeals)
+        }
     },
 
     acceptPfbDeal: function(pfbDealId, success_callback){
@@ -36,18 +45,33 @@ var pfbService = exports.pfbService = {
         })
     },
     getWebsiteDeal:function(data, success_callback, failCallback){
-        var pfbHandler = swarmHub.startSwarm("pfb.js", "getWebsiteOffer", data.tabUrl);
-        pfbHandler.onResponse("success", function (swarm) {
-            var offer = swarm.offers[0];
-            console.log(offer);
-            success_callback(offer);
-        });
+        pfbService.getAllPfbDeals(function(deals){
 
-        pfbHandler.onResponse("no_pfb", function (swarm) {
-            failCallback("no_pfb");
-        });
+            var dealsAvailable = deals.filter(function(deal){
+                var currentDate = new Date();
+                return data.tabUrl.match(getHostName(deal.website)) && (currentDate<deal.end_date) && (currentDate>=deal.startDate)
+            });
+            
+            if(dealsAvailable.length>0){
+                success_callback(dealsAvailable[0])
+            }else{
+                failCallback('no_pfb')
+            }
+        })
     }
 }
+
+function getHostName(url) {
+    var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+    if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+        return match[2];
+    }
+    else {
+        return null;
+    }
+}
+
+
 
 bus.registerService(pfbService);
 

@@ -12,6 +12,10 @@
 
 var bus = require("bus-service").bus;
 
+var identities = [];
+var lastUpdate = new Date();
+const oneHour = 60*60*1000;
+
 var identityService = exports.identityService = {
 
     generateIdentity: function (success_callback, error_callback) {
@@ -19,7 +23,7 @@ var identityService = exports.identityService = {
         generateIdentityHandler.onResponse("generateIdentity_success", function(swarm){
              success_callback(swarm.generatedIdentity);
         });
-
+        
         generateIdentityHandler.onResponse("generateIdentity_error", function(swarm){
              error_callback(swarm.error);
         });
@@ -27,8 +31,8 @@ var identityService = exports.identityService = {
 
     addIdentity: function (identity, success_callback, error_callback) {
         var addIdentityHandler = swarmHub.startSwarm('identity.js', 'createIdentity', identity);
-
         addIdentityHandler.onResponse("createIdentity_success", function(swarm){
+            identities.push(swarm.identity);
             success_callback(swarm.identity);
         });
 
@@ -40,6 +44,9 @@ var identityService = exports.identityService = {
     removeIdentity: function (identity, success_callback, error_callback) {
         var removeIdentityHandler = swarmHub.startSwarm('identity.js', 'removeIdentity', identity);
         removeIdentityHandler.onResponse("deleteIdentity_success",function(swarm){
+            identities = identities.filter(function(oldIdentity){
+                return oldIdentity.email!=identity.email
+            })
             success_callback(swarm.default_identity);
         });
 
@@ -49,15 +56,24 @@ var identityService = exports.identityService = {
     },
 
     listIdentities: function (callback) {
-        var listIdentitiesHandler = swarmHub.startSwarm('identity.js', 'getMyIdentities');
-        listIdentitiesHandler.onResponse("getMyIdentities_success",function(swarm){
-            callback(swarm.identities);
-        });
+        if(identities.length===0 || (new Date()-lastUpdate>oneHour)) {
+            var listIdentitiesHandler = swarmHub.startSwarm('identity.js', 'getMyIdentities');
+            listIdentitiesHandler.onResponse("getMyIdentities_success", function (swarm) {
+                identities = swarm.identities;
+                callback(swarm.identities);
+            });
+        }else{
+            callback(identities);
+        }
     },
 
     updateDefaultSubstituteIdentity:function(identity, callback){
         var updateDefaultIdentityHandler = swarmHub.startSwarm('identity.js', 'updateDefaultSubstituteIdentity', identity);
         updateDefaultIdentityHandler.onResponse("defaultIdentityUpdated", function(swarm){
+            identities.forEach(function(oldIdentity){
+                oldIdentity.isDefault = (oldIdentity.email===identity.email);
+            })
+            
             callback(swarm.identity);
         })
     },

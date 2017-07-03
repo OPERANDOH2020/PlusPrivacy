@@ -6,6 +6,7 @@
         <title><?php wp_title( '&raquo;', true, 'right' ); ?></title>
     <?php endif; ?>
     <?php wp_head(); ?>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/boagbmhcbemflaclmnbeebgbfhbegekc">
 </head>
 
 <body <?php body_class() ?> <?php enlightenment_body_extra_atts(); ?>>

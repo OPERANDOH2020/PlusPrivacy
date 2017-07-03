@@ -2,6 +2,7 @@ menuApp.directive("navigation", function( userService, $window){
 
     return{
         restrict: 'E',
+        replace:true,
         scope: {
             navigationModel:"=",
             location:"="
