@@ -3207,7 +3207,7 @@ var ospSettingsConfigPreferences = {
                     }
                 },
                 data: {},
-                recommended:"No"
+                recommended:"Off"
             },
             tags: [
                 "contact"
