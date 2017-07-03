@@ -36,6 +36,14 @@ void PPApiHooks_enableWebKitURLMonitoring(){
     [NSURLProtocol wk_registerScheme:@"https"];
 }
 
+
+
+@interface HookURLProtocol()
+@property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSURLSessionDataTask *currentTask;
+@end
+
+
 @implementation HookURLProtocol
 
 +(void)load {
@@ -48,39 +56,119 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
     _urlDispatcher = dispatcher;
 }
 
++(NSOperationQueue*)sharedQueue {
+    static NSOperationQueue *queue = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        queue = [[NSOperationQueue alloc] init];
+    });
+    
+    return queue;
+}
+
+
++(NSURLSession*)sharedSession {
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    });
+    
+    return session;
+}
+
+-(void)createAndAssignSession {
+    self.session = [[self class] sharedSession];
+}
+
+-(instancetype)initWithRequest:(NSURLRequest *)request cachedResponse:(NSCachedURLResponse *)cachedResponse client:(id<NSURLProtocolClient>)client {
+    if (self = [super initWithRequest:request cachedResponse:cachedResponse client:client]) {
+        [self createAndAssignSession];
+    }
+    
+    return self;
+}
+
+-(instancetype)initWithTask:(NSURLSessionTask *)task cachedResponse:(NSCachedURLResponse *)cachedResponse client:(id<NSURLProtocolClient>)client {
+    if (self = [super initWithTask:task cachedResponse:cachedResponse client:client]) {
+        [self createAndAssignSession];
+    }
+    
+    return self;
+}
+
++(BOOL)shouldInterceptRequest:(NSURLRequest*)request{
+    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
+    SAFEADD(evData, kPPWebViewRequest, request)
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventShouldInterceptWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
+    
+    [_urlDispatcher fireEvent:event  ];
+    return [evData[kPPShouldInterceptWebViewRequestValue] boolValue];
+}
+
++(NSError*)errorForRequest:(NSURLRequest*)request {
+    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
+    SAFEADD(evData, kPPWebViewRequest, request)
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetErrorForRequestIfAny) eventData:evData whenNoHandlerAvailable:nil];
+    
+    [_urlDispatcher fireEvent: event];
+    
+    return evData[kPPErrorForWebViewRequest];
+}
+
++(NSURLRequest*)alternateRequestForRequest:(NSURLRequest*)request {
+    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
+    SAFEADD(evData, kPPWebViewRequest, request)
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetAlternateRequestForWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
+    
+    [_urlDispatcher fireEvent: event];
+    
+    if (!evData[kPPAlternateRequestForWebViewRequest]) {
+        return request;
+    }
+    return evData[kPPAlternateRequestForWebViewRequest];
+}
+
 +(BOOL)canInitWithTask:(NSURLSessionTask *)task {
-    return NO;
+    return [self shouldInterceptRequest:task.originalRequest];
 }
 
 +(BOOL)canInitWithRequest:(NSURLRequest *)request {
-    
-    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
-    SAFEADD(evData, kPPWebViewRequest, request)
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventAllowWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
-    
-        [_urlDispatcher fireEvent:event  ];
-       
-    
-    // this method returning YES means that the request will be blocked
-    // 
-    return [evData[kPPBlockWebViewRequestValue] boolValue];
+    return [self shouldInterceptRequest:request];
 }
 
 -(void)startLoading {
-    NSError *error = [[NSError alloc] initWithDomain:@"com.plusprivacy.ApiHooks "code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Request blocked"}];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.client URLProtocol:self didFailWithError:error];
-    });
+    
+    NSError *errorIfAny = [[self class] errorForRequest:self.request];
+    if (errorIfAny) {
+        [self.client URLProtocol:self didFailWithError:errorIfAny];
+        return;
+    }
+    
+    NSURLRequest *alternateRequest = [[self class] alternateRequestForRequest:self.request];
+    self.currentTask = [self.session dataTaskWithRequest:alternateRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            [self.client URLProtocol:self didFailWithError:error];
+        }
+        
+        [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageAllowed];
+        [self.client URLProtocol:self didLoadData:data];
+        
+        [self.client URLProtocolDidFinishLoading:self];
+    }];
+    
+    [self.currentTask resume];
+    
 }
 
 -(void)stopLoading {
-    
+    [self.currentTask cancel];
 }
 
 +(NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
     return  request;
 }
-
 
 
 @end

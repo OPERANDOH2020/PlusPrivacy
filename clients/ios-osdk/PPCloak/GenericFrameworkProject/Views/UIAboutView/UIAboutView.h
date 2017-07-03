@@ -9,8 +9,10 @@
 #import "CloakNibView.h"
 
 @interface UIAboutViewPageInfo : NSObject
-@property (strong, nonatomic) NSString *text;
-@property (strong, nonatomic) NSString *imageName;
+@property (readonly, nonatomic) NSString *text;
+@property (readonly, nonatomic) NSString *imageName;
+
+-(instancetype)initWithImageName:(NSString*)imageName text:(NSString*)text;
 @end
 
 @interface UIAboutView : CloakNibView

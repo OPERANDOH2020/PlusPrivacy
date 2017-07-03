@@ -166,6 +166,13 @@
 		98CEF3AC1E5F3064002C2145 /* PerSecondReportAggregator.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CEF3AA1E5F3064002C2145 /* PerSecondReportAggregator.m */; };
 		98D603E41E2F800B00E59A42 /* OPMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98D603E21E2F800B00E59A42 /* OPMonitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98D603E51E2F800B00E59A42 /* OPMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D603E31E2F800B00E59A42 /* OPMonitor.m */; };
+		98D780BC1F0A355200A18D60 /* cloak.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780BB1F0A355200A18D60 /* cloak.png */; };
+		98D780BE1F0A355D00A18D60 /* sdkc.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780BD1F0A355D00A18D60 /* sdkc.png */; };
+		98D780C01F0A356B00A18D60 /* monitor.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780BF1F0A356B00A18D60 /* monitor.png */; };
+		98D780C21F0A35A800A18D60 /* compliance.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780C11F0A35A800A18D60 /* compliance.png */; };
+		98D780C41F0A3CE700A18D60 /* perm.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780C31F0A3CE700A18D60 /* perm.png */; };
+		98D780C61F0A3D2100A18D60 /* semantic_firewall.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D780C51F0A3D2100A18D60 /* semantic_firewall.png */; };
+		98D780C91F0A3E8900A18D60 /* aboutOSDK.json in Resources */ = {isa = PBXBuildFile; fileRef = 98D780C81F0A3E8900A18D60 /* aboutOSDK.json */; };
 		98DA11F71E703850008E8373 /* PPCircularArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DA11F51E703850008E8373 /* PPCircularArray.h */; };
 		98DA11F81E703850008E8373 /* PPCircularArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DA11F61E703850008E8373 /* PPCircularArray.m */; };
 		98DF60F81E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DF60F61E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -359,6 +366,13 @@
 		98CEF3AA1E5F3064002C2145 /* PerSecondReportAggregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerSecondReportAggregator.m; path = Models/Aggregators/PerSecondReportAggregator/PerSecondReportAggregator.m; sourceTree = "<group>"; };
 		98D603E21E2F800B00E59A42 /* OPMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OPMonitor.h; path = OPMonitor/OPMonitor.h; sourceTree = "<group>"; };
 		98D603E31E2F800B00E59A42 /* OPMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OPMonitor.m; path = OPMonitor/OPMonitor.m; sourceTree = "<group>"; };
+		98D780BB1F0A355200A18D60 /* cloak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloak.png; sourceTree = "<group>"; };
+		98D780BD1F0A355D00A18D60 /* sdkc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sdkc.png; sourceTree = "<group>"; };
+		98D780BF1F0A356B00A18D60 /* monitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monitor.png; sourceTree = "<group>"; };
+		98D780C11F0A35A800A18D60 /* compliance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compliance.png; sourceTree = "<group>"; };
+		98D780C31F0A3CE700A18D60 /* perm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perm.png; sourceTree = "<group>"; };
+		98D780C51F0A3D2100A18D60 /* semantic_firewall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = semantic_firewall.png; sourceTree = "<group>"; };
+		98D780C81F0A3E8900A18D60 /* aboutOSDK.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aboutOSDK.json; sourceTree = "<group>"; };
 		98DA11F51E703850008E8373 /* PPCircularArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPCircularArray.h; path = Models/Utilities/PPCircularArray/PPCircularArray.h; sourceTree = "<group>"; };
 		98DA11F61E703850008E8373 /* PPCircularArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPCircularArray.m; path = Models/Utilities/PPCircularArray/PPCircularArray.m; sourceTree = "<group>"; };
 		98DF60F61E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAccessUnlistedHostReport.h; path = Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h; sourceTree = "<group>"; };
@@ -582,6 +596,7 @@
 		98413C9D1F068ECE005A48E0 /* UIAboutViewController */ = {
 			isa = PBXGroup;
 			children = (
+				98D780C71F0A3E4C00A18D60 /* Text */,
 				98413CA21F0692DE005A48E0 /* Images */,
 				9843340D1F0679E60016564E /* UIAboutView */,
 				98413C9E1F068F05005A48E0 /* UIAboutViewController.h */,
@@ -593,6 +608,12 @@
 		98413CA21F0692DE005A48E0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98D780C51F0A3D2100A18D60 /* semantic_firewall.png */,
+				98D780C31F0A3CE700A18D60 /* perm.png */,
+				98D780C11F0A35A800A18D60 /* compliance.png */,
+				98D780BF1F0A356B00A18D60 /* monitor.png */,
+				98D780BD1F0A355D00A18D60 /* sdkc.png */,
+				98D780BB1F0A355200A18D60 /* cloak.png */,
 				98413CA31F0692E9005A48E0 /* osdk.png */,
 			);
 			name = Images;
@@ -1156,6 +1177,14 @@
 			name = OPMonitor;
 			sourceTree = "<group>";
 		};
+		98D780C71F0A3E4C00A18D60 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				98D780C81F0A3E8900A18D60 /* aboutOSDK.json */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
 		98DA11F41E70364B008E8373 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -1540,13 +1569,20 @@
 				982464D01E8D5837004D8534 /* mapPin.png in Resources */,
 				98FE5C251E9264F100096744 /* UILocationIndexPinView.xib in Resources */,
 				987083CD1E8E409800D9F8E9 /* UILocationListViewCell.xib in Resources */,
+				98D780BC1F0A355200A18D60 /* cloak.png in Resources */,
+				98D780BE1F0A355D00A18D60 /* sdkc.png in Resources */,
 				985419031E9502500004370F /* UILocationSettingsView.xib in Resources */,
 				984334111F067AE70016564E /* UIAboutView.xib in Resources */,
 				987F524F1E9B9C22006A2946 /* UIRandomWalkMapView.xib in Resources */,
+				98D780C41F0A3CE700A18D60 /* perm.png in Resources */,
+				98D780C61F0A3D2100A18D60 /* semantic_firewall.png in Resources */,
 				98FE5C271E92657500096744 /* pinIcon.png in Resources */,
+				98D780C01F0A356B00A18D60 /* monitor.png in Resources */,
 				989DB8E51E77D2CF008F4D02 /* Info.plist in Resources */,
+				98D780C91F0A3E8900A18D60 /* aboutOSDK.json in Resources */,
 				98413CA41F0692E9005A48E0 /* osdk.png in Resources */,
 				9888430A1E94E2920000FB7C /* mapItemsIcon.png in Resources */,
+				98D780C21F0A35A800A18D60 /* compliance.png in Resources */,
 				9843341D1F067D8E0016564E /* UIAboutCollectionViewCell.xib in Resources */,
 				988843091E94E2920000FB7C /* listItemsIcon.png in Resources */,
 			);

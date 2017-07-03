@@ -116,7 +116,9 @@ typedef NS_ENUM(NSInteger, PPPedometerEventType){
 };
 
 typedef NS_ENUM(NSInteger, PPWKWebViewEventType){
-    EventAllowWebViewRequest
+    EventShouldInterceptWebViewRequest,
+    EventGetAlternateRequestForWebViewRequest,
+    EventGetErrorForRequestIfAny
 };
 
 typedef NS_ENUM(NSInteger, PPLAContextEventType) {
@@ -248,7 +250,11 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #pragma mark - 
 
 #define kPPWebViewRequest @"kPPWebViewRequest"
-#define kPPBlockWebViewRequestValue @"kPPBlockWebViewRequest"
+#define kPPShouldInterceptWebViewRequestValue @"kShouldInterceptWebViewRequestValue"
+#define kPPAlternateRequestForWebViewRequest @"kAlternateRequestForWebViewRequest"
+#define kPPErrorForWebViewRequest @"kErrorForWebViewRequest"
+
+
 
 #pragma mark - NSURLSession related keys
 

@@ -10,6 +10,10 @@ import UIKit
 import PPWebContentBlocker
 import PPApiHooksCore
 
+extension NSError {
+    static let errorContentBlocked: NSError = NSError(domain: "com.plusPrivacy.WebAdBlocker", code: -1, userInfo: nil)
+}
+
 class WebAdBlocker: NSObject {
     
     private var identifier: String?
@@ -43,29 +47,7 @@ class WebAdBlocker: NSObject {
             if let identifier = self.identifier {
                 PPEventDispatcher.sharedInstance().removeHandler(withIdentifier: identifier)
             }
-            
-            
-            PPEventDispatcher.sharedInstance().appendNewEventHandler({ (event, next) in
-                defer {
-                    next?()
-                }
-                
-                guard event.eventIdentifier.eventType == PPEventType.PPWKWebViewEvent,
-                    let request = event.eventData?[kPPWebViewRequest] as? URLRequest else {
-                        next?()
-                        return
-                }
-                
-                print(request)
-                
-                let actionType = self.contentBlockingEngine.action(for: request)
-                if actionType == WebContentActionType.TypeBlockContent && self.adBlockingEnabled {
-                    event.eventData?[kPPBlockWebViewRequestValue] = NSNumber(booleanLiteral: true)
-                } else {
-                    event.eventData?[kPPBlockWebViewRequestValue] = NSNumber(booleanLiteral: false)
-                }
-                
-            })
+            self.registerAndProcessEvents()
         }
         
         if self.didInitEngine {
@@ -80,5 +62,57 @@ class WebAdBlocker: NSObject {
         if let identifier = self.identifier {
             PPEventDispatcher.sharedInstance().removeHandler(withIdentifier: identifier)
         }
+    }
+    
+    private func shouldBlockRequest(_ request: URLRequest) -> Bool {
+        guard self.adBlockingEnabled else {
+            return false
+        }
+        
+        let actionType = self.contentBlockingEngine.action(for: request)
+        return actionType == WebContentActionType.TypeBlockContent
+
+    }
+    
+    private func registerAndProcessEvents() {
+        PPEventDispatcher.sharedInstance().appendNewEventHandler({ (event, next) in
+            defer {
+                next?()
+            }
+            
+            guard event.eventIdentifier.eventType == PPEventType.PPWKWebViewEvent,
+                let request = event.eventData?[kPPWebViewRequest] as? URLRequest else {
+                    return
+            }
+            
+            if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventShouldInterceptWebViewRequest.rawValue {
+                if self.shouldBlockRequest(request) {
+                    event.eventData?[kPPShouldInterceptWebViewRequestValue] = NSNumber(booleanLiteral: true)
+                }
+            }
+            
+            if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventGetErrorForRequestIfAny.rawValue {
+                if self.shouldBlockRequest(request) {
+                    event.eventData?[kPPErrorForWebViewRequest] = NSError.errorContentBlocked
+                }
+            }
+            
+            if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventGetAlternateRequestForWebViewRequest.rawValue {
+                
+                var modifiedRequest = request
+                modifiedRequest.allHTTPHeaderFields?.removeValue(forKey: "Referer")
+                modifiedRequest.allHTTPHeaderFields?["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0";
+                
+                if let body = modifiedRequest.httpBody,
+                    let bodyString: String = String(data: body, encoding: .utf8){
+                    print("Request body: \(bodyString)\n")
+                }
+                
+                print(modifiedRequest.allHTTPHeaderFields!)
+                event.eventData?[kPPAlternateRequestForWebViewRequest] = modifiedRequest
+            }
+            
+        })
+
     }
 }

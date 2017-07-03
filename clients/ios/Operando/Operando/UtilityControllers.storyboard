@@ -136,7 +136,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">PlusPrivacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy. It will enable you to control the privacy settings in your social network accounts, hide your email identity, block ads, trackers and malware and prevent unwanted apps and browser extensions from tracking you and collecting your private data.</mutableString>
+                                        <string key="content">PlusPrivacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy. It will enable you to control the privacy settings in your social network accounts, hide your email identity, block ads, trackers and malware and prevent unwanted apps and browser extensions from tracking you and collecting your private data.</string>
                                         <attributes>
                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -303,9 +303,9 @@ CgoKA
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> is a library that aggregates the core components of Brave’s (iOS browser, https://github.com/brave/browser-ios) ad-blocking engine, along with sources originally made by Brian R. Bondy (https://github.com/bbondy?utf8=✓&amp;tab=repositories&amp;q=&amp;type=&amp;language=c%2B%2B) under MPL 2.0, created as part of the OSDK. It is released under MPL 2.0, and can be located at the following address:
+                                        <string key="content"> is a library that aggregates the core components of Brave’s (iOS browser, https://github.com/brave/browser-ios) ad-blocking engine, along with sources originally made by Brian R. Bondy (https://github.com/bbondy?utf8=✓&amp;tab=repositories&amp;q=&amp;type=&amp;language=c%2B%2B) under MPL 2.0, created as part of the OSDK. It is released under MPL 2.0, and can be located at the following address:
 
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>

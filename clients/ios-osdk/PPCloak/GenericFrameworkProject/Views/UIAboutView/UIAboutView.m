@@ -10,7 +10,20 @@
 #import "UIAboutCollectionViewCell.h"
 #import "NSBundle+RSFrameworkHooks.h"
 
+@interface UIAboutViewPageInfo()
+@property (readwrite, strong, nonatomic) NSString *text;
+@property (readwrite, strong, nonatomic) NSString *imageName;
+@end
+
 @implementation UIAboutViewPageInfo
+-(instancetype)initWithImageName:(NSString *)imageName text:(NSString *)text{
+    if (self = [super init]) {
+        self.text = text;
+        self.imageName = imageName;
+    }
+    
+    return self;
+}
 @end
 
 @interface UIAboutView() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -67,8 +80,8 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat pageIndex =  scrollView.contentSize.width / scrollView.contentOffset.x;
-    self.pageControl.currentPage = pageIndex;
+    CGFloat pageIndex =  scrollView.contentOffset.x / scrollView.frame.size.width;
+    self.pageControl.currentPage = floor(pageIndex);
 }
 
 @end
