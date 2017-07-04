@@ -27,6 +27,8 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                         UserInfoRepository,
                         NotificationsRepository
 {
+
+
     static let ServerURL = "https://plusprivacy.com:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
@@ -641,7 +643,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.whenThereWasAnErrorInCreatingTheSocket?(error)
     }
     
-    func socketDidDisconnect() {
+    func socketDidDisconnect(_ data: [Any]) {
         self.whenSockedDidDisconnect?()
     }
     

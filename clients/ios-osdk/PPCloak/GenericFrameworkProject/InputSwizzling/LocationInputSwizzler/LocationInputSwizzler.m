@@ -110,7 +110,6 @@
     self.indexOfCurrentSentLocation = 0;
     
     if (!settings.enabled) {
-        NSLog(@"Settings not enabled!!!");
         return;
     }
     
@@ -219,7 +218,6 @@
     
     existentWrapper.delegate = delegate;
     
-    NSLog(@"did save delegate: %@, for location manager: %@", delegate, manager);
 }
 
 -(id<CLLocationManagerDelegate>)delegateForManager:(CLLocationManager*)manager {

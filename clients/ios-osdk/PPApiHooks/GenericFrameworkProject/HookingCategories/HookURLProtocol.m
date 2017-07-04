@@ -146,6 +146,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
     }
     
     NSURLRequest *alternateRequest = [[self class] alternateRequestForRequest:self.request];
+    
     self.currentTask = [self.session dataTaskWithRequest:alternateRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error) {

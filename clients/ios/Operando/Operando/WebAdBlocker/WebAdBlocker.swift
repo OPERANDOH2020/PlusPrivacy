@@ -74,10 +74,28 @@ class WebAdBlocker: NSObject {
 
     }
     
+    private func requestAlteredWithTorHeaders(from request: URLRequest) -> URLRequest {
+        var modifiedRequest = request
+        modifiedRequest.allHTTPHeaderFields?["Referer"] = ""
+        modifiedRequest.allHTTPHeaderFields?["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0";
+        
+        modifiedRequest.allHTTPHeaderFields?["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+        
+        modifiedRequest.allHTTPHeaderFields?["Accept-Encoding"] = "gzip, deflate";
+        
+        modifiedRequest.allHTTPHeaderFields?["Accept-Language"] = "en-US,en;q=0.5";
+        
+        return modifiedRequest
+    }
+    
     private func registerAndProcessEvents() {
         PPEventDispatcher.sharedInstance().appendNewEventHandler({ (event, next) in
             defer {
                 next?()
+            }
+            
+            guard self.protectionEnabled else {
+                return
             }
             
             guard event.eventIdentifier.eventType == PPEventType.PPWKWebViewEvent,
@@ -85,10 +103,9 @@ class WebAdBlocker: NSObject {
                     return
             }
             
-            if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventShouldInterceptWebViewRequest.rawValue {
-                if self.shouldBlockRequest(request) {
+            if event.eventIdentifier.eventSubtype ==
+                PPWKWebViewEventType.EventShouldInterceptWebViewRequest.rawValue {
                     event.eventData?[kPPShouldInterceptWebViewRequestValue] = NSNumber(booleanLiteral: true)
-                }
             }
             
             if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventGetErrorForRequestIfAny.rawValue {
@@ -99,17 +116,7 @@ class WebAdBlocker: NSObject {
             
             if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventGetAlternateRequestForWebViewRequest.rawValue {
                 
-                var modifiedRequest = request
-                modifiedRequest.allHTTPHeaderFields?.removeValue(forKey: "Referer")
-                modifiedRequest.allHTTPHeaderFields?["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0";
-                
-                if let body = modifiedRequest.httpBody,
-                    let bodyString: String = String(data: body, encoding: .utf8){
-                    print("Request body: \(bodyString)\n")
-                }
-                
-                print(modifiedRequest.allHTTPHeaderFields!)
-                event.eventData?[kPPAlternateRequestForWebViewRequest] = modifiedRequest
+                event.eventData?[kPPAlternateRequestForWebViewRequest] = self.requestAlteredWithTorHeaders(from: request)
             }
             
         })
