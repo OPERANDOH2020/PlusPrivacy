@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.operando.activity.AboutActivity">
+    tools:context="eu.operando.activity.HtmlActivity">
 <include layout="@layout/secondary_toolbar"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintLeft_toLeftOf="parent"

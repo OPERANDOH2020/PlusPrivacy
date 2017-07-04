@@ -42,7 +42,7 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     private static final String SETTINGS_WEBSTORAGEEXIT = "clear_webstorage_exit";
     private static final String SETTINGS_DONOTTRACK = "do_not_track";
     private static final String SETTINGS_IDENTIFYINGHEADERS = "remove_identifying_headers";
-
+    public static final String SETTINGS_ADS = "cb_ads";
     private Activity mActivity;
 
     @Override
@@ -132,22 +132,22 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setTitle(getResources().getString(R.string.title_clear_history));
         Dialog dialog = builder.setMessage(getResources().getString(R.string.dialog_history))
-            .setPositiveButton(getResources().getString(R.string.action_yes),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        clearHistory()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.main())
-                            .subscribe(new CompletableOnSubscribe() {
-                                @Override
-                                public void onComplete() {
-                                    Utils.showSnackbar(getActivity(), R.string.message_clear_history);
-                                }
-                            });
-                    }
-                })
-            .setNegativeButton(getResources().getString(R.string.action_no), null).show();
+                .setPositiveButton(getResources().getString(R.string.action_yes),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                clearHistory()
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(Schedulers.main())
+                                        .subscribe(new CompletableOnSubscribe() {
+                                            @Override
+                                            public void onComplete() {
+                                                Utils.showSnackbar(getActivity(), R.string.message_clear_history);
+                                            }
+                                        });
+                            }
+                        })
+                .setNegativeButton(getResources().getString(R.string.action_no), null).show();
         BrowserDialog.setDialogSize(mActivity, dialog);
     }
 
@@ -155,22 +155,22 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setTitle(getResources().getString(R.string.title_clear_cookies));
         builder.setMessage(getResources().getString(R.string.dialog_cookies))
-            .setPositiveButton(getResources().getString(R.string.action_yes),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        clearCookies()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.main())
-                            .subscribe(new CompletableOnSubscribe() {
-                                @Override
-                                public void onComplete() {
-                                    Utils.showSnackbar(getActivity(), R.string.message_cookies_cleared);
-                                }
-                            });
-                    }
-                })
-            .setNegativeButton(getResources().getString(R.string.action_no), null).show();
+                .setPositiveButton(getResources().getString(R.string.action_yes),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                clearCookies()
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(Schedulers.main())
+                                        .subscribe(new CompletableOnSubscribe() {
+                                            @Override
+                                            public void onComplete() {
+                                                Utils.showSnackbar(getActivity(), R.string.message_cookies_cleared);
+                                            }
+                                        });
+                            }
+                        })
+                .setNegativeButton(getResources().getString(R.string.action_no), null).show();
     }
 
     private void clearCache() {
@@ -244,6 +244,13 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
                 return true;
             case SETTINGS_IDENTIFYINGHEADERS:
                 mPreferenceManager.setRemoveIdentifyingHeadersEnabled((Boolean) newValue);
+                return true;
+            case SETTINGS_ADS:
+                boolean checked = false;
+                if (newValue instanceof Boolean) {
+                    checked = Boolean.TRUE.equals(newValue);
+                }
+                mPreferenceManager.setAdBlockEnabled(checked);
                 return true;
             default:
                 return false;

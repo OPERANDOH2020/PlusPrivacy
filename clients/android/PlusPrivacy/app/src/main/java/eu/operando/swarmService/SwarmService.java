@@ -1,13 +1,18 @@
 package eu.operando.swarmService;
 
+import android.util.Log;
+import android.util.Pair;
+
 import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import eu.operando.storage.Storage;
 import eu.operando.swarmService.models.IdentityListSwarm;
 import eu.operando.swarmService.models.LoginSwarm;
 import eu.operando.swarmService.models.RegisterSwarm;
+import eu.operando.swarmService.models.ResetPasswordSwarm;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
@@ -73,9 +78,22 @@ public class SwarmService {
             }
         });
     }
-
+    public void resetPassword(final String email, final SwarmCallback<Swarm> callback){
+        login("guest@operando.eu", "guest", new SwarmCallback<Swarm>() {
+            @Override
+            public void call(Swarm result) {
+                swarmClient.startSwarm(new ResetPasswordSwarm(email), callback);
+            }
+        });
+    }
     public void getIdentitiesList(SwarmCallback<? extends Swarm> callback) {
         swarmClient.startSwarm(new IdentityListSwarm(),callback);
     }
 
+    public void autoLogin(){
+        Pair<String, String> credentials = Storage.readCredentials();
+        if (credentials.first != null && credentials.second != null) {
+            login(credentials.first, credentials.second,null);
+        }
+    }
 }

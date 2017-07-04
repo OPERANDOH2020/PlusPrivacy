@@ -123,7 +123,7 @@
     <string name="message_blocked_local">Local file has been blocked from loading</string>
     <string name="licenses">Open Source Licenses</string>
     <string name="suggestion">Search for</string>
-    <string name="block_ads">Block Ads</string>
+    <string name="block_ads">Block Ads in private browser</string>
     <string name="message_insecure_connection">Connection to this site is not secure:\n%1$s\nProceed anyway?</string>
     <string name="message_certificate_date_invalid">date of certificate is invalid</string>
     <string name="message_certificate_expired">certificate is expired</string>

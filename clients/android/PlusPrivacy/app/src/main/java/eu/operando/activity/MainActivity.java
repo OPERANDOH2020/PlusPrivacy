@@ -1,9 +1,10 @@
 package eu.operando.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Pair;
@@ -25,10 +26,8 @@ import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarm;
 import eu.operando.swarmService.models.LoginSwarm;
 import eu.operando.swarmclient.SwarmClient;
-import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
-import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 
+    private AlertDialog diconnectDialoc;
+
     private ResideMenu resideMenu;
 
     @Override
@@ -45,6 +46,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         autoLogin();
+
+        SwarmClient.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
+            @Override
+            public void onConnect() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if (diconnectDialoc != null)
+                            diconnectDialoc.dismiss();
+                    }
+                });
+            }
+
+            @Override
+            public void onDisconnect() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        diconnectDialoc =
+                                new AlertDialog.Builder(MainActivity.this)
+                                        .setMessage("Connection lost, trying to reconnect...")
+                                        .setNegativeButton("Exit PlusPrivacy", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                finish();
+                                            }
+                                        }).setCancelable(false)
+                                        .create();
+                        diconnectDialoc.show();
+
+                    }
+                });
+            }
+        });
     }
 
     private void autoLogin() {
@@ -183,10 +219,17 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        String[] titles = new String[]{"Settings", "About", "Trusted apps"};
-        int[] icons = new int[]{R.drawable.ic_settings,
+        String[] titles = new String[]{
+                "Trusted apps",
+                "About",
+                "Privacy Policy",
+                "Settings"};
+        int[] icons = new int[]{
                 R.drawable.ic_action_about,
-                R.drawable.ic_trusted};
+                R.drawable.ic_trusted,
+                R.drawable.ic_privacy_policy,
+                R.drawable.ic_settings
+        };
 
         for (int i = 0; i < titles.length; i++) {
             ResideMenuItem item = new ResideMenuItem(this, icons[i], titles[i]);
@@ -209,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ResideMenuItem logoutItem = new ResideMenuItem(this, 0, "Log Out");
+        ResideMenuItem logoutItem = new ResideMenuItem(this, R.drawable.ic_logout, "Log Out");
         logoutItem.setTag(titles.length);
         logoutItem.setOnClickListener(menuClickListener);
         resideMenu.addMenuItem(logoutItem, ResideMenu.DIRECTION_RIGHT);
@@ -219,17 +262,20 @@ public class MainActivity extends AppCompatActivity {
     private void onDrawerItemClicked(int index) {
 //        Toast.makeText(this, index + "", Toast.LENGTH_SHORT).show();
         switch (index) {
-            case 0: //Settings
-                SettingsActivity.start(this);
-                break;
-            case 1: //About
-                AboutActivity.start(this);
-                break;
-            case 2: //Trusted Apps
+            case 0: //Trusted Apps
                 Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
 //                TrustedAppsActivity.start(this);
                 break;
-            case 3: //LogOut
+            case 1: //About
+                HtmlActivity.start(this, "file:///android_asset/about.html");
+                break;
+            case 2: //Privacy Policy
+                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html");
+                break;
+            case 3: //Settings
+                SettingsActivity.start(this);
+                break;
+            case 4: //LogOut
                 logOut();
                 break;
         }

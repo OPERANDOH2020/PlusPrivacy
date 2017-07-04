@@ -31,40 +31,43 @@ public class ScannerListAdapter extends ArrayAdapter<InstalledApp> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.scanner_list_item, parent, false);
-        }
-        final InstalledApp item = getItem(position);
-        ((TextView) convertView.findViewById(R.id.app_name)).setText(item.getAppName());
-        String poll = "Privacy Pollution: " + item.getPollutionScore() + "/10";
-        ((TextView) convertView.findViewById(R.id.app_package_name)).setText(poll);
-        Drawable d = null;
         try {
-            d = getContext().getPackageManager().getApplicationIcon(item.getPackageName());
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (d != null) {
-            ((ImageView) convertView.findViewById(R.id.app_icon)).setImageDrawable(d);
-        }
-        convertView.setBackgroundColor(PermissionUtils.getColor(item));
-        convertView.findViewById(R.id.eye_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), PermissionsActivity.class);
-                i.putExtra("perms", item.getPermissions());
-                ((ScannerActivity)getContext()).infoClicked();
-                getContext().startActivity(i);
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.scanner_list_item, parent, false);
             }
-        });
-        convertView.findViewById(R.id.trash_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DELETE);
-                intent.setData(Uri.parse("package:" + item.getPackageName()));
-                getContext().startActivity(intent);
+            final InstalledApp item = getItem(position);
+            ((TextView) convertView.findViewById(R.id.app_name)).setText(item.getAppName());
+            String poll = "Privacy Pollution: " + item.getPollutionScore() + "/10";
+            ((TextView) convertView.findViewById(R.id.app_package_name)).setText(poll);
+            Drawable d = null;
+            try {
+                d = getContext().getPackageManager().getApplicationIcon(item.getPackageName());
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
             }
-        });
+            if (d != null) {
+                ((ImageView) convertView.findViewById(R.id.app_icon)).setImageDrawable(d);
+            }
+            convertView.setBackgroundColor(PermissionUtils.getColor(item));
+            convertView.findViewById(R.id.eye_btn).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getContext(), PermissionsActivity.class);
+                    i.putExtra("perms", item.getPermissions());
+                    ((ScannerActivity) getContext()).infoClicked();
+                    getContext().startActivity(i);
+                }
+            });
+            convertView.findViewById(R.id.trash_btn).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_DELETE);
+                    intent.setData(Uri.parse("package:" + item.getPackageName()));
+                    getContext().startActivity(intent);
+                }
+            });
+        } catch (Exception ignored) {
+        }
         return convertView;
     }
 

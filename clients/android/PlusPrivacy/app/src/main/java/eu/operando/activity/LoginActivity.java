@@ -1,14 +1,16 @@
 package eu.operando.activity;
 
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,8 +20,8 @@ import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.LoginSwarm;
+import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
-import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -75,6 +77,13 @@ public class LoginActivity extends AppCompatActivity {
                 login(email, password);
             }
         });
+
+        findViewById(R.id.resetPasswordTV).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showResetPasswordDialog();
+            }
+        });
         //FIXME
 //        swarmLogin("kkkk@mailinator.com","aaaa",new ProgressDialog(this));
     }
@@ -122,6 +131,41 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void showResetPasswordDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.reset_pass_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.emailTV);
+
+        dialogBuilder.setTitle("Enter e-mail");
+        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String email = edt.getText().toString();
+                SwarmService.getInstance().resetPassword(email, new SwarmCallback<Swarm>() {
+                    @Override
+                    public void call(final Swarm result) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                if (result.getMeta().getCurrentPhase().equals("resetRequestDone")) {
+                                    Toast.makeText(LoginActivity.this, "You will receive an e-mail shortly.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, result.getError().toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", null);
+        AlertDialog b = dialogBuilder.create();
+        b.show();
     }
 
     private void storeCredentials(String user, String pass) {

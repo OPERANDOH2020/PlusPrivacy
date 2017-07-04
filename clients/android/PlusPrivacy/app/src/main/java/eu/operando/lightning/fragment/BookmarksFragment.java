@@ -121,7 +121,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
         mWebpageBitmap = ThemeUtils.getThemedBitmap(context, R.drawable.ic_webpage, darkTheme);
         mFolderBitmap = ThemeUtils.getThemedBitmap(context, R.drawable.ic_folder, darkTheme);
         mIconColor = darkTheme ? ThemeUtils.getIconDarkThemeColor(context) :
-            ThemeUtils.getIconLightThemeColor(context);
+                ThemeUtils.getIconLightThemeColor(context);
     }
 
     private TabsManager getTabsManager() {
@@ -222,26 +222,26 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
         mWebpageBitmap = ThemeUtils.getThemedBitmap(activity, R.drawable.ic_webpage, darkTheme);
         mFolderBitmap = ThemeUtils.getThemedBitmap(activity, R.drawable.ic_folder, darkTheme);
         mIconColor = darkTheme ? ThemeUtils.getIconDarkThemeColor(activity) :
-            ThemeUtils.getIconLightThemeColor(activity);
+                ThemeUtils.getIconLightThemeColor(activity);
     }
 
     private void updateBookmarkIndicator(final String url) {
         mBookmarkManager.isBookmark(url)
-            .subscribeOn(Schedulers.io())
-            .observeOn(Schedulers.main())
-            .subscribe(new SingleOnSubscribe<Boolean>() {
-                @Override
-                public void onItem(@Nullable Boolean item) {
-                    Preconditions.checkNonNull(item);
-                    if (!item) {
-                        mBookmarkImage.setImageResource(R.drawable.ic_action_star);
-                        mBookmarkImage.setColorFilter(mIconColor, PorterDuff.Mode.SRC_IN);
-                    } else {
-                        mBookmarkImage.setImageResource(R.drawable.ic_bookmark);
-                        mBookmarkImage.setColorFilter(ThemeUtils.getAccentColor(getContext()), PorterDuff.Mode.SRC_IN);
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.main())
+                .subscribe(new SingleOnSubscribe<Boolean>() {
+                    @Override
+                    public void onItem(@Nullable Boolean item) {
+                        Preconditions.checkNonNull(item);
+                        if (!item) {
+                            mBookmarkImage.setImageResource(R.drawable.ic_action_star);
+                            mBookmarkImage.setColorFilter(mIconColor, PorterDuff.Mode.SRC_IN);
+                        } else {
+                            mBookmarkImage.setImageResource(R.drawable.ic_bookmark);
+                            mBookmarkImage.setColorFilter(ThemeUtils.getAccentColor(getContext()), PorterDuff.Mode.SRC_IN);
+                        }
                     }
-                }
-            });
+                });
     }
 
     @Override
@@ -255,49 +255,51 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
 
     private void setBookmarksShown(@Nullable final String folder, final boolean animate) {
         mBookmarksSubscription = mBookmarkManager.getBookmarksFromFolderSorted(folder)
-            .subscribeOn(Schedulers.io())
-            .observeOn(Schedulers.main())
-            .subscribe(new SingleOnSubscribe<List<HistoryItem>>() {
-                @Override
-                public void onItem(@Nullable final List<HistoryItem> item) {
-                    mBookmarksSubscription = null;
-                    Preconditions.checkNonNull(item);
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.main())
+                .subscribe(new SingleOnSubscribe<List<HistoryItem>>() {
+                    @Override
+                    public void onItem(@Nullable final List<HistoryItem> item) {
+                        mBookmarksSubscription = null;
+                        Preconditions.checkNonNull(item);
 
-                    mUiModel.setCurrentFolder(folder);
-                    if (folder == null) {
-                        mBookmarkManager.getFoldersSorted()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.main())
-                            .subscribe(new SingleOnSubscribe<List<HistoryItem>>() {
-                                @Override
-                                public void onItem(@Nullable List<HistoryItem> folders) {
-                                    Preconditions.checkNonNull(folders);
-                                    item.addAll(folders);
-                                    setBookmarkDataSet(item, animate);
-                                }
-                            });
-                    } else {
-                        setBookmarkDataSet(item, animate);
+                        mUiModel.setCurrentFolder(folder);
+                        if (folder == null) {
+                            mBookmarkManager.getFoldersSorted()
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(Schedulers.main())
+                                    .subscribe(new SingleOnSubscribe<List<HistoryItem>>() {
+                                        @Override
+                                        public void onItem(@Nullable List<HistoryItem> folders) {
+                                            Preconditions.checkNonNull(folders);
+                                            item.addAll(folders);
+                                            setBookmarkDataSet(item, animate);
+                                        }
+                                    });
+                        } else {
+                            setBookmarkDataSet(item, animate);
+                        }
                     }
-                }
-            });
+                });
     }
 
     private void setBookmarkDataSet(@NonNull List<HistoryItem> items, boolean animate) {
-        mBookmarkAdapter.updateItems(items);
-        final int resource;
-        if (mUiModel.isRootFolder()) {
-            resource = R.drawable.ic_action_star;
-        } else {
-            resource = R.drawable.ic_action_back;
-        }
+        try {
+            mBookmarkAdapter.updateItems(items);
+            final int resource;
+            if (mUiModel.isRootFolder()) {
+                resource = R.drawable.ic_action_star;
+            } else {
+                resource = R.drawable.ic_action_back;
+            }
 
-        if (animate) {
-            Animation transition = AnimationUtils.createRotationTransitionAnimation(mBookmarkTitleImage, resource);
-            mBookmarkTitleImage.startAnimation(transition);
-        } else {
-            mBookmarkTitleImage.setImageResource(resource);
-        }
+            if (animate) {
+                Animation transition = AnimationUtils.createRotationTransitionAnimation(mBookmarkTitleImage, resource);
+                mBookmarkTitleImage.startAnimation(transition);
+            } else {
+                mBookmarkTitleImage.setImageResource(resource);
+            }
+        }catch (Exception ignored){/*activity may be finished*/}
     }
 
     private void setupNavigationButton(@NonNull View view, @IdRes int buttonId, @IdRes int imageId) {
@@ -402,7 +404,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
         public boolean onLongClick(View v) {
             int index = getAdapterPosition();
             return index != RecyclerView.NO_POSITION && onItemLongClickListener != null &&
-                onItemLongClickListener.onItemLongClick(adapter.itemAt(index));
+                    onItemLongClickListener.onItemLongClick(adapter.itemAt(index));
         }
     }
 
@@ -504,20 +506,20 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
                 final WeakReference<ImageView> imageViewReference = new WeakReference<>(holder.favicon);
 
                 mFaviconModel.faviconForUrl(url, mWebpageBitmap, true)
-                    .subscribeOn(Schedulers.worker())
-                    .observeOn(Schedulers.main())
-                    .subscribe(new SingleOnSubscribe<Bitmap>() {
-                        @Override
-                        public void onItem(@Nullable Bitmap item) {
-                            ImageView imageView = imageViewReference.get();
-                            Object tag = imageView != null ? imageView.getTag() : null;
-                            if (tag != null && tag.equals(url.hashCode())) {
-                                imageView.setImageBitmap(item);
-                            }
+                        .subscribeOn(Schedulers.worker())
+                        .observeOn(Schedulers.main())
+                        .subscribe(new SingleOnSubscribe<Bitmap>() {
+                            @Override
+                            public void onItem(@Nullable Bitmap item) {
+                                ImageView imageView = imageViewReference.get();
+                                Object tag = imageView != null ? imageView.getTag() : null;
+                                if (tag != null && tag.equals(url.hashCode())) {
+                                    imageView.setImageBitmap(item);
+                                }
 
-                            web.setBitmap(item);
-                        }
-                    });
+                                web.setBitmap(item);
+                            }
+                        });
             } else {
                 holder.favicon.setImageBitmap(web.getBitmap());
             }

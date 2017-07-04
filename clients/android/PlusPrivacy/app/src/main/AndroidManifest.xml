@@ -166,7 +166,7 @@
         </activity>
         <activity android:name=".activity.SettingsActivity" android:label="Settings">
         </activity>
-        <activity android:name=".activity.AboutActivity" android:label="About PlusPrivacy">
+        <activity android:name=".activity.HtmlActivity" android:label="About PlusPrivacy">
         </activity>
         <activity android:name=".activity.TrustedAppsActivity" android:label="Coming Soon">
         </activity>
