@@ -84,6 +84,9 @@ class WebAdBlocker: NSObject {
         modifiedRequest.allHTTPHeaderFields?["Accept-Encoding"] = "gzip, deflate";
         
         modifiedRequest.allHTTPHeaderFields?["Accept-Language"] = "en-US,en;q=0.5";
+        if modifiedRequest.allHTTPHeaderFields?["ETag"] != nil {
+            modifiedRequest.allHTTPHeaderFields?["ETag"] = ""
+        }
         
         return modifiedRequest
     }

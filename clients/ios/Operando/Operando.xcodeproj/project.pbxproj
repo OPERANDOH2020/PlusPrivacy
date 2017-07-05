@@ -17,6 +17,7 @@
 		9806356C1EFA642B0004527B /* PPApiHooksCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9806355C1EFA64070004527B /* PPApiHooksCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */; };
 		9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */; };
+		9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */ = {isa = PBXBuildFile; fileRef = 9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */; };
 		982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982227541DC8EBD40053B993 /* UILocalizable.swift */; };
 		9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */; };
 		9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9827500D1D08496C00C73411 /* UIBrowsingNavigationBar.xib */; };
@@ -205,6 +206,7 @@
 		9806355C1EFA64070004527B /* PPApiHooksCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPApiHooksCore.framework; sourceTree = "<group>"; };
 		9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAddIdentityAlertViewController.swift; path = UserInterface/UIAddIdentityAlertViewController/UIAddIdentityAlertViewController.swift; sourceTree = "<group>"; };
 		9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UtilityControllers.storyboard; sourceTree = "<group>"; };
+		9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = FingerprintPreventing.js; path = UserInterface/UIWebViewTab/FingerprintPreventing.js; sourceTree = "<group>"; };
 		982227541DC8EBD40053B993 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILocalizable.swift; path = UserInterface/UILocalizableLabel/UILocalizable.swift; sourceTree = "<group>"; };
 		9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBrowsingNavigationBar.swift; sourceTree = "<group>"; };
 		9827500D1D08496C00C73411 /* UIBrowsingNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBrowsingNavigationBar.xib; sourceTree = "<group>"; };
@@ -417,6 +419,14 @@
 				9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */,
 			);
 			name = UIAddIdentityAlertViewController;
+			sourceTree = "<group>";
+		};
+		9819317A1F0D1B2900965A7D /* FingerprintPreventing */ = {
+			isa = PBXGroup;
+			children = (
+				9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */,
+			);
+			name = FingerprintPreventing;
 			sourceTree = "<group>";
 		};
 		982227531DC8EBB90053B993 /* UILocalizable */ = {
@@ -1237,6 +1247,7 @@
 		98F6B1271E7BFC2D00D193FF /* UIWebViewTab */ = {
 			isa = PBXGroup;
 			children = (
+				9819317A1F0D1B2900965A7D /* FingerprintPreventing */,
 				98B89E611EC1E06D009570EC /* LongPressCustomActionSheet */,
 				987E71871E8BC8D40006B240 /* UIWebViewTabHelperModels.swift */,
 				98F6B1281E7BFC7100D193FF /* UIWebViewTab.swift */,
@@ -1429,6 +1440,7 @@
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
 				ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */,
 				982750141D08497400C73411 /* UIDashboardView.xib in Resources */,
+				9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

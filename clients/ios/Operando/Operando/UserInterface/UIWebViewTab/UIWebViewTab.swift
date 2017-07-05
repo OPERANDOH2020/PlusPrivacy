@@ -57,13 +57,26 @@ LongPressGestureDelegate {
     
     private func buildWebView(with param: WebViewSetupParameter) -> WKWebView {
         
+        let webViewWithConfiguration: (_ conf: WKWebViewConfiguration) -> WKWebView = { conf in
+            let webView = WKWebView(frame: .zero, configuration: conf)
+            
+            if let path = Bundle.main.path(forResource: "FingerprintPreventing", ofType: "js") {
+                if let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) {
+                    let userScript = WKUserScript(source: source as String, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
+                    webView.configuration.userContentController.addUserScript(userScript)
+                    
+                }
+            }
+            return webView
+        }
+        
         switch param {
         case .fullConfiguration(let configuration):
-            return WKWebView(frame: .zero, configuration: configuration)
+            return webViewWithConfiguration(configuration);
             
         case .processPool(let processPool):
             let conf = self.createConfigurationWith(processPool: processPool)
-            return WKWebView(frame: .zero, configuration: conf)
+            return webViewWithConfiguration(conf)
         }
     }
     
