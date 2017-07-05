@@ -87,6 +87,11 @@ files = [
       "dest": "adblockpluschrome/popup.js",
       "is_directory":0
   },
+  {
+        "src": "build/override/adblockpluschrome/lib/notificationHelper.js",
+        "dest": "adblockpluschrome/lib/notificationHelper.js",
+        "is_directory":0
+    },
  {
   "src": "build/override/firstRun.html",
   "dest": "adblockpluschrome/adblockplusui/firstRun.html",
