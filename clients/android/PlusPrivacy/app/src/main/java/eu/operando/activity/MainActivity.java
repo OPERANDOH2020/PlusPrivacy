@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import eu.operando.R;
@@ -199,6 +200,9 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.unsafe_apps)).setText(getString(R.string.potentially_unsafe_apps) + " " + unsafe);
             if (unsafe == 0)
                 ((TextView) findViewById(R.id.unsafe_apps)).setTextColor(getResources().getColor(android.R.color.holo_green_light));
+
+
+
         }
         Storage.saveAppList(installedApps);
     }

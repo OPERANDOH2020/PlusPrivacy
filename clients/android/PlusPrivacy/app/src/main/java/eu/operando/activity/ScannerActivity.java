@@ -49,38 +49,45 @@ public class ScannerActivity extends BaseActivity {
         });
         ScannerListAdapter adapter = new ScannerListAdapter(this, Storage.readAppList());
         unknownPerms = new HashSet<>();
-        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("once",true)&& BuildConfig.DEBUG) {
-            for (InstalledApp app : Storage.readAppList()) {
-                if (app.getPermissions() == null) continue;
-                for (String permission : app.getPermissions()) {
-                    String[] splitted = permission.split("\\.");
-                    String simplifiedPermission = splitted[splitted.length - 1];
-                    if (PermissionUtils.getPermissionDescription(simplifiedPermission).isEmpty()) {
-                        unknownPerms.add(simplifiedPermission);
-                    }
-                }
-            }
-            sendEmail();
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("once",false).apply();
-        }
+//        if(/*PreferenceManager.getDefaultSharedPreferences(this).getBoolean("once",true)&&*/ BuildConfig.DEBUG) {
+//            for (InstalledApp app : Storage.readAppList()) {
+//                if (app.getPermissions() == null) continue;
+//                for (String permission : app.getPermissions()) {
+//                    String[] splitted = permission.split("\\.");
+//                    String simplifiedPermission = splitted[splitted.length - 1];
+//                    if (PermissionUtils.getPermissionDescription(simplifiedPermission).isEmpty()) {
+//                        unknownPerms.add(simplifiedPermission);
+//                    }
+//                }
+//            }
+//            sendEmail();
+//            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("once",false).apply();
+//        }
 
         listView.setAdapter(adapter);
     }
 
-    private void sendEmail() {
+    protected void sendEmail() {
+        String[] TO = {"sle@rms.ro"};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
         String body = "";
         for (String perm : unknownPerms) {
             body += perm + "\n";
         }
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Permissions");
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Perms");
         emailIntent.putExtra(Intent.EXTRA_TEXT, body);
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send email using..."));
-        } catch (android.content.ActivityNotFoundException ignored) {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            ex.printStackTrace();
         }
-
     }
 
     @Override

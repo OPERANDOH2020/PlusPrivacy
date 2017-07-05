@@ -339,6 +339,20 @@ public class PermissionUtils {
                 PermissionUtils.calculatePollutionScore(app);
                 apps.add(app);
             }
+
+            for (InstalledApp app : apps) {
+                if (app.getPermissions() == null) continue;
+                ArrayList<String> cleanPerms = new ArrayList<>();
+                ArrayList<String> perms = app.getPermissions();
+                for (String permission : perms) {
+                    String[] splitted = permission.split("\\.");
+                    String simplifiedPermission = splitted[splitted.length - 1];
+                    if (!PermissionUtils.getPermissionDescription(simplifiedPermission).isEmpty()) {
+                        cleanPerms.add(permission);
+                    }
+                }
+                app.setPermissions(cleanPerms);
+            }
             return apps;
         } catch (Exception e) {
             e.printStackTrace();
