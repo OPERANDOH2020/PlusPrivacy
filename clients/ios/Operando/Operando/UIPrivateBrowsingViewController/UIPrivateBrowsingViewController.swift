@@ -19,6 +19,7 @@ class WebTab {
 
 class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
 {
+    @IBOutlet weak var webToolbarView: UIWebToolbarView!
     @IBOutlet weak var webTabsView: UIWebTabsListView!
     @IBOutlet weak var webTabsViewTopCn: NSLayoutConstraint!
     @IBOutlet weak var webTabsHostView: UIView!
@@ -29,7 +30,7 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
         super.viewDidLoad()
         self.setTabsViewTopConstraint(to: UIScreen.main.bounds.height)
         weak var weakSelf = self
-        
+        self.webTabsView.isHidden = false
         
         
         let callbacks: WebTabsControllerLogicCallbacks = WebTabsControllerLogicCallbacks(hideWebViewTabCallback: nil, showWebViewTabCallback: { webViewTab, animated, completion in
@@ -55,9 +56,9 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
         })
         
         
-        let model = WebTabsControllerLogicModel(webTabsView: self.webTabsView,
-                                                maxNumberOfReusableWebViews: 6,
-                                                webPool: WebViewTabManagementPool())
+        let model = WebTabsControllerLogicModel(webTabsListView: self.webTabsView, webToolbarViewLogic: self.webToolbarView.logic,
+                                                webPool: WebViewTabManagementPool(),
+                                                maxNumberOfReusableWebViews: 6)
         
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
     }
@@ -72,7 +73,7 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
         }
         
         if animated {
-            UIView.animate(withDuration: 0.5, animations: block, completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: block, completion: nil)
         } else {
             block()
         }

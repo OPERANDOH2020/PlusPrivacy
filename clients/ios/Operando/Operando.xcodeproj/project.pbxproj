@@ -126,6 +126,7 @@
 		989C41881DBE18E800951AE5 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 989C41851DBE18E800951AE5 /* MGSwipeTableCell.m */; };
 		989C8A7C1DD3467E003BF341 /* UIRealIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989C8A7B1DD3467E003BF341 /* UIRealIdentityView.swift */; };
 		989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */; };
+		98B480041F0E6BA600EF140F /* UIWebToolbarViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B480031F0E6BA600EF140F /* UIWebToolbarViewTests.swift */; };
 		98B89E601EC1DF22009570EC /* LongPress.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B89E5F1EC1DF22009570EC /* LongPress.js */; };
 		98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B89E621EC1E0D5009570EC /* LongPressHelper.swift */; };
 		98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */; };
@@ -339,6 +340,7 @@
 		989C41851DBE18E800951AE5 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		989C8A7B1DD3467E003BF341 /* UIRealIdentityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIRealIdentityView.swift; path = UserInterface/UIRealIdentityView/UIRealIdentityView.swift; sourceTree = "<group>"; };
 		989C8A7D1DD346A0003BF341 /* UIRealIdentityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIRealIdentityView.xib; path = UserInterface/UIRealIdentityView/UIRealIdentityView.xib; sourceTree = "<group>"; };
+		98B480031F0E6BA600EF140F /* UIWebToolbarViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebToolbarViewTests.swift; sourceTree = "<group>"; };
 		98B89E5F1EC1DF22009570EC /* LongPress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LongPress.js; path = UserInterface/UIWebViewTab/LongPress.js; sourceTree = "<group>"; };
 		98B89E621EC1E0D5009570EC /* LongPressHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressHelper.swift; path = UserInterface/UIWebViewTab/LongPressHelper/LongPressHelper.swift; sourceTree = "<group>"; };
 		98BE1FAC1F02668800223926 /* UIPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPrivacyPolicyViewController.swift; path = UserInterface/UIPrivacyPolicyViewController/UIPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -1074,6 +1076,7 @@
 				987072051E82BF0A00151201 /* OperandoTests-Bridging-Header.h */,
 				98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */,
 				98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */,
+				98B480031F0E6BA600EF140F /* UIWebToolbarViewTests.swift */,
 			);
 			path = OperandoTests;
 			sourceTree = "<group>";
@@ -1372,8 +1375,8 @@
 					};
 					98EAF67E1CCF86DC00C77649 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = N3W2GJCUF8;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 98EAF66A1CCF86DC00C77649;
 					};
 				};
@@ -1571,6 +1574,7 @@
 				987072071E82BF0A00151201 /* WebViewTabManagementPoolTests.swift in Sources */,
 				98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */,
 				98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */,
+				98B480041F0E6BA600EF140F /* UIWebToolbarViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1638,7 +1642,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1660,7 +1663,6 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "567dddcc-d409-4aa9-9020-56e1505e6e7a";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Operando/BridgingHeader/Operando-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1692,7 +1694,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1707,7 +1708,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "567dddcc-d409-4aa9-9020-56e1505e6e7a";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Operando/BridgingHeader/Operando-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1721,7 +1721,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ROMSOFT SRL (N3W2GJCUF8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				ENABLE_BITCODE = YES;
@@ -1734,7 +1733,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.romsoft.Operando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1744,7 +1742,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ROMSOFT SRL (N3W2GJCUF8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				ENABLE_BITCODE = YES;
@@ -1757,7 +1754,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.romsoft.Operando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1768,6 +1764,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Operando",
@@ -1777,6 +1775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.operando.OperandoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OperandoTests/OperandoTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1789,6 +1788,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Operando",
@@ -1798,6 +1799,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.operando.OperandoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OperandoTests/OperandoTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Operando.app/Operando";

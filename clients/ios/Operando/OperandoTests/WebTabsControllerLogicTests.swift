@@ -21,7 +21,7 @@ class WebTabsControllerLogicTests: XCTestCase {
             return UIWebViewTab(frame: .zero)
         }, presentAlertController: nil)
         
-        let model: WebTabsControllerLogicModel = WebTabsControllerLogicModel(webTabsView: DummyWebTabsListView(), maxNumberOfReusableWebViews: 1, webPool: WebViewTabManagementPool())
+        let model: WebTabsControllerLogicModel = WebTabsControllerLogicModel(webTabsListView: DummyWebTabsListView(), webToolbarViewLogic: nil, webPool: WebViewTabManagementPool(), maxNumberOfReusableWebViews: 1)
         
         let _: WebTabsControllerLogic = WebTabsControllerLogic(model: model, callbacks: callbacks)
         
@@ -30,25 +30,33 @@ class WebTabsControllerLogicTests: XCTestCase {
     
     
     func test_beforeDisplayingWebTabsList_savesDescriptionOfCurrentTab(){
+        
+        //prepare
         let expectation = self.expectation(description: "")
         let webTab = DummyWebViewTab()
-        webTab.testOnCreateDescription = { handler in
+        webTab.testOnCreateDescription = { _ in
             expectation.fulfill()
         }
+        
+        let dummyWebToolbarLogic = DummyWebToolbarLogic(outlets: nil)
         
         let callbacks = WebTabsControllerLogicCallbacks(hideWebViewTabCallback: nil, showWebViewTabCallback: nil, hideWebTabsView: nil, showWebTabsViewOnTop: nil, addNewWebViewTabCallback: {
             return webTab
         }, presentAlertController: nil)
         
-        let model = WebTabsControllerLogicModel(webTabsView: DummyWebTabsListView(), maxNumberOfReusableWebViews: 1, webPool: WebViewTabManagementPool())
+        let model = WebTabsControllerLogicModel(webTabsListView: DummyWebTabsListView(), webToolbarViewLogic: dummyWebToolbarLogic, webPool: WebViewTabManagementPool(), maxNumberOfReusableWebViews: 1)
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
         
-        webTab.testCallbacks?.whenUserChoosesToViewTabs?()
+        //test
+        dummyWebToolbarLogic.callbacks?.onTabsPress?()
+        
+        //assert
         self.waitForExpectations(timeout: 1.0, handler: nil)
     }
     
     func test_afterSavingDescriptionOfCurrentTab_callsApropriateCallbackToDisplayWebTabsList() {
         
+        //prepare
         let expectation = self.expectation(description: "When a tab calls to view the list of other tabs, the logic should call the appropriate callback provided")
         
         let webTab = DummyWebViewTab()
@@ -57,27 +65,46 @@ class WebTabsControllerLogicTests: XCTestCase {
             handler?(desc)
         }
         
+        let dummyToolbarLogic = DummyWebToolbarLogic(outlets: nil)
+        
         let callbacks: WebTabsControllerLogicCallbacks = WebTabsControllerLogicCallbacks(hideWebViewTabCallback: nil, showWebViewTabCallback: nil, hideWebTabsView: nil, showWebTabsViewOnTop: { _, _, _ in
             expectation.fulfill()
         }, addNewWebViewTabCallback: { () -> UIWebViewTab in
             return webTab
         }, presentAlertController: nil)
         
-        let model: WebTabsControllerLogicModel = WebTabsControllerLogicModel(webTabsView: DummyWebTabsListView(), maxNumberOfReusableWebViews: 1, webPool: WebViewTabManagementPool())
+        let model: WebTabsControllerLogicModel = WebTabsControllerLogicModel(webTabsListView: DummyWebTabsListView(), webToolbarViewLogic: dummyToolbarLogic, webPool: WebViewTabManagementPool(), maxNumberOfReusableWebViews: 1)
         
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
         
-        webTab.testCallbacks?.whenUserChoosesToViewTabs?()
+        //test
+        dummyToolbarLogic.callbacks?.onTabsPress?()
+        
+        //assert
         self.waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func test_whenUserOpensLinkInNewTab_savesCurrentTabDescription(){
+        
+        // prepare 
         let expectation = self.expectation(description: "")
         let webTab = DummyWebViewTab()
         webTab.testOnCreateDescription = { handler in
             expectation.fulfill()
         }
         
+        
+        let callbacks: WebTabsControllerLogicCallbacks = WebTabsControllerLogicCallbacks(hideWebViewTabCallback: nil, showWebViewTabCallback: nil, hideWebTabsView: nil, showWebTabsViewOnTop: nil, addNewWebViewTabCallback: {webTab}, presentAlertController: nil)
+        
+        let model: WebTabsControllerLogicModel = WebTabsControllerLogicModel(webTabsListView: DummyWebTabsListView(), webToolbarViewLogic: nil, webPool: WebViewTabManagementPool(), maxNumberOfReusableWebViews: 1)
+        
+        self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
+        
+        //test
+        webTab.testCallbacks?.whenUserOpensInNewTab?(URL(string: "http://www.google.ro")!)
+        
+        //assert
+        self.waitForExpectations(timeout: 5.0, handler: nil)
     }
     
 }

@@ -9,6 +9,17 @@
 import Foundation
 @testable import Operando
 
+
+class DummyWebToolbarLogic: UIWebToolbarViewLogic {
+    
+    var callbacks: UIWebToolbarViewCallbacks?
+    
+    override func setupWith(callbacks: UIWebToolbarViewCallbacks?) {
+        self.callbacks = callbacks;
+    }
+    
+}
+
 class DummyWebViewTab: UIWebViewTab {
     
     var testCallbacks: UIWebViewTabCallbacks?

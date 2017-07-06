@@ -54,7 +54,6 @@ struct UIWebViewTabNewWebViewModel {
 
 
 struct UIWebViewTabCallbacks {
-    let whenUserChoosesToViewTabs: VoidBlock?
     let urlForUserInput: (_ userInput: String) -> URL
     
     let whenPresentingAlertController: ((_ controller: UIAlertController) -> Void)?

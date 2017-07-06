@@ -27,9 +27,11 @@ struct WebTabsControllerLogicCallbacks {
 }
 
 struct WebTabsControllerLogicModel {
-    let webTabsView: UIWebTabsListView
-    let maxNumberOfReusableWebViews: Int
+    let webTabsListView: UIWebTabsListView
+    let webToolbarViewLogic: UIWebToolbarViewLogic?
+    
     let webPool: WebViewTabManagementPool
+    let maxNumberOfReusableWebViews: Int
     
 }
 
@@ -61,19 +63,10 @@ class WebTabsControllerLogic: NSObject {
         self.callbacks = callbacks
         super.init()
         
-        
-        self.addNewTab()
-        self.activeTabIndex = 0;
-        
-        if let webViewTab = callbacks.addNewWebViewTabCallback?() {
-            let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[self.activeTabIndex].navigationModel, setupParameter: .processPool(self.sharedProcessPool))
-            
-            webViewTab.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
-            self.model.webPool.addNew(webViewTab: webViewTab)
-            self.indexOfTabAssociatedWithWebView[webViewTab] = self.activeTabIndex
-        }
-        
+        self.setupWebToolbarLogic(self.model.webToolbarViewLogic)
+        self.prepareFirstTab()
     }
+    
     private func webViewAssociatedWithTab(at index: Int) -> UIWebViewTab? {
         guard let wtvIndex = self.model.webPool.allWebViewTabs.index(where:{self.indexOfTabAssociatedWithWebView[$0] == index}) else {
             return nil
@@ -90,7 +83,7 @@ class WebTabsControllerLogic: NSObject {
     
         if let existingWV = self.webViewAssociatedWithTab(at: index) {
            self.model.webPool.markWebViewTab(existingWV)
-           existingWV.changeNumberOfItems(to: self.webTabs.count)
+           self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
            callback(existingWV)
             return
         }
@@ -102,7 +95,7 @@ class WebTabsControllerLogic: NSObject {
             webViewTab.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
             self.model.webPool.addNew(webViewTab: webViewTab)
             
-            webViewTab.changeNumberOfItems(to: self.webTabs.count)
+            self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
             callback(webViewTab)
             return
         }
@@ -111,7 +104,7 @@ class WebTabsControllerLogic: NSObject {
             let reusedWebView = self.model.webPool.oldestWebViewTab {
             self.model.webPool.markWebViewTab(reusedWebView)
             reusedWebView.changeNavigationModel(to: navigationModel, callback: {
-                reusedWebView.changeNumberOfItems(to: self.webTabs.count)
+                self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
                 callback(reusedWebView)
             })
             return
@@ -231,7 +224,7 @@ class WebTabsControllerLogic: NSObject {
             let model: UIWebViewTabNewWebViewModel = UIWebViewTabNewWebViewModel(navigationModel: newWebTab.navigationModel, setupParameter: .fullConfiguration(configuration))
             
             tabView.setupWith(model: model, callbacks: self.callbacksForWebView())
-            tabView.changeNumberOfItems(to: self.webTabs.count)
+            self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
             
             self.model.webPool.addNew(webViewTab: tabView)
             
@@ -248,10 +241,7 @@ class WebTabsControllerLogic: NSObject {
     //MARK:
     
     private func callbacksForWebView() -> UIWebViewTabCallbacks? {
-        return UIWebViewTabCallbacks(whenUserChoosesToViewTabs: { [unowned self] in
-            self.bringToFrontWebViewTabs()
-        },
-            urlForUserInput: { string in
+        return UIWebViewTabCallbacks(urlForUserInput: { string in
             let searchURL = queryURLPart + (string.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) ?? "")
             return URL(string: searchURL)!
         },
@@ -271,7 +261,32 @@ class WebTabsControllerLogic: NSObject {
     
     //MARK:
     
-    private func bringToFrontWebViewTabs() {
+    private func prepareFirstTab() {
+        self.addNewTab()
+        self.activeTabIndex = 0;
+        
+        
+        if let webViewTab = callbacks.addNewWebViewTabCallback?() {
+            let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[self.activeTabIndex].navigationModel, setupParameter: .processPool(self.sharedProcessPool))
+            
+            webViewTab.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
+            self.model.webPool.addNew(webViewTab: webViewTab)
+            self.indexOfTabAssociatedWithWebView[webViewTab] = self.activeTabIndex
+        }
+    }
+    
+    private func setupWebToolbarLogic(_ logic: UIWebToolbarViewLogic?){
+        weak var weakSelf = self
+        logic?.setupWith(callbacks: UIWebToolbarViewCallbacks(onBackPress: {
+            weakSelf?.activeWebViewTab?.goBack()
+        }, onForwardPress: {
+            weakSelf?.activeWebViewTab?.goForward()
+        }, onTabsPress: {
+            weakSelf?.bringToFrontWebTabsListView()
+        }))
+    }
+    
+    private func bringToFrontWebTabsListView() {
         
         self.activeWebViewTab?.createDescriptionWithCompletionHandler { desc in
             
@@ -279,10 +294,10 @@ class WebTabsControllerLogic: NSObject {
             let items = self.webTabs.flatMap { (wt) -> WebTabDescription? in
                 return wt.webTabDescription
             }
-            let callbacks = self.callbacksForWebTabsView(self.model.webTabsView)
+            let callbacks = self.callbacksForWebTabsView(self.model.webTabsListView)
             
-            self.model.webTabsView.setupWith(webTabs: items, callbacks: callbacks)
-            self.callbacks.showWebTabsViewOnTop?(self.model.webTabsView, true, nil)
+            self.model.webTabsListView.setupWith(webTabs: items, callbacks: callbacks)
+            self.callbacks.showWebTabsViewOnTop?(self.model.webTabsListView, true, nil)
         }
         
     }

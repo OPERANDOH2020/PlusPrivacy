@@ -18,7 +18,6 @@ LongPressGestureDelegate {
     @IBOutlet weak var goButton: UIButton!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var webToolbarView: UIWebToolbarView!
     @IBOutlet weak var addressTF: UITextField!
     
     private(set) var webView: WKWebView?
@@ -33,7 +32,7 @@ LongPressGestureDelegate {
         return UIWebViewTabNavigationModel(urlList: self.urlHistory, currentURLIndex: self.currentURLIndex)
     }
     
-    //MARK: -
+    //MARK: - public methods and initializer
     
     override func commonInit() {
         super.commonInit()
@@ -55,64 +54,22 @@ LongPressGestureDelegate {
         
     }
     
-    private func buildWebView(with param: WebViewSetupParameter) -> WKWebView {
-        
-        let webViewWithConfiguration: (_ conf: WKWebViewConfiguration) -> WKWebView = { conf in
-            let webView = WKWebView(frame: .zero, configuration: conf)
-            
-            if let path = Bundle.main.path(forResource: "FingerprintPreventing", ofType: "js") {
-                if let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) {
-                    let userScript = WKUserScript(source: source as String, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
-                    webView.configuration.userContentController.addUserScript(userScript)
-                    
-                }
-            }
-            return webView
+    func goBack() {
+        guard currentURLIndex - 1 >= 0 else {
+            return
         }
         
-        switch param {
-        case .fullConfiguration(let configuration):
-            return webViewWithConfiguration(configuration);
-            
-        case .processPool(let processPool):
-            let conf = self.createConfigurationWith(processPool: processPool)
-            return webViewWithConfiguration(conf)
+        self.currentURLIndex -= 1;
+        self.navigateTo(url: self.urlHistory[self.currentURLIndex], callback: nil)
+    }
+    
+    func goForward () {
+        guard self.currentURLIndex + 1 < self.urlHistory.count else {
+            return
         }
-    }
-    
-    
-    
-    func changeNumberOfItems(to numOfItems: Int){
-        self.webToolbarView.changeNumberOfItems(to: numOfItems)
-    }
-    
-    private func styleGoButton(){
-        let title: NSMutableAttributedString = NSMutableAttributedString(string: "Go")
-        let range: NSRange = NSMakeRange(0, 2);
-        let color: UIColor = UIColor(colorLiteralRed: 0, green: 169.0/255.0, blue: 160.0/255.0, alpha: 1.0)
         
-        title.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: range)
-        title.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
-        title.addAttribute(NSUnderlineColorAttributeName, value: color, range: range)
-        title.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
-        
-        self.goButton.setAttributedTitle(title, for: UIControlState.normal)
-    }
-    
-    
-    private func commonSetupWith(webView: WKWebView, navigationModel: UIWebViewTabNavigationModel?){
-        
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        
-        self.webView = webView
-        self.constrain(webView: webView)
-        self.contentView?.bringSubview(toFront: self.activityIndicator)
-        self.webToolbarView.setupWith(callbacks: self.callbacksForToolbar())
-        
-        if let navigationModel = navigationModel {
-            self.changeNavigationModel(to: navigationModel, callback: nil)
-        }
+        self.currentURLIndex += 1;
+        self.navigateTo(url: self.urlHistory[self.currentURLIndex], callback: nil)
     }
     
     func changeNavigationModel(to model: UIWebViewTabNavigationModel, callback: VoidBlock?) {
@@ -142,6 +99,64 @@ LongPressGestureDelegate {
     func getPageTitle(in callback: ((_ title: String?) -> Void)?){
         callback?(self.webView?.title)
     }
+    
+    //MARK: END OF public methods and initializer
+    
+    
+    private func buildWebView(with param: WebViewSetupParameter) -> WKWebView {
+        
+        let webViewWithConfiguration: (_ conf: WKWebViewConfiguration) -> WKWebView = { conf in
+            let webView = WKWebView(frame: .zero, configuration: conf)
+            
+            if let path = Bundle.main.path(forResource: "FingerprintPreventing", ofType: "js") {
+                if let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) {
+                    let userScript = WKUserScript(source: source as String, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
+                    webView.configuration.userContentController.addUserScript(userScript)
+                    
+                }
+            }
+            return webView
+        }
+        
+        switch param {
+        case .fullConfiguration(let configuration):
+            return webViewWithConfiguration(configuration);
+            
+        case .processPool(let processPool):
+            let conf = self.createConfigurationWith(processPool: processPool)
+            return webViewWithConfiguration(conf)
+        }
+    }
+    
+    private func styleGoButton(){
+        let title: NSMutableAttributedString = NSMutableAttributedString(string: "Go")
+        let range: NSRange = NSMakeRange(0, 2);
+        let color: UIColor = UIColor(colorLiteralRed: 0, green: 169.0/255.0, blue: 160.0/255.0, alpha: 1.0)
+        
+        title.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: range)
+        title.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        title.addAttribute(NSUnderlineColorAttributeName, value: color, range: range)
+        title.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        
+        self.goButton.setAttributedTitle(title, for: UIControlState.normal)
+    }
+    
+    
+    private func commonSetupWith(webView: WKWebView, navigationModel: UIWebViewTabNavigationModel?){
+        
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        
+        self.webView = webView
+        self.constrain(webView: webView)
+        self.contentView?.bringSubview(toFront: self.activityIndicator)
+        
+        if let navigationModel = navigationModel {
+            self.changeNavigationModel(to: navigationModel, callback: nil)
+        }
+    }
+    
+
     
     
     @IBAction func didPressGoButton(_ sender: Any) {
@@ -197,7 +212,7 @@ LongPressGestureDelegate {
         let constraints: [NSLayoutConstraint] = [buildConstraintForAttribute(.right), buildConstraintForAttribute(.left),
                                                 NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: self.addressBarView, attribute: .bottom, multiplier: 1.0, constant: 0),
                                                 
-                                                 NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.webToolbarView, attribute: .top, multiplier: 1.0, constant: 0)]
+                                                 NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.contentView, attribute: .bottom, multiplier: 1.0, constant: 0)]
         
         self.contentView?.addSubview(webView)
         self.contentView?.addConstraints(constraints)
@@ -221,35 +236,6 @@ LongPressGestureDelegate {
         
     }
     
-    private func goBack() {
-        guard currentURLIndex - 1 >= 0 else {
-            return
-        }
-        
-        self.currentURLIndex -= 1;
-        self.navigateTo(url: self.urlHistory[self.currentURLIndex], callback: nil)
-    }
-    
-    private func goForward () {
-        guard self.currentURLIndex + 1 < self.urlHistory.count else {
-            return
-        }
-        
-        self.currentURLIndex += 1;
-        self.navigateTo(url: self.urlHistory[self.currentURLIndex], callback: nil)
-    }
-    
-    private func callbacksForToolbar() -> UIWebToolbarViewCallbacks {
-        weak var weakSelf = self
-        
-        return UIWebToolbarViewCallbacks(onBackPress: {
-            weakSelf?.goBack()
-        }, onForwardPress: {
-            weakSelf?.goForward()
-        }, onTabsPress: self.callbacks?.whenUserChoosesToViewTabs);
-        
-    }
-
     private func createConfigurationWith(processPool: WKProcessPool) -> WKWebViewConfiguration {
         
         let configuration = WKWebViewConfiguration()
@@ -266,7 +252,7 @@ LongPressGestureDelegate {
         
     }
     
-    //MARK: -
+    //MARK: - WKWebViewDelegate
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
@@ -357,7 +343,7 @@ LongPressGestureDelegate {
         
     }
     
-    //MARK: TextView delegate
+    //MARK: TextField  delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         self.goWith(userInput: textField.text ?? "")

@@ -483,21 +483,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-mB-auq" userLabel="webTabsHostView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQq-rJ-dGj" customClass="UIWebTabsListView" customModule="Operando" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RED-Fe-Ouh" customClass="UIWebToolbarView" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="v3s-kD-hwk"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQq-rJ-dGj" userLabel="webTabsListView" customClass="UIWebTabsListView" customModule="Operando" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RED-Fe-Ouh" secondAttribute="bottom" id="2PS-Hw-9OO"/>
                             <constraint firstItem="iQq-rJ-dGj" firstAttribute="leading" secondItem="xDu-rO-G8M" secondAttribute="leading" id="2Sk-Ww-g1q"/>
                             <constraint firstItem="gRZ-mB-auq" firstAttribute="leading" secondItem="xDu-rO-G8M" secondAttribute="leading" id="6NJ-ev-EHB"/>
                             <constraint firstItem="gRZ-mB-auq" firstAttribute="top" secondItem="xDu-rO-G8M" secondAttribute="top" id="9wd-8Q-Aw5"/>
                             <constraint firstItem="iQq-rJ-dGj" firstAttribute="top" secondItem="xDu-rO-G8M" secondAttribute="top" id="DXD-41-Pvh"/>
-                            <constraint firstItem="I7Z-2v-Rq7" firstAttribute="top" secondItem="gRZ-mB-auq" secondAttribute="bottom" id="e9c-gL-e0V"/>
+                            <constraint firstAttribute="trailing" secondItem="RED-Fe-Ouh" secondAttribute="trailing" id="Gd9-sK-WAj"/>
+                            <constraint firstItem="RED-Fe-Ouh" firstAttribute="leading" secondItem="xDu-rO-G8M" secondAttribute="leading" id="OL5-zI-RKe"/>
+                            <constraint firstItem="RED-Fe-Ouh" firstAttribute="top" secondItem="gRZ-mB-auq" secondAttribute="bottom" id="gcT-Iv-ylP"/>
                             <constraint firstAttribute="trailing" secondItem="iQq-rJ-dGj" secondAttribute="trailing" id="n6W-L2-FIu"/>
                             <constraint firstItem="iQq-rJ-dGj" firstAttribute="height" secondItem="xDu-rO-G8M" secondAttribute="height" id="ttJ-cL-SsO"/>
                             <constraint firstAttribute="trailing" secondItem="gRZ-mB-auq" secondAttribute="trailing" id="uT4-HA-gk5"/>
@@ -508,11 +518,12 @@
                         <outlet property="webTabsHostView" destination="gRZ-mB-auq" id="adN-Pf-fja"/>
                         <outlet property="webTabsView" destination="iQq-rJ-dGj" id="jFO-bb-bCo"/>
                         <outlet property="webTabsViewTopCn" destination="DXD-41-Pvh" id="2hg-oy-ycK"/>
+                        <outlet property="webToolbarView" destination="RED-Fe-Ouh" id="4Wo-Od-f0E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yz-nP-zUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-469" y="3075"/>
+            <point key="canvasLocation" x="-469.60000000000002" y="3074.2128935532237"/>
         </scene>
         <!--Pfb Deals View Controller-->
         <scene sceneID="Rbq-ZR-BKe">
