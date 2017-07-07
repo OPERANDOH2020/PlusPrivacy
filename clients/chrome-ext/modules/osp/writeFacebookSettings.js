@@ -14,6 +14,7 @@ var fbdata = window.FACEBOOK_PARAMS;
 fbdata.__req = parseInt(fbdata.__req, 36);
 
 var privacySettings = [];
+var extractedData = {};
 var port = chrome.runtime.connect({name: "applyFacebookSettings"});
 port.postMessage({action: "waitingFacebookCommand", data: {status:"waitingFacebookCommand"}});
 
@@ -34,66 +35,63 @@ function postToFacebook(settings, item, total) {
 
         if (settings.page) {
             FeedbackProgress.sendFeedback(settings.name, item, total);
-            doGET(settings.page, function (response) {
 
-                extractHeaders(response, function (response) {
-
-                    var data = response;
-                    chrome.runtime.sendMessage({
-                        message: "getCookies",
-                        url: settings.page
-                    }, function (response) {
-                        var cookies = "";
-                        for (var i = 0; i < response.length; i++) {
-                            cookies += response[i].name + "=" + response[i].value + "; ";
-                        }
-
-                        for(var prop in settings.data){
-                            data[prop] = settings.data[prop];
-                        }
-
-                        $.ajax({
-                            type: "POST",
-                            url: settings.url,
-                            data: data,
-                            contentType: "multipart/form-data",
-                            processData: true,
-                            dataType:"text",
-                            beforeSend: function (request) {
-
-                                if (settings.headers) {
-                                    for (var i = 0; i < settings.headers.length; i++) {
-                                        var header = settings.headers[i];
-                                        request.setRequestHeader(header.name, header.value);
-                                    }
-                                }
-                                request.setRequestHeader("accept", "*/*");
-                                request.setRequestHeader("accept-language", "en-US,en;q=0.8");
-                                request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                                request.setRequestHeader("X-Alt-Referer", settings.page);
-
-                            },
-                            success: function (result) {
-                                resolve(result);
-                            },
-                            error: function (a, b, c) {
-                                console.log(a,b,c);
-                                reject(b);
-                            },
-                            complete: function (request, status) {
-                                console.log("Request completed...");
-                            }
-
-                        });
-
-                    });
-
+            if(Object.keys(extractedData).length === 0){
+                doGET(settings.page, function (response) {
+                    extractHeaders(response, function (response) {
+                        sendPostRequest(settings, response, resolve,reject);
+                    })
                 })
-            })
+            }
+            else{
+                sendPostRequest(settings, extractedData, resolve,reject);
+            }
         }
 
     });
+}
 
+function sendPostRequest(settings, additionalData, resolve, reject){
+    var data = additionalData;
+
+    for(var prop in settings.data){
+        data[prop] = settings.data[prop];
+    }
+
+    $.ajax({
+        type: "POST",
+        url: settings.url,
+        data: data,
+        contentType: "multipart/form-data",
+        processData: true,
+        dataType:"text",
+        beforeSend: function (request) {
+
+            if (settings.headers) {
+                for (var i = 0; i < settings.headers.length; i++) {
+                    var header = settings.headers[i];
+                    request.setRequestHeader(header.name, header.value);
+                }
+            }
+            request.setRequestHeader("accept", "*/*");
+            request.setRequestHeader("accept-language", "en-US,en;q=0.8");
+            request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            request.setRequestHeader("X-Alt-Referer", settings.page);
+
+        },
+        success: function (result) {
+            resolve(result);
+        },
+        error: function (a, b, c) {
+            console.log(a,b,c);
+            reject(b);
+        },
+        complete: function (request, status) {
+            console.log("Request completed...");
+        },
+        timeout:3000
+
+    });
 }
 
 function secureAccount(callback) {
@@ -105,7 +103,10 @@ function secureAccount(callback) {
         }).then(function (result) {
             port.postMessage({action: "waitingFacebookCommand", data:{status:"progress", progress:(index+1)}});
         }).catch(function (err) {
-            console.log(err)
+            if(err == "timeout"){
+                //go to next setting
+                port.postMessage({action: "waitingFacebookCommand", data:{status:"progress", progress:(index+1)}});
+            }
         });
     });
 
@@ -126,7 +127,7 @@ function doGET(page, callback) {
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);
-    }
+    };
     xmlHttp.open("GET", page, true);
     xmlHttp.send(null);
 }
@@ -186,7 +187,6 @@ function extractHeaders(content, callback) {
     if(match && match[1]){
         data['__user'] = match[1];
     }
-    console.log(fbdata);
     data['__a']=1;
     data['__dyn'] = fbdata.__dyn;
     data['__req'] = (++ fbdata.__req).toString(36);
@@ -196,5 +196,6 @@ function extractHeaders(content, callback) {
     data['__spin_t'] = fbdata.__spin_t;
     data['__be'] = fbdata.__be;
     data['__pc'] = fbdata.__pc;
+    extractedData = data;
     callback(data);
 }
