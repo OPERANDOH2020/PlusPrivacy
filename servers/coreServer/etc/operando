@@ -42,12 +42,13 @@
                         {"core":"etc/relay/RedisRelay.js",                            "enabled":true, "args":["-n", "RESEARCH", "-r", "localhost", "-p", "6379" ], "step":2},
                         {"core":"etc/adapters/DefaultLogger.js",                      "enabled":true, "step":3},
                         {"node":"admin/adapters/UsersManager/UsersManager.js",        "enabled":true  , "step":4},
+                        {"node":"admin/adapters/SwarmMonitor.js",                     "enabled":true  , "step":4},
                         {"node":"admin/adapters/SessionManager.js",                   "enabled":true  , "step":4},
                         {"node":"operando/adapters/ES/IdentityAdapter.js",            "enabled":true  , "step":4},
                         {"node":"operando/adapters/OSP/OSPAdapter.js",                "enabled":true  , "step":4},
                         {"node":"operando/adapters/OSP/OSPRequests.js",               "enabled":true  , "step":4},
                         {"node":"admin/adapters/SwarmMonitor.js",                     "enabled":true  , "step":5},
-                        {"core":"etc/adapters/ClientAdapter.js",                      "enabled":true  , "step":6},
+                        {"core":"etc/adapters/ClientAdapter.js",                      "enabled":false  , "step":6},
                         {"node":"operando/adapters/GuardianAdapter.js",               "enabled":false  , "step":7},
                         {"node":"operando/adapters/AuthorizationAdapter.js",          "enabled":false  , "step":8},
                         {"node":"operando/adapters/uam/NotificationUAM.js",           "enabled":true  , "step":9},
@@ -62,7 +63,8 @@
                         {"node":"operando/adapters/FormsAdapter.js"                   ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/CreditAdapter.js"                  ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/UserPreferencesAdapter.js"         ,"enabled":true  , "step":10},
-                        {"node":"admin/adapters/TestsManager.js",                      "enabled":false, "step":5}
+                        {"node":"admin/adapters/TestsManager.js",                      "enabled":false, "step":5},
+                        {"node":"launchEmailServer.js",                                "enabled":true, "step":5}
 
             ]
    },
@@ -83,7 +85,8 @@
                "key":"etc/ssl/privatekey.pem",
                "cert":"etc/ssl/cert.pem"
            },
-           "wwwroot":"admin/administration-console"
+           "wwwroot":"admin/administration-console",
+           "transformationDirs":["operando/transformations"]
   },
 
   "RESTAdapter":{
