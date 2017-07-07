@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <div ng-switch-when="loggedout">
+            <div ng-switch-when="loggedout" class="login_form">
                 <div ng-include src="'operando/tpl/panel/logout_state.html'"></div>
             </div>
 
@@ -33,7 +33,7 @@
 
         <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-show="isAuthenticated"></menu-item>
 
-        <li id="operando_abp" ng-show="isAuthenticated">
+        <li id="operando_abp" ng-show="showABPAndPrivacyPolicyOptions">
             <div class="item_icon abp_icon"></div>
             <a id="abp_expand" href="#">{{"adblockerOptions"|i18n}}</a>
 
@@ -77,6 +77,10 @@
                 </ul>
             </div>
 
+        </li>
+        <li id="privacy_policy" ng-show="showABPAndPrivacyPolicyOptions && isAuthenticated == false">
+            <div class="item_icon privacy_policy_icon"></div>
+                <a href="/operando/operando.html#/privacy-policy" target="_blank">{{"privacyPolicy"|i18n}}</a>
         </li>
     </ul>
 </div>

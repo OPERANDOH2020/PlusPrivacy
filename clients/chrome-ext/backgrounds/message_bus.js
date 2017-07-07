@@ -59,16 +59,16 @@ var busActions = {
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: status});
         })
     },
-    registerUser: function(request, handleResponse){
+    /*registerUser: function(request, handleResponse){
 
         authenticationService.registerUser(request.message.user, function(error){
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
         },  function(success){
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
         });
-    },
+    },*/
 
-    sendActivationCode: function (request, handleResponse) {
+    /*sendActivationCode: function (request, handleResponse) {
         authenticationService.resendActivationCode(request.message, function () {
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status: "success"}});
 
@@ -79,15 +79,15 @@ var busActions = {
                 message: {status: "error", message: error}
             });
         });
-    },
+    },*/
 
-    resetPassword:function(request, handleResponse){
+    /*resetPassword:function(request, handleResponse){
         authenticationService.resetPassword(request.message, function(){
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
         }, function(error){
             handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
         });
-    }
+    }*/
 };
 
 
@@ -183,7 +183,7 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 clientPort.postMessage({
                                     type: messageType,
                                     action: request.action,
-                                    message: {status: "success", data: response}
+                                    message: {"status": "success", "data": response}
                                 });
                             }
                         });

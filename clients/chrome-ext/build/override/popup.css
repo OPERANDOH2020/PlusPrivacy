@@ -338,6 +338,9 @@ label
 .operando_wrapper ul > li > div.item_icon.abp_icon{
   background: url(../operando/assets/images/icons/ad_block_options.png) no-repeat left center;
 }
+.operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
+  background: url(../operando/assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
+}
 
 .operando_wrapper ul > li > div.item_icon.about_icon{
   background: url(../operando/assets/images/icons/operando_logo.png) no-repeat left center;
@@ -371,6 +374,10 @@ label
 .user_area{
   height: 70px;
   background: url(../operando/assets/images/icons/user.png) no-repeat left 5px;
+}
+
+.popup-login-area  div.login_form .user_area{
+  height: 55px;
 }
 
 .user_area .keep_user_logged_in{

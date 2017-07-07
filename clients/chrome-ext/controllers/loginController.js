@@ -29,11 +29,12 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
-
+        $scope.showABPAndPrivacyPolicyOptions = true;
     }
 
     clearInfoPanel = function(){
@@ -93,7 +94,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.info.status = "success";
         $scope.info.message = 'Sending activation email...';
 
-        messengerService.send("sendActivationCode", $scope.user.email, function (response) {
+        messengerService.send("resendActivationCode", $scope.user.email, function (response) {
 
             $scope.requestIsProcessed = false;
 
@@ -128,7 +129,6 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             if (response.success) {
                 setTimeout(function(){
                     chrome.runtime.openOptionsPage();
-                    //window.close();
                 },500);
             }
             else{
@@ -166,11 +166,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
 
     $scope.show_forgot_password = function(){
         $scope.loginAreaState = "forgot_password";
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.show_register = function(){
         $scope.loginAreaState = "register_form";
         $scope.user = angular.copy(defaultUser);
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.register = function(){
@@ -197,7 +199,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             $scope.$apply();
         }
 
-        messengerService.send("registerUser",{user:$scope.user}, function(response){
+        messengerService.send("registerUser",$scope.user, function(response){
 
             $scope.requestIsProcessed = false;
             if(response.status == "success"){
@@ -251,6 +253,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     messengerService.on("onConnectionError",errorFunction);
     messengerService.on("onConnect",reconnectFunction);*/
 
+
+    chrome.tabs.query({active:true, windowId:chrome.windows.WINDOW_ID_CURRENT}, function (tabs){
+        var ourTab = tabs[0];
+        if(ourTab.url.indexOf("http")===0||ourTab.url.indexOf("https")===0){
+            $scope.showABPAndPrivacyPolicyOptions = true;
+        }
+    });
 
 }]);
 

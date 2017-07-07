@@ -34,7 +34,7 @@ angular.module("login",[]).
 
             $scope.signup = function(){
 
-                messengerService.send("registerUser",{user:$scope.new_user}, function(response){
+                messengerService.send("registerUser",$scope.new_user, function(response){
 
                     if(response.status == "success"){
                         Notification.success({message: "Account successfully created!", positionY: 'bottom', positionX: 'center', delay: 3000});

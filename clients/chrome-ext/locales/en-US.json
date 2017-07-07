@@ -16,5 +16,6 @@
     "emailIsUnavailable": "Email is unavailable",
     "back": "Back",
     "privacyDashboard":"Privacy Dashboard",
-    "adblockerOptions":"AdBlocker Options"
+    "adblockerOptions":"AdBlocker Options",
+    "privacyPolicy":"Privacy Policy"
   }
