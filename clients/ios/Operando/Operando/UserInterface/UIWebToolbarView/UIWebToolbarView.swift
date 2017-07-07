@@ -66,7 +66,7 @@ class UIWebToolbarView: RSNibDesignableView {
     @IBOutlet weak var backwardButton: UIButton?
     @IBOutlet weak var tabsButton: UIButton?
     
-    lazy var logic: UIWebToolbarViewLogic = {
+    lazy private(set) var logic: UIWebToolbarViewLogic = {
         let outlets: UIWebToolbarViewOutlets = UIWebToolbarViewOutlets(numOfItemsLabel: self.numOfItemsLabel, forwardButton: self.forwardButton, backwardButton: self.backwardButton, tabsButton: self.tabsButton)
         
         return UIWebToolbarViewLogic(outlets: outlets)

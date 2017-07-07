@@ -92,7 +92,7 @@ class WebTabsControllerLogic: NSObject {
             let webViewTab = callbacks.addNewWebViewTabCallback?() {
             let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[index].navigationModel, setupParameter: WebViewSetupParameter.processPool(self.sharedProcessPool))
             
-            webViewTab.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
+            webViewTab.logic.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
             self.model.webPool.addNew(webViewTab: webViewTab)
             
             self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
@@ -103,7 +103,7 @@ class WebTabsControllerLogic: NSObject {
         if let navigationModel = self.webTabs[index].navigationModel,
             let reusedWebView = self.model.webPool.oldestWebViewTab {
             self.model.webPool.markWebViewTab(reusedWebView)
-            reusedWebView.changeNavigationModel(to: navigationModel, callback: {
+            reusedWebView.logic.changeNavigationModel(to: navigationModel, callback: {
                 self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
                 callback(reusedWebView)
             })
@@ -131,9 +131,9 @@ class WebTabsControllerLogic: NSObject {
     }
     
     private func saveCurrentTabStateWithCompletion(_ completion: VoidBlock?) {
-        self.activeWebViewTab?.createDescriptionWithCompletionHandler { description in
+        self.activeWebViewTab?.logic.createDescriptionWithCompletionHandler { description in
             self.webTabs[self.activeTabIndex].webTabDescription = description
-            self.webTabs[self.activeTabIndex].navigationModel = self.activeWebViewTab?.currentNavigationModel
+            self.webTabs[self.activeTabIndex].navigationModel = self.activeWebViewTab?.logic.currentNavigationModel
             completion?()
         }
     }
@@ -214,7 +214,7 @@ class WebTabsControllerLogic: NSObject {
         
         self.activeWebViewTab?.activityIndicator.isHidden = false
         
-        self.activeWebViewTab?.createDescriptionWithCompletionHandler({ description in
+        self.activeWebViewTab?.logic.createDescriptionWithCompletionHandler({ description in
             self.webTabs[self.activeTabIndex].webTabDescription = description
             
             self.activeWebViewTab?.activityIndicator.isHidden = true
@@ -223,7 +223,7 @@ class WebTabsControllerLogic: NSObject {
             
             let model: UIWebViewTabNewWebViewModel = UIWebViewTabNewWebViewModel(navigationModel: newWebTab.navigationModel, setupParameter: .fullConfiguration(configuration))
             
-            tabView.setupWith(model: model, callbacks: self.callbacksForWebView())
+            tabView.logic.setupWith(model: model, callbacks: self.callbacksForWebView())
             self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
             
             self.model.webPool.addNew(webViewTab: tabView)
@@ -234,7 +234,7 @@ class WebTabsControllerLogic: NSObject {
             self.callbacks.showWebViewTabCallback?(tabView, false, nil)
         })
         
-        return tabView.webView
+        return tabView.logic.webView
 
     }
     
@@ -269,7 +269,7 @@ class WebTabsControllerLogic: NSObject {
         if let webViewTab = callbacks.addNewWebViewTabCallback?() {
             let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[self.activeTabIndex].navigationModel, setupParameter: .processPool(self.sharedProcessPool))
             
-            webViewTab.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
+            webViewTab.logic.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
             self.model.webPool.addNew(webViewTab: webViewTab)
             self.indexOfTabAssociatedWithWebView[webViewTab] = self.activeTabIndex
         }
@@ -278,9 +278,9 @@ class WebTabsControllerLogic: NSObject {
     private func setupWebToolbarLogic(_ logic: UIWebToolbarViewLogic?){
         weak var weakSelf = self
         logic?.setupWith(callbacks: UIWebToolbarViewCallbacks(onBackPress: {
-            weakSelf?.activeWebViewTab?.goBack()
+            weakSelf?.activeWebViewTab?.logic.goBack()
         }, onForwardPress: {
-            weakSelf?.activeWebViewTab?.goForward()
+            weakSelf?.activeWebViewTab?.logic.goForward()
         }, onTabsPress: {
             weakSelf?.bringToFrontWebTabsListView()
         }))
@@ -288,7 +288,7 @@ class WebTabsControllerLogic: NSObject {
     
     private func bringToFrontWebTabsListView() {
         
-        self.activeWebViewTab?.createDescriptionWithCompletionHandler { desc in
+        self.activeWebViewTab?.logic.createDescriptionWithCompletionHandler { desc in
             
             self.webTabs[self.activeTabIndex].webTabDescription = desc
             let items = self.webTabs.flatMap { (wt) -> WebTabDescription? in

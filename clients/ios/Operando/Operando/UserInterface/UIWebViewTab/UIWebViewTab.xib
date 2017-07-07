@@ -34,9 +34,6 @@
                             <state key="normal" title="Go">
                                 <color key="titleColor" red="0.0" green="0.66292496471840723" blue="0.62572978444290528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
-                            <connections>
-                                <action selector="didPressGoButton:" destination="-1" eventType="touchUpInside" id="TFN-jQ-hgv"/>
-                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARk-g0-lGa">
                             <rect key="frame" x="6" y="2" width="230" height="40"/>

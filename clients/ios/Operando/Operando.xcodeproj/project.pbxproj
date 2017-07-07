@@ -111,6 +111,8 @@
 		987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 987084081E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m */; };
 		987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9870840A1E8E938E00D9F8E9 /* UIWebView+AFNetworking.m */; };
 		987E71881E8BC8D40006B240 /* UIWebViewTabHelperModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987E71871E8BC8D40006B240 /* UIWebViewTabHelperModels.swift */; };
+		987F77B61F0F749300C70119 /* UIWebViewTabLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F77B51F0F749300C70119 /* UIWebViewTabLogic.swift */; };
+		987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F77B71F0FD49900C70119 /* UIWebViewTabLogicTests.swift */; };
 		9882DCF71D140F3F00C7A70F /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */; };
 		9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF91D1448BA00C7A70F /* UIScanningView.swift */; };
 		9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9882DCFB1D14498400C7A70F /* UIScanningView.xib */; };
@@ -325,6 +327,8 @@
 		9870840A1E8E938E00D9F8E9 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		987E717B1E8BB90C0006B240 /* SwarmClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwarmClient.framework; sourceTree = "<group>"; };
 		987E71871E8BC8D40006B240 /* UIWebViewTabHelperModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebViewTabHelperModels.swift; path = UserInterface/UIWebViewTab/UIWebViewTabHelperModels.swift; sourceTree = "<group>"; };
+		987F77B51F0F749300C70119 /* UIWebViewTabLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebViewTabLogic.swift; path = UserInterface/UIWebViewTab/UIWebViewTabLogic.swift; sourceTree = "<group>"; };
+		987F77B71F0FD49900C70119 /* UIWebViewTabLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewTabLogicTests.swift; sourceTree = "<group>"; };
 		9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Utilities.swift"; path = "Utilities/NSDate+Utilities.swift"; sourceTree = "<group>"; };
 		9882DCF91D1448BA00C7A70F /* UIScanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScanningView.swift; path = UserInterface/UIScanningView/UIScanningView.swift; sourceTree = "<group>"; };
 		9882DCFB1D14498400C7A70F /* UIScanningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScanningView.xib; path = UserInterface/UIScanningView/UIScanningView.xib; sourceTree = "<group>"; };
@@ -1072,11 +1076,12 @@
 			isa = PBXGroup;
 			children = (
 				98EAF6851CCF86DC00C77649 /* Info.plist */,
-				987072061E82BF0A00151201 /* WebViewTabManagementPoolTests.swift */,
 				987072051E82BF0A00151201 /* OperandoTests-Bridging-Header.h */,
+				987072061E82BF0A00151201 /* WebViewTabManagementPoolTests.swift */,
 				98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */,
 				98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */,
 				98B480031F0E6BA600EF140F /* UIWebToolbarViewTests.swift */,
+				987F77B71F0FD49900C70119 /* UIWebViewTabLogicTests.swift */,
 			);
 			path = OperandoTests;
 			sourceTree = "<group>";
@@ -1253,6 +1258,7 @@
 				9819317A1F0D1B2900965A7D /* FingerprintPreventing */,
 				98B89E611EC1E06D009570EC /* LongPressCustomActionSheet */,
 				987E71871E8BC8D40006B240 /* UIWebViewTabHelperModels.swift */,
+				987F77B51F0F749300C70119 /* UIWebViewTabLogic.swift */,
 				98F6B1281E7BFC7100D193FF /* UIWebViewTab.swift */,
 				98F6B12A1E7BFD9300D193FF /* UIWebViewTab.xib */,
 			);
@@ -1467,6 +1473,7 @@
 				982DF05B1DB65D2800231BBD /* UIPfbDealsViewController.swift in Sources */,
 				982D31891E842A9B00FE2FB7 /* AFNetworkReachabilityManager.m in Sources */,
 				987084101E8E938E00D9F8E9 /* UIImageView+AFNetworking.m in Sources */,
+				987F77B61F0F749300C70119 /* UIWebViewTabLogic.swift in Sources */,
 				982DF0241DB6388800231BBD /* UIPfbDetailsView.swift in Sources */,
 				98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */,
 				9852C6FD1CD10C7200AF2BE5 /* UISensorMonitoringViewController.swift in Sources */,
@@ -1571,6 +1578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */,
 				987072071E82BF0A00151201 /* WebViewTabManagementPoolTests.swift in Sources */,
 				98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */,
 				98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */,

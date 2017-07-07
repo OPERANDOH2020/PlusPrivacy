@@ -20,13 +20,10 @@ class DummyWebToolbarLogic: UIWebToolbarViewLogic {
     
 }
 
-class DummyWebViewTab: UIWebViewTab {
+class DummyWebViewTabLogic: UIWebViewTabLogic {
     
     var testCallbacks: UIWebViewTabCallbacks?
     var testModel: UIWebViewTabNewWebViewModel?
-    
-    override func commonInit() {
-    }
     
     override func setupWith(model: UIWebViewTabNewWebViewModel, callbacks: UIWebViewTabCallbacks?) {
         self.testCallbacks = callbacks
@@ -39,6 +36,21 @@ class DummyWebViewTab: UIWebViewTab {
     
     var testOnCreateDescription:((_ handler: ((WebTabDescription) -> Void)?) -> Void)?
 }
+
+
+class DummyWebViewTab: UIWebViewTab {
+    
+    var testLogic: DummyWebViewTabLogic = DummyWebViewTabLogic(outlets: nil)
+    override var logic: UIWebViewTabLogic {
+        return testLogic
+    }
+
+    override func commonInit() {
+    }
+    
+}
+
+
 
 class DummyWebTabsListView: UIWebTabsListView {
     override func commonInit() {

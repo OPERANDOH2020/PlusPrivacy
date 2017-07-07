@@ -34,7 +34,7 @@ class WebTabsControllerLogicTests: XCTestCase {
         //prepare
         let expectation = self.expectation(description: "")
         let webTab = DummyWebViewTab()
-        webTab.testOnCreateDescription = { _ in
+        webTab.testLogic.testOnCreateDescription = { _ in
             expectation.fulfill()
         }
         
@@ -60,7 +60,7 @@ class WebTabsControllerLogicTests: XCTestCase {
         let expectation = self.expectation(description: "When a tab calls to view the list of other tabs, the logic should call the appropriate callback provided")
         
         let webTab = DummyWebViewTab()
-        webTab.testOnCreateDescription = { handler in
+        webTab.testLogic.testOnCreateDescription = { handler in
             let desc = WebTabDescription(name: "", screenshot: nil, favIconURL: nil)
             handler?(desc)
         }
@@ -89,7 +89,7 @@ class WebTabsControllerLogicTests: XCTestCase {
         // prepare 
         let expectation = self.expectation(description: "")
         let webTab = DummyWebViewTab()
-        webTab.testOnCreateDescription = { handler in
+        webTab.testLogic.testOnCreateDescription = { handler in
             expectation.fulfill()
         }
         
@@ -101,7 +101,7 @@ class WebTabsControllerLogicTests: XCTestCase {
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
         
         //test
-        webTab.testCallbacks?.whenUserOpensInNewTab?(URL(string: "http://www.google.ro")!)
+        webTab.testLogic.testCallbacks?.whenUserOpensInNewTab?(URL(string: "http://www.google.ro")!)
         
         //assert
         self.waitForExpectations(timeout: 5.0, handler: nil)
