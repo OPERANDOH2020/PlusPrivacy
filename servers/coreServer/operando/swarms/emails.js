@@ -12,6 +12,9 @@
 
 var emailsSwarming = {
     sendEmail:function(from,to,subject,content,swarmId){
+
+        console.log("SENDING EMAIL",arguments);
+
         this['from'] = from;
         this['to'] = to;
         this['subject'] = subject;

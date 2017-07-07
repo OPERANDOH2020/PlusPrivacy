@@ -51,21 +51,29 @@ var udeSwarming = {
             }))
         }
     },
-    registerApplication:function(applicationId,deviceId){
+
+    registerApplication:function(applicationId,deviceId,applicationDescription){
         this.deviceId = deviceId;
         this.applicationId = applicationId;
+        this.applicationDescription = applicationDescription
+
+        console.log(arguments)
+
         this.swarm('registerApp');
     },
-    registerApp:function(applicationId,deviceId){
-        var self = this;
-        registerApplicationInDevice(applicationId,deviceId,S(function(err,result){
-            if(err){
-                self.err = err.message;
-                self.home('failed');
-            }else{
-                self.home('Application Registeres');
-            }
-        }))
+    registerApp:{
+        node:"UDEAdapter",
+        code:function(){
+            var self = this;
+            registerApplicationInDevice(this.applicationId,this.deviceId,S(function(err,result){
+                if(err){
+                    self.err = err.message;
+                    self.home('failed');
+                }else{
+                    self.home('Application Registered');
+                }
+            }))
+        }
     }
 };
 udeSwarming;
