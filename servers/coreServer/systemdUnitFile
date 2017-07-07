@@ -1,0 +1,20 @@
+#The content of this file shoud be placed in /lib/systemd/system/swarmesb.service
+#Check systemd unit files for more details about handling services using systemd
+
+[Unit]
+Description=SwarmESB provides a microservices-bus
+Requires=redis.service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /home/plusprivacy/Workspace/PlusPrivacy/servers/coreServer/adapters/demoLaunch.js
+ExecStop=killall -9 node
+Restart=always
+User=plusprivacy
+Group=plusprivacy
+Environment=SWARM_NODE_TYPE=operando
+Environment=SWARM_PATH=/home/plusprivacy/Workspace/PlusPrivacy/servers/coreServer
+
+[Install]
+WantedBy=multi-user.target

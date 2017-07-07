@@ -77,7 +77,6 @@ exports.decide_action = function (next,connection) {
     connection.relaying = false;
     jwt.verify(connection.transaction.rcpt_to[0].user.split("reply_anonymously_to_sender_")[1], encriptionKey, ['HS256'], function (err, conversation) {
         if (!err) {
-            plugin.loginfo('Delivering to outside entity');
             var to = conversation.sender;
             var from = conversation.alias;
 
@@ -176,7 +175,6 @@ exports.perform_action = function (next, connection) {
 
 
     function changeTo(newTo,keepHeader) {
-        plugin.loginfo("New to: "+newTo);
         connection.transaction.rcpt_to.pop();
         if (Array.isArray(newTo)){
             newTo.forEach(function(t){
@@ -206,7 +204,6 @@ exports.perform_action = function (next, connection) {
         connection.transaction.mail_from.host = newFrom.split('@')[1];
 
         connection.transaction.remove_header('From');
-        plugin.loginfo("New from: "+newFrom);
         if(!displayOriginal || connection.transaction.header.get('to').match('yahoo')) {
             connection.transaction.add_header('From', newFrom);
         }else{
@@ -217,7 +214,6 @@ exports.perform_action = function (next, connection) {
     }
 
     function addReplyTo(replyTo) {
-        plugin.loginfo("New Reply-To :"+replyTo);
         connection.transaction.header.remove("Reply-To");
         connection.transaction.header.add("Reply-To", "<"+replyTo+">"); //the user will send the reply to this address
     }
