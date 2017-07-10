@@ -202,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.unsafe_apps)).setTextColor(getResources().getColor(android.R.color.holo_green_light));
 
 
-
         }
         Storage.saveAppList(installedApps);
     }
@@ -224,13 +223,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         String[] titles = new String[]{
-                "Trusted apps",
+//                "Trusted apps",
                 "About",
                 "Privacy Policy",
                 "Settings"};
         int[] icons = new int[]{
+//                R.drawable.ic_trusted,
                 R.drawable.ic_action_about,
-                R.drawable.ic_trusted,
                 R.drawable.ic_privacy_policy,
                 R.drawable.ic_settings
         };
@@ -265,16 +264,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void onDrawerItemClicked(int index) {
 //        Toast.makeText(this, index + "", Toast.LENGTH_SHORT).show();
-        switch (index) {
-            case 0: //Trusted Apps
-                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                TrustedAppsActivity.start(this);
-                break;
+        switch (index+1) {
+//            case 0: //Trusted Apps
+//                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+////                TrustedAppsActivity.start(this);
+//                break;
             case 1: //About
-                HtmlActivity.start(this, "file:///android_asset/about.html");
+                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
                 break;
             case 2: //Privacy Policy
-                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html");
+                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
                 break;
             case 3: //Settings
                 SettingsActivity.start(this);

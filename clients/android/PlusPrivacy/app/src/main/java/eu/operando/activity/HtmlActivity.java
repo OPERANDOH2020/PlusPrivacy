@@ -10,9 +10,10 @@ import eu.operando.R;
 
 public class HtmlActivity extends BaseActivity {
 
-    public static void start(Context context, String assetFile) {
+    public static void start(Context context, String assetFile, String title) {
         Intent starter = new Intent(context, HtmlActivity.class);
         starter.putExtra("asset_file",assetFile);
+        starter.putExtra("title",title);
         context.startActivity(starter);
     }
 
@@ -27,7 +28,6 @@ public class HtmlActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-
         ((WebView) findViewById(R.id.about_wv)).loadUrl(getIntent().getStringExtra("asset_file"));
     }
 }
