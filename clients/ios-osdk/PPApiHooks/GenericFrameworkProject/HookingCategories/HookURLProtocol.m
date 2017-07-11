@@ -100,7 +100,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
 +(BOOL)shouldInterceptRequest:(NSURLRequest*)request{
     NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
     SAFEADD(evData, kPPWebViewRequest, request)
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventShouldInterceptWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventShouldInterceptWebViewRequest) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
     [_urlDispatcher fireEvent:event  ];
     return [evData[kPPShouldInterceptWebViewRequestValue] boolValue];
@@ -109,7 +109,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
 +(NSError*)errorForRequest:(NSURLRequest*)request {
     NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
     SAFEADD(evData, kPPWebViewRequest, request)
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetErrorForRequestIfAny) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetErrorForRequestIfAny) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
     [_urlDispatcher fireEvent: event];
     
@@ -119,7 +119,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
 +(NSURLRequest*)alternateRequestForRequest:(NSURLRequest*)request {
     NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
     SAFEADD(evData, kPPWebViewRequest, request)
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetAlternateRequestForWebViewRequest) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPWKWebViewEvent, EventGetAlternateRequestForWebViewRequest) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
     [_urlDispatcher fireEvent: event];
     
@@ -138,7 +138,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
 }
 
 -(void)startLoading {
-    
+        
     NSError *errorIfAny = [[self class] errorForRequest:self.request];
     if (errorIfAny) {
         [self.client URLProtocol:self didFailWithError:errorIfAny];

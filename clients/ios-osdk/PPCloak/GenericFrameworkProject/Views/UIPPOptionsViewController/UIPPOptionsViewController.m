@@ -41,11 +41,11 @@
 
 
 -(void(^ __nullable)())getCallbackForCellAtIndex:(NSIndexPath*)indexPath {
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    if (indexPath.section == 0) {
         return self.callbacks.whenChoosingAbout;
     }
     
-    if (indexPath.section == 2) {
+    if (indexPath.section == 3) {
         if (indexPath.row == 0) {
             return  self.callbacks.whenChoosingOverrideLocation;
         }

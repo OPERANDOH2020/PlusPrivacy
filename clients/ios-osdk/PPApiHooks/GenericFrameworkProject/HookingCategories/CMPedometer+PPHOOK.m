@@ -113,7 +113,7 @@ HOOKPrefixInstance(void, queryPedometerDataFromDate:(NSDate *)start toDate:(NSDa
     
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerQueryDataFromDate) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerQueryDataFromDate) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_pedDispatcher fireEvent:event  ];
@@ -141,7 +141,7 @@ HOOKPrefixInstance(void, startPedometerUpdatesFromDate:(NSDate *)start withHandl
     };
     [evData setObject:confirmation forKey:kPPConfirmationCallbackBlock];
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerStartUpdatesFromDate) eventData:evData whenNoHandlerAvailable:confirmation];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerStartUpdatesFromDate) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmation];
     
       
         [_pedDispatcher fireEvent:event  ];
@@ -158,7 +158,7 @@ HOOKPrefixInstance(void, startPedometerEventUpdatesWithHandler:(CMPedometerEvent
         CALL_PREFIXED(weakself, startPedometerEventUpdatesWithHandler:weakevData[kPPPedometerEventUpdatesHandler]);
     };
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerStartEventUpdatesWithHandler) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPPedometerEvent, EventPedometerStartEventUpdatesWithHandler) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_pedDispatcher fireEvent:event  ];

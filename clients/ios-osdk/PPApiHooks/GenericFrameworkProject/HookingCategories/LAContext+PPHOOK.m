@@ -38,7 +38,7 @@ HOOKPrefixInstance(BOOL, canEvaluatePolicy:(LAPolicy)policy error:(NSError * _Nu
     dict[kPPContextPolicyValue] = @(policy);
     dict[kPPContextCanEvaluateContextPolicyValue] = @(actualValue);
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextCanEvaluatePolicy) eventData:dict whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextCanEvaluatePolicy) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:dict whenNoHandlerAvailable:nil];
     
     [_laDispatcher fireEvent:event];
     *error = dict[kPPContextErrorValue];
@@ -57,7 +57,7 @@ HOOKPrefixInstance(void, evaluatePolicy:(LAPolicy)policy localizedReason:(NSStri
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextEvaluatePolicy) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextEvaluatePolicy) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
     [_laDispatcher fireEvent:event];
 }
@@ -75,7 +75,7 @@ HOOKPrefixInstance(void, evaluateAccessControl:(SecAccessControlRef)accessContro
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextEvaluateAccessControlForOperation) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLAContextEvent, EventContextEvaluateAccessControlForOperation) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
     [_laDispatcher fireEvent:event];
 }

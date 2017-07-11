@@ -37,7 +37,7 @@ HOOKPrefixClass(AVCaptureDevice*, defaultDeviceWithMediaType:(NSString *)mediaTy
     SAFEADD(evData, kPPCaptureDeviceMediaTypeValue, defaultDevice)
     SAFEADD(evData, kPPCaptureDeviceDefaultDeviceValue, mediaType)
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceGetDefaultDeviceWithMediaType) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceGetDefaultDeviceWithMediaType) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
       
         [_avDispatcher fireEvent:event  ];
@@ -54,7 +54,7 @@ HOOKPrefixClass(AVCaptureDevice*, defaultDeviceWithDeviceType:(AVCaptureDeviceTy
     SAFEADD(eventData, kPPCaptureDeviceMediaTypeValue, mediaType)
     eventData[kPPCaptureDevicePositionValue] = @(position);
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceGetDefaultDeviceWithTypeMediaTypeAndPosition) eventData:eventData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceGetDefaultDeviceWithTypeMediaTypeAndPosition) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:eventData whenNoHandlerAvailable:nil];
     
       
         [_avDispatcher fireEvent:event  ];
@@ -94,7 +94,7 @@ HOOKPrefixInstance(BOOL, hasMediaType:(NSString *)mediaType){
     SAFEADD(evData, kPPCaptureDeviceMediaTypeValue, mediaType)
     evData[kPPCaptureDeviceHasMediaTypeResult] = @(result);
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceHasMediaType) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceHasMediaType) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
       
             [_avDispatcher fireEvent:event  ];
@@ -107,7 +107,7 @@ HOOKPrefixInstance(BOOL, hasMediaType:(NSString *)mediaType){
 HOOKPrefixInstance(BOOL, lockForConfiguration:(NSError *__autoreleasing *)outError){
     
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceLockForConfiguration) eventData:eventData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceLockForConfiguration) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:eventData whenNoHandlerAvailable:nil];
     
       
         [_avDispatcher fireEvent:event  ];
@@ -125,7 +125,7 @@ HOOKPrefixClass(BOOL, supportsAVCaptureSessionPreset:(NSString *)preset){
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
     SAFEADD(eventData, kPPAVPresetValue, preset)
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceSupportsSessionPreset) eventData:eventData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceSupportsSessionPreset) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:eventData whenNoHandlerAvailable:nil];
     
       
         [_avDispatcher fireEvent:event  ];

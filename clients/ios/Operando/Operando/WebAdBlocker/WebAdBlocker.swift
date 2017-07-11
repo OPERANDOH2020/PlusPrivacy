@@ -91,6 +91,22 @@ class WebAdBlocker: NSObject {
         return modifiedRequest
     }
     
+    
+    private func clearRequestOfNonNecessaryHeaders( request: inout URLRequest) {
+        if request.allHTTPHeaderFields?["X-Requested-With"] != nil {
+            request.allHTTPHeaderFields?["X-Requested-With"] = ""
+        }
+        
+        if request.allHTTPHeaderFields?["X-Wap-Profile"] != nil {
+            request.allHTTPHeaderFields?["X-Wap-Profile"] = "";
+        }
+        
+    }
+    
+    private func addDNTHeader(request: inout URLRequest) {
+        request.allHTTPHeaderFields?["DNT"] = "1";
+    }
+    
     private func registerAndProcessEvents() {
         PPEventDispatcher.sharedInstance().appendNewEventHandler({ (event, next) in
             defer {
@@ -118,8 +134,10 @@ class WebAdBlocker: NSObject {
             }
             
             if event.eventIdentifier.eventSubtype == PPWKWebViewEventType.EventGetAlternateRequestForWebViewRequest.rawValue {
-                
-                event.eventData?[kPPAlternateRequestForWebViewRequest] = self.requestAlteredWithTorHeaders(from: request)
+                var request = self.requestAlteredWithTorHeaders(from: request);
+                self.clearRequestOfNonNecessaryHeaders(request: &request)
+                self.addDNTHeader(request: &request)
+                event.eventData?[kPPAlternateRequestForWebViewRequest] = request
             }
             
         })

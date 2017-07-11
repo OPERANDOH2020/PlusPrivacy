@@ -30,6 +30,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
 
 HOOKPrefixInstance(void, setProximityMonitoringEnabled:(BOOL)enabled) {
     
+    
     __weak typeof(self) weakSelf = self;
     
     PPEventIdentifier eventType = PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceSetProximityMonitoringEnabled);
@@ -45,7 +46,7 @@ HOOKPrefixInstance(void, setProximityMonitoringEnabled:(BOOL)enabled) {
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:eventType eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:eventType moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
     
       
@@ -68,7 +69,7 @@ HOOKPrefixInstance(void, setProximitySensingEnabled:(BOOL)enabled) {
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:eventType eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:eventType moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_devDispatcher fireEvent:event  ];
@@ -78,11 +79,12 @@ HOOKPrefixInstance(void, setProximitySensingEnabled:(BOOL)enabled) {
 
 HOOKPrefixInstance(BOOL, proximityState) {
     
+    
     BOOL actualProximityState = CALL_PREFIXED(self, proximityState);
-    NSMutableDictionary *dict = [@{kPPDeviceProxmityStateValue: @(actualProximityState)} mutableCopy];
+    NSMutableDictionary *dict = [@{kPPDeviceProxmityStateValue: @(actualProximityState)                                 } mutableCopy];
     
 
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetProximityState) eventData:dict whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetProximityState) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:dict whenNoHandlerAvailable:nil];
     
       
         [_devDispatcher fireEvent:event  ];
@@ -97,14 +99,12 @@ HOOKPrefixInstance(BOOL, proximityState) {
 }
 
 HOOKPrefixInstance(NSString*, name){
+    
     NSString *actualName = CALL_PREFIXED(self, name);
     
     __block NSString *result = nil;
     
-    
-      
-        result =  [_devDispatcher resultForEventValue:actualName ofIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetName) atKey:kPPDeviceNameValue  ];
-       
+    result =  [_devDispatcher resultForEventValue:actualName ofIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetName) atKey:kPPDeviceNameValue  ];
 
     return  result;
 }

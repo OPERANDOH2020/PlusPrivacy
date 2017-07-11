@@ -38,7 +38,7 @@ HOOKPrefixInstance(void, setAccelerometerUpdateInterval:(NSTimeInterval)accelero
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetAccelerometerUpdateInterval) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetAccelerometerUpdateInterval) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -59,7 +59,7 @@ HOOKPrefixInstance(void, setGyroUpdateInterval:(NSTimeInterval)gyroUpdateInterva
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetGyroUpdateInterval) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetGyroUpdateInterval) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -78,7 +78,7 @@ HOOKPrefixInstance(void, setDeviceMotionUpdateInterval:(NSTimeInterval)deviceMot
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetDeviceMotionUpdateInterval) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetDeviceMotionUpdateInterval) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -96,7 +96,7 @@ HOOKPrefixInstance(void, setMagnetometerUpdateInterval:(NSTimeInterval)magnetome
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetMagnetometerUpdateInterval) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerSetMagnetometerUpdateInterval) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -107,7 +107,7 @@ HOOKPrefixInstance(void, startMagnetometerUpdates){
     __weak typeof(self) weakSelf = self;
     
       
-        [_mmDispatcher fireEventWithMaxOneTimeExecution:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartMagnetometerUpdates) executionBlock:^{
+        [_mmDispatcher fireEventWithMaxOneTimeExecution:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartMagnetometerUpdates)  executionBlock:^{
             CALL_PREFIXED(weakSelf, startMagnetometerUpdates);
             
         } executionBlockKey:kPPConfirmationCallbackBlock  ];
@@ -130,7 +130,7 @@ HOOKPrefixInstance(void, startMagnetometerUpdatesToQueue:(NSOperationQueue *)que
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartMagnetometerUpdatesToQueueUsingHandler) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartMagnetometerUpdatesToQueueUsingHandler) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -164,7 +164,7 @@ HOOKPrefixInstance(void, startAccelerometerUpdatesToQueue:(NSOperationQueue *)qu
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartAccelerometerUpdatesToQueueUsingHandler) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartAccelerometerUpdatesToQueueUsingHandler) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
     
       
@@ -202,7 +202,7 @@ HOOKPrefixInstance(void, startGyroUpdatesToQueue:(NSOperationQueue *)queue withH
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartGyroUpdatesToQueueUsingHandler) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartGyroUpdatesToQueueUsingHandler) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -230,7 +230,7 @@ HOOKPrefixInstance(void, startDeviceMotionUpdatesUsingReferenceFrame:(CMAttitude
     };
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartDeviceMotionUpdatesUsingReferenceFrame) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartDeviceMotionUpdatesUsingReferenceFrame) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];
@@ -254,7 +254,7 @@ HOOKPrefixInstance(void, startDeviceMotionUpdatesUsingReferenceFrame:(CMAttitude
     };
     
     evData[kPPConfirmationCallbackBlock] = confirmationOrDefault;
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartDeviceMotionUpdatesUsingReferenceFrameToQueueUsingHandler) eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerStartDeviceMotionUpdatesUsingReferenceFrameToQueueUsingHandler) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
         [_mmDispatcher fireEvent:event  ];

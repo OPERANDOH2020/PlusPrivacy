@@ -11,7 +11,7 @@
 
 @interface UIAboutCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -24,7 +24,7 @@
 
 -(void)setupWithText:(NSString*)text imageName:(NSString*)imageName {
     
-    self.textLabel.text = text;
+    self.textView.text = text;
     self.imageView.image = [UIImage imageNamed:imageName inBundle:[NSBundle PPCloakBundle] compatibleWithTraitCollection:nil];
 }
 

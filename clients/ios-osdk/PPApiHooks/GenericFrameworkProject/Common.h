@@ -24,6 +24,10 @@
 
 #define __Weak(x) __weak typeof(x) weak##x = x
 
+
+extern NSArray *PPApiHooks_moduleNamesInCallStack(int skipLastN);
+extern char* PPApiHooks_copyLastPathItemFrom(char* string);
+
 typedef void(^PPBoolErrorBlock)(BOOL, NSError* _Nullable);
 
 typedef void(^PPVoidBlock)();
@@ -245,7 +249,12 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
     
 };
 
+
+#define kPPCurrentCallStackModuleNames PPApiHooks_moduleNamesInCallStack(1)
+
 #define kPPConfirmationCallbackBlock @"kCommonConfirmationVoidBlock"
+
+#define kPPCallStackModuleNames @"kPPCallStackModuleNames"
 
 #pragma mark - 
 

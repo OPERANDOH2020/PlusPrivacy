@@ -69,7 +69,7 @@ HOOKPrefixInstance(NSURLSessionDataTask*, dataTaskWithRequest:(NSURLRequest *)re
     NSMutableDictionary *eventData = [@{} mutableCopy];
     SAFEADD(eventData, kPPURLSessionDataTaskRequest, request)
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPURLSessionEvent, EventURLSessionStartDataTaskForRequest) eventData:eventData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPURLSessionEvent, EventURLSessionStartDataTaskForRequest) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:eventData whenNoHandlerAvailable:nil];
     
     [_urlSessionDispatcher fireEvent:event];
     

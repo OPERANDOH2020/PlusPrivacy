@@ -30,22 +30,14 @@
 
 #import "NSURLProtocol+WKWebViewSupport.h"
 #import <WebKit/WebKit.h>
+#import "Common.h"
 
-Class WK_ContextControllerClass() {
-  static Class cls;
-  if (!cls) {
-    cls = [[[WKWebView new] valueForKey:@"browsingContextController"] class];
-  }
-  return cls;
-}
+#define WK_RegisterSchemeSelector() NSSelectorFromString(@"registerSchemeForCustomProtocol:")
+#define WK_UnregisterSchemeSelector() NSSelectorFromString(@"unregisterSchemeForCustomProtocol:")
 
-SEL WK_RegisterSchemeSelector() {
-  return NSSelectorFromString(@"registerSchemeForCustomProtocol:");
-}
+#define WK_ContextControllerClass() [[[WKWebView new] valueForKey:@"browsingContextController"] class]
 
-SEL WK_UnregisterSchemeSelector() {
-  return NSSelectorFromString(@"unregisterSchemeForCustomProtocol:");
-}
+
 
 @implementation NSURLProtocol (WKWebViewSupport)
 

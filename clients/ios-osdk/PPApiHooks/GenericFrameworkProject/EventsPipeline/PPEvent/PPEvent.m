@@ -14,20 +14,27 @@
 @property (readwrite, assign, nonatomic) PPEventIdentifier eventIdentifier;
 @property (readwrite, strong, nonatomic, nullable) NSMutableDictionary *eventData;
 @property (strong, nonatomic) PPVoidBlock whenNoHandlerAvailable;
+@property (readwrite, nonatomic, strong) NSArray *moduleNamesInCallStack;
 
 @end
 
 @implementation PPEvent
 
--(instancetype)initWithEventIdentifier:(PPEventIdentifier)eventIdentifier eventData:(NSMutableDictionary *)eventData whenNoHandlerAvailable:(PPVoidBlock _Nullable)whenNoHandlerAvailable {
+-(instancetype _Nonnull)initWithEventIdentifier:(PPEventIdentifier)eventIdentifier
+                         moduleNamesInCallStack:(NSArray* _Nonnull)moduleNames
+                                      eventData:(NSMutableDictionary* _Nullable)eventData whenNoHandlerAvailable:(PPVoidBlock _Nullable)whenNoHandlerAvailable {
+    
     if (self = [super init]) {
         self.eventData = eventData;
         self.eventIdentifier = eventIdentifier;
         self.whenNoHandlerAvailable = whenNoHandlerAvailable;
+        self.moduleNamesInCallStack = moduleNames;
     }
     
     return self;
 }
+
+
 
 
 -(void)consumeWhenNoHandlerAvailable {

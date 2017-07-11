@@ -106,7 +106,7 @@
                                    executionBlockKey: confirmation
                                    } mutableCopy];
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:type eventData:dict whenNoHandlerAvailable:executionBlock];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:type moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:dict  whenNoHandlerAvailable:executionBlock];
     
     [self fireEvent:event  ];
 }
@@ -116,7 +116,7 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     SAFEADD(dict, key, value)
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:identifier eventData:dict whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:identifier moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:dict whenNoHandlerAvailable:nil];
     
     [self fireEvent:event  ];
     

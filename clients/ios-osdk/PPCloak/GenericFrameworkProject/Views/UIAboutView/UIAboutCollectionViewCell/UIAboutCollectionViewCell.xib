@@ -23,29 +23,29 @@
                             <constraint firstAttribute="height" constant="80" id="ehf-GE-1NT"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5n-tD-022">
-                        <rect key="frame" x="20" y="142" width="289" height="435"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-VA-EGJ">
+                        <rect key="frame" x="12" y="144" width="305" height="431"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="BSK-VA-EGJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="08R-Il-4nm"/>
                 <constraint firstItem="THt-BQ-sG1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="0yF-ll-eDG"/>
-                <constraint firstItem="h5n-tD-022" firstAttribute="top" secondItem="THt-BQ-sG1" secondAttribute="bottom" constant="10" id="L7s-eM-h0P"/>
-                <constraint firstAttribute="bottom" secondItem="h5n-tD-022" secondAttribute="bottom" constant="10" id="Rrc-Wk-hu4"/>
+                <constraint firstAttribute="trailing" secondItem="BSK-VA-EGJ" secondAttribute="trailing" constant="12" id="T77-xD-BsA"/>
+                <constraint firstItem="BSK-VA-EGJ" firstAttribute="top" secondItem="THt-BQ-sG1" secondAttribute="bottom" constant="12" id="T7W-Tl-nWp"/>
+                <constraint firstAttribute="bottom" secondItem="BSK-VA-EGJ" secondAttribute="bottom" constant="12" id="fwQ-LT-HRl"/>
                 <constraint firstAttribute="trailing" secondItem="THt-BQ-sG1" secondAttribute="trailing" constant="10" id="gfM-Po-lES"/>
-                <constraint firstAttribute="trailing" secondItem="h5n-tD-022" secondAttribute="trailing" constant="20" id="ib2-3J-0zL"/>
                 <constraint firstItem="THt-BQ-sG1" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="udO-ju-i3y"/>
                 <constraint firstItem="THt-BQ-sG1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="52" id="vbP-zq-3eZ"/>
-                <constraint firstItem="h5n-tD-022" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="zEx-OV-wRD"/>
             </constraints>
             <size key="customSize" width="329" height="587"/>
             <connections>
                 <outlet property="imageView" destination="THt-BQ-sG1" id="r0u-tX-TlG"/>
-                <outlet property="textLabel" destination="h5n-tD-022" id="lQ0-lY-qVp"/>
+                <outlet property="textView" destination="BSK-VA-EGJ" id="dMy-zf-dzx"/>
             </connections>
             <point key="canvasLocation" x="0.5" y="23.5"/>
         </collectionViewCell>

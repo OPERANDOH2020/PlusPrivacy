@@ -20,6 +20,82 @@
 #import <libgen.h>
 #import <dlfcn.h>
 #import <mach-o/loader.h>
+#import <unistd.h>
+#import <execinfo.h>
+
+
+
+//---- Utility functions -------
+
+
+bool isEmbeddedFrameworkOrApp(char *binaryPath){
+    char *progname = getprogname();
+    if (strstr(binaryPath, progname)) {
+        return true;
+    }
+    
+    return false;
+}
+
+char* PPApiHooks_copyLastPathItemFrom(char* string) {
+    
+    char *p = string + strlen(string);
+    while (*(p-1) != '/') {
+        p--;
+    }
+    
+    size_t lastPathLength = strlen(p);
+    char *buffer = malloc(lastPathLength + 1);
+    strcpy(buffer, p);
+    
+    return buffer;
+}
+
+extern NSArray *PPApiHooks_moduleNamesInCallStack(int skipLastN){
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    if (skipLastN < 0) {
+        return  result;
+    }
+    
+    char *progname = getprogname();
+    NSLog(@"Program name: %s", progname);
+    
+    void *stackAdresses[32];
+    int stackSize = backtrace(stackAdresses, 32);
+    
+    Dl_info info;
+    for (int i=skipLastN; i<stackSize; i++) {
+        if (dladdr(stackAdresses[i], &info) && isEmbeddedFrameworkOrApp(info.dli_fname)) {
+            char *moduleName = PPApiHooks_copyLastPathItemFrom(info.dli_fname);
+            NSString *string = [[NSString alloc] initWithCString:moduleName encoding:NSASCIIStringEncoding];
+            
+            [result addObject:string];
+            free(moduleName);
+        }
+    }
+    
+    return result;
+}
+
+
+void PPApiHooks_printCallStack() {
+    
+    char *progname = getprogname();
+    NSLog(@"Program name: %s", progname);
+    
+    void *stackAdresses[32];
+    int stackSize = backtrace(stackAdresses, 32);
+    
+    Dl_info info;
+    for (int i=0; i<stackSize; i++) {
+        if (dladdr(stackAdresses[i], &info)) {
+            NSLog(@"%s embeddedFramework: %d", PPApiHooks_copyLastPathItemFrom(info.dli_fname), isEmbeddedFrameworkOrApp(info.dli_fname));
+        }
+    }
+}
+
+//---- End of utility functions -----
 
 
 

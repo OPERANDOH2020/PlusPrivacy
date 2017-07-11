@@ -243,6 +243,31 @@ public class PrivacyDescription: NSObject {
 }
 
 @objc
+public class SDKCheckItem: NSObject {
+    public let sdkName: String
+    public let deniedWithZeroValues: [InputType]
+    
+    public init?(dict: [String: Any]){
+        guard let sdkName = dict["sdkName"] as? String,
+              let inputTypeNames = dict["deniedWithZeroValues"] as? [String] else {
+              return nil
+        }
+        
+        self.sdkName = sdkName;
+        self.deniedWithZeroValues = inputTypeNames.flatMap{InputType.createFrom(rawValue: $0)}
+        
+        super.init()
+    }
+    
+    
+    public static func buildFromJsonArray(_ array: [[String: Any]]) -> [SDKCheckItem]? {
+        return array.flatMap({
+            SDKCheckItem(dict: $0)
+        })
+    }
+}
+
+@objc
 public class AccessedInput: NSObject {
     public let inputType: InputType
     public let privacyDescription: PrivacyDescription
@@ -269,16 +294,9 @@ public class AccessedInput: NSObject {
     
     
     public static func buildFromJsonArray(_ array: [[String: Any]]) -> [AccessedInput]? {
-        var result: [AccessedInput] = []
-        
-        for dict in array {
-            guard let item = AccessedInput(dict: dict) else {
-                return nil
-            }
-            result.append(item)
-        }
-        
-        return result
+        return array.flatMap({
+            AccessedInput(dict: $0)
+        })
     }
 }
 
@@ -307,6 +325,7 @@ public class SCDDocument: NSObject {
     
     public let accessedHosts: AccessedHosts
     public let accessedInputs: [AccessedInput]
+    public let sdkChecks: [SDKCheckItem]?
     
     internal init?(scd: [String: Any]) {
         guard let title = scd["title"] as? String,
@@ -323,6 +342,11 @@ public class SCDDocument: NSObject {
         self.accessedInputs = accessedSensors
         self.accessedHosts = accessedHosts
         self.appIconURL = scd["appIconURL"] as? String
+        if let sdkCheckItemsArray = scd["sdkCheck"] as? [[String: Any]] {
+            self.sdkChecks = SDKCheckItem.buildFromJsonArray(sdkCheckItemsArray)
+        } else {
+            self.sdkChecks = nil 
+        }
     }
     
 }

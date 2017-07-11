@@ -224,7 +224,6 @@
 #pragma mark - Reports from input supervisors
 
 -(void)newURLHostViolationReported:(PPAccessUnlistedHostReport *)report {
-    return;
     
     [self.plistRepository addUnlistedHostReport:report withCompletion:nil];
     NSString *notification = [NSString stringWithFormat:@"Accessed unlisted host %@", report.urlHost];
