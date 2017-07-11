@@ -17,77 +17,7 @@ var portObserversPool = require("observers-pool").portObserversPool;
 var bus = require("bus-service").bus;
 
 var busActions = {
-    //TODO refactor this
-    login: function(request, handleResponse){
 
-        login(request.message.login_details, function (swarmPhase, response) {
-
-            handleResponse({
-                type: "SOLVED_REQUEST",
-                action: request.action,
-                message: {error: response.error}
-            });
-
-        }, function () {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    logout : function (request, handleResponse) {
-
-        logout(function () {
-                handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    notifyWhenLogout : function(request, handleResponse){
-        authenticationService.disconnectUser(function(){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    getCurrentUser: function(request, handleResponse){
-
-        getCurrentUser(function (user) {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: user});
-        })
-    },
-
-    restoreUserSession: function(request, handleResponse){
-
-        restoreUserSession(function (status) {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: status});
-        })
-    },
-    /*registerUser: function(request, handleResponse){
-
-        authenticationService.registerUser(request.message.user, function(error){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
-        },  function(success){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
-        });
-    },*/
-
-    /*sendActivationCode: function (request, handleResponse) {
-        authenticationService.resendActivationCode(request.message, function () {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status: "success"}});
-
-        }, function (error) {
-            handleResponse({
-                type: "SOLVED_REQUEST",
-                action: request.action,
-                message: {status: "error", message: error}
-            });
-        });
-    },*/
-
-    /*resetPassword:function(request, handleResponse){
-        authenticationService.resetPassword(request.message, function(){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
-        }, function(error){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
-        });
-    }*/
 };
 
 
@@ -147,23 +77,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     return;
                 }
 
-                if(busActions[request.action]){
-                        var handleResponse = function(message){
-                            if(clientPort){
-                                clientPort.postMessage(message);
-                            }
-                            else{
-                                console.log("CLIENTPORT IS NULL. Trying latest port...");
-                                chrome.runtime.sendMessage(message,function(response){
-                                });
-                            }
-                        };
-
-                    var action = busActions[request.action];
-                        action(request, handleResponse);
-                }
-
-                else {
                     if(bus.hasAction(request.action)){
                         var actionFn = bus.getAction(request.action);
                         var args = [];
@@ -189,6 +102,9 @@ chrome.runtime.onConnect.addListener(function (_port) {
                         });
 
                         args.push(function (err) {
+                            if(!err){
+                                err = "error"
+                            }
                             if (clientPort) {
                                 clientPort.postMessage({
                                     type: messageType,
@@ -203,7 +119,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     } else{
                         console.log("Error: Unable to process action",request.action);
                     }
-                }
             });
         }
         else if(clientPort.name === "PLUSPRIVACY_WEBSITE"){
@@ -280,34 +195,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
     }(_port));
 
 });
-
-
-function login(login_details, securityErrorFunction, successFunction) {
-    authenticationService.authenticateUser(login_details, securityErrorFunction, successFunction);
-}
-
-function logout(callback) {
-    authenticationService.logoutCurrentUser(callback);
-}
-
-function getCurrentUser(callback) {
-    authenticationService.getCurrentUser(function (user) {
-        callback(user);
-    })
-}
-
-function restoreUserSession(callback) {
-    var status = {};
-
-    //TODO refactoring needed here
-
-    if (authenticationService.isLoggedIn() == true) {
-        status.success = "success";
-        if(callback){
-            callback(status);
-        }
-    }
-}
 
 //TODO rewrite this
 authenticationService.restoreUserSession(function () {

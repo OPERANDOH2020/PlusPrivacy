@@ -19,8 +19,8 @@ controller("accountCtrl", ["$scope","messengerService","Notification", function(
         confirmPassword: ""
     };
 
-    messengerService.send("getCurrentUser", function(user){
-        $scope.email = user.email;
+    messengerService.send("getCurrentUser", function(response){
+        $scope.email = response.data.email;
         $scope.$apply();
     })
 

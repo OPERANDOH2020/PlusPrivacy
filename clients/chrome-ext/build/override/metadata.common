@@ -1,5 +1,5 @@
 [general]
-version = 0.5.6
+version = 0.5.7
 backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js
@@ -115,8 +115,8 @@ lib/adblockplus.js = adblockpluscore/lib/events.js
   operando/libs/observers-pool.js
   operando/libs/bus-service.js
   operando/libs/swarm-service.js
-  operando/libs/authentication-service.js
   operando/libs/identity-service.js
+  operando/libs/authentication-service.js
   operando/libs/pfb-service.js
   operando/libs/social-network-privacy-settings.js
   operando/libs/osp-service.js

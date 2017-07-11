@@ -11,6 +11,7 @@
  */
 
 var swarmService = require("swarm-service").swarmService;
+var identityService = require("identity-service").identityService;
 var loggedIn = false;
 var authenticatedUser = {};
 var loggedInObservable = swarmHub.createObservable();
@@ -25,15 +26,15 @@ var authenticationService = exports.authenticationService = {
     getUser : function(){
       return authenticatedUser;
     },
-    authenticateUser: function (login_details, securityFn, successFn) {
-        var self = this;
+    authenticateUser: function (login_details, successFn, securityFn) {
+        console.log(login_details);
         swarmService.initConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, login_details.email, login_details.password, "chromeBrowserExtension", "userLogin", function(){});
         console.log("Keep session ",login_details.remember_me);
 
         var loginSuccessfully = function (swarm) {
 
             if(loggedIn === false){
-                self.setUser(successFn);
+                authenticationService.setUser(successFn);
             }
 
             loggedIn = swarm.authenticated;
@@ -54,7 +55,7 @@ var authenticationService = exports.authenticationService = {
         swarmHub.on('login.js', "success", loginSuccessfully);
 
         swarmHub.on('login.js', "failed", function loginFailed(swarm) {
-            securityFn(swarm.meta.currentPhase, swarm);
+            securityFn(swarm.error);
             swarmHub.off("login.js", "success",loginSuccessfully);
             swarmHub.off("login.js", "failed",loginFailed);
         });
@@ -161,27 +162,39 @@ var authenticationService = exports.authenticationService = {
     },
 
     restoreUserSession: function (successCallback, failCallback, errorCallback, reconnectCallback) {
-        var username = Cookies.get("userId");
-        var sessionId = Cookies.get("sessionId");
-        var self = this;
 
-        if (!username || !sessionId) {
-            failCallback();
+        if(!errorCallback){
+            errorCallback = function(){}
         }
-        swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, reconnectCallback);
-        swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
-            loggedIn = true;
-            if(successCallback){
-                self.setUser(successCallback);
-            }
-            swarmHub.off("login.js", "restoreSucceed",restoredSuccessfully);
-        });
 
-        swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
-            var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
-            Cookies.set("sessionId", swarm.meta.sessionId, {expires: cookieValidityDays});
-            Cookies.set("userId", swarm.userId, {expires: cookieValidityDays});
-        });
+        if(!reconnectCallback){
+            reconnectCallback = function(){}
+        }
+
+        if(authenticationService.isLoggedIn()){//do not restore if already loggedin
+            successCallback();
+        } else {
+            var username = Cookies.get("userId");
+            var sessionId = Cookies.get("sessionId");
+
+            if (!username || !sessionId) {
+                failCallback();
+            }
+            swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, reconnectCallback);
+            swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
+                loggedIn = true;
+                if(successCallback){
+                    authenticationService.setUser(successCallback);
+                }
+                swarmHub.off("login.js", "restoreSucceed",restoredSuccessfully);
+            });
+
+            swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
+                var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
+                Cookies.set("sessionId", swarm.meta.sessionId, {expires: cookieValidityDays});
+                Cookies.set("userId", swarm.userId, {expires: cookieValidityDays});
+            });
+        }
     },
 
     setUser: function (callback) {
@@ -195,7 +208,7 @@ var authenticationService = exports.authenticationService = {
                 }
             }else{
                 //logout guest user
-                self.logoutCurrentUser();
+                authenticationService.logoutCurrentUser();
             }
         });
 
@@ -207,7 +220,7 @@ var authenticationService = exports.authenticationService = {
         }, !loggedIn);
     },
 
-    disconnectUser: function (callback) {
+    notifyWhenLogout: function (callback) {
         notLoggedInObservable.observe(function () {
             callback();
         }, true);
@@ -224,11 +237,13 @@ var authenticationService = exports.authenticationService = {
             Cookies.remove("userId");
             Cookies.remove("sessionId");
             swarmHub.off("login.js", "logoutSucceed",logoutSucceed);
+            identityService.clearIdentitiesList();
             swarmService.removeConnection();
             if(callback){
                 callback();
             }
         });
     }
-}
+};
+
 bus.registerService(authenticationService);

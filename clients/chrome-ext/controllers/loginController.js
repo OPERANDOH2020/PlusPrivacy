@@ -14,7 +14,7 @@
 angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService','i18nService', function($scope, messengerService, i18nService){
 
     var defaultUser = {remember_me:true};
-
+    $scope.showABPAndPrivacyPolicyOptions = true;
     $scope.user = angular.copy(defaultUser);
     $scope.isAuthenticated = false;
     $scope.requestIsProcessed = false;
@@ -72,9 +72,9 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     }
 
     successFunction = function () {
-        messengerService.send("getCurrentUser", function(user){
+        messengerService.send("getCurrentUser", function(response){
             $scope.loginAreaState = "loggedin";
-            $scope.user.email = user.email;
+            $scope.user.email = response.data.email;
             $scope.isAuthenticated = true;
             $scope.$apply();
         });
@@ -118,15 +118,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.requestStatus = "pending";
         $scope.info.status = "success";
         $scope.info.message = 'Logging in...';
-        messengerService.send("login", {
-            login_details: {
+        messengerService.send("authenticateUser", {
                 email: $scope.user.email,
                 password: $scope.user.password,
                 remember_me: $scope.user.remember_me
-            }
         }, function (response) {
             $scope.requestIsProcessed = false;
-            if (response.success) {
+            if (response.status === "success") {
                 setTimeout(function(){
                     chrome.runtime.openOptionsPage();
                 },500);
@@ -223,7 +221,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     $scope.logout = function(){
         $scope.requestStatus = "pending";
         $scope.requestIsProcessed = true;
-        messengerService.send("logout",function(){
+        messengerService.send("logoutCurrentUser",function(){
             $scope.requestIsProcessed = false;
             $scope.requestStatus = "completed";
             $scope.loginAreaState = "loggedout";
@@ -233,11 +231,11 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     }
 
-    messengerService.send("restoreUserSession",{}, function(status){
-        if(status.success){
+    messengerService.send("restoreUserSession", function(data){
+        if(data.status === "success"){
             successFunction();
         }
-        else if(status.fail){
+        else if(data.status === "error"){
             $scope.loginAreaState = "loggedout";
         }
         else if(status.error){
