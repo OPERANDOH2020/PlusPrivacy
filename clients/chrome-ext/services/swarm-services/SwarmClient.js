@@ -72,6 +72,11 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
             socket.on('disconnect', socket_onDisconnect);
             socket.on('retry', socket_onRetry);
             socket.on('reconnect', socket_onReconect);
+            socket.on('reconnect_failed', function(){console.error("reconnect_failed event fired!")});
+            socket.on('reconnect_error', function(){console.error("reconnect_error event fired!")});
+            socket.on('reconnecting', function(n){console.error("reconnecting event fired! attempts:",n)});
+            socket.on('reconnect_attempt', function(n){console.error("reconnect_attempt event fired! attempts:",n)});
+            socket.on('connect_timeout', function(t){console.error("connect_timeout event fired! timeout:",t)});
         } else {
             dprint("Connecting to the Web Socket server: ", connectionString);
             socket = new WebSocket(connectionString);
