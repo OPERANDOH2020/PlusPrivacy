@@ -1,5 +1,6 @@
 package eu.operando.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,6 @@ import android.widget.Toast;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import eu.operando.R;
@@ -38,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 
-    private AlertDialog diconnectDialoc;
+    private AlertDialog disconnectDialog;
 
     private ResideMenu resideMenu;
+
+    private ProgressDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        if (diconnectDialoc != null)
-                            diconnectDialoc.dismiss();
+                        if (disconnectDialog != null)
+                            disconnectDialog.dismiss();
                     }
                 });
             }
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        diconnectDialoc =
+                        disconnectDialog =
                                 new AlertDialog.Builder(MainActivity.this)
                                         .setMessage("Connection lost, trying to reconnect...")
                                         .setNegativeButton("Exit PlusPrivacy", new DialogInterface.OnClickListener() {
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                             }
                                         }).setCancelable(false)
                                         .create();
-                        diconnectDialoc.show();
+                        disconnectDialog.show();
 
                     }
                 });
@@ -98,12 +100,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void swarmLogin(final String username, final String password) {
 
+        loadingDialog = new ProgressDialog(this);
+        loadingDialog.setCancelable(false);
+        loadingDialog.setMessage("Please wait...");
+        loadingDialog.show();
+
         SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarm>() {
             @Override
             public void call(final LoginSwarm result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        loadingDialog.dismiss();
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {

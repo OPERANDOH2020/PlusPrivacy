@@ -118,7 +118,7 @@ public class PermissionUtils {
         permissionRisks.put("android.permission.WRITE_USER_DICTIONARY", 4);
 
         permissionDescriptions = new HashMap<>();
-        permissionDescriptions.put("ACCESS_CHECKIN_PROPERTIES", "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.");
+        permissionDescriptions .put("ACCESS_CHECKIN_PROPERTIES", "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.");
         permissionDescriptions.put("ACCESS_COARSE_LOCATION", "Allows an app to access approximate location.");
         permissionDescriptions.put("ACCESS_FINE_LOCATION", "Allows an app to access precise location.");
         permissionDescriptions.put("ACCESS_LOCATION_EXTRA_COMMANDS", "Allows an application to access extra location provider commands.");
