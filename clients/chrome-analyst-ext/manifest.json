@@ -1,0 +1,35 @@
+{
+"manifest_version": 2,
+"name": "PlusPrivacy Analyst",
+"version": "0.1",
+"description": "A plain text description",
+"icons": { "16": "icons/icon-16.png",
+    "24": "icons/icon-24.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "128": "icons/icon-128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "24": "icons/icon-24.png",
+      "32": "icons/icon-32.png"
+    },
+    "default_title": "{+P} Analyst Dashboard",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["js/backgrounds/background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs",
+    "http://*.facebook.com/",
+    "http://*.twitter.com/",
+    "http://*.linkedin.com/",
+    "http://*.google.com/"
+
+  ]
+}
