@@ -1,10 +1,70 @@
-.add_offer_logo {
-    width: 16px;
-    height: 16px;
-    max-width: none;
+html{
+    height:100%;
+}
+body{
+    background:url(../images/background-coffee.jpg) no-repeat left center;
+    background-size: 100%;
+    font-family: "Dosis";
+}
+.wrapper {
+    margin-top: 180px;
+    margin-bottom: 20px;
 }
 
-.input-group textarea.form-control, .input-group textarea.form-control:last-child {
-text-indent: 0px!important;
-border-radius: 0px 4px 4px 0px!important;
+.form-signin {
+    max-width: 520px;
+    padding: 30px 38px 66px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.form-signin-heading {
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+input[type="text"] {
+    margin-bottom: 0px;
+}
+
+.form-signin input[type="text"]{
+    margin-bottom:20px;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+}
+
+.colorgraph {
+    height: 7px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+button.btn.btn-primary{
+    background: #FFB400;
+    border: 1px solid #FFB400;
+    border-radius: 4px;
+}
+
+button.btn.btn-primary:hover,
+button.btn.btn-primary:active{
+    background: #f1aa00;
+    border: 1px solid #f1aa00;
+}
+button.btn.btn-primary:focus{
+    outline: none;
 }

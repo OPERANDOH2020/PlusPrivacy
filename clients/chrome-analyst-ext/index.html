@@ -25,8 +25,12 @@
     <script type="text/javascript" src="imports/angular-modal/angular-modal-service.js"></script>
     <script type="text/javascript" src="imports/oc-lazy-load/ocLazyLoad.min.js"></script>
     <script type="text/javascript" src="imports/angular-ui-router/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-Option
+<div class="content-wrapper" ng-app="app">
+    <div ui-view></div>
+</div>
 </body>
 </html>
