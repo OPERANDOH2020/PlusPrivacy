@@ -16,12 +16,6 @@ var swarmService = require("swarm-service").swarmService;
 var portObserversPool = require("observers-pool").portObserversPool;
 var bus = require("bus-service").bus;
 
-var busActions = {
-
-};
-
-
-
 chrome.runtime.onConnect.addListener(function (_port) {
     (function(clientPort){
 
@@ -204,9 +198,11 @@ authenticationService.restoreUserSession(function () {
     status.fail = "fail";
 
 }, function () {
+    console.log("error");
     status.error = "error";
 
 }, function () {
     status.reconnect = "reconnect";
+    console.log("reconnect");
 
 });

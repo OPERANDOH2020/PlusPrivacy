@@ -2,11 +2,21 @@
 
     <ul ng-controller="loginCtrl" class="popup-login-area">
         <li id="login_area" ng-switch="loginAreaState">
-
             <div ng-if="info.status">
                 <div class="panel panel-{{info.status=='error'?'danger':info.status}}">
                     <ui-loader ng-if="(requestIsProcessed || requestStatus) && (info.status!='error')"  status="{{requestStatus}}"></ui-loader>
-                    <div class="panel-heading">{{info.message}}</div>
+                    <div class="panel-heading">
+                        <span class="glyphicon" ng-class="info.status=='error'?'glyphicon-exclamation-sign':'glyphicon-ok'" aria-hidden="true"></span>
+                        <span>{{info.message}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-switch-when="networkError" class="login_form">
+                <div class="spinner network_error">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
                 </div>
             </div>
 

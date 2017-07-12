@@ -18,6 +18,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     $scope.user = angular.copy(defaultUser);
     $scope.isAuthenticated = false;
     $scope.requestIsProcessed = false;
+    $scope.networkError = false;
 
     $scope.info = {
         message: "",
@@ -52,7 +53,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         },2000);
     }
 
-    securityErrorFunction = function (error) {
+    var securityErrorFunction = function (error) {
 
         $scope.info.message = i18nService._(error);
 
@@ -65,9 +66,17 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.$apply();
     }
 
-    errorFunction = function () {
-        $scope.info.message = 'Connection lost...';
-        $scope.info.status = "error";
+    var errorFunction = function () {
+        $scope.networkError = true;
+        $scope.info = {
+            message:"Network connection unavailable!",
+            status:"error"
+        };
+
+        if ($scope.loginAreaState !== "networkError") {
+            $scope.lastAreaState = $scope.loginAreaState;
+            $scope.loginAreaState = "networkError";
+        }
         $scope.$apply();
     }
 
@@ -83,6 +92,11 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     reconnectFunction = function(){
         $scope.info.status = "success";
         $scope.info.message = 'Connected...';
+        delete $scope.networkError;
+        console.log($scope.lastAreaState);
+        if($scope.lastAreaState){
+            $scope.loginAreaState = $scope.lastAreaState;
+        }
         $scope.$apply();
         clearInfoPanel();
     }
@@ -209,8 +223,8 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     };
 
-    $scope.$watch('loginAreaState', function(){
-        if($scope.info.status == "error"){
+    $scope.$watch('loginAreaState', function (value) {
+        if (value != "networkError" && $scope.info.status == "error") {
             $scope.info = {
                 message: "",
                 status: ""
@@ -231,7 +245,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     }
 
-    messengerService.send("restoreUserSession", function(data){
+    messengerService.send("userIsAuthenticated", function(data){
         if(data.status === "success"){
             successFunction();
         }
@@ -247,9 +261,9 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     });
 
 
-    /*messengerService.on("onReconnect",reconnectFunction);
+    //messengerService.on("onReconnect",reconnectFunction);
     messengerService.on("onConnectionError",errorFunction);
-    messengerService.on("onConnect",reconnectFunction);*/
+    messengerService.on("onConnect",reconnectFunction);
 
 
     chrome.tabs.query({active:true, windowId:chrome.windows.WINDOW_ID_CURRENT}, function (tabs){

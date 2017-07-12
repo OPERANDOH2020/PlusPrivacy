@@ -243,7 +243,15 @@ var authenticationService = exports.authenticationService = {
                 callback();
             }
         });
+    },
+    userIsAuthenticated : function(successCallback, failCallback){
+        switch (authenticationService.isLoggedIn()){
+            case true:successCallback();
+            case false:failCallback();
+        }
     }
 };
 
 bus.registerService(authenticationService);
+
+
