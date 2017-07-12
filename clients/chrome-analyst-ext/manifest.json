@@ -19,7 +19,7 @@
     "default_title": "{+P} Analyst Dashboard",
     "default_popup": "popup.html"
   },
-  "options_page": "options.html",
+  "options_page": "index.html",
   "background": {
     "scripts": ["js/backgrounds/background.js"],
     "persistent": false
