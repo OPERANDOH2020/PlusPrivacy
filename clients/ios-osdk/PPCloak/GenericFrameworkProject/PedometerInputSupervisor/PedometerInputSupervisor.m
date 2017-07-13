@@ -44,6 +44,28 @@
 
 
 
+-(void)processPedometerAccessEvent:(PPEvent*)event {
+    
+    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.pedoSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
+    
+    if (aPossibleModule) {
+        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        return;
+    }
+    
+    PPUnlistedInputAccessViolation *report = nil;
+    if ((report = [self detectUnregisteredAccess])) {
+        [self.model.delegate newUnlistedInputAccessViolationReported:report];
+    }
+    
+}
+
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
+    // apply SDKC code here
+    
+    //generate a report
+    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.pedoSensor.inputType]];
+}
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
     if (self.pedoSensor) {
@@ -55,4 +77,6 @@
 -(void)newURLRequestMade:(NSURLRequest *)request{
     
 }
+
+
 @end

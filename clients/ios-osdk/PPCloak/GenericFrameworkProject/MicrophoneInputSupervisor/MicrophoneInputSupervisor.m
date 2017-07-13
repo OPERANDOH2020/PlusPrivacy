@@ -13,6 +13,22 @@
 #import "JRSwizzle.h"
 
 
+BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
+    NSString *mediaTypeValue = evData[kPPCaptureDeviceMediaTypeValue];
+    if (subType == EventCaptureDeviceGetDefaultDeviceWithMediaType &&
+        [mediaTypeValue isEqualToString:AVMediaTypeAudio]) {
+        return YES;
+    }
+    
+    if (subType == EventCaptureDeviceGetDefaultDeviceWithTypeMediaTypeAndPosition &&
+        ([mediaTypeValue isEqualToString:AVMediaTypeAudio] ||
+         [mediaTypeValue isEqualToString:AVMediaTypeMuxed])) {
+            return YES;
+        }
+    
+    return NO;
+}
+
 @interface MicrophoneInputSupervisor()
 @property (strong, nonatomic) AccessedInput *micSensor;
 @property (strong, nonatomic) InputSupervisorModel *model;
@@ -23,14 +39,42 @@
 -(void)setupWithModel:(InputSupervisorModel *)model {
     self.model = model;
     self.micSensor = [CommonUtils extractInputOfType:InputType.Microphone from:model.scdDocument.accessedInputs];
+    
+    WEAKSELF
+    [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
+        
+        if (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) {
+            if (isMicrophoneEvent(event.eventIdentifier.eventSubtype, event.eventData)) {
+                [weakSelf processMicrophoneUsageEvent:event];
+            }
+        }
+        
+        SAFECALL(nextHandlerIfAny);
+    }];
 }
 
 
--(void)processMicrophoneUsage {
+-(void)processMicrophoneUsageEvent:(PPEvent*)event {
+    
+    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.micSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
+    
+    if (aPossibleModule) {
+        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        return;
+    }
+    
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
     }
+}
+
+
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
+    // apply SDKC code here
+    
+    //generate a report
+    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.micSensor.inputType]];
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

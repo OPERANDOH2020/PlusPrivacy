@@ -11,6 +11,4 @@
 
 @interface ContactsInputSupervisor : NSObject <InputSourceSupervisor>
 
--(void)processContactsAccess;
-
 @end

@@ -12,4 +12,6 @@
 #define SAFECALL(x, ...) if(x){x(__VA_ARGS__);}
 #define WEAKSELF __weak typeof(self) weakSelf = self;
 
+#import "NSArray+ContainsAnyFromArray.h"
+
 #endif /* Common_h */

@@ -15,13 +15,16 @@
 #import "PPPrivacyLevelViolationReport.h"
 #import "PPUnlistedInputAccessViolation.h"
 #import "InputSupervisorModel.h"
-
+#import "ModuleDeniedAccessReport.h"
 
 @protocol InputSupervisorDelegate <NSObject>
 -(void)newURLHostViolationReported:(PPAccessUnlistedHostReport* _Nonnull)report;
 -(void)newPrivacyLevelViolationReported:(PPPrivacyLevelViolationReport* _Nonnull)report;
 -(void)newUnlistedInputAccessViolationReported:(PPUnlistedInputAccessViolation* _Nonnull)report;
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport* _Nonnull)report;
+
+-(void)newModuleDeniedAccessReport:(ModuleDeniedAccessReport* _Nonnull)report;
+
 @end
 
 @protocol InputSourceSupervisor <NSObject>

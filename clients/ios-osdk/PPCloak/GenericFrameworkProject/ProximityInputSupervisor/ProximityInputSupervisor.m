@@ -30,21 +30,35 @@
     [model.eventsDispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
         
         if (event.eventIdentifier.eventType == PPUIDeviceEvent) {
-            [weakSelf processEvent:event withNextHandler:nextHandlerIfAny];
+            [weakSelf processProximityEvent:event];
             return;
         }
         SAFECALL(nextHandlerIfAny)
     }];
 }
 
--(void)processEvent:(PPEvent*)event withNextHandler:(NextHandlerConfirmation)nextHandlerIfAny {
+-(void)processProximityEvent:(PPEvent*)event {
+    
+    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.proximitySensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
+    
+    if (aPossibleModule) {
+        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        return;
+    }
+    
     PPUnlistedInputAccessViolation *violationReport = nil;
     if ((violationReport = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:violationReport];
         return;
     }
     
-    SAFECALL(nextHandlerIfAny)
+}
+
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
+    // apply SDKC code here
+    
+    //generate a report
+    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.proximitySensor.inputType]];
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

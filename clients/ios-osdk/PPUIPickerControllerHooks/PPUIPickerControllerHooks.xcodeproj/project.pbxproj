@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		982C6D301F164FD50007C3AE /* PPUIPickerControllerHooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982C6D261F164FD40007C3AE /* PPUIPickerControllerHooks.framework */; };
+		982C6D351F164FD50007C3AE /* PPUIPickerControllerHooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 982C6D341F164FD50007C3AE /* PPUIPickerControllerHooksTests.m */; };
+		982C6D371F164FD50007C3AE /* PPUIPickerControllerHooks.h in Headers */ = {isa = PBXBuildFile; fileRef = 982C6D291F164FD40007C3AE /* PPUIPickerControllerHooks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		982C6D461F1650CB0007C3AE /* UIImagePickerController+PPHOOK.h in Headers */ = {isa = PBXBuildFile; fileRef = 982C6D441F1650CB0007C3AE /* UIImagePickerController+PPHOOK.h */; };
+		982C6D471F1650CB0007C3AE /* UIImagePickerController+PPHOOK.m in Sources */ = {isa = PBXBuildFile; fileRef = 982C6D451F1650CB0007C3AE /* UIImagePickerController+PPHOOK.m */; };
+		982C6D491F1663850007C3AE /* PPApiHooksCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982C6D481F1663850007C3AE /* PPApiHooksCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		982C6D311F164FD50007C3AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 982C6D1D1F164FD40007C3AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 982C6D251F164FD40007C3AE;
+			remoteInfo = PPUIPickerControllerHooks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		982C6D261F164FD40007C3AE /* PPUIPickerControllerHooks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PPUIPickerControllerHooks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		982C6D291F164FD40007C3AE /* PPUIPickerControllerHooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPUIPickerControllerHooks.h; sourceTree = "<group>"; };
+		982C6D2A1F164FD50007C3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		982C6D2F1F164FD50007C3AE /* PPUIPickerControllerHooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPUIPickerControllerHooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		982C6D341F164FD50007C3AE /* PPUIPickerControllerHooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPUIPickerControllerHooksTests.m; sourceTree = "<group>"; };
+		982C6D361F164FD50007C3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		982C6D441F1650CB0007C3AE /* UIImagePickerController+PPHOOK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+PPHOOK.h"; sourceTree = "<group>"; };
+		982C6D451F1650CB0007C3AE /* UIImagePickerController+PPHOOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+PPHOOK.m"; sourceTree = "<group>"; };
+		982C6D481F1663850007C3AE /* PPApiHooksCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPApiHooksCore.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		982C6D221F164FD40007C3AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				982C6D491F1663850007C3AE /* PPApiHooksCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		982C6D2C1F164FD50007C3AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				982C6D301F164FD50007C3AE /* PPUIPickerControllerHooks.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		982C6D1C1F164FD40007C3AE = {
+			isa = PBXGroup;
+			children = (
+				982C6D281F164FD40007C3AE /* PPUIPickerControllerHooks */,
+				982C6D331F164FD50007C3AE /* PPUIPickerControllerHooksTests */,
+				982C6D271F164FD40007C3AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		982C6D271F164FD40007C3AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				982C6D261F164FD40007C3AE /* PPUIPickerControllerHooks.framework */,
+				982C6D2F1F164FD50007C3AE /* PPUIPickerControllerHooksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		982C6D281F164FD40007C3AE /* PPUIPickerControllerHooks */ = {
+			isa = PBXGroup;
+			children = (
+				982C6D481F1663850007C3AE /* PPApiHooksCore.framework */,
+				982C6D291F164FD40007C3AE /* PPUIPickerControllerHooks.h */,
+				982C6D2A1F164FD50007C3AE /* Info.plist */,
+				982C6D441F1650CB0007C3AE /* UIImagePickerController+PPHOOK.h */,
+				982C6D451F1650CB0007C3AE /* UIImagePickerController+PPHOOK.m */,
+			);
+			path = PPUIPickerControllerHooks;
+			sourceTree = "<group>";
+		};
+		982C6D331F164FD50007C3AE /* PPUIPickerControllerHooksTests */ = {
+			isa = PBXGroup;
+			children = (
+				982C6D341F164FD50007C3AE /* PPUIPickerControllerHooksTests.m */,
+				982C6D361F164FD50007C3AE /* Info.plist */,
+			);
+			path = PPUIPickerControllerHooksTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		982C6D231F164FD40007C3AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				982C6D461F1650CB0007C3AE /* UIImagePickerController+PPHOOK.h in Headers */,
+				982C6D371F164FD50007C3AE /* PPUIPickerControllerHooks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		982C6D251F164FD40007C3AE /* PPUIPickerControllerHooks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 982C6D3A1F164FD50007C3AE /* Build configuration list for PBXNativeTarget "PPUIPickerControllerHooks" */;
+			buildPhases = (
+				982C6D211F164FD40007C3AE /* Sources */,
+				982C6D221F164FD40007C3AE /* Frameworks */,
+				982C6D231F164FD40007C3AE /* Headers */,
+				982C6D241F164FD40007C3AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PPUIPickerControllerHooks;
+			productName = PPUIPickerControllerHooks;
+			productReference = 982C6D261F164FD40007C3AE /* PPUIPickerControllerHooks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		982C6D2E1F164FD50007C3AE /* PPUIPickerControllerHooksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 982C6D3D1F164FD50007C3AE /* Build configuration list for PBXNativeTarget "PPUIPickerControllerHooksTests" */;
+			buildPhases = (
+				982C6D2B1F164FD50007C3AE /* Sources */,
+				982C6D2C1F164FD50007C3AE /* Frameworks */,
+				982C6D2D1F164FD50007C3AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				982C6D321F164FD50007C3AE /* PBXTargetDependency */,
+			);
+			name = PPUIPickerControllerHooksTests;
+			productName = PPUIPickerControllerHooksTests;
+			productReference = 982C6D2F1F164FD50007C3AE /* PPUIPickerControllerHooksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		982C6D1D1F164FD40007C3AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Personal;
+				TargetAttributes = {
+					982C6D251F164FD40007C3AE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = N3W2GJCUF8;
+						ProvisioningStyle = Automatic;
+					};
+					982C6D2E1F164FD50007C3AE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = N3W2GJCUF8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 982C6D201F164FD40007C3AE /* Build configuration list for PBXProject "PPUIPickerControllerHooks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 982C6D1C1F164FD40007C3AE;
+			productRefGroup = 982C6D271F164FD40007C3AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				982C6D251F164FD40007C3AE /* PPUIPickerControllerHooks */,
+				982C6D2E1F164FD50007C3AE /* PPUIPickerControllerHooksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		982C6D241F164FD40007C3AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		982C6D2D1F164FD50007C3AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		982C6D211F164FD40007C3AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				982C6D471F1650CB0007C3AE /* UIImagePickerController+PPHOOK.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		982C6D2B1F164FD50007C3AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				982C6D351F164FD50007C3AE /* PPUIPickerControllerHooksTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		982C6D321F164FD50007C3AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 982C6D251F164FD40007C3AE /* PPUIPickerControllerHooks */;
+			targetProxy = 982C6D311F164FD50007C3AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		982C6D381F164FD50007C3AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		982C6D391F164FD50007C3AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		982C6D3B1F164FD50007C3AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PPUIPickerControllerHooks",
+				);
+				INFOPLIST_FILE = PPUIPickerControllerHooks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusPrivacy.PPUIPickerControllerHooks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		982C6D3C1F164FD50007C3AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PPUIPickerControllerHooks",
+				);
+				INFOPLIST_FILE = PPUIPickerControllerHooks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusPrivacy.PPUIPickerControllerHooks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		982C6D3E1F164FD50007C3AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
+				INFOPLIST_FILE = PPUIPickerControllerHooksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusPrivacy.PPUIPickerControllerHooksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		982C6D3F1F164FD50007C3AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = N3W2GJCUF8;
+				INFOPLIST_FILE = PPUIPickerControllerHooksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plusPrivacy.PPUIPickerControllerHooksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		982C6D201F164FD40007C3AE /* Build configuration list for PBXProject "PPUIPickerControllerHooks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982C6D381F164FD50007C3AE /* Debug */,
+				982C6D391F164FD50007C3AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		982C6D3A1F164FD50007C3AE /* Build configuration list for PBXNativeTarget "PPUIPickerControllerHooks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982C6D3B1F164FD50007C3AE /* Debug */,
+				982C6D3C1F164FD50007C3AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		982C6D3D1F164FD50007C3AE /* Build configuration list for PBXNativeTarget "PPUIPickerControllerHooksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982C6D3E1F164FD50007C3AE /* Debug */,
+				982C6D3F1F164FD50007C3AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 982C6D1D1F164FD40007C3AE /* Project object */;
+}

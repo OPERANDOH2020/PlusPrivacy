@@ -13,28 +13,71 @@
 #import "CommonUtils.h"
 #import "JRSwizzle.h"
 
+BOOL isCameraEvent(int subType, NSDictionary *evData){
+    
+    NSString *mediaTypeValue = evData[kPPCaptureDeviceMediaTypeValue];
+    if (subType == EventCaptureDeviceGetDefaultDeviceWithMediaType &&
+        [mediaTypeValue isEqualToString:AVMediaTypeVideo]) {
+        return YES;
+    }
+    
+    if (subType == EventCaptureDeviceGetDefaultDeviceWithTypeMediaTypeAndPosition &&
+        ([mediaTypeValue isEqualToString:AVMediaTypeVideo] ||
+         [mediaTypeValue isEqualToString:AVMediaTypeMuxed])) {
+            return YES;
+    }
+    
+    return NO;
+}
 
 
-@interface CameraInputSupervisor()
+@interface AVCameraInputSupervisor()
 @property (strong, nonatomic) InputSupervisorModel *model;
 @property (strong, nonatomic) AccessedInput *cameraSensor;
 
 @end
 
-@implementation CameraInputSupervisor
+@implementation AVCameraInputSupervisor
 
 -(void)setupWithModel:(InputSupervisorModel *)model {
     self.model = model;
     self.cameraSensor = [CommonUtils extractInputOfType: InputType.Camera from:model.scdDocument.accessedInputs];
     
+    WEAKSELF
+    
+    [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
+        
+        if (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) {
+            if (isCameraEvent(event.eventIdentifier.eventSubtype, event.eventData)) {
+                [weakSelf processCameraAccess];
+            }
+        }
+        
+        SAFECALL(nextHandlerIfAny)
+    }];
 }
 
 
--(void)processCameraAccess {
+-(void)processCameraAccessEvent:(PPEvent*)event {
+    
+    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.cameraSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
+    
+    if (aPossibleModule) {
+        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        return;
+    }
+    
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
     }
+}
+
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
+    // apply SDKC code here
+    
+    //generate a report
+    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.cameraSensor.inputType]];
 }
 
 -(void)processPhotoLibraryAccess {

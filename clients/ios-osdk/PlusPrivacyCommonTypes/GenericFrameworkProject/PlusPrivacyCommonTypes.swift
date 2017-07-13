@@ -327,6 +327,16 @@ public class SCDDocument: NSObject {
     public let accessedInputs: [AccessedInput]
     public let sdkChecks: [SDKCheckItem]?
     
+    public func modulesDeniedForInputType(_ inputType: InputType) -> [String] {
+        guard let sdkcItems = self.sdkChecks else {
+            return []
+        }
+        
+        return sdkcItems.filter({
+            return $0.deniedWithZeroValues.contains(inputType) }).map({ $0.sdkName })
+        
+    }
+    
     internal init?(scd: [String: Any]) {
         guard let title = scd["title"] as? String,
             let bundleId = scd["bundleId"] as? String,

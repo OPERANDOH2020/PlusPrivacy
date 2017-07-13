@@ -280,7 +280,7 @@
                                    [AccelerometerInputSupervisor class],
                                    [BarometerInputSupervisor class],
                                    [TouchIdSupervisor class],
-                                   [CameraInputSupervisor class],
+                                   [AVCameraInputSupervisor class],
                                    [MicrophoneInputSupervisor class],
                                    [ContactsInputSupervisor class],
                                    [NSURLSessionSupervisor class]

@@ -34,8 +34,8 @@ HOOKPrefixClass(AVCaptureDevice*, defaultDeviceWithMediaType:(NSString *)mediaTy
     AVCaptureDevice *defaultDevice = CALL_PREFIXED(self, defaultDeviceWithMediaType:mediaType);
     
     NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
-    SAFEADD(evData, kPPCaptureDeviceMediaTypeValue, defaultDevice)
-    SAFEADD(evData, kPPCaptureDeviceDefaultDeviceValue, mediaType)
+    SAFEADD(evData, kPPCaptureDeviceMediaTypeValue, mediaType)
+    SAFEADD(evData, kPPCaptureDeviceDefaultDeviceValue, defaultDevice)
     
     PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPAVCaptureDeviceEvent, EventCaptureDeviceGetDefaultDeviceWithMediaType) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
