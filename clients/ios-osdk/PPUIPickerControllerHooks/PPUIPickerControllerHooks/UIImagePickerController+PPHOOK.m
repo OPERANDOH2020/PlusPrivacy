@@ -79,14 +79,17 @@ HOOKPrefixInstance(void, setDelegate:(id<UINavigationControllerDelegate,UIImageP
     
     NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
     
+    __Weak(evData);
+    PPVoidBlock confirmation = ^{
+        CALL_PREFIXED(self, setDelegate:weakevData[kPPPickerControllerDelegateValue]);
+  
+    };
     SAFEADD(evData, kPPPickerControllerDelegateValue, delegate)
     evData[kPPPickerControllerInstanceValue] = self;
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIImagePickerControllerEvent, EventPickerControllerSetDelegate) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIImagePickerControllerEvent, EventPickerControllerSetDelegate) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmation];
     
     [PPEventDispatcher.sharedInstance fireEvent:event];
-    
-    CALL_PREFIXED(self, setDelegate:evData[kPPPickerControllerDelegateValue]);
     
 }
 
@@ -95,11 +98,16 @@ HOOKPrefixInstance(void, setSourceType:(UIImagePickerControllerSourceType)source
     
     NSMutableDictionary *evData = [@{kPPPickerControllerSourceTypeValue: @(sourceType)} mutableCopy];
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIImagePickerControllerEvent, EventPickerControllerSetSourceType) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
+    __Weak(evData);
+    PPVoidBlock confirmation = ^{
+        CALL_PREFIXED(self, setSourceType:[weakevData[kPPPickerControllerSourceTypeValue] integerValue]);
+    };
+    evData[kPPConfirmationCallbackBlock] = confirmation;
+    
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIImagePickerControllerEvent, EventPickerControllerSetSourceType) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmation];
     
     [PPEventDispatcher.sharedInstance fireEvent:event];
     
-    CALL_PREFIXED(self, setSourceType:[evData[kPPPickerControllerSourceTypeValue] integerValue]);
 }
 
 

@@ -18,6 +18,7 @@
 #import "MagnetometerInputSupervisor.h"
 #import "AccelerometerInputSupervisor.h"
 #import "BarometerInputSupervisor.h"
+#import "PickerControllerSupervisor.h"
 #import "PlistReportsStorage.h"
 #import "JRSwizzle.h"
 #import "LocationInputSwizzler.h"
@@ -283,7 +284,8 @@
                                    [AVCameraInputSupervisor class],
                                    [MicrophoneInputSupervisor class],
                                    [ContactsInputSupervisor class],
-                                   [NSURLSessionSupervisor class]
+                                   [NSURLSessionSupervisor class],
+                                   [PickerControllerSupervisor class]
                                    ];
     
     for (Class class in supervisorClasses) {

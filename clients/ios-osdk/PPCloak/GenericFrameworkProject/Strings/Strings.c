@@ -33,8 +33,23 @@ MAKE_HIDDEN static CFStringRef generatePPLocationApiHooks(){
     return CFSTR("PPLocationApiHooks");
 }
 
+MAKE_HIDDEN static CFStringRef generateNSCameraUsageDescription(){
+    return CFSTR("NSCameraUsageDescription");
+}
+
+MAKE_HIDDEN static CFStringRef generateNSPhotoLibraryUsageDescription(){
+    return CFSTR("NSPhotoLibraryUsageDescription");
+}
+
+MAKE_HIDDEN static CFStringRef generatePPUIPickerControllerHooks(){
+    return CFSTR("PPUIPickerControllerHooks");
+}
+
 StringGenerator NSContactsUsageDescription = &generateNSContactsUsageDescription;
 StringGenerator NSLocationAlwaysUsageDescription = &generateNSLocationAlwaysUsageDescription;
 StringGenerator PPContactsApiHook = &generatePPContactsApiHook;
 StringGenerator PPLocationApiHooks = &generatePPLocationApiHooks;
 StringGenerator NSLocationWhenInUseUsageDescription = &generateNSLocationWhenInUseUsageDescription;
+StringGenerator NSCameraUsageDescription = &generateNSCameraUsageDescription;
+StringGenerator NSPhotoLibraryUsageDescription = &generateNSPhotoLibraryUsageDescription;
+StringGenerator PPUIPickerControllerHooks = &generatePPUIPickerControllerHooks;

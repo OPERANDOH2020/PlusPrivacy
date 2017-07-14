@@ -12,10 +12,19 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "JRSwizzle.h"
 
+@interface NSError(TouchIdSupervisor)
++(NSError*)errorTouchIdAccessDenied;
+@end
 
+@implementation NSError(TouchIdSupervisor)
+
++(NSError *)errorTouchIdAccessDenied{
+    return [NSError errorWithDomain:@"com.plusPrivacy.TouchIdSupervisor" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Access to touch ID has been blocked by the OSDK"}];
+}
+
+@end
 
 @interface TouchIdSupervisor()
-
 @property (strong, nonatomic) InputSupervisorModel *model;
 @property (strong, nonatomic) AccessedInput *accessedSensor;
 
@@ -34,36 +43,38 @@
         if (event.eventIdentifier.eventType == PPLAContextEvent) {
             NSNumber *policyValue = event.eventData[kPPContextPolicyValue];
             if (policyValue.integerValue == LAPolicyDeviceOwnerAuthenticationWithBiometrics) {
-                [weakSelf processTouchIDUsage];
+                [weakSelf processTouchIDUsageEvent:event nextHandler:nextHandlerIfAny];
             }
         }
-        SAFECALL(nextHandlerIfAny)
     }];
 }
 
 
 
--(void)processTouchIDUsageEvent:(PPEvent*)event {
+-(void)processTouchIDUsageEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler{
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.accessedSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+            [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.accessedSensor.inputType]];
         return;
     }
     
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    SAFECALL(nextHandler)
 }
 
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
     // apply SDKC code here
-    
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.accessedSensor.inputType]];
+    event.eventData[kPPContextErrorValue] = [NSError errorTouchIdAccessDenied];
+    event.eventData[kPPContextCanEvaluateContextPolicyValue] = @(NO);
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

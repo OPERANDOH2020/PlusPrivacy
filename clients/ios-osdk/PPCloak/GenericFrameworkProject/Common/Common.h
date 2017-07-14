@@ -14,4 +14,6 @@
 
 #import "NSArray+ContainsAnyFromArray.h"
 
+typedef void(^EventDataBlock)(NSMutableDictionary* evData);
+
 #endif /* Common_h */

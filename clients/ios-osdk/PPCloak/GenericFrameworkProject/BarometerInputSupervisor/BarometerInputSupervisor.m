@@ -29,15 +29,16 @@
     [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
         
         if (event.eventIdentifier.eventType == PPCMAltimeterEvent) {
-            [self processAltimeterStatusEvent:event];
+            [self processAltimeterStatusEvent:event nextHandler:nextHandlerIfAny];
+        } else {
+            SAFECALL(nextHandlerIfAny)
         }
         
-        SAFECALL(nextHandlerIfAny)
     }];
 }
 
 
--(void)processAltimeterStatusEvent:(PPEvent*)event {
+-(void)processAltimeterStatusEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler{
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.sensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     

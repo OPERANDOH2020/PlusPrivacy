@@ -86,6 +86,12 @@ MAKE_HIDDEN inline void checkForOtherFrameworks(){
     
     CFArrayAppendValue(keysArray, NSLocationWhenInUseUsageDescription());
     CFArrayAppendValue(frameworksArray, PPLocationApiHooks());
+    
+    CFArrayAppendValue(keysArray, NSCameraUsageDescription());
+    CFArrayAppendValue(frameworksArray, PPUIPickerControllerHooks());
+    
+    CFArrayAppendValue(keysArray, NSPhotoLibraryUsageDescription());
+    CFArrayAppendValue(frameworksArray, PPUIPickerControllerHooks());
 
     //... more to insert here
     

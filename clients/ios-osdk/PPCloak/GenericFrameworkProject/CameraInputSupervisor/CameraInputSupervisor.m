@@ -49,16 +49,19 @@ BOOL isCameraEvent(int subType, NSDictionary *evData){
         
         if (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) {
             if (isCameraEvent(event.eventIdentifier.eventSubtype, event.eventData)) {
-                [weakSelf processCameraAccess];
+                [weakSelf processCameraAccessEvent:event nextHandler:nextHandlerIfAny];
+            } else {
+                SAFECALL(nextHandlerIfAny)
             }
+        } else {
+            SAFECALL(nextHandlerIfAny)
         }
         
-        SAFECALL(nextHandlerIfAny)
     }];
 }
 
 
--(void)processCameraAccessEvent:(PPEvent*)event {
+-(void)processCameraAccessEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.cameraSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
@@ -70,7 +73,15 @@ BOOL isCameraEvent(int subType, NSDictionary *evData){
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    [self processEventNormally:event];
+    SAFECALL(nextHandler)
+}
+
+-(void)processEventNormally:(PPEvent*)event {
+    
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {

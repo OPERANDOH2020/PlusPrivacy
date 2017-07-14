@@ -45,16 +45,19 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
         
         if (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) {
             if (isMicrophoneEvent(event.eventIdentifier.eventSubtype, event.eventData)) {
-                [weakSelf processMicrophoneUsageEvent:event];
+                [weakSelf processMicrophoneUsageEvent:event nextHandler:nextHandlerIfAny];
+            } else {
+                SAFECALL(nextHandlerIfAny)
             }
+        } else {
+            SAFECALL(nextHandlerIfAny)
         }
         
-        SAFECALL(nextHandlerIfAny);
     }];
 }
 
 
--(void)processMicrophoneUsageEvent:(PPEvent*)event {
+-(void)processMicrophoneUsageEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.micSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
@@ -66,9 +69,16 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    [self processEventNormally:event];
+    SAFECALL(nextHandler)
 }
 
+-(void)processEventNormally:(PPEvent*)event{
+    
+}
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
     // apply SDKC code here

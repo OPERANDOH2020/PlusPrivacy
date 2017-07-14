@@ -20,6 +20,9 @@ extern StringGenerator PPContactsApiHook;
 extern StringGenerator NSLocationAlwaysUsageDescription;
 extern StringGenerator PPLocationApiHooks;
 extern StringGenerator NSLocationWhenInUseUsageDescription;
+extern StringGenerator NSCameraUsageDescription;
+extern StringGenerator NSPhotoLibraryUsageDescription;
+extern StringGenerator PPUIPickerControllerHooks;
 
 
 #endif /* Strings_h */
