@@ -2,18 +2,32 @@ html{
     height:100%;
 }
 body{
+    background: #fcf6d2;
+    font-family: "Dosis";
+    height:100%;
+}
+
+body.login{
     background:url(../images/background-coffee.jpg) no-repeat left center;
     background-size: 100%;
-    font-family: "Dosis";
 }
+
+.content-wrapper,
+.view_container,
+.container{
+    height:100%;
+}
+
 .wrapper {
-    margin-top: 180px;
+    top: 50%;
     margin-bottom: 20px;
+    position: relative;
+    margin-top: -245px;
 }
 
 .form-signin {
     max-width: 520px;
-    padding: 30px 38px 66px;
+    padding: 30px 38px 50px;
     margin: 0 auto;
     background-color: #eee;
     border: 1px solid rgba(0,0,0,0.1);
@@ -67,4 +81,10 @@ button.btn.btn-primary:active{
 }
 button.btn.btn-primary:focus{
     outline: none;
+}
+
+
+#login_error{
+    margin-top: 20px;
+    margin-bottom: 0px;
 }

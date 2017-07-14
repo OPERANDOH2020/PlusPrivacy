@@ -1,4 +1,4 @@
-var app = angular.module("app", ['angularModalService','ui.router','oc.lazyLoad']);
+var app = angular.module("app", ['angularModalService','ui-notification','ui.router','oc.lazyLoad']);
 
 
 app.filter('isEmpty', [function () {
@@ -24,23 +24,44 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     $stateProvider
         .state("login", {
             url: "/",
-            templateUrl: "../templates/login.html",
+            templateUrl: "../templates/pages/login.html",
             resolve:{
                 loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load('/js/controllers/loginController.js');
-                }]
+                }],
+                resolvedUser:function(userService, $state){
+                    return userService.getCurrentUser().then(function(user){
+                        $state.go("dashboard");
+                    },function(_error){
+
+                    })
+                }
+            },
+            data: {
+                bodyClasses: 'login'
             }
         })
         .state("dashboard", {
             url: "/dashboard",
-            templateUrl: "../assets/templates/register_osp.html",
+            templateUrl: "../templates/pages/dashboard.html",
             resolve:{
                 loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load('/app/controllers/ospSignupController.js');
-                }]
+                    return $ocLazyLoad.load('/js/controllers/dashboardController.js');
+                }],
+                resolvedUser:function(userService, $state){
+                    return userService.getCurrentUser().then(function(user){
+                        return user;
+                    },function(_error){
+                        $state.go("login");
+                    })
+                }
+            },
+            data: {
+                bodyClasses: 'dashboard'
             }
         });
 
     $urlRouterProvider.otherwise("/");
 
 });
+
