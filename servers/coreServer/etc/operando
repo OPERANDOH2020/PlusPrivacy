@@ -48,7 +48,7 @@
                         {"node":"operando/adapters/OSP/OSPAdapter.js",                "enabled":true  , "step":4},
                         {"node":"operando/adapters/OSP/OSPRequests.js",               "enabled":true  , "step":4},
                         {"node":"admin/adapters/SwarmMonitor.js",                     "enabled":true  , "step":5},
-                        {"core":"etc/adapters/ClientAdapter.js",                      "enabled":false  , "step":6},
+                        {"core":"etc/adapters/ClientAdapter.js",                      "enabled":true  , "step":6},
                         {"node":"operando/adapters/GuardianAdapter.js",               "enabled":false  , "step":7},
                         {"node":"operando/adapters/AuthorizationAdapter.js",          "enabled":false  , "step":8},
                         {"node":"operando/adapters/uam/NotificationUAM.js",           "enabled":true  , "step":9},
@@ -88,7 +88,6 @@
            "wwwroot":"admin/administration-console",
            "transformationDirs":["operando/transformations"]
   },
-
   "RESTAdapter":{
             "port":7000
   },
