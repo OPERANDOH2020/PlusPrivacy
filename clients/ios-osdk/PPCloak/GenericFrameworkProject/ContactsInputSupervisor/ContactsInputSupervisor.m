@@ -43,10 +43,11 @@
     [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
         
         if (event.eventIdentifier.eventType == PPCNContactStoreEvent) {
-            [weakSelf processContactsAccessEvent:event];
+            [weakSelf processContactsAccessEvent:event nextHandler:nextHandlerIfAny];
+        } else {
+            SAFECALL(nextHandlerIfAny)
         }
         
-        SAFECALL(nextHandlerIfAny)
     }];
 }
 

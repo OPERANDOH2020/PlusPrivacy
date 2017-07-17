@@ -24,6 +24,10 @@
 
 #define __Weak(x) __weak typeof(x) weak##x = x
 
+
+extern NSArray *PPApiHooks_moduleNamesInCallStack(int skipLastN);
+extern char* PPApiHooks_copyLastPathItemFrom(char* string);
+
 typedef void(^PPBoolErrorBlock)(BOOL, NSError* _Nullable);
 
 typedef void(^PPVoidBlock)();
@@ -38,7 +42,8 @@ typedef NS_ENUM(NSInteger, PPEventType) {
     PPLAContextEvent,
     PPCNContactStoreEvent,
     PPCMAltimeterEvent,
-    PPAVCaptureDeviceEvent
+    PPAVCaptureDeviceEvent,
+    PPUIImagePickerControllerEvent
 };
 
 typedef NS_ENUM(NSInteger, PPLocationManagerEventType){
@@ -47,8 +52,27 @@ typedef NS_ENUM(NSInteger, PPLocationManagerEventType){
     EventLocationManagerRequestWhenInUseAuthorization,
     EventLocationManagerSetDelegate,
     EventLocationManagerGetCurrentLocation,
+    EventLocationManagerAreLocationServicesEnabled,
+    EventLocationManagerIsHeadingAvailable,
+    EventLocationManagerIsSignificantLocationChangeMonitoringAvailable,
+    EventLocationManagerIsMonitoringAvailableForClass,
+    EventLocationManagerGetAuthorizationStatus
 };
 
+typedef NS_ENUM(NSInteger, PPUIImagePickerControllerEventType){
+    EventPickerControllerIsSourceTypeAvailable,
+    EventPickerControllerAvailableMediaTypesForSourceType,
+    EventPickerControllerIsCameraDeviceAvailable,
+    EventPickerControllerAvailableCaptureModesForCameraDevice,
+    EventPickerControllerSetDelegate,
+    EventPickerControllerGetSourceType,
+    EventPickerControllerSetSourceType,
+    EventPickerControllerGetMediaTypes,
+    
+    EventPickerControllerTakePicture,
+    EventPickerControllerStartVideoCapture,
+    EventPickerControllerStopVideoCapture
+};
 
 typedef NS_ENUM(NSInteger, PPMotionManagerEventType){
     EventMotionManagerStartAccelerometerUpdates,
@@ -245,7 +269,12 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
     
 };
 
+
+#define kPPCurrentCallStackModuleNames PPApiHooks_moduleNamesInCallStack(1)
+
 #define kPPConfirmationCallbackBlock @"kCommonConfirmationVoidBlock"
+
+#define kPPCallStackModuleNames @"kPPCallStackModuleNames"
 
 #pragma mark - 
 
@@ -264,18 +293,24 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #define kPPURLSessionDatTaskResponseData @"kPPURLSessionDatTaskResponseData"
 #define kPPURLSessionDataTaskError @"kPPURLSessionDataTaskError"
 
-#pragma mark - 
-// - CLLocationManager related keys
+#pragma mark - CLLocationManager related keys
 
-//#define kPPStartLocationUpdatesConfirmation @"kPPStartLocationUpdatesConfirmationKey"
-//#define kPPRequestAlwaysAuthorizationConfirmation @"kPPRequestAlwaysAuthorizationConfirmation"
-//#define kPPRequestWhenInUseAuthorizationConfirmation @"kPPRequestWhenInUseAuthorizationConfirmation"
+#define kPPLocationManagerRegionClassValue @"kPPLocationManagerRegionClassValue"
+
+#define kPPLocationManagerLocationServicesEnabledValue @"kPPLocationManagerLocationServicesEnabledValue"
+
+#define kPPLocationManagerHeadingAvailableValue @"kPPLocationManagerHeadingAvailableValue"
+#define kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue @"kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue"
+
+#define kPPLocationManagerIsMonitoringAvailableForClassValue @"kPPLocationManagerIsMonitoringAvailableForClassValue"
+#define kPPLocationManagerIsRangingAvailableValue @"kPPLocationManagerIsRangingAvailableValue"
+
+#define kPPLocationManagerAuthorizationStatusValue @"kPPLocationManagerAuthorizationStatusValue"
 
 
 #define kPPLocationManagerDelegate @"kPPLocationManagerDelegate"
 #define kPPLocationManagerInstance @"kPPLocationManagerInstance"
 #define kPPLocationManagerSetDelegateConfirmation @"kPPLocationManagerSetDelegateConfirmation"
-
 #define kPPLocationManagerGetCurrentLocationValue @"kPPLocationManagerGetCurrentLocationValue"
 
 #pragma mark - CMMotionManager related keys
@@ -395,6 +430,24 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #define kPPAVPresetValue @"kPPAVPresetValue"
 #define kPPCaptureDeviceFormatsArrayValue @"kPPCaptureDeviceFormatsArrayValue"
 #define kPPCaptureDeviceActiveFormatValue @"kPPCaptureDeviceActiveFormatValue"
+
+
+
+#pragma mark - UIImagePickerController related keys
+
+#define kPPPickerControllerInstanceValue @"kPPPickerControllerInstanceValue"
+
+#define kPPPickerControllerSourceTypeValue @"kPPPickerControllerSourceTypeValue"
+#define kPPPickerControllerIsSourceTypeAvailableValue @"kPPPickerControllerIsSourceTypeAvailableValue"
+
+#define kPPPickerControllerCameraDeviceValue @"kPPPickerControllerCameraDeviceValue"
+#define kPPPickerControllerIsCameraDeviceAvailableValue @"kPPPickerControllerIsCameraDeviceAvailableValue"
+
+#define kPPPickerControllerDelegateValue @"kPPPickerControllerDelegateValue"
+#define kPPPickerControllerAvailableCaptureModesValue @"kPPPickerControllerAvailableCaptureModesValue"
+
+#define kPPPickerControllerMediaTypesValue @"kPPPickerControllerMediaTypesValue"
+#define kPPPickerControllerShouldStartVideoCaptureValue @"kPPPickerControllerShouldStartVideoCaptureValue"
 
 
 #endif /* PPEventKeys_h */

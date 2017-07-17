@@ -33,23 +33,48 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
     
     self.locationsArray = [[PPCircularArray alloc] initWithCapacity:100];
     
-    __weak typeof(self) weakSelf = self;
-    
+    WEAKSELF
     [model.eventsDispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-
-        PPEventType type = event.eventIdentifier.eventType;
-        PPUnlistedInputAccessViolation *violationReport = nil;
-        if ((type == PPLocationManagerEvent) &&
-            (violationReport = [weakSelf detectUnregisteredAccess])) {
-            
-            [weakSelf.model.delegate newUnlistedInputAccessViolationReported:violationReport];
+        
+        if (event.eventIdentifier.eventType == PPLocationManagerEvent) {
+            [weakSelf processLocationEvent:event nextHandler:nextHandlerIfAny];
         } else {
             SAFECALL(nextHandlerIfAny)
         }
+        
     }];
 }
 
+-(void)processLocationEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
+    
+    
+    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.locationSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
+    
+    if (aPossibleModule) {
+        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.locationSensor.inputType]];
+        return;
+    }
 
+    
+    PPUnlistedInputAccessViolation *violationReport = nil;
+    if ((violationReport = [self detectUnregisteredAccess])) {
+        [self.model.delegate newUnlistedInputAccessViolationReported:violationReport];
+        return;
+    }
+    
+    SAFECALL(nextHandler)
+}
+
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
+    event.eventData[kPPLocationManagerGetCurrentLocationValue] = nil;
+    event.eventData[kPPLocationManagerAuthorizationStatusValue] = @(kCLAuthorizationStatusDenied);
+    event.eventData[kPPLocationManagerLocationServicesEnabledValue] = @(NO);
+    event.eventData[kPPLocationManagerIsMonitoringAvailableForClassValue] = @(NO);
+    event.eventData[kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue] = @(NO);
+    event.eventData[kPPLocationManagerHeadingAvailableValue] = @(NO);
+    event.eventData[kPPLocationManagerIsRangingAvailableValue] = @(NO);
+}
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
     if (self.locationSensor) {

@@ -81,6 +81,8 @@
 		9863E8FE1DEC6F0D0095CA30 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863E8FC1DEC6F0D0095CA30 /* JRSwizzle.m */; };
 		9863E9021DEC70E60095CA30 /* NSURLSessionSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9863E9001DEC70E60095CA30 /* NSURLSessionSupervisor.h */; };
 		9863E9031DEC70E60095CA30 /* NSURLSessionSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863E9011DEC70E60095CA30 /* NSURLSessionSupervisor.m */; };
+		9866CD251F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9866CD231F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h */; };
+		9866CD261F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9866CD241F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m */; };
 		986AE9B91E93BEC700AF4E0A /* UILocationStatusViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 986AE9B71E93BEC700AF4E0A /* UILocationStatusViewController.h */; };
 		986AE9BA1E93BEC700AF4E0A /* UILocationStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986AE9B81E93BEC700AF4E0A /* UILocationStatusViewController.m */; };
 		986AE9C51E93DBA800AF4E0A /* CommonLocationViewModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 986AE9C31E93DBA800AF4E0A /* CommonLocationViewModels.h */; };
@@ -282,6 +284,8 @@
 		9863E8FC1DEC6F0D0095CA30 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		9863E9001DEC70E60095CA30 /* NSURLSessionSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLSessionSupervisor.h; path = NSURLSessionHook/NSURLSessionSupervisor.h; sourceTree = "<group>"; };
 		9863E9011DEC70E60095CA30 /* NSURLSessionSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLSessionSupervisor.m; path = NSURLSessionHook/NSURLSessionSupervisor.m; sourceTree = "<group>"; };
+		9866CD231F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultConfirmationSupervisor.h; path = DefaultConfirmationSupervisor/DefaultConfirmationSupervisor.h; sourceTree = "<group>"; };
+		9866CD241F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultConfirmationSupervisor.m; path = DefaultConfirmationSupervisor/DefaultConfirmationSupervisor.m; sourceTree = "<group>"; };
 		986AE9B51E93BD7F00AF4E0A /* Graphs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Graphs.storyboard; sourceTree = "<group>"; };
 		986AE9B71E93BEC700AF4E0A /* UILocationStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILocationStatusViewController.h; path = Views/UILocationStatusViewController/UILocationStatusViewController.h; sourceTree = "<group>"; };
 		986AE9B81E93BEC700AF4E0A /* UILocationStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILocationStatusViewController.m; path = Views/UILocationStatusViewController/UILocationStatusViewController.m; sourceTree = "<group>"; };
@@ -752,6 +756,15 @@
 			path = JRSwizzle;
 			sourceTree = "<group>";
 		};
+		9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				9866CD231F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h */,
+				9866CD241F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m */,
+			);
+			name = DefaultConfirmationSupervisor;
+			sourceTree = "<group>";
+		};
 		986AE9B41E93BD5C00AF4E0A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +925,7 @@
 		987F837A1E3241250058633C /* InputSupervisors */ = {
 			isa = PBXGroup;
 			children = (
+				9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */,
 				98F1FF711E71551B00A664AB /* InputSupervisorModel */,
 				984E7FC41F17D45D004E93BB /* PickerControllerSupervisor */,
 				98ECE47E1E424A9E0042A262 /* ContactsInputSupervisor */,
@@ -1494,6 +1508,7 @@
 				982464DE1E8D5F1B004D8534 /* UILocationListView.h in Headers */,
 				98DF61021E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.h in Headers */,
 				98ECE4771E421AFD0042A262 /* CameraInputSupervisor.h in Headers */,
+				9866CD251F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h in Headers */,
 				9831E2A91E6DA20F00A5FE0A /* UIAccessFrequencyViolationReportsSection.h in Headers */,
 				9871E0901E97E1A300A43695 /* RandomWalkSwizzlerSettings.h in Headers */,
 				98CEF2691E5EEE84002C2145 /* UIUsageViewController.h in Headers */,
@@ -1722,6 +1737,7 @@
 				98ECE4781E421AFD0042A262 /* CameraInputSupervisor.m in Sources */,
 				9888B1701E6C2F6200D783AB /* BaseReportWithDate.m in Sources */,
 				988A15021E40A4F600AABD43 /* PedometerInputSupervisor.m in Sources */,
+				9866CD261F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m in Sources */,
 				98DF61031E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m in Sources */,
 				984334151F067C350016564E /* UIAboutView.m in Sources */,
 				987F837F1E3241930058633C /* LocationInputSupervisor.m in Sources */,

@@ -248,6 +248,13 @@
 			path = GenericFrameworkProject;
 			sourceTree = "<group>";
 		};
+		9866CD211F1C9DA300F242E3 /* CMAccelerometer+PPHOOK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMAccelerometer+PPHOOK";
+			sourceTree = "<group>";
+		};
 		9899DF071EADDE6100CB9ED8 /* PPEventIdentifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +342,7 @@
 		98F7A6951E76ECB200FF635A /* HookingCategories */ = {
 			isa = PBXGroup;
 			children = (
+				9866CD211F1C9DA300F242E3 /* CMAccelerometer+PPHOOK */,
 				9845D9551EC068C90057CC9B /* HookURLProtocol */,
 				98A927951EBC946100E17219 /* UIDevice+PPHOOK */,
 				98A927931EBC910F00E17219 /* NSURLSession+PPHOOK */,

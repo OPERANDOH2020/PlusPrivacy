@@ -298,8 +298,8 @@ HOOKPrefixInstance(BOOL, isDeviceMotionAvailable) {
     
     __block BOOL value = NO;
       
-        value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsDeviceMotionAvailable) atKey:kPPMotionManagerIsDeviceMotionAvailableValue  ];
-       
+    value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsDeviceMotionAvailable) atKey:kPPMotionManagerIsDeviceMotionAvailableValue  ];
+    
     
     return value;
 }
@@ -321,9 +321,8 @@ HOOKPrefixInstance(BOOL, isAccelerometerActive) {
     
     __block BOOL value = NO;
     
-      
-        value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsGyroActive) atKey:kPPMotionManagerIsAccelerometerActiveValue  ];
-       
+    value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsGyroActive) atKey:kPPMotionManagerIsAccelerometerActiveValue  ];
+    
     
     return value;
 }
@@ -333,8 +332,7 @@ HOOKPrefixInstance(BOOL, isMagnetometerActive) {
     
     __block BOOL value = NO;
       
-            value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsMagnetometerActive) atKey:kPPMotionManagerIsMagnetometerActiveValue  ];
-       
+    value = [_mmDispatcher resultForBoolEventValue:actualValue ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerIsMagnetometerActive) atKey:kPPMotionManagerIsMagnetometerActiveValue  ];
     
     return value;
 }
@@ -354,9 +352,7 @@ HOOKPrefixInstance(CMAccelerometerData *, accelerometerData){
     
     __block CMAccelerometerData* value = nil;
     
-      
-        value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentAccelerometerData) atKey:kPPMotionManagerGetCurrentAccelerometerDataValue  ];
-       
+    value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentAccelerometerData) atKey:kPPMotionManagerGetCurrentAccelerometerDataValue  ];
     
     return value;
 }
@@ -366,8 +362,8 @@ HOOKPrefixInstance(CMGyroData*, gyroData) {
     
     __block CMGyroData* value = nil;
       
-        value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentGyroData) atKey:kPPMotionManagerGetCurrentGyroDataValue  ];
-       
+    value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentGyroData) atKey:kPPMotionManagerGetCurrentGyroDataValue  ];
+    
     
     return value;
 }
@@ -377,8 +373,8 @@ HOOKPrefixInstance(CMMagnetometerData*, magnetometerData){
     
     __block CMMagnetometerData* value = nil;
       
-        value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentMagnetometerData) atKey:kPPMotionManagerGetCurrentMagnetometerDataValue  ];
-       
+    value = [_mmDispatcher resultForEventValue:data ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentMagnetometerData) atKey:kPPMotionManagerGetCurrentMagnetometerDataValue  ];
+    
     return value;
 }
 
@@ -386,9 +382,7 @@ HOOKPrefixInstance(CMDeviceMotion*, deviceMotion) {
     CMDeviceMotion *motion = CALL_PREFIXED(self, deviceMotion);
     __block CMDeviceMotion *value = nil;
     
-      
-        value = [_mmDispatcher resultForEventValue:motion ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentDeviceMotionData) atKey:kPPMotionManagerGetCurrentDeviceMotionValue  ];
-       
+    value = [_mmDispatcher resultForEventValue:motion ofIdentifier:PPEventIdentifierMake(PPMotionManagerEvent, EventMotionManagerGetCurrentDeviceMotionData) atKey:kPPMotionManagerGetCurrentDeviceMotionValue  ];
     
     return value;
 }

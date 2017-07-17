@@ -14,7 +14,10 @@
 @interface PPEvent: NSObject
 @property (readonly, nonatomic) PPEventIdentifier eventIdentifier;
 @property (readonly, nonatomic, nullable) NSMutableDictionary *eventData;
+@property (readonly, nonatomic, nullable) NSArray *moduleNamesInCallStack;
 
--(instancetype _Nonnull)initWithEventIdentifier:(PPEventIdentifier)eventIdentifier eventData:(NSMutableDictionary* _Nullable)eventData whenNoHandlerAvailable:(PPVoidBlock _Nullable)whenNoHandlerAvailable;
+-(instancetype _Nonnull)initWithEventIdentifier:(PPEventIdentifier)eventIdentifier
+                         moduleNamesInCallStack:(NSArray* _Nonnull)moduleNames
+                                      eventData:(NSMutableDictionary* _Nullable)eventData whenNoHandlerAvailable:(PPVoidBlock _Nullable)whenNoHandlerAvailable;
 
 @end

@@ -50,7 +50,7 @@ static bool isAccelerometerSubtype(int eventSubtype){
         
         if (event.eventIdentifier.eventType == PPMotionManagerEvent &&
             isAccelerometerSubtype(event.eventIdentifier.eventSubtype)) {
-            [weakSelf processAccelerometerStatus];
+            [weakSelf processAccelerometerStatusEvent:event nextHandler:nextHandlerIfAny];
         }
         
         SAFECALL(nextHandlerIfAny)
@@ -58,26 +58,29 @@ static bool isAccelerometerSubtype(int eventSubtype){
 }
 
 
--(void)processAccelerometerStatusEvent:(PPEvent*)event {
+-(void)processAccelerometerStatusEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.accSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.accSensor.inputType]];
         return;
     }
     
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    SAFECALL(nextHandler)
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.accSensor.inputType]];
+    event.eventData[kPPMotionManagerIsAccelerometerAvailableValue] = @(NO);
+    event.eventData[kPPMotionManagerIsAccelerometerActiveValue] = @(NO);
+    event.eventData[kPPMotionManagerGetCurrentAccelerometerDataValue] = nil;
 }
 
 

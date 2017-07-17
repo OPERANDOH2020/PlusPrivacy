@@ -29,7 +29,7 @@
     [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
         
         if (event.eventIdentifier.eventType == PPCMAltimeterEvent) {
-            [self processAltimeterStatusEvent:event nextHandler:nextHandlerIfAny];
+            [weakSelf processAltimeterStatusEvent:event nextHandler:nextHandlerIfAny];
         } else {
             SAFECALL(nextHandlerIfAny)
         }
@@ -44,6 +44,7 @@
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.sensor.inputType]];
         return;
     }
     
@@ -51,14 +52,14 @@
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    SAFECALL(nextHandler)
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.sensor.inputType]];
+    event.eventData[kPPAltimeterIsRelativeAltitudeVailableValue] = @(NO);
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
@@ -68,6 +69,8 @@
     
     return [[PPUnlistedInputAccessViolation alloc] initWithInputType:InputType.Barometer dateReported:[NSDate date]];
 }
+
+
 -(void)newURLRequestMade:(NSURLRequest *)request{
     
 }

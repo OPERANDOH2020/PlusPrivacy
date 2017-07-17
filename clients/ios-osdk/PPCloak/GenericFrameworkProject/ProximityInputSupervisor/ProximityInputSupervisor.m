@@ -55,7 +55,7 @@
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
+    event.eventData[kPPDeviceProxmityStateValue] = @(NO);
     
     //generate a report
     [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.proximitySensor.inputType]];

@@ -52,6 +52,11 @@ typedef NS_ENUM(NSInteger, PPLocationManagerEventType){
     EventLocationManagerRequestWhenInUseAuthorization,
     EventLocationManagerSetDelegate,
     EventLocationManagerGetCurrentLocation,
+    EventLocationManagerAreLocationServicesEnabled,
+    EventLocationManagerIsHeadingAvailable,
+    EventLocationManagerIsSignificantLocationChangeMonitoringAvailable,
+    EventLocationManagerIsMonitoringAvailableForClass,
+    EventLocationManagerGetAuthorizationStatus
 };
 
 typedef NS_ENUM(NSInteger, PPUIImagePickerControllerEventType){
@@ -288,18 +293,24 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #define kPPURLSessionDatTaskResponseData @"kPPURLSessionDatTaskResponseData"
 #define kPPURLSessionDataTaskError @"kPPURLSessionDataTaskError"
 
-#pragma mark - 
-// - CLLocationManager related keys
+#pragma mark - CLLocationManager related keys
 
-//#define kPPStartLocationUpdatesConfirmation @"kPPStartLocationUpdatesConfirmationKey"
-//#define kPPRequestAlwaysAuthorizationConfirmation @"kPPRequestAlwaysAuthorizationConfirmation"
-//#define kPPRequestWhenInUseAuthorizationConfirmation @"kPPRequestWhenInUseAuthorizationConfirmation"
+#define kPPLocationManagerRegionClassValue @"kPPLocationManagerRegionClassValue"
+
+#define kPPLocationManagerLocationServicesEnabledValue @"kPPLocationManagerLocationServicesEnabledValue"
+
+#define kPPLocationManagerHeadingAvailableValue @"kPPLocationManagerHeadingAvailableValue"
+#define kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue @"kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue"
+
+#define kPPLocationManagerIsMonitoringAvailableForClassValue @"kPPLocationManagerIsMonitoringAvailableForClassValue"
+#define kPPLocationManagerIsRangingAvailableValue @"kPPLocationManagerIsRangingAvailableValue"
+
+#define kPPLocationManagerAuthorizationStatusValue @"kPPLocationManagerAuthorizationStatusValue"
 
 
 #define kPPLocationManagerDelegate @"kPPLocationManagerDelegate"
 #define kPPLocationManagerInstance @"kPPLocationManagerInstance"
 #define kPPLocationManagerSetDelegateConfirmation @"kPPLocationManagerSetDelegateConfirmation"
-
 #define kPPLocationManagerGetCurrentLocationValue @"kPPLocationManagerGetCurrentLocationValue"
 
 #pragma mark - CMMotionManager related keys

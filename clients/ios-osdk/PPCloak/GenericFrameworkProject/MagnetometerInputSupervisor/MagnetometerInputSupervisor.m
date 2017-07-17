@@ -49,33 +49,36 @@ static bool isMagnetometerSubtype(int eventSubtype){
        
         if (event.eventIdentifier.eventType == PPMotionManagerEvent &&
             isMagnetometerSubtype(event.eventIdentifier.eventSubtype)) {
-            [weakSelf processMagnetometerStatus];
+            [weakSelf processMagnetometerStatusEvent:event nextHandler:nextHandlerIfAny];
         }
         SAFECALL(nextHandlerIfAny)
     }];
 }
 
--(void)processMagnetometerStatusEvent:(PPEvent*)event {
+-(void)processMagnetometerStatusEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.magnetoSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.magnetoSensor.inputType]];
         return;
     }
     
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
+    
+    SAFECALL(nextHandler)
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.magnetoSensor.inputType]];
+    event.eventData[kPPMotionManagerIsMagnetometerAvailableValue] = @(NO);
+    event.eventData[kPPMotionManagerIsMagnetometerActiveValue] = @(NO);
+    event.eventData[kPPMotionManagerGetCurrentMagnetometerDataValue] = nil;
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

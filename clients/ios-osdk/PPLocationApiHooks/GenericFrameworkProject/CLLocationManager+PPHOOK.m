@@ -19,8 +19,42 @@ PPEventDispatcher *_locDispatcher;
     }
 }
 
+HOOKPrefixClass(CLAuthorizationStatus, authorizationStatus){
+    CLAuthorizationStatus realStatus = CALL_PREFIXED(self, authorizationStatus);
+    return [[_locDispatcher resultForEventValue:@(realStatus) ofIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerGetAuthorizationStatus) atKey:kPPLocationManagerAuthorizationStatusValue] intValue];
+}
+
 HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher) {
     _locDispatcher = dispatcher;
+}
+
+HOOKPrefixClass(BOOL, isMonitoringAvailableForClass:(Class)regionClass){
+    BOOL realValue = CALL_PREFIXED(self, isMonitoringAvailableForClass:regionClass);
+    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
+    evData[kPPLocationManagerIsMonitoringAvailableForClassValue] = @(realValue);
+    SAFEADD(evData, kPPLocationManagerRegionClassValue, regionClass)
+    
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerIsMonitoringAvailableForClass) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
+    
+    [_locDispatcher fireEvent:event];
+    return [evData[kPPLocationManagerIsMonitoringAvailableForClassValue] boolValue];
+    
+}
+
+HOOKPrefixClass(BOOL, significantLocationChangeMonitoringAvailable){
+    BOOL realValue = CALL_PREFIXED(self, significantLocationChangeMonitoringAvailable);
+    return [_locDispatcher resultForBoolEventValue:realValue ofIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerIsSignificantLocationChangeMonitoringAvailable) atKey:kPPLocationManagerSignificantLocationChangeMonitoringAvailableValue];
+}
+
+HOOKPrefixClass(BOOL, headingAvailable){
+    BOOL realValue = CALL_PREFIXED(self, headingAvailable);
+    return [_locDispatcher resultForBoolEventValue:realValue ofIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerIsHeadingAvailable) atKey:kPPLocationManagerHeadingAvailableValue];
+}
+
+
+HOOKPrefixClass(BOOL, locationServicesEnabled){
+    BOOL realValue = CALL_PREFIXED(self, locationServicesEnabled);
+    return [_locDispatcher resultForBoolEventValue:realValue ofIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerAreLocationServicesEnabled) atKey:kPPLocationManagerLocationServicesEnabledValue];
 }
 
 HOOKPrefixInstance(void, startUpdatingLocation){
@@ -75,7 +109,7 @@ HOOKPrefixInstance(void, setDelegate:(id<CLLocationManagerDelegate>)delegate) {
                                         kPPLocationManagerSetDelegateConfirmation: setDelegateConfirmation
                                        }];
     
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerSetDelegate) eventData:evData whenNoHandlerAvailable:setDelegateConfirmation];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerSetDelegate) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:setDelegateConfirmation];
     
     [_locDispatcher fireEvent:event];
 }
@@ -88,7 +122,7 @@ HOOKPrefixInstance(CLLocation*, location) {
     }
     
     [evData setObject:self forKey:kPPLocationManagerInstance];
-    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerGetCurrentLocation) eventData:evData whenNoHandlerAvailable:nil];
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPLocationManagerEvent, EventLocationManagerGetCurrentLocation) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:nil];
     
     [_locDispatcher fireEvent:event];
     

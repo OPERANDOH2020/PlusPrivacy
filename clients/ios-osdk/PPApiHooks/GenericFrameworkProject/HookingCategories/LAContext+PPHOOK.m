@@ -23,7 +23,6 @@ PPEventDispatcher *_laDispatcher;
     }
 }
 
-
 HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher) {
     _laDispatcher = dispatcher;
 }

@@ -53,7 +53,7 @@ HOOKPrefixInstance(void, startRelativeAltitudeUpdatesToQueue:(NSOperationQueue *
     PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPCMAltimeterEvent, EventAltimeterStartRelativeAltitudeUpdates) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
     
       
-        [_altDispatcher fireEvent:event  ];
+    [_altDispatcher fireEvent:event  ];
        
 }
 

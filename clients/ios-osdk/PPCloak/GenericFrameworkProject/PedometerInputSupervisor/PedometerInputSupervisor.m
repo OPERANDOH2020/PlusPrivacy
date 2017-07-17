@@ -30,41 +30,45 @@
     [model.eventsDispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
                 
         if (event.eventIdentifier.eventType == PPPedometerEvent) {
-            PPUnlistedInputAccessViolation *violationReport = nil;
-            if ((violationReport = [weakSelf detectUnregisteredAccess])) {
-                [weakSelf.model.delegate newUnlistedInputAccessViolationReported:violationReport];
-                return;
-            }
+            [self processPedometerAccessEvent:event nextHandler:nextHandlerIfAny];
+        } else {
+            SAFECALL(nextHandlerIfAny)
         }
         
-        SAFECALL(nextHandlerIfAny)
     }];
     
 }
 
 
 
--(void)processPedometerAccessEvent:(PPEvent*)event {
+-(void)processPedometerAccessEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler{
     
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.pedoSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
+        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.pedoSensor.inputType]];
+
         return;
     }
     
     PPUnlistedInputAccessViolation *report = nil;
     if ((report = [self detectUnregisteredAccess])) {
         [self.model.delegate newUnlistedInputAccessViolationReported:report];
+        return;
     }
     
+    
+    SAFECALL(nextHandler)
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.pedoSensor.inputType]];
+    event.eventData[kPPPedometerIsStepCountingAvailableValue] = @(NO);
+    event.eventData[kPPPedometerIsPaceAvailableValue] = @(NO);
+    event.eventData[kPPPedometerIsCadenceAvailableValue] = @(NO);
+    event.eventData[kPPPedometerIsFloorCountingAvailableValue] = @(NO);
+    event.eventData[kPPPedometerIsDistanceAvailableValue] = @(NO);
+    event.eventData[kPPPedometerIsEventTrackingAvailableValue] = @(NO);
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
