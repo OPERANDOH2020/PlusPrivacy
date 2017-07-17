@@ -37,25 +37,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
 
             });
 
-            swarmService.onReconnect(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onReconnect", message: {}});
-                }
-            });
-
-            swarmService.onConnectionError(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onConnectionError", message: {}});
-                }
-            });
-
-            swarmService.onConnect(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onConnect", message: {}});
-                }
-            });
-
-
             /**
              * Listen for commands
              **/
@@ -66,7 +47,7 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     if(desiredPort){
                         desiredPort.postMessage(request.message);
                     }else{
-                        console.log("PORT negasit");
+                        console.log("Port is no longer available");
                     }
                     return;
                 }

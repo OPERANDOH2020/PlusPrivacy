@@ -15,6 +15,7 @@ var swarmConnection = null;
 var connectCallbacks = [];
 var reconnectCallbacks = [];
 var connectionErrorCallback = [];
+var bus = require("bus-service").bus;
 
 function runConnectCallbacks() {
     connectCallbacks.forEach(function (callback) {
@@ -93,5 +94,5 @@ var swarmService = exports.swarmService = {
         connectionErrorCallback.push(callback);
     }
 
-
 };
+bus.registerService(swarmService);

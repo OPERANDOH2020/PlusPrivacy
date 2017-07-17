@@ -27,9 +27,7 @@ var authenticationService = exports.authenticationService = {
       return authenticatedUser;
     },
     authenticateUser: function (login_details, successFn, securityFn) {
-        console.log(login_details);
         swarmService.initConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, login_details.email, login_details.password, "chromeBrowserExtension", "userLogin", function(){});
-        console.log("Keep session ",login_details.remember_me);
 
         var loginSuccessfully = function (swarm) {
 
