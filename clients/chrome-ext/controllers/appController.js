@@ -16,11 +16,11 @@ controller("appCtrl", ["$scope", "messengerService","$window","$state", function
     $scope.userIsLoggedIn = false;
     $scope.state = $state;
     $scope.logout = function () {
-        messengerService.send("logout", logoutHandler);
+        messengerService.send("logoutCurrentUser", logoutHandler);
     }
 
-    messengerService.send("getCurrentUser",function(user){
-        $scope.user = user;
+    messengerService.send("getCurrentUser",function(response){
+        $scope.user = response.data;
         $scope.userIsLoggedIn = true;
         $scope.$apply();
     });
@@ -31,8 +31,8 @@ controller("appCtrl", ["$scope", "messengerService","$window","$state", function
 
 
     function updatedUserHandler(){
-        messengerService.send("getCurrentUser",function(user){
-            $scope.user = user;
+        messengerService.send("getCurrentUser",function(response){
+            $scope.user = response.data;
             $scope.$apply();
         });
     }

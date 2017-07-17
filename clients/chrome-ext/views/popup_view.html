@@ -2,15 +2,25 @@
 
     <ul ng-controller="loginCtrl" class="popup-login-area">
         <li id="login_area" ng-switch="loginAreaState">
-
             <div ng-if="info.status">
                 <div class="panel panel-{{info.status=='error'?'danger':info.status}}">
                     <ui-loader ng-if="(requestIsProcessed || requestStatus) && (info.status!='error')"  status="{{requestStatus}}"></ui-loader>
-                    <div class="panel-heading">{{info.message}}</div>
+                    <div class="panel-heading">
+                        <span class="glyphicon" ng-class="info.status=='error'?'glyphicon-exclamation-sign':'glyphicon-ok'" aria-hidden="true"></span>
+                        <span>{{info.message}}</span>
+                    </div>
                 </div>
             </div>
 
-            <div ng-switch-when="loggedout">
+            <div ng-switch-when="networkError" class="login_form">
+                <div class="spinner network_error">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+
+            <div ng-switch-when="loggedout" class="login_form">
                 <div ng-include src="'operando/tpl/panel/logout_state.html'"></div>
             </div>
 
@@ -32,8 +42,7 @@
         </li>
 
         <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-show="isAuthenticated"></menu-item>
-
-        <li id="operando_abp" ng-show="isAuthenticated">
+        <li id="operando_abp" ng-show="showABPAndPrivacyPolicyOptions">
             <div class="item_icon abp_icon"></div>
             <a id="abp_expand" href="#">{{"adblockerOptions"|i18n}}</a>
 
@@ -77,6 +86,10 @@
                 </ul>
             </div>
 
+        </li>
+        <li id="privacy_policy" ng-show="showABPAndPrivacyPolicyOptions && isAuthenticated == false">
+            <div class="item_icon privacy_policy_icon"></div>
+                <a href="/operando/operando.html#/privacy-policy" target="_blank">{{"privacyPolicy"|i18n}}</a>
         </li>
     </ul>
 </div>

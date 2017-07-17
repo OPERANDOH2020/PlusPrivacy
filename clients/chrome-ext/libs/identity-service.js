@@ -83,6 +83,9 @@ var identityService = exports.identityService = {
         listDomainsHandler.onResponse("gotDomains", function(swarm){
            callback(swarm.domains);
         });
+    },
+    clearIdentitiesList : function(){
+        identities = [];
     }
 }
 

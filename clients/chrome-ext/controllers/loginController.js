@@ -14,10 +14,11 @@
 angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService','i18nService', function($scope, messengerService, i18nService){
 
     var defaultUser = {remember_me:true};
-
+    $scope.showABPAndPrivacyPolicyOptions = true;
     $scope.user = angular.copy(defaultUser);
     $scope.isAuthenticated = false;
     $scope.requestIsProcessed = false;
+    $scope.networkError = false;
 
     $scope.info = {
         message: "",
@@ -29,11 +30,12 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
-
+        $scope.showABPAndPrivacyPolicyOptions = true;
     }
 
     clearInfoPanel = function(){
@@ -51,7 +53,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         },2000);
     }
 
-    securityErrorFunction = function (error) {
+    var securityErrorFunction = function (error) {
 
         $scope.info.message = i18nService._(error);
 
@@ -64,16 +66,24 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.$apply();
     }
 
-    errorFunction = function () {
-        $scope.info.message = 'Connection lost...';
-        $scope.info.status = "error";
+    var errorFunction = function () {
+        $scope.networkError = true;
+        $scope.info = {
+            message:"Network connection unavailable!",
+            status:"error"
+        };
+
+        if ($scope.loginAreaState !== "networkError") {
+            $scope.lastAreaState = $scope.loginAreaState;
+            $scope.loginAreaState = "networkError";
+        }
         $scope.$apply();
     }
 
     successFunction = function () {
-        messengerService.send("getCurrentUser", function(user){
+        messengerService.send("getCurrentUser", function(response){
             $scope.loginAreaState = "loggedin";
-            $scope.user.email = user.email;
+            $scope.user.email = response.data.email;
             $scope.isAuthenticated = true;
             $scope.$apply();
         });
@@ -82,6 +92,11 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     reconnectFunction = function(){
         $scope.info.status = "success";
         $scope.info.message = 'Connected...';
+        delete $scope.networkError;
+        console.log($scope.lastAreaState);
+        if($scope.lastAreaState){
+            $scope.loginAreaState = $scope.lastAreaState;
+        }
         $scope.$apply();
         clearInfoPanel();
     }
@@ -93,7 +108,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.info.status = "success";
         $scope.info.message = 'Sending activation email...';
 
-        messengerService.send("sendActivationCode", $scope.user.email, function (response) {
+        messengerService.send("resendActivationCode", $scope.user.email, function (response) {
 
             $scope.requestIsProcessed = false;
 
@@ -117,18 +132,15 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.requestStatus = "pending";
         $scope.info.status = "success";
         $scope.info.message = 'Logging in...';
-        messengerService.send("login", {
-            login_details: {
+        messengerService.send("authenticateUser", {
                 email: $scope.user.email,
                 password: $scope.user.password,
                 remember_me: $scope.user.remember_me
-            }
         }, function (response) {
             $scope.requestIsProcessed = false;
-            if (response.success) {
+            if (response.status === "success") {
                 setTimeout(function(){
                     chrome.runtime.openOptionsPage();
-                    //window.close();
                 },500);
             }
             else{
@@ -166,11 +178,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
 
     $scope.show_forgot_password = function(){
         $scope.loginAreaState = "forgot_password";
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.show_register = function(){
         $scope.loginAreaState = "register_form";
         $scope.user = angular.copy(defaultUser);
+        $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
     $scope.register = function(){
@@ -197,7 +211,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             $scope.$apply();
         }
 
-        messengerService.send("registerUser",{user:$scope.user}, function(response){
+        messengerService.send("registerUser",$scope.user, function(response){
 
             $scope.requestIsProcessed = false;
             if(response.status == "success"){
@@ -209,8 +223,8 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     };
 
-    $scope.$watch('loginAreaState', function(){
-        if($scope.info.status == "error"){
+    $scope.$watch('loginAreaState', function (value) {
+        if (value != "networkError" && $scope.info.status == "error") {
             $scope.info = {
                 message: "",
                 status: ""
@@ -221,7 +235,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     $scope.logout = function(){
         $scope.requestStatus = "pending";
         $scope.requestIsProcessed = true;
-        messengerService.send("logout",function(){
+        messengerService.send("logoutCurrentUser",function(){
             $scope.requestIsProcessed = false;
             $scope.requestStatus = "completed";
             $scope.loginAreaState = "loggedout";
@@ -231,11 +245,11 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     }
 
-    messengerService.send("restoreUserSession",{}, function(status){
-        if(status.success){
+    messengerService.send("userIsAuthenticated", function(data){
+        if(data.status === "success"){
             successFunction();
         }
-        else if(status.fail){
+        else if(data.status === "error"){
             $scope.loginAreaState = "loggedout";
         }
         else if(status.error){
@@ -247,10 +261,17 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     });
 
 
-    /*messengerService.on("onReconnect",reconnectFunction);
+    //messengerService.on("onReconnect",reconnectFunction);
     messengerService.on("onConnectionError",errorFunction);
-    messengerService.on("onConnect",reconnectFunction);*/
+    messengerService.on("onConnect",reconnectFunction);
 
+
+    chrome.tabs.query({active:true, windowId:chrome.windows.WINDOW_ID_CURRENT}, function (tabs){
+        var ourTab = tabs[0];
+        if(ourTab.url.indexOf("http")===0||ourTab.url.indexOf("https")===0){
+            $scope.showABPAndPrivacyPolicyOptions = true;
+        }
+    });
 
 }]);
 

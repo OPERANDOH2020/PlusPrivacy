@@ -13,12 +13,10 @@ angular.module("login",[]).
             $scope.new_user = {};
 
             $scope.login = function(){
-                messengerService.send("login", {
-                    login_details: {
+                messengerService.send("authenticateUser", {
                         email: $scope.user.email,
                         password: $scope.user.password,
                         remember_me: $scope.user.remember_me
-                    }
                 }, function (response) {
                     if (response.success) {
                         Notification.success({message: 'You have successfully logged in!', positionY: 'bottom', positionX: 'center', delay: 2000});
@@ -34,7 +32,7 @@ angular.module("login",[]).
 
             $scope.signup = function(){
 
-                messengerService.send("registerUser",{user:$scope.new_user}, function(response){
+                messengerService.send("registerUser",$scope.new_user, function(response){
 
                     if(response.status == "success"){
                         Notification.success({message: "Account successfully created!", positionY: 'bottom', positionX: 'center', delay: 3000});
