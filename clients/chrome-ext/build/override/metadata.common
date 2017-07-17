@@ -47,8 +47,7 @@ webAccessible = operando/assets/images/icons/operando_24.png
 
 [contentScripts]
 document_start = ext/common.js ext/content.js cssProperties.js include.preload.js
-document_end = include.postload.js operando/util/extension_install_id.js
-
+document_end = include.postload.js
 
 
 [mapping]

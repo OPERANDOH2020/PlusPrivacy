@@ -187,6 +187,7 @@ TabsManager.prototype.getLastVisitedUrl = function(notificationId, callback){
 
 function establishPlusPrivacyWebsiteCommunication(tabId){
     insertJavascriptFile(tabId, "operando/modules/communication/message-relay.js");
+    insertJavascriptFile(tabId, "operando/modules/communication/extension-is-installed.js");
 }
 
 function checkConnectWithSNApisUrls(tabId, changeInfo, tab){
