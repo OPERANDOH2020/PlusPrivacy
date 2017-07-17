@@ -4,6 +4,7 @@ backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js
   ext/common.js
+  operando/services/swarm-services/socket.io-2.0.3.js
   operando/swarms.js
   ext/background.js
   lib/compat.js
@@ -129,8 +130,7 @@ lib/adblockplus.js = adblockpluscore/lib/events.js
   operando/modules/TabsManager.js
   --arg module=true source_repo=https://hg.adblockplus.org/adblockpluscore/
 ext/common.js = ext/common.js chrome/ext/common.js
-operando/swarms.js = operando/services/swarm-services/socket.io-1.0.6.js
-                  operando/services/swarm-services/SwarmDebug.js
+operando/swarms.js = operando/services/swarm-services/SwarmDebug.js
                   operando/services/swarm-services/SwarmClient.js
                   operando/services/swarm-services/SwarmHub.js
                   operando/util/Constants.js
