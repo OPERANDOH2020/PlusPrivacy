@@ -134,7 +134,8 @@ public class LightningView {
         mWebView.setSaveEnabled(true);
         mWebView.setNetworkAvailable(true);
         mWebView.setWebChromeClient(new LightningChromeClient(activity, this));
-        mWebView.setWebViewClient(new AdblockWebClient(activity, this, mPreferences.getAdBlockEnabled()));
+//        mWebView.setWebViewClient(new AdblockWebClient(activity, this, mPreferences.getAdBlockEnabled()));
+        mWebView.setWebViewClient(AdblockWebClient.getInstance(activity, this, mPreferences.getAdBlockEnabled()));
         mWebView.setDownloadListener(new LightningDownloadListener(activity));
         mGestureDetector = new GestureDetector(activity, new CustomGestureListener());
         mWebView.setOnTouchListener(new TouchListener());
