@@ -32,7 +32,7 @@ privacyPlusApp.controller("resetPasswordController", function ($scope, connectio
                 }
             }
             else {
-                $scope.errorMessage = "Passwords don't match!";
+                $scope.errorMessage = "Passwords don't match";
             }
         }
         else {

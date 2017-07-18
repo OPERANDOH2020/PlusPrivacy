@@ -80,7 +80,6 @@ angular.module('sharedService').factory("messengerService", function () {
 
         window.addEventListener("relayIsDown", function (event) {
             relayIsReady = false;
-            //alert("Connection is lost!");
         });
 
         return MessengerService;

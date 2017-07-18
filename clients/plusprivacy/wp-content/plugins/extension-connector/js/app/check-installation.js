@@ -69,10 +69,10 @@ var plusPrivacyIsInstalled = function () {
 
 var checkInstallation = function () {
     if (checkIfChromeBrowser() == undefined || isMobileOrTablet() == true) {
-        createModal("Chrome browser needed", "Currently only Chrome browser is supported on PCs!", "not_chrome");
+        createModal("Chrome browser needed", "Currently only Chrome browser is supported on PCs", "not_chrome");
     } else {
         if (plusPrivacyIsInstalled() === false) {
-            createModal("PlusPrivacy Extension is not installed", "Please install <a href='https://chrome.google.com/webstore/detail/plusprivacy/boagbmhcbemflaclmnbeebgbfhbegekc?hl=en' target='_blank'>PlusPrivacy Chrome extension</a> first!", "not_installed");
+            createModal("PlusPrivacy Extension is not installed", "Please install <a href='https://chrome.google.com/webstore/detail/plusprivacy/boagbmhcbemflaclmnbeebgbfhbegekc?hl=en' target='_blank'>PlusPrivacy Chrome extension</a> first", "not_installed");
         }
     }
 }

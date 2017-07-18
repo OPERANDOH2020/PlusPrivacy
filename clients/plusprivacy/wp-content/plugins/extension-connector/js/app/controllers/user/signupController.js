@@ -16,7 +16,13 @@ $scope.register = function(){
 
     }, function(error){
         $scope.requestInProgress = false;
-        $scope.registerErrorMessage = error;
+
+        switch (error){
+            case "passwordsNotMatch":  $scope.registerErrorMessage = "Passwords don't match"; break;
+            case "emailIsUnavailable":  $scope.registerErrorMessage = "User already registered"; break;
+            default: $scope.registerErrorMessage = error;
+        }
+
         $scope.registerError = true;
         $scope.$apply();
     });

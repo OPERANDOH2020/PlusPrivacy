@@ -6,11 +6,6 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
         password: ""
     };
 
-    /*userService.isAuthenticated(function (isAuthenticated) {
-        $scope.userIsLoggedIn = isAuthenticated;
-        $scope.$apply();
-    });*/
-
     userService.getUser(function (user) {
         $scope.userIsLoggedIn = true;
         $scope.currentUser = user.email;
@@ -29,11 +24,11 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
             function (error) {
 
                 if (error == "accountNotActivated") {
-                    $scope.errorResponse = "Account not activated!";
+                    $scope.errorResponse = "Account not activated";
                     $scope.accountNotActivated = true;
                 }
                 else {
-                    $scope.errorResponse = "Invalid credentials!";
+                    $scope.errorResponse = "Invalid credentials";
                 }
 
                 $scope.requestProcessed = false;
@@ -48,7 +43,7 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
         delete $scope.errorResponse;
 
         connectionService.resendActivationCode($scope.user.email, function(){
-            $scope.successMessage = "Activation email sent! Check your inbox!";
+            $scope.successMessage = "Activation email sent! Check your inbox";
             $scope.requestProcessed = false;
             delete $scope.errorResponse;
             $scope.$apply();
@@ -69,7 +64,7 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
         $scope.requestProcessed = true;
         delete $scope.errorResponse;
         connectionService.forgotPassword($scope.user.email, function(){
-            $scope.successMessage = "Please check your email inbox and click on the link to reset your password!";
+            $scope.successMessage = "Please check your email inbox and click on the link to reset your password";
             $scope.passwordResetSent = true;
             $scope.requestProcessed = false;
             $scope.$apply();
@@ -80,15 +75,6 @@ privacyPlusApp.controller("loginController", function ($scope, connectionService
             $scope.$apply();
         })
     }
-
-
-    /*setTimeout(function () {
-        var relayResponded = messengerService.extensionIsActive();
-        if (relayResponded === false) {
-            $scope.extension_not_active = true;
-            $scope.$apply();
-        }
-    }, 1000);*/
 
     SharedService.setLocation("userLogin");
 });
