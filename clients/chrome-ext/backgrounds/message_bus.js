@@ -65,14 +65,19 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             args.push(request.message);
                         }
 
-                        args.push(function(data){
+                        args.push(function (data) {
                             var response = data;
+                            var messageToClient = {
+                                type: messageType,
+                                action: request.action,
+                                message: {"status": "success", "data": response}
+                            };
+
                             if (clientPort) {
-                                clientPort.postMessage({
-                                    type: messageType,
-                                    action: request.action,
-                                    message: {"status": "success", "data": response}
-                                });
+                                clientPort.postMessage(messageToClient);
+                            } else {
+                                console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                chrome.runtime.sendMessage(messageToClient);
                             }
                         });
 
@@ -80,12 +85,18 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             if(!err){
                                 err = "error"
                             }
+
+                            var messageToClient =  {
+                                type: messageType,
+                                action: request.action,
+                                message: {error: err.message ? err.message : err}
+                            };
+
                             if (clientPort) {
-                                clientPort.postMessage({
-                                    type: messageType,
-                                    action: request.action,
-                                    message: {error: err.message ? err.message : err}
-                                });
+                                clientPort.postMessage(messageToClient);
+                            } else {
+                                console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                chrome.runtime.sendMessage(messageToClient);
                             }
                         });
 
