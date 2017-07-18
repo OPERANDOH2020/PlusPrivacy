@@ -1,0 +1,10 @@
+framework module PPCommonUI {
+  umbrella header "PPCommonUI.h"
+
+  export *
+  module * { export * }
+}
+
+module PPCommonUI.Swift {
+    header "PPCommonUI-Swift.h"
+}

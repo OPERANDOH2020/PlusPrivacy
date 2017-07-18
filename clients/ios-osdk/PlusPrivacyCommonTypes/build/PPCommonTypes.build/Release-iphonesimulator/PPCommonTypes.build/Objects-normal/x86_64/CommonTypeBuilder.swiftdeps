@@ -1,0 +1,428 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CommonTypeBuilder"
+provides-nominal:
+- "C13PPCommonTypes17CommonTypeBuilder"
+provides-member:
+- ["CSo6Bundle", ""]
+- ["CSo7NSError", ""]
+- ["C13PPCommonTypes17CommonTypeBuilder", ""]
+- ["CSo6Bundle", "commonTypesBundle"]
+- ["CSo7NSError", "CommonTypeBuilderDomain"]
+- ["CSo7NSError", "schemaUnavailable"]
+- ["CSo7NSError", "unknownCommonTypeError"]
+provides-dynamic-lookup:
+- "CommonTypeBuilderDomain"
+- "buildFromJSON"
+- "buildSCDDocument"
+- "commonTypesBundle"
+- "schemaUnavailable"
+- "sharedInstance"
+- "unknownCommonTypeError"
+depends-top-level:
+- !private "!="
+- !private "+="
+- !private "=="
+- !private "AssignmentPrecedence"
+- "Bundle"
+- "CommonTypeBuilder"
+- !private "Dictionary"
+- !private "Int"
+- !private "LocalFileSchemaProvider"
+- "NSError"
+- !private "NSLocalizedDescriptionKey"
+- "NSObject"
+- "SCDDocument"
+- "SchemaProvider"
+- "String"
+- "StringLiteralType"
+- "SwiftSchemaValidator"
+- "Void"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- ["Ps9AnyObject", "CommonTypeBuilder"]
+- !private ["Ps9AnyObject", "CommonTypeBuilderDomain"]
+- !private ["Ps9AnyObject", "LocalFileSchemaProvider"]
+- !private ["Ps9AnyObject", "NSError"]
+- !private ["Ps9AnyObject", "NSLocalizedDescriptionKey"]
+- !private ["Ps9AnyObject", "SCDDocument"]
+- ["Ps9AnyObject", "SwiftSchemaValidator"]
+- !private ["Ps9AnyObject", "commonTypesBundle"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "main"]
+- !private ["Ps9AnyObject", "path"]
+- !private ["Ps9AnyObject", "schemaProvider"]
+- !private ["Ps9AnyObject", "schemaUnavailable"]
+- !private ["Ps9AnyObject", "schemaValidator"]
+- !private ["Ps9AnyObject", "unknownCommonTypeError"]
+- !private ["Ps9AnyObject", "validate"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "append"]
+- !private ["Sa", "count"]
+- !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["CSo6Bundle", "Bundle"]
+- ["CSo6Bundle", "commonTypesBundle"]
+- !private ["CSo6Bundle", "init"]
+- !private ["CSo6Bundle", "main"]
+- !private ["CSo6Bundle", "path"]
+- !private ["Ps7CVarArg", "Bundle"]
+- ["Ps7CVarArg", "CommonTypeBuilder"]
+- !private ["Ps7CVarArg", "CommonTypeBuilderDomain"]
+- !private ["Ps7CVarArg", "LocalFileSchemaProvider"]
+- !private ["Ps7CVarArg", "NSError"]
+- !private ["Ps7CVarArg", "NSLocalizedDescriptionKey"]
+- !private ["Ps7CVarArg", "SCDDocument"]
+- ["Ps7CVarArg", "SwiftSchemaValidator"]
+- !private ["Ps7CVarArg", "append"]
+- !private ["Ps7CVarArg", "commonTypesBundle"]
+- !private ["Ps7CVarArg", "count"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "main"]
+- !private ["Ps7CVarArg", "path"]
+- !private ["Ps7CVarArg", "schemaProvider"]
+- !private ["Ps7CVarArg", "schemaUnavailable"]
+- !private ["Ps7CVarArg", "schemaValidator"]
+- !private ["Ps7CVarArg", "unknownCommonTypeError"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "count"]
+- !private ["C13PPCommonTypes17CommonTypeBuilder", "Bundle"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "CommonTypeBuilder"]
+- !private ["C13PPCommonTypes17CommonTypeBuilder", "Int"]
+- !private ["C13PPCommonTypes17CommonTypeBuilder", "LocalFileSchemaProvider"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "NSError"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "SCDDocument"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "SchemaProvider"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "String"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "SwiftSchemaValidator"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "Void"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "buildFromJSON"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "buildSCDDocument"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "deinit"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "init"]
+- !private ["C13PPCommonTypes17CommonTypeBuilder", "schemaProvider"]
+- !private ["C13PPCommonTypes17CommonTypeBuilder", "schemaValidator"]
+- ["C13PPCommonTypes17CommonTypeBuilder", "sharedInstance"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Bundle"]
+- ["Ps28CustomDebugStringConvertible", "CommonTypeBuilder"]
+- !private ["Ps28CustomDebugStringConvertible", "CommonTypeBuilderDomain"]
+- !private ["Ps28CustomDebugStringConvertible", "LocalFileSchemaProvider"]
+- !private ["Ps28CustomDebugStringConvertible", "NSError"]
+- !private ["Ps28CustomDebugStringConvertible", "NSLocalizedDescriptionKey"]
+- !private ["Ps28CustomDebugStringConvertible", "SCDDocument"]
+- ["Ps28CustomDebugStringConvertible", "SwiftSchemaValidator"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- !private ["Ps28CustomDebugStringConvertible", "commonTypesBundle"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- !private ["Ps28CustomDebugStringConvertible", "path"]
+- !private ["Ps28CustomDebugStringConvertible", "schemaProvider"]
+- !private ["Ps28CustomDebugStringConvertible", "schemaUnavailable"]
+- !private ["Ps28CustomDebugStringConvertible", "schemaValidator"]
+- !private ["Ps28CustomDebugStringConvertible", "unknownCommonTypeError"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "count"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "schemaUnavailable"]
+- !private ["Ps17CustomReflectable", "unknownCommonTypeError"]
+- !private ["Ps23CustomStringConvertible", "Bundle"]
+- ["Ps23CustomStringConvertible", "CommonTypeBuilder"]
+- !private ["Ps23CustomStringConvertible", "CommonTypeBuilderDomain"]
+- !private ["Ps23CustomStringConvertible", "LocalFileSchemaProvider"]
+- !private ["Ps23CustomStringConvertible", "NSError"]
+- !private ["Ps23CustomStringConvertible", "NSLocalizedDescriptionKey"]
+- !private ["Ps23CustomStringConvertible", "SCDDocument"]
+- ["Ps23CustomStringConvertible", "SwiftSchemaValidator"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- !private ["Ps23CustomStringConvertible", "commonTypesBundle"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- !private ["Ps23CustomStringConvertible", "path"]
+- !private ["Ps23CustomStringConvertible", "schemaProvider"]
+- !private ["Ps23CustomStringConvertible", "schemaUnavailable"]
+- !private ["Ps23CustomStringConvertible", "schemaValidator"]
+- !private ["Ps23CustomStringConvertible", "unknownCommonTypeError"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Bundle"]
+- ["Ps9Equatable", "CommonTypeBuilder"]
+- !private ["Ps9Equatable", "CommonTypeBuilderDomain"]
+- !private ["Ps9Equatable", "LocalFileSchemaProvider"]
+- !private ["Ps9Equatable", "NSError"]
+- !private ["Ps9Equatable", "NSLocalizedDescriptionKey"]
+- !private ["Ps9Equatable", "SCDDocument"]
+- ["Ps9Equatable", "SwiftSchemaValidator"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "commonTypesBundle"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "main"]
+- !private ["Ps9Equatable", "path"]
+- !private ["Ps9Equatable", "schemaProvider"]
+- !private ["Ps9Equatable", "schemaUnavailable"]
+- !private ["Ps9Equatable", "schemaValidator"]
+- !private ["Ps9Equatable", "unknownCommonTypeError"]
+- ["Ps9Equatable", ""]
+- !private ["Ps5Error", "CommonTypeBuilderDomain"]
+- !private ["Ps5Error", "NSError"]
+- !private ["Ps5Error", "NSLocalizedDescriptionKey"]
+- !private ["Ps5Error", "init"]
+- !private ["Ps5Error", "schemaUnavailable"]
+- !private ["Ps5Error", "unknownCommonTypeError"]
+- !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps25ExpressibleByArrayLiteral", "count"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps23ExpressibleByNilLiteral", "schemaUnavailable"]
+- !private ["Ps23ExpressibleByNilLiteral", "unknownCommonTypeError"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "Bundle"]
+- ["Ps8Hashable", "CommonTypeBuilder"]
+- !private ["Ps8Hashable", "CommonTypeBuilderDomain"]
+- !private ["Ps8Hashable", "LocalFileSchemaProvider"]
+- !private ["Ps8Hashable", "NSError"]
+- !private ["Ps8Hashable", "NSLocalizedDescriptionKey"]
+- !private ["Ps8Hashable", "SCDDocument"]
+- ["Ps8Hashable", "SwiftSchemaValidator"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "commonTypesBundle"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "main"]
+- !private ["Ps8Hashable", "path"]
+- !private ["Ps8Hashable", "schemaProvider"]
+- !private ["Ps8Hashable", "schemaUnavailable"]
+- !private ["Ps8Hashable", "schemaValidator"]
+- !private ["Ps8Hashable", "unknownCommonTypeError"]
+- ["Ps8Hashable", ""]
+- !private ["C13PPCommonTypes23LocalFileSchemaProvider", "deinit"]
+- !private ["C13PPCommonTypes23LocalFileSchemaProvider", "init"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "append"]
+- !private ["Ps17MutableCollection", "count"]
+- !private ["PSo8NSCoding", "CommonTypeBuilderDomain"]
+- !private ["PSo8NSCoding", "NSError"]
+- !private ["PSo8NSCoding", "NSLocalizedDescriptionKey"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "schemaUnavailable"]
+- !private ["PSo8NSCoding", "unknownCommonTypeError"]
+- !private ["PSo9NSCopying", "CommonTypeBuilderDomain"]
+- !private ["PSo9NSCopying", "NSError"]
+- !private ["PSo9NSCopying", "NSLocalizedDescriptionKey"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "schemaUnavailable"]
+- !private ["PSo9NSCopying", "unknownCommonTypeError"]
+- ["CSo7NSError", "CommonTypeBuilderDomain"]
+- ["CSo7NSError", "NSError"]
+- !private ["CSo7NSError", "NSLocalizedDescriptionKey"]
+- !private ["CSo7NSError", "init"]
+- ["CSo7NSError", "schemaUnavailable"]
+- ["CSo7NSError", "unknownCommonTypeError"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Bundle"]
+- ["CSo8NSObject", "CommonTypeBuilder"]
+- ["CSo8NSObject", "CommonTypeBuilderDomain"]
+- !private ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "LocalFileSchemaProvider"]
+- ["CSo8NSObject", "NSError"]
+- !private ["CSo8NSObject", "NSLocalizedDescriptionKey"]
+- ["CSo8NSObject", "SCDDocument"]
+- ["CSo8NSObject", "SchemaProvider"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "SwiftSchemaValidator"]
+- ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "buildFromJSON"]
+- ["CSo8NSObject", "buildSCDDocument"]
+- ["CSo8NSObject", "commonTypesBundle"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "main"]
+- !private ["CSo8NSObject", "path"]
+- ["CSo8NSObject", "schemaProvider"]
+- ["CSo8NSObject", "schemaUnavailable"]
+- ["CSo8NSObject", "schemaValidator"]
+- ["CSo8NSObject", "sharedInstance"]
+- ["CSo8NSObject", "unknownCommonTypeError"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "Bundle"]
+- ["PSo16NSObjectProtocol", "CommonTypeBuilder"]
+- !private ["PSo16NSObjectProtocol", "CommonTypeBuilderDomain"]
+- !private ["PSo16NSObjectProtocol", "LocalFileSchemaProvider"]
+- !private ["PSo16NSObjectProtocol", "NSError"]
+- !private ["PSo16NSObjectProtocol", "NSLocalizedDescriptionKey"]
+- !private ["PSo16NSObjectProtocol", "SCDDocument"]
+- ["PSo16NSObjectProtocol", "SwiftSchemaValidator"]
+- !private ["PSo16NSObjectProtocol", "commonTypesBundle"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- !private ["PSo16NSObjectProtocol", "path"]
+- !private ["PSo16NSObjectProtocol", "schemaProvider"]
+- !private ["PSo16NSObjectProtocol", "schemaUnavailable"]
+- !private ["PSo16NSObjectProtocol", "schemaValidator"]
+- !private ["PSo16NSObjectProtocol", "unknownCommonTypeError"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "CommonTypeBuilderDomain"]
+- !private ["PSo14NSSecureCoding", "NSError"]
+- !private ["PSo14NSSecureCoding", "NSLocalizedDescriptionKey"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "schemaUnavailable"]
+- !private ["PSo14NSSecureCoding", "unknownCommonTypeError"]
+- ["CSo8NSString", "init"]
+- !private ["Sq", "schemaUnavailable"]
+- !private ["Sq", "unknownCommonTypeError"]
+- !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps22RandomAccessCollection", "count"]
+- !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["C13PPCommonTypes11SCDDocument", "init"]
+- !private ["P13PPCommonTypes14SchemaProvider", "getSchemaWithCallback"]
+- !private ["P13PPCommonTypes14SchemaProvider", "init"]
+- ["P13PPCommonTypes15SchemaValidator", "init"]
+- !private ["P13PPCommonTypes15SchemaValidator", "validate"]
+- !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "count"]
+- ["SS", "init"]
+- !private ["C13PPCommonTypes20SwiftSchemaValidator", "deinit"]
+- ["C13PPCommonTypes20SwiftSchemaValidator", "init"]
+- !private ["C13PPCommonTypes20SwiftSchemaValidator", "validate"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps14_ArrayProtocol", "append"]
+- !private ["Ps14_ArrayProtocol", "count"]
+- !private ["Ps23_BidirectionalIndexable", "append"]
+- !private ["Ps23_BidirectionalIndexable", "count"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Bundle"]
+- ["Ps9_Hashable", "CommonTypeBuilder"]
+- !private ["Ps9_Hashable", "CommonTypeBuilderDomain"]
+- !private ["Ps9_Hashable", "LocalFileSchemaProvider"]
+- !private ["Ps9_Hashable", "NSError"]
+- !private ["Ps9_Hashable", "NSLocalizedDescriptionKey"]
+- !private ["Ps9_Hashable", "SCDDocument"]
+- ["Ps9_Hashable", "SwiftSchemaValidator"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "commonTypesBundle"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "main"]
+- !private ["Ps9_Hashable", "path"]
+- !private ["Ps9_Hashable", "schemaProvider"]
+- !private ["Ps9_Hashable", "schemaUnavailable"]
+- !private ["Ps9_Hashable", "schemaValidator"]
+- !private ["Ps9_Hashable", "unknownCommonTypeError"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps10_Indexable", "append"]
+- !private ["Ps10_Indexable", "count"]
+- !private ["Ps14_IndexableBase", "append"]
+- !private ["Ps14_IndexableBase", "count"]
+- !private ["Ps17_MutableIndexable", "append"]
+- !private ["Ps17_MutableIndexable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "schemaUnavailable"]
+- !private ["Ps21_ObjectiveCBridgeable", "unknownCommonTypeError"]
+- !private ["Ps22_RandomAccessIndexable", "append"]
+- !private ["Ps22_RandomAccessIndexable", "count"]
+- !private ["Ps26_RangeReplaceableIndexable", "append"]
+- !private ["Ps26_RangeReplaceableIndexable", "count"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Sb"
+- "CSo6Bundle"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- "C13PPCommonTypes17CommonTypeBuilder"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "C13PPCommonTypes23LocalFileSchemaProvider"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "CSo7NSError"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- !private "C13PPCommonTypes11SCDDocument"
+- !private "P13PPCommonTypes14SchemaProvider"
+- "P13PPCommonTypes15SchemaValidator"
+- !private "Ps8Sequence"
+- "SS"
+- "C13PPCommonTypes20SwiftSchemaValidator"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps17_MutableIndexable"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/build/PPCommonTypes.build/Release-iphonesimulator/PPCommonTypes.build/unextended-module.modulemap"
+interface-hash: "eed561efccd4014816bb0f67d5bc91cd"

@@ -1,0 +1,4 @@
+./../PlusPrivacyCommonUI/GenericFrameworkProject/
+./../PPCloak/GenericFrameworkProject/
+./../../ios/Operando/Operando/
+./../AllBuilds/

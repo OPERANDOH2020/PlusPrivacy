@@ -312,6 +312,7 @@ typedef SWIFT_ENUM(NSInteger, PrivacyLevelType) {
   PrivacyLevelTypeUnspecified = 6,
 };
 
+@class SDKCheckItem;
 
 SWIFT_CLASS("_TtC13PPCommonTypes11SCDDocument")
 @interface SCDDocument : NSObject
@@ -320,6 +321,18 @@ SWIFT_CLASS("_TtC13PPCommonTypes11SCDDocument")
 @property (nonatomic, readonly, copy) NSString * _Nullable appIconURL;
 @property (nonatomic, readonly, strong) AccessedHosts * _Nonnull accessedHosts;
 @property (nonatomic, readonly, copy) NSArray<AccessedInput *> * _Nonnull accessedInputs;
+@property (nonatomic, readonly, copy) NSArray<SDKCheckItem *> * _Nullable sdkChecks;
+- (NSArray<NSString *> * _Nonnull)modulesDeniedForInputType:(InputType * _Nonnull)inputType SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC13PPCommonTypes12SDKCheckItem")
+@interface SDKCheckItem : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull sdkName;
+@property (nonatomic, readonly, copy) NSArray<InputType *> * _Nonnull deniedWithZeroValues;
+- (nullable instancetype)initWithDict:(NSDictionary<NSString *, id> * _Nonnull)dict OBJC_DESIGNATED_INITIALIZER;
++ (NSArray<SDKCheckItem *> * _Nullable)buildFromJsonArray:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)array SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 

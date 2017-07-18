@@ -1,0 +1,10 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
+options: "72e73d6f9459a6886f8ba5b301d2d8f0"
+build_time: [553702929, 150182000]
+inputs:
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/CommonTypeBuilder.swift": [9223372036854775807, 0]
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/SwiftJSONSchema/JSONSchema.swift": [9223372036854775807, 0]
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/SwiftJSONSchema/SchemaValidator.swift": [9223372036854775807, 0]
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/PlusPrivacyCommonTypes.swift": [9223372036854775807, 0]
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/SwiftJSONSchema/Validators.swift": [9223372036854775807, 0]
+  "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/SwiftJSONSchema/SchemaProvider.swift": [9223372036854775807, 0]

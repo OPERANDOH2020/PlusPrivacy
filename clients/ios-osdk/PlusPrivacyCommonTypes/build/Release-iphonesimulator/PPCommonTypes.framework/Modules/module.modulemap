@@ -1,0 +1,10 @@
+framework module PPCommonTypes {
+  umbrella header "PPCommonTypes.h"
+
+  export *
+  module * { export * }
+}
+
+module PPCommonTypes.Swift {
+    header "PPCommonTypes-Swift.h"
+}

@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/build/Release-iphonesimulator/PPCommonTypes.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "PPCommonTypes-Swift.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/build/Release-iphonesimulator/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PPCommonTypes.h",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/GenericFrameworkProject/PPCommonTypes.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/build/Release-iphonesimulator/PPCommonTypes.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/PlusPrivacyCommonTypes/build/PPCommonTypes.build/Release-iphonesimulator/PPCommonTypes.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

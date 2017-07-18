@@ -166,6 +166,7 @@
 		989DB8E51E77D2CF008F4D02 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989DB8E41E77D2CF008F4D02 /* Info.plist */; };
 		98B2346A1E53376B0015C2E9 /* UISCDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B234681E53376B0015C2E9 /* UISCDViewController.h */; };
 		98B2346B1E53376B0015C2E9 /* UISCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B234691E53376B0015C2E9 /* UISCDViewController.m */; };
+		98C062441F1E402A00B35E76 /* BundleCopyPathsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */; };
 		98CEF2691E5EEE84002C2145 /* UIUsageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CEF2671E5EEE84002C2145 /* UIUsageViewController.h */; };
 		98CEF26A1E5EEE84002C2145 /* UIUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CEF2681E5EEE84002C2145 /* UIUsageViewController.m */; };
 		98CEF3A41E5F2204002C2145 /* UIInputGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CEF3A21E5F2204002C2145 /* UIInputGraphViewController.h */; };
@@ -374,6 +375,8 @@
 		989DB8E41E77D2CF008F4D02 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98B234681E53376B0015C2E9 /* UISCDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UISCDViewController.h; path = Views/UISCDViewController/UISCDViewController.h; sourceTree = "<group>"; };
 		98B234691E53376B0015C2E9 /* UISCDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UISCDViewController.m; path = Views/UISCDViewController/UISCDViewController.m; sourceTree = "<group>"; };
+		98C062411F1E3F6200B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
+		98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BundleCopyPathsList.txt; sourceTree = "<group>"; };
 		98CEF2671E5EEE84002C2145 /* UIUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIUsageViewController.h; path = Views/UIInputUsageGraphsViewController/UIUsageViewController.h; sourceTree = "<group>"; };
 		98CEF2681E5EEE84002C2145 /* UIUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIUsageViewController.m; path = Views/UIInputUsageGraphsViewController/UIUsageViewController.m; sourceTree = "<group>"; };
 		98CEF3A21E5F2204002C2145 /* UIInputGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIInputGraphViewController.h; path = Views/UIInputGraphViewController/UIInputGraphViewController.h; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 		98584F331D3F9E18009FB89F = {
 			isa = PBXGroup;
 			children = (
+				98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */,
+				98C062411F1E3F6200B35E76 /* FrameworkCopyPathsList.txt */,
 				989DB8E31E77D2CF008F4D02 /* PPCloakBundle */,
 				98584F3F1D3F9E18009FB89F /* RSFrameworksHook */,
 				98584F3E1D3F9E18009FB89F /* Products */,
@@ -1549,6 +1554,7 @@
 				98584F391D3F9E18009FB89F /* Frameworks */,
 				98584F3A1D3F9E18009FB89F /* Headers */,
 				98584F3B1D3F9E18009FB89F /* Resources */,
+				98C062401F1E3F1100B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1566,6 +1572,7 @@
 				985B80DC1E56097200F0D19B /* Sources */,
 				985B80DD1E56097200F0D19B /* Frameworks */,
 				985B80DE1E56097200F0D19B /* Resources */,
+				98C062421F1E3FF900B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1624,6 +1631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C062441F1E402A00B35E76 /* BundleCopyPathsList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1671,6 +1679,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		98C062401F1E3F1100B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
+		};
+		98C062421F1E3FF900B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/BundleCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\npathToRemoveExecFile=\"$pathToCopy/$EXECUTABLE_NAME\"\necho \"Removing executable from bundle $pathToRemoveExecFile\"\n\nrm -v \"$pathToRemoveExecFile\"\nls \"$pathToCopy\"\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

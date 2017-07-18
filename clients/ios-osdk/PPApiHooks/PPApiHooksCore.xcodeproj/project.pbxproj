@@ -100,6 +100,7 @@
 		98AFA7581EC0535C00D1D2CB /* PPApiHooksCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPApiHooksCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98AFA75A1EC0535D00D1D2CB /* PPApiHooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPApiHooksTests.m; sourceTree = "<group>"; };
 		98AFA75C1EC0535D00D1D2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C062481F1E493500B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
 		98F7A6961E76ECB200FF635A /* AVCaptureDevice+PPHOOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVCaptureDevice+PPHOOK.m"; sourceTree = "<group>"; };
 		98F7A6991E76ECB200FF635A /* CMAltimeter+PPHOOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMAltimeter+PPHOOK.m"; sourceTree = "<group>"; };
 		98F7A69B1E76ECB200FF635A /* CMMotionManager+PPHOOK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMMotionManager+PPHOOK.m"; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 		98584F331D3F9E18009FB89F = {
 			isa = PBXGroup;
 			children = (
+				98C062481F1E493500B35E76 /* FrameworkCopyPathsList.txt */,
 				98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */,
 				98AFA7591EC0535D00D1D2CB /* PPApiHooksTests */,
 				98584F3E1D3F9E18009FB89F /* Products */,
@@ -426,6 +428,7 @@
 				98584F391D3F9E18009FB89F /* Frameworks */,
 				98584F3A1D3F9E18009FB89F /* Headers */,
 				98584F3B1D3F9E18009FB89F /* Resources */,
+				98C062471F1E490000B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -526,6 +529,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		98C062471F1E490000B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -64,6 +64,7 @@
 		9896F46F1E89563F00BA0D6E /* PPWebContentBlockerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPWebContentBlockerEngine.m; path = PPWebContentBlockerEngine/PPWebContentBlockerEngine.m; sourceTree = "<group>"; };
 		9896F4741E8957C400BA0D6E /* PPActionForWebContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPActionForWebContent.h; path = PPActionForWebContent/PPActionForWebContent.h; sourceTree = "<group>"; };
 		9896F4751E8957C400BA0D6E /* PPActionForWebContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPActionForWebContent.m; path = PPActionForWebContent/PPActionForWebContent.m; sourceTree = "<group>"; };
+		98C0624B1F1E4CE700B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
 		98F10DDF1E8A795E00AA5A74 /* ad_block_client.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ad_block_client.cc; sourceTree = "<group>"; };
 		98F10DE01E8A795E00AA5A74 /* ad_block_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ad_block_client.h; sourceTree = "<group>"; };
 		98F10DE11E8A795E00AA5A74 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		98584F331D3F9E18009FB89F = {
 			isa = PBXGroup;
 			children = (
+				98C0624B1F1E4CE700B35E76 /* FrameworkCopyPathsList.txt */,
 				98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */,
 				98584F3E1D3F9E18009FB89F /* Products */,
 			);
@@ -245,6 +247,7 @@
 				98584F391D3F9E18009FB89F /* Frameworks */,
 				98584F3A1D3F9E18009FB89F /* Headers */,
 				98584F3B1D3F9E18009FB89F /* Resources */,
+				98C0624A1F1E4CD200B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -323,6 +326,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		98C0624A1F1E4CD200B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

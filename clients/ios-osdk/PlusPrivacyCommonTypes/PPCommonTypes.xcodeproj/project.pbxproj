@@ -21,9 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		98442BE91F150F0000B6F349 /* SCDSchema.json in Resources */ = {isa = PBXBuildFile; fileRef = 98442BE81F150F0000B6F349 /* SCDSchema.json */; };
 		98584F411D3F9E18009FB89F /* PPCommonTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 98584F401D3F9E18009FB89F /* PPCommonTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		989E47901E2FB7A8005ECE53 /* PlusPrivacyCommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E478F1E2FB7A8005ECE53 /* PlusPrivacyCommonTypes.swift */; };
+		98C062371F1E101D00B35E76 /* FrameworkCopyPathsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98C062361F1E101D00B35E76 /* FrameworkCopyPathsList.txt */; };
+		98C062391F1E176700B35E76 /* BundleCopyPathsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98C062381F1E176700B35E76 /* BundleCopyPathsList.txt */; };
 		98C615911E4336D700144BA8 /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6158F1E4336D700144BA8 /* JSONSchema.swift */; };
 		98C615921E4336D700144BA8 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C615901E4336D700144BA8 /* Validators.swift */; };
 		98C615941E43371700144BA8 /* SchemaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C615931E43371700144BA8 /* SchemaProvider.swift */; };
@@ -34,11 +35,12 @@
 /* Begin PBXFileReference section */
 		98331CB31E571232005D3A84 /* PPCommonTypesBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPCommonTypesBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		98331CB51E571232005D3A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98442BE81F150F0000B6F349 /* SCDSchema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SCDSchema.json; sourceTree = "<group>"; };
 		98584F3D1D3F9E18009FB89F /* PPCommonTypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PPCommonTypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98584F401D3F9E18009FB89F /* PPCommonTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCommonTypes.h; sourceTree = "<group>"; };
 		98584F421D3F9E18009FB89F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		989E478F1E2FB7A8005ECE53 /* PlusPrivacyCommonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusPrivacyCommonTypes.swift; sourceTree = "<group>"; };
+		98C062361F1E101D00B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
+		98C062381F1E176700B35E76 /* BundleCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BundleCopyPathsList.txt; sourceTree = "<group>"; };
 		98C6158F1E4336D700144BA8 /* JSONSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
 		98C615901E4336D700144BA8 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		98C615931E43371700144BA8 /* SchemaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchemaProvider.swift; path = SwiftJSONSchema/SchemaProvider.swift; sourceTree = "<group>"; };
@@ -67,7 +69,6 @@
 		98331CB41E571232005D3A84 /* PPCommonTypesBundle */ = {
 			isa = PBXGroup;
 			children = (
-				98442BE81F150F0000B6F349 /* SCDSchema.json */,
 				98331CB51E571232005D3A84 /* Info.plist */,
 			);
 			path = PPCommonTypesBundle;
@@ -76,6 +77,8 @@
 		98584F331D3F9E18009FB89F = {
 			isa = PBXGroup;
 			children = (
+				98C062361F1E101D00B35E76 /* FrameworkCopyPathsList.txt */,
+				98C062381F1E176700B35E76 /* BundleCopyPathsList.txt */,
 				98584F3F1D3F9E18009FB89F /* GenericFrameworkProject */,
 				98331CB41E571232005D3A84 /* PPCommonTypesBundle */,
 				98584F3E1D3F9E18009FB89F /* Products */,
@@ -135,6 +138,7 @@
 				98331CAF1E571232005D3A84 /* Sources */,
 				98331CB01E571232005D3A84 /* Frameworks */,
 				98331CB11E571232005D3A84 /* Resources */,
+				98C0623A1F1E178900B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -153,6 +157,7 @@
 				98584F391D3F9E18009FB89F /* Frameworks */,
 				98584F3A1D3F9E18009FB89F /* Headers */,
 				98584F3B1D3F9E18009FB89F /* Resources */,
+				98C062351F1DFC7400B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -209,7 +214,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98442BE91F150F0000B6F349 /* SCDSchema.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C062391F1E176700B35E76 /* BundleCopyPathsList.txt in Resources */,
+				98C062371F1E101D00B35E76 /* FrameworkCopyPathsList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +241,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		98C062351F1DFC7400B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\ncd \"$SRCROOT\"\n\n\n\necho \"Current directory is $PWD\"\n\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\n then\n  cp -r \"$pathToCopy\" \"$line\"\n  echo \"Did copy to $line\"\nelse\n  echo \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
+		};
+		98C0623A1F1E178900B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/BundleCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\npathToRemoveExecFile=\"$pathToCopy/$EXECUTABLE_NAME\"\necho \"Removing executable from bundle $pathToRemoveExecFile\"\n\nrm -v \"$pathToRemoveExecFile\"\nls \"$pathToCopy\"\n\ncd \"$SRCROOT\"\npathToSCDJSON=\"./../../SelfCompliance/SCDSchema.json\"\n\necho \"Current directory is $PWD\"\necho \"Copying SCDSchema.json from $pathToSCDJSON into $pathToCopy\"\ncp \"$pathToSCDJSON\" \"$pathToCopy\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -108,6 +108,7 @@
 		9885DECB1EEEC3D300888B1D /* unix_standard_mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unix_standard_mode.h; sourceTree = "<group>"; };
 		988AF16E1EF2B7E5004FDFB3 /* SymbolInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SymbolInfo.c; path = SymbolInfo/SymbolInfo.c; sourceTree = "<group>"; };
 		988AF16F1EF2B7E5004FDFB3 /* SymbolInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolInfo.h; path = SymbolInfo/SymbolInfo.h; sourceTree = "<group>"; };
+		98C062461F1E413400B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +134,7 @@
 		9885DE891EEEC1FB00888B1D = {
 			isa = PBXGroup;
 			children = (
+				98C062461F1E413400B35E76 /* FrameworkCopyPathsList.txt */,
 				9885DE951EEEC1FB00888B1D /* iOSNM */,
 				9885DE941EEEC1FB00888B1D /* Products */,
 			);
@@ -284,6 +286,7 @@
 				9885DE8F1EEEC1FB00888B1D /* Frameworks */,
 				9885DE901EEEC1FB00888B1D /* Headers */,
 				9885DE911EEEC1FB00888B1D /* Resources */,
+				98C062451F1E412800B35E76 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -335,6 +338,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98C062451F1E412800B35E76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9885DE8E1EEEC1FB00888B1D /* Sources */ = {

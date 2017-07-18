@@ -2,6 +2,27 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Operando Self-Compliance Document Schema",
   "description": "To describe and validate Operando certified applications self-compliance documents",
+  "definitions": {
+    "inputType": {
+            "description": "A string describing the sensor type.",
+            "type": "string",
+            "enum": [
+              "loc",
+              "mic",
+              "cam",
+              "gyro",
+              "acc",
+              "prox",
+              "touchID",
+              "bar",
+              "force",
+              "pedo",
+              "magneto",
+              "contacts",
+              "bat"
+            ]
+          }
+  },
   "type": "object",
   "properties": {
     "appIconURL": {
@@ -16,6 +37,23 @@
       "description": "The title of the app, as it will be displayed in Operando",
       "type": "string"
     },
+    
+    "sdkCheck": {
+      "type": "array", 
+        "items": {
+           "type": "object", 
+           "required": ["sdkName", "denyWithZeroValues"],
+           "properties": {
+             "sdkName": {"type": "string"},
+             "denyWithZeroValues": {
+               "type": "array",
+               "items": { "$ref": "#/definitions/inputType"
+               }
+             }
+           }
+        }
+    },
+      
     "accessedHosts": {
       "description": "The list of hosts that the app will access or a reason for which these cannot be stated, such as the presence of a web browser in the app.",
       "oneOf": [
@@ -53,25 +91,7 @@
         "description": "An object describing a sensor used by the application and it's security level",
         "type": "object",
         "properties": {
-          "inputType": {
-            "description": "A string describing the sensor type.",
-            "type": "string",
-            "enum": [
-              "loc",
-              "mic",
-              "cam",
-              "gyro",
-              "acc",
-              "prox",
-              "touchID",
-              "bar",
-              "force",
-              "pedo",
-              "magneto",
-              "contacts",
-              "bat"
-            ]
-          },
+          "inputType": {"$ref": "#/definitions/inputType"},
           "privacyDescription": {
             "properties": {
               "privacyLevel": {
