@@ -120,11 +120,13 @@ function resetPasswordController()
 function loginController()
 {
     insertScriptIfShortcode("loginController", 'account-login', plugins_url('/js/app/controllers/user/loginController.js', __FILE__));
+    insertScriptIfShortcode("checkInstall", 'account-login', plugins_url('/js/app/check-installation.js', __FILE__));
 }
 
 function signupController()
 {
     insertScriptIfShortcode("signupController", 'account-register', plugins_url('/js/app/controllers/user/signupController.js', __FILE__));
+    insertScriptIfShortcode("checkInstall", 'account-register', plugins_url('/js/app/check-installation.js', __FILE__));
 }
 
 function userDashboardController(){
