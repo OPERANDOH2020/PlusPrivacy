@@ -71,7 +71,10 @@ var userInfoSwarming =
         this.sessionId = this.getSessionId();
         this.swarm("generateAuthenticationToken");
     },
-
+    deleteAccount:function(){
+        this.userId = this.meta.userId;
+        this.swarm("clearUserDetails");
+    },
     checkUserInfo: {
         node: "UsersManager",
         code: function () {
@@ -251,7 +254,71 @@ var userInfoSwarming =
 
             }));
         }
+    },
+
+    clearUserDetails:{
+        node:"UsersManager",
+        code:function(){
+            var self = this;
+            deleteUser({userId:this.userId}, S(function(err, data){
+                if(err){
+                    self.error = err.message;
+                    self.home("failed");
+                }
+                else{
+                    self.swarm("deleteUserIdentities");
+                }
+            }));
+        }
+    },
+    deleteUserIdentities:{
+        node : "IdentityManager",
+        code : function(){
+            var self = this;
+            deleteUserIdentities(this.userId,S(function(err){
+                if(err){
+                    self.error = err.message;
+                    self.home("failed");
+                }
+                else{
+                    self.swarm("deleteUserPreferences");
+                }
+            }))
+        }
+    },
+
+    deleteUserPreferences:{
+        node : "UserPreferencesAdapter",
+        code : function(){
+            var self = this;
+            deleteAllPreferences(this.userId, S(function(err, result){
+                if(err){
+                    self.error = err.message;
+                    self.home("failed");
+                }else{
+                    self.swarm("deleteUserDevices")
+                }
+            }));
+        }
+    },
+    deleteUserDevices:{
+        node:"UDEAdapter",
+        code: function () {
+            var self = this;
+
+            deleteUserDevices(this.userId, S(function (err) {
+                if(err){
+                    self.error = err.message;
+                    self.home("failed");
+                }
+                else{
+                    self.home("success");
+                    startSwarm("login.js","logout");
+                }
+            }));
+        }
     }
+
 }
 
 userInfoSwarming;

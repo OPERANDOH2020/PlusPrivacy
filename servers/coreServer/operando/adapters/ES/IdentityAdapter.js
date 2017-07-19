@@ -332,7 +332,7 @@ changeRealIdentity = function(user, callback){
             }
         }
     })();
-}
+};
 
 getUserId = function(proxyEmail,callback){
     persistence.findById("Identity",proxyEmail,function(err,result){
@@ -350,6 +350,47 @@ getUserId = function(proxyEmail,callback){
         }
         callback(err,result.userId);
     })
+};
+
+deleteUserIdentities = function(userId,callback){
+
+    flow.create("deleteAllIdentities",{
+        begin:function(){
+            this.errs = [];
+            persistence.filter("Identity",{userId:userId},this.continue("deleteIdentities"))
+        },
+        deleteIdentities: function (err, identities) {
+            var self = this;
+            if (err) {
+                callback(err);
+            }
+            else if (identities.length > 0) {
+                identities.forEach(function (identitiy) {
+                    persistence.delete(identitiy, self.continue("waitIdentityDeletion"));
+                });
+            }
+            else {
+                callback(null);
+            }
+        },
+        waitIdentityDeletion:function(err, deletedIdentity){
+            if(err){
+                this.errs.push(err);
+            }
+        },
+        end:{
+            join:"waitIdentityDeletion",
+            code:function(){
+                if(this.errs.length>0){
+                    callback(this.errs[0])
+                }
+                else{
+                    callback(null);
+                }
+            }
+        }
+    })();
+
 };
 
 
