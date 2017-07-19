@@ -22,7 +22,7 @@
     return self;
 }
 
--(PPPrivacyLevelViolationReport *)detectViolationForInput:(AccessedInput *)input overNetworkRequest:(NSURLRequest *)request {
+-(PPUsageLevelViolationReport *)detectViolationForInput:(AccessedInput *)input overNetworkRequest:(NSURLRequest *)request {
     
     return nil;
 }

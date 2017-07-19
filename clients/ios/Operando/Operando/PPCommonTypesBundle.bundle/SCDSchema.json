@@ -21,7 +21,17 @@
               "contacts",
               "bat"
             ]
-          }
+          },
+    "accessFrequency": {
+       "description": "A string describing how often will the data be queried during an application's lifetime",
+         "type": "string",
+         "enum": [ "F1", "F2", "F3", "F4"]
+    },
+    "userControl": {
+      "description": "A string describing whether the user has control over the process of gathering/querying data or not",
+        "type": "string",
+        "enum": ["C1", "C2", "C3"]
+    }
   },
   "type": "object",
   "properties": {
@@ -47,8 +57,7 @@
              "sdkName": {"type": "string"},
              "denyWithZeroValues": {
                "type": "array",
-               "items": { "$ref": "#/definitions/inputType"
-               }
+               "items": { "$ref": "#/definitions/inputType"}
              }
            }
         }
@@ -94,7 +103,7 @@
           "inputType": {"$ref": "#/definitions/inputType"},
           "privacyDescription": {
             "properties": {
-              "privacyLevel": {
+              "usageLevel": {
                 "description": "An integer describing the privacy level (which indicates how the data collected from this senser is being used. Corresponding to PL{i}",
                 "type": "integer",
                 "minimum": 1,
@@ -126,7 +135,7 @@
               {
                 "type": "object",
                 "properties": {
-                  "privacyLevel": {
+                  "usageLevel": {
                     "enum": [
                       1,
                       2,
@@ -137,36 +146,30 @@
                   }
                 },
                 "required": [
-                  "privacyLevel"
+                  "usageLevel"
                 ]
               },
               {
                 "type": "object",
                 "properties": {
-                  "privacyLevel": {
+                  "usageLevel": {
                     "enum": [
                       5
                     ]
                   }
                 },
                 "required": [
-                  "privacyLevel",
+                  "usageLevel",
                   "thirdParties"
                 ]
               }
             ]
           },
           "accessFrequency": {
-            "description": "A string specifying how often the data from this sensor if fetched/queried.",
-            "enum": [
-              "continuously",
-              "continuousIntervals",
-              "singularSample"
-            ]
+            "$ref": "#/definitions/accessFrequency"
           },
           "userControl": {
-            "type": "boolean",
-            "description": "A boolean which indicates whether the user can control if or when the the data is being collected"
+            "$ref": "#/definitions/userControl"
           }
         },
         "required": [

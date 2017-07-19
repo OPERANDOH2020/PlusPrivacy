@@ -34,17 +34,51 @@ public class BaseStringEnum: NSObject {
 }
 
 @objc
-public class AccessFrequencyType: BaseStringEnum {
-    public static let SingularSampleRawValue = "singularSample"
-    public static let ContinuousRawValue = "continuously"
-    public static let ContinuousIntervalsRawValue = "continuousIntervals"
+public class UserControlType: BaseStringEnum {
+    public static let ControlViaSystemWindowRawValue = "C1"
+    public static let ControlViaApplicationWindowRawValue = "C2"
+    public static let NoControlRawValue = "C3"
     
+    override internal init?(rawValue: String) {
+        guard rawValue == UserControlType.ControlViaApplicationWindowRawValue ||
+              rawValue == UserControlType.ControlViaSystemWindowRawValue ||
+              rawValue == UserControlType.NoControlRawValue else {
+            return nil
+        }
+        
+        super.init(rawValue: rawValue)
+    }
+    
+    public static func createFrom(rawValue: String) -> UserControlType? {
+        return UserControlType(rawValue: rawValue)
+    }
+    
+    public static var ControlViaSystemWindow: UserControlType {
+        return UserControlType(rawValue: UserControlType.ControlViaSystemWindowRawValue)!
+    }
+    
+    public static var ControlViaApplicationWindow: UserControlType {
+        return UserControlType(rawValue: UserControlType.ControlViaApplicationWindowRawValue)!
+    }
+    
+    public static var NoControl: UserControlType {
+        return UserControlType(rawValue: UserControlType.NoControlRawValue)!
+    }
+}
+
+@objc
+public class AccessFrequencyType: BaseStringEnum {
+    public static let SingularSampleRawValue = "F1"
+    public static let ContinuousIntervalsRawValue = "F2"
+    public static let ContinuousRawValue = "F3"
+    public static let RandomUnspecifiedRawValue = "F4"
 
     
     override internal init?(rawValue: String){
         guard rawValue == AccessFrequencyType.SingularSampleRawValue ||
               rawValue == AccessFrequencyType.ContinuousRawValue ||
-            rawValue == AccessFrequencyType.ContinuousIntervalsRawValue else {
+              rawValue == AccessFrequencyType.ContinuousIntervalsRawValue ||
+              rawValue == AccessFrequencyType.RandomUnspecifiedRawValue else {
                 return nil
         }
         
@@ -68,7 +102,9 @@ public class AccessFrequencyType: BaseStringEnum {
         return AccessFrequencyType(rawValue: ContinuousIntervalsRawValue)!
     }
     
-
+    public static var RandomUnspecified: AccessFrequencyType {
+        return AccessFrequencyType(rawValue: RandomUnspecifiedRawValue)!
+    }
     
     public static let accessFrequenciesDescriptions: [AccessFrequencyType: String] = [ AccessFrequencyType.Continuous : "The data is collected continuously throughout the lifetime of the app.",
                                                                            AccessFrequencyType.ContinuousIntervals: "The data is collected continuously in time intervals, triggered by certain events (e.g when the you presss Record/Stop or enter in a geofencing area)",
@@ -208,7 +244,7 @@ public class ThirdParty: NSObject {
 }
 
 @objc
-public enum PrivacyLevelType: Int {
+public enum UsageLevelType: Int {
     case LocalOnly = 1
     case AggregateOnly = 2
     case DPCompatible = 3
@@ -220,12 +256,12 @@ public enum PrivacyLevelType: Int {
 
 @objc
 public class PrivacyDescription: NSObject {
-    public let privacyLevel: PrivacyLevelType
+    public let usageLevel: UsageLevelType
     public let thirdParties: [ThirdParty]
     
     public init?(dict: [String: Any]) {
-        guard let privacyLevelRawValue = dict["privacyLevel"] as? Int,
-            let privacyLevel = PrivacyLevelType(rawValue: privacyLevelRawValue)
+        guard let privacyLevelRawValue = dict["usageLevel"] as? Int,
+            let privacyLevel = UsageLevelType(rawValue: privacyLevelRawValue)
              else {
                 return nil
         }
@@ -233,7 +269,7 @@ public class PrivacyDescription: NSObject {
         
         var parties: [ThirdParty] = []
         
-        self.privacyLevel = privacyLevel
+        self.usageLevel = privacyLevel
         if let thirdPartiesDictArray = dict["thirdParties"] as? [[String: Any]] {
             thirdPartiesDictArray.forEach { if let tp = ThirdParty(dict: $0) { parties.append(tp)} }
         }
@@ -249,7 +285,7 @@ public class SDKCheckItem: NSObject {
     
     public init?(dict: [String: Any]){
         guard let sdkName = dict["sdkName"] as? String,
-              let inputTypeNames = dict["deniedWithZeroValues"] as? [String] else {
+              let inputTypeNames = dict["denyWithZeroValues"] as? [String] else {
               return nil
         }
         
@@ -272,7 +308,7 @@ public class AccessedInput: NSObject {
     public let inputType: InputType
     public let privacyDescription: PrivacyDescription
     public let accessFrequency: AccessFrequencyType
-    public let userControl: Bool
+    public let userControl: UserControlType
     
     public init?(dict: [String: Any]) {
         guard let inputTypeRawValue = dict["inputType"] as? String,
@@ -281,7 +317,8 @@ public class AccessedInput: NSObject {
             let privacyDescription = PrivacyDescription(dict: pdDict),
             let accessFrequencyRawValue = dict["accessFrequency"] as? String,
             let accessFrequency = AccessFrequencyType.createFrom(rawValue: accessFrequencyRawValue),
-            let userControl = dict["userControl"] as? Bool
+            let userControlRawValue = dict["userControl"] as? String,
+            let userControl = UserControlType(rawValue: userControlRawValue)
             else {
                 return nil
         }
@@ -352,7 +389,9 @@ public class SCDDocument: NSObject {
         self.accessedInputs = accessedSensors
         self.accessedHosts = accessedHosts
         self.appIconURL = scd["appIconURL"] as? String
+        
         if let sdkCheckItemsArray = scd["sdkCheck"] as? [[String: Any]] {
+            print("Found sdkcheck array!")
             self.sdkChecks = SDKCheckItem.buildFromJsonArray(sdkCheckItemsArray)
         } else {
             self.sdkChecks = nil 

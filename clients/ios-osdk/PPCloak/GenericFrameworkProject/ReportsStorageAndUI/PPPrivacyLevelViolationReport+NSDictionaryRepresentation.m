@@ -8,6 +8,6 @@
 
 #import "PPPrivacyLevelViolationReport+NSDictionaryRepresentation.h"
 
-@implementation PPPrivacyLevelViolationReport(NSDictionaryRepresentation)
+@implementation PPUsageLevelViolationReport(NSDictionaryRepresentation)
 
 @end

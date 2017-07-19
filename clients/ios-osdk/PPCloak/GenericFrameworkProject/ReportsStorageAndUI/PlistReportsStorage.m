@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) NSMutableArray<PPAccessFrequencyViolationReport*> *frequencyReportsArray;
 @property (strong, nonatomic) NSMutableArray<PPAccessUnlistedHostReport*> *hostReportsArray;
-@property (strong, nonatomic) NSMutableArray<PPPrivacyLevelViolationReport*> *privacyLevelReportsArray;
+@property (strong, nonatomic) NSMutableArray<PPUsageLevelViolationReport*> *privacyLevelReportsArray;
 @property (strong, nonatomic) NSMutableArray<PPUnlistedInputAccessViolation*> *inputReportsArray;
 
 @end
@@ -74,7 +74,7 @@ static NSString *kInputRepository = @"kInputRepository";
 
 #pragma mark - PrivacyLevel Repository
 
--(void)addPrivacyLevelReport:(PPPrivacyLevelViolationReport *)report withCompletion:(PossibleErrorCallback)completion{
+-(void)addPrivacyLevelReport:(PPUsageLevelViolationReport *)report withCompletion:(PossibleErrorCallback)completion{
     
     [self.privacyLevelReportsArray addObject:report];
     [PlistReportsStorage synchronizeArray:self.privacyLevelReportsArray toPlistNamed:kPrivacyLevelRepository];
@@ -138,7 +138,7 @@ static NSString *kInputRepository = @"kInputRepository";
     
     self.hostReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPAccessUnlistedHostReport class] fromDictionaries:hostDicts];
     
-    self.privacyLevelReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPPrivacyLevelViolationReport class] fromDictionaries:privacyLevelDicts];
+    self.privacyLevelReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPUsageLevelViolationReport class] fromDictionaries:privacyLevelDicts];
     
     self.inputReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPUnlistedInputAccessViolation class] fromDictionaries:inputAccessDicts];
     

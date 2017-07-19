@@ -70,6 +70,12 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"AppSCD" ofType:@"json"];
     NSString *fileText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
+    if (!fileText || fileText.length == 0) {
+        NSString *message = [NSString stringWithFormat:@"Could not find JSON document AppSCD.json in the app bundle! PPCloak will not monitor this app."];
+        [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+        return;
+    }
+    
     NSData *data = [fileText dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
@@ -240,7 +246,7 @@
 }
 
 
--(void)newPrivacyLevelViolationReported:(PPPrivacyLevelViolationReport *)report {
+-(void)newPrivacyLevelViolationReported:(PPUsageLevelViolationReport *)report {
     // must complete
 }
 
@@ -248,6 +254,11 @@
     // must complete 
 }
 
+-(void)newModuleDeniedAccessReport:(ModuleDeniedAccessReport *)report{
+    //must complete
+    NSString *message = [NSString stringWithFormat:@"Denied access to framework [%@] for %@", report.moduleName, InputType.namesPerInputType[report.inputType]];
+    [self displayNotificationIfPossible:message];
+}
 
 #pragma mark -
 

@@ -12,13 +12,13 @@ import PPCommonTypes
 class EULATextBuilder: NSObject {
 
     
-    private static let privacyLevelShortNames: [PrivacyLevelType: String] = [.LocalOnly: "Local-Only", .AggregateOnly: "Only-Aggregate", .DPCompatible: "DP-Compatible", .SelfUseOnly: "Self-Use Only",
+    private static let privacyLevelShortNames: [UsageLevelType: String] = [.LocalOnly: "Local-Only", .AggregateOnly: "Only-Aggregate", .DPCompatible: "DP-Compatible", .SelfUseOnly: "Self-Use Only",
                                                                 .SharedWithThirdParty: "ThirdParty-Shared", .Unspecified: "Unspecified-Usages"]
     
     
     
     
-    private static let privacyLevelDescriptions: [PrivacyLevelType: String] = [.LocalOnly: "The data collected under this privacy level is used locally only.",
+    private static let privacyLevelDescriptions: [UsageLevelType: String] = [.LocalOnly: "The data collected under this privacy level is used locally only.",
                                                                   .AggregateOnly: "Under this privacy level, bulks of data are sent to the vendor of the app, in an anonymised method (i.e. via https) and they may link the data to your account/ id if any.",
                                                                   .DPCompatible: "Bulks of data are sent securely (i.e via https) to the vendor of the app, in a manner that guarantees the data does not link back to your account/id if any.",
                                                                   .SelfUseOnly: "De discutat cu Sinica",
@@ -92,8 +92,8 @@ class EULATextBuilder: NSObject {
         
         let aggregatedSensors = EULATextBuilder.agreggateBasedOnPrivacyLevel(sensors: scd.accessedInputs)
         
-        for i in [PrivacyLevelType.LocalOnly, PrivacyLevelType.SelfUseOnly, PrivacyLevelType.DPCompatible,
-                  PrivacyLevelType.AggregateOnly, PrivacyLevelType.SharedWithThirdParty, PrivacyLevelType.Unspecified].reversed() {
+        for i in [UsageLevelType.LocalOnly, UsageLevelType.SelfUseOnly, UsageLevelType.DPCompatible,
+                  UsageLevelType.AggregateOnly, UsageLevelType.SharedWithThirdParty, UsageLevelType.Unspecified].reversed() {
             if let sensorsAtI = aggregatedSensors[i], sensorsAtI.count > 0 {
                 var sensorsNames: String = ""
                 sensorsAtI.forEach {sensorsNames.append("\(InputType.namesPerInputType[$0.inputType] ?? ""), ")}
@@ -137,17 +137,17 @@ class EULATextBuilder: NSObject {
         return story
     }
     
-    private static func agreggateBasedOnPrivacyLevel(sensors: [AccessedInput]) -> [PrivacyLevelType: [AccessedInput]] {
-        var result: [PrivacyLevelType: [AccessedInput]] = [:]
+    private static func agreggateBasedOnPrivacyLevel(sensors: [AccessedInput]) -> [UsageLevelType: [AccessedInput]] {
+        var result: [UsageLevelType: [AccessedInput]] = [:]
         
-        for type in [PrivacyLevelType.AggregateOnly, PrivacyLevelType.DPCompatible, PrivacyLevelType.LocalOnly,
-                     PrivacyLevelType.Unspecified, PrivacyLevelType.SharedWithThirdParty, PrivacyLevelType.SelfUseOnly] {
+        for type in [UsageLevelType.AggregateOnly, UsageLevelType.DPCompatible, UsageLevelType.LocalOnly,
+                     UsageLevelType.Unspecified, UsageLevelType.SharedWithThirdParty, UsageLevelType.SelfUseOnly] {
             
                         result[type] = [];
         }
         
         for sensor in sensors {
-            result[sensor.privacyDescription.privacyLevel]?.append(sensor)
+            result[sensor.privacyDescription.usageLevel]?.append(sensor)
         }
         
         return result
@@ -195,7 +195,7 @@ class EULATextBuilder: NSObject {
     private static func buildUserControlPart(from document: SCDDocument) -> NSAttributedString {
         var perUserControl = EULATextBuilder.aggregateBasedOnUserControl(sensors: document.accessedInputs)
         var story = ""
-        let noControlSensors = perUserControl[false] ?? []
+        let noControlSensors = perUserControl[.NoControl] ?? []
         
         if noControlSensors.count > 0 {
             story.append("You do not have control when data is queried or how often, ")
@@ -224,11 +224,12 @@ class EULATextBuilder: NSObject {
     
     
     
-    private static func aggregateBasedOnUserControl(sensors: [AccessedInput]) -> [Bool: [AccessedInput]] {
-        var result: [Bool: [AccessedInput]] = [:]
+    private static func aggregateBasedOnUserControl(sensors: [AccessedInput]) -> [UserControlType: [AccessedInput]] {
+        var result: [UserControlType: [AccessedInput]] = [:]
         
-        result[true] = []
-        result[false] = []
+        result[.ControlViaApplicationWindow] = []
+        result[.ControlViaSystemWindow] = []
+        result[.NoControl] = []
         
         sensors.forEach {
             result[$0.userControl]?.append($0)

@@ -153,10 +153,12 @@ SWIFT_CLASS("_TtC13PPCommonTypes19AccessFrequencyType")
 @interface AccessFrequencyType : BaseStringEnum
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull SingularSampleRawValue;)
 + (NSString * _Nonnull)SingularSampleRawValue SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ContinuousRawValue;)
-+ (NSString * _Nonnull)ContinuousRawValue SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ContinuousIntervalsRawValue;)
 + (NSString * _Nonnull)ContinuousIntervalsRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ContinuousRawValue;)
++ (NSString * _Nonnull)ContinuousRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull RandomUnspecifiedRawValue;)
++ (NSString * _Nonnull)RandomUnspecifiedRawValue SWIFT_WARN_UNUSED_RESULT;
 + (AccessFrequencyType * _Nullable)createFromRawValue:(NSString * _Nonnull)rawValue SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessFrequencyType * _Nonnull Continuous;)
 + (AccessFrequencyType * _Nonnull)Continuous SWIFT_WARN_UNUSED_RESULT;
@@ -164,6 +166,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessFreque
 + (AccessFrequencyType * _Nonnull)SingularSample SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessFrequencyType * _Nonnull ContinuousIntervals;)
 + (AccessFrequencyType * _Nonnull)ContinuousIntervals SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AccessFrequencyType * _Nonnull RandomUnspecified;)
++ (AccessFrequencyType * _Nonnull)RandomUnspecified SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<AccessFrequencyType *, NSString *> * _Nonnull accessFrequenciesDescriptions;)
 + (NSDictionary<AccessFrequencyType *, NSString *> * _Nonnull)accessFrequenciesDescriptions SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -178,13 +182,14 @@ SWIFT_CLASS("_TtC13PPCommonTypes13AccessedHosts")
 
 @class InputType;
 @class PrivacyDescription;
+@class UserControlType;
 
 SWIFT_CLASS("_TtC13PPCommonTypes13AccessedInput")
 @interface AccessedInput : NSObject
 @property (nonatomic, readonly, strong) InputType * _Nonnull inputType;
 @property (nonatomic, readonly, strong) PrivacyDescription * _Nonnull privacyDescription;
 @property (nonatomic, readonly, strong) AccessFrequencyType * _Nonnull accessFrequency;
-@property (nonatomic, readonly) BOOL userControl;
+@property (nonatomic, readonly, strong) UserControlType * _Nonnull userControl;
 - (nullable instancetype)initWithDict:(NSDictionary<NSString *, id> * _Nonnull)dict OBJC_DESIGNATED_INITIALIZER;
 + (NSArray<AccessedInput *> * _Nullable)buildFromJsonArray:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)array SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -292,25 +297,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSError * _N
 + (NSError * _Nonnull)unknownCommonTypeError SWIFT_WARN_UNUSED_RESULT;
 @end
 
-enum PrivacyLevelType : NSInteger;
+enum UsageLevelType : NSInteger;
 @class ThirdParty;
 
 SWIFT_CLASS("_TtC13PPCommonTypes18PrivacyDescription")
 @interface PrivacyDescription : NSObject
-@property (nonatomic, readonly) enum PrivacyLevelType privacyLevel;
+@property (nonatomic, readonly) enum UsageLevelType usageLevel;
 @property (nonatomic, readonly, copy) NSArray<ThirdParty *> * _Nonnull thirdParties;
 - (nullable instancetype)initWithDict:(NSDictionary<NSString *, id> * _Nonnull)dict OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
-
-typedef SWIFT_ENUM(NSInteger, PrivacyLevelType) {
-  PrivacyLevelTypeLocalOnly = 1,
-  PrivacyLevelTypeAggregateOnly = 2,
-  PrivacyLevelTypeDPCompatible = 3,
-  PrivacyLevelTypeSelfUseOnly = 4,
-  PrivacyLevelTypeSharedWithThirdParty = 5,
-  PrivacyLevelTypeUnspecified = 6,
-};
 
 @class SDKCheckItem;
 
@@ -343,6 +339,33 @@ SWIFT_CLASS("_TtC13PPCommonTypes10ThirdParty")
 @property (nonatomic, readonly, copy) NSString * _Nonnull url;
 - (nullable instancetype)initWithDict:(NSDictionary<NSString *, id> * _Nonnull)dict OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+typedef SWIFT_ENUM(NSInteger, UsageLevelType) {
+  UsageLevelTypeLocalOnly = 1,
+  UsageLevelTypeAggregateOnly = 2,
+  UsageLevelTypeDPCompatible = 3,
+  UsageLevelTypeSelfUseOnly = 4,
+  UsageLevelTypeSharedWithThirdParty = 5,
+  UsageLevelTypeUnspecified = 6,
+};
+
+
+SWIFT_CLASS("_TtC13PPCommonTypes15UserControlType")
+@interface UserControlType : BaseStringEnum
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ControlViaSystemWindowRawValue;)
++ (NSString * _Nonnull)ControlViaSystemWindowRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ControlViaApplicationWindowRawValue;)
++ (NSString * _Nonnull)ControlViaApplicationWindowRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull NoControlRawValue;)
++ (NSString * _Nonnull)NoControlRawValue SWIFT_WARN_UNUSED_RESULT;
++ (UserControlType * _Nullable)createFromRawValue:(NSString * _Nonnull)rawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UserControlType * _Nonnull ControlViaSystemWindow;)
++ (UserControlType * _Nonnull)ControlViaSystemWindow SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UserControlType * _Nonnull ControlViaApplicationWindow;)
++ (UserControlType * _Nonnull)ControlViaApplicationWindow SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UserControlType * _Nonnull NoControl;)
++ (UserControlType * _Nonnull)NoControl SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #pragma clang diagnostic pop

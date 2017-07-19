@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PPPrivacyLevelViolationReport.h"
+#import "PPUsageLevelViolationReport.h"
 #import "DictionaryRepresentableProtocol.h"
 
-@interface PPPrivacyLevelViolationReport(NSDictionaryRepresentation) <DictionaryRepresentable>
+@interface PPUsageLevelViolationReport(NSDictionaryRepresentation) <DictionaryRepresentable>
 -(instancetype _Nullable)initWithNSDictionary:(NSDictionary* _Nullable)dictionary;
 -(NSDictionary* _Nullable)dictionaryRepresentation;
 @end

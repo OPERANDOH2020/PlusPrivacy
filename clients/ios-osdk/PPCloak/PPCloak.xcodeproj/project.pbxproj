@@ -186,8 +186,8 @@
 		98DA11F81E703850008E8373 /* PPCircularArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DA11F61E703850008E8373 /* PPCircularArray.m */; };
 		98DF60F81E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DF60F61E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98DF60F91E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF60F71E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m */; };
-		98DF60FD1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DF60FB1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98DF60FE1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF60FC1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.m */; };
+		98DF60FD1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DF60FB1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98DF60FE1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF60FC1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m */; };
 		98DF61021E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 98DF61001E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98DF61031E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF61011E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m */; };
 		98E1BF871EF2D04700F6E140 /* Security.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E1BF851EF2D04700F6E140 /* Security.m */; };
@@ -396,8 +396,8 @@
 		98DA11F61E703850008E8373 /* PPCircularArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPCircularArray.m; path = Models/Utilities/PPCircularArray/PPCircularArray.m; sourceTree = "<group>"; };
 		98DF60F61E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAccessUnlistedHostReport.h; path = Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h; sourceTree = "<group>"; };
 		98DF60F71E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAccessUnlistedHostReport.h.m; path = Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h.m; sourceTree = "<group>"; };
-		98DF60FB1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPrivacyLevelViolationReport.h; path = Models/ViolationReports/PPPrivacyLevelViolationReport/PPPrivacyLevelViolationReport.h; sourceTree = "<group>"; };
-		98DF60FC1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPrivacyLevelViolationReport.m; path = Models/ViolationReports/PPPrivacyLevelViolationReport/PPPrivacyLevelViolationReport.m; sourceTree = "<group>"; };
+		98DF60FB1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPUsageLevelViolationReport.h; path = Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.h; sourceTree = "<group>"; };
+		98DF60FC1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPUsageLevelViolationReport.m; path = Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.m; sourceTree = "<group>"; };
 		98DF61001E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPUnlistedInputAccessViolation.h; path = Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h; sourceTree = "<group>"; };
 		98DF61011E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPUnlistedInputAccessViolation.m; path = Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.m; sourceTree = "<group>"; };
 		98E1BF851EF2D04700F6E140 /* Security.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Security.m; sourceTree = "<group>"; };
@@ -1288,8 +1288,8 @@
 		98DF60FA1E65D220006EF2B3 /* PPPrivacyLevelViolationReport */ = {
 			isa = PBXGroup;
 			children = (
-				98DF60FB1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.h */,
-				98DF60FC1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.m */,
+				98DF60FB1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h */,
+				98DF60FC1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m */,
 			);
 			name = PPPrivacyLevelViolationReport;
 			sourceTree = "<group>";
@@ -1486,7 +1486,7 @@
 				98804EFA1E4DEB57009E6748 /* ViolationReportCell.h in Headers */,
 				98ECE46D1E41F8150042A262 /* TouchIdSupervisor.h in Headers */,
 				98F1FF821E71980A00A664AB /* GCDWebServerFunctions.h in Headers */,
-				98DF60FD1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.h in Headers */,
+				98DF60FD1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h in Headers */,
 				98FE5C221E92641B00096744 /* UILocationIndexPinView.h in Headers */,
 				98797E1F1E96869900AB3A0B /* ReportsStorageProtocol.h in Headers */,
 				985810C41EF955C2000EBF6B /* Strings.h in Headers */,
@@ -1792,7 +1792,7 @@
 				988716EE1E6D81CD005FAA45 /* UIViolationReportsSection.m in Sources */,
 				982175CC1E3FA0A700495627 /* ProximityInputSupervisor.m in Sources */,
 				9871E0861E97B27000A43695 /* UIRandomWalkMapView.m in Sources */,
-				98DF60FE1E65D5BB006EF2B3 /* PPPrivacyLevelViolationReport.m in Sources */,
+				98DF60FE1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m in Sources */,
 				98804EFB1E4DEB57009E6748 /* ViolationReportCell.m in Sources */,
 				98281D061E696FD100373369 /* PPAccessFrequencyViolationReport.m in Sources */,
 				987083CC1E8E3A9D00D9F8E9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,

@@ -47,15 +47,17 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
 
 -(void)processLocationEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
-    
     NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.locationSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
         [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.locationSensor.inputType]];
+        
+        NSLog(@"would deny for: %@", aPossibleModule);
         return;
     }
-
+    
+    NSLog(@"No denying, the array is: %@", self.model.scdDocument.sdkChecks);
     
     PPUnlistedInputAccessViolation *violationReport = nil;
     if ((violationReport = [self detectUnregisteredAccess])) {

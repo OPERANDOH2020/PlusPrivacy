@@ -22,7 +22,7 @@
 }
 
 -(void)loadReportsWithCompletion:(void (^)())completion{
-    [self.reportsSource getPrivacyLevelReportsIn:^(NSArray<PPPrivacyLevelViolationReport *> * _Nullable array, NSError * _Nullable error) {
+    [self.reportsSource getPrivacyLevelReportsIn:^(NSArray<PPUsageLevelViolationReport *> * _Nullable array, NSError * _Nullable error) {
         self.reportsArray = array;
         SAFECALL(completion)
     }];

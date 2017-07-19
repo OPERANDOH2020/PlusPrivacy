@@ -10,7 +10,7 @@
 #define ReportsStorageProtocol_h
 
 #import "PPUnlistedInputAccessViolation.h"
-#import "PPPrivacyLevelViolationReport.h"
+#import "PPUsageLevelViolationReport.h"
 #import "PPAccessFrequencyViolationReport.h"
 #import "PPAccessUnlistedHostReport.h"
 
@@ -20,7 +20,7 @@
 typedef void(^InputTypesCallback)(NSArray<InputType*>* __nullable, NSError * __nullable);
 typedef void(^UnlistedInputReportsCallback)(NSArray<PPUnlistedInputAccessViolation*>* __nullable, NSError * __nullable);
 
-typedef void(^PrivacyLevelReportsCallback)(NSArray<PPPrivacyLevelViolationReport*>* __nullable, NSError * __nullable);
+typedef void(^PrivacyLevelReportsCallback)(NSArray<PPUsageLevelViolationReport*>* __nullable, NSError * __nullable);
 
 typedef void(^UnlistedHostReportsCallback)(NSArray<PPAccessUnlistedHostReport*>* __nullable, NSError * __nullable);
 
@@ -59,7 +59,7 @@ typedef void(^PossibleErrorCallback)(NSError * __nullable error);
 @end
 
 @protocol PPPrivacyLevelReportsRepository <PPPrivacyLevelReportsSource>
--(void)addPrivacyLevelReport:(PPPrivacyLevelViolationReport* _Nonnull)report withCompletion:(PossibleErrorCallback __nullable)completion;
+-(void)addPrivacyLevelReport:(PPUsageLevelViolationReport* _Nonnull)report withCompletion:(PossibleErrorCallback __nullable)completion;
 @end
 
 @protocol PPUnlistedHostReportsRepository <PPUnlistedHostReportsSource>

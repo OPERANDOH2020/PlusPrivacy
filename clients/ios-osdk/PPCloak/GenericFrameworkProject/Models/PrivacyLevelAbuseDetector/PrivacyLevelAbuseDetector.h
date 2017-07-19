@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <PPCommonTypes/PPCommonTypes.h>
-#import "PPPrivacyLevelViolationReport.h"
+#import "PPUsageLevelViolationReport.h"
 
 @interface PrivacyLevelAbuseDetector : NSObject
 -(instancetype _Nonnull)initWithDocument:(SCDDocument* _Nonnull)document;
 
--(PPPrivacyLevelViolationReport* _Nullable)detectViolationForInput:(AccessedInput* _Nonnull)input sentOverNetworkRequest:(NSURLRequest* _Nonnull)request;
+-(PPUsageLevelViolationReport* _Nullable)detectViolationForInput:(AccessedInput* _Nonnull)input sentOverNetworkRequest:(NSURLRequest* _Nonnull)request;
 @end

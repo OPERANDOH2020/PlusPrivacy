@@ -58,8 +58,6 @@ extern NSArray *PPApiHooks_moduleNamesInCallStack(int skipLastN){
         return  result;
     }
     
-    char *progname = getprogname();
-    NSLog(@"Program name: %s", progname);
     
     void *stackAdresses[32];
     int stackSize = backtrace(stackAdresses, 32);
@@ -80,9 +78,6 @@ extern NSArray *PPApiHooks_moduleNamesInCallStack(int skipLastN){
 
 
 void PPApiHooks_printCallStack() {
-    
-    char *progname = getprogname();
-    NSLog(@"Program name: %s", progname);
     
     void *stackAdresses[32];
     int stackSize = backtrace(stackAdresses, 32);

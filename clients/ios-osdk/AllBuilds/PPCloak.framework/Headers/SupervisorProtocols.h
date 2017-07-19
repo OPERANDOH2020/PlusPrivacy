@@ -12,14 +12,14 @@
 #import <PPCommonTypes/PPCommonTypes.h>
 #import "PPAccessFrequencyViolationReport.h"
 #import "PPAccessUnlistedHostReport.h"
-#import "PPPrivacyLevelViolationReport.h"
+#import "PPUsageLevelViolationReport.h"
 #import "PPUnlistedInputAccessViolation.h"
 #import "InputSupervisorModel.h"
 #import "ModuleDeniedAccessReport.h"
 
 @protocol InputSupervisorDelegate <NSObject>
 -(void)newURLHostViolationReported:(PPAccessUnlistedHostReport* _Nonnull)report;
--(void)newPrivacyLevelViolationReported:(PPPrivacyLevelViolationReport* _Nonnull)report;
+-(void)newPrivacyLevelViolationReported:(PPUsageLevelViolationReport* _Nonnull)report;
 -(void)newUnlistedInputAccessViolationReported:(PPUnlistedInputAccessViolation* _Nonnull)report;
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport* _Nonnull)report;
 

@@ -32,7 +32,7 @@ class SCDSensorCell: UITableViewCell {
     
     
     func setupWith(sensor: AccessedInput) {
-        let privacyLevel = sensor.privacyDescription.privacyLevel.rawValue
+        let privacyLevel = sensor.privacyDescription.usageLevel.rawValue
         self.sensorNameLabel.text = InputType.namesPerInputType[sensor.inputType]
         self.privacyLevelLabel.text = "PL\(privacyLevel)"
         if privacyLevel >= 1 && privacyLevel <= SCDSensorCell.colorsPerPrivacyLevel.count {
