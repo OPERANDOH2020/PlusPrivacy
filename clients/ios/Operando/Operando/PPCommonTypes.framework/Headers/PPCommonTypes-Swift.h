@@ -241,6 +241,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)ContactsRawValue SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull BatteryRawValue;)
 + (NSString * _Nonnull)BatteryRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull MotionRawValue;)
++ (NSString * _Nonnull)MotionRawValue SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull InfoRawValue;)
++ (NSString * _Nonnull)InfoRawValue SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * _Nonnull Location;)
 + (InputType * _Nonnull)Location SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * _Nonnull Microphone;)
@@ -267,6 +271,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * 
 + (InputType * _Nonnull)Contacts SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * _Nonnull Battery;)
 + (InputType * _Nonnull)Battery SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * _Nonnull Motion;)
++ (InputType * _Nonnull)Motion SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) InputType * _Nonnull Info;)
++ (InputType * _Nonnull)Info SWIFT_WARN_UNUSED_RESULT;
 + (InputType * _Nullable)createFromRawValue:(NSString * _Nonnull)rawValue SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<InputType *, NSString *> * _Nonnull namesPerInputType;)
 + (NSDictionary<InputType *, NSString *> * _Nonnull)namesPerInputType SWIFT_WARN_UNUSED_RESULT;

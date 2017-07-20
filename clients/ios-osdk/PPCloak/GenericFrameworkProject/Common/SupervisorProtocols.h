@@ -15,7 +15,7 @@
 #import "PPUsageLevelViolationReport.h"
 #import "PPUnlistedInputAccessViolation.h"
 #import "InputSupervisorModel.h"
-#import "ModuleDeniedAccessReport.h"
+#import "PPModuleDeniedAccessReport.h"
 
 @protocol InputSupervisorDelegate <NSObject>
 -(void)newURLHostViolationReported:(PPAccessUnlistedHostReport* _Nonnull)report;
@@ -23,7 +23,7 @@
 -(void)newUnlistedInputAccessViolationReported:(PPUnlistedInputAccessViolation* _Nonnull)report;
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport* _Nonnull)report;
 
--(void)newModuleDeniedAccessReport:(ModuleDeniedAccessReport* _Nonnull)report;
+-(void)newModuleDeniedAccessReport:(PPModuleDeniedAccessReport* _Nonnull)report;
 
 @end
 

@@ -66,8 +66,8 @@
 		9843341D1F067D8E0016564E /* UIAboutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 984334191F067D780016564E /* UIAboutCollectionViewCell.xib */; };
 		984E7FBD1F17C362004E93BB /* NSArray+ContainsAnyFromArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 984E7FBB1F17C362004E93BB /* NSArray+ContainsAnyFromArray.h */; };
 		984E7FBE1F17C362004E93BB /* NSArray+ContainsAnyFromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E7FBC1F17C362004E93BB /* NSArray+ContainsAnyFromArray.m */; };
-		984E7FC21F17C745004E93BB /* ModuleDeniedAccessReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 984E7FC01F17C745004E93BB /* ModuleDeniedAccessReport.h */; };
-		984E7FC31F17C745004E93BB /* ModuleDeniedAccessReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E7FC11F17C745004E93BB /* ModuleDeniedAccessReport.m */; };
+		984E7FC21F17C745004E93BB /* PPModuleDeniedAccessReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 984E7FC01F17C745004E93BB /* PPModuleDeniedAccessReport.h */; };
+		984E7FC31F17C745004E93BB /* PPModuleDeniedAccessReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E7FC11F17C745004E93BB /* PPModuleDeniedAccessReport.m */; };
 		984E7FC71F17D47F004E93BB /* PickerControllerSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 984E7FC51F17D47F004E93BB /* PickerControllerSupervisor.h */; };
 		984E7FC81F17D47F004E93BB /* PickerControllerSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 984E7FC61F17D47F004E93BB /* PickerControllerSupervisor.m */; };
 		985419001E9502390004370F /* UILocationSettingsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 985418FE1E9502390004370F /* UILocationSettingsView.h */; };
@@ -166,6 +166,18 @@
 		989DB8E51E77D2CF008F4D02 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 989DB8E41E77D2CF008F4D02 /* Info.plist */; };
 		98B2346A1E53376B0015C2E9 /* UISCDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B234681E53376B0015C2E9 /* UISCDViewController.h */; };
 		98B2346B1E53376B0015C2E9 /* UISCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B234691E53376B0015C2E9 /* UISCDViewController.m */; };
+		98B3FD5F1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD5D1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h */; };
+		98B3FD601F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD5E1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m */; };
+		98B3FD641F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD621F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.h */; };
+		98B3FD651F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD631F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.m */; };
+		98B3FD691F20E0E6001652A4 /* GyroscopeInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD671F20E0E6001652A4 /* GyroscopeInputSupervisor.h */; };
+		98B3FD6A1F20E0E6001652A4 /* GyroscopeInputSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD681F20E0E6001652A4 /* GyroscopeInputSupervisor.m */; };
+		98B3FD6E1F20F71C001652A4 /* DeviceMotionInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD6C1F20F71C001652A4 /* DeviceMotionInputSupervisor.h */; };
+		98B3FD6F1F20F71C001652A4 /* DeviceMotionInputSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD6D1F20F71C001652A4 /* DeviceMotionInputSupervisor.m */; };
+		98B3FD731F210320001652A4 /* DeviceInfoInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD711F210320001652A4 /* DeviceInfoInputSupervisor.h */; };
+		98B3FD741F210320001652A4 /* DeviceInfoInputSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD721F210320001652A4 /* DeviceInfoInputSupervisor.m */; };
+		98B3FD781F21041B001652A4 /* BaseInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B3FD761F21041B001652A4 /* BaseInputSupervisor.h */; };
+		98B3FD791F21041B001652A4 /* BaseInputSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3FD771F21041B001652A4 /* BaseInputSupervisor.m */; };
 		98C062441F1E402A00B35E76 /* BundleCopyPathsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */; };
 		98CEF2691E5EEE84002C2145 /* UIUsageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CEF2671E5EEE84002C2145 /* UIUsageViewController.h */; };
 		98CEF26A1E5EEE84002C2145 /* UIUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CEF2681E5EEE84002C2145 /* UIUsageViewController.m */; };
@@ -267,8 +279,8 @@
 		984334191F067D780016564E /* UIAboutCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIAboutCollectionViewCell.xib; path = Views/UIAboutView/UIAboutCollectionViewCell/UIAboutCollectionViewCell.xib; sourceTree = "<group>"; };
 		984E7FBB1F17C362004E93BB /* NSArray+ContainsAnyFromArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+ContainsAnyFromArray.h"; path = "Helpers/NSArray+ContainsAnyFromArray.h"; sourceTree = "<group>"; };
 		984E7FBC1F17C362004E93BB /* NSArray+ContainsAnyFromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+ContainsAnyFromArray.m"; path = "Helpers/NSArray+ContainsAnyFromArray.m"; sourceTree = "<group>"; };
-		984E7FC01F17C745004E93BB /* ModuleDeniedAccessReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleDeniedAccessReport.h; path = Models/ModuleDeniedAccessReport/ModuleDeniedAccessReport.h; sourceTree = "<group>"; };
-		984E7FC11F17C745004E93BB /* ModuleDeniedAccessReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModuleDeniedAccessReport.m; path = Models/ModuleDeniedAccessReport/ModuleDeniedAccessReport.m; sourceTree = "<group>"; };
+		984E7FC01F17C745004E93BB /* PPModuleDeniedAccessReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPModuleDeniedAccessReport.h; path = Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.h; sourceTree = "<group>"; };
+		984E7FC11F17C745004E93BB /* PPModuleDeniedAccessReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPModuleDeniedAccessReport.m; path = Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.m; sourceTree = "<group>"; };
 		984E7FC51F17D47F004E93BB /* PickerControllerSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerControllerSupervisor.h; path = InputSupervisors/PickerControllerSupervisor/PickerControllerSupervisor.h; sourceTree = "<group>"; };
 		984E7FC61F17D47F004E93BB /* PickerControllerSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PickerControllerSupervisor.m; path = InputSupervisors/PickerControllerSupervisor/PickerControllerSupervisor.m; sourceTree = "<group>"; };
 		985418FE1E9502390004370F /* UILocationSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILocationSettingsView.h; path = Views/UILocationSettingsView/UILocationSettingsView.h; sourceTree = "<group>"; };
@@ -375,6 +387,18 @@
 		989DB8E41E77D2CF008F4D02 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98B234681E53376B0015C2E9 /* UISCDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UISCDViewController.h; path = Views/UISCDViewController/UISCDViewController.h; sourceTree = "<group>"; };
 		98B234691E53376B0015C2E9 /* UISCDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UISCDViewController.m; path = Views/UISCDViewController/UISCDViewController.m; sourceTree = "<group>"; };
+		98B3FD5D1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PPModuleDeniedAccessReport+NSDictionaryRepresentation.h"; sourceTree = "<group>"; };
+		98B3FD5E1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PPModuleDeniedAccessReport+NSDictionaryRepresentation.m"; sourceTree = "<group>"; };
+		98B3FD621F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIModuleDeniedAccessReportsSection.h; path = Views/UIViolationReportsViewController/UIModuleDeniedAccessReportsSection/UIModuleDeniedAccessReportsSection.h; sourceTree = "<group>"; };
+		98B3FD631F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIModuleDeniedAccessReportsSection.m; path = Views/UIViolationReportsViewController/UIModuleDeniedAccessReportsSection/UIModuleDeniedAccessReportsSection.m; sourceTree = "<group>"; };
+		98B3FD671F20E0E6001652A4 /* GyroscopeInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GyroscopeInputSupervisor.h; path = GyroscopeInputSupervisor/GyroscopeInputSupervisor.h; sourceTree = "<group>"; };
+		98B3FD681F20E0E6001652A4 /* GyroscopeInputSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GyroscopeInputSupervisor.m; path = GyroscopeInputSupervisor/GyroscopeInputSupervisor.m; sourceTree = "<group>"; };
+		98B3FD6C1F20F71C001652A4 /* DeviceMotionInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceMotionInputSupervisor.h; path = DeviceMotionInputSupervisor/DeviceMotionInputSupervisor.h; sourceTree = "<group>"; };
+		98B3FD6D1F20F71C001652A4 /* DeviceMotionInputSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceMotionInputSupervisor.m; path = DeviceMotionInputSupervisor/DeviceMotionInputSupervisor.m; sourceTree = "<group>"; };
+		98B3FD711F210320001652A4 /* DeviceInfoInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfoInputSupervisor.h; path = DeviceInfoInputSupervisor/DeviceInfoInputSupervisor.h; sourceTree = "<group>"; };
+		98B3FD721F210320001652A4 /* DeviceInfoInputSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfoInputSupervisor.m; path = DeviceInfoInputSupervisor/DeviceInfoInputSupervisor.m; sourceTree = "<group>"; };
+		98B3FD761F21041B001652A4 /* BaseInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseInputSupervisor.h; path = BaseInputSupervisor/BaseInputSupervisor.h; sourceTree = "<group>"; };
+		98B3FD771F21041B001652A4 /* BaseInputSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseInputSupervisor.m; path = BaseInputSupervisor/BaseInputSupervisor.m; sourceTree = "<group>"; };
 		98C062411F1E3F6200B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
 		98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BundleCopyPathsList.txt; sourceTree = "<group>"; };
 		98CEF2671E5EEE84002C2145 /* UIUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIUsageViewController.h; path = Views/UIInputUsageGraphsViewController/UIUsageViewController.h; sourceTree = "<group>"; };
@@ -679,8 +703,8 @@
 		984E7FBF1F17C585004E93BB /* ModuleDeniedAccessReport */ = {
 			isa = PBXGroup;
 			children = (
-				984E7FC01F17C745004E93BB /* ModuleDeniedAccessReport.h */,
-				984E7FC11F17C745004E93BB /* ModuleDeniedAccessReport.m */,
+				984E7FC01F17C745004E93BB /* PPModuleDeniedAccessReport.h */,
+				984E7FC11F17C745004E93BB /* PPModuleDeniedAccessReport.m */,
 			);
 			name = ModuleDeniedAccessReport;
 			sourceTree = "<group>";
@@ -895,6 +919,8 @@
 				98797E101E96864A00AB3A0B /* PPPrivacyLevelViolationReport+NSDictionaryRepresentation.m */,
 				98797E111E96864A00AB3A0B /* PPUnlistedInputAccessViolation+NSDictionaryRepresentation.h */,
 				98797E121E96864A00AB3A0B /* PPUnlistedInputAccessViolation+NSDictionaryRepresentation.m */,
+				98B3FD5D1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h */,
+				98B3FD5E1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m */,
 			);
 			path = ReportsStorageAndUI;
 			sourceTree = "<group>";
@@ -930,6 +956,10 @@
 		987F837A1E3241250058633C /* InputSupervisors */ = {
 			isa = PBXGroup;
 			children = (
+				98B3FD751F21040B001652A4 /* BaseInputSupervisor */,
+				98B3FD701F210306001652A4 /* DeviceInfoInputSupervisor */,
+				98B3FD6B1F20F701001652A4 /* DeviceMotionInputSupervisor */,
+				98B3FD661F20E0B8001652A4 /* GyroscopeInputSupervisor */,
 				9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */,
 				98F1FF711E71551B00A664AB /* InputSupervisorModel */,
 				984E7FC41F17D45D004E93BB /* PickerControllerSupervisor */,
@@ -1001,6 +1031,7 @@
 		98804EFD1E4DF194009E6748 /* UIViolationReportsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				98B3FD611F20C281001652A4 /* UIModuleDeniedAccessReportsSection */,
 				9831E2A61E6DA1C600A5FE0A /* UIAccessFrequencyViolationReportsSection */,
 				9831E2A11E6D9EB900A5FE0A /* UIPrivacyLevelViolationReportsSection */,
 				9831E29C1E6D974500A5FE0A /* UIHostAccessViolationReportsSection */,
@@ -1197,6 +1228,51 @@
 				98B234691E53376B0015C2E9 /* UISCDViewController.m */,
 			);
 			name = UISCDViewController;
+			sourceTree = "<group>";
+		};
+		98B3FD611F20C281001652A4 /* UIModuleDeniedAccessReportsSection */ = {
+			isa = PBXGroup;
+			children = (
+				98B3FD621F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.h */,
+				98B3FD631F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.m */,
+			);
+			name = UIModuleDeniedAccessReportsSection;
+			sourceTree = "<group>";
+		};
+		98B3FD661F20E0B8001652A4 /* GyroscopeInputSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98B3FD671F20E0E6001652A4 /* GyroscopeInputSupervisor.h */,
+				98B3FD681F20E0E6001652A4 /* GyroscopeInputSupervisor.m */,
+			);
+			name = GyroscopeInputSupervisor;
+			sourceTree = "<group>";
+		};
+		98B3FD6B1F20F701001652A4 /* DeviceMotionInputSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98B3FD6C1F20F71C001652A4 /* DeviceMotionInputSupervisor.h */,
+				98B3FD6D1F20F71C001652A4 /* DeviceMotionInputSupervisor.m */,
+			);
+			name = DeviceMotionInputSupervisor;
+			sourceTree = "<group>";
+		};
+		98B3FD701F210306001652A4 /* DeviceInfoInputSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98B3FD711F210320001652A4 /* DeviceInfoInputSupervisor.h */,
+				98B3FD721F210320001652A4 /* DeviceInfoInputSupervisor.m */,
+			);
+			name = DeviceInfoInputSupervisor;
+			sourceTree = "<group>";
+		};
+		98B3FD751F21040B001652A4 /* BaseInputSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98B3FD761F21041B001652A4 /* BaseInputSupervisor.h */,
+				98B3FD771F21041B001652A4 /* BaseInputSupervisor.m */,
+			);
+			name = BaseInputSupervisor;
 			sourceTree = "<group>";
 		};
 		98CEF2661E5EEE5E002C2145 /* UIInputUsageGraphsViewController */ = {
@@ -1475,6 +1551,7 @@
 				98281D051E696FD100373369 /* PPAccessFrequencyViolationReport.h in Headers */,
 				98FE5C151E9241C000096744 /* MGSwipeButton.h in Headers */,
 				987F83771E3235A20058633C /* OPMonitorInputSourceEvent.h in Headers */,
+				98B3FD6E1F20F71C001652A4 /* DeviceMotionInputSupervisor.h in Headers */,
 				9895FB331E5B1A2A00B1F56D /* UILocationSettingsViewController.h in Headers */,
 				987083CB1E8E3A9D00D9F8E9 /* UIScrollView+TPKeyboardAvoidingAdditions.h in Headers */,
 				9895FB2E1E5AED3D00B1F56D /* LocationInputSwizzler.h in Headers */,
@@ -1491,7 +1568,8 @@
 				98797E1F1E96869900AB3A0B /* ReportsStorageProtocol.h in Headers */,
 				985810C41EF955C2000EBF6B /* Strings.h in Headers */,
 				98797E161E96864A00AB3A0B /* PPAccessFrequencyViolationReport+NSDictionaryRepresentation.h in Headers */,
-				984E7FC21F17C745004E93BB /* ModuleDeniedAccessReport.h in Headers */,
+				984E7FC21F17C745004E93BB /* PPModuleDeniedAccessReport.h in Headers */,
+				98B3FD5F1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h in Headers */,
 				9831E2A41E6D9ED500A5FE0A /* UIPrivacyLevelViolationReportsSection.h in Headers */,
 				98F1FF741E71555900A664AB /* InputSupervisorModel.h in Headers */,
 				98797E131E96864A00AB3A0B /* DictionaryRepresentableProtocol.h in Headers */,
@@ -1504,6 +1582,7 @@
 				98804F131E4E26DB009E6748 /* UIEncapsulatorViewController.h in Headers */,
 				98797E051E9677E900AB3A0B /* RandomWalkGenerator.h in Headers */,
 				9895FB391E5B337A00B1F56D /* UserDefinedLocationsSwizzlerSettings.h in Headers */,
+				98B3FD731F210320001652A4 /* DeviceInfoInputSupervisor.h in Headers */,
 				983C3FB41E8D356600014F25 /* UILocationPinningView.h in Headers */,
 				98F1FF671E713B2C00A664AB /* LocationHTTPAnalyzer.h in Headers */,
 				98797E141E96864A00AB3A0B /* PlistReportsStorage.h in Headers */,
@@ -1520,8 +1599,10 @@
 				9895FB491E5B3CB200B1F56D /* UIWindow+RSHookHandle.h in Headers */,
 				98804F051E4DFD47009E6748 /* PPFlowBuilder.h in Headers */,
 				98DA11F71E703850008E8373 /* PPCircularArray.h in Headers */,
+				98B3FD691F20E0E6001652A4 /* GyroscopeInputSupervisor.h in Headers */,
 				98413CA01F068F05005A48E0 /* UIAboutViewController.h in Headers */,
 				98FE5C171E9241C000096744 /* MGSwipeTableCell.h in Headers */,
+				98B3FD641F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.h in Headers */,
 				988A151A1E40DF3300AABD43 /* AccelerometerInputSupervisor.h in Headers */,
 				986AE9B91E93BEC700AF4E0A /* UILocationStatusViewController.h in Headers */,
 				982175CB1E3FA0A700495627 /* ProximityInputSupervisor.h in Headers */,
@@ -1531,6 +1612,7 @@
 				98CEF3AB1E5F3064002C2145 /* PerSecondReportAggregator.h in Headers */,
 				98804F0A1E4E0E7C009E6748 /* UIPPOptionsViewController.h in Headers */,
 				98D603E41E2F800B00E59A42 /* OPMonitor.h in Headers */,
+				98B3FD781F21041B001652A4 /* BaseInputSupervisor.h in Headers */,
 				9863E8FD1DEC6F0D0095CA30 /* JRSwizzle.h in Headers */,
 				98797E1A1E96864A00AB3A0B /* PPPrivacyLevelViolationReport+NSDictionaryRepresentation.h in Headers */,
 				987083C51E8E3A9D00D9F8E9 /* TPKeyboardAvoidingCollectionView.h in Headers */,
@@ -1727,15 +1809,17 @@
 				98804F0B1E4E0E7C009E6748 /* UIPPOptionsViewController.m in Sources */,
 				986AE9BA1E93BEC700AF4E0A /* UILocationStatusViewController.m in Sources */,
 				98DF60F91E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m in Sources */,
+				98B3FD741F210320001652A4 /* DeviceInfoInputSupervisor.m in Sources */,
 				98CEF3A51E5F2204002C2145 /* UIInputGraphViewController.m in Sources */,
 				9863E9031DEC70E60095CA30 /* NSURLSessionSupervisor.m in Sources */,
 				98F1FF681E713B2C00A664AB /* LocationHTTPAnalyzer.m in Sources */,
 				9895FB2F1E5AED3D00B1F56D /* LocationInputSwizzler.m in Sources */,
+				98B3FD601F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m in Sources */,
 				988A151B1E40DF3300AABD43 /* AccelerometerInputSupervisor.m in Sources */,
 				982464DF1E8D5F1B004D8534 /* UILocationListView.m in Sources */,
 				982464E41E8D613D004D8534 /* CloakNibView.m in Sources */,
 				981A4A6C1E58ABFE002C4876 /* OPMonitorSettings.m in Sources */,
-				984E7FC31F17C745004E93BB /* ModuleDeniedAccessReport.m in Sources */,
+				984E7FC31F17C745004E93BB /* PPModuleDeniedAccessReport.m in Sources */,
 				98FE5C611E927CB700096744 /* CommonViewUtils.m in Sources */,
 				98797E171E96864A00AB3A0B /* PPAccessFrequencyViolationReport+NSDictionaryRepresentation.m in Sources */,
 				98804F141E4E26DB009E6748 /* UIEncapsulatorViewController.m in Sources */,
@@ -1750,6 +1834,7 @@
 				98804F061E4DFD47009E6748 /* PPFlowBuilder.m in Sources */,
 				98CEF3AC1E5F3064002C2145 /* PerSecondReportAggregator.m in Sources */,
 				983A09061E727A1C00AE2D5E /* PPBasicHttpBodyParser.m in Sources */,
+				98B3FD651F20C2AA001652A4 /* UIModuleDeniedAccessReportsSection.m in Sources */,
 				987F83781E3235A20058633C /* OPMonitorInputSourceEvent.m in Sources */,
 				988A15161E40D1B400AABD43 /* MagnetometerInputSupervisor.m in Sources */,
 				987083CA1E8E3A9D00D9F8E9 /* TPKeyboardAvoidingTableView.m in Sources */,
@@ -1763,6 +1848,7 @@
 				98E1BF871EF2D04700F6E140 /* Security.m in Sources */,
 				98ECE47D1E422E720042A262 /* MicrophoneInputSupervisor.m in Sources */,
 				988A15071E40AA7F00AABD43 /* CommonUtils.m in Sources */,
+				98B3FD6F1F20F71C001652A4 /* DeviceMotionInputSupervisor.m in Sources */,
 				9871E0911E97E1A300A43695 /* RandomWalkSwizzlerSettings.m in Sources */,
 				98ECE46E1E41F8150042A262 /* TouchIdSupervisor.m in Sources */,
 				98F1FF701E71508000A664AB /* PrivacyLevelAbuseDetector.m in Sources */,
@@ -1785,12 +1871,14 @@
 				9888B1751E6C625900D783AB /* PPReportsSourcesBundle.m in Sources */,
 				98331C831E56F0D7005D3A84 /* NSBundle+RSFrameworkHooks.m in Sources */,
 				98FE5C231E92641B00096744 /* UILocationIndexPinView.m in Sources */,
+				98B3FD791F21041B001652A4 /* BaseInputSupervisor.m in Sources */,
 				9863E8FE1DEC6F0D0095CA30 /* JRSwizzle.m in Sources */,
 				9871E08D1E97DF3D00A43695 /* UIRandomWalkLocationSettingsViewController.m in Sources */,
 				984E7FC81F17D47F004E93BB /* PickerControllerSupervisor.m in Sources */,
 				9843341B1F067D780016564E /* UIAboutCollectionViewCell.m in Sources */,
 				988716EE1E6D81CD005FAA45 /* UIViolationReportsSection.m in Sources */,
 				982175CC1E3FA0A700495627 /* ProximityInputSupervisor.m in Sources */,
+				98B3FD6A1F20E0E6001652A4 /* GyroscopeInputSupervisor.m in Sources */,
 				9871E0861E97B27000A43695 /* UIRandomWalkMapView.m in Sources */,
 				98DF60FE1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m in Sources */,
 				98804EFB1E4DEB57009E6748 /* ViolationReportCell.m in Sources */,

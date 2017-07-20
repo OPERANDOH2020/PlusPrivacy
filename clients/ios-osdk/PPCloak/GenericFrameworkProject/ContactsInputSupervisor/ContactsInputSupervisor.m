@@ -91,7 +91,7 @@
     event.eventData[kPPContactStoreAllowExecuteSaveRequest] = @(NO);
     
     //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.contactsSource.inputType]];
+    [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.contactsSource.inputType date:[NSDate date]]];
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

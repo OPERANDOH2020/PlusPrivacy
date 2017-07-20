@@ -180,6 +180,7 @@
     reportSources.privacyViolationReportsSource = self.plistRepository;
     reportSources.unlistedHostReportsSource = self.plistRepository;
     reportSources.unlistedInputReportsSource = self.plistRepository;
+    reportSources.moduleDeniedAccessReportsSource = self.plistRepository;
     
     PPFlowBuilderModel *flowModel = [[PPFlowBuilderModel alloc] init];
     flowModel.monitoringSettings = self.monitorSettings;
@@ -254,10 +255,11 @@
     // must complete 
 }
 
--(void)newModuleDeniedAccessReport:(ModuleDeniedAccessReport *)report{
+-(void)newModuleDeniedAccessReport:(PPModuleDeniedAccessReport *)report{
     //must complete
     NSString *message = [NSString stringWithFormat:@"Denied access to framework [%@] for %@", report.moduleName, InputType.namesPerInputType[report.inputType]];
     [self displayNotificationIfPossible:message];
+    [self.plistRepository addModuleDeniedAccessReport:report withCompletion:nil];
 }
 
 #pragma mark -

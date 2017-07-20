@@ -12,7 +12,7 @@
 #import "PPPrivacyLevelViolationReport+NSDictionaryRepresentation.h"
 #import "PPUnlistedInputAccessViolation+NSDictionaryRepresentation.h"
 #import "PPAccessFrequencyViolationReport+NSDictionaryRepresentation.h"
-
+#import "PPModuleDeniedAccessReport+NSDictionaryRepresentation.h"
 
 
 
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray<PPAccessUnlistedHostReport*> *hostReportsArray;
 @property (strong, nonatomic) NSMutableArray<PPUsageLevelViolationReport*> *privacyLevelReportsArray;
 @property (strong, nonatomic) NSMutableArray<PPUnlistedInputAccessViolation*> *inputReportsArray;
+@property (strong, nonatomic) NSMutableArray<PPModuleDeniedAccessReport*> *moduleDeniedAccessReportsArray;
 
 @end
 
@@ -35,6 +36,7 @@ static NSString *kFrequencyRepository = @"kFrequencyRepository";
 static NSString *kHostRepository = @"kHostRepository";
 static NSString *kPrivacyLevelRepository = @"kPrivacyLevelRepository";
 static NSString *kInputRepository = @"kInputRepository";
+static NSString *kModuleDeniedAccessRepository = @"kModuleDeniedAccessRepository";
 
 - (instancetype)init
 {
@@ -122,6 +124,20 @@ static NSString *kInputRepository = @"kInputRepository";
     SAFECALL(callback, result, nil)
 }
 
+#pragma mark - ModuleDeniedAccess repository
+
+-(void)addModuleDeniedAccessReport:(PPModuleDeniedAccessReport *)report withCompletion:(PossibleErrorCallback)completion {
+    
+    [self.moduleDeniedAccessReportsArray addObject:report];
+    [PlistReportsStorage synchronizeArray:self.moduleDeniedAccessReportsArray toPlistNamed:kModuleDeniedAccessRepository];
+    
+    SAFECALL(completion, nil)
+}
+
+-(void)getModuleDeniedAccessReportsIn:(ModuleDeniedAccessReportsCallback)callback{
+    SAFECALL(callback, self.moduleDeniedAccessReportsArray, nil)
+}
+
 #pragma mark - private methods
 
 -(void)populateArrays {
@@ -133,6 +149,10 @@ static NSString *kInputRepository = @"kInputRepository";
     
     NSArray<NSDictionary*> *inputAccessDicts = [[NSArray alloc] initWithContentsOfFile:[PlistReportsStorage plistPathForRepositoryName:kInputRepository]];
     
+    NSArray<NSDictionary*> *moduleDeniedAccessDicts = [[NSArray alloc] initWithContentsOfFile:[PlistReportsStorage plistPathForRepositoryName:kModuleDeniedAccessRepository]];
+    
+    
+    //----//----//
     
     self.frequencyReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPAccessFrequencyViolationReport class] fromDictionaries:frequencyDicts];
     
@@ -142,6 +162,7 @@ static NSString *kInputRepository = @"kInputRepository";
     
     self.inputReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPUnlistedInputAccessViolation class] fromDictionaries:inputAccessDicts];
     
+    self.moduleDeniedAccessReportsArray = [PlistReportsStorage buildObjectsOfClass:[PPModuleDeniedAccessReport class] fromDictionaries:moduleDeniedAccessDicts];
 }
 
 +(void)synchronizeArray:(NSArray<id<DictionaryRepresentable>>*)array toPlistNamed:(NSString*)plistName {

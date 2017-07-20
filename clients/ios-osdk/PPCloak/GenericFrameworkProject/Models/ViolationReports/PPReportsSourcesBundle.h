@@ -14,4 +14,5 @@
 @property (strong, nonatomic) id<PPUnlistedInputReportsSource> unlistedInputReportsSource;
 @property (strong, nonatomic) id<PPPrivacyLevelReportsSource> privacyViolationReportsSource;
 @property (strong, nonatomic) id<PPAccessFrequencyReportsSource> accessFrequencyReportsSource;
+@property (strong, nonatomic) id<PPModuleDeniedAccessReportsSource> moduleDeniedAccessReportsSource;
 @end

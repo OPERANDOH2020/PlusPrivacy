@@ -15,6 +15,7 @@
 #import "UIInputAccessViolationReportsSection.h"
 #import "UIHostAccessViolationReportsSection.h"
 #import "UIAccessFrequencyViolationReportsSection.h"
+#import "UIModuleDeniedAccessReportsSection.h"
 
 @interface UIViolationReportsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -52,7 +53,9 @@
              
              [[UIPrivacyLevelViolationReportsSection alloc] initWithSectionIndex:2 tableView:self.tableView reportsSource:reportSourcesBundle.privacyViolationReportsSource],
              
-             [[UIAccessFrequencyViolationReportsSection alloc] initWithSectionIndex:3 tableView:self.tableView reportsSource:reportSourcesBundle.accessFrequencyReportsSource]
+             [[UIAccessFrequencyViolationReportsSection alloc] initWithSectionIndex:3 tableView:self.tableView reportsSource:reportSourcesBundle.accessFrequencyReportsSource],
+             
+             [[UIModuleDeniedAccessReportsSection alloc] initWithSectionIndex:4 tableView:self.tableView reportsSource:reportSourcesBundle.moduleDeniedAccessReportsSource]
              
              ] ;
     

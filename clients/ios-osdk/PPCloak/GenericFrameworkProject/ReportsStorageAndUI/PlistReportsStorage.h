@@ -14,6 +14,6 @@ typedef enum : NSUInteger {
     TypeObjectNotInRepository,
 } PlistReportsStorageErrorType;
 
-@interface PlistReportsStorage : NSObject <PPPrivacyLevelReportsRepository, PPUnlistedHostReportsRepository, PPUnlistedInputReportsRepository, PPAccessFrequencyReportsRepository>
+@interface PlistReportsStorage : NSObject <PPPrivacyLevelReportsRepository, PPUnlistedHostReportsRepository, PPUnlistedInputReportsRepository, PPAccessFrequencyReportsRepository, PPModuleDeniedAccessReportsRepository>
 
 @end

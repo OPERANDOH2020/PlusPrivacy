@@ -25,7 +25,6 @@
     return self;
 }
 
-// - Intended to be overriden by subclasses
 #pragma mark -
 -(void)reloadTableViewIfNecessary{
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:self.sectionIndex];

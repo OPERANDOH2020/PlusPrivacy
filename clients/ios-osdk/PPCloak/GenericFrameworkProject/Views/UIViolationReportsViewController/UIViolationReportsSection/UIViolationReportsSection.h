@@ -19,22 +19,21 @@
 
 @property (readonly, nonatomic, weak, nullable) UITableView *tableView;
 @property (readonly, nonatomic) NSInteger sectionIndex;
-
 // -end of protected properties
 
-
+// - public
 -(instancetype __nullable)initWithSectionIndex:(NSInteger)sectionIndex tableView:(UITableView* __nullable)tableView;
 
--(void)prepare;
+// - end of public
 
-// - protected, to be overriden by subclasses
--(void)loadReportsWithCompletion:(void(^ _Nonnull)())completion;
+// - protected, must be overriden by subclasses
 -(NSString* _Nullable)sectionName;
-
-// - public, to be overriden -
-
--(NSInteger)numberOfRows;
 -(UITableViewCell* _Nonnull)cellForRowAtIndex:(NSInteger)index;
+-(void)loadReportsWithCompletion:(void(^ _Nonnull)())completion;
+
+// - public, with default implementation but can be overriden
+-(void)prepare;
+-(NSInteger)numberOfRows;
 -(UIView* _Nullable)sectionHeader;
 -(CGFloat)headerHeight;
 @end

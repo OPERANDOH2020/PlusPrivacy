@@ -128,7 +128,10 @@ public class InputType: BaseStringEnum {
     public static let MagnetometerRawValue = "magneto"
     public static let ContactsRawValue = "contacts"
     public static let BatteryRawValue = "bat"
- 
+    public static let MotionRawValue = "motion"
+    public static let InfoRawValue = "info"
+    
+    
     private static let rawValuesArray: [String] = [InputType.LocationRawValue,
                                                    InputType.MicrophoneRawValue,
                                                    InputType.CameraRawValue,
@@ -141,7 +144,9 @@ public class InputType: BaseStringEnum {
                                                    InputType.PedometerRawValue,
                                                    InputType.MagnetometerRawValue,
                                                    InputType.ContactsRawValue,
-                                                   InputType.BatteryRawValue]
+                                                   InputType.BatteryRawValue,
+                                                   InputType.MotionRawValue,
+                                                   InputType.InfoRawValue]
     
     internal override init?(rawValue: String) {
         guard InputType.rawValuesArray.contains(rawValue) else {
@@ -203,12 +208,19 @@ public class InputType: BaseStringEnum {
         return InputType(rawValue: BatteryRawValue)!
     }
     
+    public static var Motion: InputType {
+        return InputType(rawValue: MotionRawValue)!
+    }
+    
+    public static var Info: InputType {
+        return InputType(rawValue: InfoRawValue)!
+    }
+    
     public static func createFrom(rawValue: String) -> InputType? {
         return InputType(rawValue: rawValue)
     }
     
-    
-    public static let namesPerInputType: [InputType: String] = [ InputType.Camera : "Camera",
+    public static let namesPerInputType: [InputType: String] = [InputType.Camera : "Camera",
                                                                InputType.Accelerometer : "Accelerometer",
                                                                InputType.Location : "Location",
                                                                InputType.Gyroscope: "Gyroscope",
@@ -220,7 +232,9 @@ public class InputType: BaseStringEnum {
                                                                InputType.Pedometer: "Pedometer",
                                                                InputType.Magnetometer: "Magnetometer",
                                                                InputType.Contacts: "Contacts",
-                                                               InputType.Battery: "Battery"];
+                                                               InputType.Battery: "Battery",
+                                                               InputType.Motion: "Device motion",
+                                                               InputType.Info: ""];
     
     
 

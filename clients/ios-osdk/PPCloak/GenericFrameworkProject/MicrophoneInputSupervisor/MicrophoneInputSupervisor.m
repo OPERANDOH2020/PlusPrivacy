@@ -84,7 +84,7 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
     // apply SDKC code here
     
     //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.micSensor.inputType]];
+    [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.micSensor.inputType date:[NSDate date]]];
 }
 
 -(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {

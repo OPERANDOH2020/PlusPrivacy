@@ -64,7 +64,7 @@ static bool isAccelerometerSubtype(int eventSubtype){
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.accSensor.inputType]];
+        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.accSensor.inputType date:[NSDate date]]];
         return;
     }
     

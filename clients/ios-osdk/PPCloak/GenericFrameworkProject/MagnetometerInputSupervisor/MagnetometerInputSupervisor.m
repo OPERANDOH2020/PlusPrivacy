@@ -62,7 +62,7 @@ static bool isMagnetometerSubtype(int eventSubtype){
     
     if (aPossibleModule) {
         [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.magnetoSensor.inputType]];
+        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.magnetoSensor.inputType date:[NSDate date]]];
         return;
     }
     

@@ -13,6 +13,7 @@
 #import "PPUsageLevelViolationReport.h"
 #import "PPAccessFrequencyViolationReport.h"
 #import "PPAccessUnlistedHostReport.h"
+#import "PPModuleDeniedAccessReport.h"
 
 #pragma mark - Block typedefs
 // -- Block typedefs ---
@@ -24,7 +25,11 @@ typedef void(^PrivacyLevelReportsCallback)(NSArray<PPUsageLevelViolationReport*>
 
 typedef void(^UnlistedHostReportsCallback)(NSArray<PPAccessUnlistedHostReport*>* __nullable, NSError * __nullable);
 
+typedef void(^ModuleDeniedAccessReportsCallback)(NSArray<PPModuleDeniedAccessReport*> * __nullable, NSError* __nullable);
+
 typedef void(^AccessFrequencyReportsCallback)(NSArray<PPAccessFrequencyViolationReport*> * __nullable, NSError* __nullable);
+
+
 
 typedef void(^PossibleErrorCallback)(NSError * __nullable error);
 
@@ -51,6 +56,11 @@ typedef void(^PossibleErrorCallback)(NSError * __nullable error);
 -(void)getFrequencyReportsIn:(AccessFrequencyReportsCallback __nullable)callback;
 @end
 
+
+@protocol PPModuleDeniedAccessReportsSource <NSObject>
+-(void)getModuleDeniedAccessReportsIn:(ModuleDeniedAccessReportsCallback __nullable)callback;
+@end
+
 #pragma mark - Repository protocols
 // -- Repository protocols
 
@@ -68,6 +78,10 @@ typedef void(^PossibleErrorCallback)(NSError * __nullable error);
 
 @protocol PPAccessFrequencyReportsRepository <PPAccessFrequencyReportsSource>
 -(void)addAccessFrequencyReport:(PPAccessFrequencyViolationReport* _Nonnull)report withCompletion:(PossibleErrorCallback __nullable)completion;
+@end
+
+@protocol PPModuleDeniedAccessReportsRepository <PPModuleDeniedAccessReportsSource>
+-(void)addModuleDeniedAccessReport:(PPModuleDeniedAccessReport* _Nonnull)report withCompletion:(PossibleErrorCallback __nullable)completion;
 @end
 
 #endif /* ReportsStorageProtocol_h */

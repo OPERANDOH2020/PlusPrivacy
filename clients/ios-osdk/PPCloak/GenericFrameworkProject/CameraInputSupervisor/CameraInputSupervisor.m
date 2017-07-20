@@ -88,7 +88,7 @@ BOOL isCameraEvent(int subType, NSDictionary *evData){
     // apply SDKC code here
     
     //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[ModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.cameraSensor.inputType]];
+    [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.cameraSensor.inputType date:[NSDate date]]];
 }
 
 -(void)processPhotoLibraryAccess {
