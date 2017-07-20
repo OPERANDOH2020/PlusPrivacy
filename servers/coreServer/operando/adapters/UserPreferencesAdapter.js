@@ -144,4 +144,41 @@ deletePreferences = function(userId, preferenceKey, callback){
 }
 
 
+deleteAllPreferences = function(userId, callback){
+
+    flow.create("deletePreferences",{
+        begin:function(){
+            this.results = [];
+            persistence.filter("UserPreferences",{userId:userId}, this.continue("removePreferences"));
+        },
+        removePreferences:function(err, preferences){
+            var self = this;
+            if(err){
+                callback(err);
+            }
+            else{
+                if(preferences.length>0){
+                    preferences.forEach(function(preference){
+                        persistence.delete(preference, self.continue("finish"));
+                    })
+                }
+                else{
+                    callback(undefined);
+                }
+
+            }
+        },
+        finish:function(err, result){
+            this.results.push(result);
+        },
+        end:{
+            join:"finish",
+            code:function(){
+                callback(undefined,this.results);
+            }
+        }
+
+    })();
+}
+
 

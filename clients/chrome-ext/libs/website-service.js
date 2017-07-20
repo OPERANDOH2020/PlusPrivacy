@@ -54,7 +54,7 @@ var websiteService = exports.websiteService = {
     },
 
     logout:function(){
-        authenticationService.disconnectUser(function(message){
+        authenticationService.notifyWhenLogout(function(message){
             portObserversPool.trigger("logout",message);
         });
     },

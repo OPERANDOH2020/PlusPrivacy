@@ -1,9 +1,10 @@
 [general]
-version = 0.5.5
+version = 0.5.9
 backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js
   ext/common.js
+  operando/services/swarm-services/socket.io-2.0.3.js
   operando/swarms.js
   ext/background.js
   lib/compat.js
@@ -47,7 +48,6 @@ webAccessible = operando/assets/images/icons/operando_24.png
 [contentScripts]
 document_start = ext/common.js ext/content.js cssProperties.js include.preload.js
 document_end = include.postload.js
-
 
 
 [mapping]
@@ -115,8 +115,8 @@ lib/adblockplus.js = adblockpluscore/lib/events.js
   operando/libs/observers-pool.js
   operando/libs/bus-service.js
   operando/libs/swarm-service.js
-  operando/libs/authentication-service.js
   operando/libs/identity-service.js
+  operando/libs/authentication-service.js
   operando/libs/pfb-service.js
   operando/libs/social-network-privacy-settings.js
   operando/libs/osp-service.js
@@ -129,8 +129,7 @@ lib/adblockplus.js = adblockpluscore/lib/events.js
   operando/modules/TabsManager.js
   --arg module=true source_repo=https://hg.adblockplus.org/adblockpluscore/
 ext/common.js = ext/common.js chrome/ext/common.js
-operando/swarms.js = operando/services/swarm-services/socket.io-1.0.6.js
-                  operando/services/swarm-services/SwarmDebug.js
+operando/swarms.js = operando/services/swarm-services/SwarmDebug.js
                   operando/services/swarm-services/SwarmClient.js
                   operando/services/swarm-services/SwarmHub.js
                   operando/util/Constants.js

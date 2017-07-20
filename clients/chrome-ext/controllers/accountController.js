@@ -12,15 +12,15 @@
 
 
 angular.module("operando").
-controller("accountCtrl", ["$scope","messengerService","Notification", function($scope, messengerService,Notification){
+controller("accountCtrl", ["$scope","messengerService","Notification","ModalService", function($scope, messengerService,Notification, ModalService){
 
     $scope.user = {
         password: "",
         confirmPassword: ""
     };
 
-    messengerService.send("getCurrentUser", function(user){
-        $scope.email = user.email;
+    messengerService.send("getCurrentUser", function(response){
+        $scope.email = response.data.email;
         $scope.$apply();
     })
 
@@ -69,7 +69,6 @@ controller("accountCtrl", ["$scope","messengerService","Notification", function(
     }
     $scope.updateEmail = function () {
         messengerService.send("updateUserInfo", {email: $scope.email}, function (response) {
-            console.log(response);
             if (response.status === "success") {
                 $scope.emailIsEditMode = false;
                 Notification.success({
@@ -89,6 +88,38 @@ controller("accountCtrl", ["$scope","messengerService","Notification", function(
     $scope.loading = function($event){
         $scope.submitPasswordBtn = $($event.currentTarget);
         $scope.submitPasswordBtn.button('loading');
+    }
+
+    $scope.deleteAccount = function(){
+        ModalService.showModal({
+            templateUrl: '/operando/tpl/modals/delete_account.html',
+            controller: function ($scope, close) {
+
+                $scope.removeAccount = function () {
+                    messengerService.send("removeAccount", function (response) {
+                        if (response.status === "success") {
+                            ModalService.showModal({
+                                templateUrl: '/operando/tpl/modals/account_is_deleted.html',
+                                controller: function ($scope, close) {
+                                    $scope.close = function (result) {
+                                        close(result, 500);
+                                        messengerService.send("resetExtension");
+                                    };
+                                }
+                            }).then(function (modal) {
+                                modal.element.modal();
+                            });
+                        }
+                    });
+                };
+
+                $scope.close = function (result) {
+                    close(result, 500);
+                };
+            }
+        }).then(function (modal) {
+            modal.element.modal();
+        });
     }
 
 }]).directive("compareTo", function(){

@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
     jQuery("#download_extension").on("click", function(){
         var self = this;
-        if(chrome.app.isInstalled){
+        if (document.getElementById('plusprivacy-extension-is-installed')) {
             jQuery(self).attr("href","https://chrome.google.com/webstore/detail/boagbmhcbemflaclmnbeebgbfhbegekc");
             jQuery(self).attr("target","_blank");
             jQuery(self).click();

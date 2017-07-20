@@ -75,6 +75,24 @@ var userService = exports.userService = {
         removePreferencesHandler.onResponse("failed", function(response){
             error_callback(response.error);
         })
+    },
+
+    removeAccount:function(success_callback, error_callback){
+        var removeAccountHandler = swarmHub.startSwarm("UserInfo.js", "deleteAccount");
+
+        removeAccountHandler.onResponse("success", function(response){
+            success_callback(response);
+        });
+
+        removeAccountHandler.onResponse("failed", function(response){
+            error_callback(response.error);
+        })
+    },
+
+    resetExtension:function(){
+        chrome.tabs.create({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST}, function(){
+            chrome.runtime.reload();
+        });
     }
 
 

@@ -31,6 +31,7 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
         else{
             console.error("i18nService not initialized");
         }
+        return key;
     }
 
     return {

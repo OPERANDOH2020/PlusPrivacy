@@ -338,6 +338,9 @@ label
 .operando_wrapper ul > li > div.item_icon.abp_icon{
   background: url(../operando/assets/images/icons/ad_block_options.png) no-repeat left center;
 }
+.operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
+  background: url(../operando/assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
+}
 
 .operando_wrapper ul > li > div.item_icon.about_icon{
   background: url(../operando/assets/images/icons/operando_logo.png) no-repeat left center;
@@ -371,6 +374,10 @@ label
 .user_area{
   height: 70px;
   background: url(../operando/assets/images/icons/user.png) no-repeat left 5px;
+}
+
+.popup-login-area  div.login_form .user_area{
+  height: 55px;
 }
 
 .user_area .keep_user_logged_in{
@@ -787,4 +794,47 @@ input[type="checkbox"]:checked + span {
 .row.privacy_policy a{
   padding: 4px;
   color: #886718;
+}
+
+
+.spinner.network_error {
+  margin: 0px auto 10px;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner.network_error > div {
+  width: 14px;
+  height: 14px;
+  background-color: #FFB400;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner.network_error .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner.network_error .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
 }

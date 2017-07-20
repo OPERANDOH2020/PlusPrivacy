@@ -16,82 +16,6 @@ var swarmService = require("swarm-service").swarmService;
 var portObserversPool = require("observers-pool").portObserversPool;
 var bus = require("bus-service").bus;
 
-var busActions = {
-    //TODO refactor this
-    login: function(request, handleResponse){
-
-        login(request.message.login_details, function (swarmPhase, response) {
-
-            handleResponse({
-                type: "SOLVED_REQUEST",
-                action: request.action,
-                message: {error: response.error}
-            });
-
-        }, function () {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    logout : function (request, handleResponse) {
-
-        logout(function () {
-                handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    notifyWhenLogout : function(request, handleResponse){
-        authenticationService.disconnectUser(function(){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {success: "success"}});
-        });
-    },
-
-    getCurrentUser: function(request, handleResponse){
-
-        getCurrentUser(function (user) {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: user});
-        })
-    },
-
-    restoreUserSession: function(request, handleResponse){
-
-        restoreUserSession(function (status) {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: status});
-        })
-    },
-    registerUser: function(request, handleResponse){
-
-        authenticationService.registerUser(request.message.user, function(error){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
-        },  function(success){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
-        });
-    },
-
-    sendActivationCode: function (request, handleResponse) {
-        authenticationService.resendActivationCode(request.message, function () {
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status: "success"}});
-
-        }, function (error) {
-            handleResponse({
-                type: "SOLVED_REQUEST",
-                action: request.action,
-                message: {status: "error", message: error}
-            });
-        });
-    },
-
-    resetPassword:function(request, handleResponse){
-        authenticationService.resetPassword(request.message, function(){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"success"}});
-        }, function(error){
-            handleResponse({type: "SOLVED_REQUEST", action: request.action, message: {status:"error",message:error}});
-        });
-    }
-};
-
-
-
 chrome.runtime.onConnect.addListener(function (_port) {
     (function(clientPort){
 
@@ -113,25 +37,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
 
             });
 
-            swarmService.onReconnect(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onReconnect", message: {}});
-                }
-            });
-
-            swarmService.onConnectionError(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onConnectionError", message: {}});
-                }
-            });
-
-            swarmService.onConnect(function () {
-                if (clientPort != null) {
-                    clientPort.postMessage({type: "BACKGROUND_DEMAND", action: "onConnect", message: {}});
-                }
-            });
-
-
             /**
              * Listen for commands
              **/
@@ -142,28 +47,11 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     if(desiredPort){
                         desiredPort.postMessage(request.message);
                     }else{
-                        console.log("PORT negasit");
+                        console.log("Port is no longer available");
                     }
                     return;
                 }
 
-                if(busActions[request.action]){
-                        var handleResponse = function(message){
-                            if(clientPort){
-                                clientPort.postMessage(message);
-                            }
-                            else{
-                                console.log("CLIENTPORT IS NULL. Trying latest port...");
-                                chrome.runtime.sendMessage(message,function(response){
-                                });
-                            }
-                        };
-
-                    var action = busActions[request.action];
-                        action(request, handleResponse);
-                }
-
-                else {
                     if(bus.hasAction(request.action)){
                         var actionFn = bus.getAction(request.action);
                         var args = [];
@@ -177,24 +65,38 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             args.push(request.message);
                         }
 
-                        args.push(function(data){
+                        args.push(function (data) {
                             var response = data;
+                            var messageToClient = {
+                                type: messageType,
+                                action: request.action,
+                                message: {"status": "success", "data": response}
+                            };
+
                             if (clientPort) {
-                                clientPort.postMessage({
-                                    type: messageType,
-                                    action: request.action,
-                                    message: {status: "success", data: response}
-                                });
+                                clientPort.postMessage(messageToClient);
+                            } else {
+                                console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                chrome.runtime.sendMessage(messageToClient);
                             }
                         });
 
                         args.push(function (err) {
+                            if(!err){
+                                err = "error"
+                            }
+
+                            var messageToClient =  {
+                                type: messageType,
+                                action: request.action,
+                                message: {error: err.message ? err.message : err}
+                            };
+
                             if (clientPort) {
-                                clientPort.postMessage({
-                                    type: messageType,
-                                    action: request.action,
-                                    message: {error: err.message ? err.message : err}
-                                });
+                                clientPort.postMessage(messageToClient);
+                            } else {
+                                console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                chrome.runtime.sendMessage(messageToClient);
                             }
                         });
 
@@ -203,7 +105,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
                     } else{
                         console.log("Error: Unable to process action",request.action);
                     }
-                }
             });
         }
         else if(clientPort.name === "PLUSPRIVACY_WEBSITE"){
@@ -281,34 +182,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
 
 });
 
-
-function login(login_details, securityErrorFunction, successFunction) {
-    authenticationService.authenticateUser(login_details, securityErrorFunction, successFunction);
-}
-
-function logout(callback) {
-    authenticationService.logoutCurrentUser(callback);
-}
-
-function getCurrentUser(callback) {
-    authenticationService.getCurrentUser(function (user) {
-        callback(user);
-    })
-}
-
-function restoreUserSession(callback) {
-    var status = {};
-
-    //TODO refactoring needed here
-
-    if (authenticationService.isLoggedIn() == true) {
-        status.success = "success";
-        if(callback){
-            callback(status);
-        }
-    }
-}
-
 //TODO rewrite this
 authenticationService.restoreUserSession(function () {
     status.success = "success";
@@ -317,9 +190,11 @@ authenticationService.restoreUserSession(function () {
     status.fail = "fail";
 
 }, function () {
+    console.log("error");
     status.error = "error";
 
 }, function () {
     status.reconnect = "reconnect";
+    console.log("reconnect");
 
 });

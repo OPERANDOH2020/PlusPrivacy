@@ -142,8 +142,8 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
 
     if(data.status === "allow" && data.notificationId){
         chrome.tabs.executeScript(tab.id, {file: "/operando/modules/pfb/allowSNContent.js"});
-        authenticationService.getCurrentUser(function(user){
-            SyncPersistence.set("PfbNotificationsAccepted", "offerUserId", data.offerId.toString()+user.userId.toString());
+        authenticationService.getCurrentUser(function(response){
+            SyncPersistence.set("PfbNotificationsAccepted", "offerUserId", data.offerId.toString()+response.data.userId.toString());
         });
     }
     else{
@@ -169,8 +169,8 @@ TabsManager.prototype.suggestSubstituteIdentities = function(tabId){
 
 
 TabsManager.prototype.offerIsAccepted = function(offerId, callback){
-    authenticationService.getCurrentUser(function(user){
-        SyncPersistence.exists("PfbNotificationsAccepted", "offerUserId", offerId.toString()+user.userId.toString(), function (existence) {
+    authenticationService.getCurrentUser(function(response){
+        SyncPersistence.exists("PfbNotificationsAccepted", "offerUserId", offerId.toString()+response.data.userId.toString(), function (existence) {
             callback(existence);
         });
     });
@@ -187,6 +187,8 @@ TabsManager.prototype.getLastVisitedUrl = function(notificationId, callback){
 
 function establishPlusPrivacyWebsiteCommunication(tabId){
     insertJavascriptFile(tabId, "operando/modules/communication/message-relay.js");
+    chrome.tabs.executeScript(tabId, {file:'operando/modules/communication/extension-is-installed.js',runAt:"document_start", allFrames:false}, function(){
+    });
 }
 
 function checkConnectWithSNApisUrls(tabId, changeInfo, tab){
