@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface AVCameraInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processCameraAccess;
--(void)processPhotoLibraryAccess;
+@interface AVCameraInputSupervisor : BaseInputSupervisor
 @end

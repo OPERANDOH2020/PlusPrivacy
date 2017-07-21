@@ -15,11 +15,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface MagnetometerInputSupervisor()
-@property (strong, nonatomic) InputSupervisorModel *model;
-@property (strong, nonatomic) AccessedInput *magnetoSensor;
 @end
 
-static bool isMagnetometerSubtype(int eventSubtype){
+static bool isMagnetometerSubtype(NSInteger eventSubtype){
     
     static int magnetometerEvents[] = {EventMotionManagerIsMagnetometerActive,
                                        EventMotionManagerStartMagnetometerUpdates,
@@ -40,40 +38,16 @@ static bool isMagnetometerSubtype(int eventSubtype){
 
 @implementation MagnetometerInputSupervisor
 
--(void)setupWithModel:(InputSupervisorModel *)model {
-    self.model = model;
-    self.magnetoSensor = [CommonUtils extractInputOfType: InputType.Magnetometer from:model.scdDocument.accessedInputs];
-    
-    WEAKSELF
-    [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-       
-        if (event.eventIdentifier.eventType == PPMotionManagerEvent &&
-            isMagnetometerSubtype(event.eventIdentifier.eventSubtype)) {
-            [weakSelf processMagnetometerStatusEvent:event nextHandler:nextHandlerIfAny];
-        }
-        SAFECALL(nextHandlerIfAny)
-    }];
+
+-(BOOL)isEventOfInterest:(PPEvent *)event {
+    return (event.eventIdentifier.eventType == PPMotionManagerEvent &&
+            isMagnetometerSubtype(event.eventIdentifier.eventSubtype));
 }
 
--(void)processMagnetometerStatusEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
-    
-    
-    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.magnetoSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
-    
-    if (aPossibleModule) {
-        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.magnetoSensor.inputType date:[NSDate date]]];
-        return;
-    }
-    
-    PPUnlistedInputAccessViolation *report = nil;
-    if ((report = [self detectUnregisteredAccess])) {
-        [self.model.delegate newUnlistedInputAccessViolationReported:report];
-        return;
-    }
-    
-    SAFECALL(nextHandler)
+-(InputType *)monitoringInputType {
+    return InputType.Magnetometer;
 }
+
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
     event.eventData[kPPMotionManagerIsMagnetometerAvailableValue] = @(NO);
@@ -81,14 +55,4 @@ static bool isMagnetometerSubtype(int eventSubtype){
     event.eventData[kPPMotionManagerGetCurrentMagnetometerDataValue] = nil;
 }
 
--(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
-    if (self.magnetoSensor) {
-        return nil;
-    }
-    
-    return [[PPUnlistedInputAccessViolation alloc] initWithInputType:InputType.Magnetometer dateReported:[NSDate date]];
-}
--(void)newURLRequestMade:(NSURLRequest *)request{
-    
-}
 @end

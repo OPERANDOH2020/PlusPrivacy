@@ -83,6 +83,10 @@
 		9863E9031DEC70E60095CA30 /* NSURLSessionSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863E9011DEC70E60095CA30 /* NSURLSessionSupervisor.m */; };
 		9866CD251F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9866CD231F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h */; };
 		9866CD261F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9866CD241F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m */; };
+		98679ECA1F22137000ACE7EA /* BatteryInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98679EC81F22137000ACE7EA /* BatteryInputSupervisor.h */; };
+		98679ECB1F22137000ACE7EA /* BatteryInputSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98679EC91F22137000ACE7EA /* BatteryInputSupervisor.m */; };
+		98679ECF1F22350F00ACE7EA /* SCDSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 98679ECD1F22350F00ACE7EA /* SCDSender.h */; };
+		98679ED01F22350F00ACE7EA /* SCDSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 98679ECE1F22350F00ACE7EA /* SCDSender.m */; };
 		986AE9B91E93BEC700AF4E0A /* UILocationStatusViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 986AE9B71E93BEC700AF4E0A /* UILocationStatusViewController.h */; };
 		986AE9BA1E93BEC700AF4E0A /* UILocationStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986AE9B81E93BEC700AF4E0A /* UILocationStatusViewController.m */; };
 		986AE9C51E93DBA800AF4E0A /* CommonLocationViewModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 986AE9C31E93DBA800AF4E0A /* CommonLocationViewModels.h */; };
@@ -299,6 +303,10 @@
 		9863E9011DEC70E60095CA30 /* NSURLSessionSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLSessionSupervisor.m; path = NSURLSessionHook/NSURLSessionSupervisor.m; sourceTree = "<group>"; };
 		9866CD231F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultConfirmationSupervisor.h; path = DefaultConfirmationSupervisor/DefaultConfirmationSupervisor.h; sourceTree = "<group>"; };
 		9866CD241F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultConfirmationSupervisor.m; path = DefaultConfirmationSupervisor/DefaultConfirmationSupervisor.m; sourceTree = "<group>"; };
+		98679EC81F22137000ACE7EA /* BatteryInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatteryInputSupervisor.h; path = BatteryInputSupervisor/BatteryInputSupervisor.h; sourceTree = "<group>"; };
+		98679EC91F22137000ACE7EA /* BatteryInputSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatteryInputSupervisor.m; path = BatteryInputSupervisor/BatteryInputSupervisor.m; sourceTree = "<group>"; };
+		98679ECD1F22350F00ACE7EA /* SCDSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDSender.h; path = SCDSender/SCDSender.h; sourceTree = "<group>"; };
+		98679ECE1F22350F00ACE7EA /* SCDSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCDSender.m; path = SCDSender/SCDSender.m; sourceTree = "<group>"; };
 		986AE9B51E93BD7F00AF4E0A /* Graphs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Graphs.storyboard; sourceTree = "<group>"; };
 		986AE9B71E93BEC700AF4E0A /* UILocationStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILocationStatusViewController.h; path = Views/UILocationStatusViewController/UILocationStatusViewController.h; sourceTree = "<group>"; };
 		986AE9B81E93BEC700AF4E0A /* UILocationStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILocationStatusViewController.m; path = Views/UILocationStatusViewController/UILocationStatusViewController.m; sourceTree = "<group>"; };
@@ -794,6 +802,24 @@
 			name = DefaultConfirmationSupervisor;
 			sourceTree = "<group>";
 		};
+		98679EC71F2212DB00ACE7EA /* BatteryInputSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98679EC81F22137000ACE7EA /* BatteryInputSupervisor.h */,
+				98679EC91F22137000ACE7EA /* BatteryInputSupervisor.m */,
+			);
+			name = BatteryInputSupervisor;
+			sourceTree = "<group>";
+		};
+		98679ECC1F22345200ACE7EA /* SCDSender */ = {
+			isa = PBXGroup;
+			children = (
+				98679ECD1F22350F00ACE7EA /* SCDSender.h */,
+				98679ECE1F22350F00ACE7EA /* SCDSender.m */,
+			);
+			name = SCDSender;
+			sourceTree = "<group>";
+		};
 		986AE9B41E93BD5C00AF4E0A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,12 +982,14 @@
 		987F837A1E3241250058633C /* InputSupervisors */ = {
 			isa = PBXGroup;
 			children = (
+				98679EC71F2212DB00ACE7EA /* BatteryInputSupervisor */,
+				988A15031E40AA6A00AABD43 /* CommonUtils */,
+				98F1FF711E71551B00A664AB /* InputSupervisorModel */,
+				9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */,
 				98B3FD751F21040B001652A4 /* BaseInputSupervisor */,
 				98B3FD701F210306001652A4 /* DeviceInfoInputSupervisor */,
 				98B3FD6B1F20F701001652A4 /* DeviceMotionInputSupervisor */,
 				98B3FD661F20E0B8001652A4 /* GyroscopeInputSupervisor */,
-				9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */,
-				98F1FF711E71551B00A664AB /* InputSupervisorModel */,
 				984E7FC41F17D45D004E93BB /* PickerControllerSupervisor */,
 				98ECE47E1E424A9E0042A262 /* ContactsInputSupervisor */,
 				98ECE4791E422E550042A262 /* MicrophoneInputSupervisor */,
@@ -970,11 +998,10 @@
 				988A151C1E40E2C800AABD43 /* BarometerInputSupervisor */,
 				988A15171E40DF1B00AABD43 /* AccelerometerInputSupervisor */,
 				988A15121E40D18B00AABD43 /* MagnetometerInputSupervisor */,
-				988A15031E40AA6A00AABD43 /* CommonUtils */,
 				988A14FE1E40A48500AABD43 /* PedometerInputSupervisor */,
 				982175C81E3FA07F00495627 /* ProximityInputSupervisor */,
-				980787761E3F614C0099B642 /* NetworkSupervisor */,
 				987F837B1E3241300058633C /* LocationInputSupervisor */,
+				980787761E3F614C0099B642 /* NetworkSupervisor */,
 				987F83801E3242BC0058633C /* SupervisorProtocols.h */,
 			);
 			name = InputSupervisors;
@@ -1181,6 +1208,7 @@
 		9895FB351E5B331F00B1F56D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				98679ECC1F22345200ACE7EA /* SCDSender */,
 				984E7FBF1F17C585004E93BB /* ModuleDeniedAccessReport */,
 				98F1FF641E713AEF00A664AB /* HTTPRequestAnalyzers */,
 				98DA11F41E70364B008E8373 /* Utilities */,
@@ -1588,6 +1616,8 @@
 				98797E141E96864A00AB3A0B /* PlistReportsStorage.h in Headers */,
 				9840E4A61E9CE08600BB3DB9 /* UIRandomWalkLocationStatusViewController.h in Headers */,
 				983A09051E727A1C00AE2D5E /* PPBasicHttpBodyParser.h in Headers */,
+				98679ECF1F22350F00ACE7EA /* SCDSender.h in Headers */,
+				98679ECA1F22137000ACE7EA /* BatteryInputSupervisor.h in Headers */,
 				9843341A1F067D780016564E /* UIAboutCollectionViewCell.h in Headers */,
 				982464DE1E8D5F1B004D8534 /* UILocationListView.h in Headers */,
 				98DF61021E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.h in Headers */,
@@ -1844,6 +1874,7 @@
 				98ECE4821E424AC80042A262 /* ContactsInputSupervisor.m in Sources */,
 				985419011E9502390004370F /* UILocationSettingsView.m in Sources */,
 				98D603E51E2F800B00E59A42 /* OPMonitor.m in Sources */,
+				98679ED01F22350F00ACE7EA /* SCDSender.m in Sources */,
 				9831E2AA1E6DA20F00A5FE0A /* UIAccessFrequencyViolationReportsSection.m in Sources */,
 				98E1BF871EF2D04700F6E140 /* Security.m in Sources */,
 				98ECE47D1E422E720042A262 /* MicrophoneInputSupervisor.m in Sources */,
@@ -1867,6 +1898,7 @@
 				98413CA11F068F05005A48E0 /* UIAboutViewController.m in Sources */,
 				98DA11F81E703850008E8373 /* PPCircularArray.m in Sources */,
 				98F1FF831E71980A00A664AB /* GCDWebServerFunctions.m in Sources */,
+				98679ECB1F22137000ACE7EA /* BatteryInputSupervisor.m in Sources */,
 				9895FB4A1E5B3CB200B1F56D /* UIWindow+RSHookHandle.m in Sources */,
 				9888B1751E6C625900D783AB /* PPReportsSourcesBundle.m in Sources */,
 				98331C831E56F0D7005D3A84 /* NSBundle+RSFrameworkHooks.m in Sources */,

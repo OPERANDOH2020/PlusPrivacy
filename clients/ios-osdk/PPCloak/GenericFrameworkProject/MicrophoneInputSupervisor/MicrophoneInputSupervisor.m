@@ -36,63 +36,24 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
 
 @implementation MicrophoneInputSupervisor
 
--(void)setupWithModel:(InputSupervisorModel *)model {
-    self.model = model;
-    self.micSensor = [CommonUtils extractInputOfType:InputType.Microphone from:model.scdDocument.accessedInputs];
-    
-    WEAKSELF
-    [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-        
-        if (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) {
-            if (isMicrophoneEvent(event.eventIdentifier.eventSubtype, event.eventData)) {
-                [weakSelf processMicrophoneUsageEvent:event nextHandler:nextHandlerIfAny];
-            } else {
-                SAFECALL(nextHandlerIfAny)
-            }
-        } else {
-            SAFECALL(nextHandlerIfAny)
-        }
-        
-    }];
+
+
+-(InputType *)monitoringInputType {
+    return InputType.Microphone;
+}
+
+-(BOOL)isEventOfInterest:(PPEvent *)event {
+    return (event.eventIdentifier.eventType == PPAVCaptureDeviceEvent) &&
+    isMicrophoneEvent(event.eventIdentifier.eventSubtype, event.eventData);
 }
 
 
--(void)processMicrophoneUsageEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
-    
-    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.micSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
-    
-    if (aPossibleModule) {
-        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        return;
-    }
-    
-    PPUnlistedInputAccessViolation *report = nil;
-    if ((report = [self detectUnregisteredAccess])) {
-        [self.model.delegate newUnlistedInputAccessViolationReported:report];
-        return;
-    }
-    
-    [self processEventNormally:event];
-    SAFECALL(nextHandler)
-}
-
--(void)processEventNormally:(PPEvent*)event{
-    
-}
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
     // apply SDKC code here
     
-    //generate a report
-    [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:moduleName inputType:self.micSensor.inputType date:[NSDate date]]];
 }
 
--(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
-    if (self.micSensor) {
-        return nil;
-    }
-    return [[PPUnlistedInputAccessViolation alloc] initWithInputType:InputType.Microphone dateReported:[NSDate date]];
-}
 -(void)newURLRequestMade:(NSURLRequest *)request{
     
 }

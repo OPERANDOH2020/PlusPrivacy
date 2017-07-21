@@ -19,14 +19,19 @@
 #import "AccelerometerInputSupervisor.h"
 #import "BarometerInputSupervisor.h"
 #import "PickerControllerSupervisor.h"
+#import "BatteryInputSupervisor.h"
+#import "DeviceInfoInputSupervisor.h"
+#import "DeviceMotionInputSupervisor.h"
+#import "GyroscopeInputSupervisor.h"
 #import "DefaultConfirmationSupervisor.h"
+
 #import "PlistReportsStorage.h"
 #import "JRSwizzle.h"
 #import "LocationInputSwizzler.h"
 #import "CommonViewUtils.h"
 #import "PPFlowBuilder.h"
 #import "Security.h"
-
+#import "SCDSender.h"
 #import <PPCommonUI/PPCommonUI-Swift.h>
 
 
@@ -57,7 +62,7 @@
 @property (strong, nonatomic) UIButton *handle;
 @property (strong, nonatomic) PlistReportsStorage *plistRepository;
 @property (strong, nonatomic) NSArray<id<InputSourceSupervisor>> *supervisorsArray;
-
+@property (strong, nonatomic) id<SCDSender> scdSender;
 
 @property (strong, nonatomic) LocationInputSwizzler *locationInputSwizzler;
 
@@ -80,7 +85,7 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
     if (json) {
-        [[OPMonitor sharedInstance] beginMonitoringWithAppDocument:json];
+        [[OPMonitor sharedInstance] beginMonitoringWithAppDocument:json text:fileText];
     } else {
         NSString *message = [NSString stringWithFormat:@"Could not find json document at path %@ or the text is not a valid JSON object: %@", fileText, path];
         [CommonViewUtils showOkAlertWithMessage:message completion:nil];
@@ -114,7 +119,7 @@
     [[self sharedInstance] displayFlowIfNecessary];
 }
 
--(void)beginMonitoringWithAppDocument:(NSDictionary *)document {
+-(void)beginMonitoringWithAppDocument:(NSDictionary *)document text:(NSString*)jsonText {
 
     [[CommonTypeBuilder sharedInstance] buildSCDDocumentWith:document in: ^void(SCDDocument * _Nullable scdDocument, NSError * _Nullable error) {
         
@@ -127,8 +132,11 @@
                 [self displayNotificationIfPossible:errorMessage];
             });
             return;
-            
         }
+        self.scdSender = [[SCDSender alloc] init];
+        [self.scdSender sendSCDParameters:[self buildSCDParametersWithJSON:jsonText] withCompletion:^(NSError * _Nullable errorIfAny) {
+            
+        }];
         
         self.monitorSettings = [[OPMonitorSettings alloc] initFromDefaults];
         self.scdJson = document;
@@ -144,19 +152,10 @@
 }
 
 
--(UIButton *)getHandle {
-    if (self.handle == nil) {
-        self.handle = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 44, 44)];
-        [self.handle setTitle:@"PP" forState:UIControlStateNormal];
-        self.handle.backgroundColor = [UIColor redColor];
-        [self.handle addTarget:self action:@selector(didPressHandle:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return  self.handle;
-}
-
--(void)didPressHandle:(id)sender {
-    [self displayFlowIfNecessary];
+-(SCDSendParamaters*)buildSCDParametersWithJSON:(NSString*)jsonText {
+    return [[SCDSendParamaters alloc] initWithJSON:jsonText
+                                     deviceId:UIDevice.currentDevice.identifierForVendor.UUIDString
+                                     bundleId:[[NSBundle mainBundle] bundleIdentifier]];
 }
 
 -(void)displayFlowIfNecessary {
@@ -300,6 +299,10 @@
                                    [ContactsInputSupervisor class],
                                    [NSURLSessionSupervisor class],
                                    [PickerControllerSupervisor class],
+                                   [BatteryInputSupervisor class],
+                                   [DeviceInfoInputSupervisor class],
+                                   [DeviceMotionInputSupervisor class],
+                                   [GyroscopeInputSupervisor class],
                                    [DefaultConfirmationSupervisor class]
                                    ];
     

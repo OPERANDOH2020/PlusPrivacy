@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface TouchIdSupervisor : NSObject <InputSourceSupervisor>
--(void)processTouchIDUsage;
+@interface TouchIdSupervisor : BaseInputSupervisor
 @end

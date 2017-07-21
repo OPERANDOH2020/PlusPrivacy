@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 #import "Common.h"
 #import "LocationInputSwizzler.h"
 
-@interface LocationInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processNewlyRequestedLocations:(NSArray<CLLocation*>* _Nonnull)locations;
+@interface LocationInputSupervisor : BaseInputSupervisor
 @end

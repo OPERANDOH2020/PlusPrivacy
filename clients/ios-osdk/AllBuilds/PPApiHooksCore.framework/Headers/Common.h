@@ -122,7 +122,11 @@ typedef NS_ENUM(NSInteger, PPUIDeviceEventType){
     EventDeviceGetLocalizedModel,
     EventDeviceGetSystemName,
     EventDeviceGetSystemVersion,
-    EventDeviceGetIdentifierForVendor
+    EventDeviceGetIdentifierForVendor,
+    EventDeviceIsBatteryMonitoringEnabled,
+    EventDeviceSetBatteryMonitoringEnabled,
+    EventDeviceGetBatteryState,
+    EventDeviceGetBatteryLevel
 };
 
 typedef NS_ENUM(NSInteger, PPPedometerEventType){
@@ -362,7 +366,9 @@ typedef NS_ENUM(NSInteger, PPAVCaptureDeviceEventType) {
 #define kPPDeviceUUIDValue @"kPPDeviceUUIDValue"
 #define kPPDeviceSystemNameValue @"kPPDeviceSystemNameValue"
 #define kPPDeviceSystemVersionValue @"kPPDeviceSystemVersionValue"
-
+#define kPPDeviceIsBatteryMonitoringEnabledValue @"kPPDeviceIsBatteryMonitoringEnabledValue"
+#define kPPDeviceBatteryStateValue @"kPPDeviceBatteryStateValue"
+#define kPPDeviceBatteryLevelValue @"kPPDeviceBatteryLevelValue"
 
 #pragma mark - CMPedometer related keys
 // -

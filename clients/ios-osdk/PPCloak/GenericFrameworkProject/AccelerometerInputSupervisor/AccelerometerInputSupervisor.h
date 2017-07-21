@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface AccelerometerInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processAccelerometerStatus;
+@interface AccelerometerInputSupervisor : BaseInputSupervisor
 @end

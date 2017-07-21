@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface ContactsInputSupervisor : NSObject <InputSourceSupervisor>
+@interface ContactsInputSupervisor : BaseInputSupervisor
 
 @end

@@ -19,53 +19,18 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
 
 
 @interface LocationInputSupervisor()
-@property (strong, nonatomic) InputSupervisorModel *model;
-@property (strong, nonatomic) AccessedInput *locationSensor;
 @property (strong, nonatomic) PPCircularArray *locationsArray;
 @end
 
 
 @implementation LocationInputSupervisor
 
--(void)setupWithModel:(InputSupervisorModel *)model {
-    self.model = model;
-    self.locationSensor = [CommonUtils extractInputOfType: InputType.Location from:model.scdDocument.accessedInputs];
-    
-    self.locationsArray = [[PPCircularArray alloc] initWithCapacity:100];
-    
-    WEAKSELF
-    [model.eventsDispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-        
-        if (event.eventIdentifier.eventType == PPLocationManagerEvent) {
-            [weakSelf processLocationEvent:event nextHandler:nextHandlerIfAny];
-        } else {
-            SAFECALL(nextHandlerIfAny)
-        }
-        
-    }];
+-(BOOL)isEventOfInterest:(PPEvent *)event {
+    return event.eventIdentifier.eventType == PPLocationManagerEvent;
 }
 
--(void)processLocationEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
-    
-    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.locationSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
-    
-    if (aPossibleModule) {
-        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.locationSensor.inputType date:[NSDate date]]];
-        
-        NSLog(@"would deny for: %@", aPossibleModule);
-        return;
-    }
-    
-    NSLog(@"No denying, the array is: %@", self.model.scdDocument.sdkChecks);
-    
-    PPUnlistedInputAccessViolation *violationReport = nil;
-    if ((violationReport = [self detectUnregisteredAccess])) {
-        [self.model.delegate newUnlistedInputAccessViolationReported:violationReport];
-        return;
-    }
-    
-    SAFECALL(nextHandler)
+-(InputType *)monitoringInputType{
+    return InputType.Location;
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
@@ -78,12 +43,9 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
     event.eventData[kPPLocationManagerIsRangingAvailableValue] = @(NO);
 }
 
--(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
-    if (self.locationSensor) {
-        return nil;
-    }
+
+-(void)specificProcessOfEvent:(PPEvent *)event nextHandler:(NextHandlerConfirmation)nextHandler {
     
-    return [[PPUnlistedInputAccessViolation alloc] initWithInputType:InputType.Location dateReported:[NSDate date]];
 }
 
 -(void)processNewlyRequestedLocations:(NSArray<CLLocation *> *)locations {

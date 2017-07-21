@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Common.h"
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface PedometerInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processPedometerStatus;
+@interface PedometerInputSupervisor : BaseInputSupervisor
 @end

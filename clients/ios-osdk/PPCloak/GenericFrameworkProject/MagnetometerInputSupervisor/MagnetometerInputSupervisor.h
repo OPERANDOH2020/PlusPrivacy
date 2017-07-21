@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface MagnetometerInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processMagnetometerStatus;
+@interface MagnetometerInputSupervisor : BaseInputSupervisor
 @end

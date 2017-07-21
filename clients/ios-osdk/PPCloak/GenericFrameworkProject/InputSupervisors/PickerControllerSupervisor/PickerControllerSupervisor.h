@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface PickerControllerSupervisor : NSObject <InputSourceSupervisor>
+@interface PickerControllerSupervisor : BaseInputSupervisor
 
 @end

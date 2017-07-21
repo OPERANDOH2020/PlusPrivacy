@@ -13,61 +13,19 @@
 #import "Common.h"
 
 @interface PickerControllerSupervisor()
-@property (strong, nonatomic) AccessedInput *camSensor;
-@property (strong, nonatomic) InputSupervisorModel *model;
 @end
 
 @implementation PickerControllerSupervisor
 
--(void)setupWithModel:(InputSupervisorModel *)model{
-    self.model = model;
-    self.camSensor = [CommonUtils extractInputOfType:InputType.Camera from:model.scdDocument.accessedInputs];
-    
-    [PPEventDispatcher.sharedInstance appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-        
-        if (event.eventIdentifier.eventType == PPUIImagePickerControllerEvent) {
-            [self processUIPickerControllerEvent:event nextHandler:nextHandlerIfAny];
-        } else {
-            SAFECALL(nextHandlerIfAny)
-        }
-        
-    }];
+
+-(BOOL)isEventOfInterest:(PPEvent *)event {
+    return event.eventIdentifier.eventType == PPUIImagePickerControllerEvent;
 }
 
-
--(void)processUIPickerControllerEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
-    
-    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.camSensor.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
-    
-    if (aPossibleModule) {
-        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.camSensor.inputType date:[NSDate date]]];
-        return;
-    }
-    
-    PPUnlistedInputAccessViolation *report = [self detectUnregisteredAccess];
-    if (report) {
-        [self.model.delegate newUnlistedInputAccessViolationReported:report];
-        return;
-    }
-    
-    [self processEventNormally:event];
-    SAFECALL(nextHandler)
+-(InputType *)monitoringInputType {
+    return InputType.Camera;
 }
 
-
--(void)processEventNormally:(PPEvent*)event {
-    
-}
-
--(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
-    if (self.camSensor) {
-        return nil;
-        
-    }
-    
-    return [[PPUnlistedInputAccessViolation alloc] initWithInputType:self.camSensor.inputType dateReported:[NSDate date]];
-}
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
     // apply SDKC code here
@@ -80,15 +38,5 @@
     event.eventData[kPPPickerControllerMediaTypesValue] = @[];
 }
 
--(NSDictionary*)deniedValuesPerEventSubtype {
-    static NSMutableDictionary *values = nil;
-    if (values) {
-        return values;
-    }
-    
-    values = [[NSMutableDictionary alloc] init];
-
-    return values;
-}
 
 @end

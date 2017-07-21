@@ -165,5 +165,36 @@ HOOKPrefixInstance(NSString*, identifierForVendor) {
     return result;
 }
 
+HOOKPrefixInstance(BOOL, isBatteryMonitoringEnabled){
+    BOOL value = CALL_PREFIXED(self, isBatteryMonitoringEnabled);
+    return [_devDispatcher resultForBoolEventValue:value ofIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceIsBatteryMonitoringEnabled) atKey:kPPDeviceIsBatteryMonitoringEnabledValue];
+}
+
+
+HOOKPrefixInstance(UIDeviceBatteryState, batteryState){
+    UIDeviceBatteryState realState = CALL_PREFIXED(self, batteryState);
+    return [[_devDispatcher resultForEventValue:@(realState) ofIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetBatteryState) atKey:kPPDeviceBatteryStateValue] integerValue];
+}
+
+
+HOOKPrefixInstance(float, batteryLevel){
+    float realLevel = CALL_PREFIXED(self, batteryLevel);
+    return [[_devDispatcher resultForEventValue:@(realLevel) ofIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceGetBatteryLevel) atKey:kPPDeviceBatteryLevelValue] floatValue];
+}
+
+HOOKPrefixInstance(void, setBatteryMonitoringEnabled:(BOOL)batteryMonitoringEnabled){
+    NSMutableDictionary *evData = [[NSMutableDictionary alloc] init];
+    evData[kPPDeviceIsBatteryMonitoringEnabledValue] = @(batteryMonitoringEnabled);
+    
+    
+    __Weak(evData);
+    PPVoidBlock confirmationOrDefault = ^{
+        CALL_PREFIXED(self, setBatteryMonitoringEnabled:[weakevData[kPPDeviceIsBatteryMonitoringEnabledValue] boolValue]);
+    };
+    
+    PPEvent *event = [[PPEvent alloc] initWithEventIdentifier:PPEventIdentifierMake(PPUIDeviceEvent, EventDeviceSetBatteryMonitoringEnabled) moduleNamesInCallStack:kPPCurrentCallStackModuleNames eventData:evData whenNoHandlerAvailable:confirmationOrDefault];
+    
+    [_devDispatcher fireEvent:event];
+}
 
 @end

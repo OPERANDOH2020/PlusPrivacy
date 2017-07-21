@@ -24,57 +24,17 @@ BOOL isDeviceMotionEvent(int eventSubtype){
 }
 
 @interface DeviceMotionInputSupervisor()
-@property (strong, nonatomic) AccessedInput *dmInput;
-@property (strong, nonatomic) InputSupervisorModel *model;
 @end
 
 @implementation DeviceMotionInputSupervisor
 
--(void)setupWithModel:(InputSupervisorModel *)model {
-    self.model = model;
-    self.dmInput = [CommonUtils extractInputOfType:InputType.Motion from:model.scdDocument.accessedInputs];
-    
-    
-    WEAKSELF
-    [self.model.eventsDispatcher appendNewEventHandler:^(PPEvent * _Nonnull event, NextHandlerConfirmation  _Nullable nextHandlerIfAny) {
-        
-        if (event.eventIdentifier.eventType == PPMotionManagerEvent && isDeviceMotionEvent(event.eventIdentifier.eventSubtype)) {
-            [weakSelf processDeviceMotionEvent:event nextHandler:nextHandlerIfAny];
-        } else {
-            SAFECALL(nextHandlerIfAny)
-        }
-        
-    }];
+
+-(InputType *)monitoringInputType{
+    return InputType.Motion;
 }
 
-
-
--(void)processDeviceMotionEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler {
-    
-    NSString *aPossibleModule = [[self.model.scdDocument modulesDeniedForInputType:self.dmInput.inputType] PPCloak_containsAnyFromArray:event.moduleNamesInCallStack];
-    
-    if (aPossibleModule) {
-        [self denyValuesOrActionsForModuleName:aPossibleModule inEvent:event];
-        [self.model.delegate newModuleDeniedAccessReport:[[PPModuleDeniedAccessReport alloc] initWithModuleName:aPossibleModule inputType:self.dmInput.inputType date:[NSDate date]]];
-        return;
-    }
-    
-    PPUnlistedInputAccessViolation *report = nil;
-    if ((report = [self detectUnregisteredAccess])) {
-        [self.model.delegate newUnlistedInputAccessViolationReported:report];
-        return;
-    }
-    
-    SAFECALL(nextHandler)
-}
-
-
--(PPUnlistedInputAccessViolation*)detectUnregisteredAccess {
-    if (self.dmInput) {
-        return nil;
-    }
-    
-    return [[PPUnlistedInputAccessViolation alloc] initWithInputType:self.dmInput.inputType dateReported:[NSDate date]];
+-(BOOL)isEventOfInterest:(PPEvent *)event {
+    return (event.eventIdentifier.eventType == PPMotionManagerEvent && isDeviceMotionEvent(event.eventIdentifier.eventSubtype));
 }
 
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {

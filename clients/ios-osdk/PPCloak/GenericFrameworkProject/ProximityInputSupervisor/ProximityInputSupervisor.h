@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface ProximityInputSupervisor : NSObject <InputSourceSupervisor>
+@interface ProximityInputSupervisor : BaseInputSupervisor
 @end

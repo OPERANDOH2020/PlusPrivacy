@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface MicrophoneInputSupervisor : NSObject <InputSourceSupervisor>
-
--(void)processMicrophoneUsage;
+@interface MicrophoneInputSupervisor : BaseInputSupervisor
 
 @end

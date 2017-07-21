@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface DeviceInfoInputSupervisor : NSObject <InputSourceSupervisor>
+@interface DeviceInfoInputSupervisor : BaseInputSupervisor
 
 @end

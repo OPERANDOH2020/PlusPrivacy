@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SupervisorProtocols.h"
+#import "BaseInputSupervisor.h"
 
-@interface BarometerInputSupervisor : NSObject <InputSourceSupervisor>
--(void)processAltimeterStatus;
+@interface BarometerInputSupervisor : BaseInputSupervisor
 @end

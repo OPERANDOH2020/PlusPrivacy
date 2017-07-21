@@ -11,9 +11,17 @@
 
 @interface BaseInputSupervisor : NSObject <InputSourceSupervisor>
 
-//protected properties
+//protected properties, intended to be accessed or be set by subclasses
 @property (strong, nonatomic) InputSupervisorModel *model;
 @property (strong, nonatomic) AccessedInput *accessedInput;
 
+
+//-protected methods, must be overriden
+-(InputType*)monitoringInputType;
+-(BOOL)isEventOfInterest:(PPEvent*)event;
+-(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event;
+-(void)specificProcessOfEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler;
+
+//-public methods
 
 @end
