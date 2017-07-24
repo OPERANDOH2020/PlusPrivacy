@@ -13,7 +13,7 @@
 #import "CommonUtils.h"
 #import "JRSwizzle.h"
 
-BOOL isCameraEvent(int subType, NSDictionary *evData){
+BOOL isCameraEvent(NSInteger subType, NSDictionary *evData){
     
     NSString *mediaTypeValue = evData[kPPCaptureDeviceMediaTypeValue];
     if (subType == EventCaptureDeviceGetDefaultDeviceWithMediaType &&
@@ -32,8 +32,6 @@ BOOL isCameraEvent(int subType, NSDictionary *evData){
 
 
 @interface AVCameraInputSupervisor()
-@property (strong, nonatomic) InputSupervisorModel *model;
-@property (strong, nonatomic) AccessedInput *cameraSensor;
 
 @end
 
@@ -48,13 +46,6 @@ BOOL isCameraEvent(int subType, NSDictionary *evData){
 -(InputType *)monitoringInputType {
     return InputType.Camera;
 }
-
-
--(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-}
-
 
 
 @end

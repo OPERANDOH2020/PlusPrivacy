@@ -11,6 +11,22 @@
 #import "PPAccessUnlistedHostReport.h"
 #import <PPApiHooksCore/PPApiHooksCore.h>
 
+@interface NSError(NSURLSessionSupervisor)
++(NSError*)errorRequestBlocked:(NSURLRequest*)request;
+@end
+
+
+@implementation NSError(NSURLSessionSupervisor)
+
++(NSError *)errorRequestBlocked:(NSURLRequest*)request {
+    NSString *message = [NSString stringWithFormat:@"Accessed unspecified host. The developer must specifiy in the self compliance document the list of hosts that the app accesses. Host: %@", request.URL.host];
+    NSError *error = [[NSError alloc] initWithDomain:@"com.plusPrivacy" code:-1 userInfo:@{NSLocalizedDescriptionKey: message}];
+    
+    return error;
+}
+
+@end
+
 @interface NSURLSessionSupervisor()
 @property (strong, nonatomic) InputSupervisorModel *model;
 @property (strong, nonatomic) NSString *myHandlerIdentifier;
@@ -41,10 +57,7 @@
     PPAccessUnlistedHostReport *report;
     if ((report = [self accessesUnspecifiedLink:request])) {
         [self.model.delegate newURLHostViolationReported:report];
-        
-        NSString *message = [NSString stringWithFormat:@"Accessed unspecified host. The developer must specifiy in the self compliance document the list of hosts that the app accesses. Host: %@", request.URL.host];
-        NSError *error = [[NSError alloc] initWithDomain:@"com.plusPrivacy" code:-1 userInfo:@{NSLocalizedDescriptionKey: message}];
-        
+        NSError *error = [NSError errorRequestBlocked:request];
         requestEvent.eventData[kPPURLSessionDataTaskError] = error;
     }
 }

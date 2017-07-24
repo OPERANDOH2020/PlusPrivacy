@@ -37,11 +37,16 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[self buildSendSCDURL:params]]];
     
-    request.HTTPMethod = @"POST";
+    request.HTTPMethod = @"PUT";
     request.HTTPBody = [params.scdJSONText dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"URLResponse: %@", response);
+        if (data) {
+            NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"Response data: %@", message);
+        }
         completion(error);
     }];
     
@@ -50,7 +55,7 @@
 
 
 -(NSString*)buildSendSCDURL:(SCDSendParamaters*)paramters {
-    return [NSString stringWithFormat:@"%@/%@/%@", kBaseURL, paramters.deviceId, paramters.appBundleIdentifier];
+    return [NSString stringWithFormat:@"%@/registerApplication/%@/%@", kBaseURL, paramters.deviceId, paramters.appBundleIdentifier];
 }
 
 @end

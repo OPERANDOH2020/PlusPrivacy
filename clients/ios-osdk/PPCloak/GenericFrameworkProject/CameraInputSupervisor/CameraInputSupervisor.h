@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseInputSupervisor.h"
+#import "BaseCaptureDeviceSupervisor.h"
 
-@interface AVCameraInputSupervisor : BaseInputSupervisor
+@interface AVCameraInputSupervisor : BaseCaptureDeviceSupervisor
 @end

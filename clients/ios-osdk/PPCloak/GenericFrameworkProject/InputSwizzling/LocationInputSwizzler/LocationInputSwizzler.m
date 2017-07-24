@@ -11,32 +11,18 @@
 #import "JRSwizzle.h"
 #import "Common.h"
 #import <PPApiHooksCore/PPApiHooksCore.h>
+#import "LocationManagerSubstituteDelegate.h"
 
 #pragma mark - Helper class
 
-@interface WeakLocationManagerWrapper : NSObject
-@property (weak, nonatomic) CLLocationManager *manager;
-@property (weak, nonatomic) id<CLLocationManagerDelegate> delegate;
 
-@property (strong, nonatomic) void(^onLocationManagerDestruction)();
-@end
-
-@implementation WeakLocationManagerWrapper
-
--(void)setManager:(CLLocationManager *)manager {
-    _manager = manager;
-    if (manager == nil) {
-        SAFECALL(self.onLocationManagerDestruction)
-    }
-}
-
-@end
 
 #pragma mark -
 
 @interface LocationInputSwizzler() <CLLocationManagerDelegate>
 @property (strong, nonatomic) RandomWalkSwizzlerSettings *currentSettings;
-@property (strong, nonatomic) NSMutableDictionary<NSNumber*, WeakLocationManagerWrapper*> *wrappersPerManagerHash;
+@property (strong, nonatomic) LocationManagerSubstituteDelegate *substituteDelegate;
+
 @property (strong, nonatomic) NSMutableArray<CurrentActiveLocationIndexChangedCallback> *callbacksToNotifyChange;
 @property (strong, nonatomic) LocationsCallback whenLocationsAreRequested;
 @property (strong, nonatomic) NSTimer *timer;
@@ -72,6 +58,20 @@
         SAFECALL(nextHandlerIfAny)
         
     }];
+    
+    
+    self.substituteDelegate = [[LocationManagerSubstituteDelegate alloc] initWithLocationSubstituteCallback:^CLLocation * _Nullable(CLLocation * _Nonnull location) {
+        CLLocation *sentLocation = [weakSelf locationSubstituteIfAny];
+        if (!sentLocation) {
+            sentLocation = location;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            SAFECALL(weakSelf.whenLocationsAreRequested, @[sentLocation]);
+        });
+        
+        return sentLocation;
+    }];
 }
 
 -(void)registerNewChangeCallback:(CurrentActiveLocationIndexChangedCallback)callback {
@@ -83,25 +83,6 @@
 -(void)removeChangeCallback:(CurrentActiveLocationIndexChangedCallback)callback {
     [self.callbacksToNotifyChange removeObject:callback];
 }
-
-+(LocationInputSwizzler *)sharedInstance {
-    static LocationInputSwizzler* _sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[LocationInputSwizzler alloc] init];
-    });
-    
-    return  _sharedInstance;
-}
-
--(instancetype)init{
-    if (self = [super init]) {
-        self.wrappersPerManagerHash = [[NSMutableDictionary alloc] init];
-    }
-
-    return self;
-}
-
 
 -(void)applyNewRandomWalkSettings:(RandomWalkSwizzlerSettings *)settings{
     
@@ -131,11 +112,12 @@
             callback(weakSelf.indexOfCurrentSentLocation);
         }
         
-        for (WeakLocationManagerWrapper *wrapper in self.wrappersPerManagerHash.allValues) {
-            [wrapper.delegate locationManager:wrapper.manager didUpdateLocations:@[weakSelf.currentSettings.walkPath[weakSelf.indexOfCurrentSentLocation]]];
-        }
+        CLLocation *location = weakSelf.currentSettings.walkPath[weakSelf.indexOfCurrentSentLocation];
+        [weakSelf.substituteDelegate broadcastToDelegatesLocation:location];
         
     }];
+    
+    [self.timer invalidate];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:30 target:operation selector:@selector(main) userInfo:nil repeats:YES];
     
@@ -177,52 +159,17 @@
     PPVoidBlock setDelegateConfirmation = event.eventData[kPPLocationManagerSetDelegateConfirmation];
     
     if (delegate == nil) {
-        [self.wrappersPerManagerHash removeObjectForKey:@(instance.hash)];
+        [self.substituteDelegate removeDelegateAndManager:instance];
         SAFECALL(setDelegateConfirmation)
         return;
     }
     
-    [self saveDelegate:delegate forManager:instance];
+    [self.substituteDelegate substituteDelegate:delegate forManager:instance];
     
     [event.eventData setObject:self forKey:kPPLocationManagerDelegate];
     SAFECALL(setDelegateConfirmation)
 }
 
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSArray *locationsForDelegates = nil;
-    CLLocation *replacedLocation = [self locationSubstituteIfAny];
-    if (replacedLocation) {
-        locationsForDelegates = @[replacedLocation];
-    } else {
-        locationsForDelegates = locations;
-    }
-    
-    [[self delegateForManager:manager] locationManager:manager didUpdateLocations:locationsForDelegates];
-    SAFECALL(self.whenLocationsAreRequested, locationsForDelegates)
-}
-
--(void)saveDelegate:(id<CLLocationManagerDelegate>)delegate forManager:(CLLocationManager*)manager {
-    NSInteger hash = manager.hash;
-    WeakLocationManagerWrapper *existentWrapper = self.wrappersPerManagerHash[@(hash)];
-    
-    if (!existentWrapper) {
-        WEAKSELF
-        existentWrapper = [[WeakLocationManagerWrapper alloc] init];
-        existentWrapper.manager = manager;
-        existentWrapper.onLocationManagerDestruction = ^{
-            [weakSelf.wrappersPerManagerHash removeObjectForKey:@(hash)];
-        };
-        [self.wrappersPerManagerHash setObject:existentWrapper forKey:@(hash)];
-    }
-    
-    existentWrapper.delegate = delegate;
-    
-}
-
--(id<CLLocationManagerDelegate>)delegateForManager:(CLLocationManager*)manager {
-    return self.wrappersPerManagerHash[@(manager.hash)].delegate;
-}
 
 @end
 

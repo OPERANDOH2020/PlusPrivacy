@@ -21,7 +21,7 @@
 -(BOOL)isEventOfInterest:(PPEvent*)event;
 -(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event;
 -(void)specificProcessOfEvent:(PPEvent*)event nextHandler:(NextHandlerConfirmation)nextHandler;
-
+-(void)analyzeNetworkRequestForPossibleLeakedData:(NSURLRequest*)request ifOkContinueToHandler:(NextHandlerConfirmation)nextHandler;
 //-public methods
 
 @end

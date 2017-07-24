@@ -31,6 +31,4 @@
 -(void)setupWithModel:(InputSupervisorModel* _Nonnull)model;
 @end
 
-
-
 #endif /* InputSupervisorDelegate_h */

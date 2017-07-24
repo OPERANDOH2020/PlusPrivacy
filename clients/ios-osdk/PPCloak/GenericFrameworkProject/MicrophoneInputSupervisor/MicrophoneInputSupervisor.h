@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseInputSupervisor.h"
+#import "BaseCaptureDeviceSupervisor.h"
 
-@interface MicrophoneInputSupervisor : BaseInputSupervisor
+@interface MicrophoneInputSupervisor : BaseCaptureDeviceSupervisor
 
 @end

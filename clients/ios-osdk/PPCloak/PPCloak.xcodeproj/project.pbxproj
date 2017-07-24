@@ -208,6 +208,10 @@
 		98DF61031E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF61011E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m */; };
 		98E1BF871EF2D04700F6E140 /* Security.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E1BF851EF2D04700F6E140 /* Security.m */; };
 		98E1BF881EF2D04700F6E140 /* Security.h in Headers */ = {isa = PBXBuildFile; fileRef = 98E1BF861EF2D04700F6E140 /* Security.h */; };
+		98E530411F25DCE600B7020D /* BaseCaptureDeviceSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98E5303F1F25DCE600B7020D /* BaseCaptureDeviceSupervisor.h */; };
+		98E530421F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E530401F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m */; };
+		98E530461F26188300B7020D /* LocationManagerSubstituteDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 98E530441F26188300B7020D /* LocationManagerSubstituteDelegate.h */; };
+		98E530471F26188300B7020D /* LocationManagerSubstituteDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E530451F26188300B7020D /* LocationManagerSubstituteDelegate.m */; };
 		98ECE46D1E41F8150042A262 /* TouchIdSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98ECE46B1E41F8150042A262 /* TouchIdSupervisor.h */; };
 		98ECE46E1E41F8150042A262 /* TouchIdSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECE46C1E41F8150042A262 /* TouchIdSupervisor.m */; };
 		98ECE4771E421AFD0042A262 /* CameraInputSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 98ECE4751E421AFD0042A262 /* CameraInputSupervisor.h */; };
@@ -434,6 +438,10 @@
 		98DF61011E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPUnlistedInputAccessViolation.m; path = Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.m; sourceTree = "<group>"; };
 		98E1BF851EF2D04700F6E140 /* Security.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Security.m; sourceTree = "<group>"; };
 		98E1BF861EF2D04700F6E140 /* Security.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Security.h; sourceTree = "<group>"; };
+		98E5303F1F25DCE600B7020D /* BaseCaptureDeviceSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCaptureDeviceSupervisor.h; path = BaseCaptureDeviceSupervisor/BaseCaptureDeviceSupervisor.h; sourceTree = "<group>"; };
+		98E530401F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCaptureDeviceSupervisor.m; path = BaseCaptureDeviceSupervisor/BaseCaptureDeviceSupervisor.m; sourceTree = "<group>"; };
+		98E530441F26188300B7020D /* LocationManagerSubstituteDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManagerSubstituteDelegate.h; path = LocationManagerSubstituteDelegate/LocationManagerSubstituteDelegate.h; sourceTree = "<group>"; };
+		98E530451F26188300B7020D /* LocationManagerSubstituteDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManagerSubstituteDelegate.m; path = LocationManagerSubstituteDelegate/LocationManagerSubstituteDelegate.m; sourceTree = "<group>"; };
 		98ECE46B1E41F8150042A262 /* TouchIdSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchIdSupervisor.h; path = TouchIdSupervisor/TouchIdSupervisor.h; sourceTree = "<group>"; };
 		98ECE46C1E41F8150042A262 /* TouchIdSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchIdSupervisor.m; path = TouchIdSupervisor/TouchIdSupervisor.m; sourceTree = "<group>"; };
 		98ECE4751E421AFD0042A262 /* CameraInputSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraInputSupervisor.h; path = CameraInputSupervisor/CameraInputSupervisor.h; sourceTree = "<group>"; };
@@ -694,6 +702,7 @@
 		984E7FB91F17C316004E93BB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				98E530431F26186100B7020D /* LocationManagerSubstituteDelegate */,
 				984E7FBA1F17C320004E93BB /* NSArray+ContainsAnyFromArray */,
 			);
 			name = Helpers;
@@ -982,11 +991,12 @@
 		987F837A1E3241250058633C /* InputSupervisors */ = {
 			isa = PBXGroup;
 			children = (
-				98679EC71F2212DB00ACE7EA /* BatteryInputSupervisor */,
+				98B3FD751F21040B001652A4 /* BaseInputSupervisor */,
+				98E5303E1F25DCC600B7020D /* BaseCaptureDeviceSupervisor */,
 				988A15031E40AA6A00AABD43 /* CommonUtils */,
+				98679EC71F2212DB00ACE7EA /* BatteryInputSupervisor */,
 				98F1FF711E71551B00A664AB /* InputSupervisorModel */,
 				9866CD221F1CFF0600F242E3 /* DefaultConfirmationSupervisor */,
-				98B3FD751F21040B001652A4 /* BaseInputSupervisor */,
 				98B3FD701F210306001652A4 /* DeviceInfoInputSupervisor */,
 				98B3FD6B1F20F701001652A4 /* DeviceMotionInputSupervisor */,
 				98B3FD661F20E0B8001652A4 /* GyroscopeInputSupervisor */,
@@ -1417,6 +1427,24 @@
 			name = Security;
 			sourceTree = "<group>";
 		};
+		98E5303E1F25DCC600B7020D /* BaseCaptureDeviceSupervisor */ = {
+			isa = PBXGroup;
+			children = (
+				98E5303F1F25DCE600B7020D /* BaseCaptureDeviceSupervisor.h */,
+				98E530401F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m */,
+			);
+			name = BaseCaptureDeviceSupervisor;
+			sourceTree = "<group>";
+		};
+		98E530431F26186100B7020D /* LocationManagerSubstituteDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				98E530441F26188300B7020D /* LocationManagerSubstituteDelegate.h */,
+				98E530451F26188300B7020D /* LocationManagerSubstituteDelegate.m */,
+			);
+			name = LocationManagerSubstituteDelegate;
+			sourceTree = "<group>";
+		};
 		98ECE46A1E41F7D80042A262 /* TouchIdInputSupervisor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1566,6 +1594,7 @@
 				985419001E9502390004370F /* UILocationSettingsView.h in Headers */,
 				987F83811E3242BC0058633C /* SupervisorProtocols.h in Headers */,
 				98DF60F81E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h in Headers */,
+				98E530411F25DCE600B7020D /* BaseCaptureDeviceSupervisor.h in Headers */,
 				98E1BF881EF2D04700F6E140 /* Security.h in Headers */,
 				987083C91E8E3A9D00D9F8E9 /* TPKeyboardAvoidingTableView.h in Headers */,
 				9871E08C1E97DF3D00A43695 /* UIRandomWalkLocationSettingsViewController.h in Headers */,
@@ -1589,6 +1618,7 @@
 				987083AF1E8E36A500D9F8E9 /* UILocationListViewCell.h in Headers */,
 				98804F001E4DF1D8009E6748 /* UIViolationReportsViewController.h in Headers */,
 				98804EFA1E4DEB57009E6748 /* ViolationReportCell.h in Headers */,
+				98E530461F26188300B7020D /* LocationManagerSubstituteDelegate.h in Headers */,
 				98ECE46D1E41F8150042A262 /* TouchIdSupervisor.h in Headers */,
 				98F1FF821E71980A00A664AB /* GCDWebServerFunctions.h in Headers */,
 				98DF60FD1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.h in Headers */,
@@ -1836,8 +1866,10 @@
 				9831E2A51E6D9ED500A5FE0A /* UIPrivacyLevelViolationReportsSection.m in Sources */,
 				9840E4A71E9CE08600BB3DB9 /* UIRandomWalkLocationStatusViewController.m in Sources */,
 				9895FB3A1E5B337A00B1F56D /* UserDefinedLocationsSwizzlerSettings.m in Sources */,
+				98E530421F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m in Sources */,
 				98804F0B1E4E0E7C009E6748 /* UIPPOptionsViewController.m in Sources */,
 				986AE9BA1E93BEC700AF4E0A /* UILocationStatusViewController.m in Sources */,
+				98E530471F26188300B7020D /* LocationManagerSubstituteDelegate.m in Sources */,
 				98DF60F91E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m in Sources */,
 				98B3FD741F210320001652A4 /* DeviceInfoInputSupervisor.m in Sources */,
 				98CEF3A51E5F2204002C2145 /* UIInputGraphViewController.m in Sources */,

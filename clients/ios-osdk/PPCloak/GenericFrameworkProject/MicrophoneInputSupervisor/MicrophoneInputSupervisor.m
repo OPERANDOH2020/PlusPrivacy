@@ -13,7 +13,10 @@
 #import "JRSwizzle.h"
 
 
-BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
+
+
+
+BOOL isMicrophoneEvent(NSInteger subType, NSDictionary *evData){
     NSString *mediaTypeValue = evData[kPPCaptureDeviceMediaTypeValue];
     if (subType == EventCaptureDeviceGetDefaultDeviceWithMediaType &&
         [mediaTypeValue isEqualToString:AVMediaTypeAudio]) {
@@ -30,8 +33,6 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
 }
 
 @interface MicrophoneInputSupervisor()
-@property (strong, nonatomic) AccessedInput *micSensor;
-@property (strong, nonatomic) InputSupervisorModel *model;
 @end
 
 @implementation MicrophoneInputSupervisor
@@ -49,10 +50,7 @@ BOOL isMicrophoneEvent(int subType, NSDictionary *evData){
 
 
 
--(void)denyValuesOrActionsForModuleName:(NSString*)moduleName inEvent:(PPEvent*)event {
-    // apply SDKC code here
-    
-}
+
 
 -(void)newURLRequestMade:(NSURLRequest *)request{
     

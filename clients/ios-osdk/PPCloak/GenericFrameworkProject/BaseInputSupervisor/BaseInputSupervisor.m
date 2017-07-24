@@ -21,7 +21,12 @@
         if ([weakSelf isEventOfInterest:event]) {
             [weakSelf processEvent:event nextHandler:nextHandlerIfAny];
         } else {
-            SAFECALL(nextHandlerIfAny)
+            if (event.eventIdentifier.eventType == PPURLSessionEvent) {
+                NSURLRequest *request = event.eventData[kPPURLSessionDataTaskRequest];
+                [weakSelf analyzeNetworkRequestForPossibleLeakedData:request ifOkContinueToHandler:nextHandlerIfAny];
+            } else {
+                SAFECALL(nextHandlerIfAny)
+            }
         }
     }];
 }
@@ -71,6 +76,10 @@
 
 -(void)denyValuesOrActionsForModuleName:(NSString *)moduleName inEvent:(PPEvent *)event {
     
+}
+
+-(void)analyzeNetworkRequestForPossibleLeakedData:(NSURLRequest *)request ifOkContinueToHandler:(NextHandlerConfirmation)nextHandler{
+    SAFECALL(nextHandler)
 }
 
 @end

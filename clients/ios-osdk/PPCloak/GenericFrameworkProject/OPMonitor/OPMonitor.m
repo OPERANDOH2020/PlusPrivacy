@@ -135,7 +135,10 @@
         }
         self.scdSender = [[SCDSender alloc] init];
         [self.scdSender sendSCDParameters:[self buildSCDParametersWithJSON:jsonText] withCompletion:^(NSError * _Nullable errorIfAny) {
-            
+            if (errorIfAny) {
+                NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
+                [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+            }
         }];
         
         self.monitorSettings = [[OPMonitorSettings alloc] initFromDefaults];
