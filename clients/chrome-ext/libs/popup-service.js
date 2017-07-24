@@ -17,11 +17,9 @@ var popupService = exports.popupService = {
 
     updatePopupStateData : function(data){
         stateData = data;
-        console.log(data.user);
     },
     getPopupStateData : function(callback){
         callback(stateData);
-        console.log(stateData);
     }
 
 };
