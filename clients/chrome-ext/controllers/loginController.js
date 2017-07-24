@@ -26,18 +26,17 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         status: ""
     };
 
-    $scope.loginAreaState = "loggedout";
 
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
         $scope.showABPAndPrivacyPolicyOptions = false;
-    }
+    };
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
         $scope.showABPAndPrivacyPolicyOptions = true;
-    }
+    };
 
     clearInfoPanel = function(){
         setTimeout(function(){
@@ -224,14 +223,6 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     };
 
-    $scope.$watch('loginAreaState', function (value) {
-        if (value != "networkError" && $scope.info.status == "error") {
-            $scope.info = {
-                message: "",
-                status: ""
-            };
-        }
-    });
 
     $scope.logout = function(){
         $scope.requestStatus = "pending";
@@ -260,6 +251,44 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             reconnectFunction();
         }
     });
+
+    messengerService.send("getPopupStateData", function(response){
+        if(response.data.state){
+            $scope.loginAreaState = response.data.state;
+        }
+        else{
+            $scope.loginAreaState = "loggedout";
+        }
+
+        if($scope.loginAreaState !== "loggedout"){
+            $scope.showABPAndPrivacyPolicyOptions = false;
+        }
+
+        if(response.data.user){
+            $scope.user = response.data.user;
+        }
+        $scope.$apply();
+    });
+
+
+    var updatePopupState = function(){
+        messengerService.send("updatePopupStateData", {
+            user: angular.copy($scope.user),
+            state: angular.copy($scope.loginAreaState)
+        });
+    };
+
+    $scope.$watch('loginAreaState', function (value) {
+        updatePopupState();
+        if (value != "networkError" && $scope.info.status == "error") {
+            $scope.info = {
+                message: "",
+                status: ""
+            };
+        }
+    });
+
+    $scope.$watch('user',updatePopupState, true);
 
 
     //messengerService.on("onReconnect",reconnectFunction);
