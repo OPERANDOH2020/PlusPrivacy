@@ -10,7 +10,6 @@ import eu.operando.swarmclient.models.Swarm;
 
 public class RegisterSwarm extends Swarm {
     private String status;
-    private String error;
 
     public RegisterSwarm(String name, String email, String password) {
         this(new RegisterInfo(name, email, password, password));
@@ -24,9 +23,6 @@ public class RegisterSwarm extends Swarm {
         return status;
     }
 
-    public String getError() {
-        return error;
-    }
 }
 
 class RegisterInfo {

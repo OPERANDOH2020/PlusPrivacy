@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void call(final RegisterSwarm result) {
                 Log.d("Register", "call() called with: result = [" + result + "]");
-                onSignUpSuccess(email,password,result, dialog);
+                onSignUpSuccess(email, password, result, dialog);
             }
 
 
@@ -93,9 +93,10 @@ public class SignUpActivity extends AppCompatActivity {
                         dialog.dismiss();
 
                         if (result.getStatus() != null && result.getStatus().equals("error")) {
-                            Toast.makeText(SignUpActivity.this, result.getError(), Toast.LENGTH_LONG).show();
+                            if (result.getError() != null)
+                                Toast.makeText(SignUpActivity.this, result.getError().toString(), Toast.LENGTH_LONG).show();
                         } else {
-                            Storage.saveRegisterCredentials(email,password);
+                            Storage.saveRegisterCredentials(email, password);
                             Toast.makeText(SignUpActivity.this, "Registration success. Please check your e-mail to activate the account", Toast.LENGTH_LONG).show();
                             onBackPressed();
                         }
