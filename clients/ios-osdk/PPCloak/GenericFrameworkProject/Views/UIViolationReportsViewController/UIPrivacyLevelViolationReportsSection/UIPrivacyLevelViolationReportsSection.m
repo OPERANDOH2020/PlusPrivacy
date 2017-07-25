@@ -8,6 +8,7 @@
 
 #import "UIPrivacyLevelViolationReportsSection.h"
 #import "Common.h"
+#import "ViolationReportCell.h"
 
 @interface UIPrivacyLevelViolationReportsSection()
 @property (strong, nonatomic) id<PPPrivacyLevelReportsSource> reportsSource;
@@ -21,15 +22,29 @@
     return self;
 }
 
--(void)loadReportsWithCompletion:(void (^)())completion{
-    [self.reportsSource getPrivacyLevelReportsIn:^(NSArray<PPUsageLevelViolationReport *> * _Nullable array, NSError * _Nullable error) {
-        self.reportsArray = array;
+-(void)loadReportsWithCompletion:(void (^)())completion {
+    [self.reportsSource getPrivacyLevelReportsIn:^(NSArray<PPUsageLevelViolationReport *> * _Nullable reports, NSError * _Nullable error) {
+        self.reportsArray = reports;
         SAFECALL(completion)
     }];
 }
 
+
+-(UITableViewCell *)cellForRowAtIndex:(NSInteger)index {
+    ViolationReportCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[ViolationReportCell identifierNibName]];
+    
+    PPUsageLevelViolationReport *report = self.reportsArray[index];
+    NSString *message = [NSString stringWithFormat:@"Usage level violation: %@", InputType.namesPerInputType[report.inputType]];
+    
+    NSString *subMessage = [NSString stringWithFormat:@"Data sent to: %@", report.destinationURLForData];
+    
+    [cell setMessage:message subMessage:subMessage];
+    
+    return cell;
+}
+
 -(NSString *)sectionName {
-    return @"Privacy level violation";
+    return @"Usage level violations";
 }
 
 @end

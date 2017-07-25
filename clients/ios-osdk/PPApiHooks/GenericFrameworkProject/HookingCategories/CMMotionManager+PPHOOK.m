@@ -26,6 +26,7 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher){
     _mmDispatcher = dispatcher;
 }
 
+
 HOOKPrefixInstance(void, setAccelerometerUpdateInterval:(NSTimeInterval)accelerometerUpdateInterval) {
     
     __weak typeof(self) weakSelf = self;

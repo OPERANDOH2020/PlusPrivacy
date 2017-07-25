@@ -77,6 +77,10 @@
 		985810C31EF955C2000EBF6B /* Strings.c in Sources */ = {isa = PBXBuildFile; fileRef = 985810C11EF955C2000EBF6B /* Strings.c */; };
 		985810C41EF955C2000EBF6B /* Strings.h in Headers */ = {isa = PBXBuildFile; fileRef = 985810C21EF955C2000EBF6B /* Strings.h */; };
 		98584F411D3F9E18009FB89F /* PPCloak.h in Headers */ = {isa = PBXBuildFile; fileRef = 98584F401D3F9E18009FB89F /* PPCloak.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9860AAD71F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9860AAD51F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.h */; };
+		9860AAD81F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9860AAD61F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.m */; };
+		9860AAE11F277EFC005B030F /* BaseHTTPAnalyzer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9860AADF1F277EFC005B030F /* BaseHTTPAnalyzer.h */; };
+		9860AAE21F277EFC005B030F /* BaseHTTPAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9860AAE01F277EFC005B030F /* BaseHTTPAnalyzer.m */; };
 		9863E8FD1DEC6F0D0095CA30 /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 9863E8FB1DEC6F0D0095CA30 /* JRSwizzle.h */; };
 		9863E8FE1DEC6F0D0095CA30 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863E8FC1DEC6F0D0095CA30 /* JRSwizzle.m */; };
 		9863E9021DEC70E60095CA30 /* NSURLSessionSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9863E9001DEC70E60095CA30 /* NSURLSessionSupervisor.h */; };
@@ -301,6 +305,10 @@
 		98584F401D3F9E18009FB89F /* PPCloak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPCloak.h; sourceTree = "<group>"; };
 		98584F421D3F9E18009FB89F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		985B80E01E56097200F0D19B /* PPCloakBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPCloakBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9860AAD51F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PPUsageLevelViolationReport+DictionaryRepresentation.h"; sourceTree = "<group>"; };
+		9860AAD61F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PPUsageLevelViolationReport+DictionaryRepresentation.m"; sourceTree = "<group>"; };
+		9860AADF1F277EFC005B030F /* BaseHTTPAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHTTPAnalyzer.h; path = Models/HTTPRequestAnalyzers/BaseHTTPAnalyzer/BaseHTTPAnalyzer.h; sourceTree = "<group>"; };
+		9860AAE01F277EFC005B030F /* BaseHTTPAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHTTPAnalyzer.m; path = Models/HTTPRequestAnalyzers/BaseHTTPAnalyzer/BaseHTTPAnalyzer.m; sourceTree = "<group>"; };
 		9863E8FB1DEC6F0D0095CA30 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		9863E8FC1DEC6F0D0095CA30 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		9863E9001DEC70E60095CA30 /* NSURLSessionSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLSessionSupervisor.h; path = NSURLSessionHook/NSURLSessionSupervisor.h; sourceTree = "<group>"; };
@@ -760,7 +768,7 @@
 				98C062431F1E402A00B35E76 /* BundleCopyPathsList.txt */,
 				98C062411F1E3F6200B35E76 /* FrameworkCopyPathsList.txt */,
 				989DB8E31E77D2CF008F4D02 /* PPCloakBundle */,
-				98584F3F1D3F9E18009FB89F /* RSFrameworksHook */,
+				98584F3F1D3F9E18009FB89F /* PPCloak */,
 				98584F3E1D3F9E18009FB89F /* Products */,
 				983C3FAA1E8D27ED00014F25 /* Frameworks */,
 			);
@@ -775,7 +783,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98584F3F1D3F9E18009FB89F /* RSFrameworksHook */ = {
+		98584F3F1D3F9E18009FB89F /* PPCloak */ = {
 			isa = PBXGroup;
 			children = (
 				987083E31E8E704400D9F8E9 /* Resources */,
@@ -789,8 +797,17 @@
 				98584F401D3F9E18009FB89F /* PPCloak.h */,
 				98584F421D3F9E18009FB89F /* Info.plist */,
 			);
-			name = RSFrameworksHook;
+			name = PPCloak;
 			path = GenericFrameworkProject;
+			sourceTree = "<group>";
+		};
+		9860AADE1F27795F005B030F /* BaseHTTPAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				9860AADF1F277EFC005B030F /* BaseHTTPAnalyzer.h */,
+				9860AAE01F277EFC005B030F /* BaseHTTPAnalyzer.m */,
+			);
+			name = BaseHTTPAnalyzer;
 			sourceTree = "<group>";
 		};
 		9863E8FA1DEC6F0D0095CA30 /* JRSwizzle */ = {
@@ -956,6 +973,8 @@
 				98797E121E96864A00AB3A0B /* PPUnlistedInputAccessViolation+NSDictionaryRepresentation.m */,
 				98B3FD5D1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.h */,
 				98B3FD5E1F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m */,
+				9860AAD51F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.h */,
+				9860AAD61F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.m */,
 			);
 			path = ReportsStorageAndUI;
 			sourceTree = "<group>";
@@ -1484,6 +1503,7 @@
 		98F1FF641E713AEF00A664AB /* HTTPRequestAnalyzers */ = {
 			isa = PBXGroup;
 			children = (
+				9860AADE1F27795F005B030F /* BaseHTTPAnalyzer */,
 				98F1FF7E1E7197E700A664AB /* URLFormParsers */,
 				98F1FF6C1E71506000A664AB /* PrivacyLevelAbuseDetector */,
 				98F1FF691E713B3100A664AB /* LocationHTTPAnalyzer */,
@@ -1613,6 +1633,7 @@
 				987083CB1E8E3A9D00D9F8E9 /* UIScrollView+TPKeyboardAvoidingAdditions.h in Headers */,
 				9895FB2E1E5AED3D00B1F56D /* LocationInputSwizzler.h in Headers */,
 				987F837E1E3241930058633C /* LocationInputSupervisor.h in Headers */,
+				9860AAE11F277EFC005B030F /* BaseHTTPAnalyzer.h in Headers */,
 				98FE5C601E927CB400096744 /* CommonViewUtils.h in Headers */,
 				988716F21E6D883A005FAA45 /* UIInputAccessViolationReportsSection.h in Headers */,
 				987083AF1E8E36A500D9F8E9 /* UILocationListViewCell.h in Headers */,
@@ -1673,6 +1694,7 @@
 				98804F0A1E4E0E7C009E6748 /* UIPPOptionsViewController.h in Headers */,
 				98D603E41E2F800B00E59A42 /* OPMonitor.h in Headers */,
 				98B3FD781F21041B001652A4 /* BaseInputSupervisor.h in Headers */,
+				9860AAD71F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.h in Headers */,
 				9863E8FD1DEC6F0D0095CA30 /* JRSwizzle.h in Headers */,
 				98797E1A1E96864A00AB3A0B /* PPPrivacyLevelViolationReport+NSDictionaryRepresentation.h in Headers */,
 				987083C51E8E3A9D00D9F8E9 /* TPKeyboardAvoidingCollectionView.h in Headers */,
@@ -1866,6 +1888,7 @@
 				9831E2A51E6D9ED500A5FE0A /* UIPrivacyLevelViolationReportsSection.m in Sources */,
 				9840E4A71E9CE08600BB3DB9 /* UIRandomWalkLocationStatusViewController.m in Sources */,
 				9895FB3A1E5B337A00B1F56D /* UserDefinedLocationsSwizzlerSettings.m in Sources */,
+				9860AAE21F277EFC005B030F /* BaseHTTPAnalyzer.m in Sources */,
 				98E530421F25DCE600B7020D /* BaseCaptureDeviceSupervisor.m in Sources */,
 				98804F0B1E4E0E7C009E6748 /* UIPPOptionsViewController.m in Sources */,
 				986AE9BA1E93BEC700AF4E0A /* UILocationStatusViewController.m in Sources */,
@@ -1944,6 +1967,7 @@
 				982175CC1E3FA0A700495627 /* ProximityInputSupervisor.m in Sources */,
 				98B3FD6A1F20E0E6001652A4 /* GyroscopeInputSupervisor.m in Sources */,
 				9871E0861E97B27000A43695 /* UIRandomWalkMapView.m in Sources */,
+				9860AAD81F2756B7005B030F /* PPUsageLevelViolationReport+DictionaryRepresentation.m in Sources */,
 				98DF60FE1E65D5BB006EF2B3 /* PPUsageLevelViolationReport.m in Sources */,
 				98804EFB1E4DEB57009E6748 /* ViolationReportCell.m in Sources */,
 				98281D061E696FD100373369 /* PPAccessFrequencyViolationReport.m in Sources */,

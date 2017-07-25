@@ -20,7 +20,8 @@
               "magneto",
               "contacts",
               "bat",
-              "motion"
+              "motion",
+              "info"
             ]
           },
     "accessFrequency": {

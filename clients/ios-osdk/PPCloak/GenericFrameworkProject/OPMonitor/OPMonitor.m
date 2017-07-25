@@ -250,7 +250,13 @@
 
 
 -(void)newPrivacyLevelViolationReported:(PPUsageLevelViolationReport *)report {
-    // must complete
+    
+    NSString *message = [NSString stringWithFormat:@"Usage level violation for input: %@, data sent to: %@",
+                         InputType.namesPerInputType[report.inputType], report.destinationURLForData];
+    
+    [self displayNotificationIfPossible:message];
+    
+    [self.plistRepository addPrivacyLevelReport:report withCompletion:nil];
 }
 
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport *)report{
@@ -271,7 +277,7 @@
         return;
     }
     
-    __weak UIViewController *rootViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
+    UIViewController *rootViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [UINotificationViewController presentBadNotificationMessage:notification inController:rootViewController atDistanceFromTop:20];
@@ -290,10 +296,10 @@
     supervisorsModel.eventsDispatcher = [PPEventDispatcher sharedInstance];
     
     
-    NSArray *supervisorClasses = @[[LocationInputSupervisor class],
+    NSArray *supervisorClasses = @[[MagnetometerInputSupervisor class],
                                    [ProximityInputSupervisor class],
                                    [PedometerInputSupervisor class],
-                                   [MagnetometerInputSupervisor class],
+                                   [LocationInputSupervisor class],
                                    [AccelerometerInputSupervisor class],
                                    [BarometerInputSupervisor class],
                                    [TouchIdSupervisor class],

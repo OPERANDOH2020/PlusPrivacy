@@ -50,7 +50,7 @@ HOOKPrefixInstance(void, setProximityMonitoringEnabled:(BOOL)enabled) {
     
     
       
-        [_devDispatcher fireEvent:event  ];
+    [_devDispatcher fireEvent:event  ];
        
 }
 

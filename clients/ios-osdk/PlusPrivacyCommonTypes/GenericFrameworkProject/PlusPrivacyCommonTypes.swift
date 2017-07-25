@@ -234,7 +234,7 @@ public class InputType: BaseStringEnum {
                                                                InputType.Contacts: "Contacts",
                                                                InputType.Battery: "Battery",
                                                                InputType.Motion: "Device motion",
-                                                               InputType.Info: ""];
+                                                               InputType.Info: "Device info"];
     
     
 

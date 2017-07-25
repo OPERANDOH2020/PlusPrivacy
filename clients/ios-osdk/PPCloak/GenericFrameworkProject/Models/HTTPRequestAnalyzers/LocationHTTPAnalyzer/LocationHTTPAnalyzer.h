@@ -15,6 +15,6 @@
 
 -(instancetype _Nonnull)initWithHttpBodyParser:(id<HTTPBodyParser> _Nonnull)parser;
 
--(void)checkIfAnyLocationFrom:(NSArray<CLLocation*>* _Nonnull)locations isSentInRequest:(NSURLRequest* _Nonnull)request withCompletion:(void(^ _Nullable)(BOOL yesOrNo))completion;
+-(void)checkIfAnyLocationFrom:(NSArray<CLLocation*>* _Nonnull)locations isSentInRequest:(NSURLRequest* _Nullable)request withCompletion:(void(^ _Nullable)(BOOL yesOrNo))completion;
 
 @end

@@ -21,9 +21,15 @@
         if ([weakSelf isEventOfInterest:event]) {
             [weakSelf processEvent:event nextHandler:nextHandlerIfAny];
         } else {
-            if (event.eventIdentifier.eventType == PPURLSessionEvent) {
+            if (event.eventIdentifier.eventType == PPURLSessionEvent &&
+                weakSelf.accessedInput.privacyDescription.usageLevel != UsageLevelTypeUnspecified) {
+                
                 NSURLRequest *request = event.eventData[kPPURLSessionDataTaskRequest];
-                [weakSelf analyzeNetworkRequestForPossibleLeakedData:request ifOkContinueToHandler:nextHandlerIfAny];
+                if (![weakSelf itsSpecifiedThatDataIsSentToHost:request.URL.host]) {
+                    [weakSelf analyzeNetworkRequestForPossibleLeakedData:request ifOkContinueToHandler:nextHandlerIfAny];
+                    return;
+                }
+                
             } else {
                 SAFECALL(nextHandlerIfAny)
             }
@@ -57,7 +63,20 @@
     return [[PPUnlistedInputAccessViolation alloc] initWithInputType:self.monitoringInputType dateReported:[NSDate date]];
 }
 
-
+-(BOOL)itsSpecifiedThatDataIsSentToHost:(NSString*)host {
+    BOOL usageLevelSpecified = self.accessedInput.privacyDescription.usageLevel == UsageLevelTypeSharedWithThirdParty;
+    if (!usageLevelSpecified) {
+        return NO;
+    }
+    
+    for (ThirdParty *tp in self.accessedInput.privacyDescription.thirdParties) {
+        if ([tp.url isEqualToString:host]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
 
 
 //-protected methods, must be overriden by subclasses

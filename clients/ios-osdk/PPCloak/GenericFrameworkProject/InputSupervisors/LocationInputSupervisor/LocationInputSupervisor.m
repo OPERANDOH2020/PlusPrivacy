@@ -31,7 +31,7 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
 
 -(instancetype)init {
     if (self = [super init]) {
-        self.locationsArray = [[PPCircularArray alloc] init];
+        self.locationsArray = [[PPCircularArray alloc] initWithCapacity:100];
         WEAKSELF
         self.substituteDelegate = [[LocationManagerSubstituteDelegate alloc] initWithLocationSubstituteCallback:^CLLocation * _Nullable(CLLocation * _Nonnull location) {
             [weakSelf.locationsArray addObject:location];
@@ -82,37 +82,27 @@ LocationCallbackWithInfo _rsHookGlobalLocationCallback;
     [self.locationsArray addObjects:locations];
 }
 
--(BOOL)itsSpecifiedThatLocationsAreSentToHost:(NSString*)host {
-    BOOL usageLevelSpecified = self.accessedInput.privacyDescription.usageLevel == UsageLevelTypeSharedWithThirdParty;
-    if (!usageLevelSpecified) {
-        return NO;
-    }
-    
-    for (ThirdParty *tp in self.accessedInput.privacyDescription.thirdParties) {
-        if ([tp.url isEqualToString:host]) {
-            return YES;
-        }
-    }
-    
-    return NO;
-}
+
 
 -(void)analyzeNetworkRequestForPossibleLeakedData:(NSURLRequest *)request ifOkContinueToHandler:(NextHandlerConfirmation)nextHandler {
     
+    if (!request.URL) {
+        SAFECALL(nextHandler)
+        return;
+    }
+    
     WEAKSELF
     [self.model.httpAnalyzers.locationHTTPAnalyzer checkIfAnyLocationFrom:[self.locationsArray allObjects] isSentInRequest:request withCompletion:^(BOOL yesTheyAreSent) {
-        
-        if (yesTheyAreSent &&
-            [weakSelf itsSpecifiedThatLocationsAreSentToHost:request.URL.host]) {
-            return;
+        if (yesTheyAreSent) {
+            
+            PPUsageLevelViolationReport *report = [[PPUsageLevelViolationReport alloc] initWithInputType:InputType.Location violatedUsageLevel:self.accessedInput.privacyDescription.usageLevel destinationURL:request.URL.absoluteString];
+            
+            [weakSelf.model.delegate newPrivacyLevelViolationReported:report];
+        } else {
+            SAFECALL(nextHandler)
         }
-        PPUsageLevelViolationReport *report = [[PPUsageLevelViolationReport alloc] initWithInputType:InputType.Location violatedUsageLevel:self.accessedInput.privacyDescription.usageLevel destinationURL:request.URL.absoluteString];
-        
-        [weakSelf.model.delegate newPrivacyLevelViolationReported:report];
-        
     }];
     
-    SAFECALL(nextHandler)
 }
 
 

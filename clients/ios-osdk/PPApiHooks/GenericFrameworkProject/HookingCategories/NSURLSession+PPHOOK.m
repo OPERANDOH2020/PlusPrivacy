@@ -10,6 +10,7 @@
 #import "PPEvent.h"
 #import "NSObject+AutoSwizzle.h"
 #import "NSURLSession+PPHOOK.h"
+#import "PPApiHooksStart.h"
 
 PPEventDispatcher *_urlSessionDispatcher;
 
@@ -49,6 +50,7 @@ PPEventDispatcher *_urlSessionDispatcher;
 
 +(void)load {
     [self autoSwizzleMethodsWithThoseBeginningWith:PPHOOKPREFIX];
+    PPApiHooks_registerHookedClass(self);
 }
 
 
@@ -65,6 +67,8 @@ HOOKPrefixClass(void, setEventsDispatcher:(PPEventDispatcher*)dispatcher) {
 }
 
 HOOKPrefixInstance(NSURLSessionDataTask*, dataTaskWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler) {
+    
+    NSLog(@"HOOK DATATASKWITHREQUEST");
     
     NSMutableDictionary *eventData = [@{} mutableCopy];
     SAFEADD(eventData, kPPURLSessionDataTaskRequest, request)

@@ -60,6 +60,16 @@ BOOL isNumberALocationCoordinate(NSNumber *number, NSArray<CLLocation*>* locatio
 
 -(void)checkIfAnyLocationFrom:(NSArray<CLLocation *> *)locations isSentInRequest:(NSURLRequest *)request withCompletion:(void (^)(BOOL))completion {
     
+    if (request.URL == nil) {
+        SAFECALL(completion, NO)
+        return;
+    }
+        
+    if ([self findLocations:locations inStringValues:@[request.URL.absoluteString]]) {
+        SAFECALL(completion, YES)
+        return;
+    }
+    
     [self dictionaryFromRequestBody:request withCompletion:^(NSDictionary * _Nullable result, NSError * _Nullable error) {
         if (result) {
             if ([self findValuesOfLocations:locations inArrayOfDictionaryValues:result.allValues]) {
@@ -68,9 +78,19 @@ BOOL isNumberALocationCoordinate(NSNumber *number, NSArray<CLLocation*>* locatio
                 SAFECALL(completion, NO);
             }
         }
+        
+        if (request.HTTPBody) {
+            NSString *textBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+            if ([self findLocations:locations inStringValues:@[textBody]]) {
+                SAFECALL(completion, YES);
+                return;
+            }
+        }
+        
+        SAFECALL(completion, NO);
     }];
     
-    SAFECALL(completion, NO);
+
 }
 
 -(void)dictionaryFromRequestBody:(NSURLRequest*)request withCompletion:(DictionaryParsingCompletion) completion {
