@@ -62,7 +62,7 @@ public class AdblockWebClient extends WebViewClient {
     private String[] EMPTY_ARRAY = {};
     private boolean mBlockAds;
 
-
+    private static AdblockWebClient instance;
 
     private AdblockEngine getAdblockEngine() {
         return AdblockEngine
@@ -104,7 +104,7 @@ public class AdblockWebClient extends WebViewClient {
 
     @Inject AdBlock mAdBlock;
 
-    AdblockWebClient(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds) {
+    private AdblockWebClient(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds) {
         BrowserApp.getAppComponent().inject(this);
         Preconditions.checkNonNull(activity);
         Preconditions.checkNonNull(lightningView);
@@ -115,6 +115,13 @@ public class AdblockWebClient extends WebViewClient {
         mIntentUtils = new IntentUtils(activity);
         engine = getAdblockEngine();
         this.mBlockAds = blockAds;
+    }
+
+    public static AdblockWebClient getInstance(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds){
+        if( instance == null){
+            instance = new AdblockWebClient(activity, lightningView, blockAds);
+        }
+        return instance;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
