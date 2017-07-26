@@ -244,6 +244,8 @@
 		98FE5C2D1E926EC300096744 /* UILocationIndexPinAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FE5C291E926B3100096744 /* UILocationIndexPinAnnotationView.h */; };
 		98FE5C601E927CB400096744 /* CommonViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FE5C511E9278C900096744 /* CommonViewUtils.h */; };
 		98FE5C611E927CB700096744 /* CommonViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FE5C521E9278C900096744 /* CommonViewUtils.m */; };
+		98FFD5E51F28CFF10059F997 /* BatteryHttpAnalyzer.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FFD5E31F28CFF10059F997 /* BatteryHttpAnalyzer.h */; };
+		98FFD5E61F28CFF10059F997 /* BatteryHttpAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFD5E41F28CFF10059F997 /* BatteryHttpAnalyzer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -478,6 +480,8 @@
 		98FE5C2A1E926B3100096744 /* UILocationIndexPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILocationIndexPinAnnotationView.m; path = Views/UILocationIndexPinAnnotationView/UILocationIndexPinAnnotationView.m; sourceTree = "<group>"; };
 		98FE5C511E9278C900096744 /* CommonViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonViewUtils.h; path = "Views/UIView+FullConstrain/CommonViewUtils.h"; sourceTree = "<group>"; };
 		98FE5C521E9278C900096744 /* CommonViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonViewUtils.m; path = "Views/UIView+FullConstrain/CommonViewUtils.m"; sourceTree = "<group>"; };
+		98FFD5E31F28CFF10059F997 /* BatteryHttpAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatteryHttpAnalyzer.h; path = Models/HTTPRequestAnalyzers/BatteryHttpAnalyzer/BatteryHttpAnalyzer.h; sourceTree = "<group>"; };
+		98FFD5E41F28CFF10059F997 /* BatteryHttpAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatteryHttpAnalyzer.m; path = Models/HTTPRequestAnalyzers/BatteryHttpAnalyzer/BatteryHttpAnalyzer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1503,6 +1507,7 @@
 		98F1FF641E713AEF00A664AB /* HTTPRequestAnalyzers */ = {
 			isa = PBXGroup;
 			children = (
+				98FFD5E21F28CFB10059F997 /* BatteryHttpAnalyzer */,
 				9860AADE1F27795F005B030F /* BaseHTTPAnalyzer */,
 				98F1FF7E1E7197E700A664AB /* URLFormParsers */,
 				98F1FF6C1E71506000A664AB /* PrivacyLevelAbuseDetector */,
@@ -1597,6 +1602,15 @@
 			name = "UIView+FullConstrain";
 			sourceTree = "<group>";
 		};
+		98FFD5E21F28CFB10059F997 /* BatteryHttpAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				98FFD5E31F28CFF10059F997 /* BatteryHttpAnalyzer.h */,
+				98FFD5E41F28CFF10059F997 /* BatteryHttpAnalyzer.m */,
+			);
+			name = BatteryHttpAnalyzer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1623,6 +1637,7 @@
 				986AE9C51E93DBA800AF4E0A /* CommonLocationViewModels.h in Headers */,
 				988A151F1E40E2DD00AABD43 /* BarometerInputSupervisor.h in Headers */,
 				988A15151E40D1B400AABD43 /* MagnetometerInputSupervisor.h in Headers */,
+				98FFD5E51F28CFF10059F997 /* BatteryHttpAnalyzer.h in Headers */,
 				98CEF3A41E5F2204002C2145 /* UIInputGraphViewController.h in Headers */,
 				98FE5C2D1E926EC300096744 /* UILocationIndexPinAnnotationView.h in Headers */,
 				98281D051E696FD100373369 /* PPAccessFrequencyViolationReport.h in Headers */,
@@ -1896,6 +1911,7 @@
 				98DF60F91E65C73C006EF2B3 /* PPAccessUnlistedHostReport.h.m in Sources */,
 				98B3FD741F210320001652A4 /* DeviceInfoInputSupervisor.m in Sources */,
 				98CEF3A51E5F2204002C2145 /* UIInputGraphViewController.m in Sources */,
+				98FFD5E61F28CFF10059F997 /* BatteryHttpAnalyzer.m in Sources */,
 				9863E9031DEC70E60095CA30 /* NSURLSessionSupervisor.m in Sources */,
 				98F1FF681E713B2C00A664AB /* LocationHTTPAnalyzer.m in Sources */,
 				9895FB2F1E5AED3D00B1F56D /* LocationInputSwizzler.m in Sources */,

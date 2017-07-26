@@ -7,13 +7,48 @@
 //
 
 #import "BatteryInputSupervisor.h"
+#import "PPCircularArray.h"
+
+@interface BatteryInputSupervisor()
+@property (strong, nonatomic) PPCircularArray *batteryValues;
+@property (strong, nonatomic) NSMutableArray  *valuesSuspectedToBeSent;
+@end
 
 @implementation BatteryInputSupervisor
 
 
+-(instancetype)init{
+    if (self = [super init]) {
+        self.batteryValues = [[PPCircularArray alloc] init];
+        self.valuesSuspectedToBeSent = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
 
 -(InputType *)monitoringInputType {
     return InputType.Battery;
+}
+
+-(void)specificProcessOfEvent:(PPEvent *)event nextHandler:(NextHandlerConfirmation)nextHandler {
+    if (event.eventData[kPPDeviceBatteryLevelValue]) {
+        
+    }
+}
+
+
+-(void)analyzeNetworkRequestForPossibleLeakedData:(NSURLRequest *)request ifOkContinueToHandler:(NextHandlerConfirmation)nextHandler {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        SAFECALL(nextHandler)
+    });
+    
+    if (self.batteryValues.allObjects.count == 0) {
+        return;
+    }
+    
+    self.model.httpAnalyzers
+
 }
 
 -(BOOL)isEventOfInterest:(PPEvent *)event {

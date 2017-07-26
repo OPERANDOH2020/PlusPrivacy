@@ -28,118 +28,80 @@ BOOL isNumberALocationCoordinate(NSNumber *number, NSArray<CLLocation*>* locatio
     return NO;
 }
 
-@interface NSURLRequest(AnalyzingUtilities)
--(NSString*)contentType;
-@end
-
-@implementation NSURLRequest(AnalyzingUtilities)
-
--(NSString *)contentType {
-    NSString *contentTypeHeader = @"Content-Type";
-    NSString *value = [self valueForHTTPHeaderField:contentTypeHeader];
-    if (!value) {
-        value = [self valueForHTTPHeaderField:[contentTypeHeader lowercaseString]];
+NSArray<NSString*>* locationsArrayToStrings(NSArray<CLLocation*>* locations){
+    NSMutableArray *strings = [[NSMutableArray alloc] init];
+    
+    static NSNumberFormatter *nf = nil;
+    if (!nf) {
+        nf = [[NSNumberFormatter alloc] init];
+        nf.minimumFractionDigits = 3;
+        nf.maximumFractionDigits = 3;
+        nf.roundingMode = NSNumberFormatterRoundDown;
     }
-    return value;
+    
+    for(CLLocation *location in locations) {
+        NSString *latString = [nf stringFromNumber:[NSNumber numberWithDouble:location.coordinate.latitude]];
+        NSString *lonString = [nf stringFromNumber:[NSNumber numberWithDouble:location.coordinate.longitude]];
+        
+        [strings addObject:latString];
+        [strings addObject:lonString];
+    }
+    
+    
+    return strings;
 }
 
-@end
-
 @interface LocationHTTPAnalyzer()
-@property (strong, nonatomic) id<HTTPBodyParser> httpBodyParser;
 @end
 
 @implementation LocationHTTPAnalyzer
 
--(instancetype)initWithHttpBodyParser:(id<HTTPBodyParser>)parser {
-    if (self = [super init]) {
-        self.httpBodyParser = parser;
-    }
-    return self;
-}
+
 
 -(void)checkIfAnyLocationFrom:(NSArray<CLLocation *> *)locations isSentInRequest:(NSURLRequest *)request withCompletion:(void (^)(BOOL))completion {
     
+    NSLog(@"checking if request");
     if (request.URL == nil) {
         SAFECALL(completion, NO)
-        return;
-    }
-        
-    if ([self findLocations:locations inStringValues:@[request.URL.absoluteString]]) {
-        SAFECALL(completion, YES)
+        NSLog(@"URL NIL: %@", request);
         return;
     }
     
+    NSArray *locationStrings = locationsArrayToStrings(locations);
+    NSLog(@"location strings: %@", locationStrings);
+    
+    if ([self naiveSearchTextValues:locationStrings inRequestURL:request.URL]) {
+        NSLog(@"naive search returned YES");
+        SAFECALL(completion, YES);
+        return;
+    }
+    
+    NSLog(@"going to build dictipnary");
     [self dictionaryFromRequestBody:request withCompletion:^(NSDictionary * _Nullable result, NSError * _Nullable error) {
+        
+        NSLog(@"dictionary result: %@", result);
         if (result) {
-            if ([self findValuesOfLocations:locations inArrayOfDictionaryValues:result.allValues]) {
-                SAFECALL(completion, YES);
-            } else {
-                SAFECALL(completion, NO);
-            }
+            
+            BOOL foundInBody = [self searchRecursivelyInDictValues:result.allValues processingNumbersArray:^BOOL(NSArray<NSNumber *> *numbersArray) {
+                return [self findLocations:locations inNumberValues:numbersArray];
+            } processingStringsArray:^BOOL(NSArray<NSString *> *stringsArray) {
+                return [self findLocations:locations inStringValues:stringsArray];
+            }];
+            
+            NSLog(@"Found in body: %d", foundInBody);
+            SAFECALL(completion, foundInBody);
+            
+        } else {
+            NSLog(@"naive search");
+            [self naiveSearchTextValues:locationStrings inRequestBody:request completion:completion];
         }
-        
-        if (request.HTTPBody) {
-            NSString *textBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-            if ([self findLocations:locations inStringValues:@[textBody]]) {
-                SAFECALL(completion, YES);
-                return;
-            }
-        }
-        
-        SAFECALL(completion, NO);
     }];
     
 
 }
 
--(void)dictionaryFromRequestBody:(NSURLRequest*)request withCompletion:(DictionaryParsingCompletion) completion {
-    
-    NSString *contentType = request.contentType.lowercaseString;
-    if ([contentType containsString:@"json"]) {
-        [self.httpBodyParser parseJSONFromBodyData:request.HTTPBody withCompletion:completion];
-    }
-    else if([contentType containsString:@"x-www"]){
-        [self.httpBodyParser parseFormURLEncodedFromBodyData:request.HTTPBody withCompletion:completion];
-    } else if([contentType containsString:@"multipart"]) {
-        [self.httpBodyParser parseMultipartBodyData:request.HTTPBody withCompletion:completion];
-    } else {
-        SAFECALL(completion, nil, nil);
-    }
-}
 
--(BOOL)findValuesOfLocations:(NSArray<CLLocation*>*)locations inArrayOfDictionaryValues:(NSArray*)dictValues {
-    
-    NSMutableArray *numbersArray = [[NSMutableArray alloc] init];
-    NSMutableArray *stringsArray = [[NSMutableArray alloc] init];
-    NSMutableArray *collectionsArray = [[NSMutableArray alloc] init];
-    
-    
-    for (id val in dictValues) {
-        if ([val isKindOfClass:[NSNumber class]]) {
-            [numbersArray addObject:val];
-        } else if ([val isKindOfClass:[NSString class]]) {
-            [stringsArray addObject:val];
-        } else {
-            [collectionsArray addObject:val];
-        }
-    }
-    
-    if ([self findLocations:locations inNumberValues:numbersArray] || [self findLocations:locations inStringValues:stringsArray]) {
-        return YES;
-    }
-    
-    for (id collection in collectionsArray) {
-        if ([collection isKindOfClass:[NSArray class]]) {
-            return [self findValuesOfLocations:locations inArrayOfDictionaryValues:collection];
-        } else if([collection isKindOfClass:[NSDictionary class]]){
-            NSDictionary *dict = collection;
-            return [self findValuesOfLocations:locations inArrayOfDictionaryValues:dict.allValues];
-        }
-    }
-    
-    return NO;
-}
+
 
 -(BOOL)findLocations:(NSArray<CLLocation*>*)locations inNumberValues:(NSArray<NSNumber*>*)numberValues {
 

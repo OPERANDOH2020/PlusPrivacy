@@ -56,6 +56,10 @@
 		<data>
 		raacUtEit8HIqi0mGg4Ffin8tF4=
 		</data>
+		<key>PPCloak.bundle.6oPYfV/bundle.xar</key>
+		<data>
+		zlccpbds6X/s7u/CvBfS7AXxu3c=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -189,6 +193,17 @@
 			<key>hash2</key>
 			<data>
 			VXj+igaheFe2w26ryAws2lg2GLoCjlgMfkw6ac4wUS8=
+			</data>
+		</dict>
+		<key>PPCloak.bundle.6oPYfV/bundle.xar</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zlccpbds6X/s7u/CvBfS7AXxu3c=
+			</data>
+			<key>hash2</key>
+			<data>
+			iNpwXrjcoh7OoJIidjjE7i1XdwZVxgXc68Ng3NXqsRs=
 			</data>
 		</dict>
 	</dict>

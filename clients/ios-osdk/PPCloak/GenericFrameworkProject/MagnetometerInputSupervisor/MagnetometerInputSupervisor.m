@@ -24,7 +24,7 @@ static bool isMagnetometerSubtype(NSInteger eventSubtype){
                                        EventMotionManagerSetMagnetometerUpdateInterval,
                                        EventMotionManagerIsMagnetometerAvailable,
                                        EventMotionManagerGetCurrentMagnetometerData,
-                            EventMotionManagerStartMagnetometerUpdatesToQueueUsingHandler
+                                       EventMotionManagerStartMagnetometerUpdatesToQueueUsingHandler
     };
     
     for (int i = 0; i< sizeof(magnetometerEvents)/ sizeof(int); i++) {

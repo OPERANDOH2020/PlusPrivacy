@@ -5,7 +5,7 @@
 //  Created by Costin Andronache on 3/10/17.
 //  Copyright © 2017 RomSoft. All rights reserved.
 //
-
+// courtesy of user Darkngs, at http://stackoverflow.com/a/22710504
 #import "NSData+MultipartParsing.h"
 
 @implementation NSData(MultipartParsing)

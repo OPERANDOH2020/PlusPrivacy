@@ -33,7 +33,7 @@
 #import "Security.h"
 #import "SCDSender.h"
 #import <PPCommonUI/PPCommonUI-Swift.h>
-
+#import "PPBasicHttpBodyParser.h"
 
 
 
@@ -291,8 +291,11 @@
     supervisorsModel.scdDocument = document;
     supervisorsModel.delegate = self;
     supervisorsModel.privacyLevelAbuseDetector = [[PrivacyLevelAbuseDetector alloc] initWithDocument:document];
+    
     supervisorsModel.httpAnalyzers = [[HTTPAnalyzers alloc] init];
-    supervisorsModel.httpAnalyzers.locationHTTPAnalyzer = [[LocationHTTPAnalyzer alloc] init];
+    supervisorsModel.httpAnalyzers.locationHTTPAnalyzer = [[LocationHTTPAnalyzer alloc] initWithHttpBodyParser:[[PPBasicHttpBodyParser alloc] init]];
+    
+    
     supervisorsModel.eventsDispatcher = [PPEventDispatcher sharedInstance];
     
     

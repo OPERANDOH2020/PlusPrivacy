@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "URLFormParsersProtocols.h"
+#import "BaseHTTPAnalyzer.h"
 
 
-@interface LocationHTTPAnalyzer : NSObject
+@interface LocationHTTPAnalyzer : BaseHTTPAnalyzer
 
--(instancetype _Nonnull)initWithHttpBodyParser:(id<HTTPBodyParser> _Nonnull)parser;
 
 -(void)checkIfAnyLocationFrom:(NSArray<CLLocation*>* _Nonnull)locations isSentInRequest:(NSURLRequest* _Nullable)request withCompletion:(void(^ _Nullable)(BOOL yesOrNo))completion;
 
