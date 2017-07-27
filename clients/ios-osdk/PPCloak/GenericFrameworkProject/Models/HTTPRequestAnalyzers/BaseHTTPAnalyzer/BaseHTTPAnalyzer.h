@@ -23,11 +23,11 @@
 
 
 -(NSArray<NSString*>* _Nullable)naiveSearchTextValues:(NSArray<NSString*> * _Nonnull)textValues inRequestURL:(NSURL* _Nonnull)url;
--(NSArray<NSString*> *_Nullable)naiveSearchTextValues:(NSArray<NSString*>* _Nonnull)textValues inRequestBody:(NSURLRequest* _Nonnull)request completion:(void(^ _Nullable)(BOOL found))completion;
+-(void)naiveSearchTextValues:(NSArray<NSString*>* _Nonnull)textValues inRequestBody:(NSURLRequest* _Nonnull)request completion:(void(^ _Nullable)(NSArray<NSString*> *_Nullable foundValues))completion;
 
 
--(NSArray<NSNumber*> *_Nullable)naiveSearchNumericValues:(NSArray<NSNumber*>* _Nonnull)numericValues inRequestURL:(NSURL* _Nonnull)url;
+-(NSArray<NSNumber*> *_Nullable)naiveSearchNumericValues:(NSArray<NSNumber*>* _Nonnull)numericValues compareUpToFractionDigit:(NSInteger)frDigit inRequestURL:(NSURL* _Nonnull)url;
 
--(NSArray<NSNumber*> *_Nullable)naiveSearchNumericValues:(NSArray<NSNumber *> *)numericValues inRequestBody:(NSURLRequest* _Nonnull)request;
+-(void)naiveSearchNumericValues:(NSArray<NSNumber *> * _Nonnull)numericValues compareUpToFractionDigit:(NSInteger)frDigit inRequestBody:(NSURLRequest* _Nonnull)request completin:(void(^ _Nullable)(NSArray<NSNumber*>* _Nullable foundValues))completion ;
 
 @end

@@ -9,6 +9,8 @@
 #import "BatteryInputSupervisor.h"
 #import "PPCircularArray.h"
 
+#define kThresholdNumberOfSuspectedValues 5
+
 @interface BatteryInputSupervisor()
 @property (strong, nonatomic) PPCircularArray *batteryValues;
 @property (strong, nonatomic) NSMutableArray  *valuesSuspectedToBeSent;
@@ -32,8 +34,10 @@
 
 -(void)specificProcessOfEvent:(PPEvent *)event nextHandler:(NextHandlerConfirmation)nextHandler {
     if (event.eventData[kPPDeviceBatteryLevelValue]) {
-        
+        [self.batteryValues addObject:event.eventData[kPPDeviceBatteryLevelValue]];
     }
+    
+    SAFECALL(nextHandler)
 }
 
 
@@ -47,7 +51,15 @@
         return;
     }
     
-    self.model.httpAnalyzers
+    [self.model.httpAnalyzers.batteryHTTPAnalyzer findBatteryValues:self.batteryValues.allObjects sentInRequest:request completion:^(NSArray<NSNumber *> * _Nonnull batteryValues) {
+        [self.valuesSuspectedToBeSent addObjectsFromArray:batteryValues];
+        
+        if (self.valuesSuspectedToBeSent.count >= kThresholdNumberOfSuspectedValues) {
+            [self.valuesSuspectedToBeSent removeAllObjects];
+            [self.model.delegate newPrivacyLevelViolationReported:[[PPUsageLevelViolationReport alloc] initWithInputType:InputType.Battery violatedUsageLevel:self.accessedInput.privacyDescription.usageLevel destinationURL:request.URL.absoluteString]];
+        }
+        
+    }];
 
 }
 

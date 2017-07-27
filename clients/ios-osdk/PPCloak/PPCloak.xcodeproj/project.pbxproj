@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9801DF921F2A177400EB8FB1 /* PPSupervisingModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 9801DF901F2A177400EB8FB1 /* PPSupervisingModule.h */; };
+		9801DF931F2A177400EB8FB1 /* PPSupervisingModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9801DF911F2A177400EB8FB1 /* PPSupervisingModule.m */; };
+		9801DF971F2A30BB00EB8FB1 /* PPInputSwizzlingModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 9801DF951F2A30BB00EB8FB1 /* PPInputSwizzlingModule.h */; };
+		9801DF981F2A30BB00EB8FB1 /* PPInputSwizzlingModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9801DF961F2A30BB00EB8FB1 /* PPInputSwizzlingModule.m */; };
 		980635501EFA559E0004527B /* PPApiHooksCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9806354F1EFA559E0004527B /* PPApiHooksCore.framework */; };
 		980635521EFA5EC60004527B /* iOSNM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635511EFA5EC60004527B /* iOSNM.framework */; };
 		980635581EFA60ED0004527B /* PPCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980635571EFA60ED0004527B /* PPCommonUI.framework */; };
@@ -249,6 +253,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9801DF901F2A177400EB8FB1 /* PPSupervisingModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSupervisingModule.h; path = PPSupervisingModule/PPSupervisingModule.h; sourceTree = "<group>"; };
+		9801DF911F2A177400EB8FB1 /* PPSupervisingModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSupervisingModule.m; path = PPSupervisingModule/PPSupervisingModule.m; sourceTree = "<group>"; };
+		9801DF951F2A30BB00EB8FB1 /* PPInputSwizzlingModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPInputSwizzlingModule.h; path = PPInputSwizzlingModule/PPInputSwizzlingModule.h; sourceTree = "<group>"; };
+		9801DF961F2A30BB00EB8FB1 /* PPInputSwizzlingModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPInputSwizzlingModule.m; path = PPInputSwizzlingModule/PPInputSwizzlingModule.m; sourceTree = "<group>"; };
 		9806354F1EFA559E0004527B /* PPApiHooksCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPApiHooksCore.framework; sourceTree = "<group>"; };
 		980635511EFA5EC60004527B /* iOSNM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSNM.framework; sourceTree = "<group>"; };
 		980635571EFA60ED0004527B /* PPCommonUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPCommonUI.framework; sourceTree = "<group>"; };
@@ -507,6 +515,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9801DF8F1F2A174000EB8FB1 /* PPSupervisingModule */ = {
+			isa = PBXGroup;
+			children = (
+				9801DF901F2A177400EB8FB1 /* PPSupervisingModule.h */,
+				9801DF911F2A177400EB8FB1 /* PPSupervisingModule.m */,
+			);
+			name = PPSupervisingModule;
+			sourceTree = "<group>";
+		};
+		9801DF941F2A30A000EB8FB1 /* PPInputSwizzlingModule */ = {
+			isa = PBXGroup;
+			children = (
+				9801DF951F2A30BB00EB8FB1 /* PPInputSwizzlingModule.h */,
+				9801DF961F2A30BB00EB8FB1 /* PPInputSwizzlingModule.m */,
+			);
+			name = PPInputSwizzlingModule;
+			sourceTree = "<group>";
+		};
 		980787761E3F614C0099B642 /* NetworkSupervisor */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1012,7 @@
 		987F836E1E3211F90058633C /* Supervising */ = {
 			isa = PBXGroup;
 			children = (
+				9801DF8F1F2A174000EB8FB1 /* PPSupervisingModule */,
 				984E7FB91F17C316004E93BB /* Helpers */,
 				98797E071E96864A00AB3A0B /* ReportsStorageAndUI */,
 				987F837A1E3241250058633C /* InputSupervisors */,
@@ -1214,6 +1241,7 @@
 		9895FB2A1E5AEC9500B1F56D /* InputSwizzling */ = {
 			isa = PBXGroup;
 			children = (
+				9801DF941F2A30A000EB8FB1 /* PPInputSwizzlingModule */,
 				9895FB2B1E5AED1200B1F56D /* LocationInputSwizzler */,
 			);
 			name = InputSwizzling;
@@ -1668,8 +1696,10 @@
 				98F1FF741E71555900A664AB /* InputSupervisorModel.h in Headers */,
 				98797E131E96864A00AB3A0B /* DictionaryRepresentableProtocol.h in Headers */,
 				987083C71E8E3A9D00D9F8E9 /* TPKeyboardAvoidingScrollView.h in Headers */,
+				9801DF971F2A30BB00EB8FB1 /* PPInputSwizzlingModule.h in Headers */,
 				9888B1741E6C625900D783AB /* PPReportsSourcesBundle.h in Headers */,
 				98584F411D3F9E18009FB89F /* PPCloak.h in Headers */,
+				9801DF921F2A177400EB8FB1 /* PPSupervisingModule.h in Headers */,
 				9871E0851E97B27000A43695 /* UIRandomWalkMapView.h in Headers */,
 				98797E1C1E96864A00AB3A0B /* PPUnlistedInputAccessViolation+NSDictionaryRepresentation.h in Headers */,
 				98ECE47C1E422E720042A262 /* MicrophoneInputSupervisor.h in Headers */,
@@ -1914,6 +1944,7 @@
 				98FFD5E61F28CFF10059F997 /* BatteryHttpAnalyzer.m in Sources */,
 				9863E9031DEC70E60095CA30 /* NSURLSessionSupervisor.m in Sources */,
 				98F1FF681E713B2C00A664AB /* LocationHTTPAnalyzer.m in Sources */,
+				9801DF981F2A30BB00EB8FB1 /* PPInputSwizzlingModule.m in Sources */,
 				9895FB2F1E5AED3D00B1F56D /* LocationInputSwizzler.m in Sources */,
 				98B3FD601F20A465001652A4 /* PPModuleDeniedAccessReport+NSDictionaryRepresentation.m in Sources */,
 				988A151B1E40DF3300AABD43 /* AccelerometerInputSupervisor.m in Sources */,
@@ -1963,6 +1994,7 @@
 				988A15021E40A4F600AABD43 /* PedometerInputSupervisor.m in Sources */,
 				9866CD261F1CFF8B00F242E3 /* DefaultConfirmationSupervisor.m in Sources */,
 				98DF61031E65D7C6006EF2B3 /* PPUnlistedInputAccessViolation.m in Sources */,
+				9801DF931F2A177400EB8FB1 /* PPSupervisingModule.m in Sources */,
 				984334151F067C350016564E /* UIAboutView.m in Sources */,
 				987F837F1E3241930058633C /* LocationInputSupervisor.m in Sources */,
 				987083B01E8E36A500D9F8E9 /* UILocationListViewCell.m in Sources */,

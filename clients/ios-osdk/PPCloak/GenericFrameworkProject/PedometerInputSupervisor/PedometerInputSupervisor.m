@@ -25,7 +25,7 @@
 
 -(InputType *)monitoringInputType {
     
-    CMPedometerData
+    
     
     return InputType.Pedometer;
 }

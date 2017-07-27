@@ -25,6 +25,9 @@
 #import "GyroscopeInputSupervisor.h"
 #import "DefaultConfirmationSupervisor.h"
 
+#import "PPSupervisingModule.h"
+#import "PPInputSwizzlingModule.h"
+
 #import "PlistReportsStorage.h"
 #import "JRSwizzle.h"
 #import "LocationInputSwizzler.h"
@@ -60,12 +63,9 @@
 @property (strong, nonatomic) NSDictionary *scdJson;
 @property (strong, nonatomic) SCDDocument *document;
 @property (strong, nonatomic) UIButton *handle;
-@property (strong, nonatomic) PlistReportsStorage *plistRepository;
-@property (strong, nonatomic) NSArray<id<InputSourceSupervisor>> *supervisorsArray;
 @property (strong, nonatomic) id<SCDSender> scdSender;
-
-@property (strong, nonatomic) LocationInputSwizzler *locationInputSwizzler;
-
+@property (strong, nonatomic) PPSupervisingModule *supervisingModule;
+@property (strong, nonatomic) PPInputSwizzlingModule *inputSwizzlingModule;
 @end
 
 @implementation OPMonitor
@@ -142,18 +142,34 @@
         }];
         
         self.monitorSettings = [[OPMonitorSettings alloc] initFromDefaults];
-        self.scdJson = document;
-        self.plistRepository = [[PlistReportsStorage alloc] init];
-        self.document = scdDocument;
-        self.supervisorsArray = [self buildSupervisorsWithDocument:scdDocument];
         
-        LocationInputSupervisor *locSupervisor = [self.supervisorsArray firstObjectOfClass:[LocationInputSupervisor class]];
-        [self setupLocationInputSwizzlerUsingSupervisor:locSupervisor];
+        self.scdJson = document;
+        self.document = scdDocument;
+        
+        [self installInputSwizzlersWithEventDispatcher:[PPEventDispatcher sharedInstance]];
+        [self installSupervisorsWithDocument:scdDocument eventsDispatcher:[PPEventDispatcher sharedInstance]];
     }];
     
 
 }
 
+-(void)installInputSwizzlersWithEventDispatcher:(PPEventDispatcher*)eventsDispatcher {
+    
+}
+
+-(void)installSupervisorsWithDocument:(SCDDocument*)scd eventsDispatcher:(PPEventDispatcher*)eventsDispatcher {
+    self.supervisingModule = [[PPSupervisingModule alloc] init];
+    
+    WEAKSELF
+    PPSupervisingModuleModel *model = [[PPSupervisingModuleModel alloc] initWithSCD:scd eventsDispatcher:eventsDispatcher];
+    
+    PPSupervisingModuleCallbacks *callbacks = [[PPSupervisingModuleCallbacks alloc] init];
+    callbacks.presentNotificationCallback = ^(NSString *notificationMessage) {
+        [weakSelf displayNotificationIfPossible:notificationMessage];
+    };
+    
+    [self.supervisingModule beginSupervisingWithModel:model callbacks:callbacks];
+}
 
 -(SCDSendParamaters*)buildSCDParametersWithJSON:(NSString*)jsonText {
     return [[SCDSendParamaters alloc] initWithJSON:jsonText
@@ -234,41 +250,6 @@
 
 #pragma mark - Reports from input supervisors
 
--(void)newURLHostViolationReported:(PPAccessUnlistedHostReport *)report {
-    
-    [self.plistRepository addUnlistedHostReport:report withCompletion:nil];
-    NSString *notification = [NSString stringWithFormat:@"Accessed unlisted host %@", report.urlHost];
-    [self displayNotificationIfPossible:notification];
-}
-
--(void)newUnlistedInputAccessViolationReported:(PPUnlistedInputAccessViolation *)report {
-    [self.plistRepository addUnlistedInputReport:report withCompletion:nil];
-    NSString *notification = [NSString stringWithFormat:@"Accessed unlisted input %@", InputType.namesPerInputType[report.inputType]];
-    [self displayNotificationIfPossible:notification];
-
-}
-
-
--(void)newPrivacyLevelViolationReported:(PPUsageLevelViolationReport *)report {
-    
-    NSString *message = [NSString stringWithFormat:@"Usage level violation for input: %@, data sent to: %@",
-                         InputType.namesPerInputType[report.inputType], report.destinationURLForData];
-    
-    [self displayNotificationIfPossible:message];
-    
-    [self.plistRepository addPrivacyLevelReport:report withCompletion:nil];
-}
-
--(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport *)report{
-    // must complete 
-}
-
--(void)newModuleDeniedAccessReport:(PPModuleDeniedAccessReport *)report{
-    //must complete
-    NSString *message = [NSString stringWithFormat:@"Denied access to framework [%@] for %@", report.moduleName, InputType.namesPerInputType[report.inputType]];
-    [self displayNotificationIfPossible:message];
-    [self.plistRepository addModuleDeniedAccessReport:report withCompletion:nil];
-}
 
 #pragma mark -
 
@@ -284,67 +265,8 @@
     });
 }
 
--(NSArray<id<InputSourceSupervisor>>*)buildSupervisorsWithDocument:(SCDDocument*)document {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    
-    InputSupervisorModel *supervisorsModel = [[InputSupervisorModel alloc] init];
-    supervisorsModel.scdDocument = document;
-    supervisorsModel.delegate = self;
-    supervisorsModel.privacyLevelAbuseDetector = [[PrivacyLevelAbuseDetector alloc] initWithDocument:document];
-    
-    supervisorsModel.httpAnalyzers = [[HTTPAnalyzers alloc] init];
-    supervisorsModel.httpAnalyzers.locationHTTPAnalyzer = [[LocationHTTPAnalyzer alloc] initWithHttpBodyParser:[[PPBasicHttpBodyParser alloc] init]];
-    
-    
-    supervisorsModel.eventsDispatcher = [PPEventDispatcher sharedInstance];
-    
-    
-    NSArray *supervisorClasses = @[[MagnetometerInputSupervisor class],
-                                   [ProximityInputSupervisor class],
-                                   [PedometerInputSupervisor class],
-                                   [LocationInputSupervisor class],
-                                   [AccelerometerInputSupervisor class],
-                                   [BarometerInputSupervisor class],
-                                   [TouchIdSupervisor class],
-                                   [AVCameraInputSupervisor class],
-                                   [MicrophoneInputSupervisor class],
-                                   [ContactsInputSupervisor class],
-                                   [NSURLSessionSupervisor class],
-                                   [PickerControllerSupervisor class],
-                                   [BatteryInputSupervisor class],
-                                   [DeviceInfoInputSupervisor class],
-                                   [DeviceMotionInputSupervisor class],
-                                   [GyroscopeInputSupervisor class],
-                                   [DefaultConfirmationSupervisor class]
-                                   ];
-    
-    for (Class class in supervisorClasses) {
-        id supervisor = [[class alloc] init];
-        [supervisor setupWithModel:supervisorsModel];
-        [result addObject:supervisor];
-    }
-    
-    
-    return  result;
-}
 
--(void)setupLocationInputSwizzlerUsingSupervisor:(LocationInputSupervisor*)supervisor {
-    
-    NSError *error = nil;
-    RandomWalkSwizzlerSettings *defaultLocationSettings = [RandomWalkSwizzlerSettings createFromDefaults: [NSUserDefaults standardUserDefaults] error:&error];
-    
-    if (error) {
-        RandomWalkBoundCircle *circle = [[RandomWalkBoundCircle alloc] initWithCenter:CLLocationCoordinate2DMake(64.754800,  -147.343051) radiusInKm:1];
-        defaultLocationSettings = [RandomWalkSwizzlerSettings createWithCircle:circle walkPath:@[] enabled:NO error:nil];
-    }
-    
-    self.locationInputSwizzler = [[LocationInputSwizzler alloc] init];
-    [self.locationInputSwizzler applyNewRandomWalkSettings:defaultLocationSettings];
-    
-    
-    [self.locationInputSwizzler setupWithSettings:defaultLocationSettings eventsDispatcher:[PPEventDispatcher sharedInstance] whenLocationsAreRequested:^(NSArray<CLLocation *> * _Nonnull locations) {
-        
-    }];
-}
+
+
 
 @end

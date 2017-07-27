@@ -10,12 +10,15 @@
 #import <PPCommonTypes/PPCommonTypes.h>
 #import "PrivacyLevelAbuseDetector.h"
 #import "LocationHTTPAnalyzer.h"
+#import "BatteryHttpAnalyzer.h"
 #import <PPApiHooksCore/PPApiHooksCore.h>
 
 @protocol InputSupervisorDelegate;
 
 @interface HTTPAnalyzers : NSObject
 @property (strong, nonatomic) LocationHTTPAnalyzer *locationHTTPAnalyzer;
+@property (strong, nonatomic) BatteryHttpAnalyzer *batteryHTTPAnalyzer;
+@property (strong, nonatomic) BaseHTTPAnalyzer *basicAnalyzer;
 // more to come later
 
 @end

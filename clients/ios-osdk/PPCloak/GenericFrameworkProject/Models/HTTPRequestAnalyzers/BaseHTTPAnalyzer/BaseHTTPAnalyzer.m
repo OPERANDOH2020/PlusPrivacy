@@ -26,6 +26,19 @@
 
 @end
 
+NSString* numberToString(NSNumber *number, NSInteger fractionDigits){
+    static NSNumberFormatter *nfm = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        nfm = [[NSNumberFormatter alloc] init];
+        nfm.roundingMode = NSNumberFormatterRoundDown;
+    });
+    
+    nfm.maximumFractionDigits = fractionDigits;
+    
+    return [nfm stringFromNumber:number];
+}
+
 @interface BaseHTTPAnalyzer()
 @property (readwrite, strong, nonatomic) id<HTTPBodyParser> httpBodyParser;
 @end
@@ -41,19 +54,23 @@
     return self;
 }
 
--(void)naiveSearchTextValues:(NSArray<NSString *> *)textValues inRequestBody:(NSURLRequest *)request completion:(void (^)(BOOL found))completion {
+-(void)naiveSearchTextValues:(NSArray<NSString *> *)textValues inRequestBody:(NSURLRequest *)request completion:(void (^)(NSArray<NSString*> *foundValues))completion {
     
+    NSMutableArray *result = [[NSMutableArray alloc] init];
     if (request.HTTPBody) {
         NSString *textBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
         for (NSString *aValue in textValues) {
             if ([textBody containsString:aValue]) {
-                SAFECALL(completion, YES);
-                return;
+                [result addObject:aValue];
             }
         }
     }
     
-    SAFECALL(completion, NO);
+    if (result.count) {
+        SAFECALL(completion, result);
+        return;
+    }
+    SAFECALL(completion, nil);
 }
 
 
@@ -72,6 +89,49 @@
     }
     
     return nil;
+}
+
+-(NSArray<NSNumber *> *)naiveSearchNumericValues:(NSArray<NSNumber *> *)numericValues compareUpToFractionDigit:(NSInteger)frDigit inRequestURL:(NSURL *)url {
+    
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    NSString *absoluteURL = url.absoluteString;
+    for (NSNumber *num in numericValues) {
+        NSString *numStr = numberToString(num, frDigit);
+        if ([absoluteURL containsString:numStr]) {
+            [results addObject:num];
+        }
+    }
+    
+    
+    if (results.count) {
+        return results;
+    }
+    return nil;
+}
+
+
+-(void)naiveSearchNumericValues:(NSArray<NSNumber *> *)numericValues compareUpToFractionDigit:(NSInteger)frDigit inRequestBody:(NSURLRequest *)request completin:(void (^)(NSArray<NSNumber *> * _Nullable))completion {
+    
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    if (request.HTTPBody) {
+        NSString *textBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+        for (NSNumber *num in numericValues) {
+            NSString *numString = numberToString(num, frDigit);
+            if ([textBody containsString:numString]) {
+                [results addObject:num];
+            }
+        }
+    }
+
+    
+    if (results.count) {
+        SAFECALL(completion, results);
+        return;
+    }
+    
+    SAFECALL(completion, nil);
 }
 
 -(BOOL)searchRecursivelyInDictValues:(NSArray*)dictValues processingNumbersArray:(BOOL(^)(NSArray<NSNumber*>*))numbersArrayProcessor processingStringsArray:(BOOL(^)(NSArray<NSString*>*))stringsArrayProcessor {

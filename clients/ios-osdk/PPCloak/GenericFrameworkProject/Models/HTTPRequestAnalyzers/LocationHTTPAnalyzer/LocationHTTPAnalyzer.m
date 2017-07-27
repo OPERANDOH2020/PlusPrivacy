@@ -60,26 +60,20 @@ NSArray<NSString*>* locationsArrayToStrings(NSArray<CLLocation*>* locations){
 
 -(void)checkIfAnyLocationFrom:(NSArray<CLLocation *> *)locations isSentInRequest:(NSURLRequest *)request withCompletion:(void (^)(BOOL))completion {
     
-    NSLog(@"checking if request");
     if (request.URL == nil) {
         SAFECALL(completion, NO)
-        NSLog(@"URL NIL: %@", request);
         return;
     }
     
     NSArray *locationStrings = locationsArrayToStrings(locations);
-    NSLog(@"location strings: %@", locationStrings);
     
     if ([self naiveSearchTextValues:locationStrings inRequestURL:request.URL]) {
-        NSLog(@"naive search returned YES");
         SAFECALL(completion, YES);
         return;
     }
     
-    NSLog(@"going to build dictipnary");
     [self dictionaryFromRequestBody:request withCompletion:^(NSDictionary * _Nullable result, NSError * _Nullable error) {
         
-        NSLog(@"dictionary result: %@", result);
         if (result) {
             
             BOOL foundInBody = [self searchRecursivelyInDictValues:result.allValues processingNumbersArray:^BOOL(NSArray<NSNumber *> *numbersArray) {
@@ -88,12 +82,12 @@ NSArray<NSString*>* locationsArrayToStrings(NSArray<CLLocation*>* locations){
                 return [self findLocations:locations inStringValues:stringsArray];
             }];
             
-            NSLog(@"Found in body: %d", foundInBody);
             SAFECALL(completion, foundInBody);
             
         } else {
-            NSLog(@"naive search");
-            [self naiveSearchTextValues:locationStrings inRequestBody:request completion:completion];
+            [self naiveSearchTextValues:locationStrings inRequestBody:request completion:^(NSArray<NSString *> * _Nullable foundValues) {
+                SAFECALL(completion, foundValues.count > 0)
+            }];
         }
     }];
     

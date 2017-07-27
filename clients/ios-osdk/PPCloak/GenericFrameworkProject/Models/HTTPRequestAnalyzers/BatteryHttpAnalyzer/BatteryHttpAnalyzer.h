@@ -10,6 +10,6 @@
 #import "BaseHTTPAnalyzer.h"
 
 @interface BatteryHttpAnalyzer : BaseHTTPAnalyzer
--(void)findBatteryValuesSentInRequest:(NSURLRequest* _Nonnull)request completion:(void(^ _Nullable)(NSArray<NSNumber*>* _Nonnull batteryValues))completion;
+-(void)findBatteryValues:(NSArray<NSNumber*> *_Nonnull)batteryValues sentInRequest:(NSURLRequest* _Nonnull)request completion:(void(^ _Nullable)(NSArray<NSNumber*>* _Nonnull batteryValues))completion;
 @end
 

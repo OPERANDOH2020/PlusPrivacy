@@ -7,14 +7,29 @@
 //
 
 #import "BatteryHttpAnalyzer.h"
+#import "Common.h"
 
 @implementation BatteryHttpAnalyzer
 
 
--(void)findBatteryValuesSentInRequest:(NSURLRequest *)request completion:(void (^)(NSArray<NSNumber *> * _Nonnull))completion {
+-(void)findBatteryValues:(NSArray<NSNumber *> *)batteryValues sentInRequest:(NSURLRequest *)request completion:(void (^)(NSArray<NSNumber *> * _Nonnull))completion {
     
-    [self naiveSearchTextValues:<#(NSArray<NSString *> *)#> inRequestURL:<#(NSURL *)#>]
+    NSArray *inURL = [self naiveSearchNumericValues:batteryValues compareUpToFractionDigit:2 inRequestURL:request.URL];
     
+    if (inURL) {
+        SAFECALL(completion, inURL);
+        return;
+    }
+    
+    [self naiveSearchNumericValues:batteryValues compareUpToFractionDigit:2 inRequestBody:request completin:^(NSArray<NSNumber *> * _Nullable foundValues) {
+        
+        if (foundValues) {
+            SAFECALL(completion, foundValues);
+            return;
+        }
+        
+        SAFECALL(completion, @[]);
+    }];
 }
 
 @end
