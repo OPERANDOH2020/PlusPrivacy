@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <PPApiHooksCore/PPApiHooksCore.h>
-
+#import "LocationInputSwizzler.h"
 
 @interface PPInputSwizzlingModule : NSObject
--(void)installInputSwizzlerOnEventDispatcher:(PPEventDispatcher*)eventsDispatcher;
+@property (readonly, nonatomic) LocationInputSwizzler *locationInputSwizzler;
 
+-(void)installInputSwizzlersOnEventDispatcher:(PPEventDispatcher*)eventsDispatcher;
 @end

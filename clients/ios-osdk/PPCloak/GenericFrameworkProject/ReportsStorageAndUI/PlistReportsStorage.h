@@ -16,4 +16,6 @@ typedef enum : NSUInteger {
 
 @interface PlistReportsStorage : NSObject <PPPrivacyLevelReportsRepository, PPUnlistedHostReportsRepository, PPUnlistedInputReportsRepository, PPAccessFrequencyReportsRepository, PPModuleDeniedAccessReportsRepository>
 
+-(instancetype)initWithDefaultPlistPath;
+
 @end

@@ -17,7 +17,7 @@
 #import "CommonLocationViewModels.h"
 
 
-@interface PPFlowBuilderLocationModel : NSObject
+@interface PPFlowBuilderLocationActions : NSObject
 @property (strong, nonatomic) GetCurrentRandomWalkSettingsCallback getCurrentRandomWalkSettings;
 @property (strong, nonatomic) void (^onSaveCurrentRandomWalkSettings)(RandomWalkSwizzlerSettings* settings);
 
@@ -32,7 +32,7 @@
 @property (strong, nonatomic) NSDictionary *scdJSON;
 @property (strong, nonatomic) id<SCDRepository> scdRepository;
 @property (strong, nonatomic) PPReportsSourcesBundle *reportSources;
-@property (strong, nonatomic) PPFlowBuilderLocationModel *eveythingLocationRelated;
+@property (strong, nonatomic) PPFlowBuilderLocationActions *locationActions;
 
 @property (strong, nonatomic) void (^onExitCallback)();
 

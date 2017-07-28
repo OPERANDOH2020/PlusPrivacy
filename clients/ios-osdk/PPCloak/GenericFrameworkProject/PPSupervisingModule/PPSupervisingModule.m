@@ -35,18 +35,23 @@
 #import <PPCommonUI/PPCommonUI-Swift.h>
 #import "PPBasicHttpBodyParser.h"
 
+@implementation PPSupervisingReportRepositories
+@end
 
 @interface PPSupervisingModuleModel()
 @property (readwrite, strong, nonatomic) SCDDocument *scd;
 @property (readwrite, strong, nonatomic) PPEventDispatcher *eventsDispatcher;
+@property (readwrite, strong, nonatomic) PPSupervisingReportRepositories *reportRepositories;
+
 @end
 
 @implementation PPSupervisingModuleModel
 
--(instancetype)initWithSCD:(SCDDocument *)scd eventsDispatcher:(PPEventDispatcher *)eventsDispatcher {
+-(instancetype)initWithSCD:(SCDDocument *)scd eventsDispatcher:(PPEventDispatcher *)eventsDispatcher reportRepositories:(PPSupervisingReportRepositories *)reportRepositories{
     if (self = [super init]) {
         self.scd = scd;
         self.eventsDispatcher = eventsDispatcher;
+        self.reportRepositories = reportRepositories;
     }
     return self;
 }
@@ -59,7 +64,8 @@
 @interface PPSupervisingModule() <InputSupervisorDelegate>
 @property (strong, nonatomic) PPSupervisingModuleModel *model;
 @property (strong, nonatomic) PPSupervisingModuleCallbacks *callbacks;
-@property (strong, nonatomic) PlistReportsStorage *plistRepository;
+@property (strong, nonatomic) PPSupervisingReportRepositories *reportRepositories;
+@property (strong, nonatomic) NSArray *inputSupervisors;
 @end
 
 @implementation PPSupervisingModule
@@ -68,7 +74,7 @@
     
     self.model = model;
     self.callbacks = callbacks;
-    self.plistRepository = [[PlistReportsStorage alloc] init];
+    self.inputSupervisors = [self buildSupervisorsWithDocument:model.scd];
 }
 
 
@@ -128,14 +134,14 @@
 
 -(void)newURLHostViolationReported:(PPAccessUnlistedHostReport *)report {
     
-    [self.plistRepository addUnlistedHostReport:report withCompletion:nil];
+    [self.model.reportRepositories.unlistedHostReportsRepository addUnlistedHostReport:report withCompletion:nil];
     NSString *notification = [NSString stringWithFormat:@"Accessed unlisted host %@", report.urlHost];
     
     SAFECALL(self.callbacks.presentNotificationCallback, notification)
 }
 
 -(void)newUnlistedInputAccessViolationReported:(PPUnlistedInputAccessViolation *)report {
-    [self.plistRepository addUnlistedInputReport:report withCompletion:nil];
+    [self.model.reportRepositories.unlistedInputReportsRepository addUnlistedInputReport:report withCompletion:nil];
     NSString *notification = [NSString stringWithFormat:@"Accessed unlisted input %@", InputType.namesPerInputType[report.inputType]];
     
     SAFECALL(self.callbacks.presentNotificationCallback, notification)
@@ -148,8 +154,8 @@
     NSString *message = [NSString stringWithFormat:@"Usage level violation for input: %@, data sent to: %@",
                          InputType.namesPerInputType[report.inputType], report.destinationURLForData];
     
-
-    [self.plistRepository addPrivacyLevelReport:report withCompletion:nil];
+    SAFECALL(self.callbacks.presentNotificationCallback, message)
+    [self.model.reportRepositories.privacyLevelReportsRepository addPrivacyLevelReport:report withCompletion:nil];
 }
 
 -(void)newAccessFrequencyViolationReported:(PPAccessFrequencyViolationReport *)report{
@@ -159,7 +165,7 @@
 -(void)newModuleDeniedAccessReport:(PPModuleDeniedAccessReport *)report{
     
     NSString *message = [NSString stringWithFormat:@"Denied access to framework [%@] for %@", report.moduleName, InputType.namesPerInputType[report.inputType]];
-    [self.plistRepository addModuleDeniedAccessReport:report withCompletion:nil];
+    [self.model.reportRepositories.moduleDeniedAccessReportsRepository addModuleDeniedAccessReport:report withCompletion:nil];
     SAFECALL(self.callbacks.presentNotificationCallback, message);
 }
 

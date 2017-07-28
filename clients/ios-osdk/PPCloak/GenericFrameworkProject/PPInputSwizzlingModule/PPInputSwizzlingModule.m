@@ -10,12 +10,12 @@
 #import "LocationInputSwizzler.h"
 
 @interface PPInputSwizzlingModule()
-@property (strong, nonatomic) LocationInputSwizzler *locationInputSwizzler;
+@property (readwrite, strong, nonatomic) LocationInputSwizzler *locationInputSwizzler;
 @end
 
 @implementation PPInputSwizzlingModule
 
--(void)installInputSwizzlerOnEventDispatcher:(PPEventDispatcher *)eventsDispatcher {
+-(void)installInputSwizzlersOnEventDispatcher:(PPEventDispatcher *)eventsDispatcher {
     
     [self setupLocationInputSwizzlerUsingDispatcher:eventsDispatcher];
 }

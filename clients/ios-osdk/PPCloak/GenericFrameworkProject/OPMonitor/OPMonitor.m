@@ -57,7 +57,7 @@
 
 @end
 
-@interface OPMonitor() <InputSupervisorDelegate>
+@interface OPMonitor()
 
 @property (strong, nonatomic) OPMonitorSettings *monitorSettings;
 @property (strong, nonatomic) NSDictionary *scdJson;
@@ -66,9 +66,32 @@
 @property (strong, nonatomic) id<SCDSender> scdSender;
 @property (strong, nonatomic) PPSupervisingModule *supervisingModule;
 @property (strong, nonatomic) PPInputSwizzlingModule *inputSwizzlingModule;
+@property (strong, nonatomic) PlistReportsStorage *plistRepository;
 @end
 
 @implementation OPMonitor
+
+
++(instancetype)sharedInstance{
+    static OPMonitor *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[OPMonitor alloc] init];
+    });
+    
+    return  shared;
+}
+
++(void)load{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        checkNoSwizzlingForOPMonitor();
+        checkNoSwizzlingForApiHooks();
+        checkForOtherFrameworks();
+    });
+    
+    [self initializeMonitoring];
+}
 
 +(void)initializeMonitoring {
     
@@ -93,27 +116,6 @@
     
 }
 
-+(instancetype)sharedInstance{
-    static OPMonitor *shared = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        shared = [[OPMonitor alloc] init];
-    });
-    
-    return  shared;
-}
-
-+(void)load{
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        checkNoSwizzlingForOPMonitor();
-        checkNoSwizzlingForApiHooks();
-        checkForOtherFrameworks();
-    });
-    
-    [self initializeMonitoring];
-}
-
 
 +(void)displayFlow{
     [[self sharedInstance] displayFlowIfNecessary];
@@ -126,21 +128,16 @@
         if (error || !scdDocument) {
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                NSString *errorMessage = [error description];
+                NSString *errorMessage = [error localizedDescription];
                 [CommonViewUtils showOkAlertWithMessage:errorMessage completion:nil];
                 [CommonViewUtils showOkAlertWithMessage:@"PlusPrivacy will not begin monitoring!" completion:nil];
                 [self displayNotificationIfPossible:errorMessage];
             });
             return;
         }
-        self.scdSender = [[SCDSender alloc] init];
-        [self.scdSender sendSCDParameters:[self buildSCDParametersWithJSON:jsonText] withCompletion:^(NSError * _Nullable errorIfAny) {
-            if (errorIfAny) {
-                NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
-                [CommonViewUtils showOkAlertWithMessage:message completion:nil];
-            }
-        }];
+
         
+        self.plistRepository = [[PlistReportsStorage alloc] initWithDefaultPlistPath];
         self.monitorSettings = [[OPMonitorSettings alloc] initFromDefaults];
         
         self.scdJson = document;
@@ -153,15 +150,34 @@
 
 }
 
+-(void)trySendToServerSCD:(NSString*)scdJsonText withCompletion:(PPVoidBlock)completion {
+    self.scdSender = [[SCDSender alloc] init];
+    [self.scdSender sendSCDParameters:[self buildSCDParametersWithJSON:scdJsonText] withCompletion:^(NSError * _Nullable errorIfAny) {
+        if (errorIfAny) {
+            NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
+            [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+        }
+    }];
+}
+
 -(void)installInputSwizzlersWithEventDispatcher:(PPEventDispatcher*)eventsDispatcher {
-    
+    self.inputSwizzlingModule = [[PPInputSwizzlingModule alloc] init];
+    [self.inputSwizzlingModule installInputSwizzlersOnEventDispatcher:eventsDispatcher];
 }
 
 -(void)installSupervisorsWithDocument:(SCDDocument*)scd eventsDispatcher:(PPEventDispatcher*)eventsDispatcher {
     self.supervisingModule = [[PPSupervisingModule alloc] init];
     
     WEAKSELF
-    PPSupervisingModuleModel *model = [[PPSupervisingModuleModel alloc] initWithSCD:scd eventsDispatcher:eventsDispatcher];
+    
+    PPSupervisingReportRepositories *repositoriesPack = [[PPSupervisingReportRepositories alloc] init];
+    repositoriesPack.accessFrequencyReportsRepository = self.plistRepository;
+    repositoriesPack.unlistedHostReportsRepository = self.plistRepository;
+    repositoriesPack.privacyLevelReportsRepository = self.plistRepository;
+    repositoriesPack.unlistedInputReportsRepository = self.plistRepository;
+    repositoriesPack.moduleDeniedAccessReportsRepository = self.plistRepository;
+    
+    PPSupervisingModuleModel *model = [[PPSupervisingModuleModel alloc] initWithSCD:scd eventsDispatcher:eventsDispatcher reportRepositories:repositoriesPack];
     
     PPSupervisingModuleCallbacks *callbacks = [[PPSupervisingModuleCallbacks alloc] init];
     callbacks.presentNotificationCallback = ^(NSString *notificationMessage) {
@@ -184,14 +200,10 @@
     if (isFlowDisplayed) {
         return;
     }
-    OneDocumentRepository *repo = [[OneDocumentRepository alloc] initWithDocument:self.document];
     
     __weak UIViewController *rootViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
     
     __block UIViewController *flowRoot = nil;
-    __weak typeof(self) weakSelf = self;
-    
-
     
     PPReportsSourcesBundle *reportSources = [[PPReportsSourcesBundle alloc] init];
     reportSources.accessFrequencyReportsSource = self.plistRepository;
@@ -200,41 +212,14 @@
     reportSources.unlistedInputReportsSource = self.plistRepository;
     reportSources.moduleDeniedAccessReportsSource = self.plistRepository;
     
+    OneDocumentRepository *repo = [[OneDocumentRepository alloc] initWithDocument:self.document];
     PPFlowBuilderModel *flowModel = [[PPFlowBuilderModel alloc] init];
     flowModel.monitoringSettings = self.monitorSettings;
     flowModel.reportSources = reportSources;
     flowModel.scdRepository = repo;
     flowModel.scdJSON = self.scdJson;
     
-    PPFlowBuilderLocationModel *locationRelated = [[PPFlowBuilderLocationModel alloc] init];
-    
-    locationRelated.getCurrentActiveLocationIndex = ^NSInteger{
-        return weakSelf.locationInputSwizzler.indexOfCurrentSentLocation;
-    };
-    
-    locationRelated.registerChangeCallback = ^(CurrentActiveLocationIndexChangedCallback  _Nullable callback) {
-        [weakSelf.locationInputSwizzler registerNewChangeCallback:callback];
-    };
-    
-    locationRelated.removeChangeCallback = ^(CurrentActiveLocationIndexChangedCallback  _Nullable callback) {
-        [weakSelf.locationInputSwizzler removeChangeCallback:callback];
-    };
-    
-    locationRelated.getCurrentRandomWalkSettings = ^RandomWalkLocationSettingsModel * _Nonnull{
-        RandomWalkLocationSettingsModel *model = [[RandomWalkLocationSettingsModel alloc] init];
-        model.currentSettings = weakSelf.locationInputSwizzler.currentSettings;
-        model.randomWalkGenerator = [[RandomWalkGenerator alloc] init];
-        
-        return model;
-    };
-    
-    locationRelated.onSaveCurrentRandomWalkSettings = ^(RandomWalkSwizzlerSettings *settings) {
-        [weakSelf.locationInputSwizzler applyNewRandomWalkSettings:settings];
-        [settings synchronizeToDefaults:[NSUserDefaults standardUserDefaults]];
-        [CommonViewUtils showOkAlertWithMessage:@"Done" completion:nil];
-    };
-    
-    flowModel.eveythingLocationRelated = locationRelated;
+    flowModel.locationActions = [self actionsLocationRelatedInScreenFlow];
     
     flowModel.onExitCallback = ^{
         [rootViewController ppRemoveChildContentController:flowRoot];
@@ -248,8 +233,38 @@
     [rootViewController ppAddChildContentController:flowRoot];
 }
 
-#pragma mark - Reports from input supervisors
-
+-(PPFlowBuilderLocationActions*)actionsLocationRelatedInScreenFlow {
+    PPFlowBuilderLocationActions *locationRelated = [[PPFlowBuilderLocationActions alloc] init];
+    
+    WEAKSELF
+    locationRelated.getCurrentActiveLocationIndex = ^NSInteger{
+        return weakSelf.inputSwizzlingModule.locationInputSwizzler.indexOfCurrentSentLocation;
+    };
+    
+    locationRelated.registerChangeCallback = ^(CurrentActiveLocationIndexChangedCallback  _Nullable callback) {
+        [weakSelf.inputSwizzlingModule.locationInputSwizzler registerNewChangeCallback:callback];
+    };
+    
+    locationRelated.removeChangeCallback = ^(CurrentActiveLocationIndexChangedCallback  _Nullable callback) {
+        [weakSelf.inputSwizzlingModule.locationInputSwizzler removeChangeCallback:callback];
+    };
+    
+    locationRelated.getCurrentRandomWalkSettings = ^RandomWalkLocationSettingsModel * _Nonnull{
+        RandomWalkLocationSettingsModel *model = [[RandomWalkLocationSettingsModel alloc] init];
+        model.currentSettings = weakSelf.inputSwizzlingModule.locationInputSwizzler.currentSettings;
+        model.randomWalkGenerator = [[RandomWalkGenerator alloc] init];
+        
+        return model;
+    };
+    
+    locationRelated.onSaveCurrentRandomWalkSettings = ^(RandomWalkSwizzlerSettings *settings) {
+        [weakSelf.inputSwizzlingModule.locationInputSwizzler applyNewRandomWalkSettings:settings];
+        [settings synchronizeToDefaults:[NSUserDefaults standardUserDefaults]];
+        [CommonViewUtils showOkAlertWithMessage:@"Done" completion:nil];
+    };
+    
+    return locationRelated;
+}
 
 #pragma mark -
 
@@ -264,9 +279,5 @@
         [UINotificationViewController presentBadNotificationMessage:notification inController:rootViewController atDistanceFromTop:20];
     });
 }
-
-
-
-
 
 @end

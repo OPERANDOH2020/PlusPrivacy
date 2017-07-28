@@ -38,12 +38,12 @@ static NSString *kPrivacyLevelRepository = @"kPrivacyLevelRepository";
 static NSString *kInputRepository = @"kInputRepository";
 static NSString *kModuleDeniedAccessRepository = @"kModuleDeniedAccessRepository";
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
+
+-(instancetype)initWithDefaultPlistPath {
+    if (self = [super init]) {
         [self populateArrays];
     }
+    
     return self;
 }
 

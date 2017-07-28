@@ -19,7 +19,7 @@
 #import "UIRandomWalkLocationStatusViewController.h"
 #import "UIAboutViewController.h"
 
-@implementation PPFlowBuilderLocationModel
+@implementation PPFlowBuilderLocationActions
 @end
 
 @implementation PPFlowBuilderModel
@@ -82,14 +82,14 @@
     callbacks.whenChoosingOverrideLocation = ^{
         UIRandomWalkLocationSettingsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UIRandomWalkLocationSettingsViewController"];
         
-        RandomWalkLocationSettingsModel *randomWalkModel = model.eveythingLocationRelated.getCurrentRandomWalkSettings();
+        RandomWalkLocationSettingsModel *randomWalkModel = model.locationActions.getCurrentRandomWalkSettings();
         
         UIRandomWalkLocationSettingsVCCallbacks *callbacks = [[UIRandomWalkLocationSettingsVCCallbacks alloc] init];
         callbacks.onExit = ^{
             [weakNavgController popViewControllerAnimated:YES];
         };
         
-        callbacks.onSettingsSave = model.eveythingLocationRelated.onSaveCurrentRandomWalkSettings;
+        callbacks.onSettingsSave = model.locationActions.onSaveCurrentRandomWalkSettings;
         
         [vc setupWithModel:randomWalkModel callbacks:callbacks];
         [weakNavgController pushViewController:vc animated:YES];
@@ -100,10 +100,10 @@
         UIRandomWalkLocationStatusViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UIRandomWalkLocationStatusViewController"];
         
         RandomWalkLocationStatusModel *statusModel = [[RandomWalkLocationStatusModel alloc] init];
-        statusModel.currentSentLocationIndex = model.eveythingLocationRelated.getCurrentActiveLocationIndex();
-        statusModel.currentSettings = model.eveythingLocationRelated.getCurrentRandomWalkSettings().currentSettings;
-        statusModel.registerCallbackForChanges = model.eveythingLocationRelated.registerChangeCallback;
-        statusModel.removeCallbackForChanges = model.eveythingLocationRelated.removeChangeCallback;
+        statusModel.currentSentLocationIndex = model.locationActions.getCurrentActiveLocationIndex();
+        statusModel.currentSettings = model.locationActions.getCurrentRandomWalkSettings().currentSettings;
+        statusModel.registerCallbackForChanges = model.locationActions.registerChangeCallback;
+        statusModel.removeCallbackForChanges = model.locationActions.removeChangeCallback;
         
         [vc setupWithModel:statusModel onExit:^{
             [weakNavgController popViewControllerAnimated:YES];
