@@ -16,7 +16,10 @@ var stateData = {};
 var popupService = exports.popupService = {
 
     updatePopupStateData : function(data){
-        stateData = data;
+        for(var param in data){
+            stateData[param] = data[param];
+        }
+
     },
     getPopupStateData : function(callback){
         callback(stateData);
