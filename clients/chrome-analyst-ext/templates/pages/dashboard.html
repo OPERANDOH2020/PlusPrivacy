@@ -1,41 +1,9 @@
 <div id="dashboard" ng-controller="dashboardController">
-    <nav class="navbar operando-navbar">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="http://plusprivacy.com" target="_blank">
-                    <img class="image_logo" alt="Brand" src="/operando/assets/images/icons/logo-light-big.png">
-                </a>
-            </div>
+    <header>
+        <div ui-view="header"></div>
+    </header>
 
-            <ul class="nav navbar-nav pull-right">
-
-
-                <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
-
-                    <a class="menu_icon user-account dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                       data-close-others="true">
-                        <div class="menu_item_content">
-                            <span class="email"> {{user.email}} </span>
-                        </div>
-                    </a>
-
-
-                    <ul class="dropdown-menu dropdown-menu-default">
-                        <li ng-class="{active: $state.includes('account')}">
-                            <a class="menu_icon account" ui-sref="account.personal-details">Account</a>
-                        </li>
-                        <li class="divider"></li>
-
-                        <li>
-                            <a class="menu_icon logout" ng-click="logout()">
-                                Log Out </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div><!-- /.container-fluid -->
-    </nav>
+    <div ui-view="container">
+    </div>
 
 </div>
