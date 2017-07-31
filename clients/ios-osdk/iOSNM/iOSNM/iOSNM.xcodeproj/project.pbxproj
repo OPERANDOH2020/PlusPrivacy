@@ -6,6 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		98B4A6E61F2F4CB700449DFA /* AggregateUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 98B4A6E71F2F4CB700449DFA /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */;
+			buildPhases = (
+				980EFF381F2F4D2000F73E99 /* ShellScript */,
+				980EFF391F2F69EB00F73E99 /* ShellScript */,
+			);
+			dependencies = (
+				98B4A6EB1F2F4CC100449DFA /* PBXTargetDependency */,
+			);
+			name = AggregateUniversal;
+			productName = AggregateUniversal;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		987ABF3D1EF17250005EB437 /* SwizzleDetector.c in Sources */ = {isa = PBXBuildFile; fileRef = 987ABF3B1EF17250005EB437 /* SwizzleDetector.c */; };
 		987ABF3E1EF17250005EB437 /* SwizzleDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 987ABF3C1EF17250005EB437 /* SwizzleDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +72,16 @@
 		988AF1701EF2B7E6004FDFB3 /* SymbolInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 988AF16E1EF2B7E5004FDFB3 /* SymbolInfo.c */; };
 		988AF1711EF2B7E6004FDFB3 /* SymbolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 988AF16F1EF2B7E5004FDFB3 /* SymbolInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98B4A6EA1F2F4CC100449DFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9885DE8A1EEEC1FB00888B1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9885DE921EEEC1FB00888B1D;
+			remoteInfo = iOSNM;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		987ABF3B1EF17250005EB437 /* SwizzleDetector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SwizzleDetector.c; path = SwizzleDetector/SwizzleDetector.c; sourceTree = "<group>"; };
@@ -108,6 +134,7 @@
 		9885DECB1EEEC3D300888B1D /* unix_standard_mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unix_standard_mode.h; sourceTree = "<group>"; };
 		988AF16E1EF2B7E5004FDFB3 /* SymbolInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SymbolInfo.c; path = SymbolInfo/SymbolInfo.c; sourceTree = "<group>"; };
 		988AF16F1EF2B7E5004FDFB3 /* SymbolInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolInfo.h; path = SymbolInfo/SymbolInfo.h; sourceTree = "<group>"; };
+		98B4A6E51F2F495600449DFA /* SimulatorDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimulatorDefines.h; sourceTree = "<group>"; };
 		98C062461F1E413400B35E76 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				988AF16D1EF2B794004FDFB3 /* SymbolInfo */,
+				98B4A6E51F2F495600449DFA /* SimulatorDefines.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -310,6 +338,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
+					98B4A6E61F2F4CB700449DFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = MTQBH47X23;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 9885DE8D1EEEC1FB00888B1D /* Build configuration list for PBXProject "iOSNM" */;
@@ -325,6 +358,7 @@
 			projectRoot = "";
 			targets = (
 				9885DE921EEEC1FB00888B1D /* iOSNM */,
+				98B4A6E61F2F4CB700449DFA /* AggregateUniversal */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +374,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		980EFF381F2F4D2000F73E99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild  -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild  -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\nSWIFTMODULEDIR=\"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\"\nif [ -d $SWIFTMODULEDIR ]; then\ncp -r $SWIFTMODULEDIR \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\nfi\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		980EFF391F2F69EB00F73E99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"${HOME}/Desktop/${PROJECT_NAME}.framework\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
+		};
 		98C062451F1E412800B35E76 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +452,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98B4A6EB1F2F4CC100449DFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9885DE921EEEC1FB00888B1D /* iOSNM */;
+			targetProxy = 98B4A6EA1F2F4CC100449DFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9885DE991EEEC1FB00888B1D /* Debug */ = {
@@ -537,6 +606,22 @@
 			};
 			name = Release;
 		};
+		98B4A6E81F2F4CB700449DFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MTQBH47X23;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		98B4A6E91F2F4CB700449DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MTQBH47X23;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -554,6 +639,15 @@
 			buildConfigurations = (
 				9885DE9C1EEEC1FB00888B1D /* Debug */,
 				9885DE9D1EEEC1FB00888B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98B4A6E71F2F4CB700449DFA /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98B4A6E81F2F4CB700449DFA /* Debug */,
+				98B4A6E91F2F4CB700449DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

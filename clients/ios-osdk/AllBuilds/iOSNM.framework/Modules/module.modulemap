@@ -1,0 +1,6 @@
+framework module iOSNM {
+  umbrella header "iOSNM.h"
+
+  export *
+  module * { export * }
+}

@@ -21,22 +21,31 @@ struct UILoginViewCallbacks
     let whenUserForgetsPassword: (() -> ())?
 }
 
-class UILoginView: RSNibDesignableView, UITextFieldDelegate {
+struct UILoginViewOutlets {
+    let emailTF: UITextField?
+    let passwordTF: UITextField?
+    let rememberMeSwitch: UISwitch?
+    let signInButton: UIButton?
+    let forgotPasswordButton: UIButton?
+}
 
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var rememberMeSwitch: UISwitch!
+class UILoginViewLogic: NSObject, UITextFieldDelegate {
     
-    private var callbacks: UILoginViewCallbacks?
+    let outlets: UILoginViewOutlets
+    var callbacks: UILoginViewCallbacks?
     
-    override func commonInit() {
-        super.commonInit()
-        self.emailTF.delegate = self
-        self.passwordTF.delegate = self
+    init(outlets: UILoginViewOutlets) {
+        self.outlets = outlets;
+        super.init()
+        
+        outlets.emailTF?.delegate = self
+        outlets.passwordTF?.delegate = self
+        
+        outlets.signInButton?.addTarget(self, action: #selector(didPressSignInButton(_:)), for: .touchUpInside)
+        outlets.forgotPasswordButton?.addTarget(self, action: #selector(didPressForgotPassword(_:)), for: .touchUpInside)
     }
     
-    func setupWithCallbacks(callbacks: UILoginViewCallbacks?)
-    {
+    func setupWith(callbacks: UILoginViewCallbacks?){
         self.callbacks = callbacks;
     }
     
@@ -44,31 +53,39 @@ class UILoginView: RSNibDesignableView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         DispatchQueue.main.async {
             textField.endEditing(true)
-            if textField == self.emailTF {
-                self.passwordTF.becomeFirstResponder()
+            
+            if let emailTF = self.outlets.emailTF, textField == emailTF {
+                self.outlets.passwordTF?.becomeFirstResponder()
             } else {
                 self.didPressSignInButton(nil)
             }
         }
-        return true 
+        return true
     }
     
-    @IBAction func didPressForgotPassword(_ sender: AnyObject)
-    {
+    @IBAction func didPressForgotPassword(_ sender: AnyObject) {
         self.callbacks?.whenUserForgetsPassword?();
     }
     
-    @IBAction func didPressSignInButton(_ sender: AnyObject?)
-    {
-        let loginInfo = LoginInfo(email: self.emailTF.text ?? "", password: self.passwordTF.text ?? "", wishesToBeRemembered: self.rememberMeSwitch.isOn);
+    @IBAction func didPressSignInButton(_ sender: AnyObject?) {
+        let loginInfo = LoginInfo(email: self.outlets.emailTF?.text ?? "", password: self.outlets.passwordTF?.text ?? "", wishesToBeRemembered: self.outlets.rememberMeSwitch?.isOn ?? false);
         self.callbacks?.whenUserWantsToLogin?(loginInfo);
     }
-    
-    
-    //MARK: TextField 
-    
+}
 
+
+class UILoginView: RSNibDesignableView {
+
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var rememberMeSwitch: UISwitch!
     
+    lazy var logic: UILoginViewLogic = {
+       return UILoginViewLogic(outlets: UILoginViewOutlets(emailTF: self.emailTF, passwordTF: self.passwordTF, rememberMeSwitch: self.rememberMeSwitch, signInButton: self.signInButton, forgotPasswordButton: self.forgotPasswordButton))
+    }()
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self.endEditing(true)

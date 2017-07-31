@@ -30,7 +30,7 @@ class UISignInViewController: UIViewController {
     {
         let _ = self.view
         self.callbacks = cbs
-        self.loginView.setupWithCallbacks(callbacks: self.callbacksForLoginView(loginView: self.loginView));
+        self.loginView.logic.setupWith(callbacks: self.callbacksForLoginView(loginView: self.loginView));
 
     }
     

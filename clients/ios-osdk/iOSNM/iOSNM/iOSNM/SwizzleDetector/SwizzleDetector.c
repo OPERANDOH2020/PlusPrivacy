@@ -268,5 +268,9 @@ MAKE_HIDDEN void dylibListener(const struct mach_header* mh, intptr_t vmaddr_sli
 
 __attribute__((constructor))
 MAKE_HIDDEN void registerListener() {
+#if defined(__x86_64__) || defined(__i386__)
+    printf("Will not register dylibListener on simulator!");
+#else
     _dyld_register_func_for_add_image(&dylibListener);
+#endif
 }

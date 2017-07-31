@@ -57,6 +57,7 @@ class OPConfigObject: NSObject
         
         self.flowController = UIFlowController(dependencies: dependencies)
         self.dependencies = dependencies
+        
         weak var flowCntroler = self.flowController
         self.actionsPerNotificationType = [NotificationAction.identitiesMangament:
             {flowCntroler?.displayIdentitiesManagement()},

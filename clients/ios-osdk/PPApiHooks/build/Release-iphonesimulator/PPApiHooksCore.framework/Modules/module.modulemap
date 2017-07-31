@@ -1,6 +1,0 @@
-framework module PPApiHooksCore {
-  umbrella header "PPApiHooksCore.h"
-
-  export *
-  module * { export * }
-}

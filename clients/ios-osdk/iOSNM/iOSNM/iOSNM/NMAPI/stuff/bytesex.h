@@ -47,7 +47,11 @@
 #undef MACHINE_THREAD_STATE_COUNT
 #undef THREAD_STATE_NONE
 #undef VALID_THREAD_STATE_FLAVOR
+
+#if TARGET_IPHONE_SIMULATOR == 1
 #include <mach/arm/thread_status.h>
+#endif
+
 #include <mach-o/nlist.h>
 #include <mach-o/reloc.h>
 #include <mach-o/ranlib.h>
@@ -172,6 +176,18 @@ __private_extern__ void swap_sparc_thread_state_regs(
 __private_extern__ void swap_sparc_thread_state_fpu(
   struct sparc_thread_state_fpu *fpu,
    byte_sex target_byte_order);
+
+
+
+#if defined(__x86_64__) || defined(__i386__)
+#include "SimulatorDefines.h"
+#else
+#include <mach/arm/thread_status.h>
+#include <mach/arm/thread_state.h>
+#endif
+
+
+
 
 __private_extern__ void swap_arm_thread_state_t(
     arm_thread_state_t *cpu,

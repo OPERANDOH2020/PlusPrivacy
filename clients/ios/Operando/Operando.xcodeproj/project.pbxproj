@@ -971,6 +971,13 @@
 			name = UIRealIdentityView;
 			sourceTree = "<group>";
 		};
+		98B4A6E41F2F405200449DFA /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
 		98B89E611EC1E06D009570EC /* LongPressCustomActionSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1082,7 @@
 		98EAF6821CCF86DC00C77649 /* OperandoTests */ = {
 			isa = PBXGroup;
 			children = (
+				98B4A6E41F2F405200449DFA /* UserInterface */,
 				98EAF6851CCF86DC00C77649 /* Info.plist */,
 				987072051E82BF0A00151201 /* OperandoTests-Bridging-Header.h */,
 				987072061E82BF0A00151201 /* WebViewTabManagementPoolTests.swift */,
@@ -1337,6 +1345,7 @@
 				98EAF6681CCF86DC00C77649 /* Frameworks */,
 				98EAF6691CCF86DC00C77649 /* Resources */,
 				988466161DD0C7D100FBF22E /* Embed Frameworks */,
+				980EFF421F2F814000F73E99 /* Remove x86_64 and i386 architectures */,
 			);
 			buildRules = (
 			);
@@ -1461,6 +1470,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		980EFF421F2F814000F73E99 /* Remove x86_64 and i386 architectures */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Remove x86_64 and i386 architectures";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98EAF6671CCF86DC00C77649 /* Sources */ = {

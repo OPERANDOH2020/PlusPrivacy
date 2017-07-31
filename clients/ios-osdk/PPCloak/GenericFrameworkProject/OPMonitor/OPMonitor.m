@@ -84,11 +84,16 @@
 
 +(void)load{
     
+#if defined(__x86_64__) || defined(__i386__)
+    NSLog(@"PlusPrivacy will not register to check symbols on simulator!!");
+#else
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         checkNoSwizzlingForOPMonitor();
         checkNoSwizzlingForApiHooks();
         checkForOtherFrameworks();
     });
+#endif
+    
     
     [self initializeMonitoring];
 }

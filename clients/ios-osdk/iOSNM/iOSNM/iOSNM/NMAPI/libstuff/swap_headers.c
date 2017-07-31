@@ -37,14 +37,21 @@
 #undef MACHINE_THREAD_STATE_COUNT
 #undef THREAD_STATE_NONE
 #undef VALID_THREAD_STATE_FLAVOR
+
+
+
+#if defined(__x86_64__) || defined(__i386__)
+#include "SimulatorDefines.h"
+#else
 #include <mach/arm/thread_status.h>
+#include <mach/arm/thread_state.h>
+#endif
+
 #include  "bool.h"
 #include  "bytesex.h"
 #include  "errors.h"
 #include <mach-o/swap.h>
 #include <mach-o/dyld.h>
-#include <mach/arm/thread_status.h>
-#include <mach/arm/thread_state.h>
 
 /*
  * swap_object_headers() swaps the object file headers from the host byte sex
