@@ -38,6 +38,9 @@ var registerSwarming = {
                         user['email'],
                         "Activate account",
                         "Your account has been registered \nTo activate it, please access the following link:\n http://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode);
+
+                    startSwarm("analytics.js","addRegistration",user.email,user.userId);
+
                     self.swarm("setRealIdentity");
                 }    
             }))
@@ -103,8 +106,7 @@ var registerSwarming = {
             }));
         }
     },
-
-
+    
     sendActivationCode:function (userEmail) {
         this.email = userEmail;
         this.swarm("getActivationCode");
