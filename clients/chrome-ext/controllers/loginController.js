@@ -26,18 +26,17 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         status: ""
     };
 
-    $scope.loginAreaState = "loggedout";
 
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
         $scope.showABPAndPrivacyPolicyOptions = false;
-    }
+    };
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
         $scope.showABPAndPrivacyPolicyOptions = true;
-    }
+    };
 
     clearInfoPanel = function(){
         setTimeout(function(){
@@ -224,14 +223,6 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         });
     };
 
-    $scope.$watch('loginAreaState', function (value) {
-        if (value != "networkError" && $scope.info.status == "error") {
-            $scope.info = {
-                message: "",
-                status: ""
-            };
-        }
-    });
 
     $scope.logout = function(){
         $scope.requestStatus = "pending";
@@ -250,14 +241,62 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         if(data.status === "success"){
             successFunction();
         }
-        else if(data.status === "error"){
-            $scope.loginAreaState = "loggedout";
+        else if(data.error === "error"){
+            messengerService.send("getPopupStateData", function(response){
+                console.log(response);
+                if(response.data.state && response.data.state !=="loggedin"){
+                    $scope.loginAreaState = response.data.state;
+                }
+                else{
+                    $scope.loginAreaState = "loggedout";
+                }
+
+                if($scope.loginAreaState !== "loggedout"){
+                    $scope.showABPAndPrivacyPolicyOptions = false;
+                }
+
+                if(response.data.user){
+                    $scope.user = response.data.user;
+                }
+                $scope.$apply();
+            });
         }
         else if(status.error){
             errorFunction();
         }
         else if(status.reconnect){
             reconnectFunction();
+        }
+    });
+
+    var updatePopupState = function (key) {
+        var dataToSave = {};
+        if (key === "user") {
+            dataToSave["user"] = angular.copy($scope.user);
+        }
+        else {
+            dataToSave["state"] = angular.copy($scope.loginAreaState);
+        }
+
+        messengerService.send("updatePopupStateData", dataToSave);
+    };
+
+    $scope.$watch('user', function (newValue, oldValue) {
+        if(newValue !== oldValue){
+            updatePopupState("user")
+        }
+    }, true);
+
+    $scope.$watch('loginAreaState', function (value) {
+
+        if(value !== "networkError"){
+            updatePopupState("state");
+        }
+        if (value != "networkError" && $scope.info.status == "error") {
+            $scope.info = {
+                message: "",
+                status: ""
+            };
         }
     });
 

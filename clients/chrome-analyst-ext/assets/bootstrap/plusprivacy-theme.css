@@ -2,7 +2,7 @@ html{
     height:100%;
 }
 body{
-    background: #fcf6d2;
+    background: #fdfaef;
     font-family: "Dosis";
     height:100%;
 }
@@ -43,6 +43,10 @@ body.login{
     font-size: 16px;
     height: auto;
     padding: 10px;
+}
+
+.container-fluid{
+    background: #6f5924;
 }
 
 input[type="text"] {
@@ -87,4 +91,160 @@ button.btn.btn-primary:focus{
 #login_error{
     margin-top: 20px;
     margin-bottom: 0px;
+}
+
+.navbar-brand, .navbar-nav>li>a{
+    text-shadow: none;
+    color:#FFF;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #ee9a27;
+    border-color: #ee9a27;
+}
+
+.nav > li > a:hover, .nav > li > a:focus,
+.nav > li > a:active, .nav > li > a:active,
+.nav > li > a:focus, .nav > li > a:focus{
+    text-decoration: none;
+    background-color: #ee9a27;
+    cursor: pointer;
+}
+
+.navbar-brand > img {
+    display: inline;
+}
+
+.navbar-brand span,
+.navbar-brand span:hover{
+    color:#FFFFFF;
+}
+
+.navbar-brand {
+    padding: 10px 15px;
+}
+
+nav .collapse.navbar-collapse{
+    float:left;
+}
+
+
+button.delete-btn{
+    background: url("/assets/images/icons/delete.png") no-repeat left center;
+    text-indent: -9999em;
+    width: 16px;
+    height: 16px;
+    border: none;
+    margin: 10px;
+    position: absolute;
+    opacity: 0.8;
+}
+
+button.delete-btn:hover{
+    opacity: 1;
+}
+.edit-setting .input-group {
+    margin: 15px 10px;
+}
+.input-group-addon {
+    background-color: #F1EBDF;
+}
+
+.panel-setting.panel>.panel-heading {
+    background-color: #F1EBDF;
+    border-color: #d2c6ad;
+    background-image: none!important;
+}
+
+
+button.btn-primary{
+    background: #FFB400;
+    border-color: #FFB400;
+    color: #FFF;
+    border-radius: 0;
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+    text-shadow: none;
+    box-shadow: none;
+    border: 1px solid #ffaa30;
+    padding: 6px 10px;
+}
+button.btn-primary:hover,
+button.btn-primary:focus,
+button.btn-primary:active,
+button.btn-primary
+{
+    background: #FF9900;
+    border-color: #FF9900;
+    outline:none;
+    box-shadonw:none;
+}
+
+
+button.edit-setting-edit{
+    background: url("/assets/images/icons/edit.png") no-repeat left center;
+    text-indent: -9999em;
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 0px 3px;
+}
+
+button.edit-setting-deactivate{
+    background: url("/assets/images/icons/deactivate.png") no-repeat left center;
+    text-indent: -9999em;
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 0px 3px;
+}
+
+button.edit-setting-delete{
+    background: url("/assets/images/icons/remove.png") no-repeat left center;
+    text-indent: -9999em;
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 0px 3px;
+}
+
+
+.add_new_option {
+    padding-left: 48px;
+    background: url(/assets/images/icons/arrow_new_option.png) no-repeat left top;
+    margin-left: 26px;
+}
+
+.edit-setting .setting_actions {
+    float: right;
+}
+
+.setting_actions {
+    visibility: hidden;
+}
+
+.setting_actions button{
+    opacity: 0.8;
+}
+
+.setting_actions button:hover{
+    opacity: 1;
+}
+
+.edit-setting{
+    opacity: 0.6;
+}
+.edit-setting:hover,
+.edit-setting.editMode
+{
+    opacity: 1;
+}
+
+.edit-setting:hover .setting_actions{
+    visibility: visible;
+}
+
+.settings_area{
+    width: 50%;
+    float: left;
 }

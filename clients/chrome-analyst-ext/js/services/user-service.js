@@ -7,6 +7,9 @@ angular.module('app').factory("userService", ["connectionService", function (con
         var restoredCompleted = false;
         var isAuthenticated;
         var couldBeRestoredCallbacks = [];
+        var requestInProgress = false;
+        var sequence = Promise.resolve();
+
 
         function handleRestoredCallbacks(){
             while(couldBeRestoredCallbacks.length>0){
@@ -56,9 +59,8 @@ angular.module('app').factory("userService", ["connectionService", function (con
 
         UserService.prototype.getCurrentUser = function () {
 
-            var sequence = Promise.resolve();
-
             if (user) {
+                sequence = Promise.resolve();
                 sequence = sequence.then(function () {
                     return new Promise(function (resolve, reject) {
                         resolve(user);
@@ -66,18 +68,23 @@ angular.module('app').factory("userService", ["connectionService", function (con
                 });
                 return sequence;
             }
+            else if(requestInProgress === true){
+                return sequence;
+            }
             else {
-
-
+                requestInProgress = true;
                 sequence = sequence.then(function () {
                     return new Promise(function (resolve, reject) {
                         connectionService.restoreUserSession(function (user) {
+                            requestInProgress = false;
                             console.log(user);
                             resolve(user);
-                        }, function (error) {
-                            reject("NO_USER")
+                        }, function () {
+                            resolve('NO_USER')
                         });
                     })
+                }).catch(function(error){
+                    console.log(error);
                 });
                 return sequence;
 
