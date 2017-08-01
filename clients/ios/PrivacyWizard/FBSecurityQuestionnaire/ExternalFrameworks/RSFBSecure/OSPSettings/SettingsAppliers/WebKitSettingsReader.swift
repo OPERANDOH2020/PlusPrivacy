@@ -253,7 +253,7 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
     private func loadReadingFunctionInWebViewWithCompletion(completion: VoidBlock?)
     {
         self.loadAndExecuteScriptNamed(scriptName: "readSNSettings") { (result, error) in
-            if error == nil || (error as? NSError)?.code ?? 0 == 5
+            if error == nil || (error as NSError?)?.code ?? 0 == 5
             {
                 completion?()
             }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PPCloak
+
 
 typealias NotificationActionCallback = (_ action: NotificationAction, _ notification: OPNotification) -> Void
 typealias ForgotPasswordCallback = ((_ email: String) -> Void)
@@ -18,7 +20,6 @@ struct Dependencies{
     let privacyForBenefitsRepo: PrivacyForBenefitsRepository?
     let userInfoRepo: UserInfoRepository?
     let notificationsRepository: NotificationsRepository?
-//    let scdDocumentsRepository: PlusPrivacyCommonUI.SCDRepository?
     let accountCallbacks: AccountCallbacks?
     let whenTakingActionForNotification: NotificationActionCallback?
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
@@ -203,23 +204,11 @@ class UIFlowController: SSASideMenuDelegate
             weakSelf?.displayDashboard()
             weakSelf?.sideMenu?.hideMenuViewController()
         }, whenChoosingMonitor: {
-            weakSelf?.displaySCDDocumentsViewController()
+            OPMonitor.displayFlow()
         })
     }
     
     
-    private func displaySCDDocumentsViewController() {
-//        let displayModel = CommonUIDisplayModel()
-//        displayModel.exitButtonType = .NoneInvisible
-//        displayModel.titleBarHeight = 50
-//        guard let repository = self.dependencies.scdDocumentsRepository,
-//            let controller = CommonUIBUilder.buildFlow(for: repository, displayModel: displayModel, whenExiting: nil) else {
-//            return
-//        }
-//        
-//        self.rootController.setMainControllerTo(newController: controller)
-        
-    }
     
     
     func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {

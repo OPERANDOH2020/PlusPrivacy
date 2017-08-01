@@ -99,23 +99,37 @@ var checkElement = function (element, whenEmailCompleted) {
                                 });
                                 $(closeButton).on("click", closePopup);
 
-                                instance.content(content);
-
-                            },
-                            functionReady: function (instance) {
-                                $("#accept_identity_substitution").on("click", function () {
+                                content.find("#accept_identity_substitution").on("click", function () {
                                     element.val($("#pp_identities").val());
                                     element.tooltipster('close');
                                     element.hasTooltip = false;
                                 });
-                                $("#deny_identity_substitution").on("click", function () {
+                                content.find("#deny_identity_substitution").on("click", function () {
                                     denySubstituteIdentity(element);
                                     element.tooltipster('close');
                                     element.hasTooltip = false;
                                     element.trigger("sleepAll");
                                 });
+
+                                instance.content(content);
+
+                            },
+                            functionReady: function (instance) {
+                                instance.isVisible = function(){
+                                    if(element.is(":visible")){
+                                        return true;
+                                    }
+                                    else{
+                                        clearInterval(instance.visibilityInterval);
+                                        $('.tooltipstered').tooltipster('close');
+                                    }
+                                };
+
+                                instance.visibilityInterval  = setInterval(instance.isVisible, 200);
+
                             },
                             functionAfter: function (instance) {
+                                clearInterval(instance.visibilityInterval);
                                 instance.destroy();
                                 if (element.hasTooltip) {
                                     element.hasTooltip = false;

@@ -115,7 +115,12 @@ angular.module("app").factory("connectionService", function(swarmService){
             });
         };
 
-
+        ConnectionService.prototype.getOSPSettings = function(callback){
+            var getOSPSettingsHandler = swarmHub.startSwarm('PrivacyWizardSwarm.js', 'getOSPSettings');
+            getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
+                callback(swarm.ospSettings);
+            });
+        }
 
         return ConnectionService;
 

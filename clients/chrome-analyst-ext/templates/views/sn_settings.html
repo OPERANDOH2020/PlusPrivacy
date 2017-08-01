@@ -1,0 +1,19 @@
+<div class="social_network_settings_panel">
+    <div class="panel-heading">
+        <h2>{{osp.title}} settings editor</h2>
+    </div>
+
+    <div class="settings_area" id="settings_area_left">
+        <div class="panel-body">
+        <div ng-repeat="(setting_key,setting) in osp.settings">
+            <setting-editor setting-key="setting_key" setting="setting"></setting-editor>
+        </div>
+        </div>
+    </div>
+    <div class="settings_area" id="settings_area_right">
+        <json-editor untouched-json="jsonObject" actual-json="actualJson"></json-editor>
+    </div>
+
+    <script type="text/javascript" ng-src="/js/ui/draggable.js"></script>
+
+</div>
