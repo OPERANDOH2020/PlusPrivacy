@@ -593,3 +593,32 @@ exports.removeZone = function(zoneName,callback){
     persistence.deleteById("Zone",zoneName,callback);
 };
 
+exports.subscribeUserToNewsletter = function(email){
+
+    var host = thisAdapter.config.Core.operandoHost;
+    var protocol = thisAdapter.config.Core.operandoProtocol;
+    var website_url = protocol+"://" + host;
+    var url = protocol+"://" + host + "/?es=subscribe";
+
+    var request = require('request');
+    var data = "es_email="+email+"&es_group=PlusPrivacyUsers";
+
+    request({
+        url: url,
+        method: "POST",
+        headers: {
+            "content-type": "application/x-www-form-urlencoded",
+            "access-control-allow-origin":"*",
+            "referer":website_url,
+            "origin":website_url,
+            "host":host,
+            "cache-control":"no-cache"
+
+        },
+        body: data
+    }, function (error, response, body){
+       //don't care about the response...
+    });
+
+}
+
