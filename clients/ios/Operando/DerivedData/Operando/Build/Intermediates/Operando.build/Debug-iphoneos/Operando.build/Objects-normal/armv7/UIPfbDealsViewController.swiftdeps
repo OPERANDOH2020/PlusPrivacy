@@ -1,0 +1,774 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIPfbDealsViewController"
+provides-nominal:
+- "C8Operando24UIPfbDealsViewController"
+provides-member:
+- ["C8Operando24UIPfbDealsViewController", ""]
+provides-dynamic-lookup:
+- "pfbDealsListView"
+- "viewDidLoad"
+depends-top-level:
+- !private "!"
+- "AssignmentPrecedence"
+- !private "Bundle"
+- !private "OPErrorContainer"
+- !private "PfbDeal"
+- "PrivacyForBenefitsRepository"
+- !private "ProgressHUD"
+- !private "String"
+- !private "UIApplication"
+- "UIPfbDealsListView"
+- !private "UIPfbDealsListViewCallbacks"
+- "UIPfbDealsViewController"
+- !private "UIPfbDetailsAlertViewController"
+- !private "UIPfbDisplayingView"
+- !private "UIPfbDisplayingViewCallbacks"
+- "UIViewController"
+- !private "URL"
+- !private "VoidBlock"
+- !private "kConnectingLocalizableKey"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- !private ["Ps9AnyObject", "OPErrorContainer"]
+- !private ["Ps9AnyObject", "ProgressHUD"]
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps9AnyObject", "UIPfbDetailsAlertViewController"]
+- !private ["Ps9AnyObject", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps9AnyObject", "URL"]
+- !private ["Ps9AnyObject", "callbacksForDealCells"]
+- !private ["Ps9AnyObject", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps9AnyObject", "callbacksForDealsListView"]
+- !private ["Ps9AnyObject", "canOpenURL"]
+- !private ["Ps9AnyObject", "dealsRepository"]
+- !private ["Ps9AnyObject", "dismiss"]
+- !private ["Ps9AnyObject", "displayError"]
+- !private ["Ps9AnyObject", "displayWith"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "kConnectingLocalizableKey"]
+- !private ["Ps9AnyObject", "loadCurrentDeals"]
+- !private ["Ps9AnyObject", "localizedStringFor"]
+- !private ["Ps9AnyObject", "openURL"]
+- !private ["Ps9AnyObject", "pfbDealsListView"]
+- !private ["Ps9AnyObject", "serviceId"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "show"]
+- !private ["Ps9AnyObject", "subscribed"]
+- !private ["Ps9AnyObject", "tryActivate"]
+- !private ["Ps9AnyObject", "tryDeactivate"]
+- !private ["Ps9AnyObject", "tryOpen"]
+- !private ["Ps9AnyObject", "updateWith"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["CSo6Bundle", "localizedStringFor"]
+- !private ["PSo15CALayerDelegate", "dismiss"]
+- !private ["PSo15CALayerDelegate", "setupWith"]
+- !private ["PSo15CALayerDelegate", "show"]
+- !private ["Ps7CVarArg", "Bundle"]
+- !private ["Ps7CVarArg", "OPErrorContainer"]
+- !private ["Ps7CVarArg", "ProgressHUD"]
+- !private ["Ps7CVarArg", "UIApplication"]
+- !private ["Ps7CVarArg", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps7CVarArg", "UIPfbDetailsAlertViewController"]
+- !private ["Ps7CVarArg", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps7CVarArg", "URL"]
+- !private ["Ps7CVarArg", "callbacksForDealCells"]
+- !private ["Ps7CVarArg", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps7CVarArg", "callbacksForDealsListView"]
+- !private ["Ps7CVarArg", "canOpenURL"]
+- !private ["Ps7CVarArg", "dealsRepository"]
+- !private ["Ps7CVarArg", "dismiss"]
+- !private ["Ps7CVarArg", "displayWith"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "kConnectingLocalizableKey"]
+- !private ["Ps7CVarArg", "loadCurrentDeals"]
+- !private ["Ps7CVarArg", "localizedStringFor"]
+- !private ["Ps7CVarArg", "openURL"]
+- !private ["Ps7CVarArg", "pfbDealsListView"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "show"]
+- !private ["Ps7CVarArg", "tryActivate"]
+- !private ["Ps7CVarArg", "tryDeactivate"]
+- !private ["Ps7CVarArg", "tryOpen"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "Bundle"]
+- !private ["Ps28CustomDebugStringConvertible", "OPErrorContainer"]
+- !private ["Ps28CustomDebugStringConvertible", "ProgressHUD"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "UIPfbDetailsAlertViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "URL"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksForDealCells"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksForDealsListView"]
+- !private ["Ps28CustomDebugStringConvertible", "canOpenURL"]
+- !private ["Ps28CustomDebugStringConvertible", "dealsRepository"]
+- !private ["Ps28CustomDebugStringConvertible", "dismiss"]
+- !private ["Ps28CustomDebugStringConvertible", "displayWith"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "kConnectingLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "loadCurrentDeals"]
+- !private ["Ps28CustomDebugStringConvertible", "localizedStringFor"]
+- !private ["Ps28CustomDebugStringConvertible", "openURL"]
+- !private ["Ps28CustomDebugStringConvertible", "pfbDealsListView"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "show"]
+- !private ["Ps28CustomDebugStringConvertible", "tryActivate"]
+- !private ["Ps28CustomDebugStringConvertible", "tryDeactivate"]
+- !private ["Ps28CustomDebugStringConvertible", "tryOpen"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "Bundle"]
+- !private ["Ps23CustomStringConvertible", "OPErrorContainer"]
+- !private ["Ps23CustomStringConvertible", "ProgressHUD"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
+- !private ["Ps23CustomStringConvertible", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "UIPfbDetailsAlertViewController"]
+- !private ["Ps23CustomStringConvertible", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "URL"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "callbacksForDealCells"]
+- !private ["Ps23CustomStringConvertible", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps23CustomStringConvertible", "callbacksForDealsListView"]
+- !private ["Ps23CustomStringConvertible", "canOpenURL"]
+- !private ["Ps23CustomStringConvertible", "dealsRepository"]
+- !private ["Ps23CustomStringConvertible", "dismiss"]
+- !private ["Ps23CustomStringConvertible", "displayWith"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "kConnectingLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "loadCurrentDeals"]
+- !private ["Ps23CustomStringConvertible", "localizedStringFor"]
+- !private ["Ps23CustomStringConvertible", "openURL"]
+- !private ["Ps23CustomStringConvertible", "pfbDealsListView"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "show"]
+- !private ["Ps23CustomStringConvertible", "tryActivate"]
+- !private ["Ps23CustomStringConvertible", "tryDeactivate"]
+- !private ["Ps23CustomStringConvertible", "tryOpen"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Bundle"]
+- !private ["Ps9Equatable", "OPErrorContainer"]
+- !private ["Ps9Equatable", "ProgressHUD"]
+- !private ["Ps9Equatable", "UIApplication"]
+- !private ["Ps9Equatable", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps9Equatable", "UIPfbDetailsAlertViewController"]
+- !private ["Ps9Equatable", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps9Equatable", "URL"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "callbacksForDealCells"]
+- !private ["Ps9Equatable", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps9Equatable", "callbacksForDealsListView"]
+- !private ["Ps9Equatable", "canOpenURL"]
+- !private ["Ps9Equatable", "dealsRepository"]
+- !private ["Ps9Equatable", "dismiss"]
+- !private ["Ps9Equatable", "displayWith"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "kConnectingLocalizableKey"]
+- !private ["Ps9Equatable", "loadCurrentDeals"]
+- !private ["Ps9Equatable", "localizedStringFor"]
+- !private ["Ps9Equatable", "openURL"]
+- !private ["Ps9Equatable", "pfbDealsListView"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "show"]
+- !private ["Ps9Equatable", "tryActivate"]
+- !private ["Ps9Equatable", "tryDeactivate"]
+- !private ["Ps9Equatable", "tryOpen"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "Bundle"]
+- !private ["Ps8Hashable", "OPErrorContainer"]
+- !private ["Ps8Hashable", "ProgressHUD"]
+- !private ["Ps8Hashable", "UIApplication"]
+- !private ["Ps8Hashable", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps8Hashable", "UIPfbDetailsAlertViewController"]
+- !private ["Ps8Hashable", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps8Hashable", "URL"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "callbacksForDealCells"]
+- !private ["Ps8Hashable", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps8Hashable", "callbacksForDealsListView"]
+- !private ["Ps8Hashable", "canOpenURL"]
+- !private ["Ps8Hashable", "dealsRepository"]
+- !private ["Ps8Hashable", "dismiss"]
+- !private ["Ps8Hashable", "displayWith"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "kConnectingLocalizableKey"]
+- !private ["Ps8Hashable", "loadCurrentDeals"]
+- !private ["Ps8Hashable", "localizedStringFor"]
+- !private ["Ps8Hashable", "openURL"]
+- !private ["Ps8Hashable", "pfbDealsListView"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "show"]
+- !private ["Ps8Hashable", "tryActivate"]
+- !private ["Ps8Hashable", "tryDeactivate"]
+- !private ["Ps8Hashable", "tryOpen"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSo8NSCoding", "Bundle"]
+- !private ["PSo8NSCoding", "OPErrorContainer"]
+- !private ["PSo8NSCoding", "ProgressHUD"]
+- !private ["PSo8NSCoding", "UIApplication"]
+- !private ["PSo8NSCoding", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo8NSCoding", "UIPfbDetailsAlertViewController"]
+- !private ["PSo8NSCoding", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo8NSCoding", "URL"]
+- !private ["PSo8NSCoding", "callbacksForDealCells"]
+- !private ["PSo8NSCoding", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo8NSCoding", "callbacksForDealsListView"]
+- !private ["PSo8NSCoding", "dealsRepository"]
+- !private ["PSo8NSCoding", "dismiss"]
+- !private ["PSo8NSCoding", "displayWith"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "kConnectingLocalizableKey"]
+- !private ["PSo8NSCoding", "loadCurrentDeals"]
+- !private ["PSo8NSCoding", "pfbDealsListView"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "show"]
+- !private ["PSo8NSCoding", "tryActivate"]
+- !private ["PSo8NSCoding", "tryDeactivate"]
+- !private ["PSo8NSCoding", "tryOpen"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "Bundle"]
+- !private ["PSo26NSExtensionRequestHandling", "OPErrorContainer"]
+- !private ["PSo26NSExtensionRequestHandling", "ProgressHUD"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- !private ["PSo26NSExtensionRequestHandling", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "UIPfbDetailsAlertViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "URL"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksForDealCells"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksForDealsListView"]
+- !private ["PSo26NSExtensionRequestHandling", "dealsRepository"]
+- !private ["PSo26NSExtensionRequestHandling", "displayWith"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "kConnectingLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "loadCurrentDeals"]
+- !private ["PSo26NSExtensionRequestHandling", "pfbDealsListView"]
+- !private ["PSo26NSExtensionRequestHandling", "tryActivate"]
+- !private ["PSo26NSExtensionRequestHandling", "tryDeactivate"]
+- !private ["PSo26NSExtensionRequestHandling", "tryOpen"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["CSo8NSObject", "Bundle"]
+- !private ["CSo8NSObject", "OPErrorContainer"]
+- !private ["CSo8NSObject", "PfbDeal"]
+- ["CSo8NSObject", "PrivacyForBenefitsRepository"]
+- !private ["CSo8NSObject", "ProgressHUD"]
+- !private ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "UIPfbDealsListView"]
+- !private ["CSo8NSObject", "UIPfbDealsListViewCallbacks"]
+- !private ["CSo8NSObject", "UIPfbDetailsAlertViewController"]
+- !private ["CSo8NSObject", "UIPfbDisplayingView"]
+- !private ["CSo8NSObject", "UIPfbDisplayingViewCallbacks"]
+- !private ["CSo8NSObject", "URL"]
+- !private ["CSo8NSObject", "VoidBlock"]
+- ["CSo8NSObject", "callbacksForDealCells"]
+- ["CSo8NSObject", "callbacksForDealDetailsViewPresentedFrom"]
+- ["CSo8NSObject", "callbacksForDealsListView"]
+- !private ["CSo8NSObject", "canOpenURL"]
+- ["CSo8NSObject", "dealsRepository"]
+- !private ["CSo8NSObject", "dismiss"]
+- !private ["CSo8NSObject", "displayWith"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "kConnectingLocalizableKey"]
+- ["CSo8NSObject", "loadCurrentDeals"]
+- !private ["CSo8NSObject", "localizedStringFor"]
+- !private ["CSo8NSObject", "openURL"]
+- ["CSo8NSObject", "pfbDealsListView"]
+- ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "shared"]
+- !private ["CSo8NSObject", "show"]
+- ["CSo8NSObject", "tryActivate"]
+- ["CSo8NSObject", "tryDeactivate"]
+- ["CSo8NSObject", "tryOpen"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "Bundle"]
+- !private ["PSo16NSObjectProtocol", "OPErrorContainer"]
+- !private ["PSo16NSObjectProtocol", "ProgressHUD"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "UIPfbDetailsAlertViewController"]
+- !private ["PSo16NSObjectProtocol", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "URL"]
+- !private ["PSo16NSObjectProtocol", "callbacksForDealCells"]
+- !private ["PSo16NSObjectProtocol", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo16NSObjectProtocol", "callbacksForDealsListView"]
+- !private ["PSo16NSObjectProtocol", "canOpenURL"]
+- !private ["PSo16NSObjectProtocol", "dealsRepository"]
+- !private ["PSo16NSObjectProtocol", "dismiss"]
+- !private ["PSo16NSObjectProtocol", "displayWith"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "kConnectingLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "loadCurrentDeals"]
+- !private ["PSo16NSObjectProtocol", "localizedStringFor"]
+- !private ["PSo16NSObjectProtocol", "openURL"]
+- !private ["PSo16NSObjectProtocol", "pfbDealsListView"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "show"]
+- !private ["PSo16NSObjectProtocol", "tryActivate"]
+- !private ["PSo16NSObjectProtocol", "tryDeactivate"]
+- !private ["PSo16NSObjectProtocol", "tryOpen"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["C8Operando16OPErrorContainer", "displayError"]
+- !private ["C8Operando7PfbDeal", "serviceId"]
+- !private ["C8Operando7PfbDeal", "subscribed"]
+- !private ["C8Operando7PfbDeal", "updateWith"]
+- !private ["P8Operando28PrivacyForBenefitsRepository", "getCurrentPfbDealsWith"]
+- !private ["P8Operando28PrivacyForBenefitsRepository", "subscribeFor"]
+- !private ["P8Operando28PrivacyForBenefitsRepository", "unSubscribeFrom"]
+- !private ["CSo11ProgressHUD", "dismiss"]
+- !private ["CSo11ProgressHUD", "show"]
+- !private ["C8Operando19RSNibDesignableView", "setupWith"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["PSo29UIAccessibilityIdentification", "dismiss"]
+- !private ["PSo29UIAccessibilityIdentification", "setupWith"]
+- !private ["PSo29UIAccessibilityIdentification", "show"]
+- !private ["PSo12UIAppearance", "dismiss"]
+- !private ["PSo12UIAppearance", "setupWith"]
+- !private ["PSo12UIAppearance", "show"]
+- !private ["PSo21UIAppearanceContainer", "Bundle"]
+- !private ["PSo21UIAppearanceContainer", "OPErrorContainer"]
+- !private ["PSo21UIAppearanceContainer", "ProgressHUD"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- !private ["PSo21UIAppearanceContainer", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "UIPfbDetailsAlertViewController"]
+- !private ["PSo21UIAppearanceContainer", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "URL"]
+- !private ["PSo21UIAppearanceContainer", "callbacksForDealCells"]
+- !private ["PSo21UIAppearanceContainer", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo21UIAppearanceContainer", "callbacksForDealsListView"]
+- !private ["PSo21UIAppearanceContainer", "dealsRepository"]
+- !private ["PSo21UIAppearanceContainer", "dismiss"]
+- !private ["PSo21UIAppearanceContainer", "displayWith"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "kConnectingLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "loadCurrentDeals"]
+- !private ["PSo21UIAppearanceContainer", "pfbDealsListView"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "show"]
+- !private ["PSo21UIAppearanceContainer", "tryActivate"]
+- !private ["PSo21UIAppearanceContainer", "tryDeactivate"]
+- !private ["PSo21UIAppearanceContainer", "tryOpen"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo13UIApplication", "canOpenURL"]
+- !private ["CSo13UIApplication", "openURL"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["PSo18UIContentContainer", "Bundle"]
+- !private ["PSo18UIContentContainer", "OPErrorContainer"]
+- !private ["PSo18UIContentContainer", "ProgressHUD"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
+- !private ["PSo18UIContentContainer", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo18UIContentContainer", "UIPfbDetailsAlertViewController"]
+- !private ["PSo18UIContentContainer", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo18UIContentContainer", "URL"]
+- !private ["PSo18UIContentContainer", "callbacksForDealCells"]
+- !private ["PSo18UIContentContainer", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo18UIContentContainer", "callbacksForDealsListView"]
+- !private ["PSo18UIContentContainer", "dealsRepository"]
+- !private ["PSo18UIContentContainer", "displayWith"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "kConnectingLocalizableKey"]
+- !private ["PSo18UIContentContainer", "loadCurrentDeals"]
+- !private ["PSo18UIContentContainer", "pfbDealsListView"]
+- !private ["PSo18UIContentContainer", "tryActivate"]
+- !private ["PSo18UIContentContainer", "tryDeactivate"]
+- !private ["PSo18UIContentContainer", "tryOpen"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "dismiss"]
+- !private ["PSo17UICoordinateSpace", "setupWith"]
+- !private ["PSo17UICoordinateSpace", "show"]
+- !private ["PSo13UIDynamicItem", "dismiss"]
+- !private ["PSo13UIDynamicItem", "setupWith"]
+- !private ["PSo13UIDynamicItem", "show"]
+- !private ["PSo18UIFocusEnvironment", "Bundle"]
+- !private ["PSo18UIFocusEnvironment", "OPErrorContainer"]
+- !private ["PSo18UIFocusEnvironment", "ProgressHUD"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- !private ["PSo18UIFocusEnvironment", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "UIPfbDetailsAlertViewController"]
+- !private ["PSo18UIFocusEnvironment", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "URL"]
+- !private ["PSo18UIFocusEnvironment", "callbacksForDealCells"]
+- !private ["PSo18UIFocusEnvironment", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo18UIFocusEnvironment", "callbacksForDealsListView"]
+- !private ["PSo18UIFocusEnvironment", "dealsRepository"]
+- !private ["PSo18UIFocusEnvironment", "dismiss"]
+- !private ["PSo18UIFocusEnvironment", "displayWith"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "kConnectingLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "loadCurrentDeals"]
+- !private ["PSo18UIFocusEnvironment", "pfbDealsListView"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "show"]
+- !private ["PSo18UIFocusEnvironment", "tryActivate"]
+- !private ["PSo18UIFocusEnvironment", "tryDeactivate"]
+- !private ["PSo18UIFocusEnvironment", "tryOpen"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "dismiss"]
+- !private ["PSo11UIFocusItem", "setupWith"]
+- !private ["PSo11UIFocusItem", "show"]
+- !private ["C8Operando18UIPfbDealsListView", "setupWith"]
+- !private ["V8Operando27UIPfbDealsListViewCallbacks", "init"]
+- !private ["C8Operando24UIPfbDealsViewController", "Bundle"]
+- !private ["C8Operando24UIPfbDealsViewController", "OPErrorContainer"]
+- !private ["C8Operando24UIPfbDealsViewController", "PfbDeal"]
+- ["C8Operando24UIPfbDealsViewController", "PrivacyForBenefitsRepository"]
+- !private ["C8Operando24UIPfbDealsViewController", "ProgressHUD"]
+- !private ["C8Operando24UIPfbDealsViewController", "String"]
+- !private ["C8Operando24UIPfbDealsViewController", "UIApplication"]
+- ["C8Operando24UIPfbDealsViewController", "UIPfbDealsListView"]
+- !private ["C8Operando24UIPfbDealsViewController", "UIPfbDealsListViewCallbacks"]
+- !private ["C8Operando24UIPfbDealsViewController", "UIPfbDetailsAlertViewController"]
+- !private ["C8Operando24UIPfbDealsViewController", "UIPfbDisplayingView"]
+- !private ["C8Operando24UIPfbDealsViewController", "UIPfbDisplayingViewCallbacks"]
+- !private ["C8Operando24UIPfbDealsViewController", "URL"]
+- !private ["C8Operando24UIPfbDealsViewController", "VoidBlock"]
+- !private ["C8Operando24UIPfbDealsViewController", "callbacksForDealCells"]
+- !private ["C8Operando24UIPfbDealsViewController", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["C8Operando24UIPfbDealsViewController", "callbacksForDealsListView"]
+- !private ["C8Operando24UIPfbDealsViewController", "dealsRepository"]
+- ["C8Operando24UIPfbDealsViewController", "deinit"]
+- ["C8Operando24UIPfbDealsViewController", "init"]
+- !private ["C8Operando24UIPfbDealsViewController", "kConnectingLocalizableKey"]
+- !private ["C8Operando24UIPfbDealsViewController", "loadCurrentDeals"]
+- ["C8Operando24UIPfbDealsViewController", "pfbDealsListView"]
+- ["C8Operando24UIPfbDealsViewController", "setupWith"]
+- !private ["C8Operando24UIPfbDealsViewController", "tryActivate"]
+- !private ["C8Operando24UIPfbDealsViewController", "tryDeactivate"]
+- !private ["C8Operando24UIPfbDealsViewController", "tryOpen"]
+- ["C8Operando24UIPfbDealsViewController", "viewDidLoad"]
+- !private ["C8Operando31UIPfbDetailsAlertViewController", "displayWith"]
+- !private ["P8Operando19UIPfbDisplayingView", "refreshWithOwnModel"]
+- !private ["V8Operando28UIPfbDisplayingViewCallbacks", "init"]
+- !private ["CSo11UIResponder", "Bundle"]
+- !private ["CSo11UIResponder", "OPErrorContainer"]
+- !private ["CSo11UIResponder", "PfbDeal"]
+- ["CSo11UIResponder", "PrivacyForBenefitsRepository"]
+- !private ["CSo11UIResponder", "ProgressHUD"]
+- !private ["CSo11UIResponder", "String"]
+- !private ["CSo11UIResponder", "UIApplication"]
+- ["CSo11UIResponder", "UIPfbDealsListView"]
+- !private ["CSo11UIResponder", "UIPfbDealsListViewCallbacks"]
+- !private ["CSo11UIResponder", "UIPfbDetailsAlertViewController"]
+- !private ["CSo11UIResponder", "UIPfbDisplayingView"]
+- !private ["CSo11UIResponder", "UIPfbDisplayingViewCallbacks"]
+- !private ["CSo11UIResponder", "URL"]
+- !private ["CSo11UIResponder", "VoidBlock"]
+- ["CSo11UIResponder", "callbacksForDealCells"]
+- ["CSo11UIResponder", "callbacksForDealDetailsViewPresentedFrom"]
+- ["CSo11UIResponder", "callbacksForDealsListView"]
+- !private ["CSo11UIResponder", "canOpenURL"]
+- ["CSo11UIResponder", "dealsRepository"]
+- !private ["CSo11UIResponder", "dismiss"]
+- !private ["CSo11UIResponder", "displayWith"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "kConnectingLocalizableKey"]
+- ["CSo11UIResponder", "loadCurrentDeals"]
+- !private ["CSo11UIResponder", "openURL"]
+- ["CSo11UIResponder", "pfbDealsListView"]
+- ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "shared"]
+- !private ["CSo11UIResponder", "show"]
+- ["CSo11UIResponder", "tryActivate"]
+- ["CSo11UIResponder", "tryDeactivate"]
+- ["CSo11UIResponder", "tryOpen"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "Bundle"]
+- !private ["PSo30UIResponderStandardEditActions", "OPErrorContainer"]
+- !private ["PSo30UIResponderStandardEditActions", "ProgressHUD"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "UIPfbDetailsAlertViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "URL"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksForDealCells"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksForDealsListView"]
+- !private ["PSo30UIResponderStandardEditActions", "canOpenURL"]
+- !private ["PSo30UIResponderStandardEditActions", "dealsRepository"]
+- !private ["PSo30UIResponderStandardEditActions", "dismiss"]
+- !private ["PSo30UIResponderStandardEditActions", "displayWith"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "kConnectingLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "loadCurrentDeals"]
+- !private ["PSo30UIResponderStandardEditActions", "openURL"]
+- !private ["PSo30UIResponderStandardEditActions", "pfbDealsListView"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "show"]
+- !private ["PSo30UIResponderStandardEditActions", "tryActivate"]
+- !private ["PSo30UIResponderStandardEditActions", "tryDeactivate"]
+- !private ["PSo30UIResponderStandardEditActions", "tryOpen"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo20UIScrollViewDelegate", "setupWith"]
+- !private ["PSo16UIStateRestoring", "Bundle"]
+- !private ["PSo16UIStateRestoring", "OPErrorContainer"]
+- !private ["PSo16UIStateRestoring", "ProgressHUD"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
+- !private ["PSo16UIStateRestoring", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "UIPfbDetailsAlertViewController"]
+- !private ["PSo16UIStateRestoring", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "URL"]
+- !private ["PSo16UIStateRestoring", "callbacksForDealCells"]
+- !private ["PSo16UIStateRestoring", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo16UIStateRestoring", "callbacksForDealsListView"]
+- !private ["PSo16UIStateRestoring", "dealsRepository"]
+- !private ["PSo16UIStateRestoring", "displayWith"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "kConnectingLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "loadCurrentDeals"]
+- !private ["PSo16UIStateRestoring", "pfbDealsListView"]
+- !private ["PSo16UIStateRestoring", "tryActivate"]
+- !private ["PSo16UIStateRestoring", "tryDeactivate"]
+- !private ["PSo16UIStateRestoring", "tryOpen"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo21UITableViewDataSource", "setupWith"]
+- !private ["PSo19UITableViewDelegate", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "Bundle"]
+- !private ["PSo18UITraitEnvironment", "OPErrorContainer"]
+- !private ["PSo18UITraitEnvironment", "ProgressHUD"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
+- !private ["PSo18UITraitEnvironment", "UIPfbDealsListViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "UIPfbDetailsAlertViewController"]
+- !private ["PSo18UITraitEnvironment", "UIPfbDisplayingViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "URL"]
+- !private ["PSo18UITraitEnvironment", "callbacksForDealCells"]
+- !private ["PSo18UITraitEnvironment", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["PSo18UITraitEnvironment", "callbacksForDealsListView"]
+- !private ["PSo18UITraitEnvironment", "dealsRepository"]
+- !private ["PSo18UITraitEnvironment", "dismiss"]
+- !private ["PSo18UITraitEnvironment", "displayWith"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "kConnectingLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "loadCurrentDeals"]
+- !private ["PSo18UITraitEnvironment", "pfbDealsListView"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "show"]
+- !private ["PSo18UITraitEnvironment", "tryActivate"]
+- !private ["PSo18UITraitEnvironment", "tryDeactivate"]
+- !private ["PSo18UITraitEnvironment", "tryOpen"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "dismiss"]
+- !private ["CSo6UIView", "setupWith"]
+- !private ["CSo6UIView", "show"]
+- !private ["CSo16UIViewController", "Bundle"]
+- !private ["CSo16UIViewController", "OPErrorContainer"]
+- !private ["CSo16UIViewController", "PfbDeal"]
+- ["CSo16UIViewController", "PrivacyForBenefitsRepository"]
+- !private ["CSo16UIViewController", "ProgressHUD"]
+- !private ["CSo16UIViewController", "String"]
+- !private ["CSo16UIViewController", "UIApplication"]
+- ["CSo16UIViewController", "UIPfbDealsListView"]
+- !private ["CSo16UIViewController", "UIPfbDealsListViewCallbacks"]
+- !private ["CSo16UIViewController", "UIPfbDetailsAlertViewController"]
+- !private ["CSo16UIViewController", "UIPfbDisplayingView"]
+- !private ["CSo16UIViewController", "UIPfbDisplayingViewCallbacks"]
+- !private ["CSo16UIViewController", "URL"]
+- !private ["CSo16UIViewController", "VoidBlock"]
+- ["CSo16UIViewController", "callbacksForDealCells"]
+- ["CSo16UIViewController", "callbacksForDealDetailsViewPresentedFrom"]
+- ["CSo16UIViewController", "callbacksForDealsListView"]
+- ["CSo16UIViewController", "dealsRepository"]
+- !private ["CSo16UIViewController", "displayWith"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "kConnectingLocalizableKey"]
+- ["CSo16UIViewController", "loadCurrentDeals"]
+- ["CSo16UIViewController", "pfbDealsListView"]
+- ["CSo16UIViewController", "setupWith"]
+- ["CSo16UIViewController", "tryActivate"]
+- ["CSo16UIViewController", "tryDeactivate"]
+- ["CSo16UIViewController", "tryOpen"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["V10Foundation3URL", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dismiss"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupWith"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "show"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps9_Hashable", "Bundle"]
+- !private ["Ps9_Hashable", "OPErrorContainer"]
+- !private ["Ps9_Hashable", "ProgressHUD"]
+- !private ["Ps9_Hashable", "UIApplication"]
+- !private ["Ps9_Hashable", "UIPfbDealsListViewCallbacks"]
+- !private ["Ps9_Hashable", "UIPfbDetailsAlertViewController"]
+- !private ["Ps9_Hashable", "UIPfbDisplayingViewCallbacks"]
+- !private ["Ps9_Hashable", "URL"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "callbacksForDealCells"]
+- !private ["Ps9_Hashable", "callbacksForDealDetailsViewPresentedFrom"]
+- !private ["Ps9_Hashable", "callbacksForDealsListView"]
+- !private ["Ps9_Hashable", "canOpenURL"]
+- !private ["Ps9_Hashable", "dealsRepository"]
+- !private ["Ps9_Hashable", "dismiss"]
+- !private ["Ps9_Hashable", "displayWith"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "kConnectingLocalizableKey"]
+- !private ["Ps9_Hashable", "loadCurrentDeals"]
+- !private ["Ps9_Hashable", "localizedStringFor"]
+- !private ["Ps9_Hashable", "openURL"]
+- !private ["Ps9_Hashable", "pfbDealsListView"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "show"]
+- !private ["Ps9_Hashable", "tryActivate"]
+- !private ["Ps9_Hashable", "tryDeactivate"]
+- !private ["Ps9_Hashable", "tryOpen"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "CSo6Bundle"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "C8Operando16OPErrorContainer"
+- !private "C8Operando7PfbDeal"
+- !private "P8Operando28PrivacyForBenefitsRepository"
+- !private "CSo11ProgressHUD"
+- !private "C8Operando19RSNibDesignableView"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "P11SwarmClient10SocketData"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo13UIApplication"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "C8Operando18UIPfbDealsListView"
+- !private "V8Operando27UIPfbDealsListViewCallbacks"
+- "C8Operando24UIPfbDealsViewController"
+- !private "C8Operando31UIPfbDetailsAlertViewController"
+- !private "P8Operando19UIPfbDisplayingView"
+- !private "V8Operando28UIPfbDisplayingViewCallbacks"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "PSo20UIScrollViewDelegate"
+- "PSo16UIStateRestoring"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "V10Foundation3URL"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "a5b9f665b169f006aacd9393f0662c0e"

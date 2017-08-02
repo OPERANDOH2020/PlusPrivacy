@@ -1,0 +1,564 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIIdentityCellStyle"
+- "UIIdentityCell"
+provides-nominal:
+- "V8Operando19UIIdentityCellStyle"
+- "C8Operando14UIIdentityCell"
+provides-member:
+- ["V8Operando19UIIdentityCellStyle", ""]
+- ["C8Operando14UIIdentityCell", ""]
+provides-dynamic-lookup:
+- "checkmarkImageView"
+- "disclosureImageView"
+- "identifierNibName"
+- "identityLabel"
+depends-top-level:
+- !private "!"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "MGSwipeTableCell"
+- "String"
+- "StringLiteralType"
+- "UIColor"
+- "UIIdentityCell"
+- "UIIdentityCellStyle"
+- "UIImageView"
+- "UILabel"
+depends-member:
+- !private ["Ps9AnyObject", "backgroundColor"]
+- ["Ps9AnyObject", "black"]
+- !private ["Ps9AnyObject", "checkmarkImageView"]
+- !private ["Ps9AnyObject", "contentView"]
+- !private ["Ps9AnyObject", "disclosureImageView"]
+- !private ["Ps9AnyObject", "identityLabel"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isHidden"]
+- ["Ps9AnyObject", "operandoDarkYellow"]
+- ["Ps9AnyObject", "operandoLightBrown"]
+- ["Ps9AnyObject", "operandoYellow"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "textColor"]
+- !private ["Ps9AnyObject", "textLabel"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "checkmarkImageView"]
+- !private ["PSo15CALayerDelegate", "contentView"]
+- !private ["PSo15CALayerDelegate", "disclosureImageView"]
+- !private ["PSo15CALayerDelegate", "identityLabel"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isHidden"]
+- !private ["PSo15CALayerDelegate", "text"]
+- !private ["PSo15CALayerDelegate", "textColor"]
+- !private ["PSo15CALayerDelegate", "textLabel"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "backgroundColor"]
+- ["Ps7CVarArg", "black"]
+- !private ["Ps7CVarArg", "checkmarkImageView"]
+- !private ["Ps7CVarArg", "contentView"]
+- !private ["Ps7CVarArg", "disclosureImageView"]
+- !private ["Ps7CVarArg", "identityLabel"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isHidden"]
+- ["Ps7CVarArg", "operandoDarkYellow"]
+- ["Ps7CVarArg", "operandoLightBrown"]
+- ["Ps7CVarArg", "operandoYellow"]
+- !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "textColor"]
+- !private ["Ps7CVarArg", "textLabel"]
+- ["Ps7CVarArg", ""]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- ["Ps28CustomDebugStringConvertible", "black"]
+- !private ["Ps28CustomDebugStringConvertible", "checkmarkImageView"]
+- !private ["Ps28CustomDebugStringConvertible", "contentView"]
+- !private ["Ps28CustomDebugStringConvertible", "disclosureImageView"]
+- !private ["Ps28CustomDebugStringConvertible", "identityLabel"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isHidden"]
+- ["Ps28CustomDebugStringConvertible", "operandoDarkYellow"]
+- ["Ps28CustomDebugStringConvertible", "operandoLightBrown"]
+- ["Ps28CustomDebugStringConvertible", "operandoYellow"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "textColor"]
+- !private ["Ps28CustomDebugStringConvertible", "textLabel"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- ["Ps23CustomStringConvertible", "black"]
+- !private ["Ps23CustomStringConvertible", "checkmarkImageView"]
+- !private ["Ps23CustomStringConvertible", "contentView"]
+- !private ["Ps23CustomStringConvertible", "disclosureImageView"]
+- !private ["Ps23CustomStringConvertible", "identityLabel"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isHidden"]
+- ["Ps23CustomStringConvertible", "operandoDarkYellow"]
+- ["Ps23CustomStringConvertible", "operandoLightBrown"]
+- ["Ps23CustomStringConvertible", "operandoYellow"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "textColor"]
+- !private ["Ps23CustomStringConvertible", "textLabel"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "backgroundColor"]
+- ["Ps9Equatable", "black"]
+- !private ["Ps9Equatable", "checkmarkImageView"]
+- !private ["Ps9Equatable", "contentView"]
+- !private ["Ps9Equatable", "disclosureImageView"]
+- !private ["Ps9Equatable", "identityLabel"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isHidden"]
+- ["Ps9Equatable", "operandoDarkYellow"]
+- ["Ps9Equatable", "operandoLightBrown"]
+- ["Ps9Equatable", "operandoYellow"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "textColor"]
+- !private ["Ps9Equatable", "textLabel"]
+- ["Ps9Equatable", ""]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "backgroundColor"]
+- ["Ps8Hashable", "black"]
+- !private ["Ps8Hashable", "checkmarkImageView"]
+- !private ["Ps8Hashable", "contentView"]
+- !private ["Ps8Hashable", "disclosureImageView"]
+- !private ["Ps8Hashable", "identityLabel"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isHidden"]
+- ["Ps8Hashable", "operandoDarkYellow"]
+- ["Ps8Hashable", "operandoLightBrown"]
+- ["Ps8Hashable", "operandoYellow"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "textColor"]
+- !private ["Ps8Hashable", "textLabel"]
+- ["Ps8Hashable", ""]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["CSo16MGSwipeTableCell", "String"]
+- ["CSo16MGSwipeTableCell", "UIIdentityCellStyle"]
+- ["CSo16MGSwipeTableCell", "UIImageView"]
+- ["CSo16MGSwipeTableCell", "UILabel"]
+- ["CSo16MGSwipeTableCell", "checkmarkImageView"]
+- !private ["CSo16MGSwipeTableCell", "contentView"]
+- ["CSo16MGSwipeTableCell", "disclosureImageView"]
+- ["CSo16MGSwipeTableCell", "identifierNibName"]
+- ["CSo16MGSwipeTableCell", "identityLabel"]
+- ["CSo16MGSwipeTableCell", "init"]
+- ["CSo16MGSwipeTableCell", "setupWithIdentity"]
+- !private ["CSo16MGSwipeTableCell", "textLabel"]
+- ["CSo16MGSwipeTableCell", ""]
+- ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "backgroundColor"]
+- ["PSo8NSCoding", "black"]
+- !private ["PSo8NSCoding", "checkmarkImageView"]
+- !private ["PSo8NSCoding", "contentView"]
+- !private ["PSo8NSCoding", "disclosureImageView"]
+- !private ["PSo8NSCoding", "identityLabel"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isHidden"]
+- ["PSo8NSCoding", "operandoDarkYellow"]
+- ["PSo8NSCoding", "operandoLightBrown"]
+- ["PSo8NSCoding", "operandoYellow"]
+- !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "textColor"]
+- !private ["PSo8NSCoding", "textLabel"]
+- ["PSo8NSCoding", ""]
+- ["PSo9NSCopying", "black"]
+- ["PSo9NSCopying", "init"]
+- ["PSo9NSCopying", "operandoDarkYellow"]
+- ["PSo9NSCopying", "operandoLightBrown"]
+- ["PSo9NSCopying", "operandoYellow"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "UIIdentityCellStyle"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "backgroundColor"]
+- ["CSo8NSObject", "black"]
+- ["CSo8NSObject", "checkmarkImageView"]
+- !private ["CSo8NSObject", "contentView"]
+- ["CSo8NSObject", "disclosureImageView"]
+- ["CSo8NSObject", "identifierNibName"]
+- ["CSo8NSObject", "identityLabel"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isHidden"]
+- ["CSo8NSObject", "operandoDarkYellow"]
+- ["CSo8NSObject", "operandoLightBrown"]
+- ["CSo8NSObject", "operandoYellow"]
+- ["CSo8NSObject", "setupWithIdentity"]
+- !private ["CSo8NSObject", "text"]
+- !private ["CSo8NSObject", "textColor"]
+- !private ["CSo8NSObject", "textLabel"]
+- !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- ["PSo16NSObjectProtocol", "black"]
+- !private ["PSo16NSObjectProtocol", "checkmarkImageView"]
+- !private ["PSo16NSObjectProtocol", "contentView"]
+- !private ["PSo16NSObjectProtocol", "disclosureImageView"]
+- !private ["PSo16NSObjectProtocol", "identityLabel"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isHidden"]
+- ["PSo16NSObjectProtocol", "operandoDarkYellow"]
+- ["PSo16NSObjectProtocol", "operandoLightBrown"]
+- ["PSo16NSObjectProtocol", "operandoYellow"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "textColor"]
+- !private ["PSo16NSObjectProtocol", "textLabel"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "black"]
+- ["PSo14NSSecureCoding", "init"]
+- ["PSo14NSSecureCoding", "operandoDarkYellow"]
+- ["PSo14NSSecureCoding", "operandoLightBrown"]
+- ["PSo14NSSecureCoding", "operandoYellow"]
+- ["CSo8NSString", "init"]
+- ["P11SwarmClient10SocketData", "init"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "checkmarkImageView"]
+- !private ["PSo29UIAccessibilityIdentification", "contentView"]
+- !private ["PSo29UIAccessibilityIdentification", "disclosureImageView"]
+- !private ["PSo29UIAccessibilityIdentification", "identityLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isHidden"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo29UIAccessibilityIdentification", "textColor"]
+- !private ["PSo29UIAccessibilityIdentification", "textLabel"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "checkmarkImageView"]
+- !private ["PSo12UIAppearance", "contentView"]
+- !private ["PSo12UIAppearance", "disclosureImageView"]
+- !private ["PSo12UIAppearance", "identityLabel"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isHidden"]
+- !private ["PSo12UIAppearance", "text"]
+- !private ["PSo12UIAppearance", "textColor"]
+- !private ["PSo12UIAppearance", "textLabel"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "backgroundColor"]
+- !private ["PSo21UIAppearanceContainer", "checkmarkImageView"]
+- !private ["PSo21UIAppearanceContainer", "contentView"]
+- !private ["PSo21UIAppearanceContainer", "disclosureImageView"]
+- !private ["PSo21UIAppearanceContainer", "identityLabel"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isHidden"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "textColor"]
+- !private ["PSo21UIAppearanceContainer", "textLabel"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["CSo7UIColor", "black"]
+- ["CSo7UIColor", "operandoDarkYellow"]
+- ["CSo7UIColor", "operandoLightBrown"]
+- ["CSo7UIColor", "operandoYellow"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "textColor"]
+- !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "checkmarkImageView"]
+- !private ["PSo17UICoordinateSpace", "contentView"]
+- !private ["PSo17UICoordinateSpace", "disclosureImageView"]
+- !private ["PSo17UICoordinateSpace", "identityLabel"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isHidden"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo17UICoordinateSpace", "textColor"]
+- !private ["PSo17UICoordinateSpace", "textLabel"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "checkmarkImageView"]
+- !private ["PSo13UIDynamicItem", "contentView"]
+- !private ["PSo13UIDynamicItem", "disclosureImageView"]
+- !private ["PSo13UIDynamicItem", "identityLabel"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isHidden"]
+- !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo13UIDynamicItem", "textColor"]
+- !private ["PSo13UIDynamicItem", "textLabel"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "checkmarkImageView"]
+- !private ["PSo18UIFocusEnvironment", "contentView"]
+- !private ["PSo18UIFocusEnvironment", "disclosureImageView"]
+- !private ["PSo18UIFocusEnvironment", "identityLabel"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isHidden"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "textColor"]
+- !private ["PSo18UIFocusEnvironment", "textLabel"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "checkmarkImageView"]
+- !private ["PSo11UIFocusItem", "contentView"]
+- !private ["PSo11UIFocusItem", "disclosureImageView"]
+- !private ["PSo11UIFocusItem", "identityLabel"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isHidden"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo11UIFocusItem", "textColor"]
+- !private ["PSo11UIFocusItem", "textLabel"]
+- ["PSo11UIFocusItem", ""]
+- !private ["PSo27UIGestureRecognizerDelegate", "checkmarkImageView"]
+- !private ["PSo27UIGestureRecognizerDelegate", "contentView"]
+- !private ["PSo27UIGestureRecognizerDelegate", "disclosureImageView"]
+- !private ["PSo27UIGestureRecognizerDelegate", "identityLabel"]
+- !private ["PSo27UIGestureRecognizerDelegate", "init"]
+- !private ["PSo27UIGestureRecognizerDelegate", "textLabel"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- ["C8Operando14UIIdentityCell", "String"]
+- ["C8Operando14UIIdentityCell", "UIIdentityCellStyle"]
+- ["C8Operando14UIIdentityCell", "UIImageView"]
+- ["C8Operando14UIIdentityCell", "UILabel"]
+- ["C8Operando14UIIdentityCell", "checkmarkImageView"]
+- !private ["C8Operando14UIIdentityCell", "contentView"]
+- ["C8Operando14UIIdentityCell", "deinit"]
+- ["C8Operando14UIIdentityCell", "disclosureImageView"]
+- ["C8Operando14UIIdentityCell", "identifierNibName"]
+- ["C8Operando14UIIdentityCell", "identityLabel"]
+- ["C8Operando14UIIdentityCell", "init"]
+- ["C8Operando14UIIdentityCell", "setupWithIdentity"]
+- !private ["C8Operando14UIIdentityCell", "textLabel"]
+- ["V8Operando19UIIdentityCellStyle", "Bool"]
+- ["V8Operando19UIIdentityCellStyle", "UIColor"]
+- ["V8Operando19UIIdentityCellStyle", "UIIdentityCellStyle"]
+- ["V8Operando19UIIdentityCellStyle", "backgroundColor"]
+- ["V8Operando19UIIdentityCellStyle", "displaysDefaultIdentityIcon"]
+- ["V8Operando19UIIdentityCellStyle", "displaysDisclosureIcon"]
+- ["V8Operando19UIIdentityCellStyle", "init"]
+- ["V8Operando19UIIdentityCellStyle", "normal"]
+- ["V8Operando19UIIdentityCellStyle", "selected"]
+- ["V8Operando19UIIdentityCellStyle", "textColor"]
+- !private ["CSo11UIImageView", "isHidden"]
+- !private ["CSo7UILabel", "text"]
+- !private ["CSo7UILabel", "textColor"]
+- ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "UIIdentityCellStyle"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- !private ["CSo11UIResponder", "backgroundColor"]
+- ["CSo11UIResponder", "checkmarkImageView"]
+- !private ["CSo11UIResponder", "contentView"]
+- ["CSo11UIResponder", "disclosureImageView"]
+- ["CSo11UIResponder", "identifierNibName"]
+- ["CSo11UIResponder", "identityLabel"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isHidden"]
+- ["CSo11UIResponder", "setupWithIdentity"]
+- !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "textColor"]
+- !private ["CSo11UIResponder", "textLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "checkmarkImageView"]
+- !private ["PSo30UIResponderStandardEditActions", "contentView"]
+- !private ["PSo30UIResponderStandardEditActions", "disclosureImageView"]
+- !private ["PSo30UIResponderStandardEditActions", "identityLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "textColor"]
+- !private ["PSo30UIResponderStandardEditActions", "textLabel"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["CSo15UITableViewCell", "String"]
+- ["CSo15UITableViewCell", "UIIdentityCellStyle"]
+- ["CSo15UITableViewCell", "UIImageView"]
+- ["CSo15UITableViewCell", "UILabel"]
+- ["CSo15UITableViewCell", "checkmarkImageView"]
+- !private ["CSo15UITableViewCell", "contentView"]
+- ["CSo15UITableViewCell", "disclosureImageView"]
+- ["CSo15UITableViewCell", "identifierNibName"]
+- ["CSo15UITableViewCell", "identityLabel"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "setupWithIdentity"]
+- !private ["CSo15UITableViewCell", "textLabel"]
+- !private ["PSo18UITraitEnvironment", "backgroundColor"]
+- !private ["PSo18UITraitEnvironment", "checkmarkImageView"]
+- !private ["PSo18UITraitEnvironment", "contentView"]
+- !private ["PSo18UITraitEnvironment", "disclosureImageView"]
+- !private ["PSo18UITraitEnvironment", "identityLabel"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isHidden"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "textColor"]
+- !private ["PSo18UITraitEnvironment", "textLabel"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "String"]
+- ["CSo6UIView", "UIIdentityCellStyle"]
+- ["CSo6UIView", "UIImageView"]
+- ["CSo6UIView", "UILabel"]
+- !private ["CSo6UIView", "backgroundColor"]
+- ["CSo6UIView", "checkmarkImageView"]
+- !private ["CSo6UIView", "contentView"]
+- ["CSo6UIView", "disclosureImageView"]
+- ["CSo6UIView", "identifierNibName"]
+- ["CSo6UIView", "identityLabel"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "isHidden"]
+- ["CSo6UIView", "setupWithIdentity"]
+- !private ["CSo6UIView", "text"]
+- !private ["CSo6UIView", "textColor"]
+- !private ["CSo6UIView", "textLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "checkmarkImageView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "contentView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "disclosureImageView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "identityLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textLabel"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps26_ExpressibleByColorLiteral", "black"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoDarkYellow"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoLightBrown"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoYellow"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "backgroundColor"]
+- ["Ps9_Hashable", "black"]
+- !private ["Ps9_Hashable", "checkmarkImageView"]
+- !private ["Ps9_Hashable", "contentView"]
+- !private ["Ps9_Hashable", "disclosureImageView"]
+- !private ["Ps9_Hashable", "identityLabel"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isHidden"]
+- ["Ps9_Hashable", "operandoDarkYellow"]
+- ["Ps9_Hashable", "operandoLightBrown"]
+- ["Ps9_Hashable", "operandoYellow"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "textColor"]
+- !private ["Ps9_Hashable", "textLabel"]
+- ["Ps9_Hashable", ""]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "CSo16MGSwipeTableCell"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "P11SwarmClient10SocketData"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "CSo7UIColor"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "PSo27UIGestureRecognizerDelegate"
+- "C8Operando14UIIdentityCell"
+- "V8Operando19UIIdentityCellStyle"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "CSo15UITableViewCell"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps26_ExpressibleByColorLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "bfae4a8eea2fc75d8b322b732cb281b2"

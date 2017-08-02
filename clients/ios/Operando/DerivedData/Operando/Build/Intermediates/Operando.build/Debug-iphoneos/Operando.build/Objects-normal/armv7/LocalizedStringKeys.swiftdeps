@@ -1,0 +1,210 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "kPleaseConfirmEmailLocalizableKey"
+- "kPleaseCheckEmailResetLocalizableKey"
+- "kPasswordChangedSuccesfullyLocalizableKey"
+- "kConnectingLocalizableKey"
+- "kResetLocalizableKey"
+- "kCancelLocalizableKey"
+- "kResetPasswordAlertTitleLocalizableKey"
+- "kResetPasswordAlertDescriptionLocalizableKey"
+- "kPasswordsMustMatchLocalizableKey"
+- "kPasswordTooShortLocalizableKey"
+- "kPasswordsAreTheSameLocalizableKey"
+- "kIdentitiesManagementLocalizableKey"
+- "kPrivacyForBenefitsLocalizableKey"
+- "kPrivateBrowsingLocalizableKey"
+- "kNotificationsLocalizableKey"
+- "kSettingsLocalizableKey"
+- "kResearchOSDKLocalizableKey"
+- "kPrivacyPolicyLocalizableKey"
+- "kAboutLocalizableKey"
+- "kMakeDefaultLocalizableKey"
+- "kDeleteLocalizableKey"
+- "kNewSIDGeneratedLocalizableKey"
+- "kDoYouWantToDeleteSIDLocalizableKey"
+- "kAddNewIdentityLocalizableKey"
+- "kNoIncompleteFieldsLocalizableKey"
+- "kNoIdentitiesAtTheMomentLocalizableKey"
+- "kDashboardLocalizableKey"
+- "kDismissLocalizableKey"
+- "kNoNotificationsLocalizableKey"
+- "kNoDealsAtTheMomentLocalizableKey"
+- "kBenefitLocalizableKey"
+- "kVoucherLocalizableKey"
+- "kEmailIsNotValidLocalizableKey"
+provides-nominal:
+provides-member:
+provides-dynamic-lookup:
+depends-top-level:
+- "StringLiteralType"
+- "kAboutLocalizableKey"
+- "kAddNewIdentityLocalizableKey"
+- "kBenefitLocalizableKey"
+- "kCancelLocalizableKey"
+- "kConnectingLocalizableKey"
+- "kDashboardLocalizableKey"
+- "kDeleteLocalizableKey"
+- "kDismissLocalizableKey"
+- "kDoYouWantToDeleteSIDLocalizableKey"
+- "kEmailIsNotValidLocalizableKey"
+- "kIdentitiesManagementLocalizableKey"
+- "kMakeDefaultLocalizableKey"
+- "kNewSIDGeneratedLocalizableKey"
+- "kNoDealsAtTheMomentLocalizableKey"
+- "kNoIdentitiesAtTheMomentLocalizableKey"
+- "kNoIncompleteFieldsLocalizableKey"
+- "kNoNotificationsLocalizableKey"
+- "kNotificationsLocalizableKey"
+- "kPasswordChangedSuccesfullyLocalizableKey"
+- "kPasswordTooShortLocalizableKey"
+- "kPasswordsAreTheSameLocalizableKey"
+- "kPasswordsMustMatchLocalizableKey"
+- "kPleaseCheckEmailResetLocalizableKey"
+- "kPleaseConfirmEmailLocalizableKey"
+- "kPrivacyForBenefitsLocalizableKey"
+- "kPrivacyPolicyLocalizableKey"
+- "kPrivateBrowsingLocalizableKey"
+- "kResearchOSDKLocalizableKey"
+- "kResetLocalizableKey"
+- "kResetPasswordAlertDescriptionLocalizableKey"
+- "kResetPasswordAlertTitleLocalizableKey"
+- "kSettingsLocalizableKey"
+- "kVoucherLocalizableKey"
+depends-member:
+- ["Ps9AnyObject", "init"]
+- ["Ps7CVarArg", "init"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps9Equatable", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps8Hashable", "init"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["P11SwarmClient10SocketData", "init"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "init"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "P11SwarmClient10SocketData"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "15ec3d250b2598ad42895898ac9dc1a2"

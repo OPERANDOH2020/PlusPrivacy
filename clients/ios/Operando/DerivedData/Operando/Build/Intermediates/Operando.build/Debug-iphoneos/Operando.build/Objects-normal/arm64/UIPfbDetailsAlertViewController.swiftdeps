@@ -1,0 +1,513 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIPfbDetailsAlertViewController"
+provides-nominal:
+- "C8Operando31UIPfbDetailsAlertViewController"
+provides-member:
+- ["CSo16UIViewController", ""]
+- ["C8Operando31UIPfbDetailsAlertViewController", ""]
+- ["CSo16UIViewController", "topMostPresentedControllerOrSelf"]
+provides-dynamic-lookup:
+- "blackBackgroundView"
+- "pfbDetailsView"
+- "topMostPresentedControllerOrSelf"
+- "viewWillAppear"
+- "whenViewWillAppear"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "PfbDeal"
+- !private "UIApplication"
+- "UIPfbDetailsAlertViewController"
+- "UIPfbDetailsView"
+- !private "UIPfbDetailsViewCallbacks"
+- "UIPfbDisplayingViewCallbacks"
+- "UIView"
+- "UIViewController"
+- !private "UIViewControllerFactory"
+- "VoidBlock"
+depends-member:
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps9AnyObject", "UIViewControllerFactory"]
+- !private ["Ps9AnyObject", "attachPopUpAnimationWithDuration"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "dismiss"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "pfbDealDetailsAlertViewController"]
+- !private ["Ps9AnyObject", "pfbDetailsView"]
+- !private ["Ps9AnyObject", "present"]
+- !private ["Ps9AnyObject", "presentedViewController"]
+- !private ["Ps9AnyObject", "rootViewController"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9AnyObject", "viewWillAppear"]
+- !private ["Ps9AnyObject", "whenViewWillAppear"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "attachPopUpAnimationWithDuration"]
+- !private ["PSo15CALayerDelegate", "rootViewController"]
+- !private ["PSo15CALayerDelegate", "setupWith"]
+- !private ["Ps7CVarArg", "UIApplication"]
+- !private ["Ps7CVarArg", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps7CVarArg", "UIViewControllerFactory"]
+- !private ["Ps7CVarArg", "attachPopUpAnimationWithDuration"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "dismiss"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "pfbDetailsView"]
+- !private ["Ps7CVarArg", "present"]
+- !private ["Ps7CVarArg", "presentedViewController"]
+- !private ["Ps7CVarArg", "rootViewController"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "topMostPresentedControllerOrSelf"]
+- !private ["Ps7CVarArg", "viewWillAppear"]
+- !private ["Ps7CVarArg", "whenViewWillAppear"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "UIViewControllerFactory"]
+- !private ["Ps28CustomDebugStringConvertible", "attachPopUpAnimationWithDuration"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "dismiss"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "pfbDetailsView"]
+- !private ["Ps28CustomDebugStringConvertible", "present"]
+- !private ["Ps28CustomDebugStringConvertible", "presentedViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "rootViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "topMostPresentedControllerOrSelf"]
+- !private ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
+- !private ["Ps28CustomDebugStringConvertible", "whenViewWillAppear"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
+- !private ["Ps23CustomStringConvertible", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "UIViewControllerFactory"]
+- !private ["Ps23CustomStringConvertible", "attachPopUpAnimationWithDuration"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "dismiss"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "pfbDetailsView"]
+- !private ["Ps23CustomStringConvertible", "present"]
+- !private ["Ps23CustomStringConvertible", "presentedViewController"]
+- !private ["Ps23CustomStringConvertible", "rootViewController"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "topMostPresentedControllerOrSelf"]
+- !private ["Ps23CustomStringConvertible", "viewWillAppear"]
+- !private ["Ps23CustomStringConvertible", "whenViewWillAppear"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIApplication"]
+- !private ["Ps9Equatable", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps9Equatable", "UIViewControllerFactory"]
+- !private ["Ps9Equatable", "attachPopUpAnimationWithDuration"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "dismiss"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "pfbDetailsView"]
+- !private ["Ps9Equatable", "present"]
+- !private ["Ps9Equatable", "presentedViewController"]
+- !private ["Ps9Equatable", "rootViewController"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9Equatable", "viewWillAppear"]
+- !private ["Ps9Equatable", "whenViewWillAppear"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "UIApplication"]
+- !private ["Ps8Hashable", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps8Hashable", "UIViewControllerFactory"]
+- !private ["Ps8Hashable", "attachPopUpAnimationWithDuration"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "dismiss"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "pfbDetailsView"]
+- !private ["Ps8Hashable", "present"]
+- !private ["Ps8Hashable", "presentedViewController"]
+- !private ["Ps8Hashable", "rootViewController"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps8Hashable", "viewWillAppear"]
+- !private ["Ps8Hashable", "whenViewWillAppear"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "UIApplication"]
+- !private ["PSo8NSCoding", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo8NSCoding", "UIViewControllerFactory"]
+- !private ["PSo8NSCoding", "attachPopUpAnimationWithDuration"]
+- !private ["PSo8NSCoding", "dismiss"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "pfbDetailsView"]
+- !private ["PSo8NSCoding", "present"]
+- !private ["PSo8NSCoding", "presentedViewController"]
+- !private ["PSo8NSCoding", "rootViewController"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "topMostPresentedControllerOrSelf"]
+- !private ["PSo8NSCoding", "viewWillAppear"]
+- !private ["PSo8NSCoding", "whenViewWillAppear"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- !private ["PSo26NSExtensionRequestHandling", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "UIViewControllerFactory"]
+- !private ["PSo26NSExtensionRequestHandling", "dismiss"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "pfbDetailsView"]
+- !private ["PSo26NSExtensionRequestHandling", "present"]
+- !private ["PSo26NSExtensionRequestHandling", "presentedViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "topMostPresentedControllerOrSelf"]
+- !private ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
+- !private ["PSo26NSExtensionRequestHandling", "whenViewWillAppear"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "PfbDeal"]
+- !private ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "UIPfbDetailsView"]
+- !private ["CSo8NSObject", "UIPfbDetailsViewCallbacks"]
+- ["CSo8NSObject", "UIPfbDisplayingViewCallbacks"]
+- ["CSo8NSObject", "UIView"]
+- ["CSo8NSObject", "UIViewController"]
+- !private ["CSo8NSObject", "UIViewControllerFactory"]
+- ["CSo8NSObject", "VoidBlock"]
+- !private ["CSo8NSObject", "attachPopUpAnimationWithDuration"]
+- ["CSo8NSObject", "blackBackgroundView"]
+- !private ["CSo8NSObject", "delegate"]
+- !private ["CSo8NSObject", "dismiss"]
+- ["CSo8NSObject", "displayWith"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "pfbDetailsView"]
+- !private ["CSo8NSObject", "present"]
+- !private ["CSo8NSObject", "presentedViewController"]
+- !private ["CSo8NSObject", "rootViewController"]
+- !private ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "shared"]
+- ["CSo8NSObject", "topMostPresentedControllerOrSelf"]
+- ["CSo8NSObject", "viewWillAppear"]
+- ["CSo8NSObject", "whenViewWillAppear"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "UIViewControllerFactory"]
+- !private ["PSo16NSObjectProtocol", "attachPopUpAnimationWithDuration"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "dismiss"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "pfbDetailsView"]
+- !private ["PSo16NSObjectProtocol", "present"]
+- !private ["PSo16NSObjectProtocol", "presentedViewController"]
+- !private ["PSo16NSObjectProtocol", "rootViewController"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "topMostPresentedControllerOrSelf"]
+- !private ["PSo16NSObjectProtocol", "viewWillAppear"]
+- !private ["PSo16NSObjectProtocol", "whenViewWillAppear"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["C8Operando19RSNibDesignableView", "attachPopUpAnimationWithDuration"]
+- !private ["C8Operando19RSNibDesignableView", "setupWith"]
+- !private ["PSo29UIAccessibilityIdentification", "attachPopUpAnimationWithDuration"]
+- !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
+- !private ["PSo29UIAccessibilityIdentification", "setupWith"]
+- !private ["PSo12UIAppearance", "attachPopUpAnimationWithDuration"]
+- !private ["PSo12UIAppearance", "rootViewController"]
+- !private ["PSo12UIAppearance", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- !private ["PSo21UIAppearanceContainer", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "UIViewControllerFactory"]
+- !private ["PSo21UIAppearanceContainer", "attachPopUpAnimationWithDuration"]
+- !private ["PSo21UIAppearanceContainer", "dismiss"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "pfbDetailsView"]
+- !private ["PSo21UIAppearanceContainer", "present"]
+- !private ["PSo21UIAppearanceContainer", "presentedViewController"]
+- !private ["PSo21UIAppearanceContainer", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "topMostPresentedControllerOrSelf"]
+- !private ["PSo21UIAppearanceContainer", "viewWillAppear"]
+- !private ["PSo21UIAppearanceContainer", "whenViewWillAppear"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo13UIApplication", "delegate"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["PSo21UIApplicationDelegate", "window"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
+- !private ["PSo18UIContentContainer", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo18UIContentContainer", "UIViewControllerFactory"]
+- !private ["PSo18UIContentContainer", "dismiss"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "pfbDetailsView"]
+- !private ["PSo18UIContentContainer", "present"]
+- !private ["PSo18UIContentContainer", "presentedViewController"]
+- !private ["PSo18UIContentContainer", "topMostPresentedControllerOrSelf"]
+- !private ["PSo18UIContentContainer", "viewWillAppear"]
+- !private ["PSo18UIContentContainer", "whenViewWillAppear"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "attachPopUpAnimationWithDuration"]
+- !private ["PSo17UICoordinateSpace", "rootViewController"]
+- !private ["PSo17UICoordinateSpace", "setupWith"]
+- !private ["PSo13UIDynamicItem", "attachPopUpAnimationWithDuration"]
+- !private ["PSo13UIDynamicItem", "rootViewController"]
+- !private ["PSo13UIDynamicItem", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- !private ["PSo18UIFocusEnvironment", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "UIViewControllerFactory"]
+- !private ["PSo18UIFocusEnvironment", "attachPopUpAnimationWithDuration"]
+- !private ["PSo18UIFocusEnvironment", "dismiss"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "pfbDetailsView"]
+- !private ["PSo18UIFocusEnvironment", "present"]
+- !private ["PSo18UIFocusEnvironment", "presentedViewController"]
+- !private ["PSo18UIFocusEnvironment", "rootViewController"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "topMostPresentedControllerOrSelf"]
+- !private ["PSo18UIFocusEnvironment", "viewWillAppear"]
+- !private ["PSo18UIFocusEnvironment", "whenViewWillAppear"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "attachPopUpAnimationWithDuration"]
+- !private ["PSo11UIFocusItem", "rootViewController"]
+- !private ["PSo11UIFocusItem", "setupWith"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "Bool"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "PfbDeal"]
+- !private ["C8Operando31UIPfbDetailsAlertViewController", "UIApplication"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "UIPfbDetailsView"]
+- !private ["C8Operando31UIPfbDetailsAlertViewController", "UIPfbDetailsViewCallbacks"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "UIPfbDisplayingViewCallbacks"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "UIView"]
+- !private ["C8Operando31UIPfbDetailsAlertViewController", "UIViewControllerFactory"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "VoidBlock"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "blackBackgroundView"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "deinit"]
+- !private ["C8Operando31UIPfbDetailsAlertViewController", "dismiss"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "displayWith"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "init"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "pfbDetailsView"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "viewWillAppear"]
+- ["C8Operando31UIPfbDetailsAlertViewController", "whenViewWillAppear"]
+- !private ["C8Operando16UIPfbDetailsView", "attachPopUpAnimationWithDuration"]
+- !private ["C8Operando16UIPfbDetailsView", "setupWith"]
+- !private ["V8Operando25UIPfbDetailsViewCallbacks", "init"]
+- !private ["P8Operando19UIPfbDisplayingView", "attachPopUpAnimationWithDuration"]
+- !private ["P8Operando19UIPfbDisplayingView", "setupWith"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "PfbDeal"]
+- !private ["CSo11UIResponder", "UIApplication"]
+- ["CSo11UIResponder", "UIPfbDetailsView"]
+- !private ["CSo11UIResponder", "UIPfbDetailsViewCallbacks"]
+- ["CSo11UIResponder", "UIPfbDisplayingViewCallbacks"]
+- ["CSo11UIResponder", "UIView"]
+- ["CSo11UIResponder", "UIViewController"]
+- !private ["CSo11UIResponder", "UIViewControllerFactory"]
+- ["CSo11UIResponder", "VoidBlock"]
+- !private ["CSo11UIResponder", "attachPopUpAnimationWithDuration"]
+- ["CSo11UIResponder", "blackBackgroundView"]
+- !private ["CSo11UIResponder", "delegate"]
+- !private ["CSo11UIResponder", "dismiss"]
+- ["CSo11UIResponder", "displayWith"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "pfbDetailsView"]
+- !private ["CSo11UIResponder", "present"]
+- !private ["CSo11UIResponder", "presentedViewController"]
+- !private ["CSo11UIResponder", "rootViewController"]
+- !private ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "shared"]
+- ["CSo11UIResponder", "topMostPresentedControllerOrSelf"]
+- ["CSo11UIResponder", "viewWillAppear"]
+- ["CSo11UIResponder", "whenViewWillAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "UIViewControllerFactory"]
+- !private ["PSo30UIResponderStandardEditActions", "attachPopUpAnimationWithDuration"]
+- !private ["PSo30UIResponderStandardEditActions", "delegate"]
+- !private ["PSo30UIResponderStandardEditActions", "dismiss"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "pfbDetailsView"]
+- !private ["PSo30UIResponderStandardEditActions", "present"]
+- !private ["PSo30UIResponderStandardEditActions", "presentedViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "rootViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "topMostPresentedControllerOrSelf"]
+- !private ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "whenViewWillAppear"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
+- !private ["PSo16UIStateRestoring", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "UIViewControllerFactory"]
+- !private ["PSo16UIStateRestoring", "dismiss"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "pfbDetailsView"]
+- !private ["PSo16UIStateRestoring", "present"]
+- !private ["PSo16UIStateRestoring", "presentedViewController"]
+- !private ["PSo16UIStateRestoring", "topMostPresentedControllerOrSelf"]
+- !private ["PSo16UIStateRestoring", "viewWillAppear"]
+- !private ["PSo16UIStateRestoring", "whenViewWillAppear"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
+- !private ["PSo18UITraitEnvironment", "UIPfbDetailsViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "UIViewControllerFactory"]
+- !private ["PSo18UITraitEnvironment", "attachPopUpAnimationWithDuration"]
+- !private ["PSo18UITraitEnvironment", "dismiss"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "pfbDetailsView"]
+- !private ["PSo18UITraitEnvironment", "present"]
+- !private ["PSo18UITraitEnvironment", "presentedViewController"]
+- !private ["PSo18UITraitEnvironment", "rootViewController"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "topMostPresentedControllerOrSelf"]
+- !private ["PSo18UITraitEnvironment", "viewWillAppear"]
+- !private ["PSo18UITraitEnvironment", "whenViewWillAppear"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "attachPopUpAnimationWithDuration"]
+- !private ["CSo6UIView", "rootViewController"]
+- !private ["CSo6UIView", "setupWith"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "PfbDeal"]
+- !private ["CSo16UIViewController", "UIApplication"]
+- ["CSo16UIViewController", "UIPfbDetailsView"]
+- !private ["CSo16UIViewController", "UIPfbDetailsViewCallbacks"]
+- ["CSo16UIViewController", "UIPfbDisplayingViewCallbacks"]
+- ["CSo16UIViewController", "UIView"]
+- ["CSo16UIViewController", "UIViewController"]
+- !private ["CSo16UIViewController", "UIViewControllerFactory"]
+- ["CSo16UIViewController", "VoidBlock"]
+- ["CSo16UIViewController", "blackBackgroundView"]
+- !private ["CSo16UIViewController", "dismiss"]
+- ["CSo16UIViewController", "displayWith"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "pfbDetailsView"]
+- !private ["CSo16UIViewController", "present"]
+- !private ["CSo16UIViewController", "presentedViewController"]
+- ["CSo16UIViewController", "topMostPresentedControllerOrSelf"]
+- ["CSo16UIViewController", "viewWillAppear"]
+- ["CSo16UIViewController", "whenViewWillAppear"]
+- ["CSo16UIViewController", ""]
+- !private ["C8Operando23UIViewControllerFactory", "pfbDealDetailsAlertViewController"]
+- !private ["CSo8UIWindow", "rootViewController"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "attachPopUpAnimationWithDuration"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupWith"]
+- !private ["Ps9_Hashable", "UIApplication"]
+- !private ["Ps9_Hashable", "UIPfbDetailsViewCallbacks"]
+- !private ["Ps9_Hashable", "UIViewControllerFactory"]
+- !private ["Ps9_Hashable", "attachPopUpAnimationWithDuration"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "dismiss"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "pfbDetailsView"]
+- !private ["Ps9_Hashable", "present"]
+- !private ["Ps9_Hashable", "presentedViewController"]
+- !private ["Ps9_Hashable", "rootViewController"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9_Hashable", "viewWillAppear"]
+- !private ["Ps9_Hashable", "whenViewWillAppear"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "C8Operando19RSNibDesignableView"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo13UIApplication"
+- !private "PSo21UIApplicationDelegate"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "C8Operando31UIPfbDetailsAlertViewController"
+- !private "C8Operando16UIPfbDetailsView"
+- !private "V8Operando25UIPfbDetailsViewCallbacks"
+- !private "P8Operando19UIPfbDisplayingView"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "C8Operando23UIViewControllerFactory"
+- !private "CSo8UIWindow"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "274f7fd1fabcfea4f296a219fde0dcc7"

@@ -13,3 +13,5 @@
 void PPApiHooks_registerHookedClass(Class class);
 char** PPApiHooks_createListOfCurrentlyRegisteredClassNames(int *nCount);
 
+void PPApiHooks_disableWebKitURLMonitoring();
+void PPApiHooks_enableWebKitURLMonitoring();

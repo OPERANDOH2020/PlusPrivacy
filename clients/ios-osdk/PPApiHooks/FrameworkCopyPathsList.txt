@@ -1,4 +1,6 @@
 ./../PPCloak/GenericFrameworkProject/
+./../PPContactApiHooks/GenericFrameworkProject/
+./../PPLocationApiHooks/GenericFrameworkProject/
 ./../../ios/Operando/Operando/
 ./../AllBuilds/
 /Users/Costin/Desktop/Projects/Internal/OSDKTw/OSDKTw

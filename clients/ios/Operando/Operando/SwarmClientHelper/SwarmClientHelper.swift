@@ -65,7 +65,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     return
                 }
                 
-//                print(dict)
                 guard let identityModel = UserIdentityModel(swarmClientLoginReply: dict) else {
                     let error = SwarmClientResponseParsers.parseErrorIfAny(from: dict) ?? OPErrorContainer.errorInvalidServerResponse
                     completion?(error, .empty)

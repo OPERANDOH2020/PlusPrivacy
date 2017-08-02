@@ -1,0 +1,547 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject"
+provides-member:
+- ["C8Operando28UILeftSideMenuViewController", ""]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", ""]
+- ["C8Operando28UILeftSideMenuViewController", "UILeftSideMenuVCObject"]
+- ["C8Operando28UILeftSideMenuViewController", "getMenuDataSource"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "Bundle"
+- "String"
+- "UILeftSideMenuViewController"
+- "Void"
+- !private "kAboutLocalizableKey"
+- !private "kDashboardLocalizableKey"
+- !private "kIdentitiesManagementLocalizableKey"
+- !private "kNotificationsLocalizableKey"
+- !private "kPrivacyForBenefitsLocalizableKey"
+- !private "kPrivacyPolicyLocalizableKey"
+- !private "kPrivateBrowsingLocalizableKey"
+- !private "kResearchOSDKLocalizableKey"
+- !private "kSettingsLocalizableKey"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- !private ["Ps9AnyObject", "UILeftSideMenuVCObject"]
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "kAboutLocalizableKey"]
+- !private ["Ps9AnyObject", "kDashboardLocalizableKey"]
+- !private ["Ps9AnyObject", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps9AnyObject", "kNotificationsLocalizableKey"]
+- !private ["Ps9AnyObject", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps9AnyObject", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps9AnyObject", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps9AnyObject", "kResearchOSDKLocalizableKey"]
+- !private ["Ps9AnyObject", "kSettingsLocalizableKey"]
+- !private ["Ps9AnyObject", "localizedStringFor"]
+- !private ["Sa", "append"]
+- !private ["Sa", "init"]
+- !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "init"]
+- !private ["CSo6Bundle", "localizedStringFor"]
+- !private ["Ps7CVarArg", "Bundle"]
+- !private ["Ps7CVarArg", "UILeftSideMenuVCObject"]
+- !private ["Ps7CVarArg", "append"]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "kAboutLocalizableKey"]
+- !private ["Ps7CVarArg", "kDashboardLocalizableKey"]
+- !private ["Ps7CVarArg", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps7CVarArg", "kNotificationsLocalizableKey"]
+- !private ["Ps7CVarArg", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps7CVarArg", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps7CVarArg", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps7CVarArg", "kResearchOSDKLocalizableKey"]
+- !private ["Ps7CVarArg", "kSettingsLocalizableKey"]
+- !private ["Ps7CVarArg", "localizedStringFor"]
+- !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Bundle"]
+- !private ["Ps28CustomDebugStringConvertible", "UILeftSideMenuVCObject"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "kAboutLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kDashboardLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kNotificationsLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kResearchOSDKLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "kSettingsLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "localizedStringFor"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Bundle"]
+- !private ["Ps23CustomStringConvertible", "UILeftSideMenuVCObject"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "kAboutLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kDashboardLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kNotificationsLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kResearchOSDKLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "kSettingsLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "localizedStringFor"]
+- !private ["Ps9Equatable", "Bundle"]
+- !private ["Ps9Equatable", "UILeftSideMenuVCObject"]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "kAboutLocalizableKey"]
+- !private ["Ps9Equatable", "kDashboardLocalizableKey"]
+- !private ["Ps9Equatable", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps9Equatable", "kNotificationsLocalizableKey"]
+- !private ["Ps9Equatable", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps9Equatable", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps9Equatable", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps9Equatable", "kResearchOSDKLocalizableKey"]
+- !private ["Ps9Equatable", "kSettingsLocalizableKey"]
+- !private ["Ps9Equatable", "localizedStringFor"]
+- !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "Bundle"]
+- !private ["Ps8Hashable", "UILeftSideMenuVCObject"]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "kAboutLocalizableKey"]
+- !private ["Ps8Hashable", "kDashboardLocalizableKey"]
+- !private ["Ps8Hashable", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps8Hashable", "kNotificationsLocalizableKey"]
+- !private ["Ps8Hashable", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps8Hashable", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps8Hashable", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps8Hashable", "kResearchOSDKLocalizableKey"]
+- !private ["Ps8Hashable", "kSettingsLocalizableKey"]
+- !private ["Ps8Hashable", "localizedStringFor"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "append"]
+- !private ["Ps17MutableCollection", "init"]
+- !private ["PSo8NSCoding", "Bundle"]
+- !private ["PSo8NSCoding", "UILeftSideMenuVCObject"]
+- !private ["PSo8NSCoding", "callbacks"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "kAboutLocalizableKey"]
+- !private ["PSo8NSCoding", "kDashboardLocalizableKey"]
+- !private ["PSo8NSCoding", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo8NSCoding", "kNotificationsLocalizableKey"]
+- !private ["PSo8NSCoding", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo8NSCoding", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo8NSCoding", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo8NSCoding", "kResearchOSDKLocalizableKey"]
+- !private ["PSo8NSCoding", "kSettingsLocalizableKey"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "Bundle"]
+- !private ["PSo26NSExtensionRequestHandling", "UILeftSideMenuVCObject"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "kAboutLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kDashboardLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kNotificationsLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kResearchOSDKLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "kSettingsLocalizableKey"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "Bundle"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "UILeftSideMenuVCObject"]
+- ["CSo8NSObject", "Void"]
+- !private ["CSo8NSObject", "callbacks"]
+- ["CSo8NSObject", "getMenuDataSource"]
+- !private ["CSo8NSObject", "kAboutLocalizableKey"]
+- !private ["CSo8NSObject", "kDashboardLocalizableKey"]
+- !private ["CSo8NSObject", "kIdentitiesManagementLocalizableKey"]
+- !private ["CSo8NSObject", "kNotificationsLocalizableKey"]
+- !private ["CSo8NSObject", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["CSo8NSObject", "kPrivacyPolicyLocalizableKey"]
+- !private ["CSo8NSObject", "kPrivateBrowsingLocalizableKey"]
+- !private ["CSo8NSObject", "kResearchOSDKLocalizableKey"]
+- !private ["CSo8NSObject", "kSettingsLocalizableKey"]
+- !private ["CSo8NSObject", "localizedStringFor"]
+- !private ["PSo16NSObjectProtocol", "Bundle"]
+- !private ["PSo16NSObjectProtocol", "UILeftSideMenuVCObject"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "kAboutLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kDashboardLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kNotificationsLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kResearchOSDKLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "kSettingsLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "localizedStringFor"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps22RandomAccessCollection", "init"]
+- !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "init"]
+- !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "init"]
+- !private ["P11SwarmClient10SocketData", "append"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo21UIAppearanceContainer", "Bundle"]
+- !private ["PSo21UIAppearanceContainer", "UILeftSideMenuVCObject"]
+- !private ["PSo21UIAppearanceContainer", "callbacks"]
+- !private ["PSo21UIAppearanceContainer", "kAboutLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kDashboardLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kNotificationsLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kResearchOSDKLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "kSettingsLocalizableKey"]
+- !private ["PSo18UIContentContainer", "Bundle"]
+- !private ["PSo18UIContentContainer", "UILeftSideMenuVCObject"]
+- !private ["PSo18UIContentContainer", "callbacks"]
+- !private ["PSo18UIContentContainer", "kAboutLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kDashboardLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kNotificationsLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kResearchOSDKLocalizableKey"]
+- !private ["PSo18UIContentContainer", "kSettingsLocalizableKey"]
+- !private ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingIdentitiesManagement"]
+- !private ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingNotifications"]
+- !private ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingPrivacyForBenefits"]
+- !private ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingPrivateBrowsing"]
+- !private ["PSo18UIFocusEnvironment", "Bundle"]
+- !private ["PSo18UIFocusEnvironment", "UILeftSideMenuVCObject"]
+- !private ["PSo18UIFocusEnvironment", "callbacks"]
+- !private ["PSo18UIFocusEnvironment", "kAboutLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kDashboardLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kNotificationsLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kResearchOSDKLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "kSettingsLocalizableKey"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "String"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "Void"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "action"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "categoryImageName"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "categoryName"]
+- ["VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject", "init"]
+- !private ["C8Operando28UILeftSideMenuViewController", "Bundle"]
+- ["C8Operando28UILeftSideMenuViewController", "String"]
+- ["C8Operando28UILeftSideMenuViewController", "UILeftSideMenuVCObject"]
+- ["C8Operando28UILeftSideMenuViewController", "Void"]
+- !private ["C8Operando28UILeftSideMenuViewController", "callbacks"]
+- ["C8Operando28UILeftSideMenuViewController", "getMenuDataSource"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kAboutLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kDashboardLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kIdentitiesManagementLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kNotificationsLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kPrivacyPolicyLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kPrivateBrowsingLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kResearchOSDKLocalizableKey"]
+- !private ["C8Operando28UILeftSideMenuViewController", "kSettingsLocalizableKey"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "dashboardCallbacks"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "whenChoosingAbout"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "whenChoosingHome"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "whenChoosingMonitor"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "whenChoosingPrivacyPolicy"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "whenChoosingSettings"]
+- !private ["CSo11UIResponder", "Bundle"]
+- ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "UILeftSideMenuVCObject"]
+- ["CSo11UIResponder", "Void"]
+- !private ["CSo11UIResponder", "callbacks"]
+- ["CSo11UIResponder", "getMenuDataSource"]
+- !private ["CSo11UIResponder", "kAboutLocalizableKey"]
+- !private ["CSo11UIResponder", "kDashboardLocalizableKey"]
+- !private ["CSo11UIResponder", "kIdentitiesManagementLocalizableKey"]
+- !private ["CSo11UIResponder", "kNotificationsLocalizableKey"]
+- !private ["CSo11UIResponder", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["CSo11UIResponder", "kPrivacyPolicyLocalizableKey"]
+- !private ["CSo11UIResponder", "kPrivateBrowsingLocalizableKey"]
+- !private ["CSo11UIResponder", "kResearchOSDKLocalizableKey"]
+- !private ["CSo11UIResponder", "kSettingsLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "Bundle"]
+- !private ["PSo30UIResponderStandardEditActions", "UILeftSideMenuVCObject"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "kAboutLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kDashboardLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kNotificationsLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kResearchOSDKLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "kSettingsLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "Bundle"]
+- !private ["PSo20UIScrollViewDelegate", "UILeftSideMenuVCObject"]
+- !private ["PSo20UIScrollViewDelegate", "callbacks"]
+- !private ["PSo20UIScrollViewDelegate", "kAboutLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kDashboardLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kNotificationsLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kResearchOSDKLocalizableKey"]
+- !private ["PSo20UIScrollViewDelegate", "kSettingsLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "Bundle"]
+- !private ["PSo16UIStateRestoring", "UILeftSideMenuVCObject"]
+- !private ["PSo16UIStateRestoring", "callbacks"]
+- !private ["PSo16UIStateRestoring", "kAboutLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kDashboardLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kNotificationsLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kResearchOSDKLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "kSettingsLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "Bundle"]
+- !private ["PSo21UITableViewDataSource", "UILeftSideMenuVCObject"]
+- !private ["PSo21UITableViewDataSource", "callbacks"]
+- !private ["PSo21UITableViewDataSource", "kAboutLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kDashboardLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kNotificationsLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kResearchOSDKLocalizableKey"]
+- !private ["PSo21UITableViewDataSource", "kSettingsLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "Bundle"]
+- !private ["PSo19UITableViewDelegate", "UILeftSideMenuVCObject"]
+- !private ["PSo19UITableViewDelegate", "callbacks"]
+- !private ["PSo19UITableViewDelegate", "kAboutLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kDashboardLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kNotificationsLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kResearchOSDKLocalizableKey"]
+- !private ["PSo19UITableViewDelegate", "kSettingsLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "Bundle"]
+- !private ["PSo18UITraitEnvironment", "UILeftSideMenuVCObject"]
+- !private ["PSo18UITraitEnvironment", "callbacks"]
+- !private ["PSo18UITraitEnvironment", "kAboutLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kDashboardLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kIdentitiesManagementLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kNotificationsLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kPrivacyPolicyLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kPrivateBrowsingLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kResearchOSDKLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "kSettingsLocalizableKey"]
+- !private ["CSo16UIViewController", "Bundle"]
+- ["CSo16UIViewController", "String"]
+- ["CSo16UIViewController", "UILeftSideMenuVCObject"]
+- ["CSo16UIViewController", "Void"]
+- !private ["CSo16UIViewController", "callbacks"]
+- ["CSo16UIViewController", "getMenuDataSource"]
+- !private ["CSo16UIViewController", "kAboutLocalizableKey"]
+- !private ["CSo16UIViewController", "kDashboardLocalizableKey"]
+- !private ["CSo16UIViewController", "kIdentitiesManagementLocalizableKey"]
+- !private ["CSo16UIViewController", "kNotificationsLocalizableKey"]
+- !private ["CSo16UIViewController", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["CSo16UIViewController", "kPrivacyPolicyLocalizableKey"]
+- !private ["CSo16UIViewController", "kPrivateBrowsingLocalizableKey"]
+- !private ["CSo16UIViewController", "kResearchOSDKLocalizableKey"]
+- !private ["CSo16UIViewController", "kSettingsLocalizableKey"]
+- !private ["Ps14_ArrayProtocol", "append"]
+- !private ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps23_BidirectionalIndexable", "append"]
+- !private ["Ps23_BidirectionalIndexable", "init"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Bundle"]
+- !private ["Ps9_Hashable", "UILeftSideMenuVCObject"]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "kAboutLocalizableKey"]
+- !private ["Ps9_Hashable", "kDashboardLocalizableKey"]
+- !private ["Ps9_Hashable", "kIdentitiesManagementLocalizableKey"]
+- !private ["Ps9_Hashable", "kNotificationsLocalizableKey"]
+- !private ["Ps9_Hashable", "kPrivacyForBenefitsLocalizableKey"]
+- !private ["Ps9_Hashable", "kPrivacyPolicyLocalizableKey"]
+- !private ["Ps9_Hashable", "kPrivateBrowsingLocalizableKey"]
+- !private ["Ps9_Hashable", "kResearchOSDKLocalizableKey"]
+- !private ["Ps9_Hashable", "kSettingsLocalizableKey"]
+- !private ["Ps9_Hashable", "localizedStringFor"]
+- !private ["Ps10_Indexable", "append"]
+- !private ["Ps10_Indexable", "init"]
+- !private ["Ps14_IndexableBase", "append"]
+- !private ["Ps14_IndexableBase", "init"]
+- !private ["Ps17_MutableIndexable", "append"]
+- !private ["Ps17_MutableIndexable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps22_RandomAccessIndexable", "append"]
+- !private ["Ps22_RandomAccessIndexable", "init"]
+- !private ["Ps26_RangeReplaceableIndexable", "append"]
+- !private ["Ps26_RangeReplaceableIndexable", "init"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "CSo6Bundle"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps8Sequence"
+- !private "P11SwarmClient10SocketData"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo18UIContentContainer"
+- !private "V8Operando34UIDashBoardViewControllerCallbacks"
+- !private "PSo18UIFocusEnvironment"
+- "VC8Operando28UILeftSideMenuViewController22UILeftSideMenuVCObject"
+- "C8Operando28UILeftSideMenuViewController"
+- !private "V8Operando37UILeftSideMenuViewControllerCallbacks"
+- "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "PSo20UIScrollViewDelegate"
+- !private "PSo16UIStateRestoring"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- !private "PSo18UITraitEnvironment"
+- "CSo16UIViewController"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- !private "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps17_MutableIndexable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "b05d30d8f55e025878977e5f1607c83b"

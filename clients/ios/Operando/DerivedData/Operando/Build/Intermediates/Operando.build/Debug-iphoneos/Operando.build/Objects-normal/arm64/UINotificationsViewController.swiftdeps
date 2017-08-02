@@ -1,0 +1,362 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UINotificationsViewController"
+provides-nominal:
+- "C8Operando29UINotificationsViewController"
+provides-member:
+- ["C8Operando29UINotificationsViewController", ""]
+provides-dynamic-lookup:
+- "notificationsListView"
+depends-top-level:
+- "AssignmentPrecedence"
+- "NotificationActionCallback"
+- "NotificationsRepository"
+- !private "OPErrorContainer"
+- "UINotificationsListView"
+- !private "UINotificationsListViewCallbacks"
+- "UINotificationsViewController"
+- "UIViewController"
+depends-member:
+- !private ["Ps9AnyObject", "OPErrorContainer"]
+- !private ["Ps9AnyObject", "UINotificationsListViewCallbacks"]
+- !private ["Ps9AnyObject", "callbacksFor"]
+- !private ["Ps9AnyObject", "deleteNotification"]
+- !private ["Ps9AnyObject", "displayError"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "notificationsListView"]
+- !private ["Ps9AnyObject", "notificationsRepository"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "view"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "deleteNotification"]
+- !private ["PSo15CALayerDelegate", "setupWith"]
+- !private ["Ps7CVarArg", "OPErrorContainer"]
+- !private ["Ps7CVarArg", "UINotificationsListViewCallbacks"]
+- !private ["Ps7CVarArg", "callbacksFor"]
+- !private ["Ps7CVarArg", "deleteNotification"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "notificationsListView"]
+- !private ["Ps7CVarArg", "notificationsRepository"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "view"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "OPErrorContainer"]
+- !private ["Ps28CustomDebugStringConvertible", "UINotificationsListViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksFor"]
+- !private ["Ps28CustomDebugStringConvertible", "deleteNotification"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "notificationsListView"]
+- !private ["Ps28CustomDebugStringConvertible", "notificationsRepository"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "OPErrorContainer"]
+- !private ["Ps23CustomStringConvertible", "UINotificationsListViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "callbacksFor"]
+- !private ["Ps23CustomStringConvertible", "deleteNotification"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "notificationsListView"]
+- !private ["Ps23CustomStringConvertible", "notificationsRepository"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "OPErrorContainer"]
+- !private ["Ps9Equatable", "UINotificationsListViewCallbacks"]
+- !private ["Ps9Equatable", "callbacksFor"]
+- !private ["Ps9Equatable", "deleteNotification"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "notificationsListView"]
+- !private ["Ps9Equatable", "notificationsRepository"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "view"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "OPErrorContainer"]
+- !private ["Ps8Hashable", "UINotificationsListViewCallbacks"]
+- !private ["Ps8Hashable", "callbacksFor"]
+- !private ["Ps8Hashable", "deleteNotification"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "notificationsListView"]
+- !private ["Ps8Hashable", "notificationsRepository"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "view"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "OPErrorContainer"]
+- !private ["PSo8NSCoding", "UINotificationsListViewCallbacks"]
+- !private ["PSo8NSCoding", "callbacksFor"]
+- !private ["PSo8NSCoding", "deleteNotification"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "notificationsListView"]
+- !private ["PSo8NSCoding", "notificationsRepository"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "view"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "OPErrorContainer"]
+- !private ["PSo26NSExtensionRequestHandling", "UINotificationsListViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksFor"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "notificationsListView"]
+- !private ["PSo26NSExtensionRequestHandling", "notificationsRepository"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "NotificationActionCallback"]
+- ["CSo8NSObject", "NotificationsRepository"]
+- !private ["CSo8NSObject", "OPErrorContainer"]
+- ["CSo8NSObject", "UINotificationsListView"]
+- !private ["CSo8NSObject", "UINotificationsListViewCallbacks"]
+- ["CSo8NSObject", "callbacksFor"]
+- !private ["CSo8NSObject", "deleteNotification"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "notificationsListView"]
+- ["CSo8NSObject", "notificationsRepository"]
+- ["CSo8NSObject", "setup"]
+- !private ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "view"]
+- !private ["PSo16NSObjectProtocol", "OPErrorContainer"]
+- !private ["PSo16NSObjectProtocol", "UINotificationsListViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "callbacksFor"]
+- !private ["PSo16NSObjectProtocol", "deleteNotification"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "notificationsListView"]
+- !private ["PSo16NSObjectProtocol", "notificationsRepository"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["P8Operando23NotificationsRepository", "dismiss"]
+- !private ["P8Operando23NotificationsRepository", "getAllNotifications"]
+- !private ["C8Operando16OPErrorContainer", "displayError"]
+- !private ["C8Operando19RSNibDesignableView", "deleteNotification"]
+- !private ["C8Operando19RSNibDesignableView", "setupWith"]
+- !private ["PSo29UIAccessibilityIdentification", "deleteNotification"]
+- !private ["PSo29UIAccessibilityIdentification", "setupWith"]
+- !private ["PSo12UIAppearance", "deleteNotification"]
+- !private ["PSo12UIAppearance", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "OPErrorContainer"]
+- !private ["PSo21UIAppearanceContainer", "UINotificationsListViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "callbacksFor"]
+- !private ["PSo21UIAppearanceContainer", "deleteNotification"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "notificationsListView"]
+- !private ["PSo21UIAppearanceContainer", "notificationsRepository"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "OPErrorContainer"]
+- !private ["PSo18UIContentContainer", "UINotificationsListViewCallbacks"]
+- !private ["PSo18UIContentContainer", "callbacksFor"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "notificationsListView"]
+- !private ["PSo18UIContentContainer", "notificationsRepository"]
+- !private ["PSo18UIContentContainer", "view"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "deleteNotification"]
+- !private ["PSo17UICoordinateSpace", "setupWith"]
+- !private ["PSo13UIDynamicItem", "deleteNotification"]
+- !private ["PSo13UIDynamicItem", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "OPErrorContainer"]
+- !private ["PSo18UIFocusEnvironment", "UINotificationsListViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "callbacksFor"]
+- !private ["PSo18UIFocusEnvironment", "deleteNotification"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "notificationsListView"]
+- !private ["PSo18UIFocusEnvironment", "notificationsRepository"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "deleteNotification"]
+- !private ["PSo11UIFocusItem", "setupWith"]
+- !private ["C8Operando23UINotificationsListView", "deleteNotification"]
+- !private ["C8Operando23UINotificationsListView", "setupWith"]
+- !private ["V8Operando32UINotificationsListViewCallbacks", "init"]
+- ["C8Operando29UINotificationsViewController", "NotificationActionCallback"]
+- ["C8Operando29UINotificationsViewController", "NotificationsRepository"]
+- !private ["C8Operando29UINotificationsViewController", "OPErrorContainer"]
+- ["C8Operando29UINotificationsViewController", "UINotificationsListView"]
+- !private ["C8Operando29UINotificationsViewController", "UINotificationsListViewCallbacks"]
+- !private ["C8Operando29UINotificationsViewController", "callbacksFor"]
+- ["C8Operando29UINotificationsViewController", "deinit"]
+- ["C8Operando29UINotificationsViewController", "init"]
+- ["C8Operando29UINotificationsViewController", "notificationsListView"]
+- !private ["C8Operando29UINotificationsViewController", "notificationsRepository"]
+- ["C8Operando29UINotificationsViewController", "setup"]
+- !private ["C8Operando29UINotificationsViewController", "view"]
+- ["CSo11UIResponder", "NotificationActionCallback"]
+- ["CSo11UIResponder", "NotificationsRepository"]
+- !private ["CSo11UIResponder", "OPErrorContainer"]
+- ["CSo11UIResponder", "UINotificationsListView"]
+- !private ["CSo11UIResponder", "UINotificationsListViewCallbacks"]
+- ["CSo11UIResponder", "callbacksFor"]
+- !private ["CSo11UIResponder", "deleteNotification"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "notificationsListView"]
+- ["CSo11UIResponder", "notificationsRepository"]
+- ["CSo11UIResponder", "setup"]
+- !private ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "OPErrorContainer"]
+- !private ["PSo30UIResponderStandardEditActions", "UINotificationsListViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksFor"]
+- !private ["PSo30UIResponderStandardEditActions", "deleteNotification"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "notificationsListView"]
+- !private ["PSo30UIResponderStandardEditActions", "notificationsRepository"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo20UIScrollViewDelegate", "deleteNotification"]
+- !private ["PSo20UIScrollViewDelegate", "setupWith"]
+- !private ["PSo16UIStateRestoring", "OPErrorContainer"]
+- !private ["PSo16UIStateRestoring", "UINotificationsListViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "callbacksFor"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "notificationsListView"]
+- !private ["PSo16UIStateRestoring", "notificationsRepository"]
+- !private ["PSo16UIStateRestoring", "view"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo21UITableViewDataSource", "deleteNotification"]
+- !private ["PSo21UITableViewDataSource", "setupWith"]
+- !private ["PSo19UITableViewDelegate", "deleteNotification"]
+- !private ["PSo19UITableViewDelegate", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "OPErrorContainer"]
+- !private ["PSo18UITraitEnvironment", "UINotificationsListViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "callbacksFor"]
+- !private ["PSo18UITraitEnvironment", "deleteNotification"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "notificationsListView"]
+- !private ["PSo18UITraitEnvironment", "notificationsRepository"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "deleteNotification"]
+- !private ["CSo6UIView", "setupWith"]
+- ["CSo16UIViewController", "NotificationActionCallback"]
+- ["CSo16UIViewController", "NotificationsRepository"]
+- !private ["CSo16UIViewController", "OPErrorContainer"]
+- ["CSo16UIViewController", "UINotificationsListView"]
+- !private ["CSo16UIViewController", "UINotificationsListViewCallbacks"]
+- ["CSo16UIViewController", "callbacksFor"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "notificationsListView"]
+- ["CSo16UIViewController", "notificationsRepository"]
+- ["CSo16UIViewController", "setup"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "deleteNotification"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupWith"]
+- !private ["Ps9_Hashable", "OPErrorContainer"]
+- !private ["Ps9_Hashable", "UINotificationsListViewCallbacks"]
+- !private ["Ps9_Hashable", "callbacksFor"]
+- !private ["Ps9_Hashable", "deleteNotification"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "notificationsListView"]
+- !private ["Ps9_Hashable", "notificationsRepository"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "view"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "P8Operando23NotificationsRepository"
+- !private "C8Operando16OPErrorContainer"
+- !private "C8Operando19RSNibDesignableView"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "C8Operando23UINotificationsListView"
+- !private "V8Operando32UINotificationsListViewCallbacks"
+- "C8Operando29UINotificationsViewController"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "PSo20UIScrollViewDelegate"
+- "PSo16UIStateRestoring"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "ae7333604b552eb718dea50c246e5ac2"

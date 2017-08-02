@@ -1,0 +1,849 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "NotificationActionCallback"
+- "ForgotPasswordCallback"
+- "NumberOfNotificationsCompletion"
+- "NumOfNotificationsRequestCallback"
+- "Dependencies"
+- "AccountCallbacks"
+- "UIFlowController"
+provides-nominal:
+- "V8Operando12Dependencies"
+- "V8Operando16AccountCallbacks"
+- "C8Operando16UIFlowController"
+provides-member:
+- ["V8Operando12Dependencies", ""]
+- ["V8Operando16AccountCallbacks", ""]
+- ["C8Operando16UIFlowController", ""]
+provides-dynamic-lookup:
+- "sideMenuWillShowMenuViewController"
+depends-top-level:
+- "AccountCallbacks"
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- "Dependencies"
+- "ForgotPasswordCallback"
+- "IdentitiesManagementRepository"
+- "Int"
+- "LoginCallback"
+- "NotificationAction"
+- "NotificationActionCallback"
+- "NotificationsRepository"
+- "NumOfNotificationsRequestCallback"
+- "NumberOfNotificationsCompletion"
+- "OPNotification"
+- !private "PPCloak"
+- "PasswordChangeCallback"
+- "PrivacyForBenefitsRepository"
+- "RegistrationCallback"
+- "SSASideMenu"
+- "SSASideMenuDelegate"
+- "String"
+- !private "UIAccountViewController"
+- !private "UIAccountViewControllerModel"
+- !private "UIDashBoardViewControllerCallbacks"
+- "UIFlowController"
+- !private "UILeftSideMenuViewController"
+- !private "UILeftSideMenuViewControllerCallbacks"
+- !private "UINavigationController"
+- "UIPrivateBrowsingViewController"
+- !private "UIRegistrationViewController"
+- !private "UIRegistrationViewControllerCallbacks"
+- "UIRootViewController"
+- !private "UIRootViewControllerCallbacks"
+- !private "UISignInViewControllerCallbacks"
+- "UIViewController"
+- "UIViewControllerFactory"
+- "UIWindow"
+- "UserInfoRepository"
+- "UserSettingsModelCallbacks"
+- "Void"
+- "VoidBlock"
+depends-member:
+- ["V8Operando16AccountCallbacks", "ForgotPasswordCallback"]
+- ["V8Operando16AccountCallbacks", "LoginCallback"]
+- ["V8Operando16AccountCallbacks", "PasswordChangeCallback"]
+- ["V8Operando16AccountCallbacks", "RegistrationCallback"]
+- ["V8Operando16AccountCallbacks", "VoidBlock"]
+- ["V8Operando16AccountCallbacks", "forgotPasswordCallback"]
+- ["V8Operando16AccountCallbacks", "init"]
+- ["V8Operando16AccountCallbacks", "loginCallback"]
+- ["V8Operando16AccountCallbacks", "logoutCallback"]
+- ["V8Operando16AccountCallbacks", "passwordChangeCallback"]
+- ["V8Operando16AccountCallbacks", "registerCallback"]
+- !private ["Ps9AnyObject", "MenuViewEffect"]
+- !private ["Ps9AnyObject", "PPCloak"]
+- !private ["Ps9AnyObject", "SSASideMenu"]
+- !private ["Ps9AnyObject", "SSAStatusBarStyle"]
+- !private ["Ps9AnyObject", "UIAccountViewControllerModel"]
+- !private ["Ps9AnyObject", "UIDashBoardViewControllerCallbacks"]
+- !private ["Ps9AnyObject", "UILeftSideMenuViewControllerCallbacks"]
+- !private ["Ps9AnyObject", "UINavigationController"]
+- !private ["Ps9AnyObject", "UIRegistrationViewControllerCallbacks"]
+- !private ["Ps9AnyObject", "UIRootViewControllerCallbacks"]
+- !private ["Ps9AnyObject", "UISignInViewControllerCallbacks"]
+- ["Ps9AnyObject", "UIViewControllerFactory"]
+- !private ["Ps9AnyObject", "_presentLeftMenuViewController"]
+- !private ["Ps9AnyObject", "_presentRightMenuViewController"]
+- !private ["Ps9AnyObject", "aboutViewController"]
+- !private ["Ps9AnyObject", "accountViewController"]
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "configure"]
+- !private ["Ps9AnyObject", "createLeftSideMenuViewController"]
+- !private ["Ps9AnyObject", "createRightMenuViewController"]
+- !private ["Ps9AnyObject", "dashboardViewController"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "dependencies"]
+- !private ["Ps9AnyObject", "displayAboutViewController"]
+- !private ["Ps9AnyObject", "displayDashboard"]
+- !private ["Ps9AnyObject", "displayFlow"]
+- !private ["Ps9AnyObject", "displayIdentitiesManagement"]
+- !private ["Ps9AnyObject", "displayNotifications"]
+- !private ["Ps9AnyObject", "displayPfbDeals"]
+- !private ["Ps9AnyObject", "displayPrivacyPolicyViewController"]
+- !private ["Ps9AnyObject", "displayPrivateBrowsing"]
+- !private ["Ps9AnyObject", "displaySettingsViewController"]
+- !private ["Ps9AnyObject", "getLeftSideMenuCallbacks"]
+- !private ["Ps9AnyObject", "hideMenuViewController"]
+- !private ["Ps9AnyObject", "identityManagementViewController"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isNavigationBarHidden"]
+- !private ["Ps9AnyObject", "leftMenuViewController"]
+- !private ["Ps9AnyObject", "loginViewController"]
+- !private ["Ps9AnyObject", "navigationController"]
+- !private ["Ps9AnyObject", "notificationsViewController"]
+- !private ["Ps9AnyObject", "pfbDealsController"]
+- !private ["Ps9AnyObject", "popViewController"]
+- !private ["Ps9AnyObject", "prepareToAppear"]
+- !private ["Ps9AnyObject", "privacyPolicyController"]
+- ["Ps9AnyObject", "privateBrowsingViewController"]
+- !private ["Ps9AnyObject", "pushViewController"]
+- !private ["Ps9AnyObject", "registerViewController"]
+- !private ["Ps9AnyObject", "rightMenuViewController"]
+- !private ["Ps9AnyObject", "rootController"]
+- !private ["Ps9AnyObject", "rootViewController"]
+- !private ["Ps9AnyObject", "setMainControllerTo"]
+- !private ["Ps9AnyObject", "settingsViewController"]
+- !private ["Ps9AnyObject", "setup"]
+- !private ["Ps9AnyObject", "setupBaseHierarchyInWindow"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "setupWithCallbacks"]
+- !private ["Ps9AnyObject", "sharedBrowserController"]
+- !private ["Ps9AnyObject", "sideMenu"]
+- ["Ps9AnyObject", "sideMenuDidHideMenuViewController"]
+- ["Ps9AnyObject", "sideMenuDidRecognizePanGesture"]
+- ["Ps9AnyObject", "sideMenuDidShowMenuViewController"]
+- ["Ps9AnyObject", "sideMenuWillHideMenuViewController"]
+- ["Ps9AnyObject", "sideMenuWillShowMenuViewController"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "rootViewController"]
+- !private ["Ps7CVarArg", "MenuViewEffect"]
+- !private ["Ps7CVarArg", "SSAStatusBarStyle"]
+- !private ["Ps7CVarArg", "_presentLeftMenuViewController"]
+- !private ["Ps7CVarArg", "_presentRightMenuViewController"]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "configure"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "displayFlow"]
+- !private ["Ps7CVarArg", "hideMenuViewController"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isNavigationBarHidden"]
+- !private ["Ps7CVarArg", "leftMenuViewController"]
+- !private ["Ps7CVarArg", "navigationController"]
+- !private ["Ps7CVarArg", "popViewController"]
+- !private ["Ps7CVarArg", "prepareToAppear"]
+- !private ["Ps7CVarArg", "pushViewController"]
+- !private ["Ps7CVarArg", "rightMenuViewController"]
+- !private ["Ps7CVarArg", "rootViewController"]
+- !private ["Ps7CVarArg", "setMainControllerTo"]
+- !private ["Ps7CVarArg", "setup"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "setupWithCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "MenuViewEffect"]
+- !private ["Ps28CustomDebugStringConvertible", "SSAStatusBarStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "_presentLeftMenuViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "_presentRightMenuViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "configure"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "displayFlow"]
+- !private ["Ps28CustomDebugStringConvertible", "hideMenuViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isNavigationBarHidden"]
+- !private ["Ps28CustomDebugStringConvertible", "leftMenuViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationController"]
+- !private ["Ps28CustomDebugStringConvertible", "popViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "prepareToAppear"]
+- !private ["Ps28CustomDebugStringConvertible", "pushViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "rightMenuViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "rootViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "setMainControllerTo"]
+- !private ["Ps28CustomDebugStringConvertible", "setup"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWithCallbacks"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "MenuViewEffect"]
+- !private ["Ps23CustomStringConvertible", "SSAStatusBarStyle"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "_presentLeftMenuViewController"]
+- !private ["Ps23CustomStringConvertible", "_presentRightMenuViewController"]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "configure"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "displayFlow"]
+- !private ["Ps23CustomStringConvertible", "hideMenuViewController"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isNavigationBarHidden"]
+- !private ["Ps23CustomStringConvertible", "leftMenuViewController"]
+- !private ["Ps23CustomStringConvertible", "navigationController"]
+- !private ["Ps23CustomStringConvertible", "popViewController"]
+- !private ["Ps23CustomStringConvertible", "prepareToAppear"]
+- !private ["Ps23CustomStringConvertible", "pushViewController"]
+- !private ["Ps23CustomStringConvertible", "rightMenuViewController"]
+- !private ["Ps23CustomStringConvertible", "rootViewController"]
+- !private ["Ps23CustomStringConvertible", "setMainControllerTo"]
+- !private ["Ps23CustomStringConvertible", "setup"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "setupWithCallbacks"]
+- ["V8Operando12Dependencies", "AccountCallbacks"]
+- ["V8Operando12Dependencies", "IdentitiesManagementRepository"]
+- ["V8Operando12Dependencies", "NotificationActionCallback"]
+- ["V8Operando12Dependencies", "NotificationsRepository"]
+- ["V8Operando12Dependencies", "NumOfNotificationsRequestCallback"]
+- ["V8Operando12Dependencies", "PrivacyForBenefitsRepository"]
+- ["V8Operando12Dependencies", "UserInfoRepository"]
+- ["V8Operando12Dependencies", "UserSettingsModelCallbacks"]
+- ["V8Operando12Dependencies", "accountCallbacks"]
+- ["V8Operando12Dependencies", "identityManagementRepo"]
+- ["V8Operando12Dependencies", "init"]
+- ["V8Operando12Dependencies", "notificationsRepository"]
+- ["V8Operando12Dependencies", "privacyForBenefitsRepo"]
+- ["V8Operando12Dependencies", "userInfoRepo"]
+- ["V8Operando12Dependencies", "userSettingsCallbacks"]
+- ["V8Operando12Dependencies", "whenRequestingNumOfNotifications"]
+- ["V8Operando12Dependencies", "whenTakingActionForNotification"]
+- !private ["Ps9Equatable", "Black"]
+- !private ["Ps9Equatable", "MenuViewEffect"]
+- !private ["Ps9Equatable", "SSAStatusBarStyle"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "_presentLeftMenuViewController"]
+- !private ["Ps9Equatable", "_presentRightMenuViewController"]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "configure"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "displayFlow"]
+- !private ["Ps9Equatable", "hideMenuViewController"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isNavigationBarHidden"]
+- !private ["Ps9Equatable", "leftMenuViewController"]
+- !private ["Ps9Equatable", "navigationController"]
+- !private ["Ps9Equatable", "popViewController"]
+- !private ["Ps9Equatable", "prepareToAppear"]
+- !private ["Ps9Equatable", "pushViewController"]
+- !private ["Ps9Equatable", "rightMenuViewController"]
+- !private ["Ps9Equatable", "rootViewController"]
+- !private ["Ps9Equatable", "setMainControllerTo"]
+- !private ["Ps9Equatable", "setup"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "setupWithCallbacks"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "Black"]
+- !private ["Ps8Hashable", "MenuViewEffect"]
+- !private ["Ps8Hashable", "SSAStatusBarStyle"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "_presentLeftMenuViewController"]
+- !private ["Ps8Hashable", "_presentRightMenuViewController"]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "configure"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "displayFlow"]
+- !private ["Ps8Hashable", "hideMenuViewController"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isNavigationBarHidden"]
+- !private ["Ps8Hashable", "leftMenuViewController"]
+- !private ["Ps8Hashable", "navigationController"]
+- !private ["Ps8Hashable", "popViewController"]
+- !private ["Ps8Hashable", "prepareToAppear"]
+- !private ["Ps8Hashable", "pushViewController"]
+- !private ["Ps8Hashable", "rightMenuViewController"]
+- !private ["Ps8Hashable", "rootViewController"]
+- !private ["Ps8Hashable", "setMainControllerTo"]
+- !private ["Ps8Hashable", "setup"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "setupWithCallbacks"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["VC8Operando11SSASideMenu14MenuViewEffect", "init"]
+- !private ["PSo8NSCoding", "MenuViewEffect"]
+- !private ["PSo8NSCoding", "SSAStatusBarStyle"]
+- !private ["PSo8NSCoding", "_presentLeftMenuViewController"]
+- !private ["PSo8NSCoding", "_presentRightMenuViewController"]
+- !private ["PSo8NSCoding", "callbacks"]
+- !private ["PSo8NSCoding", "configure"]
+- !private ["PSo8NSCoding", "delegate"]
+- !private ["PSo8NSCoding", "hideMenuViewController"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isNavigationBarHidden"]
+- !private ["PSo8NSCoding", "leftMenuViewController"]
+- !private ["PSo8NSCoding", "navigationController"]
+- !private ["PSo8NSCoding", "popViewController"]
+- !private ["PSo8NSCoding", "prepareToAppear"]
+- !private ["PSo8NSCoding", "pushViewController"]
+- !private ["PSo8NSCoding", "rightMenuViewController"]
+- !private ["PSo8NSCoding", "rootViewController"]
+- !private ["PSo8NSCoding", "setMainControllerTo"]
+- !private ["PSo8NSCoding", "setup"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "setupWithCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "MenuViewEffect"]
+- !private ["PSo26NSExtensionRequestHandling", "SSAStatusBarStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "_presentLeftMenuViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "_presentRightMenuViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "configure"]
+- !private ["PSo26NSExtensionRequestHandling", "delegate"]
+- !private ["PSo26NSExtensionRequestHandling", "hideMenuViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "isNavigationBarHidden"]
+- !private ["PSo26NSExtensionRequestHandling", "leftMenuViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationController"]
+- !private ["PSo26NSExtensionRequestHandling", "popViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "prepareToAppear"]
+- !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "rightMenuViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "setMainControllerTo"]
+- !private ["PSo26NSExtensionRequestHandling", "setup"]
+- !private ["PSo26NSExtensionRequestHandling", "setupWith"]
+- !private ["PSo26NSExtensionRequestHandling", "setupWithCallbacks"]
+- !private ["CSo8NSObject", "MenuViewEffect"]
+- !private ["CSo8NSObject", "SSAStatusBarStyle"]
+- !private ["CSo8NSObject", "_presentLeftMenuViewController"]
+- !private ["CSo8NSObject", "_presentRightMenuViewController"]
+- !private ["CSo8NSObject", "callbacks"]
+- !private ["CSo8NSObject", "configure"]
+- !private ["CSo8NSObject", "delegate"]
+- !private ["CSo8NSObject", "displayFlow"]
+- !private ["CSo8NSObject", "hideMenuViewController"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isNavigationBarHidden"]
+- !private ["CSo8NSObject", "leftMenuViewController"]
+- !private ["CSo8NSObject", "navigationController"]
+- !private ["CSo8NSObject", "popViewController"]
+- !private ["CSo8NSObject", "prepareToAppear"]
+- !private ["CSo8NSObject", "pushViewController"]
+- !private ["CSo8NSObject", "rightMenuViewController"]
+- !private ["CSo8NSObject", "rootViewController"]
+- !private ["CSo8NSObject", "setMainControllerTo"]
+- !private ["CSo8NSObject", "setup"]
+- !private ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "setupWithCallbacks"]
+- !private ["PSo16NSObjectProtocol", "MenuViewEffect"]
+- !private ["PSo16NSObjectProtocol", "SSAStatusBarStyle"]
+- !private ["PSo16NSObjectProtocol", "_presentLeftMenuViewController"]
+- !private ["PSo16NSObjectProtocol", "_presentRightMenuViewController"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "configure"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "displayFlow"]
+- !private ["PSo16NSObjectProtocol", "hideMenuViewController"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isNavigationBarHidden"]
+- !private ["PSo16NSObjectProtocol", "leftMenuViewController"]
+- !private ["PSo16NSObjectProtocol", "navigationController"]
+- !private ["PSo16NSObjectProtocol", "popViewController"]
+- !private ["PSo16NSObjectProtocol", "prepareToAppear"]
+- !private ["PSo16NSObjectProtocol", "pushViewController"]
+- !private ["PSo16NSObjectProtocol", "rightMenuViewController"]
+- !private ["PSo16NSObjectProtocol", "rootViewController"]
+- !private ["PSo16NSObjectProtocol", "setMainControllerTo"]
+- !private ["PSo16NSObjectProtocol", "setup"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "setupWithCallbacks"]
+- !private ["CSo9OPMonitor", "displayFlow"]
+- !private ["Ps16RawRepresentable", "Black"]
+- !private ["C8Operando11SSASideMenu", "MenuViewEffect"]
+- !private ["C8Operando11SSASideMenu", "SSAStatusBarStyle"]
+- !private ["C8Operando11SSASideMenu", "_presentLeftMenuViewController"]
+- !private ["C8Operando11SSASideMenu", "_presentRightMenuViewController"]
+- !private ["C8Operando11SSASideMenu", "configure"]
+- !private ["C8Operando11SSASideMenu", "delegate"]
+- !private ["C8Operando11SSASideMenu", "hideMenuViewController"]
+- !private ["C8Operando11SSASideMenu", "init"]
+- !private ["C8Operando11SSASideMenu", "leftMenuViewController"]
+- !private ["C8Operando11SSASideMenu", "rightMenuViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "PPCloak"]
+- !private ["P8Operando19SSASideMenuDelegate", "SSASideMenu"]
+- !private ["P8Operando19SSASideMenuDelegate", "UIAccountViewControllerModel"]
+- !private ["P8Operando19SSASideMenuDelegate", "UIDashBoardViewControllerCallbacks"]
+- !private ["P8Operando19SSASideMenuDelegate", "UILeftSideMenuViewControllerCallbacks"]
+- !private ["P8Operando19SSASideMenuDelegate", "UINavigationController"]
+- !private ["P8Operando19SSASideMenuDelegate", "UIRegistrationViewControllerCallbacks"]
+- !private ["P8Operando19SSASideMenuDelegate", "UIRootViewControllerCallbacks"]
+- !private ["P8Operando19SSASideMenuDelegate", "UISignInViewControllerCallbacks"]
+- ["P8Operando19SSASideMenuDelegate", "UIViewControllerFactory"]
+- !private ["P8Operando19SSASideMenuDelegate", "createLeftSideMenuViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "createRightMenuViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "dependencies"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayAboutViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayDashboard"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayIdentitiesManagement"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayNotifications"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayPfbDeals"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayPrivacyPolicyViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "displayPrivateBrowsing"]
+- !private ["P8Operando19SSASideMenuDelegate", "displaySettingsViewController"]
+- !private ["P8Operando19SSASideMenuDelegate", "getLeftSideMenuCallbacks"]
+- !private ["P8Operando19SSASideMenuDelegate", "rootController"]
+- !private ["P8Operando19SSASideMenuDelegate", "setupBaseHierarchyInWindow"]
+- !private ["P8Operando19SSASideMenuDelegate", "sharedBrowserController"]
+- !private ["P8Operando19SSASideMenuDelegate", "sideMenu"]
+- ["P8Operando19SSASideMenuDelegate", "sideMenuDidHideMenuViewController"]
+- ["P8Operando19SSASideMenuDelegate", "sideMenuDidRecognizePanGesture"]
+- ["P8Operando19SSASideMenuDelegate", "sideMenuDidShowMenuViewController"]
+- ["P8Operando19SSASideMenuDelegate", "sideMenuWillHideMenuViewController"]
+- ["P8Operando19SSASideMenuDelegate", "sideMenuWillShowMenuViewController"]
+- ["P8Operando19SSASideMenuDelegate", ""]
+- !private ["OC8Operando11SSASideMenu17SSAStatusBarStyle", "Black"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
+- !private ["C8Operando23UIAccountViewController", "setupWith"]
+- !private ["V8Operando28UIAccountViewControllerModel", "init"]
+- !private ["PSo12UIAppearance", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "MenuViewEffect"]
+- !private ["PSo21UIAppearanceContainer", "SSAStatusBarStyle"]
+- !private ["PSo21UIAppearanceContainer", "_presentLeftMenuViewController"]
+- !private ["PSo21UIAppearanceContainer", "_presentRightMenuViewController"]
+- !private ["PSo21UIAppearanceContainer", "callbacks"]
+- !private ["PSo21UIAppearanceContainer", "configure"]
+- !private ["PSo21UIAppearanceContainer", "delegate"]
+- !private ["PSo21UIAppearanceContainer", "hideMenuViewController"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isNavigationBarHidden"]
+- !private ["PSo21UIAppearanceContainer", "leftMenuViewController"]
+- !private ["PSo21UIAppearanceContainer", "navigationController"]
+- !private ["PSo21UIAppearanceContainer", "popViewController"]
+- !private ["PSo21UIAppearanceContainer", "prepareToAppear"]
+- !private ["PSo21UIAppearanceContainer", "pushViewController"]
+- !private ["PSo21UIAppearanceContainer", "rightMenuViewController"]
+- !private ["PSo21UIAppearanceContainer", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "setMainControllerTo"]
+- !private ["PSo21UIAppearanceContainer", "setup"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "setupWithCallbacks"]
+- !private ["PSo18UIContentContainer", "MenuViewEffect"]
+- !private ["PSo18UIContentContainer", "SSAStatusBarStyle"]
+- !private ["PSo18UIContentContainer", "_presentLeftMenuViewController"]
+- !private ["PSo18UIContentContainer", "_presentRightMenuViewController"]
+- !private ["PSo18UIContentContainer", "callbacks"]
+- !private ["PSo18UIContentContainer", "configure"]
+- !private ["PSo18UIContentContainer", "delegate"]
+- !private ["PSo18UIContentContainer", "hideMenuViewController"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "isNavigationBarHidden"]
+- !private ["PSo18UIContentContainer", "leftMenuViewController"]
+- !private ["PSo18UIContentContainer", "navigationController"]
+- !private ["PSo18UIContentContainer", "popViewController"]
+- !private ["PSo18UIContentContainer", "prepareToAppear"]
+- !private ["PSo18UIContentContainer", "pushViewController"]
+- !private ["PSo18UIContentContainer", "rightMenuViewController"]
+- !private ["PSo18UIContentContainer", "setMainControllerTo"]
+- !private ["PSo18UIContentContainer", "setup"]
+- !private ["PSo18UIContentContainer", "setupWith"]
+- !private ["PSo18UIContentContainer", "setupWithCallbacks"]
+- !private ["PSo17UICoordinateSpace", "rootViewController"]
+- !private ["V8Operando34UIDashBoardViewControllerCallbacks", "init"]
+- !private ["C8Operando25UIDashboardViewController", "setupWith"]
+- !private ["PSo13UIDynamicItem", "rootViewController"]
+- ["C8Operando16UIFlowController", "Bool"]
+- ["C8Operando16UIFlowController", "Dependencies"]
+- !private ["C8Operando16UIFlowController", "PPCloak"]
+- ["C8Operando16UIFlowController", "SSASideMenu"]
+- !private ["C8Operando16UIFlowController", "UIAccountViewController"]
+- !private ["C8Operando16UIFlowController", "UIAccountViewControllerModel"]
+- !private ["C8Operando16UIFlowController", "UIDashBoardViewControllerCallbacks"]
+- !private ["C8Operando16UIFlowController", "UILeftSideMenuViewController"]
+- !private ["C8Operando16UIFlowController", "UILeftSideMenuViewControllerCallbacks"]
+- !private ["C8Operando16UIFlowController", "UINavigationController"]
+- ["C8Operando16UIFlowController", "UIPrivateBrowsingViewController"]
+- !private ["C8Operando16UIFlowController", "UIRegistrationViewController"]
+- !private ["C8Operando16UIFlowController", "UIRegistrationViewControllerCallbacks"]
+- ["C8Operando16UIFlowController", "UIRootViewController"]
+- !private ["C8Operando16UIFlowController", "UIRootViewControllerCallbacks"]
+- !private ["C8Operando16UIFlowController", "UISignInViewControllerCallbacks"]
+- ["C8Operando16UIFlowController", "UIViewController"]
+- ["C8Operando16UIFlowController", "UIViewControllerFactory"]
+- ["C8Operando16UIFlowController", "UIWindow"]
+- !private ["C8Operando16UIFlowController", "createLeftSideMenuViewController"]
+- !private ["C8Operando16UIFlowController", "createRegisterViewController"]
+- !private ["C8Operando16UIFlowController", "createRightMenuViewController"]
+- ["C8Operando16UIFlowController", "deinit"]
+- ["C8Operando16UIFlowController", "dependencies"]
+- ["C8Operando16UIFlowController", "displayAboutViewController"]
+- ["C8Operando16UIFlowController", "displayDashboard"]
+- ["C8Operando16UIFlowController", "displayIdentitiesManagement"]
+- ["C8Operando16UIFlowController", "displayLoginHierarchy"]
+- ["C8Operando16UIFlowController", "displayNotifications"]
+- ["C8Operando16UIFlowController", "displayPfbDeals"]
+- ["C8Operando16UIFlowController", "displayPrivacyPolicyViewController"]
+- ["C8Operando16UIFlowController", "displayPrivateBrowsing"]
+- ["C8Operando16UIFlowController", "displaySettingsViewController"]
+- !private ["C8Operando16UIFlowController", "getLeftSideMenuCallbacks"]
+- ["C8Operando16UIFlowController", "init"]
+- ["C8Operando16UIFlowController", "rootController"]
+- ["C8Operando16UIFlowController", "setSideMenu"]
+- ["C8Operando16UIFlowController", "setupBaseHierarchyInWindow"]
+- ["C8Operando16UIFlowController", "setupHierarchyStartingWithDashboardIn"]
+- ["C8Operando16UIFlowController", "sharedBrowserController"]
+- !private ["C8Operando16UIFlowController", "sideMenu"]
+- ["C8Operando16UIFlowController", "sideMenuDidHideMenuViewController"]
+- ["C8Operando16UIFlowController", "sideMenuDidRecognizePanGesture"]
+- ["C8Operando16UIFlowController", "sideMenuDidShowMenuViewController"]
+- ["C8Operando16UIFlowController", "sideMenuWillHideMenuViewController"]
+- ["C8Operando16UIFlowController", "sideMenuWillShowMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "MenuViewEffect"]
+- !private ["PSo18UIFocusEnvironment", "SSAStatusBarStyle"]
+- !private ["PSo18UIFocusEnvironment", "_presentLeftMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "_presentRightMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "callbacks"]
+- !private ["PSo18UIFocusEnvironment", "configure"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- !private ["PSo18UIFocusEnvironment", "hideMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isNavigationBarHidden"]
+- !private ["PSo18UIFocusEnvironment", "leftMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "navigationController"]
+- !private ["PSo18UIFocusEnvironment", "popViewController"]
+- !private ["PSo18UIFocusEnvironment", "prepareToAppear"]
+- !private ["PSo18UIFocusEnvironment", "pushViewController"]
+- !private ["PSo18UIFocusEnvironment", "rightMenuViewController"]
+- !private ["PSo18UIFocusEnvironment", "rootViewController"]
+- !private ["PSo18UIFocusEnvironment", "setMainControllerTo"]
+- !private ["PSo18UIFocusEnvironment", "setup"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "setupWithCallbacks"]
+- !private ["PSo11UIFocusItem", "rootViewController"]
+- !private ["PSo27UIGestureRecognizerDelegate", "MenuViewEffect"]
+- !private ["PSo27UIGestureRecognizerDelegate", "SSAStatusBarStyle"]
+- !private ["PSo27UIGestureRecognizerDelegate", "_presentLeftMenuViewController"]
+- !private ["PSo27UIGestureRecognizerDelegate", "_presentRightMenuViewController"]
+- !private ["PSo27UIGestureRecognizerDelegate", "configure"]
+- !private ["PSo27UIGestureRecognizerDelegate", "delegate"]
+- !private ["PSo27UIGestureRecognizerDelegate", "hideMenuViewController"]
+- !private ["PSo27UIGestureRecognizerDelegate", "init"]
+- !private ["PSo27UIGestureRecognizerDelegate", "leftMenuViewController"]
+- !private ["PSo27UIGestureRecognizerDelegate", "rightMenuViewController"]
+- !private ["C8Operando34UIIdentityManagementViewController", "setupWith"]
+- !private ["C8Operando28UILeftSideMenuViewController", "callbacks"]
+- !private ["C8Operando28UILeftSideMenuViewController", "prepareToAppear"]
+- !private ["V8Operando37UILeftSideMenuViewControllerCallbacks", "init"]
+- !private ["CSo22UINavigationController", "init"]
+- !private ["CSo22UINavigationController", "isNavigationBarHidden"]
+- !private ["CSo22UINavigationController", "popViewController"]
+- !private ["CSo22UINavigationController", "pushViewController"]
+- !private ["C8Operando29UINotificationsViewController", "setup"]
+- !private ["C8Operando24UIPfbDealsViewController", "setupWith"]
+- !private ["C8Operando28UIRegistrationViewController", "setupWith"]
+- !private ["V8Operando37UIRegistrationViewControllerCallbacks", "init"]
+- !private ["CSo11UIResponder", "MenuViewEffect"]
+- !private ["CSo11UIResponder", "SSAStatusBarStyle"]
+- !private ["CSo11UIResponder", "_presentLeftMenuViewController"]
+- !private ["CSo11UIResponder", "_presentRightMenuViewController"]
+- !private ["CSo11UIResponder", "callbacks"]
+- !private ["CSo11UIResponder", "configure"]
+- !private ["CSo11UIResponder", "delegate"]
+- !private ["CSo11UIResponder", "hideMenuViewController"]
+- !private ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isNavigationBarHidden"]
+- !private ["CSo11UIResponder", "leftMenuViewController"]
+- !private ["CSo11UIResponder", "navigationController"]
+- !private ["CSo11UIResponder", "popViewController"]
+- !private ["CSo11UIResponder", "prepareToAppear"]
+- !private ["CSo11UIResponder", "pushViewController"]
+- !private ["CSo11UIResponder", "rightMenuViewController"]
+- !private ["CSo11UIResponder", "rootViewController"]
+- !private ["CSo11UIResponder", "setMainControllerTo"]
+- !private ["CSo11UIResponder", "setup"]
+- !private ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "setupWithCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "MenuViewEffect"]
+- !private ["PSo30UIResponderStandardEditActions", "SSAStatusBarStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "_presentLeftMenuViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "_presentRightMenuViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "configure"]
+- !private ["PSo30UIResponderStandardEditActions", "delegate"]
+- !private ["PSo30UIResponderStandardEditActions", "hideMenuViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isNavigationBarHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "leftMenuViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationController"]
+- !private ["PSo30UIResponderStandardEditActions", "popViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "prepareToAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "pushViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "rightMenuViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "rootViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "setMainControllerTo"]
+- !private ["PSo30UIResponderStandardEditActions", "setup"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWithCallbacks"]
+- !private ["C8Operando20UIRootViewController", "setMainControllerTo"]
+- !private ["C8Operando20UIRootViewController", "setupWithCallbacks"]
+- !private ["V8Operando29UIRootViewControllerCallbacks", "init"]
+- !private ["PSo20UIScrollViewDelegate", "callbacks"]
+- !private ["PSo20UIScrollViewDelegate", "prepareToAppear"]
+- !private ["C8Operando22UISignInViewController", "navigationController"]
+- !private ["C8Operando22UISignInViewController", "setupWithCallbacks"]
+- !private ["V8Operando31UISignInViewControllerCallbacks", "init"]
+- !private ["PSo16UIStateRestoring", "MenuViewEffect"]
+- !private ["PSo16UIStateRestoring", "SSAStatusBarStyle"]
+- !private ["PSo16UIStateRestoring", "_presentLeftMenuViewController"]
+- !private ["PSo16UIStateRestoring", "_presentRightMenuViewController"]
+- !private ["PSo16UIStateRestoring", "callbacks"]
+- !private ["PSo16UIStateRestoring", "configure"]
+- !private ["PSo16UIStateRestoring", "delegate"]
+- !private ["PSo16UIStateRestoring", "hideMenuViewController"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "isNavigationBarHidden"]
+- !private ["PSo16UIStateRestoring", "leftMenuViewController"]
+- !private ["PSo16UIStateRestoring", "navigationController"]
+- !private ["PSo16UIStateRestoring", "popViewController"]
+- !private ["PSo16UIStateRestoring", "prepareToAppear"]
+- !private ["PSo16UIStateRestoring", "pushViewController"]
+- !private ["PSo16UIStateRestoring", "rightMenuViewController"]
+- !private ["PSo16UIStateRestoring", "setMainControllerTo"]
+- !private ["PSo16UIStateRestoring", "setup"]
+- !private ["PSo16UIStateRestoring", "setupWith"]
+- !private ["PSo16UIStateRestoring", "setupWithCallbacks"]
+- !private ["PSo21UITableViewDataSource", "callbacks"]
+- !private ["PSo21UITableViewDataSource", "prepareToAppear"]
+- !private ["PSo19UITableViewDelegate", "callbacks"]
+- !private ["PSo19UITableViewDelegate", "prepareToAppear"]
+- !private ["PSo18UITraitEnvironment", "MenuViewEffect"]
+- !private ["PSo18UITraitEnvironment", "SSAStatusBarStyle"]
+- !private ["PSo18UITraitEnvironment", "_presentLeftMenuViewController"]
+- !private ["PSo18UITraitEnvironment", "_presentRightMenuViewController"]
+- !private ["PSo18UITraitEnvironment", "callbacks"]
+- !private ["PSo18UITraitEnvironment", "configure"]
+- !private ["PSo18UITraitEnvironment", "delegate"]
+- !private ["PSo18UITraitEnvironment", "hideMenuViewController"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isNavigationBarHidden"]
+- !private ["PSo18UITraitEnvironment", "leftMenuViewController"]
+- !private ["PSo18UITraitEnvironment", "navigationController"]
+- !private ["PSo18UITraitEnvironment", "popViewController"]
+- !private ["PSo18UITraitEnvironment", "prepareToAppear"]
+- !private ["PSo18UITraitEnvironment", "pushViewController"]
+- !private ["PSo18UITraitEnvironment", "rightMenuViewController"]
+- !private ["PSo18UITraitEnvironment", "rootViewController"]
+- !private ["PSo18UITraitEnvironment", "setMainControllerTo"]
+- !private ["PSo18UITraitEnvironment", "setup"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "setupWithCallbacks"]
+- !private ["C8Operando28UIUserSettingsViewController", "setupWith"]
+- !private ["CSo6UIView", "rootViewController"]
+- !private ["CSo16UIViewController", "MenuViewEffect"]
+- !private ["CSo16UIViewController", "SSAStatusBarStyle"]
+- !private ["CSo16UIViewController", "_presentLeftMenuViewController"]
+- !private ["CSo16UIViewController", "_presentRightMenuViewController"]
+- !private ["CSo16UIViewController", "callbacks"]
+- !private ["CSo16UIViewController", "configure"]
+- !private ["CSo16UIViewController", "delegate"]
+- !private ["CSo16UIViewController", "hideMenuViewController"]
+- !private ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "isNavigationBarHidden"]
+- !private ["CSo16UIViewController", "leftMenuViewController"]
+- !private ["CSo16UIViewController", "navigationController"]
+- !private ["CSo16UIViewController", "popViewController"]
+- !private ["CSo16UIViewController", "prepareToAppear"]
+- !private ["CSo16UIViewController", "pushViewController"]
+- !private ["CSo16UIViewController", "rightMenuViewController"]
+- !private ["CSo16UIViewController", "setMainControllerTo"]
+- !private ["CSo16UIViewController", "setup"]
+- !private ["CSo16UIViewController", "setupWith"]
+- !private ["CSo16UIViewController", "setupWithCallbacks"]
+- !private ["C8Operando23UIViewControllerFactory", "aboutViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "accountViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "dashboardViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "identityManagementViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "leftMenuViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "loginViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "notificationsViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "pfbDealsController"]
+- !private ["C8Operando23UIViewControllerFactory", "privacyPolicyController"]
+- ["C8Operando23UIViewControllerFactory", "privateBrowsingViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "registerViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "rootViewController"]
+- !private ["C8Operando23UIViewControllerFactory", "settingsViewController"]
+- !private ["CSo8UIWindow", "rootViewController"]
+- !private ["V8Operando26UserSettingsModelCallbacks", "retrieveCallback"]
+- !private ["V8Operando26UserSettingsModelCallbacks", "updateCallback"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "Black"]
+- !private ["Ps9_Hashable", "MenuViewEffect"]
+- !private ["Ps9_Hashable", "SSAStatusBarStyle"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "_presentLeftMenuViewController"]
+- !private ["Ps9_Hashable", "_presentRightMenuViewController"]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "configure"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "displayFlow"]
+- !private ["Ps9_Hashable", "hideMenuViewController"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isNavigationBarHidden"]
+- !private ["Ps9_Hashable", "leftMenuViewController"]
+- !private ["Ps9_Hashable", "navigationController"]
+- !private ["Ps9_Hashable", "popViewController"]
+- !private ["Ps9_Hashable", "prepareToAppear"]
+- !private ["Ps9_Hashable", "pushViewController"]
+- !private ["Ps9_Hashable", "rightMenuViewController"]
+- !private ["Ps9_Hashable", "rootViewController"]
+- !private ["Ps9_Hashable", "setMainControllerTo"]
+- !private ["Ps9_Hashable", "setup"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "setupWithCallbacks"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+depends-nominal:
+- "V8Operando16AccountCallbacks"
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "Ps7CVarArg"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "V8Operando12Dependencies"
+- !private "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "VC8Operando11SSASideMenu14MenuViewEffect"
+- !private "PSo8NSCoding"
+- !private "PSo26NSExtensionRequestHandling"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "CSo9OPMonitor"
+- !private "Ps16RawRepresentable"
+- !private "C8Operando11SSASideMenu"
+- "P8Operando19SSASideMenuDelegate"
+- !private "OC8Operando11SSASideMenu17SSAStatusBarStyle"
+- !private "P11SwarmClient10SocketData"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "C8Operando23UIAccountViewController"
+- !private "V8Operando28UIAccountViewControllerModel"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "V8Operando34UIDashBoardViewControllerCallbacks"
+- !private "C8Operando25UIDashboardViewController"
+- !private "PSo13UIDynamicItem"
+- "C8Operando16UIFlowController"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "PSo27UIGestureRecognizerDelegate"
+- !private "C8Operando34UIIdentityManagementViewController"
+- !private "C8Operando28UILeftSideMenuViewController"
+- !private "V8Operando37UILeftSideMenuViewControllerCallbacks"
+- !private "CSo22UINavigationController"
+- !private "C8Operando29UINotificationsViewController"
+- !private "C8Operando24UIPfbDealsViewController"
+- !private "C8Operando28UIRegistrationViewController"
+- !private "V8Operando37UIRegistrationViewControllerCallbacks"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "C8Operando20UIRootViewController"
+- !private "V8Operando29UIRootViewControllerCallbacks"
+- !private "PSo20UIScrollViewDelegate"
+- !private "C8Operando22UISignInViewController"
+- !private "V8Operando31UISignInViewControllerCallbacks"
+- !private "PSo16UIStateRestoring"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- !private "PSo18UITraitEnvironment"
+- !private "C8Operando28UIUserSettingsViewController"
+- !private "CSo6UIView"
+- !private "CSo16UIViewController"
+- "C8Operando23UIViewControllerFactory"
+- !private "CSo8UIWindow"
+- !private "V8Operando26UserSettingsModelCallbacks"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "eab3e4f8b704c4c359f0b9e63924aacb"

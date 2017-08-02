@@ -1,0 +1,919 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIPfbDisplayingViewCallbacks"
+- "UIPfbDetailsViewCallbacks"
+- "UIPfbDisplayingView"
+- "UIPfbDetailsView"
+provides-nominal:
+- "V8Operando28UIPfbDisplayingViewCallbacks"
+- "V8Operando25UIPfbDetailsViewCallbacks"
+- "P8Operando19UIPfbDisplayingView"
+- "C8Operando16UIPfbDetailsView"
+provides-member:
+- ["V8Operando28UIPfbDisplayingViewCallbacks", ""]
+- ["V8Operando25UIPfbDetailsViewCallbacks", ""]
+- ["P8Operando19UIPfbDisplayingView", ""]
+- ["C8Operando16UIPfbDetailsView", ""]
+provides-dynamic-lookup:
+- "benefitOrVoucherLabel"
+- "benefitOrVoucherStaticLabel"
+- "changeSubscribedStatus"
+- "commonInit"
+- "dealDescriptionLabel"
+- "didPressClose"
+- "didTapOnWebsite"
+- "logoImageView"
+- "refreshWithOwnModel"
+- "subscribedStaticLabel"
+- "subscribedSwitch"
+- "subscribedSwitchValueChange"
+- "websiteURLLabel"
+depends-top-level:
+- !private "!"
+- !private "??"
+- "AnyObject"
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "PfbDeal"
+- "RSNibDesignableView"
+- "String"
+- !private "StringLiteralType"
+- !private "UIColor"
+- !private "UIImage"
+- "UIImageView"
+- "UILabel"
+- "UIPfbDetailsView"
+- "UIPfbDetailsViewCallbacks"
+- "UIPfbDisplayingView"
+- "UIPfbDisplayingViewCallbacks"
+- "UISwitch"
+- !private "URL"
+- "Void"
+- "VoidBlock"
+depends-member:
+- !private ["Ps9AnyObject", "UIColor"]
+- !private ["Ps9AnyObject", "UIImage"]
+- !private ["Ps9AnyObject", "URL"]
+- !private ["Ps9AnyObject", "benefit"]
+- !private ["Ps9AnyObject", "benefitOrVoucherLabel"]
+- !private ["Ps9AnyObject", "benefitOrVoucherStaticLabel"]
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "changeSubscribedStatus"]
+- !private ["Ps9AnyObject", "commonInit"]
+- !private ["Ps9AnyObject", "dealDescriptionLabel"]
+- !private ["Ps9AnyObject", "description"]
+- !private ["Ps9AnyObject", "image"]
+- !private ["Ps9AnyObject", "imageName"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isOn"]
+- !private ["Ps9AnyObject", "layoutIfNeeded"]
+- !private ["Ps9AnyObject", "logo"]
+- !private ["Ps9AnyObject", "logoImageView"]
+- !private ["Ps9AnyObject", "model"]
+- !private ["Ps9AnyObject", "onTintColor"]
+- !private ["Ps9AnyObject", "operandoCyan"]
+- ["Ps9AnyObject", "refreshWithOwnModel"]
+- !private ["Ps9AnyObject", "setImageWith"]
+- !private ["Ps9AnyObject", "setNeedsLayout"]
+- !private ["Ps9AnyObject", "subscribed"]
+- !private ["Ps9AnyObject", "subscribedSwitch"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "voucher"]
+- !private ["Ps9AnyObject", "website"]
+- !private ["Ps9AnyObject", "websiteURLLabel"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "UIColor"]
+- !private ["PSo15CALayerDelegate", "UIImage"]
+- !private ["PSo15CALayerDelegate", "URL"]
+- !private ["PSo15CALayerDelegate", "benefitOrVoucherLabel"]
+- !private ["PSo15CALayerDelegate", "benefitOrVoucherStaticLabel"]
+- !private ["PSo15CALayerDelegate", "callbacks"]
+- !private ["PSo15CALayerDelegate", "changeSubscribedStatus"]
+- !private ["PSo15CALayerDelegate", "commonInit"]
+- !private ["PSo15CALayerDelegate", "dealDescriptionLabel"]
+- !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isOn"]
+- !private ["PSo15CALayerDelegate", "layoutIfNeeded"]
+- !private ["PSo15CALayerDelegate", "logoImageView"]
+- !private ["PSo15CALayerDelegate", "model"]
+- !private ["PSo15CALayerDelegate", "onTintColor"]
+- ["PSo15CALayerDelegate", "refreshWithOwnModel"]
+- !private ["PSo15CALayerDelegate", "setImageWith"]
+- !private ["PSo15CALayerDelegate", "setNeedsLayout"]
+- !private ["PSo15CALayerDelegate", "subscribedSwitch"]
+- !private ["PSo15CALayerDelegate", "text"]
+- !private ["PSo15CALayerDelegate", "websiteURLLabel"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "UIColor"]
+- !private ["Ps7CVarArg", "UIImage"]
+- !private ["Ps7CVarArg", "URL"]
+- !private ["Ps7CVarArg", "benefitOrVoucherLabel"]
+- !private ["Ps7CVarArg", "benefitOrVoucherStaticLabel"]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "changeSubscribedStatus"]
+- !private ["Ps7CVarArg", "commonInit"]
+- !private ["Ps7CVarArg", "dealDescriptionLabel"]
+- !private ["Ps7CVarArg", "image"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isOn"]
+- !private ["Ps7CVarArg", "layoutIfNeeded"]
+- !private ["Ps7CVarArg", "logoImageView"]
+- !private ["Ps7CVarArg", "model"]
+- !private ["Ps7CVarArg", "onTintColor"]
+- !private ["Ps7CVarArg", "operandoCyan"]
+- ["Ps7CVarArg", "refreshWithOwnModel"]
+- !private ["Ps7CVarArg", "setImageWith"]
+- !private ["Ps7CVarArg", "setNeedsLayout"]
+- !private ["Ps7CVarArg", "subscribedSwitch"]
+- !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "websiteURLLabel"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
+- !private ["Ps28CustomDebugStringConvertible", "UIImage"]
+- !private ["Ps28CustomDebugStringConvertible", "URL"]
+- !private ["Ps28CustomDebugStringConvertible", "benefitOrVoucherLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "benefitOrVoucherStaticLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "changeSubscribedStatus"]
+- !private ["Ps28CustomDebugStringConvertible", "commonInit"]
+- !private ["Ps28CustomDebugStringConvertible", "dealDescriptionLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "image"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isOn"]
+- !private ["Ps28CustomDebugStringConvertible", "layoutIfNeeded"]
+- !private ["Ps28CustomDebugStringConvertible", "logoImageView"]
+- !private ["Ps28CustomDebugStringConvertible", "model"]
+- !private ["Ps28CustomDebugStringConvertible", "onTintColor"]
+- !private ["Ps28CustomDebugStringConvertible", "operandoCyan"]
+- ["Ps28CustomDebugStringConvertible", "refreshWithOwnModel"]
+- !private ["Ps28CustomDebugStringConvertible", "setImageWith"]
+- !private ["Ps28CustomDebugStringConvertible", "setNeedsLayout"]
+- !private ["Ps28CustomDebugStringConvertible", "subscribedSwitch"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "websiteURLLabel"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "UIColor"]
+- !private ["Ps23CustomStringConvertible", "UIImage"]
+- !private ["Ps23CustomStringConvertible", "URL"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "benefitOrVoucherLabel"]
+- !private ["Ps23CustomStringConvertible", "benefitOrVoucherStaticLabel"]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "changeSubscribedStatus"]
+- !private ["Ps23CustomStringConvertible", "commonInit"]
+- !private ["Ps23CustomStringConvertible", "dealDescriptionLabel"]
+- !private ["Ps23CustomStringConvertible", "image"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isOn"]
+- !private ["Ps23CustomStringConvertible", "layoutIfNeeded"]
+- !private ["Ps23CustomStringConvertible", "logoImageView"]
+- !private ["Ps23CustomStringConvertible", "model"]
+- !private ["Ps23CustomStringConvertible", "onTintColor"]
+- !private ["Ps23CustomStringConvertible", "operandoCyan"]
+- ["Ps23CustomStringConvertible", "refreshWithOwnModel"]
+- !private ["Ps23CustomStringConvertible", "setImageWith"]
+- !private ["Ps23CustomStringConvertible", "setNeedsLayout"]
+- !private ["Ps23CustomStringConvertible", "subscribedSwitch"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "websiteURLLabel"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIColor"]
+- !private ["Ps9Equatable", "UIImage"]
+- !private ["Ps9Equatable", "URL"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "benefitOrVoucherLabel"]
+- !private ["Ps9Equatable", "benefitOrVoucherStaticLabel"]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "changeSubscribedStatus"]
+- !private ["Ps9Equatable", "commonInit"]
+- !private ["Ps9Equatable", "dealDescriptionLabel"]
+- !private ["Ps9Equatable", "image"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isOn"]
+- !private ["Ps9Equatable", "layoutIfNeeded"]
+- !private ["Ps9Equatable", "logoImageView"]
+- !private ["Ps9Equatable", "model"]
+- !private ["Ps9Equatable", "onTintColor"]
+- !private ["Ps9Equatable", "operandoCyan"]
+- ["Ps9Equatable", "refreshWithOwnModel"]
+- !private ["Ps9Equatable", "setImageWith"]
+- !private ["Ps9Equatable", "setNeedsLayout"]
+- !private ["Ps9Equatable", "subscribedSwitch"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "websiteURLLabel"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "UIColor"]
+- !private ["Ps8Hashable", "UIImage"]
+- !private ["Ps8Hashable", "URL"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "benefitOrVoucherLabel"]
+- !private ["Ps8Hashable", "benefitOrVoucherStaticLabel"]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "changeSubscribedStatus"]
+- !private ["Ps8Hashable", "commonInit"]
+- !private ["Ps8Hashable", "dealDescriptionLabel"]
+- !private ["Ps8Hashable", "image"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isOn"]
+- !private ["Ps8Hashable", "layoutIfNeeded"]
+- !private ["Ps8Hashable", "logoImageView"]
+- !private ["Ps8Hashable", "model"]
+- !private ["Ps8Hashable", "onTintColor"]
+- !private ["Ps8Hashable", "operandoCyan"]
+- ["Ps8Hashable", "refreshWithOwnModel"]
+- !private ["Ps8Hashable", "setImageWith"]
+- !private ["Ps8Hashable", "setNeedsLayout"]
+- !private ["Ps8Hashable", "subscribedSwitch"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "websiteURLLabel"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "UIColor"]
+- !private ["PSo8NSCoding", "UIImage"]
+- !private ["PSo8NSCoding", "URL"]
+- !private ["PSo8NSCoding", "benefitOrVoucherLabel"]
+- !private ["PSo8NSCoding", "benefitOrVoucherStaticLabel"]
+- !private ["PSo8NSCoding", "callbacks"]
+- !private ["PSo8NSCoding", "changeSubscribedStatus"]
+- !private ["PSo8NSCoding", "commonInit"]
+- !private ["PSo8NSCoding", "dealDescriptionLabel"]
+- !private ["PSo8NSCoding", "image"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isOn"]
+- !private ["PSo8NSCoding", "layoutIfNeeded"]
+- !private ["PSo8NSCoding", "logoImageView"]
+- !private ["PSo8NSCoding", "model"]
+- !private ["PSo8NSCoding", "onTintColor"]
+- !private ["PSo8NSCoding", "operandoCyan"]
+- ["PSo8NSCoding", "refreshWithOwnModel"]
+- !private ["PSo8NSCoding", "setImageWith"]
+- !private ["PSo8NSCoding", "setNeedsLayout"]
+- !private ["PSo8NSCoding", "subscribedSwitch"]
+- !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "websiteURLLabel"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "operandoCyan"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "AnyObject"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "PfbDeal"]
+- !private ["CSo8NSObject", "UIColor"]
+- !private ["CSo8NSObject", "UIImage"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "UIPfbDetailsViewCallbacks"]
+- ["CSo8NSObject", "UISwitch"]
+- !private ["CSo8NSObject", "URL"]
+- ["CSo8NSObject", "benefitOrVoucherLabel"]
+- ["CSo8NSObject", "benefitOrVoucherStaticLabel"]
+- ["CSo8NSObject", "callbacks"]
+- ["CSo8NSObject", "changeSubscribedStatus"]
+- ["CSo8NSObject", "commonInit"]
+- ["CSo8NSObject", "dealDescriptionLabel"]
+- ["CSo8NSObject", "didPressClose"]
+- ["CSo8NSObject", "didTapOnWebsite"]
+- !private ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isOn"]
+- !private ["CSo8NSObject", "layoutIfNeeded"]
+- ["CSo8NSObject", "logoImageView"]
+- ["CSo8NSObject", "model"]
+- !private ["CSo8NSObject", "onTintColor"]
+- !private ["CSo8NSObject", "operandoCyan"]
+- ["CSo8NSObject", "refreshWithOwnModel"]
+- !private ["CSo8NSObject", "setImageWith"]
+- !private ["CSo8NSObject", "setNeedsLayout"]
+- ["CSo8NSObject", "setupWith"]
+- ["CSo8NSObject", "subscribedStaticLabel"]
+- ["CSo8NSObject", "subscribedSwitch"]
+- ["CSo8NSObject", "subscribedSwitchValueChange"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "websiteURLLabel"]
+- !private ["PSo16NSObjectProtocol", "UIColor"]
+- !private ["PSo16NSObjectProtocol", "UIImage"]
+- !private ["PSo16NSObjectProtocol", "URL"]
+- !private ["PSo16NSObjectProtocol", "benefitOrVoucherLabel"]
+- !private ["PSo16NSObjectProtocol", "benefitOrVoucherStaticLabel"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "changeSubscribedStatus"]
+- !private ["PSo16NSObjectProtocol", "commonInit"]
+- !private ["PSo16NSObjectProtocol", "dealDescriptionLabel"]
+- !private ["PSo16NSObjectProtocol", "image"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isOn"]
+- !private ["PSo16NSObjectProtocol", "layoutIfNeeded"]
+- !private ["PSo16NSObjectProtocol", "logoImageView"]
+- !private ["PSo16NSObjectProtocol", "model"]
+- !private ["PSo16NSObjectProtocol", "onTintColor"]
+- !private ["PSo16NSObjectProtocol", "operandoCyan"]
+- ["PSo16NSObjectProtocol", "refreshWithOwnModel"]
+- !private ["PSo16NSObjectProtocol", "setImageWith"]
+- !private ["PSo16NSObjectProtocol", "setNeedsLayout"]
+- !private ["PSo16NSObjectProtocol", "subscribedSwitch"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "websiteURLLabel"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "operandoCyan"]
+- !private ["CSo8NSString", "init"]
+- !private ["C8Operando7PfbDeal", "benefit"]
+- !private ["C8Operando7PfbDeal", "description"]
+- !private ["C8Operando7PfbDeal", "imageName"]
+- !private ["C8Operando7PfbDeal", "logo"]
+- !private ["C8Operando7PfbDeal", "subscribed"]
+- !private ["C8Operando7PfbDeal", "voucher"]
+- !private ["C8Operando7PfbDeal", "website"]
+- ["C8Operando19RSNibDesignableView", "AnyObject"]
+- ["C8Operando19RSNibDesignableView", "Bool"]
+- ["C8Operando19RSNibDesignableView", "PfbDeal"]
+- !private ["C8Operando19RSNibDesignableView", "UIColor"]
+- !private ["C8Operando19RSNibDesignableView", "UIImage"]
+- ["C8Operando19RSNibDesignableView", "UIImageView"]
+- ["C8Operando19RSNibDesignableView", "UILabel"]
+- ["C8Operando19RSNibDesignableView", "UIPfbDetailsViewCallbacks"]
+- ["C8Operando19RSNibDesignableView", "UISwitch"]
+- !private ["C8Operando19RSNibDesignableView", "URL"]
+- ["C8Operando19RSNibDesignableView", "benefitOrVoucherLabel"]
+- ["C8Operando19RSNibDesignableView", "benefitOrVoucherStaticLabel"]
+- ["C8Operando19RSNibDesignableView", "callbacks"]
+- ["C8Operando19RSNibDesignableView", "changeSubscribedStatus"]
+- ["C8Operando19RSNibDesignableView", "commonInit"]
+- ["C8Operando19RSNibDesignableView", "dealDescriptionLabel"]
+- ["C8Operando19RSNibDesignableView", "didPressClose"]
+- ["C8Operando19RSNibDesignableView", "didTapOnWebsite"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- !private ["C8Operando19RSNibDesignableView", "layoutIfNeeded"]
+- ["C8Operando19RSNibDesignableView", "logoImageView"]
+- ["C8Operando19RSNibDesignableView", "model"]
+- ["C8Operando19RSNibDesignableView", "refreshWithOwnModel"]
+- !private ["C8Operando19RSNibDesignableView", "setNeedsLayout"]
+- ["C8Operando19RSNibDesignableView", "setupWith"]
+- ["C8Operando19RSNibDesignableView", "subscribedStaticLabel"]
+- ["C8Operando19RSNibDesignableView", "subscribedSwitch"]
+- ["C8Operando19RSNibDesignableView", "subscribedSwitchValueChange"]
+- ["C8Operando19RSNibDesignableView", "websiteURLLabel"]
+- ["C8Operando19RSNibDesignableView", ""]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "UIColor"]
+- !private ["PSo29UIAccessibilityIdentification", "UIImage"]
+- !private ["PSo29UIAccessibilityIdentification", "URL"]
+- !private ["PSo29UIAccessibilityIdentification", "benefitOrVoucherLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "benefitOrVoucherStaticLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "callbacks"]
+- !private ["PSo29UIAccessibilityIdentification", "changeSubscribedStatus"]
+- !private ["PSo29UIAccessibilityIdentification", "commonInit"]
+- !private ["PSo29UIAccessibilityIdentification", "dealDescriptionLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "image"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isOn"]
+- !private ["PSo29UIAccessibilityIdentification", "layoutIfNeeded"]
+- !private ["PSo29UIAccessibilityIdentification", "logoImageView"]
+- !private ["PSo29UIAccessibilityIdentification", "model"]
+- !private ["PSo29UIAccessibilityIdentification", "onTintColor"]
+- ["PSo29UIAccessibilityIdentification", "refreshWithOwnModel"]
+- !private ["PSo29UIAccessibilityIdentification", "setImageWith"]
+- !private ["PSo29UIAccessibilityIdentification", "setNeedsLayout"]
+- !private ["PSo29UIAccessibilityIdentification", "subscribedSwitch"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo29UIAccessibilityIdentification", "websiteURLLabel"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "UIColor"]
+- !private ["PSo12UIAppearance", "UIImage"]
+- !private ["PSo12UIAppearance", "URL"]
+- !private ["PSo12UIAppearance", "benefitOrVoucherLabel"]
+- !private ["PSo12UIAppearance", "benefitOrVoucherStaticLabel"]
+- !private ["PSo12UIAppearance", "callbacks"]
+- !private ["PSo12UIAppearance", "changeSubscribedStatus"]
+- !private ["PSo12UIAppearance", "commonInit"]
+- !private ["PSo12UIAppearance", "dealDescriptionLabel"]
+- !private ["PSo12UIAppearance", "image"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isOn"]
+- !private ["PSo12UIAppearance", "layoutIfNeeded"]
+- !private ["PSo12UIAppearance", "logoImageView"]
+- !private ["PSo12UIAppearance", "model"]
+- !private ["PSo12UIAppearance", "onTintColor"]
+- ["PSo12UIAppearance", "refreshWithOwnModel"]
+- !private ["PSo12UIAppearance", "setImageWith"]
+- !private ["PSo12UIAppearance", "setNeedsLayout"]
+- !private ["PSo12UIAppearance", "subscribedSwitch"]
+- !private ["PSo12UIAppearance", "text"]
+- !private ["PSo12UIAppearance", "websiteURLLabel"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "UIColor"]
+- !private ["PSo21UIAppearanceContainer", "UIImage"]
+- !private ["PSo21UIAppearanceContainer", "URL"]
+- !private ["PSo21UIAppearanceContainer", "benefitOrVoucherLabel"]
+- !private ["PSo21UIAppearanceContainer", "benefitOrVoucherStaticLabel"]
+- !private ["PSo21UIAppearanceContainer", "callbacks"]
+- !private ["PSo21UIAppearanceContainer", "changeSubscribedStatus"]
+- !private ["PSo21UIAppearanceContainer", "commonInit"]
+- !private ["PSo21UIAppearanceContainer", "dealDescriptionLabel"]
+- !private ["PSo21UIAppearanceContainer", "image"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isOn"]
+- !private ["PSo21UIAppearanceContainer", "layoutIfNeeded"]
+- !private ["PSo21UIAppearanceContainer", "logoImageView"]
+- !private ["PSo21UIAppearanceContainer", "model"]
+- !private ["PSo21UIAppearanceContainer", "onTintColor"]
+- ["PSo21UIAppearanceContainer", "refreshWithOwnModel"]
+- !private ["PSo21UIAppearanceContainer", "setImageWith"]
+- !private ["PSo21UIAppearanceContainer", "setNeedsLayout"]
+- !private ["PSo21UIAppearanceContainer", "subscribedSwitch"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "websiteURLLabel"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo7UIColor", "operandoCyan"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["CSo9UIControl", "isOn"]
+- !private ["CSo9UIControl", "onTintColor"]
+- !private ["PSo17UICoordinateSpace", "UIColor"]
+- !private ["PSo17UICoordinateSpace", "UIImage"]
+- !private ["PSo17UICoordinateSpace", "URL"]
+- !private ["PSo17UICoordinateSpace", "benefitOrVoucherLabel"]
+- !private ["PSo17UICoordinateSpace", "benefitOrVoucherStaticLabel"]
+- !private ["PSo17UICoordinateSpace", "callbacks"]
+- !private ["PSo17UICoordinateSpace", "changeSubscribedStatus"]
+- !private ["PSo17UICoordinateSpace", "commonInit"]
+- !private ["PSo17UICoordinateSpace", "dealDescriptionLabel"]
+- !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isOn"]
+- !private ["PSo17UICoordinateSpace", "layoutIfNeeded"]
+- !private ["PSo17UICoordinateSpace", "logoImageView"]
+- !private ["PSo17UICoordinateSpace", "model"]
+- !private ["PSo17UICoordinateSpace", "onTintColor"]
+- ["PSo17UICoordinateSpace", "refreshWithOwnModel"]
+- !private ["PSo17UICoordinateSpace", "setImageWith"]
+- !private ["PSo17UICoordinateSpace", "setNeedsLayout"]
+- !private ["PSo17UICoordinateSpace", "subscribedSwitch"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo17UICoordinateSpace", "websiteURLLabel"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "UIColor"]
+- !private ["PSo13UIDynamicItem", "UIImage"]
+- !private ["PSo13UIDynamicItem", "URL"]
+- !private ["PSo13UIDynamicItem", "benefitOrVoucherLabel"]
+- !private ["PSo13UIDynamicItem", "benefitOrVoucherStaticLabel"]
+- !private ["PSo13UIDynamicItem", "callbacks"]
+- !private ["PSo13UIDynamicItem", "changeSubscribedStatus"]
+- !private ["PSo13UIDynamicItem", "commonInit"]
+- !private ["PSo13UIDynamicItem", "dealDescriptionLabel"]
+- !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isOn"]
+- !private ["PSo13UIDynamicItem", "layoutIfNeeded"]
+- !private ["PSo13UIDynamicItem", "logoImageView"]
+- !private ["PSo13UIDynamicItem", "model"]
+- !private ["PSo13UIDynamicItem", "onTintColor"]
+- ["PSo13UIDynamicItem", "refreshWithOwnModel"]
+- !private ["PSo13UIDynamicItem", "setImageWith"]
+- !private ["PSo13UIDynamicItem", "setNeedsLayout"]
+- !private ["PSo13UIDynamicItem", "subscribedSwitch"]
+- !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo13UIDynamicItem", "websiteURLLabel"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "UIColor"]
+- !private ["PSo18UIFocusEnvironment", "UIImage"]
+- !private ["PSo18UIFocusEnvironment", "URL"]
+- !private ["PSo18UIFocusEnvironment", "benefitOrVoucherLabel"]
+- !private ["PSo18UIFocusEnvironment", "benefitOrVoucherStaticLabel"]
+- !private ["PSo18UIFocusEnvironment", "callbacks"]
+- !private ["PSo18UIFocusEnvironment", "changeSubscribedStatus"]
+- !private ["PSo18UIFocusEnvironment", "commonInit"]
+- !private ["PSo18UIFocusEnvironment", "dealDescriptionLabel"]
+- !private ["PSo18UIFocusEnvironment", "image"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isOn"]
+- !private ["PSo18UIFocusEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UIFocusEnvironment", "logoImageView"]
+- !private ["PSo18UIFocusEnvironment", "model"]
+- !private ["PSo18UIFocusEnvironment", "onTintColor"]
+- ["PSo18UIFocusEnvironment", "refreshWithOwnModel"]
+- !private ["PSo18UIFocusEnvironment", "setImageWith"]
+- !private ["PSo18UIFocusEnvironment", "setNeedsLayout"]
+- !private ["PSo18UIFocusEnvironment", "subscribedSwitch"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "websiteURLLabel"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "UIColor"]
+- !private ["PSo11UIFocusItem", "UIImage"]
+- !private ["PSo11UIFocusItem", "URL"]
+- !private ["PSo11UIFocusItem", "benefitOrVoucherLabel"]
+- !private ["PSo11UIFocusItem", "benefitOrVoucherStaticLabel"]
+- !private ["PSo11UIFocusItem", "callbacks"]
+- !private ["PSo11UIFocusItem", "changeSubscribedStatus"]
+- !private ["PSo11UIFocusItem", "commonInit"]
+- !private ["PSo11UIFocusItem", "dealDescriptionLabel"]
+- !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isOn"]
+- !private ["PSo11UIFocusItem", "layoutIfNeeded"]
+- !private ["PSo11UIFocusItem", "logoImageView"]
+- !private ["PSo11UIFocusItem", "model"]
+- !private ["PSo11UIFocusItem", "onTintColor"]
+- ["PSo11UIFocusItem", "refreshWithOwnModel"]
+- !private ["PSo11UIFocusItem", "setImageWith"]
+- !private ["PSo11UIFocusItem", "setNeedsLayout"]
+- !private ["PSo11UIFocusItem", "subscribedSwitch"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo11UIFocusItem", "websiteURLLabel"]
+- ["PSo11UIFocusItem", ""]
+- !private ["CSo7UIImage", "init"]
+- !private ["CSo11UIImageView", "image"]
+- !private ["CSo11UIImageView", "setImageWith"]
+- !private ["CSo7UILabel", "text"]
+- ["C8Operando16UIPfbDetailsView", "AnyObject"]
+- ["C8Operando16UIPfbDetailsView", "Bool"]
+- ["C8Operando16UIPfbDetailsView", "PfbDeal"]
+- !private ["C8Operando16UIPfbDetailsView", "UIColor"]
+- !private ["C8Operando16UIPfbDetailsView", "UIImage"]
+- ["C8Operando16UIPfbDetailsView", "UIImageView"]
+- ["C8Operando16UIPfbDetailsView", "UILabel"]
+- ["C8Operando16UIPfbDetailsView", "UIPfbDetailsViewCallbacks"]
+- ["C8Operando16UIPfbDetailsView", "UISwitch"]
+- !private ["C8Operando16UIPfbDetailsView", "URL"]
+- ["C8Operando16UIPfbDetailsView", "benefitOrVoucherLabel"]
+- ["C8Operando16UIPfbDetailsView", "benefitOrVoucherStaticLabel"]
+- !private ["C8Operando16UIPfbDetailsView", "callbacks"]
+- ["C8Operando16UIPfbDetailsView", "changeSubscribedStatus"]
+- ["C8Operando16UIPfbDetailsView", "commonInit"]
+- ["C8Operando16UIPfbDetailsView", "dealDescriptionLabel"]
+- ["C8Operando16UIPfbDetailsView", "deinit"]
+- ["C8Operando16UIPfbDetailsView", "didPressClose"]
+- ["C8Operando16UIPfbDetailsView", "didTapOnWebsite"]
+- ["C8Operando16UIPfbDetailsView", "init"]
+- !private ["C8Operando16UIPfbDetailsView", "layoutIfNeeded"]
+- ["C8Operando16UIPfbDetailsView", "logoImageView"]
+- !private ["C8Operando16UIPfbDetailsView", "model"]
+- ["C8Operando16UIPfbDetailsView", "refreshWithOwnModel"]
+- !private ["C8Operando16UIPfbDetailsView", "setNeedsLayout"]
+- ["C8Operando16UIPfbDetailsView", "setupWith"]
+- ["C8Operando16UIPfbDetailsView", "subscribedStaticLabel"]
+- ["C8Operando16UIPfbDetailsView", "subscribedSwitch"]
+- ["C8Operando16UIPfbDetailsView", "subscribedSwitchValueChange"]
+- ["C8Operando16UIPfbDetailsView", "websiteURLLabel"]
+- ["V8Operando25UIPfbDetailsViewCallbacks", "UIPfbDisplayingViewCallbacks"]
+- ["V8Operando25UIPfbDetailsViewCallbacks", "VoidBlock"]
+- ["V8Operando25UIPfbDetailsViewCallbacks", "init"]
+- ["V8Operando25UIPfbDetailsViewCallbacks", "pfbDisplayingViewCallbacks"]
+- ["V8Operando25UIPfbDetailsViewCallbacks", "whenPressedClose"]
+- !private ["P8Operando19UIPfbDisplayingView", "UIColor"]
+- !private ["P8Operando19UIPfbDisplayingView", "UIImage"]
+- !private ["P8Operando19UIPfbDisplayingView", "URL"]
+- !private ["P8Operando19UIPfbDisplayingView", "benefitOrVoucherLabel"]
+- !private ["P8Operando19UIPfbDisplayingView", "benefitOrVoucherStaticLabel"]
+- !private ["P8Operando19UIPfbDisplayingView", "callbacks"]
+- !private ["P8Operando19UIPfbDisplayingView", "changeSubscribedStatus"]
+- !private ["P8Operando19UIPfbDisplayingView", "dealDescriptionLabel"]
+- !private ["P8Operando19UIPfbDisplayingView", "layoutIfNeeded"]
+- !private ["P8Operando19UIPfbDisplayingView", "logoImageView"]
+- !private ["P8Operando19UIPfbDisplayingView", "model"]
+- ["P8Operando19UIPfbDisplayingView", "refreshWithOwnModel"]
+- !private ["P8Operando19UIPfbDisplayingView", "setNeedsLayout"]
+- !private ["P8Operando19UIPfbDisplayingView", "subscribedSwitch"]
+- !private ["P8Operando19UIPfbDisplayingView", "websiteURLLabel"]
+- ["P8Operando19UIPfbDisplayingView", ""]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "PfbDeal"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "String"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "UIPfbDisplayingView"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "Void"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "init"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "whenUserChangedSubscribedStatusFor"]
+- ["V8Operando28UIPfbDisplayingViewCallbacks", "whenUserTappedLink"]
+- ["CSo11UIResponder", "AnyObject"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "PfbDeal"]
+- !private ["CSo11UIResponder", "UIColor"]
+- !private ["CSo11UIResponder", "UIImage"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "UIPfbDetailsViewCallbacks"]
+- ["CSo11UIResponder", "UISwitch"]
+- !private ["CSo11UIResponder", "URL"]
+- ["CSo11UIResponder", "benefitOrVoucherLabel"]
+- ["CSo11UIResponder", "benefitOrVoucherStaticLabel"]
+- ["CSo11UIResponder", "callbacks"]
+- ["CSo11UIResponder", "changeSubscribedStatus"]
+- ["CSo11UIResponder", "commonInit"]
+- ["CSo11UIResponder", "dealDescriptionLabel"]
+- ["CSo11UIResponder", "didPressClose"]
+- ["CSo11UIResponder", "didTapOnWebsite"]
+- !private ["CSo11UIResponder", "image"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isOn"]
+- !private ["CSo11UIResponder", "layoutIfNeeded"]
+- ["CSo11UIResponder", "logoImageView"]
+- ["CSo11UIResponder", "model"]
+- !private ["CSo11UIResponder", "onTintColor"]
+- ["CSo11UIResponder", "refreshWithOwnModel"]
+- !private ["CSo11UIResponder", "setImageWith"]
+- !private ["CSo11UIResponder", "setNeedsLayout"]
+- ["CSo11UIResponder", "setupWith"]
+- ["CSo11UIResponder", "subscribedStaticLabel"]
+- ["CSo11UIResponder", "subscribedSwitch"]
+- ["CSo11UIResponder", "subscribedSwitchValueChange"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "websiteURLLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "UIImage"]
+- !private ["PSo30UIResponderStandardEditActions", "URL"]
+- !private ["PSo30UIResponderStandardEditActions", "benefitOrVoucherLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "benefitOrVoucherStaticLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "changeSubscribedStatus"]
+- !private ["PSo30UIResponderStandardEditActions", "commonInit"]
+- !private ["PSo30UIResponderStandardEditActions", "dealDescriptionLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "image"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isOn"]
+- !private ["PSo30UIResponderStandardEditActions", "layoutIfNeeded"]
+- !private ["PSo30UIResponderStandardEditActions", "logoImageView"]
+- !private ["PSo30UIResponderStandardEditActions", "model"]
+- !private ["PSo30UIResponderStandardEditActions", "onTintColor"]
+- ["PSo30UIResponderStandardEditActions", "refreshWithOwnModel"]
+- !private ["PSo30UIResponderStandardEditActions", "setImageWith"]
+- !private ["PSo30UIResponderStandardEditActions", "setNeedsLayout"]
+- !private ["PSo30UIResponderStandardEditActions", "subscribedSwitch"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "websiteURLLabel"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["CSo8UISwitch", "isOn"]
+- !private ["CSo8UISwitch", "onTintColor"]
+- !private ["PSo18UITraitEnvironment", "UIColor"]
+- !private ["PSo18UITraitEnvironment", "UIImage"]
+- !private ["PSo18UITraitEnvironment", "URL"]
+- !private ["PSo18UITraitEnvironment", "benefitOrVoucherLabel"]
+- !private ["PSo18UITraitEnvironment", "benefitOrVoucherStaticLabel"]
+- !private ["PSo18UITraitEnvironment", "callbacks"]
+- !private ["PSo18UITraitEnvironment", "changeSubscribedStatus"]
+- !private ["PSo18UITraitEnvironment", "commonInit"]
+- !private ["PSo18UITraitEnvironment", "dealDescriptionLabel"]
+- !private ["PSo18UITraitEnvironment", "image"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isOn"]
+- !private ["PSo18UITraitEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UITraitEnvironment", "logoImageView"]
+- !private ["PSo18UITraitEnvironment", "model"]
+- !private ["PSo18UITraitEnvironment", "onTintColor"]
+- ["PSo18UITraitEnvironment", "refreshWithOwnModel"]
+- !private ["PSo18UITraitEnvironment", "setImageWith"]
+- !private ["PSo18UITraitEnvironment", "setNeedsLayout"]
+- !private ["PSo18UITraitEnvironment", "subscribedSwitch"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "websiteURLLabel"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "AnyObject"]
+- ["CSo6UIView", "Bool"]
+- ["CSo6UIView", "PfbDeal"]
+- !private ["CSo6UIView", "UIColor"]
+- !private ["CSo6UIView", "UIImage"]
+- ["CSo6UIView", "UIImageView"]
+- ["CSo6UIView", "UILabel"]
+- ["CSo6UIView", "UIPfbDetailsViewCallbacks"]
+- ["CSo6UIView", "UISwitch"]
+- !private ["CSo6UIView", "URL"]
+- ["CSo6UIView", "benefitOrVoucherLabel"]
+- ["CSo6UIView", "benefitOrVoucherStaticLabel"]
+- ["CSo6UIView", "callbacks"]
+- ["CSo6UIView", "changeSubscribedStatus"]
+- ["CSo6UIView", "commonInit"]
+- ["CSo6UIView", "dealDescriptionLabel"]
+- ["CSo6UIView", "didPressClose"]
+- ["CSo6UIView", "didTapOnWebsite"]
+- !private ["CSo6UIView", "image"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "isOn"]
+- !private ["CSo6UIView", "layoutIfNeeded"]
+- ["CSo6UIView", "logoImageView"]
+- ["CSo6UIView", "model"]
+- !private ["CSo6UIView", "onTintColor"]
+- ["CSo6UIView", "refreshWithOwnModel"]
+- !private ["CSo6UIView", "setImageWith"]
+- !private ["CSo6UIView", "setNeedsLayout"]
+- ["CSo6UIView", "setupWith"]
+- ["CSo6UIView", "subscribedStaticLabel"]
+- ["CSo6UIView", "subscribedSwitch"]
+- ["CSo6UIView", "subscribedSwitchValueChange"]
+- !private ["CSo6UIView", "text"]
+- ["CSo6UIView", "websiteURLLabel"]
+- !private ["V10Foundation3URL", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIImage"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "URL"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "benefitOrVoucherLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "benefitOrVoucherStaticLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "callbacks"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "changeSubscribedStatus"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "commonInit"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dealDescriptionLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isOn"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutIfNeeded"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "logoImageView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "model"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "onTintColor"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "refreshWithOwnModel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setImageWith"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNeedsLayout"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "subscribedSwitch"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "websiteURLLabel"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps26_ExpressibleByColorLiteral", "operandoCyan"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps26_ExpressibleByImageLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "UIColor"]
+- !private ["Ps9_Hashable", "UIImage"]
+- !private ["Ps9_Hashable", "URL"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "benefitOrVoucherLabel"]
+- !private ["Ps9_Hashable", "benefitOrVoucherStaticLabel"]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "changeSubscribedStatus"]
+- !private ["Ps9_Hashable", "commonInit"]
+- !private ["Ps9_Hashable", "dealDescriptionLabel"]
+- !private ["Ps9_Hashable", "image"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isOn"]
+- !private ["Ps9_Hashable", "layoutIfNeeded"]
+- !private ["Ps9_Hashable", "logoImageView"]
+- !private ["Ps9_Hashable", "model"]
+- !private ["Ps9_Hashable", "onTintColor"]
+- !private ["Ps9_Hashable", "operandoCyan"]
+- ["Ps9_Hashable", "refreshWithOwnModel"]
+- !private ["Ps9_Hashable", "setImageWith"]
+- !private ["Ps9_Hashable", "setNeedsLayout"]
+- !private ["Ps9_Hashable", "subscribedSwitch"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "websiteURLLabel"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "C8Operando7PfbDeal"
+- "C8Operando19RSNibDesignableView"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "P11SwarmClient10SocketData"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo7UIColor"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- !private "CSo7UIImage"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- "C8Operando16UIPfbDetailsView"
+- "V8Operando25UIPfbDetailsViewCallbacks"
+- "P8Operando19UIPfbDisplayingView"
+- "V8Operando28UIPfbDisplayingViewCallbacks"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "CSo8UISwitch"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "V10Foundation3URL"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps26_ExpressibleByColorLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- !private "Ps26_ExpressibleByImageLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "a8638277b95fddf5eb8fe1861c708a86"

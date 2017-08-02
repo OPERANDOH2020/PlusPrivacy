@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		98584F481D3F9E43009FB89F /* AggregateUniversal */ = {
+		98584F481D3F9E43009FB89F /* AggregateUniversalSwarmClient */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */;
+			buildConfigurationList = 98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversalSwarmClient" */;
 			buildPhases = (
 				98584F4C1D3F9E4B009FB89F /* ShellScript */,
+				983D181C1F32033400721F22 /* ShellScript */,
 			);
 			dependencies = (
 			);
-			name = AggregateUniversal;
+			name = AggregateUniversalSwarmClient;
 			productName = AggregateUniversal;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		983D181E1F32154000721F22 /* FrameworkCopyPathsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 983D181D1F32154000721F22 /* FrameworkCopyPathsList.txt */; };
 		98E0DFE31DAE4D390008F45F /* SwarmClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 98E0DFE11DAE4D390008F45F /* SwarmClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98E0DFE91DAE4DA40008F45F /* Swarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0DFE51DAE4DA40008F45F /* Swarm.swift */; };
 		98E0DFEA1DAE4DA40008F45F /* SwarmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0DFE61DAE4DA40008F45F /* SwarmClient.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		983D181D1F32154000721F22 /* FrameworkCopyPathsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FrameworkCopyPathsList.txt; sourceTree = SOURCE_ROOT; };
 		98584F3D1D3F9E18009FB89F /* SwarmClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwarmClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E0DFE01DAE4D390008F45F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwarmClient/Info.plist; sourceTree = SOURCE_ROOT; };
 		98E0DFE11DAE4D390008F45F /* SwarmClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwarmClient.h; path = SwarmClient/SwarmClient.h; sourceTree = SOURCE_ROOT; };
@@ -118,6 +121,7 @@
 		98584F3F1D3F9E18009FB89F /* SwarmClient */ = {
 			isa = PBXGroup;
 			children = (
+				983D181D1F32154000721F22 /* FrameworkCopyPathsList.txt */,
 				98E0DFED1DAE4E150008F45F /* SocketIO */,
 				98E0DFE41DAE4DA40008F45F /* SwarmClientCore */,
 				98E0DFE01DAE4D390008F45F /* Info.plist */,
@@ -194,6 +198,7 @@
 				98584F391D3F9E18009FB89F /* Frameworks */,
 				98584F3A1D3F9E18009FB89F /* Headers */,
 				98584F3B1D3F9E18009FB89F /* Resources */,
+				98C303661F31F4CB008A0A02 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -235,7 +240,7 @@
 			projectRoot = "";
 			targets = (
 				98584F3C1D3F9E18009FB89F /* SwarmClient */,
-				98584F481D3F9E43009FB89F /* AggregateUniversal */,
+				98584F481D3F9E43009FB89F /* AggregateUniversalSwarmClient */,
 			);
 		};
 /* End PBXProject section */
@@ -245,12 +250,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983D181E1F32154000721F22 /* FrameworkCopyPathsList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		983D181C1F32033400721F22 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"${HOME}/Desktop/${PROJECT_NAME}.framework\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
+		};
 		98584F4C1D3F9E4B009FB89F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,6 +283,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\nSWIFTMODULEDIR=\"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\"\nif [ -d $SWIFTMODULEDIR ]; then\ncp -r $SWIFTMODULEDIR \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\nfi\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+		98C303661F31F4CB008A0A02 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FrameworkCopyPathsList.txt",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pathToCopy=\"$BUILT_PRODUCTS_DIR\"\npathToCopy+=\"/$EXECUTABLE_FOLDER_PATH\"\necho \"$pathToCopy\"\n\n\ncd \"$SRCROOT\"\n\necho \"Current directory is $PWD\"\n\ninputPathList=\"$SCRIPT_INPUT_FILE_0\"\nwhile read -r line\ndo\n\nif [ -d \"$line\" ]\nthen\ncp -r \"$pathToCopy\" \"$line\"\necho \"Did copy to $line\"\nelse\necho \"Could not copy, ($line) may not be a valid directory!\"\nfi\ndone < \"$inputPathList\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -423,7 +457,6 @@
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -445,7 +478,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -453,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -460,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -484,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversal" */ = {
+		98584F491D3F9E43009FB89F /* Build configuration list for PBXAggregateTarget "AggregateUniversalSwarmClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98584F4A1D3F9E43009FB89F /* Debug */,

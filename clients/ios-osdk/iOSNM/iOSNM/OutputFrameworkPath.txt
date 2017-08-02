@@ -1,0 +1,1 @@
+/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios-osdk/iOSNM/iOSNM/build/Release-iphonesimulator/iOSNM.framework

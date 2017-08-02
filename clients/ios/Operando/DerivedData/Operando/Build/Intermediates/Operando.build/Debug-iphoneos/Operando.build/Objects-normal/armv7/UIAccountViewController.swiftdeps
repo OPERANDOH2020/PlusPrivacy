@@ -1,0 +1,793 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "kChangePasswordViewHeight"
+- "PasswordChangeCallback"
+- "UIAccountViewControllerModel"
+- "UIAccountViewController"
+provides-nominal:
+- "V8Operando28UIAccountViewControllerModel"
+- "C8Operando23UIAccountViewController"
+provides-member:
+- ["V8Operando28UIAccountViewControllerModel", ""]
+- ["C8Operando23UIAccountViewController", ""]
+provides-dynamic-lookup:
+- "changePasswordButton"
+- "changePasswordView"
+- "changePasswordViewHeightConstraint"
+- "didPressChangePasswordButton"
+- "didPressSignOut"
+- "signOutButton"
+- "touchesEnded"
+- "viewDidLoad"
+- "viewWillAppear"
+depends-top-level:
+- "AnyObject"
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CGFloat"
+- "NSLayoutConstraint"
+- !private "OPErrorContainer"
+- "PasswordChangeCallback"
+- "Set"
+- "String"
+- "UIAccountViewController"
+- "UIAccountViewControllerModel"
+- !private "UIApplication"
+- "UIButton"
+- "UIChangePasswordView"
+- !private "UIChangePasswordViewCallbacks"
+- "UIEvent"
+- "UITouch"
+- !private "UIView"
+- "UIViewController"
+- "UserInfoRepository"
+- "Void"
+- "VoidBlock"
+- "kChangePasswordViewHeight"
+depends-member:
+- !private ["Ps9AnyObject", "OPErrorContainer"]
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "UIChangePasswordViewCallbacks"]
+- !private ["Ps9AnyObject", "UIView"]
+- !private ["Ps9AnyObject", "alpha"]
+- !private ["Ps9AnyObject", "animate"]
+- !private ["Ps9AnyObject", "animateLayoutWith"]
+- !private ["Ps9AnyObject", "callbacksFor"]
+- !private ["Ps9AnyObject", "changePasswordButton"]
+- !private ["Ps9AnyObject", "changePasswordView"]
+- !private ["Ps9AnyObject", "changePasswordViewHeightConstraint"]
+- !private ["Ps9AnyObject", "clearEverything"]
+- !private ["Ps9AnyObject", "constant"]
+- !private ["Ps9AnyObject", "displayError"]
+- !private ["Ps9AnyObject", "displayPasswordViewHideButton"]
+- !private ["Ps9AnyObject", "endEditing"]
+- !private ["Ps9AnyObject", "hidePasswordViewShowButton"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps9AnyObject", "kChangePasswordViewHeight"]
+- !private ["Ps9AnyObject", "layoutIfNeeded"]
+- !private ["Ps9AnyObject", "model"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "touchesEnded"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- !private ["Ps9AnyObject", "viewWillAppear"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "animate"]
+- !private ["PSo15CALayerDelegate", "clearEverything"]
+- !private ["PSo15CALayerDelegate", "endEditing"]
+- !private ["PSo15CALayerDelegate", "layoutIfNeeded"]
+- !private ["PSo15CALayerDelegate", "setupWith"]
+- !private ["Ps7CVarArg", "OPErrorContainer"]
+- !private ["Ps7CVarArg", "UIApplication"]
+- !private ["Ps7CVarArg", "UIChangePasswordViewCallbacks"]
+- !private ["Ps7CVarArg", "UIView"]
+- !private ["Ps7CVarArg", "alpha"]
+- !private ["Ps7CVarArg", "animate"]
+- !private ["Ps7CVarArg", "animateLayoutWith"]
+- !private ["Ps7CVarArg", "callbacksFor"]
+- !private ["Ps7CVarArg", "changePasswordButton"]
+- !private ["Ps7CVarArg", "changePasswordView"]
+- !private ["Ps7CVarArg", "changePasswordViewHeightConstraint"]
+- !private ["Ps7CVarArg", "clearEverything"]
+- !private ["Ps7CVarArg", "constant"]
+- !private ["Ps7CVarArg", "displayPasswordViewHideButton"]
+- !private ["Ps7CVarArg", "endEditing"]
+- !private ["Ps7CVarArg", "hidePasswordViewShowButton"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps7CVarArg", "kChangePasswordViewHeight"]
+- !private ["Ps7CVarArg", "layoutIfNeeded"]
+- !private ["Ps7CVarArg", "model"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "touchesEnded"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- !private ["Ps7CVarArg", "viewWillAppear"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "OPErrorContainer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "UIChangePasswordViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "UIView"]
+- !private ["Ps28CustomDebugStringConvertible", "alpha"]
+- !private ["Ps28CustomDebugStringConvertible", "animate"]
+- !private ["Ps28CustomDebugStringConvertible", "animateLayoutWith"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksFor"]
+- !private ["Ps28CustomDebugStringConvertible", "changePasswordButton"]
+- !private ["Ps28CustomDebugStringConvertible", "changePasswordView"]
+- !private ["Ps28CustomDebugStringConvertible", "changePasswordViewHeightConstraint"]
+- !private ["Ps28CustomDebugStringConvertible", "clearEverything"]
+- !private ["Ps28CustomDebugStringConvertible", "constant"]
+- !private ["Ps28CustomDebugStringConvertible", "displayPasswordViewHideButton"]
+- !private ["Ps28CustomDebugStringConvertible", "endEditing"]
+- !private ["Ps28CustomDebugStringConvertible", "hidePasswordViewShowButton"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps28CustomDebugStringConvertible", "kChangePasswordViewHeight"]
+- !private ["Ps28CustomDebugStringConvertible", "layoutIfNeeded"]
+- !private ["Ps28CustomDebugStringConvertible", "model"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "touchesEnded"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- !private ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "OPErrorContainer"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
+- !private ["Ps23CustomStringConvertible", "UIChangePasswordViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "UIView"]
+- !private ["Ps23CustomStringConvertible", "alpha"]
+- !private ["Ps23CustomStringConvertible", "animate"]
+- !private ["Ps23CustomStringConvertible", "animateLayoutWith"]
+- !private ["Ps23CustomStringConvertible", "callbacksFor"]
+- !private ["Ps23CustomStringConvertible", "changePasswordButton"]
+- !private ["Ps23CustomStringConvertible", "changePasswordView"]
+- !private ["Ps23CustomStringConvertible", "changePasswordViewHeightConstraint"]
+- !private ["Ps23CustomStringConvertible", "clearEverything"]
+- !private ["Ps23CustomStringConvertible", "constant"]
+- !private ["Ps23CustomStringConvertible", "displayPasswordViewHideButton"]
+- !private ["Ps23CustomStringConvertible", "endEditing"]
+- !private ["Ps23CustomStringConvertible", "hidePasswordViewShowButton"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps23CustomStringConvertible", "kChangePasswordViewHeight"]
+- !private ["Ps23CustomStringConvertible", "layoutIfNeeded"]
+- !private ["Ps23CustomStringConvertible", "model"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "touchesEnded"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- !private ["Ps23CustomStringConvertible", "viewWillAppear"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "OPErrorContainer"]
+- !private ["Ps9Equatable", "UIApplication"]
+- !private ["Ps9Equatable", "UIChangePasswordViewCallbacks"]
+- !private ["Ps9Equatable", "UIView"]
+- !private ["Ps9Equatable", "alpha"]
+- !private ["Ps9Equatable", "animate"]
+- !private ["Ps9Equatable", "animateLayoutWith"]
+- !private ["Ps9Equatable", "callbacksFor"]
+- !private ["Ps9Equatable", "changePasswordButton"]
+- !private ["Ps9Equatable", "changePasswordView"]
+- !private ["Ps9Equatable", "changePasswordViewHeightConstraint"]
+- !private ["Ps9Equatable", "clearEverything"]
+- !private ["Ps9Equatable", "constant"]
+- !private ["Ps9Equatable", "curveEaseInOut"]
+- !private ["Ps9Equatable", "displayPasswordViewHideButton"]
+- !private ["Ps9Equatable", "endEditing"]
+- !private ["Ps9Equatable", "hidePasswordViewShowButton"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps9Equatable", "kChangePasswordViewHeight"]
+- !private ["Ps9Equatable", "layoutIfNeeded"]
+- !private ["Ps9Equatable", "model"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "touchesEnded"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- !private ["Ps9Equatable", "viewWillAppear"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "curveEaseInOut"]
+- !private ["Ps8Hashable", "OPErrorContainer"]
+- !private ["Ps8Hashable", "UIApplication"]
+- !private ["Ps8Hashable", "UIChangePasswordViewCallbacks"]
+- !private ["Ps8Hashable", "UIView"]
+- !private ["Ps8Hashable", "alpha"]
+- !private ["Ps8Hashable", "animate"]
+- !private ["Ps8Hashable", "animateLayoutWith"]
+- !private ["Ps8Hashable", "callbacksFor"]
+- !private ["Ps8Hashable", "changePasswordButton"]
+- !private ["Ps8Hashable", "changePasswordView"]
+- !private ["Ps8Hashable", "changePasswordViewHeightConstraint"]
+- !private ["Ps8Hashable", "clearEverything"]
+- !private ["Ps8Hashable", "constant"]
+- !private ["Ps8Hashable", "displayPasswordViewHideButton"]
+- !private ["Ps8Hashable", "endEditing"]
+- !private ["Ps8Hashable", "hidePasswordViewShowButton"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps8Hashable", "kChangePasswordViewHeight"]
+- !private ["Ps8Hashable", "layoutIfNeeded"]
+- !private ["Ps8Hashable", "model"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "touchesEnded"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- !private ["Ps8Hashable", "viewWillAppear"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "OPErrorContainer"]
+- !private ["PSo8NSCoding", "UIApplication"]
+- !private ["PSo8NSCoding", "UIChangePasswordViewCallbacks"]
+- !private ["PSo8NSCoding", "UIView"]
+- !private ["PSo8NSCoding", "alpha"]
+- !private ["PSo8NSCoding", "animate"]
+- !private ["PSo8NSCoding", "animateLayoutWith"]
+- !private ["PSo8NSCoding", "callbacksFor"]
+- !private ["PSo8NSCoding", "changePasswordButton"]
+- !private ["PSo8NSCoding", "changePasswordView"]
+- !private ["PSo8NSCoding", "changePasswordViewHeightConstraint"]
+- !private ["PSo8NSCoding", "clearEverything"]
+- !private ["PSo8NSCoding", "displayPasswordViewHideButton"]
+- !private ["PSo8NSCoding", "endEditing"]
+- !private ["PSo8NSCoding", "hidePasswordViewShowButton"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "kChangePasswordViewHeight"]
+- !private ["PSo8NSCoding", "layoutIfNeeded"]
+- !private ["PSo8NSCoding", "model"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "touchesEnded"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- !private ["PSo8NSCoding", "viewWillAppear"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "OPErrorContainer"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- !private ["PSo26NSExtensionRequestHandling", "UIChangePasswordViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "UIView"]
+- !private ["PSo26NSExtensionRequestHandling", "animateLayoutWith"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksFor"]
+- !private ["PSo26NSExtensionRequestHandling", "changePasswordButton"]
+- !private ["PSo26NSExtensionRequestHandling", "changePasswordView"]
+- !private ["PSo26NSExtensionRequestHandling", "changePasswordViewHeightConstraint"]
+- !private ["PSo26NSExtensionRequestHandling", "displayPasswordViewHideButton"]
+- !private ["PSo26NSExtensionRequestHandling", "hidePasswordViewShowButton"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "kChangePasswordViewHeight"]
+- !private ["PSo26NSExtensionRequestHandling", "model"]
+- !private ["PSo26NSExtensionRequestHandling", "touchesEnded"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- !private ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["CSo18NSLayoutConstraint", "constant"]
+- ["CSo8NSObject", "AnyObject"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "NSLayoutConstraint"]
+- !private ["CSo8NSObject", "OPErrorContainer"]
+- ["CSo8NSObject", "Set"]
+- ["CSo8NSObject", "UIAccountViewControllerModel"]
+- !private ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UIChangePasswordView"]
+- !private ["CSo8NSObject", "UIChangePasswordViewCallbacks"]
+- ["CSo8NSObject", "UIEvent"]
+- ["CSo8NSObject", "UITouch"]
+- !private ["CSo8NSObject", "UIView"]
+- !private ["CSo8NSObject", "VoidBlock"]
+- !private ["CSo8NSObject", "alpha"]
+- !private ["CSo8NSObject", "animate"]
+- ["CSo8NSObject", "animateLayoutWith"]
+- ["CSo8NSObject", "callbacksFor"]
+- ["CSo8NSObject", "changePasswordButton"]
+- ["CSo8NSObject", "changePasswordView"]
+- ["CSo8NSObject", "changePasswordViewHeightConstraint"]
+- !private ["CSo8NSObject", "clearEverything"]
+- !private ["CSo8NSObject", "constant"]
+- ["CSo8NSObject", "didPressChangePasswordButton"]
+- ["CSo8NSObject", "didPressSignOut"]
+- ["CSo8NSObject", "displayPasswordViewHideButton"]
+- !private ["CSo8NSObject", "endEditing"]
+- ["CSo8NSObject", "hidePasswordViewShowButton"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isNetworkActivityIndicatorVisible"]
+- !private ["CSo8NSObject", "kChangePasswordViewHeight"]
+- !private ["CSo8NSObject", "layoutIfNeeded"]
+- ["CSo8NSObject", "model"]
+- ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "shared"]
+- ["CSo8NSObject", "signOutButton"]
+- ["CSo8NSObject", "touchesEnded"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "viewWillAppear"]
+- !private ["PSo16NSObjectProtocol", "OPErrorContainer"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "UIChangePasswordViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "UIView"]
+- !private ["PSo16NSObjectProtocol", "alpha"]
+- !private ["PSo16NSObjectProtocol", "animate"]
+- !private ["PSo16NSObjectProtocol", "animateLayoutWith"]
+- !private ["PSo16NSObjectProtocol", "callbacksFor"]
+- !private ["PSo16NSObjectProtocol", "changePasswordButton"]
+- !private ["PSo16NSObjectProtocol", "changePasswordView"]
+- !private ["PSo16NSObjectProtocol", "changePasswordViewHeightConstraint"]
+- !private ["PSo16NSObjectProtocol", "clearEverything"]
+- !private ["PSo16NSObjectProtocol", "constant"]
+- !private ["PSo16NSObjectProtocol", "displayPasswordViewHideButton"]
+- !private ["PSo16NSObjectProtocol", "endEditing"]
+- !private ["PSo16NSObjectProtocol", "hidePasswordViewShowButton"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isNetworkActivityIndicatorVisible"]
+- !private ["PSo16NSObjectProtocol", "kChangePasswordViewHeight"]
+- !private ["PSo16NSObjectProtocol", "layoutIfNeeded"]
+- !private ["PSo16NSObjectProtocol", "model"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "touchesEnded"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "viewWillAppear"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["C8Operando16OPErrorContainer", "displayError"]
+- !private ["Ps9OptionSet", "curveEaseInOut"]
+- !private ["C8Operando19RSNibDesignableView", "clearEverything"]
+- !private ["C8Operando19RSNibDesignableView", "setupWith"]
+- !private ["Ps16RawRepresentable", "curveEaseInOut"]
+- !private ["Ps10SetAlgebra", "curveEaseInOut"]
+- !private ["PSo29UIAccessibilityIdentification", "alpha"]
+- !private ["PSo29UIAccessibilityIdentification", "animate"]
+- !private ["PSo29UIAccessibilityIdentification", "clearEverything"]
+- !private ["PSo29UIAccessibilityIdentification", "endEditing"]
+- !private ["PSo29UIAccessibilityIdentification", "layoutIfNeeded"]
+- !private ["PSo29UIAccessibilityIdentification", "setupWith"]
+- ["C8Operando23UIAccountViewController", "AnyObject"]
+- ["C8Operando23UIAccountViewController", "Bool"]
+- ["C8Operando23UIAccountViewController", "NSLayoutConstraint"]
+- !private ["C8Operando23UIAccountViewController", "OPErrorContainer"]
+- ["C8Operando23UIAccountViewController", "Set"]
+- ["C8Operando23UIAccountViewController", "UIAccountViewControllerModel"]
+- !private ["C8Operando23UIAccountViewController", "UIApplication"]
+- ["C8Operando23UIAccountViewController", "UIButton"]
+- ["C8Operando23UIAccountViewController", "UIChangePasswordView"]
+- !private ["C8Operando23UIAccountViewController", "UIChangePasswordViewCallbacks"]
+- ["C8Operando23UIAccountViewController", "UIEvent"]
+- ["C8Operando23UIAccountViewController", "UITouch"]
+- !private ["C8Operando23UIAccountViewController", "UIView"]
+- !private ["C8Operando23UIAccountViewController", "VoidBlock"]
+- !private ["C8Operando23UIAccountViewController", "animateLayoutWith"]
+- !private ["C8Operando23UIAccountViewController", "callbacksFor"]
+- ["C8Operando23UIAccountViewController", "changePasswordButton"]
+- ["C8Operando23UIAccountViewController", "changePasswordView"]
+- ["C8Operando23UIAccountViewController", "changePasswordViewHeightConstraint"]
+- ["C8Operando23UIAccountViewController", "deinit"]
+- ["C8Operando23UIAccountViewController", "didPressChangePasswordButton"]
+- ["C8Operando23UIAccountViewController", "didPressSignOut"]
+- !private ["C8Operando23UIAccountViewController", "displayPasswordViewHideButton"]
+- !private ["C8Operando23UIAccountViewController", "hidePasswordViewShowButton"]
+- ["C8Operando23UIAccountViewController", "init"]
+- !private ["C8Operando23UIAccountViewController", "kChangePasswordViewHeight"]
+- !private ["C8Operando23UIAccountViewController", "model"]
+- ["C8Operando23UIAccountViewController", "setupWith"]
+- ["C8Operando23UIAccountViewController", "signOutButton"]
+- ["C8Operando23UIAccountViewController", "touchesEnded"]
+- !private ["C8Operando23UIAccountViewController", "view"]
+- ["C8Operando23UIAccountViewController", "viewDidLoad"]
+- ["C8Operando23UIAccountViewController", "viewWillAppear"]
+- ["V8Operando28UIAccountViewControllerModel", "PasswordChangeCallback"]
+- ["V8Operando28UIAccountViewControllerModel", "UserInfoRepository"]
+- ["V8Operando28UIAccountViewControllerModel", "VoidBlock"]
+- ["V8Operando28UIAccountViewControllerModel", "init"]
+- ["V8Operando28UIAccountViewControllerModel", "repository"]
+- ["V8Operando28UIAccountViewControllerModel", "whenUserChangesPassword"]
+- ["V8Operando28UIAccountViewControllerModel", "whenUserChoosesToLogout"]
+- !private ["PSo12UIAppearance", "alpha"]
+- !private ["PSo12UIAppearance", "animate"]
+- !private ["PSo12UIAppearance", "clearEverything"]
+- !private ["PSo12UIAppearance", "endEditing"]
+- !private ["PSo12UIAppearance", "layoutIfNeeded"]
+- !private ["PSo12UIAppearance", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "OPErrorContainer"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- !private ["PSo21UIAppearanceContainer", "UIChangePasswordViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "UIView"]
+- !private ["PSo21UIAppearanceContainer", "alpha"]
+- !private ["PSo21UIAppearanceContainer", "animate"]
+- !private ["PSo21UIAppearanceContainer", "animateLayoutWith"]
+- !private ["PSo21UIAppearanceContainer", "callbacksFor"]
+- !private ["PSo21UIAppearanceContainer", "changePasswordButton"]
+- !private ["PSo21UIAppearanceContainer", "changePasswordView"]
+- !private ["PSo21UIAppearanceContainer", "changePasswordViewHeightConstraint"]
+- !private ["PSo21UIAppearanceContainer", "clearEverything"]
+- !private ["PSo21UIAppearanceContainer", "displayPasswordViewHideButton"]
+- !private ["PSo21UIAppearanceContainer", "endEditing"]
+- !private ["PSo21UIAppearanceContainer", "hidePasswordViewShowButton"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "kChangePasswordViewHeight"]
+- !private ["PSo21UIAppearanceContainer", "layoutIfNeeded"]
+- !private ["PSo21UIAppearanceContainer", "model"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "touchesEnded"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- !private ["PSo21UIAppearanceContainer", "viewWillAppear"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo13UIApplication", "isNetworkActivityIndicatorVisible"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["CSo8UIButton", "alpha"]
+- !private ["C8Operando20UIChangePasswordView", "clearEverything"]
+- !private ["C8Operando20UIChangePasswordView", "setupWith"]
+- !private ["V8Operando29UIChangePasswordViewCallbacks", "init"]
+- !private ["PSo18UIContentContainer", "OPErrorContainer"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
+- !private ["PSo18UIContentContainer", "UIChangePasswordViewCallbacks"]
+- !private ["PSo18UIContentContainer", "UIView"]
+- !private ["PSo18UIContentContainer", "animateLayoutWith"]
+- !private ["PSo18UIContentContainer", "callbacksFor"]
+- !private ["PSo18UIContentContainer", "changePasswordButton"]
+- !private ["PSo18UIContentContainer", "changePasswordView"]
+- !private ["PSo18UIContentContainer", "changePasswordViewHeightConstraint"]
+- !private ["PSo18UIContentContainer", "displayPasswordViewHideButton"]
+- !private ["PSo18UIContentContainer", "hidePasswordViewShowButton"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "kChangePasswordViewHeight"]
+- !private ["PSo18UIContentContainer", "model"]
+- !private ["PSo18UIContentContainer", "touchesEnded"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- !private ["PSo18UIContentContainer", "viewWillAppear"]
+- ["PSo18UIContentContainer", ""]
+- !private ["CSo9UIControl", "alpha"]
+- !private ["PSo17UICoordinateSpace", "alpha"]
+- !private ["PSo17UICoordinateSpace", "animate"]
+- !private ["PSo17UICoordinateSpace", "clearEverything"]
+- !private ["PSo17UICoordinateSpace", "endEditing"]
+- !private ["PSo17UICoordinateSpace", "layoutIfNeeded"]
+- !private ["PSo17UICoordinateSpace", "setupWith"]
+- !private ["PSo13UIDynamicItem", "alpha"]
+- !private ["PSo13UIDynamicItem", "animate"]
+- !private ["PSo13UIDynamicItem", "clearEverything"]
+- !private ["PSo13UIDynamicItem", "endEditing"]
+- !private ["PSo13UIDynamicItem", "layoutIfNeeded"]
+- !private ["PSo13UIDynamicItem", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "OPErrorContainer"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- !private ["PSo18UIFocusEnvironment", "UIChangePasswordViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "animate"]
+- !private ["PSo18UIFocusEnvironment", "animateLayoutWith"]
+- !private ["PSo18UIFocusEnvironment", "callbacksFor"]
+- !private ["PSo18UIFocusEnvironment", "changePasswordButton"]
+- !private ["PSo18UIFocusEnvironment", "changePasswordView"]
+- !private ["PSo18UIFocusEnvironment", "changePasswordViewHeightConstraint"]
+- !private ["PSo18UIFocusEnvironment", "clearEverything"]
+- !private ["PSo18UIFocusEnvironment", "displayPasswordViewHideButton"]
+- !private ["PSo18UIFocusEnvironment", "endEditing"]
+- !private ["PSo18UIFocusEnvironment", "hidePasswordViewShowButton"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "kChangePasswordViewHeight"]
+- !private ["PSo18UIFocusEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UIFocusEnvironment", "model"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "touchesEnded"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- !private ["PSo18UIFocusEnvironment", "viewWillAppear"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "animate"]
+- !private ["PSo11UIFocusItem", "clearEverything"]
+- !private ["PSo11UIFocusItem", "endEditing"]
+- !private ["PSo11UIFocusItem", "layoutIfNeeded"]
+- !private ["PSo11UIFocusItem", "setupWith"]
+- ["CSo11UIResponder", "AnyObject"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "NSLayoutConstraint"]
+- !private ["CSo11UIResponder", "OPErrorContainer"]
+- ["CSo11UIResponder", "Set"]
+- ["CSo11UIResponder", "UIAccountViewControllerModel"]
+- !private ["CSo11UIResponder", "UIApplication"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UIChangePasswordView"]
+- !private ["CSo11UIResponder", "UIChangePasswordViewCallbacks"]
+- ["CSo11UIResponder", "UIEvent"]
+- ["CSo11UIResponder", "UITouch"]
+- !private ["CSo11UIResponder", "UIView"]
+- !private ["CSo11UIResponder", "VoidBlock"]
+- !private ["CSo11UIResponder", "alpha"]
+- !private ["CSo11UIResponder", "animate"]
+- ["CSo11UIResponder", "animateLayoutWith"]
+- ["CSo11UIResponder", "callbacksFor"]
+- ["CSo11UIResponder", "changePasswordButton"]
+- ["CSo11UIResponder", "changePasswordView"]
+- ["CSo11UIResponder", "changePasswordViewHeightConstraint"]
+- !private ["CSo11UIResponder", "clearEverything"]
+- ["CSo11UIResponder", "didPressChangePasswordButton"]
+- ["CSo11UIResponder", "didPressSignOut"]
+- ["CSo11UIResponder", "displayPasswordViewHideButton"]
+- !private ["CSo11UIResponder", "endEditing"]
+- ["CSo11UIResponder", "hidePasswordViewShowButton"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isNetworkActivityIndicatorVisible"]
+- !private ["CSo11UIResponder", "kChangePasswordViewHeight"]
+- !private ["CSo11UIResponder", "layoutIfNeeded"]
+- ["CSo11UIResponder", "model"]
+- ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "shared"]
+- ["CSo11UIResponder", "signOutButton"]
+- ["CSo11UIResponder", "touchesEnded"]
+- !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "viewWillAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "OPErrorContainer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "UIChangePasswordViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "animate"]
+- !private ["PSo30UIResponderStandardEditActions", "animateLayoutWith"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksFor"]
+- !private ["PSo30UIResponderStandardEditActions", "changePasswordButton"]
+- !private ["PSo30UIResponderStandardEditActions", "changePasswordView"]
+- !private ["PSo30UIResponderStandardEditActions", "changePasswordViewHeightConstraint"]
+- !private ["PSo30UIResponderStandardEditActions", "clearEverything"]
+- !private ["PSo30UIResponderStandardEditActions", "displayPasswordViewHideButton"]
+- !private ["PSo30UIResponderStandardEditActions", "endEditing"]
+- !private ["PSo30UIResponderStandardEditActions", "hidePasswordViewShowButton"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isNetworkActivityIndicatorVisible"]
+- !private ["PSo30UIResponderStandardEditActions", "kChangePasswordViewHeight"]
+- !private ["PSo30UIResponderStandardEditActions", "layoutIfNeeded"]
+- !private ["PSo30UIResponderStandardEditActions", "model"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "touchesEnded"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "OPErrorContainer"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
+- !private ["PSo16UIStateRestoring", "UIChangePasswordViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "UIView"]
+- !private ["PSo16UIStateRestoring", "animateLayoutWith"]
+- !private ["PSo16UIStateRestoring", "callbacksFor"]
+- !private ["PSo16UIStateRestoring", "changePasswordButton"]
+- !private ["PSo16UIStateRestoring", "changePasswordView"]
+- !private ["PSo16UIStateRestoring", "changePasswordViewHeightConstraint"]
+- !private ["PSo16UIStateRestoring", "displayPasswordViewHideButton"]
+- !private ["PSo16UIStateRestoring", "hidePasswordViewShowButton"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "kChangePasswordViewHeight"]
+- !private ["PSo16UIStateRestoring", "model"]
+- !private ["PSo16UIStateRestoring", "touchesEnded"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- !private ["PSo16UIStateRestoring", "viewWillAppear"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo19UITextFieldDelegate", "clearEverything"]
+- !private ["PSo19UITextFieldDelegate", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "OPErrorContainer"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
+- !private ["PSo18UITraitEnvironment", "UIChangePasswordViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "UIView"]
+- !private ["PSo18UITraitEnvironment", "alpha"]
+- !private ["PSo18UITraitEnvironment", "animate"]
+- !private ["PSo18UITraitEnvironment", "animateLayoutWith"]
+- !private ["PSo18UITraitEnvironment", "callbacksFor"]
+- !private ["PSo18UITraitEnvironment", "changePasswordButton"]
+- !private ["PSo18UITraitEnvironment", "changePasswordView"]
+- !private ["PSo18UITraitEnvironment", "changePasswordViewHeightConstraint"]
+- !private ["PSo18UITraitEnvironment", "clearEverything"]
+- !private ["PSo18UITraitEnvironment", "displayPasswordViewHideButton"]
+- !private ["PSo18UITraitEnvironment", "endEditing"]
+- !private ["PSo18UITraitEnvironment", "hidePasswordViewShowButton"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "kChangePasswordViewHeight"]
+- !private ["PSo18UITraitEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UITraitEnvironment", "model"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "touchesEnded"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- !private ["PSo18UITraitEnvironment", "viewWillAppear"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "alpha"]
+- !private ["CSo6UIView", "animate"]
+- !private ["CSo6UIView", "clearEverything"]
+- !private ["CSo6UIView", "endEditing"]
+- !private ["CSo6UIView", "layoutIfNeeded"]
+- !private ["CSo6UIView", "setupWith"]
+- !private ["VSC22UIViewAnimationOptions", "curveEaseInOut"]
+- ["CSo16UIViewController", "AnyObject"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "NSLayoutConstraint"]
+- !private ["CSo16UIViewController", "OPErrorContainer"]
+- ["CSo16UIViewController", "Set"]
+- ["CSo16UIViewController", "UIAccountViewControllerModel"]
+- !private ["CSo16UIViewController", "UIApplication"]
+- ["CSo16UIViewController", "UIButton"]
+- ["CSo16UIViewController", "UIChangePasswordView"]
+- !private ["CSo16UIViewController", "UIChangePasswordViewCallbacks"]
+- ["CSo16UIViewController", "UIEvent"]
+- ["CSo16UIViewController", "UITouch"]
+- !private ["CSo16UIViewController", "UIView"]
+- !private ["CSo16UIViewController", "VoidBlock"]
+- ["CSo16UIViewController", "animateLayoutWith"]
+- ["CSo16UIViewController", "callbacksFor"]
+- ["CSo16UIViewController", "changePasswordButton"]
+- ["CSo16UIViewController", "changePasswordView"]
+- ["CSo16UIViewController", "changePasswordViewHeightConstraint"]
+- ["CSo16UIViewController", "didPressChangePasswordButton"]
+- ["CSo16UIViewController", "didPressSignOut"]
+- ["CSo16UIViewController", "displayPasswordViewHideButton"]
+- ["CSo16UIViewController", "hidePasswordViewShowButton"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "kChangePasswordViewHeight"]
+- ["CSo16UIViewController", "model"]
+- ["CSo16UIViewController", "setupWith"]
+- ["CSo16UIViewController", "signOutButton"]
+- ["CSo16UIViewController", "touchesEnded"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "viewWillAppear"]
+- ["CSo16UIViewController", ""]
+- !private ["P8Operando18UserInfoRepository", "getCurrentUserInfo"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "clearEverything"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "endEditing"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutIfNeeded"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupWith"]
+- !private ["Ps9_Hashable", "OPErrorContainer"]
+- !private ["Ps9_Hashable", "UIApplication"]
+- !private ["Ps9_Hashable", "UIChangePasswordViewCallbacks"]
+- !private ["Ps9_Hashable", "UIView"]
+- !private ["Ps9_Hashable", "alpha"]
+- !private ["Ps9_Hashable", "animate"]
+- !private ["Ps9_Hashable", "animateLayoutWith"]
+- !private ["Ps9_Hashable", "callbacksFor"]
+- !private ["Ps9_Hashable", "changePasswordButton"]
+- !private ["Ps9_Hashable", "changePasswordView"]
+- !private ["Ps9_Hashable", "changePasswordViewHeightConstraint"]
+- !private ["Ps9_Hashable", "clearEverything"]
+- !private ["Ps9_Hashable", "constant"]
+- !private ["Ps9_Hashable", "displayPasswordViewHideButton"]
+- !private ["Ps9_Hashable", "endEditing"]
+- !private ["Ps9_Hashable", "hidePasswordViewShowButton"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isNetworkActivityIndicatorVisible"]
+- !private ["Ps9_Hashable", "kChangePasswordViewHeight"]
+- !private ["Ps9_Hashable", "layoutIfNeeded"]
+- !private ["Ps9_Hashable", "model"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "touchesEnded"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- !private ["Ps9_Hashable", "viewWillAppear"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- !private "CSo18NSLayoutConstraint"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "C8Operando16OPErrorContainer"
+- !private "Ps9OptionSet"
+- !private "C8Operando19RSNibDesignableView"
+- !private "Ps16RawRepresentable"
+- !private "Ps10SetAlgebra"
+- !private "PSo29UIAccessibilityIdentification"
+- "C8Operando23UIAccountViewController"
+- "V8Operando28UIAccountViewControllerModel"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo13UIApplication"
+- !private "CSo8UIButton"
+- !private "C8Operando20UIChangePasswordView"
+- !private "V8Operando29UIChangePasswordViewCallbacks"
+- "PSo18UIContentContainer"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- !private "PSo19UITextFieldDelegate"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "VSC22UIViewAnimationOptions"
+- "CSo16UIViewController"
+- !private "P8Operando18UserInfoRepository"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "382adb2e3e12c7a474fade97a9cac389"

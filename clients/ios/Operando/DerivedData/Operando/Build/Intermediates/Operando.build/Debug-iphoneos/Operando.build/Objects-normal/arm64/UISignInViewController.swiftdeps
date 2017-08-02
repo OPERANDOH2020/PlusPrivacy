@@ -1,0 +1,509 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LoginCallback"
+- "UISignInViewControllerCallbacks"
+- "UISignInViewController"
+provides-nominal:
+- "V8Operando31UISignInViewControllerCallbacks"
+- "C8Operando22UISignInViewController"
+provides-member:
+- ["V8Operando31UISignInViewControllerCallbacks", ""]
+- ["C8Operando22UISignInViewController", ""]
+provides-dynamic-lookup:
+- "didPressRegisterButton"
+- "loginView"
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "Bundle"
+- "LoginCallback"
+- "LoginInfo"
+- !private "OPUtils"
+- !private "OPViewUtils"
+- "String"
+- "UIButton"
+- "UILoginView"
+- !private "UILoginViewCallbacks"
+- "UISignInViewController"
+- "UISignInViewControllerCallbacks"
+- "UIViewController"
+- "Void"
+- "VoidBlock"
+- !private "kEmailIsNotValidLocalizableKey"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- !private ["Ps9AnyObject", "OPUtils"]
+- !private ["Ps9AnyObject", "OPViewUtils"]
+- !private ["Ps9AnyObject", "UILoginViewCallbacks"]
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "callbacksForLoginView"]
+- !private ["Ps9AnyObject", "displayForgotEmailPassword"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isValidEmail"]
+- !private ["Ps9AnyObject", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps9AnyObject", "localizedStringFor"]
+- !private ["Ps9AnyObject", "logic"]
+- !private ["Ps9AnyObject", "loginView"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "showOkAlertWithTitle"]
+- !private ["Ps9AnyObject", "view"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["CSo6Bundle", "localizedStringFor"]
+- !private ["PSo15CALayerDelegate", "logic"]
+- !private ["Ps7CVarArg", "Bundle"]
+- !private ["Ps7CVarArg", "OPUtils"]
+- !private ["Ps7CVarArg", "OPViewUtils"]
+- !private ["Ps7CVarArg", "UILoginViewCallbacks"]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "callbacksForLoginView"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isValidEmail"]
+- !private ["Ps7CVarArg", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps7CVarArg", "localizedStringFor"]
+- !private ["Ps7CVarArg", "logic"]
+- !private ["Ps7CVarArg", "loginView"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "view"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Bundle"]
+- !private ["Ps28CustomDebugStringConvertible", "OPUtils"]
+- !private ["Ps28CustomDebugStringConvertible", "OPViewUtils"]
+- !private ["Ps28CustomDebugStringConvertible", "UILoginViewCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacksForLoginView"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isValidEmail"]
+- !private ["Ps28CustomDebugStringConvertible", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps28CustomDebugStringConvertible", "localizedStringFor"]
+- !private ["Ps28CustomDebugStringConvertible", "logic"]
+- !private ["Ps28CustomDebugStringConvertible", "loginView"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Bundle"]
+- !private ["Ps23CustomStringConvertible", "OPUtils"]
+- !private ["Ps23CustomStringConvertible", "OPViewUtils"]
+- !private ["Ps23CustomStringConvertible", "UILoginViewCallbacks"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "callbacksForLoginView"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isValidEmail"]
+- !private ["Ps23CustomStringConvertible", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps23CustomStringConvertible", "localizedStringFor"]
+- !private ["Ps23CustomStringConvertible", "logic"]
+- !private ["Ps23CustomStringConvertible", "loginView"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Bundle"]
+- !private ["Ps9Equatable", "OPUtils"]
+- !private ["Ps9Equatable", "OPViewUtils"]
+- !private ["Ps9Equatable", "UILoginViewCallbacks"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "callbacksForLoginView"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isValidEmail"]
+- !private ["Ps9Equatable", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps9Equatable", "localizedStringFor"]
+- !private ["Ps9Equatable", "logic"]
+- !private ["Ps9Equatable", "loginView"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "view"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "Bundle"]
+- !private ["Ps8Hashable", "OPUtils"]
+- !private ["Ps8Hashable", "OPViewUtils"]
+- !private ["Ps8Hashable", "UILoginViewCallbacks"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "callbacksForLoginView"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isValidEmail"]
+- !private ["Ps8Hashable", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps8Hashable", "localizedStringFor"]
+- !private ["Ps8Hashable", "logic"]
+- !private ["Ps8Hashable", "loginView"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "view"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "Bundle"]
+- !private ["PSo8NSCoding", "OPUtils"]
+- !private ["PSo8NSCoding", "OPViewUtils"]
+- !private ["PSo8NSCoding", "UILoginViewCallbacks"]
+- !private ["PSo8NSCoding", "callbacks"]
+- !private ["PSo8NSCoding", "callbacksForLoginView"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo8NSCoding", "logic"]
+- !private ["PSo8NSCoding", "loginView"]
+- !private ["PSo8NSCoding", "view"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "Bundle"]
+- !private ["PSo26NSExtensionRequestHandling", "OPUtils"]
+- !private ["PSo26NSExtensionRequestHandling", "OPViewUtils"]
+- !private ["PSo26NSExtensionRequestHandling", "UILoginViewCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "callbacksForLoginView"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo26NSExtensionRequestHandling", "loginView"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "Bundle"]
+- !private ["CSo8NSObject", "OPUtils"]
+- !private ["CSo8NSObject", "OPViewUtils"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UILoginView"]
+- !private ["CSo8NSObject", "UILoginViewCallbacks"]
+- ["CSo8NSObject", "UISignInViewControllerCallbacks"]
+- ["CSo8NSObject", "callbacks"]
+- ["CSo8NSObject", "callbacksForLoginView"]
+- ["CSo8NSObject", "didPressRegisterButton"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isValidEmail"]
+- !private ["CSo8NSObject", "kEmailIsNotValidLocalizableKey"]
+- !private ["CSo8NSObject", "localizedStringFor"]
+- !private ["CSo8NSObject", "logic"]
+- ["CSo8NSObject", "loginView"]
+- !private ["CSo8NSObject", "setupWith"]
+- ["CSo8NSObject", "setupWithCallbacks"]
+- !private ["CSo8NSObject", "view"]
+- !private ["PSo16NSObjectProtocol", "Bundle"]
+- !private ["PSo16NSObjectProtocol", "OPUtils"]
+- !private ["PSo16NSObjectProtocol", "OPViewUtils"]
+- !private ["PSo16NSObjectProtocol", "UILoginViewCallbacks"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "callbacksForLoginView"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isValidEmail"]
+- !private ["PSo16NSObjectProtocol", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo16NSObjectProtocol", "localizedStringFor"]
+- !private ["PSo16NSObjectProtocol", "logic"]
+- !private ["PSo16NSObjectProtocol", "loginView"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["C8Operando7OPUtils", "isValidEmail"]
+- !private ["C8Operando11OPViewUtils", "displayForgotEmailPassword"]
+- !private ["C8Operando11OPViewUtils", "showOkAlertWithTitle"]
+- !private ["C8Operando19RSNibDesignableView", "logic"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "logic"]
+- !private ["PSo12UIAppearance", "logic"]
+- !private ["PSo21UIAppearanceContainer", "Bundle"]
+- !private ["PSo21UIAppearanceContainer", "OPUtils"]
+- !private ["PSo21UIAppearanceContainer", "OPViewUtils"]
+- !private ["PSo21UIAppearanceContainer", "UILoginViewCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "callbacks"]
+- !private ["PSo21UIAppearanceContainer", "callbacksForLoginView"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo21UIAppearanceContainer", "logic"]
+- !private ["PSo21UIAppearanceContainer", "loginView"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "Bundle"]
+- !private ["PSo18UIContentContainer", "OPUtils"]
+- !private ["PSo18UIContentContainer", "OPViewUtils"]
+- !private ["PSo18UIContentContainer", "UILoginViewCallbacks"]
+- !private ["PSo18UIContentContainer", "callbacks"]
+- !private ["PSo18UIContentContainer", "callbacksForLoginView"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo18UIContentContainer", "loginView"]
+- !private ["PSo18UIContentContainer", "view"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "logic"]
+- !private ["PSo13UIDynamicItem", "logic"]
+- !private ["PSo18UIFocusEnvironment", "Bundle"]
+- !private ["PSo18UIFocusEnvironment", "OPUtils"]
+- !private ["PSo18UIFocusEnvironment", "OPViewUtils"]
+- !private ["PSo18UIFocusEnvironment", "UILoginViewCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "callbacks"]
+- !private ["PSo18UIFocusEnvironment", "callbacksForLoginView"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo18UIFocusEnvironment", "logic"]
+- !private ["PSo18UIFocusEnvironment", "loginView"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "logic"]
+- !private ["C8Operando11UILoginView", "logic"]
+- !private ["V8Operando20UILoginViewCallbacks", "init"]
+- !private ["C8Operando16UILoginViewLogic", "setupWith"]
+- !private ["CSo11UIResponder", "Bundle"]
+- !private ["CSo11UIResponder", "OPUtils"]
+- !private ["CSo11UIResponder", "OPViewUtils"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UILoginView"]
+- !private ["CSo11UIResponder", "UILoginViewCallbacks"]
+- ["CSo11UIResponder", "UISignInViewControllerCallbacks"]
+- ["CSo11UIResponder", "callbacks"]
+- ["CSo11UIResponder", "callbacksForLoginView"]
+- ["CSo11UIResponder", "didPressRegisterButton"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "kEmailIsNotValidLocalizableKey"]
+- !private ["CSo11UIResponder", "logic"]
+- ["CSo11UIResponder", "loginView"]
+- ["CSo11UIResponder", "setupWithCallbacks"]
+- !private ["CSo11UIResponder", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "Bundle"]
+- !private ["PSo30UIResponderStandardEditActions", "OPUtils"]
+- !private ["PSo30UIResponderStandardEditActions", "OPViewUtils"]
+- !private ["PSo30UIResponderStandardEditActions", "UILoginViewCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacksForLoginView"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo30UIResponderStandardEditActions", "logic"]
+- !private ["PSo30UIResponderStandardEditActions", "loginView"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["C8Operando22UISignInViewController", "Bundle"]
+- !private ["C8Operando22UISignInViewController", "OPUtils"]
+- !private ["C8Operando22UISignInViewController", "OPViewUtils"]
+- ["C8Operando22UISignInViewController", "UIButton"]
+- ["C8Operando22UISignInViewController", "UILoginView"]
+- !private ["C8Operando22UISignInViewController", "UILoginViewCallbacks"]
+- ["C8Operando22UISignInViewController", "UISignInViewControllerCallbacks"]
+- !private ["C8Operando22UISignInViewController", "callbacks"]
+- !private ["C8Operando22UISignInViewController", "callbacksForLoginView"]
+- ["C8Operando22UISignInViewController", "deinit"]
+- ["C8Operando22UISignInViewController", "didPressRegisterButton"]
+- ["C8Operando22UISignInViewController", "init"]
+- !private ["C8Operando22UISignInViewController", "kEmailIsNotValidLocalizableKey"]
+- ["C8Operando22UISignInViewController", "loginView"]
+- ["C8Operando22UISignInViewController", "setupWithCallbacks"]
+- !private ["C8Operando22UISignInViewController", "view"]
+- ["V8Operando31UISignInViewControllerCallbacks", "LoginCallback"]
+- ["V8Operando31UISignInViewControllerCallbacks", "String"]
+- ["V8Operando31UISignInViewControllerCallbacks", "Void"]
+- ["V8Operando31UISignInViewControllerCallbacks", "VoidBlock"]
+- ["V8Operando31UISignInViewControllerCallbacks", "init"]
+- ["V8Operando31UISignInViewControllerCallbacks", "whenUserForgotPassword"]
+- ["V8Operando31UISignInViewControllerCallbacks", "whenUserPressedRegister"]
+- ["V8Operando31UISignInViewControllerCallbacks", "whenUserWantsToLogin"]
+- !private ["PSo16UIStateRestoring", "Bundle"]
+- !private ["PSo16UIStateRestoring", "OPUtils"]
+- !private ["PSo16UIStateRestoring", "OPViewUtils"]
+- !private ["PSo16UIStateRestoring", "UILoginViewCallbacks"]
+- !private ["PSo16UIStateRestoring", "callbacks"]
+- !private ["PSo16UIStateRestoring", "callbacksForLoginView"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo16UIStateRestoring", "loginView"]
+- !private ["PSo16UIStateRestoring", "view"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo19UITextFieldDelegate", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "Bundle"]
+- !private ["PSo18UITraitEnvironment", "OPUtils"]
+- !private ["PSo18UITraitEnvironment", "OPViewUtils"]
+- !private ["PSo18UITraitEnvironment", "UILoginViewCallbacks"]
+- !private ["PSo18UITraitEnvironment", "callbacks"]
+- !private ["PSo18UITraitEnvironment", "callbacksForLoginView"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "kEmailIsNotValidLocalizableKey"]
+- !private ["PSo18UITraitEnvironment", "logic"]
+- !private ["PSo18UITraitEnvironment", "loginView"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "logic"]
+- !private ["CSo16UIViewController", "Bundle"]
+- !private ["CSo16UIViewController", "OPUtils"]
+- !private ["CSo16UIViewController", "OPViewUtils"]
+- ["CSo16UIViewController", "UIButton"]
+- ["CSo16UIViewController", "UILoginView"]
+- !private ["CSo16UIViewController", "UILoginViewCallbacks"]
+- ["CSo16UIViewController", "UISignInViewControllerCallbacks"]
+- ["CSo16UIViewController", "callbacks"]
+- ["CSo16UIViewController", "callbacksForLoginView"]
+- ["CSo16UIViewController", "didPressRegisterButton"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "kEmailIsNotValidLocalizableKey"]
+- ["CSo16UIViewController", "loginView"]
+- ["CSo16UIViewController", "setupWithCallbacks"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "logic"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Bundle"]
+- !private ["Ps9_Hashable", "OPUtils"]
+- !private ["Ps9_Hashable", "OPViewUtils"]
+- !private ["Ps9_Hashable", "UILoginViewCallbacks"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "callbacksForLoginView"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isValidEmail"]
+- !private ["Ps9_Hashable", "kEmailIsNotValidLocalizableKey"]
+- !private ["Ps9_Hashable", "localizedStringFor"]
+- !private ["Ps9_Hashable", "logic"]
+- !private ["Ps9_Hashable", "loginView"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "view"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "CSo6Bundle"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "C8Operando7OPUtils"
+- !private "C8Operando11OPViewUtils"
+- !private "C8Operando19RSNibDesignableView"
+- !private "P11SwarmClient10SocketData"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "C8Operando11UILoginView"
+- !private "V8Operando20UILoginViewCallbacks"
+- !private "C8Operando16UILoginViewLogic"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "C8Operando22UISignInViewController"
+- "V8Operando31UISignInViewControllerCallbacks"
+- "PSo16UIStateRestoring"
+- !private "PSo19UITextFieldDelegate"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "c184be896bcebbd26177ca22e9168168"

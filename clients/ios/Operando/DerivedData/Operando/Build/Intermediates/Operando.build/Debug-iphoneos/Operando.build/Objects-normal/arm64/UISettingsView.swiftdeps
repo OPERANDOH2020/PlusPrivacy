@@ -1,0 +1,309 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UISettingsView"
+provides-nominal:
+- "C8Operando14UISettingsView"
+provides-member:
+- ["C8Operando14UISettingsView", ""]
+provides-dynamic-lookup:
+- "adblockEnabledSwitch"
+- "clearWebsiteDataSwitch"
+- "disableWebProtectionSwitch"
+depends-top-level:
+- "AssignmentPrecedence"
+- "RSNibDesignableView"
+- "UISettingsView"
+- "UISwitch"
+- "UserSettingsModel"
+depends-member:
+- !private ["Ps9AnyObject", "UserSettingsModel"]
+- !private ["Ps9AnyObject", "adblockEnabledSwitch"]
+- !private ["Ps9AnyObject", "clearWebsiteDataSwitch"]
+- !private ["Ps9AnyObject", "disableWebProtectionSwitch"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isOn"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "UserSettingsModel"]
+- !private ["PSo15CALayerDelegate", "adblockEnabledSwitch"]
+- !private ["PSo15CALayerDelegate", "clearWebsiteDataSwitch"]
+- !private ["PSo15CALayerDelegate", "disableWebProtectionSwitch"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isOn"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "UserSettingsModel"]
+- !private ["Ps7CVarArg", "adblockEnabledSwitch"]
+- !private ["Ps7CVarArg", "clearWebsiteDataSwitch"]
+- !private ["Ps7CVarArg", "disableWebProtectionSwitch"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isOn"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "UserSettingsModel"]
+- !private ["Ps28CustomDebugStringConvertible", "adblockEnabledSwitch"]
+- !private ["Ps28CustomDebugStringConvertible", "clearWebsiteDataSwitch"]
+- !private ["Ps28CustomDebugStringConvertible", "disableWebProtectionSwitch"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isOn"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "UserSettingsModel"]
+- !private ["Ps23CustomStringConvertible", "adblockEnabledSwitch"]
+- !private ["Ps23CustomStringConvertible", "clearWebsiteDataSwitch"]
+- !private ["Ps23CustomStringConvertible", "disableWebProtectionSwitch"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isOn"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UserSettingsModel"]
+- !private ["Ps9Equatable", "adblockEnabledSwitch"]
+- !private ["Ps9Equatable", "clearWebsiteDataSwitch"]
+- !private ["Ps9Equatable", "disableWebProtectionSwitch"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isOn"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "UserSettingsModel"]
+- !private ["Ps8Hashable", "adblockEnabledSwitch"]
+- !private ["Ps8Hashable", "clearWebsiteDataSwitch"]
+- !private ["Ps8Hashable", "disableWebProtectionSwitch"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isOn"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "UserSettingsModel"]
+- !private ["PSo8NSCoding", "adblockEnabledSwitch"]
+- !private ["PSo8NSCoding", "clearWebsiteDataSwitch"]
+- !private ["PSo8NSCoding", "disableWebProtectionSwitch"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isOn"]
+- ["PSo8NSCoding", ""]
+- ["CSo8NSObject", "UISwitch"]
+- ["CSo8NSObject", "UserSettingsModel"]
+- ["CSo8NSObject", "adblockEnabledSwitch"]
+- ["CSo8NSObject", "clearWebsiteDataSwitch"]
+- ["CSo8NSObject", "currentSettings"]
+- ["CSo8NSObject", "disableWebProtectionSwitch"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isOn"]
+- ["CSo8NSObject", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "UserSettingsModel"]
+- !private ["PSo16NSObjectProtocol", "adblockEnabledSwitch"]
+- !private ["PSo16NSObjectProtocol", "clearWebsiteDataSwitch"]
+- !private ["PSo16NSObjectProtocol", "disableWebProtectionSwitch"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isOn"]
+- ["PSo16NSObjectProtocol", ""]
+- ["C8Operando19RSNibDesignableView", "UISwitch"]
+- ["C8Operando19RSNibDesignableView", "UserSettingsModel"]
+- ["C8Operando19RSNibDesignableView", "adblockEnabledSwitch"]
+- ["C8Operando19RSNibDesignableView", "clearWebsiteDataSwitch"]
+- ["C8Operando19RSNibDesignableView", "currentSettings"]
+- ["C8Operando19RSNibDesignableView", "disableWebProtectionSwitch"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- ["C8Operando19RSNibDesignableView", "setupWith"]
+- ["C8Operando19RSNibDesignableView", ""]
+- !private ["PSo29UIAccessibilityIdentification", "UserSettingsModel"]
+- !private ["PSo29UIAccessibilityIdentification", "adblockEnabledSwitch"]
+- !private ["PSo29UIAccessibilityIdentification", "clearWebsiteDataSwitch"]
+- !private ["PSo29UIAccessibilityIdentification", "disableWebProtectionSwitch"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isOn"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "UserSettingsModel"]
+- !private ["PSo12UIAppearance", "adblockEnabledSwitch"]
+- !private ["PSo12UIAppearance", "clearWebsiteDataSwitch"]
+- !private ["PSo12UIAppearance", "disableWebProtectionSwitch"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isOn"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "UserSettingsModel"]
+- !private ["PSo21UIAppearanceContainer", "adblockEnabledSwitch"]
+- !private ["PSo21UIAppearanceContainer", "clearWebsiteDataSwitch"]
+- !private ["PSo21UIAppearanceContainer", "disableWebProtectionSwitch"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isOn"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo9UIControl", "isOn"]
+- !private ["PSo17UICoordinateSpace", "UserSettingsModel"]
+- !private ["PSo17UICoordinateSpace", "adblockEnabledSwitch"]
+- !private ["PSo17UICoordinateSpace", "clearWebsiteDataSwitch"]
+- !private ["PSo17UICoordinateSpace", "disableWebProtectionSwitch"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isOn"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "UserSettingsModel"]
+- !private ["PSo13UIDynamicItem", "adblockEnabledSwitch"]
+- !private ["PSo13UIDynamicItem", "clearWebsiteDataSwitch"]
+- !private ["PSo13UIDynamicItem", "disableWebProtectionSwitch"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isOn"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "UserSettingsModel"]
+- !private ["PSo18UIFocusEnvironment", "adblockEnabledSwitch"]
+- !private ["PSo18UIFocusEnvironment", "clearWebsiteDataSwitch"]
+- !private ["PSo18UIFocusEnvironment", "disableWebProtectionSwitch"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isOn"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "UserSettingsModel"]
+- !private ["PSo11UIFocusItem", "adblockEnabledSwitch"]
+- !private ["PSo11UIFocusItem", "clearWebsiteDataSwitch"]
+- !private ["PSo11UIFocusItem", "disableWebProtectionSwitch"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isOn"]
+- ["PSo11UIFocusItem", ""]
+- ["CSo11UIResponder", "UISwitch"]
+- ["CSo11UIResponder", "UserSettingsModel"]
+- ["CSo11UIResponder", "adblockEnabledSwitch"]
+- ["CSo11UIResponder", "clearWebsiteDataSwitch"]
+- ["CSo11UIResponder", "currentSettings"]
+- ["CSo11UIResponder", "disableWebProtectionSwitch"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isOn"]
+- ["CSo11UIResponder", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "UserSettingsModel"]
+- !private ["PSo30UIResponderStandardEditActions", "adblockEnabledSwitch"]
+- !private ["PSo30UIResponderStandardEditActions", "clearWebsiteDataSwitch"]
+- !private ["PSo30UIResponderStandardEditActions", "disableWebProtectionSwitch"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isOn"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["C8Operando14UISettingsView", "UISwitch"]
+- ["C8Operando14UISettingsView", "UserSettingsModel"]
+- ["C8Operando14UISettingsView", "adblockEnabledSwitch"]
+- ["C8Operando14UISettingsView", "clearWebsiteDataSwitch"]
+- ["C8Operando14UISettingsView", "currentSettings"]
+- ["C8Operando14UISettingsView", "deinit"]
+- ["C8Operando14UISettingsView", "disableWebProtectionSwitch"]
+- ["C8Operando14UISettingsView", "init"]
+- ["C8Operando14UISettingsView", "setupWith"]
+- !private ["CSo8UISwitch", "isOn"]
+- !private ["PSo18UITraitEnvironment", "UserSettingsModel"]
+- !private ["PSo18UITraitEnvironment", "adblockEnabledSwitch"]
+- !private ["PSo18UITraitEnvironment", "clearWebsiteDataSwitch"]
+- !private ["PSo18UITraitEnvironment", "disableWebProtectionSwitch"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isOn"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "UISwitch"]
+- ["CSo6UIView", "UserSettingsModel"]
+- ["CSo6UIView", "adblockEnabledSwitch"]
+- ["CSo6UIView", "clearWebsiteDataSwitch"]
+- ["CSo6UIView", "currentSettings"]
+- ["CSo6UIView", "disableWebProtectionSwitch"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "isOn"]
+- ["CSo6UIView", "setupWith"]
+- !private ["V8Operando17UserSettingsModel", "clearWebsiteDataOnExit"]
+- !private ["V8Operando17UserSettingsModel", "disableWebsiteProtection"]
+- !private ["V8Operando17UserSettingsModel", "enableAdBlock"]
+- !private ["V8Operando17UserSettingsModel", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UserSettingsModel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "adblockEnabledSwitch"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "clearWebsiteDataSwitch"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "disableWebProtectionSwitch"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isOn"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps9_Hashable", "UserSettingsModel"]
+- !private ["Ps9_Hashable", "adblockEnabledSwitch"]
+- !private ["Ps9_Hashable", "clearWebsiteDataSwitch"]
+- !private ["Ps9_Hashable", "disableWebProtectionSwitch"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isOn"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "C8Operando19RSNibDesignableView"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "C8Operando14UISettingsView"
+- !private "CSo8UISwitch"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "V8Operando17UserSettingsModel"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "b24b462ebede219553d63b68ccb42390"

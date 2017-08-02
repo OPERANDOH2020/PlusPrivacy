@@ -1,0 +1,558 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LocksmithInternetProtocol"
+provides-nominal:
+- "O8Operando25LocksmithInternetProtocol"
+provides-member:
+- ["O8Operando25LocksmithInternetProtocol", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "AssignmentPrecedence"
+- "LocksmithInternetProtocol"
+- "RawRepresentable"
+- "String"
+- !private "kSecAttrProtocolAFP"
+- !private "kSecAttrProtocolAppleTalk"
+- !private "kSecAttrProtocolDAAP"
+- !private "kSecAttrProtocolEPPC"
+- !private "kSecAttrProtocolFTP"
+- !private "kSecAttrProtocolFTPAccount"
+- !private "kSecAttrProtocolFTPProxy"
+- !private "kSecAttrProtocolFTPS"
+- !private "kSecAttrProtocolHTTP"
+- !private "kSecAttrProtocolHTTPProxy"
+- !private "kSecAttrProtocolHTTPS"
+- !private "kSecAttrProtocolHTTPSProxy"
+- !private "kSecAttrProtocolIMAP"
+- !private "kSecAttrProtocolIMAPS"
+- !private "kSecAttrProtocolIPP"
+- !private "kSecAttrProtocolIRC"
+- !private "kSecAttrProtocolIRCS"
+- !private "kSecAttrProtocolLDAP"
+- !private "kSecAttrProtocolLDAPS"
+- !private "kSecAttrProtocolNNTP"
+- !private "kSecAttrProtocolNNTPS"
+- !private "kSecAttrProtocolPOP3"
+- !private "kSecAttrProtocolPOP3S"
+- !private "kSecAttrProtocolRTSP"
+- !private "kSecAttrProtocolRTSPProxy"
+- !private "kSecAttrProtocolSMB"
+- !private "kSecAttrProtocolSMTP"
+- !private "kSecAttrProtocolSOCKS"
+- !private "kSecAttrProtocolSSH"
+- !private "kSecAttrProtocolTelnet"
+- !private "kSecAttrProtocolTelnetS"
+- !private "~="
+depends-member:
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps9Equatable", "String"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "afp"]
+- ["Ps9Equatable", "appleTalk"]
+- ["Ps9Equatable", "daap"]
+- ["Ps9Equatable", "eppc"]
+- ["Ps9Equatable", "ftp"]
+- ["Ps9Equatable", "ftpAccount"]
+- ["Ps9Equatable", "ftpProxy"]
+- ["Ps9Equatable", "ftps"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "http"]
+- ["Ps9Equatable", "httpProxy"]
+- ["Ps9Equatable", "https"]
+- ["Ps9Equatable", "httpsProxy"]
+- ["Ps9Equatable", "imap"]
+- ["Ps9Equatable", "imaps"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "ipp"]
+- ["Ps9Equatable", "irc"]
+- ["Ps9Equatable", "ircs"]
+- !private ["Ps9Equatable", "kSecAttrProtocolAFP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolAppleTalk"]
+- !private ["Ps9Equatable", "kSecAttrProtocolDAAP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolEPPC"]
+- !private ["Ps9Equatable", "kSecAttrProtocolFTP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolFTPAccount"]
+- !private ["Ps9Equatable", "kSecAttrProtocolFTPProxy"]
+- !private ["Ps9Equatable", "kSecAttrProtocolFTPS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolHTTP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolHTTPProxy"]
+- !private ["Ps9Equatable", "kSecAttrProtocolHTTPS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolHTTPSProxy"]
+- !private ["Ps9Equatable", "kSecAttrProtocolIMAP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolIMAPS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolIPP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolIRC"]
+- !private ["Ps9Equatable", "kSecAttrProtocolIRCS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolLDAP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolLDAPS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolNNTP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolNNTPS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolPOP3"]
+- !private ["Ps9Equatable", "kSecAttrProtocolPOP3S"]
+- !private ["Ps9Equatable", "kSecAttrProtocolRTSP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolRTSPProxy"]
+- !private ["Ps9Equatable", "kSecAttrProtocolSMB"]
+- !private ["Ps9Equatable", "kSecAttrProtocolSMTP"]
+- !private ["Ps9Equatable", "kSecAttrProtocolSOCKS"]
+- !private ["Ps9Equatable", "kSecAttrProtocolSSH"]
+- !private ["Ps9Equatable", "kSecAttrProtocolTelnet"]
+- !private ["Ps9Equatable", "kSecAttrProtocolTelnetS"]
+- ["Ps9Equatable", "ldap"]
+- ["Ps9Equatable", "ldaps"]
+- ["Ps9Equatable", "nntp"]
+- ["Ps9Equatable", "nntps"]
+- ["Ps9Equatable", "pop3"]
+- ["Ps9Equatable", "pop3S"]
+- ["Ps9Equatable", "rawValue"]
+- ["Ps9Equatable", "rtsp"]
+- ["Ps9Equatable", "rtspProxy"]
+- ["Ps9Equatable", "smb"]
+- ["Ps9Equatable", "smtp"]
+- ["Ps9Equatable", "socks"]
+- ["Ps9Equatable", "ssh"]
+- ["Ps9Equatable", "telnet"]
+- ["Ps9Equatable", "telnetS"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "String"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "afp"]
+- ["Ps8Hashable", "appleTalk"]
+- ["Ps8Hashable", "daap"]
+- ["Ps8Hashable", "eppc"]
+- ["Ps8Hashable", "ftp"]
+- ["Ps8Hashable", "ftpAccount"]
+- ["Ps8Hashable", "ftpProxy"]
+- ["Ps8Hashable", "ftps"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "http"]
+- ["Ps8Hashable", "httpProxy"]
+- ["Ps8Hashable", "https"]
+- ["Ps8Hashable", "httpsProxy"]
+- ["Ps8Hashable", "imap"]
+- ["Ps8Hashable", "imaps"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "ipp"]
+- ["Ps8Hashable", "irc"]
+- ["Ps8Hashable", "ircs"]
+- !private ["Ps8Hashable", "kSecAttrProtocolAFP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolAppleTalk"]
+- !private ["Ps8Hashable", "kSecAttrProtocolDAAP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolEPPC"]
+- !private ["Ps8Hashable", "kSecAttrProtocolFTP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolFTPAccount"]
+- !private ["Ps8Hashable", "kSecAttrProtocolFTPProxy"]
+- !private ["Ps8Hashable", "kSecAttrProtocolFTPS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolHTTP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolHTTPProxy"]
+- !private ["Ps8Hashable", "kSecAttrProtocolHTTPS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolHTTPSProxy"]
+- !private ["Ps8Hashable", "kSecAttrProtocolIMAP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolIMAPS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolIPP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolIRC"]
+- !private ["Ps8Hashable", "kSecAttrProtocolIRCS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolLDAP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolLDAPS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolNNTP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolNNTPS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolPOP3"]
+- !private ["Ps8Hashable", "kSecAttrProtocolPOP3S"]
+- !private ["Ps8Hashable", "kSecAttrProtocolRTSP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolRTSPProxy"]
+- !private ["Ps8Hashable", "kSecAttrProtocolSMB"]
+- !private ["Ps8Hashable", "kSecAttrProtocolSMTP"]
+- !private ["Ps8Hashable", "kSecAttrProtocolSOCKS"]
+- !private ["Ps8Hashable", "kSecAttrProtocolSSH"]
+- !private ["Ps8Hashable", "kSecAttrProtocolTelnet"]
+- !private ["Ps8Hashable", "kSecAttrProtocolTelnetS"]
+- ["Ps8Hashable", "ldap"]
+- ["Ps8Hashable", "ldaps"]
+- ["Ps8Hashable", "nntp"]
+- ["Ps8Hashable", "nntps"]
+- ["Ps8Hashable", "pop3"]
+- ["Ps8Hashable", "pop3S"]
+- ["Ps8Hashable", "rawValue"]
+- ["Ps8Hashable", "rtsp"]
+- ["Ps8Hashable", "rtspProxy"]
+- ["Ps8Hashable", "smb"]
+- ["Ps8Hashable", "smtp"]
+- ["Ps8Hashable", "socks"]
+- ["Ps8Hashable", "ssh"]
+- ["Ps8Hashable", "telnet"]
+- ["Ps8Hashable", "telnetS"]
+- ["Ps8Hashable", ""]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- ["O8Operando25LocksmithInternetProtocol", "RawValue"]
+- ["O8Operando25LocksmithInternetProtocol", "String"]
+- ["O8Operando25LocksmithInternetProtocol", "_toAnyHashable"]
+- ["O8Operando25LocksmithInternetProtocol", "afp"]
+- ["O8Operando25LocksmithInternetProtocol", "appleTalk"]
+- ["O8Operando25LocksmithInternetProtocol", "daap"]
+- ["O8Operando25LocksmithInternetProtocol", "deinit"]
+- ["O8Operando25LocksmithInternetProtocol", "eppc"]
+- ["O8Operando25LocksmithInternetProtocol", "ftp"]
+- ["O8Operando25LocksmithInternetProtocol", "ftpAccount"]
+- ["O8Operando25LocksmithInternetProtocol", "ftpProxy"]
+- ["O8Operando25LocksmithInternetProtocol", "ftps"]
+- ["O8Operando25LocksmithInternetProtocol", "hashValue"]
+- ["O8Operando25LocksmithInternetProtocol", "http"]
+- ["O8Operando25LocksmithInternetProtocol", "httpProxy"]
+- ["O8Operando25LocksmithInternetProtocol", "https"]
+- ["O8Operando25LocksmithInternetProtocol", "httpsProxy"]
+- ["O8Operando25LocksmithInternetProtocol", "imap"]
+- ["O8Operando25LocksmithInternetProtocol", "imaps"]
+- ["O8Operando25LocksmithInternetProtocol", "init"]
+- ["O8Operando25LocksmithInternetProtocol", "ipp"]
+- ["O8Operando25LocksmithInternetProtocol", "irc"]
+- ["O8Operando25LocksmithInternetProtocol", "ircs"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolAFP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolAppleTalk"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolDAAP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolEPPC"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolFTP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolFTPAccount"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolFTPProxy"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolFTPS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolHTTP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolHTTPProxy"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolHTTPS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolHTTPSProxy"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolIMAP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolIMAPS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolIPP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolIRC"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolIRCS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolLDAP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolLDAPS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolNNTP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolNNTPS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolPOP3"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolPOP3S"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolRTSP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolRTSPProxy"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolSMB"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolSMTP"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolSOCKS"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolSSH"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolTelnet"]
+- !private ["O8Operando25LocksmithInternetProtocol", "kSecAttrProtocolTelnetS"]
+- ["O8Operando25LocksmithInternetProtocol", "ldap"]
+- ["O8Operando25LocksmithInternetProtocol", "ldaps"]
+- ["O8Operando25LocksmithInternetProtocol", "nntp"]
+- ["O8Operando25LocksmithInternetProtocol", "nntps"]
+- ["O8Operando25LocksmithInternetProtocol", "pop3"]
+- ["O8Operando25LocksmithInternetProtocol", "pop3S"]
+- ["O8Operando25LocksmithInternetProtocol", "rawValue"]
+- ["O8Operando25LocksmithInternetProtocol", "rtsp"]
+- ["O8Operando25LocksmithInternetProtocol", "rtspProxy"]
+- ["O8Operando25LocksmithInternetProtocol", "smb"]
+- ["O8Operando25LocksmithInternetProtocol", "smtp"]
+- ["O8Operando25LocksmithInternetProtocol", "socks"]
+- ["O8Operando25LocksmithInternetProtocol", "ssh"]
+- ["O8Operando25LocksmithInternetProtocol", "telnet"]
+- ["O8Operando25LocksmithInternetProtocol", "telnetS"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps16RawRepresentable", "String"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- ["Ps16RawRepresentable", "afp"]
+- ["Ps16RawRepresentable", "appleTalk"]
+- ["Ps16RawRepresentable", "daap"]
+- ["Ps16RawRepresentable", "eppc"]
+- ["Ps16RawRepresentable", "ftp"]
+- ["Ps16RawRepresentable", "ftpAccount"]
+- ["Ps16RawRepresentable", "ftpProxy"]
+- ["Ps16RawRepresentable", "ftps"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "http"]
+- ["Ps16RawRepresentable", "httpProxy"]
+- ["Ps16RawRepresentable", "https"]
+- ["Ps16RawRepresentable", "httpsProxy"]
+- ["Ps16RawRepresentable", "imap"]
+- ["Ps16RawRepresentable", "imaps"]
+- ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "ipp"]
+- ["Ps16RawRepresentable", "irc"]
+- ["Ps16RawRepresentable", "ircs"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolAFP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolAppleTalk"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolDAAP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolEPPC"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolFTP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolFTPAccount"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolFTPProxy"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolFTPS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolHTTP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolHTTPProxy"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolHTTPS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolHTTPSProxy"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolIMAP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolIMAPS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolIPP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolIRC"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolIRCS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolLDAP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolLDAPS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolNNTP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolNNTPS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolPOP3"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolPOP3S"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolRTSP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolRTSPProxy"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolSMB"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolSMTP"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolSOCKS"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolSSH"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolTelnet"]
+- !private ["Ps16RawRepresentable", "kSecAttrProtocolTelnetS"]
+- ["Ps16RawRepresentable", "ldap"]
+- ["Ps16RawRepresentable", "ldaps"]
+- ["Ps16RawRepresentable", "nntp"]
+- ["Ps16RawRepresentable", "nntps"]
+- ["Ps16RawRepresentable", "pop3"]
+- ["Ps16RawRepresentable", "pop3S"]
+- ["Ps16RawRepresentable", "rawValue"]
+- ["Ps16RawRepresentable", "rtsp"]
+- ["Ps16RawRepresentable", "rtspProxy"]
+- ["Ps16RawRepresentable", "smb"]
+- ["Ps16RawRepresentable", "smtp"]
+- ["Ps16RawRepresentable", "socks"]
+- ["Ps16RawRepresentable", "ssh"]
+- ["Ps16RawRepresentable", "telnet"]
+- ["Ps16RawRepresentable", "telnetS"]
+- ["Ps16RawRepresentable", ""]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["P11SwarmClient10SocketData", "hashValue"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["Ps10Strideable", "hashValue"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps9_Hashable", "String"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "afp"]
+- ["Ps9_Hashable", "appleTalk"]
+- ["Ps9_Hashable", "daap"]
+- ["Ps9_Hashable", "eppc"]
+- ["Ps9_Hashable", "ftp"]
+- ["Ps9_Hashable", "ftpAccount"]
+- ["Ps9_Hashable", "ftpProxy"]
+- ["Ps9_Hashable", "ftps"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "http"]
+- ["Ps9_Hashable", "httpProxy"]
+- ["Ps9_Hashable", "https"]
+- ["Ps9_Hashable", "httpsProxy"]
+- ["Ps9_Hashable", "imap"]
+- ["Ps9_Hashable", "imaps"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "ipp"]
+- ["Ps9_Hashable", "irc"]
+- ["Ps9_Hashable", "ircs"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolAFP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolAppleTalk"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolDAAP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolEPPC"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolFTP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolFTPAccount"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolFTPProxy"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolFTPS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolHTTP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolHTTPProxy"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolHTTPS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolHTTPSProxy"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolIMAP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolIMAPS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolIPP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolIRC"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolIRCS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolLDAP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolLDAPS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolNNTP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolNNTPS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolPOP3"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolPOP3S"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolRTSP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolRTSPProxy"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolSMB"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolSMTP"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolSOCKS"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolSSH"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolTelnet"]
+- !private ["Ps9_Hashable", "kSecAttrProtocolTelnetS"]
+- ["Ps9_Hashable", "ldap"]
+- ["Ps9_Hashable", "ldaps"]
+- ["Ps9_Hashable", "nntp"]
+- ["Ps9_Hashable", "nntps"]
+- ["Ps9_Hashable", "pop3"]
+- ["Ps9_Hashable", "pop3S"]
+- ["Ps9_Hashable", "rawValue"]
+- ["Ps9_Hashable", "rtsp"]
+- ["Ps9_Hashable", "rtspProxy"]
+- ["Ps9_Hashable", "smb"]
+- ["Ps9_Hashable", "smtp"]
+- ["Ps9_Hashable", "socks"]
+- ["Ps9_Hashable", "ssh"]
+- ["Ps9_Hashable", "telnet"]
+- ["Ps9_Hashable", "telnetS"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- !private "Ps17BitwiseOperations"
+- !private "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- "O8Operando25LocksmithInternetProtocol"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "Ps16RawRepresentable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "P11SwarmClient10SocketData"
+- !private "Ps10Strideable"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "4887fe48b05eddac6e56e26c65a93651"

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "98B4A6E61F2F4CB700449DFA"
-               BuildableName = "AggregateUniversal"
-               BlueprintName = "AggregateUniversal"
+               BuildableName = "AggregateUniversaliOSNM"
+               BlueprintName = "AggregateUniversaliOSNM"
                ReferencedContainer = "container:iOSNM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "98B4A6E61F2F4CB700449DFA"
-            BuildableName = "AggregateUniversal"
-            BlueprintName = "AggregateUniversal"
+            BuildableName = "AggregateUniversaliOSNM"
+            BlueprintName = "AggregateUniversaliOSNM"
             ReferencedContainer = "container:iOSNM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "98B4A6E61F2F4CB700449DFA"
-            BuildableName = "AggregateUniversal"
-            BlueprintName = "AggregateUniversal"
+            BuildableName = "AggregateUniversaliOSNM"
+            BlueprintName = "AggregateUniversaliOSNM"
             ReferencedContainer = "container:iOSNM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

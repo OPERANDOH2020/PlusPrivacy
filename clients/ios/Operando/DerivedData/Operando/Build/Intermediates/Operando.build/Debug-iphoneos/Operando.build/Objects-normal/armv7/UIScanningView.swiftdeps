@@ -1,0 +1,773 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIScanningView"
+provides-nominal:
+- "C8Operando14UIScanningView"
+provides-member:
+- ["C8Operando14UIScanningView", ""]
+provides-dynamic-lookup:
+- "beginScanningState"
+- "commonInit"
+- "didPressScanButton"
+- "endScanningState"
+- "messageLabel"
+- "scanButton"
+- "scanningImage"
+- "whenPressingScanButton"
+depends-top-level:
+- !private "*"
+- "AnyObject"
+- !private "AssignmentPrecedence"
+- !private "Bool"
+- !private "BooleanLiteralType"
+- !private "CAAnimation"
+- !private "CABasicAnimation"
+- !private "M_PI"
+- !private "NSNumber"
+- "RSNibDesignableView"
+- !private "StringLiteralType"
+- "UIButton"
+- "UIImageView"
+- "UILabel"
+- "UIScanningView"
+- !private "UIView"
+- "Void"
+depends-member:
+- !private ["Ps9AnyObject", "CABasicAnimation"]
+- !private ["Ps9AnyObject", "M_PI"]
+- !private ["Ps9AnyObject", "NSNumber"]
+- !private ["Ps9AnyObject", "UIView"]
+- !private ["Ps9AnyObject", "add"]
+- !private ["Ps9AnyObject", "alpha"]
+- !private ["Ps9AnyObject", "animate"]
+- !private ["Ps9AnyObject", "commonInit"]
+- !private ["Ps9AnyObject", "createRotatingAnimation"]
+- !private ["Ps9AnyObject", "duration"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isCumulative"]
+- !private ["Ps9AnyObject", "layer"]
+- !private ["Ps9AnyObject", "messageLabel"]
+- !private ["Ps9AnyObject", "removeAllAnimations"]
+- !private ["Ps9AnyObject", "repeatCount"]
+- !private ["Ps9AnyObject", "scanButton"]
+- !private ["Ps9AnyObject", "scanningImage"]
+- !private ["Ps9AnyObject", "setNormalUIState"]
+- !private ["Ps9AnyObject", "setScanningUIState"]
+- !private ["Ps9AnyObject", "toValue"]
+- !private ["Ps9AnyObject", "whenPressingScanButton"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo8CAAction", "duration"]
+- !private ["PSo8CAAction", "init"]
+- !private ["PSo8CAAction", "isCumulative"]
+- !private ["PSo8CAAction", "repeatCount"]
+- !private ["PSo8CAAction", "toValue"]
+- !private ["CSo11CAAnimation", "duration"]
+- !private ["CSo11CAAnimation", "init"]
+- !private ["CSo11CAAnimation", "isCumulative"]
+- !private ["CSo11CAAnimation", "repeatCount"]
+- !private ["CSo11CAAnimation", "toValue"]
+- !private ["CSo16CABasicAnimation", "duration"]
+- !private ["CSo16CABasicAnimation", "init"]
+- !private ["CSo16CABasicAnimation", "isCumulative"]
+- !private ["CSo16CABasicAnimation", "repeatCount"]
+- !private ["CSo16CABasicAnimation", "toValue"]
+- !private ["CSo7CALayer", "add"]
+- !private ["CSo7CALayer", "removeAllAnimations"]
+- !private ["PSo15CALayerDelegate", "CABasicAnimation"]
+- !private ["PSo15CALayerDelegate", "M_PI"]
+- !private ["PSo15CALayerDelegate", "NSNumber"]
+- !private ["PSo15CALayerDelegate", "UIView"]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "animate"]
+- !private ["PSo15CALayerDelegate", "commonInit"]
+- !private ["PSo15CALayerDelegate", "createRotatingAnimation"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "messageLabel"]
+- !private ["PSo15CALayerDelegate", "scanButton"]
+- !private ["PSo15CALayerDelegate", "scanningImage"]
+- !private ["PSo15CALayerDelegate", "setNormalUIState"]
+- !private ["PSo15CALayerDelegate", "setScanningUIState"]
+- !private ["PSo15CALayerDelegate", "whenPressingScanButton"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["PSo13CAMediaTiming", "add"]
+- !private ["PSo13CAMediaTiming", "duration"]
+- !private ["PSo13CAMediaTiming", "init"]
+- !private ["PSo13CAMediaTiming", "isCumulative"]
+- !private ["PSo13CAMediaTiming", "removeAllAnimations"]
+- !private ["PSo13CAMediaTiming", "repeatCount"]
+- !private ["PSo13CAMediaTiming", "toValue"]
+- !private ["CSo19CAPropertyAnimation", "duration"]
+- !private ["CSo19CAPropertyAnimation", "init"]
+- !private ["CSo19CAPropertyAnimation", "isCumulative"]
+- !private ["CSo19CAPropertyAnimation", "repeatCount"]
+- !private ["CSo19CAPropertyAnimation", "toValue"]
+- !private ["Ps7CVarArg", "CABasicAnimation"]
+- !private ["Ps7CVarArg", "M_PI"]
+- !private ["Ps7CVarArg", "NSNumber"]
+- !private ["Ps7CVarArg", "UIView"]
+- !private ["Ps7CVarArg", "add"]
+- !private ["Ps7CVarArg", "alpha"]
+- !private ["Ps7CVarArg", "animate"]
+- !private ["Ps7CVarArg", "commonInit"]
+- !private ["Ps7CVarArg", "createRotatingAnimation"]
+- !private ["Ps7CVarArg", "duration"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isCumulative"]
+- !private ["Ps7CVarArg", "layer"]
+- !private ["Ps7CVarArg", "messageLabel"]
+- !private ["Ps7CVarArg", "removeAllAnimations"]
+- !private ["Ps7CVarArg", "repeatCount"]
+- !private ["Ps7CVarArg", "scanButton"]
+- !private ["Ps7CVarArg", "scanningImage"]
+- !private ["Ps7CVarArg", "setNormalUIState"]
+- !private ["Ps7CVarArg", "setScanningUIState"]
+- !private ["Ps7CVarArg", "toValue"]
+- !private ["Ps7CVarArg", "whenPressingScanButton"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "CABasicAnimation"]
+- !private ["Ps28CustomDebugStringConvertible", "M_PI"]
+- !private ["Ps28CustomDebugStringConvertible", "NSNumber"]
+- !private ["Ps28CustomDebugStringConvertible", "UIView"]
+- !private ["Ps28CustomDebugStringConvertible", "add"]
+- !private ["Ps28CustomDebugStringConvertible", "alpha"]
+- !private ["Ps28CustomDebugStringConvertible", "animate"]
+- !private ["Ps28CustomDebugStringConvertible", "commonInit"]
+- !private ["Ps28CustomDebugStringConvertible", "createRotatingAnimation"]
+- !private ["Ps28CustomDebugStringConvertible", "duration"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isCumulative"]
+- !private ["Ps28CustomDebugStringConvertible", "layer"]
+- !private ["Ps28CustomDebugStringConvertible", "messageLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "removeAllAnimations"]
+- !private ["Ps28CustomDebugStringConvertible", "repeatCount"]
+- !private ["Ps28CustomDebugStringConvertible", "scanButton"]
+- !private ["Ps28CustomDebugStringConvertible", "scanningImage"]
+- !private ["Ps28CustomDebugStringConvertible", "setNormalUIState"]
+- !private ["Ps28CustomDebugStringConvertible", "setScanningUIState"]
+- !private ["Ps28CustomDebugStringConvertible", "toValue"]
+- !private ["Ps28CustomDebugStringConvertible", "whenPressingScanButton"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "CABasicAnimation"]
+- !private ["Ps23CustomStringConvertible", "M_PI"]
+- !private ["Ps23CustomStringConvertible", "NSNumber"]
+- !private ["Ps23CustomStringConvertible", "UIView"]
+- !private ["Ps23CustomStringConvertible", "add"]
+- !private ["Ps23CustomStringConvertible", "alpha"]
+- !private ["Ps23CustomStringConvertible", "animate"]
+- !private ["Ps23CustomStringConvertible", "commonInit"]
+- !private ["Ps23CustomStringConvertible", "createRotatingAnimation"]
+- !private ["Ps23CustomStringConvertible", "duration"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isCumulative"]
+- !private ["Ps23CustomStringConvertible", "layer"]
+- !private ["Ps23CustomStringConvertible", "messageLabel"]
+- !private ["Ps23CustomStringConvertible", "removeAllAnimations"]
+- !private ["Ps23CustomStringConvertible", "repeatCount"]
+- !private ["Ps23CustomStringConvertible", "scanButton"]
+- !private ["Ps23CustomStringConvertible", "scanningImage"]
+- !private ["Ps23CustomStringConvertible", "setNormalUIState"]
+- !private ["Ps23CustomStringConvertible", "setScanningUIState"]
+- !private ["Ps23CustomStringConvertible", "toValue"]
+- !private ["Ps23CustomStringConvertible", "whenPressingScanButton"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "CABasicAnimation"]
+- !private ["Ps9Equatable", "M_PI"]
+- !private ["Ps9Equatable", "NSNumber"]
+- !private ["Ps9Equatable", "UIView"]
+- !private ["Ps9Equatable", "add"]
+- !private ["Ps9Equatable", "alpha"]
+- !private ["Ps9Equatable", "animate"]
+- !private ["Ps9Equatable", "commonInit"]
+- !private ["Ps9Equatable", "createRotatingAnimation"]
+- !private ["Ps9Equatable", "curveEaseInOut"]
+- !private ["Ps9Equatable", "duration"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isCumulative"]
+- !private ["Ps9Equatable", "layer"]
+- !private ["Ps9Equatable", "messageLabel"]
+- !private ["Ps9Equatable", "removeAllAnimations"]
+- !private ["Ps9Equatable", "repeatCount"]
+- !private ["Ps9Equatable", "scanButton"]
+- !private ["Ps9Equatable", "scanningImage"]
+- !private ["Ps9Equatable", "setNormalUIState"]
+- !private ["Ps9Equatable", "setScanningUIState"]
+- !private ["Ps9Equatable", "toValue"]
+- !private ["Ps9Equatable", "whenPressingScanButton"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "curveEaseInOut"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "CABasicAnimation"]
+- !private ["Ps8Hashable", "M_PI"]
+- !private ["Ps8Hashable", "NSNumber"]
+- !private ["Ps8Hashable", "UIView"]
+- !private ["Ps8Hashable", "add"]
+- !private ["Ps8Hashable", "alpha"]
+- !private ["Ps8Hashable", "animate"]
+- !private ["Ps8Hashable", "commonInit"]
+- !private ["Ps8Hashable", "createRotatingAnimation"]
+- !private ["Ps8Hashable", "duration"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isCumulative"]
+- !private ["Ps8Hashable", "layer"]
+- !private ["Ps8Hashable", "messageLabel"]
+- !private ["Ps8Hashable", "removeAllAnimations"]
+- !private ["Ps8Hashable", "repeatCount"]
+- !private ["Ps8Hashable", "scanButton"]
+- !private ["Ps8Hashable", "scanningImage"]
+- !private ["Ps8Hashable", "setNormalUIState"]
+- !private ["Ps8Hashable", "setScanningUIState"]
+- !private ["Ps8Hashable", "toValue"]
+- !private ["Ps8Hashable", "whenPressingScanButton"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "CABasicAnimation"]
+- !private ["PSo8NSCoding", "M_PI"]
+- !private ["PSo8NSCoding", "NSNumber"]
+- !private ["PSo8NSCoding", "UIView"]
+- !private ["PSo8NSCoding", "add"]
+- !private ["PSo8NSCoding", "alpha"]
+- !private ["PSo8NSCoding", "animate"]
+- !private ["PSo8NSCoding", "commonInit"]
+- !private ["PSo8NSCoding", "createRotatingAnimation"]
+- !private ["PSo8NSCoding", "duration"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isCumulative"]
+- !private ["PSo8NSCoding", "layer"]
+- !private ["PSo8NSCoding", "messageLabel"]
+- !private ["PSo8NSCoding", "removeAllAnimations"]
+- !private ["PSo8NSCoding", "repeatCount"]
+- !private ["PSo8NSCoding", "scanButton"]
+- !private ["PSo8NSCoding", "scanningImage"]
+- !private ["PSo8NSCoding", "setNormalUIState"]
+- !private ["PSo8NSCoding", "setScanningUIState"]
+- !private ["PSo8NSCoding", "toValue"]
+- !private ["PSo8NSCoding", "whenPressingScanButton"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "duration"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isCumulative"]
+- !private ["PSo9NSCopying", "repeatCount"]
+- !private ["PSo9NSCopying", "toValue"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSNumber", "init"]
+- ["CSo8NSObject", "AnyObject"]
+- !private ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "CAAnimation"]
+- !private ["CSo8NSObject", "CABasicAnimation"]
+- !private ["CSo8NSObject", "M_PI"]
+- !private ["CSo8NSObject", "NSNumber"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "UIView"]
+- ["CSo8NSObject", "Void"]
+- !private ["CSo8NSObject", "add"]
+- !private ["CSo8NSObject", "alpha"]
+- !private ["CSo8NSObject", "animate"]
+- ["CSo8NSObject", "beginScanningState"]
+- ["CSo8NSObject", "commonInit"]
+- ["CSo8NSObject", "createRotatingAnimation"]
+- ["CSo8NSObject", "didPressScanButton"]
+- !private ["CSo8NSObject", "duration"]
+- ["CSo8NSObject", "endScanningState"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isCumulative"]
+- !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "messageLabel"]
+- !private ["CSo8NSObject", "removeAllAnimations"]
+- !private ["CSo8NSObject", "repeatCount"]
+- ["CSo8NSObject", "scanButton"]
+- ["CSo8NSObject", "scanningImage"]
+- ["CSo8NSObject", "setNormalUIState"]
+- ["CSo8NSObject", "setScanningUIState"]
+- !private ["CSo8NSObject", "toValue"]
+- ["CSo8NSObject", "whenPressingScanButton"]
+- !private ["PSo16NSObjectProtocol", "CABasicAnimation"]
+- !private ["PSo16NSObjectProtocol", "M_PI"]
+- !private ["PSo16NSObjectProtocol", "NSNumber"]
+- !private ["PSo16NSObjectProtocol", "UIView"]
+- !private ["PSo16NSObjectProtocol", "add"]
+- !private ["PSo16NSObjectProtocol", "alpha"]
+- !private ["PSo16NSObjectProtocol", "animate"]
+- !private ["PSo16NSObjectProtocol", "commonInit"]
+- !private ["PSo16NSObjectProtocol", "createRotatingAnimation"]
+- !private ["PSo16NSObjectProtocol", "duration"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isCumulative"]
+- !private ["PSo16NSObjectProtocol", "layer"]
+- !private ["PSo16NSObjectProtocol", "messageLabel"]
+- !private ["PSo16NSObjectProtocol", "removeAllAnimations"]
+- !private ["PSo16NSObjectProtocol", "repeatCount"]
+- !private ["PSo16NSObjectProtocol", "scanButton"]
+- !private ["PSo16NSObjectProtocol", "scanningImage"]
+- !private ["PSo16NSObjectProtocol", "setNormalUIState"]
+- !private ["PSo16NSObjectProtocol", "setScanningUIState"]
+- !private ["PSo16NSObjectProtocol", "toValue"]
+- !private ["PSo16NSObjectProtocol", "whenPressingScanButton"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "curveEaseInOut"]
+- ["C8Operando19RSNibDesignableView", "AnyObject"]
+- !private ["C8Operando19RSNibDesignableView", "Bool"]
+- !private ["C8Operando19RSNibDesignableView", "CAAnimation"]
+- !private ["C8Operando19RSNibDesignableView", "CABasicAnimation"]
+- !private ["C8Operando19RSNibDesignableView", "M_PI"]
+- !private ["C8Operando19RSNibDesignableView", "NSNumber"]
+- ["C8Operando19RSNibDesignableView", "UIButton"]
+- ["C8Operando19RSNibDesignableView", "UIImageView"]
+- ["C8Operando19RSNibDesignableView", "UILabel"]
+- !private ["C8Operando19RSNibDesignableView", "UIView"]
+- ["C8Operando19RSNibDesignableView", "Void"]
+- ["C8Operando19RSNibDesignableView", "beginScanningState"]
+- ["C8Operando19RSNibDesignableView", "commonInit"]
+- ["C8Operando19RSNibDesignableView", "createRotatingAnimation"]
+- ["C8Operando19RSNibDesignableView", "didPressScanButton"]
+- ["C8Operando19RSNibDesignableView", "endScanningState"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- ["C8Operando19RSNibDesignableView", "messageLabel"]
+- ["C8Operando19RSNibDesignableView", "scanButton"]
+- ["C8Operando19RSNibDesignableView", "scanningImage"]
+- ["C8Operando19RSNibDesignableView", "setNormalUIState"]
+- ["C8Operando19RSNibDesignableView", "setScanningUIState"]
+- ["C8Operando19RSNibDesignableView", "whenPressingScanButton"]
+- ["C8Operando19RSNibDesignableView", ""]
+- !private ["Ps16RawRepresentable", "curveEaseInOut"]
+- !private ["Ps10SetAlgebra", "curveEaseInOut"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "CABasicAnimation"]
+- !private ["PSo29UIAccessibilityIdentification", "M_PI"]
+- !private ["PSo29UIAccessibilityIdentification", "NSNumber"]
+- !private ["PSo29UIAccessibilityIdentification", "UIView"]
+- !private ["PSo29UIAccessibilityIdentification", "alpha"]
+- !private ["PSo29UIAccessibilityIdentification", "animate"]
+- !private ["PSo29UIAccessibilityIdentification", "commonInit"]
+- !private ["PSo29UIAccessibilityIdentification", "createRotatingAnimation"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "layer"]
+- !private ["PSo29UIAccessibilityIdentification", "messageLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "scanButton"]
+- !private ["PSo29UIAccessibilityIdentification", "scanningImage"]
+- !private ["PSo29UIAccessibilityIdentification", "setNormalUIState"]
+- !private ["PSo29UIAccessibilityIdentification", "setScanningUIState"]
+- !private ["PSo29UIAccessibilityIdentification", "whenPressingScanButton"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "CABasicAnimation"]
+- !private ["PSo12UIAppearance", "M_PI"]
+- !private ["PSo12UIAppearance", "NSNumber"]
+- !private ["PSo12UIAppearance", "UIView"]
+- !private ["PSo12UIAppearance", "alpha"]
+- !private ["PSo12UIAppearance", "animate"]
+- !private ["PSo12UIAppearance", "commonInit"]
+- !private ["PSo12UIAppearance", "createRotatingAnimation"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "layer"]
+- !private ["PSo12UIAppearance", "messageLabel"]
+- !private ["PSo12UIAppearance", "scanButton"]
+- !private ["PSo12UIAppearance", "scanningImage"]
+- !private ["PSo12UIAppearance", "setNormalUIState"]
+- !private ["PSo12UIAppearance", "setScanningUIState"]
+- !private ["PSo12UIAppearance", "whenPressingScanButton"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "CABasicAnimation"]
+- !private ["PSo21UIAppearanceContainer", "M_PI"]
+- !private ["PSo21UIAppearanceContainer", "NSNumber"]
+- !private ["PSo21UIAppearanceContainer", "UIView"]
+- !private ["PSo21UIAppearanceContainer", "alpha"]
+- !private ["PSo21UIAppearanceContainer", "animate"]
+- !private ["PSo21UIAppearanceContainer", "commonInit"]
+- !private ["PSo21UIAppearanceContainer", "createRotatingAnimation"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "layer"]
+- !private ["PSo21UIAppearanceContainer", "messageLabel"]
+- !private ["PSo21UIAppearanceContainer", "scanButton"]
+- !private ["PSo21UIAppearanceContainer", "scanningImage"]
+- !private ["PSo21UIAppearanceContainer", "setNormalUIState"]
+- !private ["PSo21UIAppearanceContainer", "setScanningUIState"]
+- !private ["PSo21UIAppearanceContainer", "whenPressingScanButton"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo8UIButton", "alpha"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "alpha"]
+- !private ["CSo9UIControl", "alpha"]
+- !private ["PSo17UICoordinateSpace", "CABasicAnimation"]
+- !private ["PSo17UICoordinateSpace", "M_PI"]
+- !private ["PSo17UICoordinateSpace", "NSNumber"]
+- !private ["PSo17UICoordinateSpace", "UIView"]
+- !private ["PSo17UICoordinateSpace", "alpha"]
+- !private ["PSo17UICoordinateSpace", "animate"]
+- !private ["PSo17UICoordinateSpace", "commonInit"]
+- !private ["PSo17UICoordinateSpace", "createRotatingAnimation"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "layer"]
+- !private ["PSo17UICoordinateSpace", "messageLabel"]
+- !private ["PSo17UICoordinateSpace", "scanButton"]
+- !private ["PSo17UICoordinateSpace", "scanningImage"]
+- !private ["PSo17UICoordinateSpace", "setNormalUIState"]
+- !private ["PSo17UICoordinateSpace", "setScanningUIState"]
+- !private ["PSo17UICoordinateSpace", "whenPressingScanButton"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "CABasicAnimation"]
+- !private ["PSo13UIDynamicItem", "M_PI"]
+- !private ["PSo13UIDynamicItem", "NSNumber"]
+- !private ["PSo13UIDynamicItem", "UIView"]
+- !private ["PSo13UIDynamicItem", "alpha"]
+- !private ["PSo13UIDynamicItem", "animate"]
+- !private ["PSo13UIDynamicItem", "commonInit"]
+- !private ["PSo13UIDynamicItem", "createRotatingAnimation"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "layer"]
+- !private ["PSo13UIDynamicItem", "messageLabel"]
+- !private ["PSo13UIDynamicItem", "scanButton"]
+- !private ["PSo13UIDynamicItem", "scanningImage"]
+- !private ["PSo13UIDynamicItem", "setNormalUIState"]
+- !private ["PSo13UIDynamicItem", "setScanningUIState"]
+- !private ["PSo13UIDynamicItem", "whenPressingScanButton"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "CABasicAnimation"]
+- !private ["PSo18UIFocusEnvironment", "M_PI"]
+- !private ["PSo18UIFocusEnvironment", "NSNumber"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "animate"]
+- !private ["PSo18UIFocusEnvironment", "commonInit"]
+- !private ["PSo18UIFocusEnvironment", "createRotatingAnimation"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "layer"]
+- !private ["PSo18UIFocusEnvironment", "messageLabel"]
+- !private ["PSo18UIFocusEnvironment", "scanButton"]
+- !private ["PSo18UIFocusEnvironment", "scanningImage"]
+- !private ["PSo18UIFocusEnvironment", "setNormalUIState"]
+- !private ["PSo18UIFocusEnvironment", "setScanningUIState"]
+- !private ["PSo18UIFocusEnvironment", "whenPressingScanButton"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "CABasicAnimation"]
+- !private ["PSo11UIFocusItem", "M_PI"]
+- !private ["PSo11UIFocusItem", "NSNumber"]
+- !private ["PSo11UIFocusItem", "UIView"]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "animate"]
+- !private ["PSo11UIFocusItem", "commonInit"]
+- !private ["PSo11UIFocusItem", "createRotatingAnimation"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "messageLabel"]
+- !private ["PSo11UIFocusItem", "scanButton"]
+- !private ["PSo11UIFocusItem", "scanningImage"]
+- !private ["PSo11UIFocusItem", "setNormalUIState"]
+- !private ["PSo11UIFocusItem", "setScanningUIState"]
+- !private ["PSo11UIFocusItem", "whenPressingScanButton"]
+- ["PSo11UIFocusItem", ""]
+- !private ["CSo11UIImageView", "alpha"]
+- !private ["CSo11UIImageView", "layer"]
+- !private ["CSo7UILabel", "alpha"]
+- ["CSo11UIResponder", "AnyObject"]
+- !private ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "CAAnimation"]
+- !private ["CSo11UIResponder", "CABasicAnimation"]
+- !private ["CSo11UIResponder", "M_PI"]
+- !private ["CSo11UIResponder", "NSNumber"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- !private ["CSo11UIResponder", "UIView"]
+- ["CSo11UIResponder", "Void"]
+- !private ["CSo11UIResponder", "alpha"]
+- !private ["CSo11UIResponder", "animate"]
+- ["CSo11UIResponder", "beginScanningState"]
+- ["CSo11UIResponder", "commonInit"]
+- ["CSo11UIResponder", "createRotatingAnimation"]
+- ["CSo11UIResponder", "didPressScanButton"]
+- ["CSo11UIResponder", "endScanningState"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "messageLabel"]
+- ["CSo11UIResponder", "scanButton"]
+- ["CSo11UIResponder", "scanningImage"]
+- ["CSo11UIResponder", "setNormalUIState"]
+- ["CSo11UIResponder", "setScanningUIState"]
+- ["CSo11UIResponder", "whenPressingScanButton"]
+- !private ["PSo30UIResponderStandardEditActions", "CABasicAnimation"]
+- !private ["PSo30UIResponderStandardEditActions", "M_PI"]
+- !private ["PSo30UIResponderStandardEditActions", "NSNumber"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "animate"]
+- !private ["PSo30UIResponderStandardEditActions", "commonInit"]
+- !private ["PSo30UIResponderStandardEditActions", "createRotatingAnimation"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- !private ["PSo30UIResponderStandardEditActions", "messageLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "scanButton"]
+- !private ["PSo30UIResponderStandardEditActions", "scanningImage"]
+- !private ["PSo30UIResponderStandardEditActions", "setNormalUIState"]
+- !private ["PSo30UIResponderStandardEditActions", "setScanningUIState"]
+- !private ["PSo30UIResponderStandardEditActions", "whenPressingScanButton"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["C8Operando14UIScanningView", "AnyObject"]
+- !private ["C8Operando14UIScanningView", "Bool"]
+- !private ["C8Operando14UIScanningView", "CAAnimation"]
+- !private ["C8Operando14UIScanningView", "CABasicAnimation"]
+- !private ["C8Operando14UIScanningView", "M_PI"]
+- !private ["C8Operando14UIScanningView", "NSNumber"]
+- ["C8Operando14UIScanningView", "UIButton"]
+- ["C8Operando14UIScanningView", "UIImageView"]
+- ["C8Operando14UIScanningView", "UILabel"]
+- !private ["C8Operando14UIScanningView", "UIView"]
+- ["C8Operando14UIScanningView", "Void"]
+- ["C8Operando14UIScanningView", "beginScanningState"]
+- ["C8Operando14UIScanningView", "commonInit"]
+- !private ["C8Operando14UIScanningView", "createRotatingAnimation"]
+- ["C8Operando14UIScanningView", "deinit"]
+- ["C8Operando14UIScanningView", "didPressScanButton"]
+- ["C8Operando14UIScanningView", "endScanningState"]
+- ["C8Operando14UIScanningView", "init"]
+- ["C8Operando14UIScanningView", "messageLabel"]
+- ["C8Operando14UIScanningView", "scanButton"]
+- ["C8Operando14UIScanningView", "scanningImage"]
+- !private ["C8Operando14UIScanningView", "setNormalUIState"]
+- !private ["C8Operando14UIScanningView", "setScanningUIState"]
+- ["C8Operando14UIScanningView", "whenPressingScanButton"]
+- !private ["PSo18UITraitEnvironment", "CABasicAnimation"]
+- !private ["PSo18UITraitEnvironment", "M_PI"]
+- !private ["PSo18UITraitEnvironment", "NSNumber"]
+- !private ["PSo18UITraitEnvironment", "UIView"]
+- !private ["PSo18UITraitEnvironment", "alpha"]
+- !private ["PSo18UITraitEnvironment", "animate"]
+- !private ["PSo18UITraitEnvironment", "commonInit"]
+- !private ["PSo18UITraitEnvironment", "createRotatingAnimation"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "layer"]
+- !private ["PSo18UITraitEnvironment", "messageLabel"]
+- !private ["PSo18UITraitEnvironment", "scanButton"]
+- !private ["PSo18UITraitEnvironment", "scanningImage"]
+- !private ["PSo18UITraitEnvironment", "setNormalUIState"]
+- !private ["PSo18UITraitEnvironment", "setScanningUIState"]
+- !private ["PSo18UITraitEnvironment", "whenPressingScanButton"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "AnyObject"]
+- !private ["CSo6UIView", "Bool"]
+- !private ["CSo6UIView", "CAAnimation"]
+- !private ["CSo6UIView", "CABasicAnimation"]
+- !private ["CSo6UIView", "M_PI"]
+- !private ["CSo6UIView", "NSNumber"]
+- ["CSo6UIView", "UIButton"]
+- ["CSo6UIView", "UIImageView"]
+- ["CSo6UIView", "UILabel"]
+- !private ["CSo6UIView", "UIView"]
+- ["CSo6UIView", "Void"]
+- !private ["CSo6UIView", "alpha"]
+- !private ["CSo6UIView", "animate"]
+- ["CSo6UIView", "beginScanningState"]
+- ["CSo6UIView", "commonInit"]
+- ["CSo6UIView", "createRotatingAnimation"]
+- ["CSo6UIView", "didPressScanButton"]
+- ["CSo6UIView", "endScanningState"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "layer"]
+- ["CSo6UIView", "messageLabel"]
+- ["CSo6UIView", "scanButton"]
+- ["CSo6UIView", "scanningImage"]
+- ["CSo6UIView", "setNormalUIState"]
+- ["CSo6UIView", "setScanningUIState"]
+- ["CSo6UIView", "whenPressingScanButton"]
+- !private ["VSC22UIViewAnimationOptions", "curveEaseInOut"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "CABasicAnimation"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "M_PI"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "NSNumber"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "commonInit"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "createRotatingAnimation"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layer"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "messageLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "scanButton"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "scanningImage"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNormalUIState"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setScanningUIState"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "whenPressingScanButton"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "CABasicAnimation"]
+- !private ["Ps9_Hashable", "M_PI"]
+- !private ["Ps9_Hashable", "NSNumber"]
+- !private ["Ps9_Hashable", "UIView"]
+- !private ["Ps9_Hashable", "add"]
+- !private ["Ps9_Hashable", "alpha"]
+- !private ["Ps9_Hashable", "animate"]
+- !private ["Ps9_Hashable", "commonInit"]
+- !private ["Ps9_Hashable", "createRotatingAnimation"]
+- !private ["Ps9_Hashable", "duration"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isCumulative"]
+- !private ["Ps9_Hashable", "layer"]
+- !private ["Ps9_Hashable", "messageLabel"]
+- !private ["Ps9_Hashable", "removeAllAnimations"]
+- !private ["Ps9_Hashable", "repeatCount"]
+- !private ["Ps9_Hashable", "scanButton"]
+- !private ["Ps9_Hashable", "scanningImage"]
+- !private ["Ps9_Hashable", "setNormalUIState"]
+- !private ["Ps9_Hashable", "setScanningUIState"]
+- !private ["Ps9_Hashable", "toValue"]
+- !private ["Ps9_Hashable", "whenPressingScanButton"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "PSo8CAAction"
+- !private "CSo11CAAnimation"
+- !private "CSo16CABasicAnimation"
+- !private "CSo7CALayer"
+- "PSo15CALayerDelegate"
+- !private "PSo13CAMediaTiming"
+- !private "CSo19CAPropertyAnimation"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- !private "CSo8NSNumber"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps9OptionSet"
+- "C8Operando19RSNibDesignableView"
+- !private "Ps16RawRepresentable"
+- !private "Ps10SetAlgebra"
+- !private "P11SwarmClient10SocketData"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "C8Operando14UIScanningView"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "VSC22UIViewAnimationOptions"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "88ca911d259e6a7ecb694e40486a6ba0"

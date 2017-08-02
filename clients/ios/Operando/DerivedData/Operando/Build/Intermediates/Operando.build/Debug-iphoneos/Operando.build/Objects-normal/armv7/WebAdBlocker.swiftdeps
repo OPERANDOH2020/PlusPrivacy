@@ -1,0 +1,646 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "WebAdBlocker"
+provides-nominal:
+- "C8Operando12WebAdBlocker"
+provides-member:
+- ["CSo7NSError", ""]
+- ["C8Operando12WebAdBlocker", ""]
+- ["CSo7NSError", "errorContentBlocked"]
+provides-dynamic-lookup:
+- "adBlockingEnabled"
+- "beginBlocking"
+- "endBlocking"
+- "errorContentBlocked"
+- "protectionEnabled"
+depends-top-level:
+- !private "!="
+- !private "=="
+- !private "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "CastingPrecedence"
+- "NSError"
+- !private "NSNumber"
+- "NSObject"
+- !private "PPApiHooks_disableWebKitURLMonitoring"
+- !private "PPApiHooks_enableWebKitURLMonitoring"
+- !private "PPEventDispatcher"
+- !private "PPEventType"
+- !private "PPWKWebViewEventType"
+- "PPWebContentBlockerEngine"
+- "String"
+- "StringLiteralType"
+- !private "URLRequest"
+- !private "UnicodeScalarType"
+- !private "VoidBlock"
+- "WebAdBlocker"
+- !private "WebContentActionType"
+- !private "kPPAlternateRequestForWebViewRequest"
+- !private "kPPErrorForWebViewRequest"
+- !private "kPPShouldInterceptWebViewRequestValue"
+- !private "kPPWebViewRequest"
+depends-member:
+- ["Ps9AnyObject", "NSError"]
+- !private ["Ps9AnyObject", "NSNumber"]
+- !private ["Ps9AnyObject", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps9AnyObject", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps9AnyObject", "PPEventDispatcher"]
+- !private ["Ps9AnyObject", "PPEventType"]
+- !private ["Ps9AnyObject", "PPWKWebViewEventType"]
+- ["Ps9AnyObject", "PPWebContentBlockerEngine"]
+- !private ["Ps9AnyObject", "WebContentActionType"]
+- !private ["Ps9AnyObject", "action"]
+- !private ["Ps9AnyObject", "adBlockingEnabled"]
+- !private ["Ps9AnyObject", "addDNTHeader"]
+- !private ["Ps9AnyObject", "appendNewEventHandler"]
+- !private ["Ps9AnyObject", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps9AnyObject", "contentBlockingEngine"]
+- !private ["Ps9AnyObject", "didInitEngine"]
+- !private ["Ps9AnyObject", "errorContentBlocked"]
+- !private ["Ps9AnyObject", "eventData"]
+- !private ["Ps9AnyObject", "eventIdentifier"]
+- !private ["Ps9AnyObject", "identifier"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "initEngineWith"]
+- !private ["Ps9AnyObject", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps9AnyObject", "kPPErrorForWebViewRequest"]
+- !private ["Ps9AnyObject", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps9AnyObject", "kPPWebViewRequest"]
+- !private ["Ps9AnyObject", "prepare"]
+- !private ["Ps9AnyObject", "protectionEnabled"]
+- !private ["Ps9AnyObject", "registerAndProcessEvents"]
+- !private ["Ps9AnyObject", "removeHandler"]
+- !private ["Ps9AnyObject", "requestAlteredWithTorHeaders"]
+- !private ["Ps9AnyObject", "sharedInstance"]
+- !private ["Ps9AnyObject", "shouldBlockRequest"]
+- !private ["Ps9AnyObject", "subscript"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Ps7CVarArg", "NSError"]
+- !private ["Ps7CVarArg", "NSNumber"]
+- !private ["Ps7CVarArg", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps7CVarArg", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps7CVarArg", "PPEventDispatcher"]
+- !private ["Ps7CVarArg", "PPEventType"]
+- !private ["Ps7CVarArg", "PPWKWebViewEventType"]
+- ["Ps7CVarArg", "PPWebContentBlockerEngine"]
+- !private ["Ps7CVarArg", "WebContentActionType"]
+- !private ["Ps7CVarArg", "action"]
+- !private ["Ps7CVarArg", "adBlockingEnabled"]
+- !private ["Ps7CVarArg", "addDNTHeader"]
+- !private ["Ps7CVarArg", "appendNewEventHandler"]
+- !private ["Ps7CVarArg", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps7CVarArg", "contentBlockingEngine"]
+- !private ["Ps7CVarArg", "didInitEngine"]
+- !private ["Ps7CVarArg", "errorContentBlocked"]
+- !private ["Ps7CVarArg", "eventData"]
+- !private ["Ps7CVarArg", "eventIdentifier"]
+- !private ["Ps7CVarArg", "identifier"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "initEngineWith"]
+- !private ["Ps7CVarArg", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps7CVarArg", "kPPErrorForWebViewRequest"]
+- !private ["Ps7CVarArg", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps7CVarArg", "kPPWebViewRequest"]
+- !private ["Ps7CVarArg", "prepare"]
+- !private ["Ps7CVarArg", "protectionEnabled"]
+- !private ["Ps7CVarArg", "registerAndProcessEvents"]
+- !private ["Ps7CVarArg", "removeHandler"]
+- !private ["Ps7CVarArg", "requestAlteredWithTorHeaders"]
+- !private ["Ps7CVarArg", "sharedInstance"]
+- !private ["Ps7CVarArg", "shouldBlockRequest"]
+- !private ["Ps7CVarArg", "subscript"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "subscript"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "NSError"]
+- !private ["Ps28CustomDebugStringConvertible", "NSNumber"]
+- !private ["Ps28CustomDebugStringConvertible", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps28CustomDebugStringConvertible", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps28CustomDebugStringConvertible", "PPEventDispatcher"]
+- !private ["Ps28CustomDebugStringConvertible", "PPEventType"]
+- !private ["Ps28CustomDebugStringConvertible", "PPWKWebViewEventType"]
+- ["Ps28CustomDebugStringConvertible", "PPWebContentBlockerEngine"]
+- !private ["Ps28CustomDebugStringConvertible", "WebContentActionType"]
+- !private ["Ps28CustomDebugStringConvertible", "action"]
+- !private ["Ps28CustomDebugStringConvertible", "adBlockingEnabled"]
+- !private ["Ps28CustomDebugStringConvertible", "addDNTHeader"]
+- !private ["Ps28CustomDebugStringConvertible", "allHTTPHeaderFields"]
+- !private ["Ps28CustomDebugStringConvertible", "appendNewEventHandler"]
+- !private ["Ps28CustomDebugStringConvertible", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps28CustomDebugStringConvertible", "contentBlockingEngine"]
+- !private ["Ps28CustomDebugStringConvertible", "didInitEngine"]
+- !private ["Ps28CustomDebugStringConvertible", "errorContentBlocked"]
+- !private ["Ps28CustomDebugStringConvertible", "eventData"]
+- !private ["Ps28CustomDebugStringConvertible", "eventIdentifier"]
+- !private ["Ps28CustomDebugStringConvertible", "identifier"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "initEngineWith"]
+- !private ["Ps28CustomDebugStringConvertible", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps28CustomDebugStringConvertible", "kPPErrorForWebViewRequest"]
+- !private ["Ps28CustomDebugStringConvertible", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps28CustomDebugStringConvertible", "kPPWebViewRequest"]
+- !private ["Ps28CustomDebugStringConvertible", "prepare"]
+- !private ["Ps28CustomDebugStringConvertible", "protectionEnabled"]
+- !private ["Ps28CustomDebugStringConvertible", "registerAndProcessEvents"]
+- !private ["Ps28CustomDebugStringConvertible", "removeHandler"]
+- !private ["Ps28CustomDebugStringConvertible", "requestAlteredWithTorHeaders"]
+- !private ["Ps28CustomDebugStringConvertible", "sharedInstance"]
+- !private ["Ps28CustomDebugStringConvertible", "shouldBlockRequest"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "allHTTPHeaderFields"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- ["Ps23CustomStringConvertible", "NSError"]
+- !private ["Ps23CustomStringConvertible", "NSNumber"]
+- !private ["Ps23CustomStringConvertible", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps23CustomStringConvertible", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps23CustomStringConvertible", "PPEventDispatcher"]
+- !private ["Ps23CustomStringConvertible", "PPEventType"]
+- !private ["Ps23CustomStringConvertible", "PPWKWebViewEventType"]
+- ["Ps23CustomStringConvertible", "PPWebContentBlockerEngine"]
+- !private ["Ps23CustomStringConvertible", "WebContentActionType"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "action"]
+- !private ["Ps23CustomStringConvertible", "adBlockingEnabled"]
+- !private ["Ps23CustomStringConvertible", "addDNTHeader"]
+- !private ["Ps23CustomStringConvertible", "allHTTPHeaderFields"]
+- !private ["Ps23CustomStringConvertible", "appendNewEventHandler"]
+- !private ["Ps23CustomStringConvertible", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps23CustomStringConvertible", "contentBlockingEngine"]
+- !private ["Ps23CustomStringConvertible", "didInitEngine"]
+- !private ["Ps23CustomStringConvertible", "errorContentBlocked"]
+- !private ["Ps23CustomStringConvertible", "eventData"]
+- !private ["Ps23CustomStringConvertible", "eventIdentifier"]
+- !private ["Ps23CustomStringConvertible", "identifier"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "initEngineWith"]
+- !private ["Ps23CustomStringConvertible", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps23CustomStringConvertible", "kPPErrorForWebViewRequest"]
+- !private ["Ps23CustomStringConvertible", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps23CustomStringConvertible", "kPPWebViewRequest"]
+- !private ["Ps23CustomStringConvertible", "prepare"]
+- !private ["Ps23CustomStringConvertible", "protectionEnabled"]
+- !private ["Ps23CustomStringConvertible", "registerAndProcessEvents"]
+- !private ["Ps23CustomStringConvertible", "removeHandler"]
+- !private ["Ps23CustomStringConvertible", "requestAlteredWithTorHeaders"]
+- !private ["Ps23CustomStringConvertible", "sharedInstance"]
+- !private ["Ps23CustomStringConvertible", "shouldBlockRequest"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Ps9Equatable", "EventGetAlternateRequestForWebViewRequest"]
+- !private ["Ps9Equatable", "EventGetErrorForRequestIfAny"]
+- !private ["Ps9Equatable", "EventShouldInterceptWebViewRequest"]
+- ["Ps9Equatable", "NSError"]
+- !private ["Ps9Equatable", "NSNumber"]
+- !private ["Ps9Equatable", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps9Equatable", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps9Equatable", "PPEventDispatcher"]
+- !private ["Ps9Equatable", "PPEventType"]
+- !private ["Ps9Equatable", "PPWKWebViewEvent"]
+- !private ["Ps9Equatable", "PPWKWebViewEventType"]
+- ["Ps9Equatable", "PPWebContentBlockerEngine"]
+- !private ["Ps9Equatable", "TypeBlockContent"]
+- !private ["Ps9Equatable", "WebContentActionType"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "action"]
+- !private ["Ps9Equatable", "adBlockingEnabled"]
+- !private ["Ps9Equatable", "addDNTHeader"]
+- !private ["Ps9Equatable", "allHTTPHeaderFields"]
+- !private ["Ps9Equatable", "appendNewEventHandler"]
+- !private ["Ps9Equatable", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps9Equatable", "contentBlockingEngine"]
+- !private ["Ps9Equatable", "didInitEngine"]
+- !private ["Ps9Equatable", "errorContentBlocked"]
+- !private ["Ps9Equatable", "eventData"]
+- !private ["Ps9Equatable", "eventIdentifier"]
+- !private ["Ps9Equatable", "identifier"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "initEngineWith"]
+- !private ["Ps9Equatable", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps9Equatable", "kPPErrorForWebViewRequest"]
+- !private ["Ps9Equatable", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps9Equatable", "kPPWebViewRequest"]
+- !private ["Ps9Equatable", "prepare"]
+- !private ["Ps9Equatable", "protectionEnabled"]
+- !private ["Ps9Equatable", "rawValue"]
+- !private ["Ps9Equatable", "registerAndProcessEvents"]
+- !private ["Ps9Equatable", "removeHandler"]
+- !private ["Ps9Equatable", "requestAlteredWithTorHeaders"]
+- !private ["Ps9Equatable", "sharedInstance"]
+- !private ["Ps9Equatable", "shouldBlockRequest"]
+- !private ["Ps9Equatable", "subscript"]
+- ["Ps9Equatable", ""]
+- ["Ps5Error", "NSError"]
+- !private ["Ps5Error", "errorContentBlocked"]
+- ["Ps5Error", "init"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "init"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "EventGetAlternateRequestForWebViewRequest"]
+- !private ["Ps8Hashable", "EventGetErrorForRequestIfAny"]
+- !private ["Ps8Hashable", "EventShouldInterceptWebViewRequest"]
+- ["Ps8Hashable", "NSError"]
+- !private ["Ps8Hashable", "NSNumber"]
+- !private ["Ps8Hashable", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps8Hashable", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps8Hashable", "PPEventDispatcher"]
+- !private ["Ps8Hashable", "PPEventType"]
+- !private ["Ps8Hashable", "PPWKWebViewEvent"]
+- !private ["Ps8Hashable", "PPWKWebViewEventType"]
+- ["Ps8Hashable", "PPWebContentBlockerEngine"]
+- !private ["Ps8Hashable", "TypeBlockContent"]
+- !private ["Ps8Hashable", "WebContentActionType"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "action"]
+- !private ["Ps8Hashable", "adBlockingEnabled"]
+- !private ["Ps8Hashable", "addDNTHeader"]
+- !private ["Ps8Hashable", "allHTTPHeaderFields"]
+- !private ["Ps8Hashable", "appendNewEventHandler"]
+- !private ["Ps8Hashable", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps8Hashable", "contentBlockingEngine"]
+- !private ["Ps8Hashable", "didInitEngine"]
+- !private ["Ps8Hashable", "errorContentBlocked"]
+- !private ["Ps8Hashable", "eventData"]
+- !private ["Ps8Hashable", "eventIdentifier"]
+- !private ["Ps8Hashable", "identifier"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "initEngineWith"]
+- !private ["Ps8Hashable", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps8Hashable", "kPPErrorForWebViewRequest"]
+- !private ["Ps8Hashable", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps8Hashable", "kPPWebViewRequest"]
+- !private ["Ps8Hashable", "prepare"]
+- !private ["Ps8Hashable", "protectionEnabled"]
+- !private ["Ps8Hashable", "rawValue"]
+- !private ["Ps8Hashable", "registerAndProcessEvents"]
+- !private ["Ps8Hashable", "removeHandler"]
+- !private ["Ps8Hashable", "requestAlteredWithTorHeaders"]
+- !private ["Ps8Hashable", "sharedInstance"]
+- !private ["Ps8Hashable", "shouldBlockRequest"]
+- !private ["Ps8Hashable", "subscript"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "NSError"]
+- !private ["PSo8NSCoding", "errorContentBlocked"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "subscript"]
+- ["PSo9NSCopying", "NSError"]
+- !private ["PSo9NSCopying", "errorContentBlocked"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "subscript"]
+- !private ["CSo12NSDictionary", "subscript"]
+- ["CSo7NSError", "NSError"]
+- ["CSo7NSError", "errorContentBlocked"]
+- ["CSo7NSError", "init"]
+- !private ["PSo17NSFastEnumeration", "subscript"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "subscript"]
+- !private ["CSo19NSMutableDictionary", "subscript"]
+- !private ["CSo8NSNumber", "init"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "NSError"]
+- !private ["CSo8NSObject", "NSNumber"]
+- !private ["CSo8NSObject", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["CSo8NSObject", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["CSo8NSObject", "PPEventDispatcher"]
+- !private ["CSo8NSObject", "PPEventType"]
+- !private ["CSo8NSObject", "PPWKWebViewEventType"]
+- ["CSo8NSObject", "PPWebContentBlockerEngine"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "URLRequest"]
+- !private ["CSo8NSObject", "VoidBlock"]
+- !private ["CSo8NSObject", "WebContentActionType"]
+- !private ["CSo8NSObject", "action"]
+- ["CSo8NSObject", "adBlockingEnabled"]
+- ["CSo8NSObject", "addDNTHeader"]
+- !private ["CSo8NSObject", "appendNewEventHandler"]
+- ["CSo8NSObject", "beginBlocking"]
+- ["CSo8NSObject", "clearRequestOfNonNecessaryHeaders"]
+- ["CSo8NSObject", "contentBlockingEngine"]
+- ["CSo8NSObject", "didInitEngine"]
+- ["CSo8NSObject", "endBlocking"]
+- ["CSo8NSObject", "errorContentBlocked"]
+- !private ["CSo8NSObject", "eventData"]
+- !private ["CSo8NSObject", "eventIdentifier"]
+- ["CSo8NSObject", "identifier"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "initEngineWith"]
+- !private ["CSo8NSObject", "kPPAlternateRequestForWebViewRequest"]
+- !private ["CSo8NSObject", "kPPErrorForWebViewRequest"]
+- !private ["CSo8NSObject", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["CSo8NSObject", "kPPWebViewRequest"]
+- !private ["CSo8NSObject", "prepare"]
+- ["CSo8NSObject", "protectionEnabled"]
+- ["CSo8NSObject", "registerAndProcessEvents"]
+- !private ["CSo8NSObject", "removeHandler"]
+- ["CSo8NSObject", "requestAlteredWithTorHeaders"]
+- !private ["CSo8NSObject", "sharedInstance"]
+- ["CSo8NSObject", "shouldBlockRequest"]
+- !private ["CSo8NSObject", "subscript"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "NSError"]
+- !private ["PSo16NSObjectProtocol", "NSNumber"]
+- !private ["PSo16NSObjectProtocol", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["PSo16NSObjectProtocol", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["PSo16NSObjectProtocol", "PPEventDispatcher"]
+- !private ["PSo16NSObjectProtocol", "PPEventType"]
+- !private ["PSo16NSObjectProtocol", "PPWKWebViewEventType"]
+- ["PSo16NSObjectProtocol", "PPWebContentBlockerEngine"]
+- !private ["PSo16NSObjectProtocol", "WebContentActionType"]
+- !private ["PSo16NSObjectProtocol", "action"]
+- !private ["PSo16NSObjectProtocol", "adBlockingEnabled"]
+- !private ["PSo16NSObjectProtocol", "addDNTHeader"]
+- !private ["PSo16NSObjectProtocol", "appendNewEventHandler"]
+- !private ["PSo16NSObjectProtocol", "clearRequestOfNonNecessaryHeaders"]
+- !private ["PSo16NSObjectProtocol", "contentBlockingEngine"]
+- !private ["PSo16NSObjectProtocol", "didInitEngine"]
+- !private ["PSo16NSObjectProtocol", "errorContentBlocked"]
+- !private ["PSo16NSObjectProtocol", "eventData"]
+- !private ["PSo16NSObjectProtocol", "eventIdentifier"]
+- !private ["PSo16NSObjectProtocol", "identifier"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "initEngineWith"]
+- !private ["PSo16NSObjectProtocol", "kPPAlternateRequestForWebViewRequest"]
+- !private ["PSo16NSObjectProtocol", "kPPErrorForWebViewRequest"]
+- !private ["PSo16NSObjectProtocol", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["PSo16NSObjectProtocol", "kPPWebViewRequest"]
+- !private ["PSo16NSObjectProtocol", "prepare"]
+- !private ["PSo16NSObjectProtocol", "protectionEnabled"]
+- !private ["PSo16NSObjectProtocol", "registerAndProcessEvents"]
+- !private ["PSo16NSObjectProtocol", "removeHandler"]
+- !private ["PSo16NSObjectProtocol", "requestAlteredWithTorHeaders"]
+- !private ["PSo16NSObjectProtocol", "sharedInstance"]
+- !private ["PSo16NSObjectProtocol", "shouldBlockRequest"]
+- !private ["PSo16NSObjectProtocol", "subscript"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "NSError"]
+- !private ["PSo14NSSecureCoding", "errorContentBlocked"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "subscript"]
+- ["CSo8NSString", "init"]
+- !private ["CSo7PPEvent", "eventData"]
+- !private ["CSo7PPEvent", "eventIdentifier"]
+- !private ["CSo17PPEventDispatcher", "appendNewEventHandler"]
+- !private ["CSo17PPEventDispatcher", "removeHandler"]
+- !private ["CSo17PPEventDispatcher", "sharedInstance"]
+- !private ["OSC11PPEventType", "PPWKWebViewEvent"]
+- !private ["OSC20PPWKWebViewEventType", "EventGetAlternateRequestForWebViewRequest"]
+- !private ["OSC20PPWKWebViewEventType", "EventGetErrorForRequestIfAny"]
+- !private ["OSC20PPWKWebViewEventType", "EventShouldInterceptWebViewRequest"]
+- !private ["OSC20PPWKWebViewEventType", "rawValue"]
+- !private ["CSo25PPWebContentBlockerEngine", "action"]
+- ["CSo25PPWebContentBlockerEngine", "init"]
+- !private ["CSo25PPWebContentBlockerEngine", "prepare"]
+- !private ["Ps16RawRepresentable", "EventGetAlternateRequestForWebViewRequest"]
+- !private ["Ps16RawRepresentable", "EventGetErrorForRequestIfAny"]
+- !private ["Ps16RawRepresentable", "EventShouldInterceptWebViewRequest"]
+- !private ["Ps16RawRepresentable", "PPWKWebViewEvent"]
+- !private ["Ps16RawRepresentable", "TypeBlockContent"]
+- !private ["Ps16RawRepresentable", "rawValue"]
+- !private ["P10Foundation20ReferenceConvertible", "allHTTPHeaderFields"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- ["P11SwarmClient10SocketData", "init"]
+- !private ["P11SwarmClient10SocketData", "subscript"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["V10Foundation10URLRequest", "allHTTPHeaderFields"]
+- ["C8Operando12WebAdBlocker", "Bool"]
+- !private ["C8Operando12WebAdBlocker", "NSError"]
+- !private ["C8Operando12WebAdBlocker", "NSNumber"]
+- !private ["C8Operando12WebAdBlocker", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["C8Operando12WebAdBlocker", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["C8Operando12WebAdBlocker", "PPEventDispatcher"]
+- !private ["C8Operando12WebAdBlocker", "PPEventType"]
+- !private ["C8Operando12WebAdBlocker", "PPWKWebViewEventType"]
+- ["C8Operando12WebAdBlocker", "PPWebContentBlockerEngine"]
+- ["C8Operando12WebAdBlocker", "String"]
+- !private ["C8Operando12WebAdBlocker", "URLRequest"]
+- !private ["C8Operando12WebAdBlocker", "VoidBlock"]
+- !private ["C8Operando12WebAdBlocker", "WebContentActionType"]
+- ["C8Operando12WebAdBlocker", "adBlockingEnabled"]
+- !private ["C8Operando12WebAdBlocker", "addDNTHeader"]
+- ["C8Operando12WebAdBlocker", "beginBlocking"]
+- !private ["C8Operando12WebAdBlocker", "clearRequestOfNonNecessaryHeaders"]
+- !private ["C8Operando12WebAdBlocker", "contentBlockingEngine"]
+- ["C8Operando12WebAdBlocker", "deinit"]
+- !private ["C8Operando12WebAdBlocker", "didInitEngine"]
+- ["C8Operando12WebAdBlocker", "endBlocking"]
+- !private ["C8Operando12WebAdBlocker", "identifier"]
+- ["C8Operando12WebAdBlocker", "init"]
+- !private ["C8Operando12WebAdBlocker", "initEngineWith"]
+- !private ["C8Operando12WebAdBlocker", "kPPAlternateRequestForWebViewRequest"]
+- !private ["C8Operando12WebAdBlocker", "kPPErrorForWebViewRequest"]
+- !private ["C8Operando12WebAdBlocker", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["C8Operando12WebAdBlocker", "kPPWebViewRequest"]
+- ["C8Operando12WebAdBlocker", "protectionEnabled"]
+- !private ["C8Operando12WebAdBlocker", "registerAndProcessEvents"]
+- !private ["C8Operando12WebAdBlocker", "requestAlteredWithTorHeaders"]
+- !private ["C8Operando12WebAdBlocker", "shouldBlockRequest"]
+- !private ["OSC20WebContentActionType", "TypeBlockContent"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "EventGetAlternateRequestForWebViewRequest"]
+- !private ["Ps9_Hashable", "EventGetErrorForRequestIfAny"]
+- !private ["Ps9_Hashable", "EventShouldInterceptWebViewRequest"]
+- ["Ps9_Hashable", "NSError"]
+- !private ["Ps9_Hashable", "NSNumber"]
+- !private ["Ps9_Hashable", "PPApiHooks_disableWebKitURLMonitoring"]
+- !private ["Ps9_Hashable", "PPApiHooks_enableWebKitURLMonitoring"]
+- !private ["Ps9_Hashable", "PPEventDispatcher"]
+- !private ["Ps9_Hashable", "PPEventType"]
+- !private ["Ps9_Hashable", "PPWKWebViewEvent"]
+- !private ["Ps9_Hashable", "PPWKWebViewEventType"]
+- ["Ps9_Hashable", "PPWebContentBlockerEngine"]
+- !private ["Ps9_Hashable", "TypeBlockContent"]
+- !private ["Ps9_Hashable", "WebContentActionType"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "action"]
+- !private ["Ps9_Hashable", "adBlockingEnabled"]
+- !private ["Ps9_Hashable", "addDNTHeader"]
+- !private ["Ps9_Hashable", "allHTTPHeaderFields"]
+- !private ["Ps9_Hashable", "appendNewEventHandler"]
+- !private ["Ps9_Hashable", "clearRequestOfNonNecessaryHeaders"]
+- !private ["Ps9_Hashable", "contentBlockingEngine"]
+- !private ["Ps9_Hashable", "didInitEngine"]
+- !private ["Ps9_Hashable", "errorContentBlocked"]
+- !private ["Ps9_Hashable", "eventData"]
+- !private ["Ps9_Hashable", "eventIdentifier"]
+- !private ["Ps9_Hashable", "identifier"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "initEngineWith"]
+- !private ["Ps9_Hashable", "kPPAlternateRequestForWebViewRequest"]
+- !private ["Ps9_Hashable", "kPPErrorForWebViewRequest"]
+- !private ["Ps9_Hashable", "kPPShouldInterceptWebViewRequestValue"]
+- !private ["Ps9_Hashable", "kPPWebViewRequest"]
+- !private ["Ps9_Hashable", "prepare"]
+- !private ["Ps9_Hashable", "protectionEnabled"]
+- !private ["Ps9_Hashable", "rawValue"]
+- !private ["Ps9_Hashable", "registerAndProcessEvents"]
+- !private ["Ps9_Hashable", "removeHandler"]
+- !private ["Ps9_Hashable", "requestAlteredWithTorHeaders"]
+- !private ["Ps9_Hashable", "sharedInstance"]
+- !private ["Ps9_Hashable", "shouldBlockRequest"]
+- !private ["Ps9_Hashable", "subscript"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps10_Indexable", "subscript"]
+- !private ["Ps14_IndexableBase", "subscript"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "allHTTPHeaderFields"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["VSC18_PPEventIdentifier", "eventSubtype"]
+- !private ["VSC18_PPEventIdentifier", "eventType"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Vs10Dictionary"
+- "Ps9Equatable"
+- "Ps5Error"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps30ExpressibleByDictionaryLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- !private "CSo12NSDictionary"
+- "CSo7NSError"
+- !private "PSo17NSFastEnumeration"
+- "PSo16NSMutableCopying"
+- !private "CSo19NSMutableDictionary"
+- !private "CSo8NSNumber"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "CSo7PPEvent"
+- !private "CSo17PPEventDispatcher"
+- !private "OSC11PPEventType"
+- !private "OSC20PPWKWebViewEventType"
+- "CSo25PPWebContentBlockerEngine"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "Ps8Sequence"
+- "P11SwarmClient10SocketData"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "V10Foundation10URLRequest"
+- "C8Operando12WebAdBlocker"
+- !private "OSC20WebContentActionType"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- "Ps21_ObjectiveCBridgeable"
+- !private "VSC18_PPEventIdentifier"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "eab1df6a170a7f5bf9cf489b23cde591"

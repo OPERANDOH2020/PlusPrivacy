@@ -1,0 +1,473 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIDashBoardViewControllerCallbacks"
+- "UIDashboardViewController"
+provides-nominal:
+- "V8Operando34UIDashBoardViewControllerCallbacks"
+- "C8Operando25UIDashboardViewController"
+provides-member:
+- ["V8Operando34UIDashBoardViewControllerCallbacks", ""]
+- ["C8Operando25UIDashboardViewController", ""]
+provides-dynamic-lookup:
+- "identityManagementButton"
+- "notificationsButton"
+- "privacyForBenefitsButton"
+- "privateBrowsingButton"
+- "viewDidAppear"
+- "viewDidLoad"
+depends-top-level:
+- !private "!="
+- "Bool"
+- "NumOfNotificationsRequestCallback"
+- "UIDashBoardViewControllerCallbacks"
+- "UIDashboardButton"
+- !private "UIDashboardButtonModel"
+- "UIDashboardViewController"
+- "UIViewController"
+- "VoidBlock"
+depends-member:
+- !private ["Ps9AnyObject", "UIDashboardButtonModel"]
+- !private ["Ps9AnyObject", "identityManagementButton"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "notificationsButton"]
+- !private ["Ps9AnyObject", "privacyForBenefitsButton"]
+- !private ["Ps9AnyObject", "privateBrowsingButton"]
+- !private ["Ps9AnyObject", "setupWith"]
+- !private ["Ps9AnyObject", "updateNotificationsCountLabel"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "viewDidAppear"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- !private ["Ps9AnyObject", "window"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "setupWith"]
+- !private ["PSo15CALayerDelegate", "updateNotificationsCountLabel"]
+- !private ["PSo15CALayerDelegate", "window"]
+- !private ["Ps7CVarArg", "UIDashboardButtonModel"]
+- !private ["Ps7CVarArg", "identityManagementButton"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "notificationsButton"]
+- !private ["Ps7CVarArg", "privacyForBenefitsButton"]
+- !private ["Ps7CVarArg", "privateBrowsingButton"]
+- !private ["Ps7CVarArg", "setupWith"]
+- !private ["Ps7CVarArg", "updateNotificationsCountLabel"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "viewDidAppear"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- !private ["Ps7CVarArg", "window"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "UIDashboardButtonModel"]
+- !private ["Ps28CustomDebugStringConvertible", "identityManagementButton"]
+- !private ["Ps28CustomDebugStringConvertible", "identityManagementStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "notificationsButton"]
+- !private ["Ps28CustomDebugStringConvertible", "notificationsStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "privacyForBenefitsButton"]
+- !private ["Ps28CustomDebugStringConvertible", "privacyForBenefitsStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "privateBrowsingButton"]
+- !private ["Ps28CustomDebugStringConvertible", "privateBrowsingStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "setupWith"]
+- !private ["Ps28CustomDebugStringConvertible", "updateNotificationsCountLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- !private ["Ps28CustomDebugStringConvertible", "window"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "identityManagementStyle"]
+- !private ["Ps17CustomReflectable", "notificationsStyle"]
+- !private ["Ps17CustomReflectable", "privacyForBenefitsStyle"]
+- !private ["Ps17CustomReflectable", "privateBrowsingStyle"]
+- !private ["Ps23CustomStringConvertible", "UIDashboardButtonModel"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "identityManagementButton"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "notificationsButton"]
+- !private ["Ps23CustomStringConvertible", "privacyForBenefitsButton"]
+- !private ["Ps23CustomStringConvertible", "privateBrowsingButton"]
+- !private ["Ps23CustomStringConvertible", "setupWith"]
+- !private ["Ps23CustomStringConvertible", "updateNotificationsCountLabel"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "viewDidAppear"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- !private ["Ps23CustomStringConvertible", "window"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIDashboardButtonModel"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "identityManagementButton"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "notificationsButton"]
+- !private ["Ps9Equatable", "privacyForBenefitsButton"]
+- !private ["Ps9Equatable", "privateBrowsingButton"]
+- !private ["Ps9Equatable", "setupWith"]
+- !private ["Ps9Equatable", "updateNotificationsCountLabel"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "viewDidAppear"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- !private ["Ps9Equatable", "window"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps23ExpressibleByNilLiteral", "identityManagementStyle"]
+- !private ["Ps23ExpressibleByNilLiteral", "notificationsStyle"]
+- !private ["Ps23ExpressibleByNilLiteral", "privacyForBenefitsStyle"]
+- !private ["Ps23ExpressibleByNilLiteral", "privateBrowsingStyle"]
+- !private ["Ps8Hashable", "UIDashboardButtonModel"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "identityManagementButton"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "notificationsButton"]
+- !private ["Ps8Hashable", "privacyForBenefitsButton"]
+- !private ["Ps8Hashable", "privateBrowsingButton"]
+- !private ["Ps8Hashable", "setupWith"]
+- !private ["Ps8Hashable", "updateNotificationsCountLabel"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "viewDidAppear"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- !private ["Ps8Hashable", "window"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSo8NSCoding", "UIDashboardButtonModel"]
+- !private ["PSo8NSCoding", "identityManagementButton"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "notificationsButton"]
+- !private ["PSo8NSCoding", "privacyForBenefitsButton"]
+- !private ["PSo8NSCoding", "privateBrowsingButton"]
+- !private ["PSo8NSCoding", "setupWith"]
+- !private ["PSo8NSCoding", "updateNotificationsCountLabel"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo8NSCoding", "viewDidAppear"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- !private ["PSo8NSCoding", "window"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "UIDashboardButtonModel"]
+- !private ["PSo26NSExtensionRequestHandling", "identityManagementButton"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "notificationsButton"]
+- !private ["PSo26NSExtensionRequestHandling", "privacyForBenefitsButton"]
+- !private ["PSo26NSExtensionRequestHandling", "privateBrowsingButton"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "UIDashBoardViewControllerCallbacks"]
+- ["CSo8NSObject", "UIDashboardButton"]
+- !private ["CSo8NSObject", "UIDashboardButtonModel"]
+- ["CSo8NSObject", "identityManagementButton"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "notificationsButton"]
+- ["CSo8NSObject", "privacyForBenefitsButton"]
+- ["CSo8NSObject", "privateBrowsingButton"]
+- ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "updateNotificationsCountLabel"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDidAppear"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["CSo8NSObject", "window"]
+- !private ["PSo16NSObjectProtocol", "UIDashboardButtonModel"]
+- !private ["PSo16NSObjectProtocol", "identityManagementButton"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "notificationsButton"]
+- !private ["PSo16NSObjectProtocol", "privacyForBenefitsButton"]
+- !private ["PSo16NSObjectProtocol", "privateBrowsingButton"]
+- !private ["PSo16NSObjectProtocol", "setupWith"]
+- !private ["PSo16NSObjectProtocol", "updateNotificationsCountLabel"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "viewDidAppear"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["Sq", "identityManagementStyle"]
+- !private ["Sq", "notificationsStyle"]
+- !private ["Sq", "privacyForBenefitsStyle"]
+- !private ["Sq", "privateBrowsingStyle"]
+- !private ["C8Operando19RSNibDesignableView", "setupWith"]
+- !private ["C8Operando19RSNibDesignableView", "updateNotificationsCountLabel"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["PSo29UIAccessibilityIdentification", "setupWith"]
+- !private ["PSo29UIAccessibilityIdentification", "updateNotificationsCountLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "window"]
+- !private ["PSo12UIAppearance", "setupWith"]
+- !private ["PSo12UIAppearance", "updateNotificationsCountLabel"]
+- !private ["PSo12UIAppearance", "window"]
+- !private ["PSo21UIAppearanceContainer", "UIDashboardButtonModel"]
+- !private ["PSo21UIAppearanceContainer", "identityManagementButton"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "notificationsButton"]
+- !private ["PSo21UIAppearanceContainer", "privacyForBenefitsButton"]
+- !private ["PSo21UIAppearanceContainer", "privateBrowsingButton"]
+- !private ["PSo21UIAppearanceContainer", "setupWith"]
+- !private ["PSo21UIAppearanceContainer", "updateNotificationsCountLabel"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo21UIAppearanceContainer", "viewDidAppear"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- !private ["PSo21UIAppearanceContainer", "window"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "UIDashboardButtonModel"]
+- !private ["PSo18UIContentContainer", "identityManagementButton"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "notificationsButton"]
+- !private ["PSo18UIContentContainer", "privacyForBenefitsButton"]
+- !private ["PSo18UIContentContainer", "privateBrowsingButton"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo18UIContentContainer", "viewDidAppear"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "setupWith"]
+- !private ["PSo17UICoordinateSpace", "updateNotificationsCountLabel"]
+- !private ["PSo17UICoordinateSpace", "window"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "NumOfNotificationsRequestCallback"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "VoidBlock"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "init"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "numOfNotificationsRequestCallback"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingIdentitiesManagement"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingNotifications"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingPrivacyForBenefits"]
+- ["V8Operando34UIDashBoardViewControllerCallbacks", "whenChoosingPrivateBrowsing"]
+- !private ["C8Operando17UIDashboardButton", "setupWith"]
+- !private ["C8Operando17UIDashboardButton", "updateNotificationsCountLabel"]
+- !private ["V8Operando22UIDashboardButtonModel", "init"]
+- !private ["V8Operando22UIDashboardButtonStyle", "identityManagementStyle"]
+- !private ["V8Operando22UIDashboardButtonStyle", "notificationsStyle"]
+- !private ["V8Operando22UIDashboardButtonStyle", "privacyForBenefitsStyle"]
+- !private ["V8Operando22UIDashboardButtonStyle", "privateBrowsingStyle"]
+- ["C8Operando25UIDashboardViewController", "Bool"]
+- ["C8Operando25UIDashboardViewController", "UIDashBoardViewControllerCallbacks"]
+- ["C8Operando25UIDashboardViewController", "UIDashboardButton"]
+- !private ["C8Operando25UIDashboardViewController", "UIDashboardButtonModel"]
+- ["C8Operando25UIDashboardViewController", "deinit"]
+- ["C8Operando25UIDashboardViewController", "identityManagementButton"]
+- ["C8Operando25UIDashboardViewController", "init"]
+- ["C8Operando25UIDashboardViewController", "notificationsButton"]
+- ["C8Operando25UIDashboardViewController", "privacyForBenefitsButton"]
+- ["C8Operando25UIDashboardViewController", "privateBrowsingButton"]
+- ["C8Operando25UIDashboardViewController", "setupWith"]
+- !private ["C8Operando25UIDashboardViewController", "view"]
+- ["C8Operando25UIDashboardViewController", "viewDidAppear"]
+- ["C8Operando25UIDashboardViewController", "viewDidLoad"]
+- !private ["PSo13UIDynamicItem", "setupWith"]
+- !private ["PSo13UIDynamicItem", "updateNotificationsCountLabel"]
+- !private ["PSo13UIDynamicItem", "window"]
+- !private ["PSo18UIFocusEnvironment", "UIDashboardButtonModel"]
+- !private ["PSo18UIFocusEnvironment", "identityManagementButton"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "notificationsButton"]
+- !private ["PSo18UIFocusEnvironment", "privacyForBenefitsButton"]
+- !private ["PSo18UIFocusEnvironment", "privateBrowsingButton"]
+- !private ["PSo18UIFocusEnvironment", "setupWith"]
+- !private ["PSo18UIFocusEnvironment", "updateNotificationsCountLabel"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo18UIFocusEnvironment", "viewDidAppear"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- !private ["PSo18UIFocusEnvironment", "window"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "setupWith"]
+- !private ["PSo11UIFocusItem", "updateNotificationsCountLabel"]
+- !private ["PSo11UIFocusItem", "window"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "UIDashBoardViewControllerCallbacks"]
+- ["CSo11UIResponder", "UIDashboardButton"]
+- !private ["CSo11UIResponder", "UIDashboardButtonModel"]
+- ["CSo11UIResponder", "identityManagementButton"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "notificationsButton"]
+- ["CSo11UIResponder", "privacyForBenefitsButton"]
+- ["CSo11UIResponder", "privateBrowsingButton"]
+- ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "updateNotificationsCountLabel"]
+- !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDidAppear"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["CSo11UIResponder", "window"]
+- !private ["PSo30UIResponderStandardEditActions", "UIDashboardButtonModel"]
+- !private ["PSo30UIResponderStandardEditActions", "identityManagementButton"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "notificationsButton"]
+- !private ["PSo30UIResponderStandardEditActions", "privacyForBenefitsButton"]
+- !private ["PSo30UIResponderStandardEditActions", "privateBrowsingButton"]
+- !private ["PSo30UIResponderStandardEditActions", "setupWith"]
+- !private ["PSo30UIResponderStandardEditActions", "updateNotificationsCountLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "window"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "UIDashboardButtonModel"]
+- !private ["PSo16UIStateRestoring", "identityManagementButton"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "notificationsButton"]
+- !private ["PSo16UIStateRestoring", "privacyForBenefitsButton"]
+- !private ["PSo16UIStateRestoring", "privateBrowsingButton"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo16UIStateRestoring", "viewDidAppear"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "UIDashboardButtonModel"]
+- !private ["PSo18UITraitEnvironment", "identityManagementButton"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "notificationsButton"]
+- !private ["PSo18UITraitEnvironment", "privacyForBenefitsButton"]
+- !private ["PSo18UITraitEnvironment", "privateBrowsingButton"]
+- !private ["PSo18UITraitEnvironment", "setupWith"]
+- !private ["PSo18UITraitEnvironment", "updateNotificationsCountLabel"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["PSo18UITraitEnvironment", "viewDidAppear"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- !private ["PSo18UITraitEnvironment", "window"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "setupWith"]
+- !private ["CSo6UIView", "updateNotificationsCountLabel"]
+- !private ["CSo6UIView", "window"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "UIDashBoardViewControllerCallbacks"]
+- ["CSo16UIViewController", "UIDashboardButton"]
+- !private ["CSo16UIViewController", "UIDashboardButtonModel"]
+- ["CSo16UIViewController", "identityManagementButton"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "notificationsButton"]
+- ["CSo16UIViewController", "privacyForBenefitsButton"]
+- ["CSo16UIViewController", "privateBrowsingButton"]
+- ["CSo16UIViewController", "setupWith"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDidAppear"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupWith"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "updateNotificationsCountLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "window"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "UIDashboardButtonModel"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "identityManagementButton"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "notificationsButton"]
+- !private ["Ps9_Hashable", "privacyForBenefitsButton"]
+- !private ["Ps9_Hashable", "privateBrowsingButton"]
+- !private ["Ps9_Hashable", "setupWith"]
+- !private ["Ps9_Hashable", "updateNotificationsCountLabel"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "viewDidAppear"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- !private ["Ps9_Hashable", "window"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "identityManagementStyle"]
+- !private ["Ps21_ObjectiveCBridgeable", "notificationsStyle"]
+- !private ["Ps21_ObjectiveCBridgeable", "privacyForBenefitsStyle"]
+- !private ["Ps21_ObjectiveCBridgeable", "privateBrowsingStyle"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "Sq"
+- !private "C8Operando19RSNibDesignableView"
+- !private "P11SwarmClient10SocketData"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- "V8Operando34UIDashBoardViewControllerCallbacks"
+- !private "C8Operando17UIDashboardButton"
+- !private "V8Operando22UIDashboardButtonModel"
+- !private "V8Operando22UIDashboardButtonStyle"
+- "C8Operando25UIDashboardViewController"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "c98eb8ce5ff449e59770d337b8a75e66"

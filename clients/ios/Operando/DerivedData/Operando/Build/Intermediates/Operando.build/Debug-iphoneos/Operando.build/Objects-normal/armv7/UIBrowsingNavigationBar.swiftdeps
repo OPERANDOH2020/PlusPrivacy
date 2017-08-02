@@ -1,0 +1,642 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIBrowsingNavigationBarCallbacks"
+- "UIBrowsingNavigationBar"
+provides-nominal:
+- "V8Operando32UIBrowsingNavigationBarCallbacks"
+- "C8Operando23UIBrowsingNavigationBar"
+provides-member:
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", ""]
+- ["C8Operando23UIBrowsingNavigationBar", ""]
+provides-dynamic-lookup:
+- "commonInit"
+- "didPressBackButton"
+- "didPressSearchButton"
+- "searchBar"
+- "searchBarSearchButtonClicked"
+depends-top-level:
+- "AnyObject"
+- "AssignmentPrecedence"
+- !private "BooleanLiteralType"
+- "RSNibDesignableView"
+- "String"
+- "UIBrowsingNavigationBar"
+- "UIBrowsingNavigationBarCallbacks"
+- "UISearchBar"
+- "UISearchBarDelegate"
+- "Void"
+depends-member:
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "commonInit"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "endEditing"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "position"]
+- ["Ps9AnyObject", "positionForBar"]
+- ["Ps9AnyObject", "searchBar"]
+- ["Ps9AnyObject", "searchBarBookmarkButtonClicked"]
+- ["Ps9AnyObject", "searchBarCancelButtonClicked"]
+- ["Ps9AnyObject", "searchBarResultsListButtonClicked"]
+- ["Ps9AnyObject", "searchBarSearchButtonClicked"]
+- ["Ps9AnyObject", "searchBarShouldBeginEditing"]
+- ["Ps9AnyObject", "searchBarShouldEndEditing"]
+- ["Ps9AnyObject", "searchBarTextDidBeginEditing"]
+- ["Ps9AnyObject", "searchBarTextDidEndEditing"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "callbacks"]
+- !private ["PSo15CALayerDelegate", "commonInit"]
+- !private ["PSo15CALayerDelegate", "delegate"]
+- !private ["PSo15CALayerDelegate", "endEditing"]
+- !private ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "position"]
+- ["PSo15CALayerDelegate", "positionForBar"]
+- ["PSo15CALayerDelegate", "searchBar"]
+- ["PSo15CALayerDelegate", "searchBarBookmarkButtonClicked"]
+- ["PSo15CALayerDelegate", "searchBarCancelButtonClicked"]
+- ["PSo15CALayerDelegate", "searchBarResultsListButtonClicked"]
+- ["PSo15CALayerDelegate", "searchBarSearchButtonClicked"]
+- ["PSo15CALayerDelegate", "searchBarShouldBeginEditing"]
+- ["PSo15CALayerDelegate", "searchBarShouldEndEditing"]
+- ["PSo15CALayerDelegate", "searchBarTextDidBeginEditing"]
+- ["PSo15CALayerDelegate", "searchBarTextDidEndEditing"]
+- !private ["PSo15CALayerDelegate", "text"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "commonInit"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "endEditing"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "position"]
+- ["Ps7CVarArg", "positionForBar"]
+- ["Ps7CVarArg", "searchBar"]
+- ["Ps7CVarArg", "searchBarBookmarkButtonClicked"]
+- ["Ps7CVarArg", "searchBarCancelButtonClicked"]
+- ["Ps7CVarArg", "searchBarResultsListButtonClicked"]
+- ["Ps7CVarArg", "searchBarSearchButtonClicked"]
+- ["Ps7CVarArg", "searchBarShouldBeginEditing"]
+- ["Ps7CVarArg", "searchBarShouldEndEditing"]
+- ["Ps7CVarArg", "searchBarTextDidBeginEditing"]
+- ["Ps7CVarArg", "searchBarTextDidEndEditing"]
+- !private ["Ps7CVarArg", "text"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "commonInit"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "endEditing"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "position"]
+- ["Ps28CustomDebugStringConvertible", "positionForBar"]
+- ["Ps28CustomDebugStringConvertible", "searchBar"]
+- ["Ps28CustomDebugStringConvertible", "searchBarBookmarkButtonClicked"]
+- ["Ps28CustomDebugStringConvertible", "searchBarCancelButtonClicked"]
+- ["Ps28CustomDebugStringConvertible", "searchBarResultsListButtonClicked"]
+- ["Ps28CustomDebugStringConvertible", "searchBarSearchButtonClicked"]
+- ["Ps28CustomDebugStringConvertible", "searchBarShouldBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "searchBarShouldEndEditing"]
+- ["Ps28CustomDebugStringConvertible", "searchBarTextDidBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "searchBarTextDidEndEditing"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "commonInit"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "endEditing"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "position"]
+- ["Ps23CustomStringConvertible", "positionForBar"]
+- ["Ps23CustomStringConvertible", "searchBar"]
+- ["Ps23CustomStringConvertible", "searchBarBookmarkButtonClicked"]
+- ["Ps23CustomStringConvertible", "searchBarCancelButtonClicked"]
+- ["Ps23CustomStringConvertible", "searchBarResultsListButtonClicked"]
+- ["Ps23CustomStringConvertible", "searchBarSearchButtonClicked"]
+- ["Ps23CustomStringConvertible", "searchBarShouldBeginEditing"]
+- ["Ps23CustomStringConvertible", "searchBarShouldEndEditing"]
+- ["Ps23CustomStringConvertible", "searchBarTextDidBeginEditing"]
+- ["Ps23CustomStringConvertible", "searchBarTextDidEndEditing"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "commonInit"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "endEditing"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "position"]
+- ["Ps9Equatable", "positionForBar"]
+- ["Ps9Equatable", "searchBar"]
+- ["Ps9Equatable", "searchBarBookmarkButtonClicked"]
+- ["Ps9Equatable", "searchBarCancelButtonClicked"]
+- ["Ps9Equatable", "searchBarResultsListButtonClicked"]
+- ["Ps9Equatable", "searchBarSearchButtonClicked"]
+- ["Ps9Equatable", "searchBarShouldBeginEditing"]
+- ["Ps9Equatable", "searchBarShouldEndEditing"]
+- ["Ps9Equatable", "searchBarTextDidBeginEditing"]
+- ["Ps9Equatable", "searchBarTextDidEndEditing"]
+- !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "commonInit"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "endEditing"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "position"]
+- ["Ps8Hashable", "positionForBar"]
+- ["Ps8Hashable", "searchBar"]
+- ["Ps8Hashable", "searchBarBookmarkButtonClicked"]
+- ["Ps8Hashable", "searchBarCancelButtonClicked"]
+- ["Ps8Hashable", "searchBarResultsListButtonClicked"]
+- ["Ps8Hashable", "searchBarSearchButtonClicked"]
+- ["Ps8Hashable", "searchBarShouldBeginEditing"]
+- ["Ps8Hashable", "searchBarShouldEndEditing"]
+- ["Ps8Hashable", "searchBarTextDidBeginEditing"]
+- ["Ps8Hashable", "searchBarTextDidEndEditing"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "callbacks"]
+- !private ["PSo8NSCoding", "commonInit"]
+- !private ["PSo8NSCoding", "delegate"]
+- !private ["PSo8NSCoding", "endEditing"]
+- !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "position"]
+- ["PSo8NSCoding", "positionForBar"]
+- ["PSo8NSCoding", "searchBar"]
+- ["PSo8NSCoding", "searchBarBookmarkButtonClicked"]
+- ["PSo8NSCoding", "searchBarCancelButtonClicked"]
+- ["PSo8NSCoding", "searchBarResultsListButtonClicked"]
+- ["PSo8NSCoding", "searchBarSearchButtonClicked"]
+- ["PSo8NSCoding", "searchBarShouldBeginEditing"]
+- ["PSo8NSCoding", "searchBarShouldEndEditing"]
+- ["PSo8NSCoding", "searchBarTextDidBeginEditing"]
+- ["PSo8NSCoding", "searchBarTextDidEndEditing"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", ""]
+- ["CSo8NSObject", "AnyObject"]
+- ["CSo8NSObject", "UIBrowsingNavigationBarCallbacks"]
+- ["CSo8NSObject", "UISearchBar"]
+- ["CSo8NSObject", "callbacks"]
+- ["CSo8NSObject", "commonInit"]
+- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "didPressBackButton"]
+- ["CSo8NSObject", "didPressSearchButton"]
+- !private ["CSo8NSObject", "endEditing"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "position"]
+- ["CSo8NSObject", "positionForBar"]
+- ["CSo8NSObject", "searchBar"]
+- ["CSo8NSObject", "searchBarBookmarkButtonClicked"]
+- ["CSo8NSObject", "searchBarCancelButtonClicked"]
+- ["CSo8NSObject", "searchBarResultsListButtonClicked"]
+- ["CSo8NSObject", "searchBarSearchButtonClicked"]
+- ["CSo8NSObject", "searchBarShouldBeginEditing"]
+- ["CSo8NSObject", "searchBarShouldEndEditing"]
+- ["CSo8NSObject", "searchBarTextDidBeginEditing"]
+- ["CSo8NSObject", "searchBarTextDidEndEditing"]
+- ["CSo8NSObject", "setupWithCallbacks"]
+- !private ["CSo8NSObject", "text"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "commonInit"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "endEditing"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "position"]
+- ["PSo16NSObjectProtocol", "positionForBar"]
+- ["PSo16NSObjectProtocol", "searchBar"]
+- ["PSo16NSObjectProtocol", "searchBarBookmarkButtonClicked"]
+- ["PSo16NSObjectProtocol", "searchBarCancelButtonClicked"]
+- ["PSo16NSObjectProtocol", "searchBarResultsListButtonClicked"]
+- ["PSo16NSObjectProtocol", "searchBarSearchButtonClicked"]
+- ["PSo16NSObjectProtocol", "searchBarShouldBeginEditing"]
+- ["PSo16NSObjectProtocol", "searchBarShouldEndEditing"]
+- ["PSo16NSObjectProtocol", "searchBarTextDidBeginEditing"]
+- ["PSo16NSObjectProtocol", "searchBarTextDidEndEditing"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", ""]
+- ["C8Operando19RSNibDesignableView", "AnyObject"]
+- ["C8Operando19RSNibDesignableView", "UIBrowsingNavigationBarCallbacks"]
+- ["C8Operando19RSNibDesignableView", "UISearchBar"]
+- ["C8Operando19RSNibDesignableView", "callbacks"]
+- ["C8Operando19RSNibDesignableView", "commonInit"]
+- ["C8Operando19RSNibDesignableView", "didPressBackButton"]
+- ["C8Operando19RSNibDesignableView", "didPressSearchButton"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- ["C8Operando19RSNibDesignableView", "position"]
+- ["C8Operando19RSNibDesignableView", "positionForBar"]
+- ["C8Operando19RSNibDesignableView", "searchBar"]
+- ["C8Operando19RSNibDesignableView", "searchBarBookmarkButtonClicked"]
+- ["C8Operando19RSNibDesignableView", "searchBarCancelButtonClicked"]
+- ["C8Operando19RSNibDesignableView", "searchBarResultsListButtonClicked"]
+- ["C8Operando19RSNibDesignableView", "searchBarSearchButtonClicked"]
+- ["C8Operando19RSNibDesignableView", "searchBarShouldBeginEditing"]
+- ["C8Operando19RSNibDesignableView", "searchBarShouldEndEditing"]
+- ["C8Operando19RSNibDesignableView", "searchBarTextDidBeginEditing"]
+- ["C8Operando19RSNibDesignableView", "searchBarTextDidEndEditing"]
+- ["C8Operando19RSNibDesignableView", "setupWithCallbacks"]
+- ["C8Operando19RSNibDesignableView", ""]
+- !private ["PSo29UIAccessibilityIdentification", "callbacks"]
+- !private ["PSo29UIAccessibilityIdentification", "commonInit"]
+- !private ["PSo29UIAccessibilityIdentification", "delegate"]
+- !private ["PSo29UIAccessibilityIdentification", "endEditing"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "position"]
+- ["PSo29UIAccessibilityIdentification", "positionForBar"]
+- ["PSo29UIAccessibilityIdentification", "searchBar"]
+- ["PSo29UIAccessibilityIdentification", "searchBarBookmarkButtonClicked"]
+- ["PSo29UIAccessibilityIdentification", "searchBarCancelButtonClicked"]
+- ["PSo29UIAccessibilityIdentification", "searchBarResultsListButtonClicked"]
+- ["PSo29UIAccessibilityIdentification", "searchBarSearchButtonClicked"]
+- ["PSo29UIAccessibilityIdentification", "searchBarShouldBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "searchBarShouldEndEditing"]
+- ["PSo29UIAccessibilityIdentification", "searchBarTextDidBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "searchBarTextDidEndEditing"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "callbacks"]
+- !private ["PSo12UIAppearance", "commonInit"]
+- !private ["PSo12UIAppearance", "delegate"]
+- !private ["PSo12UIAppearance", "endEditing"]
+- !private ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "position"]
+- ["PSo12UIAppearance", "positionForBar"]
+- ["PSo12UIAppearance", "searchBar"]
+- ["PSo12UIAppearance", "searchBarBookmarkButtonClicked"]
+- ["PSo12UIAppearance", "searchBarCancelButtonClicked"]
+- ["PSo12UIAppearance", "searchBarResultsListButtonClicked"]
+- ["PSo12UIAppearance", "searchBarSearchButtonClicked"]
+- ["PSo12UIAppearance", "searchBarShouldBeginEditing"]
+- ["PSo12UIAppearance", "searchBarShouldEndEditing"]
+- ["PSo12UIAppearance", "searchBarTextDidBeginEditing"]
+- ["PSo12UIAppearance", "searchBarTextDidEndEditing"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "callbacks"]
+- !private ["PSo21UIAppearanceContainer", "commonInit"]
+- !private ["PSo21UIAppearanceContainer", "delegate"]
+- !private ["PSo21UIAppearanceContainer", "endEditing"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "position"]
+- ["PSo21UIAppearanceContainer", "positionForBar"]
+- ["PSo21UIAppearanceContainer", "searchBar"]
+- ["PSo21UIAppearanceContainer", "searchBarBookmarkButtonClicked"]
+- ["PSo21UIAppearanceContainer", "searchBarCancelButtonClicked"]
+- ["PSo21UIAppearanceContainer", "searchBarResultsListButtonClicked"]
+- ["PSo21UIAppearanceContainer", "searchBarSearchButtonClicked"]
+- ["PSo21UIAppearanceContainer", "searchBarShouldBeginEditing"]
+- ["PSo21UIAppearanceContainer", "searchBarShouldEndEditing"]
+- ["PSo21UIAppearanceContainer", "searchBarTextDidBeginEditing"]
+- ["PSo21UIAppearanceContainer", "searchBarTextDidEndEditing"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo16UIBarPositioning", "delegate"]
+- !private ["PSo16UIBarPositioning", "endEditing"]
+- !private ["PSo16UIBarPositioning", "text"]
+- !private ["PSo24UIBarPositioningDelegate", "callbacks"]
+- ["PSo24UIBarPositioningDelegate", "position"]
+- ["PSo24UIBarPositioningDelegate", "positionForBar"]
+- ["PSo24UIBarPositioningDelegate", "searchBar"]
+- ["PSo24UIBarPositioningDelegate", "searchBarBookmarkButtonClicked"]
+- ["PSo24UIBarPositioningDelegate", "searchBarCancelButtonClicked"]
+- ["PSo24UIBarPositioningDelegate", "searchBarResultsListButtonClicked"]
+- ["PSo24UIBarPositioningDelegate", "searchBarSearchButtonClicked"]
+- ["PSo24UIBarPositioningDelegate", "searchBarShouldBeginEditing"]
+- ["PSo24UIBarPositioningDelegate", "searchBarShouldEndEditing"]
+- ["PSo24UIBarPositioningDelegate", "searchBarTextDidBeginEditing"]
+- ["PSo24UIBarPositioningDelegate", "searchBarTextDidEndEditing"]
+- ["PSo24UIBarPositioningDelegate", ""]
+- ["C8Operando23UIBrowsingNavigationBar", "AnyObject"]
+- ["C8Operando23UIBrowsingNavigationBar", "UIBrowsingNavigationBarCallbacks"]
+- ["C8Operando23UIBrowsingNavigationBar", "UISearchBar"]
+- !private ["C8Operando23UIBrowsingNavigationBar", "callbacks"]
+- ["C8Operando23UIBrowsingNavigationBar", "commonInit"]
+- ["C8Operando23UIBrowsingNavigationBar", "deinit"]
+- ["C8Operando23UIBrowsingNavigationBar", "didPressBackButton"]
+- ["C8Operando23UIBrowsingNavigationBar", "didPressSearchButton"]
+- ["C8Operando23UIBrowsingNavigationBar", "init"]
+- ["C8Operando23UIBrowsingNavigationBar", "position"]
+- ["C8Operando23UIBrowsingNavigationBar", "positionForBar"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBar"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarBookmarkButtonClicked"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarCancelButtonClicked"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarResultsListButtonClicked"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarSearchButtonClicked"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarShouldBeginEditing"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarShouldEndEditing"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarTextDidBeginEditing"]
+- ["C8Operando23UIBrowsingNavigationBar", "searchBarTextDidEndEditing"]
+- ["C8Operando23UIBrowsingNavigationBar", "setupWithCallbacks"]
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", "String"]
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", "Void"]
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", "init"]
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", "whenUserPressedBack"]
+- ["V8Operando32UIBrowsingNavigationBarCallbacks", "whenUserPressedSearchWithString"]
+- !private ["PSo17UICoordinateSpace", "callbacks"]
+- !private ["PSo17UICoordinateSpace", "commonInit"]
+- !private ["PSo17UICoordinateSpace", "delegate"]
+- !private ["PSo17UICoordinateSpace", "endEditing"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "position"]
+- ["PSo17UICoordinateSpace", "positionForBar"]
+- ["PSo17UICoordinateSpace", "searchBar"]
+- ["PSo17UICoordinateSpace", "searchBarBookmarkButtonClicked"]
+- ["PSo17UICoordinateSpace", "searchBarCancelButtonClicked"]
+- ["PSo17UICoordinateSpace", "searchBarResultsListButtonClicked"]
+- ["PSo17UICoordinateSpace", "searchBarSearchButtonClicked"]
+- ["PSo17UICoordinateSpace", "searchBarShouldBeginEditing"]
+- ["PSo17UICoordinateSpace", "searchBarShouldEndEditing"]
+- ["PSo17UICoordinateSpace", "searchBarTextDidBeginEditing"]
+- ["PSo17UICoordinateSpace", "searchBarTextDidEndEditing"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "callbacks"]
+- !private ["PSo13UIDynamicItem", "commonInit"]
+- !private ["PSo13UIDynamicItem", "delegate"]
+- !private ["PSo13UIDynamicItem", "endEditing"]
+- !private ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "position"]
+- ["PSo13UIDynamicItem", "positionForBar"]
+- ["PSo13UIDynamicItem", "searchBar"]
+- ["PSo13UIDynamicItem", "searchBarBookmarkButtonClicked"]
+- ["PSo13UIDynamicItem", "searchBarCancelButtonClicked"]
+- ["PSo13UIDynamicItem", "searchBarResultsListButtonClicked"]
+- ["PSo13UIDynamicItem", "searchBarSearchButtonClicked"]
+- ["PSo13UIDynamicItem", "searchBarShouldBeginEditing"]
+- ["PSo13UIDynamicItem", "searchBarShouldEndEditing"]
+- ["PSo13UIDynamicItem", "searchBarTextDidBeginEditing"]
+- ["PSo13UIDynamicItem", "searchBarTextDidEndEditing"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "callbacks"]
+- !private ["PSo18UIFocusEnvironment", "commonInit"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- !private ["PSo18UIFocusEnvironment", "endEditing"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "position"]
+- ["PSo18UIFocusEnvironment", "positionForBar"]
+- ["PSo18UIFocusEnvironment", "searchBar"]
+- ["PSo18UIFocusEnvironment", "searchBarBookmarkButtonClicked"]
+- ["PSo18UIFocusEnvironment", "searchBarCancelButtonClicked"]
+- ["PSo18UIFocusEnvironment", "searchBarResultsListButtonClicked"]
+- ["PSo18UIFocusEnvironment", "searchBarSearchButtonClicked"]
+- ["PSo18UIFocusEnvironment", "searchBarShouldBeginEditing"]
+- ["PSo18UIFocusEnvironment", "searchBarShouldEndEditing"]
+- ["PSo18UIFocusEnvironment", "searchBarTextDidBeginEditing"]
+- ["PSo18UIFocusEnvironment", "searchBarTextDidEndEditing"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "callbacks"]
+- !private ["PSo11UIFocusItem", "commonInit"]
+- !private ["PSo11UIFocusItem", "delegate"]
+- !private ["PSo11UIFocusItem", "endEditing"]
+- !private ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "position"]
+- ["PSo11UIFocusItem", "positionForBar"]
+- ["PSo11UIFocusItem", "searchBar"]
+- ["PSo11UIFocusItem", "searchBarBookmarkButtonClicked"]
+- ["PSo11UIFocusItem", "searchBarCancelButtonClicked"]
+- ["PSo11UIFocusItem", "searchBarResultsListButtonClicked"]
+- ["PSo11UIFocusItem", "searchBarSearchButtonClicked"]
+- ["PSo11UIFocusItem", "searchBarShouldBeginEditing"]
+- ["PSo11UIFocusItem", "searchBarShouldEndEditing"]
+- ["PSo11UIFocusItem", "searchBarTextDidBeginEditing"]
+- ["PSo11UIFocusItem", "searchBarTextDidEndEditing"]
+- !private ["PSo11UIFocusItem", "text"]
+- ["PSo11UIFocusItem", ""]
+- ["CSo11UIResponder", "AnyObject"]
+- ["CSo11UIResponder", "UIBrowsingNavigationBarCallbacks"]
+- ["CSo11UIResponder", "UISearchBar"]
+- ["CSo11UIResponder", "callbacks"]
+- ["CSo11UIResponder", "commonInit"]
+- !private ["CSo11UIResponder", "delegate"]
+- ["CSo11UIResponder", "didPressBackButton"]
+- ["CSo11UIResponder", "didPressSearchButton"]
+- !private ["CSo11UIResponder", "endEditing"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "position"]
+- ["CSo11UIResponder", "positionForBar"]
+- ["CSo11UIResponder", "searchBar"]
+- ["CSo11UIResponder", "searchBarBookmarkButtonClicked"]
+- ["CSo11UIResponder", "searchBarCancelButtonClicked"]
+- ["CSo11UIResponder", "searchBarResultsListButtonClicked"]
+- ["CSo11UIResponder", "searchBarSearchButtonClicked"]
+- ["CSo11UIResponder", "searchBarShouldBeginEditing"]
+- ["CSo11UIResponder", "searchBarShouldEndEditing"]
+- ["CSo11UIResponder", "searchBarTextDidBeginEditing"]
+- ["CSo11UIResponder", "searchBarTextDidEndEditing"]
+- ["CSo11UIResponder", "setupWithCallbacks"]
+- !private ["CSo11UIResponder", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "callbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "commonInit"]
+- !private ["PSo30UIResponderStandardEditActions", "delegate"]
+- !private ["PSo30UIResponderStandardEditActions", "endEditing"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "position"]
+- ["PSo30UIResponderStandardEditActions", "positionForBar"]
+- ["PSo30UIResponderStandardEditActions", "searchBar"]
+- ["PSo30UIResponderStandardEditActions", "searchBarBookmarkButtonClicked"]
+- ["PSo30UIResponderStandardEditActions", "searchBarCancelButtonClicked"]
+- ["PSo30UIResponderStandardEditActions", "searchBarResultsListButtonClicked"]
+- ["PSo30UIResponderStandardEditActions", "searchBarSearchButtonClicked"]
+- ["PSo30UIResponderStandardEditActions", "searchBarShouldBeginEditing"]
+- ["PSo30UIResponderStandardEditActions", "searchBarShouldEndEditing"]
+- ["PSo30UIResponderStandardEditActions", "searchBarTextDidBeginEditing"]
+- ["PSo30UIResponderStandardEditActions", "searchBarTextDidEndEditing"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["CSo11UISearchBar", "delegate"]
+- !private ["CSo11UISearchBar", "endEditing"]
+- !private ["CSo11UISearchBar", "text"]
+- !private ["PSo19UISearchBarDelegate", "callbacks"]
+- ["PSo19UISearchBarDelegate", "position"]
+- ["PSo19UISearchBarDelegate", "positionForBar"]
+- ["PSo19UISearchBarDelegate", "searchBar"]
+- ["PSo19UISearchBarDelegate", "searchBarBookmarkButtonClicked"]
+- ["PSo19UISearchBarDelegate", "searchBarCancelButtonClicked"]
+- ["PSo19UISearchBarDelegate", "searchBarResultsListButtonClicked"]
+- ["PSo19UISearchBarDelegate", "searchBarSearchButtonClicked"]
+- ["PSo19UISearchBarDelegate", "searchBarShouldBeginEditing"]
+- ["PSo19UISearchBarDelegate", "searchBarShouldEndEditing"]
+- ["PSo19UISearchBarDelegate", "searchBarTextDidBeginEditing"]
+- ["PSo19UISearchBarDelegate", "searchBarTextDidEndEditing"]
+- ["PSo19UISearchBarDelegate", ""]
+- !private ["PSo17UITextInputTraits", "delegate"]
+- !private ["PSo17UITextInputTraits", "endEditing"]
+- !private ["PSo17UITextInputTraits", "text"]
+- !private ["PSo18UITraitEnvironment", "callbacks"]
+- !private ["PSo18UITraitEnvironment", "commonInit"]
+- !private ["PSo18UITraitEnvironment", "delegate"]
+- !private ["PSo18UITraitEnvironment", "endEditing"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "position"]
+- ["PSo18UITraitEnvironment", "positionForBar"]
+- ["PSo18UITraitEnvironment", "searchBar"]
+- ["PSo18UITraitEnvironment", "searchBarBookmarkButtonClicked"]
+- ["PSo18UITraitEnvironment", "searchBarCancelButtonClicked"]
+- ["PSo18UITraitEnvironment", "searchBarResultsListButtonClicked"]
+- ["PSo18UITraitEnvironment", "searchBarSearchButtonClicked"]
+- ["PSo18UITraitEnvironment", "searchBarShouldBeginEditing"]
+- ["PSo18UITraitEnvironment", "searchBarShouldEndEditing"]
+- ["PSo18UITraitEnvironment", "searchBarTextDidBeginEditing"]
+- ["PSo18UITraitEnvironment", "searchBarTextDidEndEditing"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "AnyObject"]
+- ["CSo6UIView", "UIBrowsingNavigationBarCallbacks"]
+- ["CSo6UIView", "UISearchBar"]
+- ["CSo6UIView", "callbacks"]
+- ["CSo6UIView", "commonInit"]
+- !private ["CSo6UIView", "delegate"]
+- ["CSo6UIView", "didPressBackButton"]
+- ["CSo6UIView", "didPressSearchButton"]
+- !private ["CSo6UIView", "endEditing"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "position"]
+- ["CSo6UIView", "positionForBar"]
+- ["CSo6UIView", "searchBar"]
+- ["CSo6UIView", "searchBarBookmarkButtonClicked"]
+- ["CSo6UIView", "searchBarCancelButtonClicked"]
+- ["CSo6UIView", "searchBarResultsListButtonClicked"]
+- ["CSo6UIView", "searchBarSearchButtonClicked"]
+- ["CSo6UIView", "searchBarShouldBeginEditing"]
+- ["CSo6UIView", "searchBarShouldEndEditing"]
+- ["CSo6UIView", "searchBarTextDidBeginEditing"]
+- ["CSo6UIView", "searchBarTextDidEndEditing"]
+- ["CSo6UIView", "setupWithCallbacks"]
+- !private ["CSo6UIView", "text"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "callbacks"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "commonInit"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "delegate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "endEditing"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "position"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "positionForBar"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBar"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarBookmarkButtonClicked"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarCancelButtonClicked"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarResultsListButtonClicked"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarSearchButtonClicked"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarShouldBeginEditing"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarShouldEndEditing"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarTextDidBeginEditing"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "searchBarTextDidEndEditing"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "commonInit"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "endEditing"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "position"]
+- ["Ps9_Hashable", "positionForBar"]
+- ["Ps9_Hashable", "searchBar"]
+- ["Ps9_Hashable", "searchBarBookmarkButtonClicked"]
+- ["Ps9_Hashable", "searchBarCancelButtonClicked"]
+- ["Ps9_Hashable", "searchBarResultsListButtonClicked"]
+- ["Ps9_Hashable", "searchBarSearchButtonClicked"]
+- ["Ps9_Hashable", "searchBarShouldBeginEditing"]
+- ["Ps9_Hashable", "searchBarShouldEndEditing"]
+- ["Ps9_Hashable", "searchBarTextDidBeginEditing"]
+- ["Ps9_Hashable", "searchBarTextDidEndEditing"]
+- !private ["Ps9_Hashable", "text"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "C8Operando19RSNibDesignableView"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "PSo16UIBarPositioning"
+- "PSo24UIBarPositioningDelegate"
+- "C8Operando23UIBrowsingNavigationBar"
+- "V8Operando32UIBrowsingNavigationBarCallbacks"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "CSo11UISearchBar"
+- "PSo19UISearchBarDelegate"
+- !private "PSo17UITextInputTraits"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "0bfd31b5c0bf5cedea9b21ac9c5b76f4"

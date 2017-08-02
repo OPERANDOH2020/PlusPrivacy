@@ -1,0 +1,10 @@
+framework module SwarmClient {
+  umbrella header "SwarmClient.h"
+
+  export *
+  module * { export * }
+}
+
+module SwarmClient.Swift {
+    header "SwarmClient-Swift.h"
+}

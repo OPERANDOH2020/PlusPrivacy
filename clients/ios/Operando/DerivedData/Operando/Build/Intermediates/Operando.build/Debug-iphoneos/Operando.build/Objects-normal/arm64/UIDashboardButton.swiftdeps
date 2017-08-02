@@ -1,0 +1,849 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIDashboardButtonStyle"
+- "UIDashboardButtonModel"
+- "UIDashboardButton"
+provides-nominal:
+- "V8Operando22UIDashboardButtonStyle"
+- "V8Operando22UIDashboardButtonModel"
+- "C8Operando17UIDashboardButton"
+provides-member:
+- ["V8Operando22UIDashboardButtonStyle", ""]
+- ["V8Operando22UIDashboardButtonModel", ""]
+- ["C8Operando17UIDashboardButton", ""]
+provides-dynamic-lookup:
+- "commonInit"
+- "imageView"
+- "numOfNotificationsLabel"
+- "titleLabel"
+- "touchesBegan"
+- "touchesEnded"
+- "updateNotificationsCountLabel"
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "BooleanLiteralType"
+- "Bundle"
+- !private "DispatchQueue"
+- "NumOfNotificationsRequestCallback"
+- "RSNibDesignableView"
+- "Set"
+- "String"
+- "UIColor"
+- "UIDashboardButton"
+- "UIDashboardButtonModel"
+- "UIDashboardButtonStyle"
+- "UIEvent"
+- "UIImage"
+- "UIImageView"
+- "UILabel"
+- "UITouch"
+- "VoidBlock"
+- "kIdentitiesManagementLocalizableKey"
+- "kNotificationsLocalizableKey"
+- "kPrivacyForBenefitsLocalizableKey"
+- "kPrivateBrowsingLocalizableKey"
+depends-member:
+- !private ["Ps9AnyObject", "DispatchQueue"]
+- !private ["Ps9AnyObject", "UIColor"]
+- !private ["Ps9AnyObject", "alpha"]
+- !private ["Ps9AnyObject", "async"]
+- !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "clear"]
+- !private ["Ps9AnyObject", "commonInit"]
+- !private ["Ps9AnyObject", "contentView"]
+- !private ["Ps9AnyObject", "image"]
+- !private ["Ps9AnyObject", "imageView"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isHidden"]
+- !private ["Ps9AnyObject", "layoutIfNeeded"]
+- ["Ps9AnyObject", "localizedStringFor"]
+- !private ["Ps9AnyObject", "main"]
+- !private ["Ps9AnyObject", "model"]
+- !private ["Ps9AnyObject", "numOfNotificationsLabel"]
+- ["Ps9AnyObject", "operandoDarkGreen"]
+- ["Ps9AnyObject", "operandoLightGreen"]
+- ["Ps9AnyObject", "operandoOrange"]
+- ["Ps9AnyObject", "operandoRed"]
+- !private ["Ps9AnyObject", "setNeedsLayout"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "titleLabel"]
+- !private ["Ps9AnyObject", "touchesBegan"]
+- !private ["Ps9AnyObject", "touchesEnded"]
+- ["Ps9AnyObject", ""]
+- ["CSo6Bundle", "localizedStringFor"]
+- !private ["PSo15CALayerDelegate", "DispatchQueue"]
+- !private ["PSo15CALayerDelegate", "UIColor"]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "commonInit"]
+- !private ["PSo15CALayerDelegate", "contentView"]
+- !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "imageView"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isHidden"]
+- !private ["PSo15CALayerDelegate", "layoutIfNeeded"]
+- !private ["PSo15CALayerDelegate", "model"]
+- !private ["PSo15CALayerDelegate", "numOfNotificationsLabel"]
+- !private ["PSo15CALayerDelegate", "setNeedsLayout"]
+- !private ["PSo15CALayerDelegate", "text"]
+- !private ["PSo15CALayerDelegate", "titleLabel"]
+- !private ["PSo15CALayerDelegate", "touchesBegan"]
+- !private ["PSo15CALayerDelegate", "touchesEnded"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "DispatchQueue"]
+- !private ["Ps7CVarArg", "UIColor"]
+- !private ["Ps7CVarArg", "alpha"]
+- !private ["Ps7CVarArg", "async"]
+- !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "clear"]
+- !private ["Ps7CVarArg", "commonInit"]
+- !private ["Ps7CVarArg", "contentView"]
+- !private ["Ps7CVarArg", "image"]
+- !private ["Ps7CVarArg", "imageView"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isHidden"]
+- !private ["Ps7CVarArg", "layoutIfNeeded"]
+- ["Ps7CVarArg", "localizedStringFor"]
+- !private ["Ps7CVarArg", "main"]
+- !private ["Ps7CVarArg", "model"]
+- !private ["Ps7CVarArg", "numOfNotificationsLabel"]
+- ["Ps7CVarArg", "operandoDarkGreen"]
+- ["Ps7CVarArg", "operandoLightGreen"]
+- ["Ps7CVarArg", "operandoOrange"]
+- ["Ps7CVarArg", "operandoRed"]
+- !private ["Ps7CVarArg", "setNeedsLayout"]
+- !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "titleLabel"]
+- !private ["Ps7CVarArg", "touchesBegan"]
+- !private ["Ps7CVarArg", "touchesEnded"]
+- ["Ps7CVarArg", ""]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "DispatchQueue"]
+- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
+- !private ["Ps28CustomDebugStringConvertible", "alpha"]
+- !private ["Ps28CustomDebugStringConvertible", "async"]
+- !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "clear"]
+- !private ["Ps28CustomDebugStringConvertible", "commonInit"]
+- !private ["Ps28CustomDebugStringConvertible", "contentView"]
+- !private ["Ps28CustomDebugStringConvertible", "image"]
+- !private ["Ps28CustomDebugStringConvertible", "imageView"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isHidden"]
+- !private ["Ps28CustomDebugStringConvertible", "layoutIfNeeded"]
+- ["Ps28CustomDebugStringConvertible", "localizedStringFor"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- !private ["Ps28CustomDebugStringConvertible", "model"]
+- !private ["Ps28CustomDebugStringConvertible", "numOfNotificationsLabel"]
+- ["Ps28CustomDebugStringConvertible", "operandoDarkGreen"]
+- ["Ps28CustomDebugStringConvertible", "operandoLightGreen"]
+- ["Ps28CustomDebugStringConvertible", "operandoOrange"]
+- ["Ps28CustomDebugStringConvertible", "operandoRed"]
+- !private ["Ps28CustomDebugStringConvertible", "setNeedsLayout"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "titleLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "touchesBegan"]
+- !private ["Ps28CustomDebugStringConvertible", "touchesEnded"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps17CustomReflectable", "operandoDarkGreen"]
+- !private ["Ps23CustomStringConvertible", "DispatchQueue"]
+- !private ["Ps23CustomStringConvertible", "UIColor"]
+- !private ["Ps23CustomStringConvertible", "alpha"]
+- !private ["Ps23CustomStringConvertible", "async"]
+- !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "clear"]
+- !private ["Ps23CustomStringConvertible", "commonInit"]
+- !private ["Ps23CustomStringConvertible", "contentView"]
+- !private ["Ps23CustomStringConvertible", "image"]
+- !private ["Ps23CustomStringConvertible", "imageView"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isHidden"]
+- !private ["Ps23CustomStringConvertible", "layoutIfNeeded"]
+- ["Ps23CustomStringConvertible", "localizedStringFor"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- !private ["Ps23CustomStringConvertible", "model"]
+- !private ["Ps23CustomStringConvertible", "numOfNotificationsLabel"]
+- ["Ps23CustomStringConvertible", "operandoDarkGreen"]
+- ["Ps23CustomStringConvertible", "operandoLightGreen"]
+- ["Ps23CustomStringConvertible", "operandoOrange"]
+- ["Ps23CustomStringConvertible", "operandoRed"]
+- !private ["Ps23CustomStringConvertible", "setNeedsLayout"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "titleLabel"]
+- !private ["Ps23CustomStringConvertible", "touchesBegan"]
+- !private ["Ps23CustomStringConvertible", "touchesEnded"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["CSo14DispatchObject", "async"]
+- !private ["CSo14DispatchObject", "main"]
+- !private ["CSo13DispatchQueue", "async"]
+- !private ["CSo13DispatchQueue", "main"]
+- !private ["Ps9Equatable", "DispatchQueue"]
+- !private ["Ps9Equatable", "UIColor"]
+- !private ["Ps9Equatable", "alpha"]
+- !private ["Ps9Equatable", "async"]
+- !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "clear"]
+- !private ["Ps9Equatable", "commonInit"]
+- !private ["Ps9Equatable", "contentView"]
+- !private ["Ps9Equatable", "image"]
+- !private ["Ps9Equatable", "imageView"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isHidden"]
+- !private ["Ps9Equatable", "layoutIfNeeded"]
+- ["Ps9Equatable", "localizedStringFor"]
+- !private ["Ps9Equatable", "main"]
+- !private ["Ps9Equatable", "model"]
+- !private ["Ps9Equatable", "numOfNotificationsLabel"]
+- ["Ps9Equatable", "operandoDarkGreen"]
+- ["Ps9Equatable", "operandoLightGreen"]
+- ["Ps9Equatable", "operandoOrange"]
+- ["Ps9Equatable", "operandoRed"]
+- !private ["Ps9Equatable", "setNeedsLayout"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "titleLabel"]
+- !private ["Ps9Equatable", "touchesBegan"]
+- !private ["Ps9Equatable", "touchesEnded"]
+- ["Ps9Equatable", ""]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps23ExpressibleByNilLiteral", "operandoDarkGreen"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "DispatchQueue"]
+- !private ["Ps8Hashable", "UIColor"]
+- !private ["Ps8Hashable", "alpha"]
+- !private ["Ps8Hashable", "async"]
+- !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "clear"]
+- !private ["Ps8Hashable", "commonInit"]
+- !private ["Ps8Hashable", "contentView"]
+- !private ["Ps8Hashable", "image"]
+- !private ["Ps8Hashable", "imageView"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isHidden"]
+- !private ["Ps8Hashable", "layoutIfNeeded"]
+- ["Ps8Hashable", "localizedStringFor"]
+- !private ["Ps8Hashable", "main"]
+- !private ["Ps8Hashable", "model"]
+- !private ["Ps8Hashable", "numOfNotificationsLabel"]
+- ["Ps8Hashable", "operandoDarkGreen"]
+- ["Ps8Hashable", "operandoLightGreen"]
+- ["Ps8Hashable", "operandoOrange"]
+- ["Ps8Hashable", "operandoRed"]
+- !private ["Ps8Hashable", "setNeedsLayout"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "titleLabel"]
+- !private ["Ps8Hashable", "touchesBegan"]
+- !private ["Ps8Hashable", "touchesEnded"]
+- ["Ps8Hashable", ""]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "DispatchQueue"]
+- !private ["PSo8NSCoding", "UIColor"]
+- !private ["PSo8NSCoding", "alpha"]
+- !private ["PSo8NSCoding", "backgroundColor"]
+- !private ["PSo8NSCoding", "clear"]
+- !private ["PSo8NSCoding", "commonInit"]
+- !private ["PSo8NSCoding", "contentView"]
+- !private ["PSo8NSCoding", "image"]
+- !private ["PSo8NSCoding", "imageView"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isHidden"]
+- !private ["PSo8NSCoding", "layoutIfNeeded"]
+- !private ["PSo8NSCoding", "model"]
+- !private ["PSo8NSCoding", "numOfNotificationsLabel"]
+- ["PSo8NSCoding", "operandoDarkGreen"]
+- ["PSo8NSCoding", "operandoLightGreen"]
+- ["PSo8NSCoding", "operandoOrange"]
+- ["PSo8NSCoding", "operandoRed"]
+- !private ["PSo8NSCoding", "setNeedsLayout"]
+- !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "titleLabel"]
+- !private ["PSo8NSCoding", "touchesBegan"]
+- !private ["PSo8NSCoding", "touchesEnded"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "clear"]
+- ["PSo9NSCopying", "init"]
+- ["PSo9NSCopying", "operandoDarkGreen"]
+- ["PSo9NSCopying", "operandoLightGreen"]
+- ["PSo9NSCopying", "operandoOrange"]
+- ["PSo9NSCopying", "operandoRed"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "DispatchQueue"]
+- ["CSo8NSObject", "Set"]
+- !private ["CSo8NSObject", "UIColor"]
+- ["CSo8NSObject", "UIDashboardButtonModel"]
+- ["CSo8NSObject", "UIEvent"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "UITouch"]
+- !private ["CSo8NSObject", "alpha"]
+- !private ["CSo8NSObject", "async"]
+- !private ["CSo8NSObject", "backgroundColor"]
+- !private ["CSo8NSObject", "clear"]
+- ["CSo8NSObject", "commonInit"]
+- !private ["CSo8NSObject", "contentView"]
+- !private ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "imageView"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isHidden"]
+- !private ["CSo8NSObject", "layoutIfNeeded"]
+- ["CSo8NSObject", "localizedStringFor"]
+- !private ["CSo8NSObject", "main"]
+- ["CSo8NSObject", "model"]
+- ["CSo8NSObject", "numOfNotificationsLabel"]
+- ["CSo8NSObject", "operandoDarkGreen"]
+- ["CSo8NSObject", "operandoLightGreen"]
+- ["CSo8NSObject", "operandoOrange"]
+- ["CSo8NSObject", "operandoRed"]
+- !private ["CSo8NSObject", "setNeedsLayout"]
+- ["CSo8NSObject", "setupWith"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "titleLabel"]
+- ["CSo8NSObject", "touchesBegan"]
+- ["CSo8NSObject", "touchesEnded"]
+- ["CSo8NSObject", "updateNotificationsCountLabel"]
+- !private ["PSo16NSObjectProtocol", "DispatchQueue"]
+- !private ["PSo16NSObjectProtocol", "UIColor"]
+- !private ["PSo16NSObjectProtocol", "alpha"]
+- !private ["PSo16NSObjectProtocol", "async"]
+- !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "clear"]
+- !private ["PSo16NSObjectProtocol", "commonInit"]
+- !private ["PSo16NSObjectProtocol", "contentView"]
+- !private ["PSo16NSObjectProtocol", "image"]
+- !private ["PSo16NSObjectProtocol", "imageView"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isHidden"]
+- !private ["PSo16NSObjectProtocol", "layoutIfNeeded"]
+- ["PSo16NSObjectProtocol", "localizedStringFor"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- !private ["PSo16NSObjectProtocol", "model"]
+- !private ["PSo16NSObjectProtocol", "numOfNotificationsLabel"]
+- ["PSo16NSObjectProtocol", "operandoDarkGreen"]
+- ["PSo16NSObjectProtocol", "operandoLightGreen"]
+- ["PSo16NSObjectProtocol", "operandoOrange"]
+- ["PSo16NSObjectProtocol", "operandoRed"]
+- !private ["PSo16NSObjectProtocol", "setNeedsLayout"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "titleLabel"]
+- !private ["PSo16NSObjectProtocol", "touchesBegan"]
+- !private ["PSo16NSObjectProtocol", "touchesEnded"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "clear"]
+- ["PSo14NSSecureCoding", "init"]
+- ["PSo14NSSecureCoding", "operandoDarkGreen"]
+- ["PSo14NSSecureCoding", "operandoLightGreen"]
+- ["PSo14NSSecureCoding", "operandoOrange"]
+- ["PSo14NSSecureCoding", "operandoRed"]
+- ["CSo8NSString", "init"]
+- !private ["CSo9OS_object", "async"]
+- !private ["CSo9OS_object", "main"]
+- ["Sq", "operandoDarkGreen"]
+- !private ["C8Operando19RSNibDesignableView", "DispatchQueue"]
+- ["C8Operando19RSNibDesignableView", "Set"]
+- !private ["C8Operando19RSNibDesignableView", "UIColor"]
+- ["C8Operando19RSNibDesignableView", "UIDashboardButtonModel"]
+- ["C8Operando19RSNibDesignableView", "UIEvent"]
+- ["C8Operando19RSNibDesignableView", "UIImageView"]
+- ["C8Operando19RSNibDesignableView", "UILabel"]
+- ["C8Operando19RSNibDesignableView", "UITouch"]
+- !private ["C8Operando19RSNibDesignableView", "backgroundColor"]
+- ["C8Operando19RSNibDesignableView", "commonInit"]
+- !private ["C8Operando19RSNibDesignableView", "contentView"]
+- ["C8Operando19RSNibDesignableView", "imageView"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- !private ["C8Operando19RSNibDesignableView", "layoutIfNeeded"]
+- ["C8Operando19RSNibDesignableView", "model"]
+- ["C8Operando19RSNibDesignableView", "numOfNotificationsLabel"]
+- !private ["C8Operando19RSNibDesignableView", "setNeedsLayout"]
+- ["C8Operando19RSNibDesignableView", "setupWith"]
+- ["C8Operando19RSNibDesignableView", "titleLabel"]
+- ["C8Operando19RSNibDesignableView", "touchesBegan"]
+- ["C8Operando19RSNibDesignableView", "touchesEnded"]
+- ["C8Operando19RSNibDesignableView", "updateNotificationsCountLabel"]
+- ["C8Operando19RSNibDesignableView", ""]
+- ["P11SwarmClient10SocketData", "init"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "DispatchQueue"]
+- !private ["PSo29UIAccessibilityIdentification", "UIColor"]
+- !private ["PSo29UIAccessibilityIdentification", "alpha"]
+- !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "commonInit"]
+- !private ["PSo29UIAccessibilityIdentification", "contentView"]
+- !private ["PSo29UIAccessibilityIdentification", "image"]
+- !private ["PSo29UIAccessibilityIdentification", "imageView"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isHidden"]
+- !private ["PSo29UIAccessibilityIdentification", "layoutIfNeeded"]
+- !private ["PSo29UIAccessibilityIdentification", "model"]
+- !private ["PSo29UIAccessibilityIdentification", "numOfNotificationsLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "setNeedsLayout"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo29UIAccessibilityIdentification", "titleLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "touchesBegan"]
+- !private ["PSo29UIAccessibilityIdentification", "touchesEnded"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "DispatchQueue"]
+- !private ["PSo12UIAppearance", "UIColor"]
+- !private ["PSo12UIAppearance", "alpha"]
+- !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "commonInit"]
+- !private ["PSo12UIAppearance", "contentView"]
+- !private ["PSo12UIAppearance", "image"]
+- !private ["PSo12UIAppearance", "imageView"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isHidden"]
+- !private ["PSo12UIAppearance", "layoutIfNeeded"]
+- !private ["PSo12UIAppearance", "model"]
+- !private ["PSo12UIAppearance", "numOfNotificationsLabel"]
+- !private ["PSo12UIAppearance", "setNeedsLayout"]
+- !private ["PSo12UIAppearance", "text"]
+- !private ["PSo12UIAppearance", "titleLabel"]
+- !private ["PSo12UIAppearance", "touchesBegan"]
+- !private ["PSo12UIAppearance", "touchesEnded"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "DispatchQueue"]
+- !private ["PSo21UIAppearanceContainer", "UIColor"]
+- !private ["PSo21UIAppearanceContainer", "alpha"]
+- !private ["PSo21UIAppearanceContainer", "backgroundColor"]
+- !private ["PSo21UIAppearanceContainer", "commonInit"]
+- !private ["PSo21UIAppearanceContainer", "contentView"]
+- !private ["PSo21UIAppearanceContainer", "image"]
+- !private ["PSo21UIAppearanceContainer", "imageView"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isHidden"]
+- !private ["PSo21UIAppearanceContainer", "layoutIfNeeded"]
+- !private ["PSo21UIAppearanceContainer", "model"]
+- !private ["PSo21UIAppearanceContainer", "numOfNotificationsLabel"]
+- !private ["PSo21UIAppearanceContainer", "setNeedsLayout"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "titleLabel"]
+- !private ["PSo21UIAppearanceContainer", "touchesBegan"]
+- !private ["PSo21UIAppearanceContainer", "touchesEnded"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo7UIColor", "clear"]
+- ["CSo7UIColor", "operandoDarkGreen"]
+- ["CSo7UIColor", "operandoLightGreen"]
+- ["CSo7UIColor", "operandoOrange"]
+- ["CSo7UIColor", "operandoRed"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "alpha"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "isHidden"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["PSo17UICoordinateSpace", "DispatchQueue"]
+- !private ["PSo17UICoordinateSpace", "UIColor"]
+- !private ["PSo17UICoordinateSpace", "alpha"]
+- !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "commonInit"]
+- !private ["PSo17UICoordinateSpace", "contentView"]
+- !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "imageView"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isHidden"]
+- !private ["PSo17UICoordinateSpace", "layoutIfNeeded"]
+- !private ["PSo17UICoordinateSpace", "model"]
+- !private ["PSo17UICoordinateSpace", "numOfNotificationsLabel"]
+- !private ["PSo17UICoordinateSpace", "setNeedsLayout"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo17UICoordinateSpace", "titleLabel"]
+- !private ["PSo17UICoordinateSpace", "touchesBegan"]
+- !private ["PSo17UICoordinateSpace", "touchesEnded"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["C8Operando17UIDashboardButton", "DispatchQueue"]
+- ["C8Operando17UIDashboardButton", "Set"]
+- !private ["C8Operando17UIDashboardButton", "UIColor"]
+- ["C8Operando17UIDashboardButton", "UIDashboardButtonModel"]
+- ["C8Operando17UIDashboardButton", "UIEvent"]
+- ["C8Operando17UIDashboardButton", "UIImageView"]
+- ["C8Operando17UIDashboardButton", "UILabel"]
+- ["C8Operando17UIDashboardButton", "UITouch"]
+- !private ["C8Operando17UIDashboardButton", "backgroundColor"]
+- ["C8Operando17UIDashboardButton", "commonInit"]
+- !private ["C8Operando17UIDashboardButton", "contentView"]
+- ["C8Operando17UIDashboardButton", "deinit"]
+- ["C8Operando17UIDashboardButton", "imageView"]
+- ["C8Operando17UIDashboardButton", "init"]
+- !private ["C8Operando17UIDashboardButton", "layoutIfNeeded"]
+- !private ["C8Operando17UIDashboardButton", "model"]
+- ["C8Operando17UIDashboardButton", "numOfNotificationsLabel"]
+- !private ["C8Operando17UIDashboardButton", "setNeedsLayout"]
+- ["C8Operando17UIDashboardButton", "setupWith"]
+- ["C8Operando17UIDashboardButton", "titleLabel"]
+- ["C8Operando17UIDashboardButton", "touchesBegan"]
+- ["C8Operando17UIDashboardButton", "touchesEnded"]
+- ["C8Operando17UIDashboardButton", "updateNotificationsCountLabel"]
+- ["V8Operando22UIDashboardButtonModel", "NumOfNotificationsRequestCallback"]
+- ["V8Operando22UIDashboardButtonModel", "UIDashboardButtonStyle"]
+- ["V8Operando22UIDashboardButtonModel", "VoidBlock"]
+- ["V8Operando22UIDashboardButtonModel", "init"]
+- ["V8Operando22UIDashboardButtonModel", "notificationsRequestCallbackIfAny"]
+- ["V8Operando22UIDashboardButtonModel", "onTap"]
+- ["V8Operando22UIDashboardButtonModel", "style"]
+- ["V8Operando22UIDashboardButtonStyle", "Bundle"]
+- ["V8Operando22UIDashboardButtonStyle", "String"]
+- ["V8Operando22UIDashboardButtonStyle", "UIColor"]
+- ["V8Operando22UIDashboardButtonStyle", "UIDashboardButtonStyle"]
+- ["V8Operando22UIDashboardButtonStyle", "UIImage"]
+- ["V8Operando22UIDashboardButtonStyle", "backgroundColor"]
+- ["V8Operando22UIDashboardButtonStyle", "identityManagementStyle"]
+- ["V8Operando22UIDashboardButtonStyle", "image"]
+- ["V8Operando22UIDashboardButtonStyle", "init"]
+- ["V8Operando22UIDashboardButtonStyle", "kIdentitiesManagementLocalizableKey"]
+- ["V8Operando22UIDashboardButtonStyle", "kNotificationsLocalizableKey"]
+- ["V8Operando22UIDashboardButtonStyle", "kPrivacyForBenefitsLocalizableKey"]
+- ["V8Operando22UIDashboardButtonStyle", "kPrivateBrowsingLocalizableKey"]
+- ["V8Operando22UIDashboardButtonStyle", "notificationsStyle"]
+- ["V8Operando22UIDashboardButtonStyle", "privacyForBenefitsStyle"]
+- ["V8Operando22UIDashboardButtonStyle", "privateBrowsingStyle"]
+- ["V8Operando22UIDashboardButtonStyle", "title"]
+- !private ["PSo13UIDynamicItem", "DispatchQueue"]
+- !private ["PSo13UIDynamicItem", "UIColor"]
+- !private ["PSo13UIDynamicItem", "alpha"]
+- !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "commonInit"]
+- !private ["PSo13UIDynamicItem", "contentView"]
+- !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "imageView"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isHidden"]
+- !private ["PSo13UIDynamicItem", "layoutIfNeeded"]
+- !private ["PSo13UIDynamicItem", "model"]
+- !private ["PSo13UIDynamicItem", "numOfNotificationsLabel"]
+- !private ["PSo13UIDynamicItem", "setNeedsLayout"]
+- !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo13UIDynamicItem", "titleLabel"]
+- !private ["PSo13UIDynamicItem", "touchesBegan"]
+- !private ["PSo13UIDynamicItem", "touchesEnded"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "DispatchQueue"]
+- !private ["PSo18UIFocusEnvironment", "UIColor"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "commonInit"]
+- !private ["PSo18UIFocusEnvironment", "contentView"]
+- !private ["PSo18UIFocusEnvironment", "image"]
+- !private ["PSo18UIFocusEnvironment", "imageView"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isHidden"]
+- !private ["PSo18UIFocusEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UIFocusEnvironment", "model"]
+- !private ["PSo18UIFocusEnvironment", "numOfNotificationsLabel"]
+- !private ["PSo18UIFocusEnvironment", "setNeedsLayout"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "titleLabel"]
+- !private ["PSo18UIFocusEnvironment", "touchesBegan"]
+- !private ["PSo18UIFocusEnvironment", "touchesEnded"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "DispatchQueue"]
+- !private ["PSo11UIFocusItem", "UIColor"]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "commonInit"]
+- !private ["PSo11UIFocusItem", "contentView"]
+- !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "imageView"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isHidden"]
+- !private ["PSo11UIFocusItem", "layoutIfNeeded"]
+- !private ["PSo11UIFocusItem", "model"]
+- !private ["PSo11UIFocusItem", "numOfNotificationsLabel"]
+- !private ["PSo11UIFocusItem", "setNeedsLayout"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo11UIFocusItem", "titleLabel"]
+- !private ["PSo11UIFocusItem", "touchesBegan"]
+- !private ["PSo11UIFocusItem", "touchesEnded"]
+- ["PSo11UIFocusItem", ""]
+- ["CSo7UIImage", "init"]
+- !private ["CSo11UIImageView", "alpha"]
+- !private ["CSo11UIImageView", "image"]
+- !private ["CSo7UILabel", "alpha"]
+- !private ["CSo7UILabel", "isHidden"]
+- !private ["CSo7UILabel", "text"]
+- !private ["CSo11UIResponder", "DispatchQueue"]
+- ["CSo11UIResponder", "Set"]
+- !private ["CSo11UIResponder", "UIColor"]
+- ["CSo11UIResponder", "UIDashboardButtonModel"]
+- ["CSo11UIResponder", "UIEvent"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "UITouch"]
+- !private ["CSo11UIResponder", "alpha"]
+- !private ["CSo11UIResponder", "backgroundColor"]
+- ["CSo11UIResponder", "commonInit"]
+- !private ["CSo11UIResponder", "contentView"]
+- !private ["CSo11UIResponder", "image"]
+- ["CSo11UIResponder", "imageView"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isHidden"]
+- !private ["CSo11UIResponder", "layoutIfNeeded"]
+- ["CSo11UIResponder", "model"]
+- ["CSo11UIResponder", "numOfNotificationsLabel"]
+- !private ["CSo11UIResponder", "setNeedsLayout"]
+- ["CSo11UIResponder", "setupWith"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "titleLabel"]
+- ["CSo11UIResponder", "touchesBegan"]
+- ["CSo11UIResponder", "touchesEnded"]
+- ["CSo11UIResponder", "updateNotificationsCountLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "DispatchQueue"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "commonInit"]
+- !private ["PSo30UIResponderStandardEditActions", "contentView"]
+- !private ["PSo30UIResponderStandardEditActions", "image"]
+- !private ["PSo30UIResponderStandardEditActions", "imageView"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "layoutIfNeeded"]
+- !private ["PSo30UIResponderStandardEditActions", "model"]
+- !private ["PSo30UIResponderStandardEditActions", "numOfNotificationsLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "setNeedsLayout"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "titleLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "touchesBegan"]
+- !private ["PSo30UIResponderStandardEditActions", "touchesEnded"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo18UITraitEnvironment", "DispatchQueue"]
+- !private ["PSo18UITraitEnvironment", "UIColor"]
+- !private ["PSo18UITraitEnvironment", "alpha"]
+- !private ["PSo18UITraitEnvironment", "backgroundColor"]
+- !private ["PSo18UITraitEnvironment", "commonInit"]
+- !private ["PSo18UITraitEnvironment", "contentView"]
+- !private ["PSo18UITraitEnvironment", "image"]
+- !private ["PSo18UITraitEnvironment", "imageView"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isHidden"]
+- !private ["PSo18UITraitEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UITraitEnvironment", "model"]
+- !private ["PSo18UITraitEnvironment", "numOfNotificationsLabel"]
+- !private ["PSo18UITraitEnvironment", "setNeedsLayout"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "titleLabel"]
+- !private ["PSo18UITraitEnvironment", "touchesBegan"]
+- !private ["PSo18UITraitEnvironment", "touchesEnded"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "DispatchQueue"]
+- ["CSo6UIView", "Set"]
+- !private ["CSo6UIView", "UIColor"]
+- ["CSo6UIView", "UIDashboardButtonModel"]
+- ["CSo6UIView", "UIEvent"]
+- ["CSo6UIView", "UIImageView"]
+- ["CSo6UIView", "UILabel"]
+- ["CSo6UIView", "UITouch"]
+- !private ["CSo6UIView", "alpha"]
+- !private ["CSo6UIView", "backgroundColor"]
+- ["CSo6UIView", "commonInit"]
+- !private ["CSo6UIView", "contentView"]
+- !private ["CSo6UIView", "image"]
+- ["CSo6UIView", "imageView"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "isHidden"]
+- !private ["CSo6UIView", "layoutIfNeeded"]
+- ["CSo6UIView", "model"]
+- ["CSo6UIView", "numOfNotificationsLabel"]
+- !private ["CSo6UIView", "setNeedsLayout"]
+- ["CSo6UIView", "setupWith"]
+- !private ["CSo6UIView", "text"]
+- ["CSo6UIView", "titleLabel"]
+- ["CSo6UIView", "touchesBegan"]
+- ["CSo6UIView", "touchesEnded"]
+- ["CSo6UIView", "updateNotificationsCountLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "DispatchQueue"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "commonInit"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "contentView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "imageView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutIfNeeded"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "model"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "numOfNotificationsLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNeedsLayout"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "titleLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "touchesBegan"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "touchesEnded"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps26_ExpressibleByColorLiteral", "clear"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoDarkGreen"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoLightGreen"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoOrange"]
+- ["Ps26_ExpressibleByColorLiteral", "operandoRed"]
+- ["Ps26_ExpressibleByImageLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "DispatchQueue"]
+- !private ["Ps9_Hashable", "UIColor"]
+- !private ["Ps9_Hashable", "alpha"]
+- !private ["Ps9_Hashable", "async"]
+- !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "clear"]
+- !private ["Ps9_Hashable", "commonInit"]
+- !private ["Ps9_Hashable", "contentView"]
+- !private ["Ps9_Hashable", "image"]
+- !private ["Ps9_Hashable", "imageView"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isHidden"]
+- !private ["Ps9_Hashable", "layoutIfNeeded"]
+- ["Ps9_Hashable", "localizedStringFor"]
+- !private ["Ps9_Hashable", "main"]
+- !private ["Ps9_Hashable", "model"]
+- !private ["Ps9_Hashable", "numOfNotificationsLabel"]
+- ["Ps9_Hashable", "operandoDarkGreen"]
+- ["Ps9_Hashable", "operandoLightGreen"]
+- ["Ps9_Hashable", "operandoOrange"]
+- ["Ps9_Hashable", "operandoRed"]
+- !private ["Ps9_Hashable", "setNeedsLayout"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "titleLabel"]
+- !private ["Ps9_Hashable", "touchesBegan"]
+- !private ["Ps9_Hashable", "touchesEnded"]
+- ["Ps9_Hashable", ""]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- ["Ps21_ObjectiveCBridgeable", "operandoDarkGreen"]
+depends-nominal:
+- "Ps9AnyObject"
+- "CSo6Bundle"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "CSo14DispatchObject"
+- !private "CSo13DispatchQueue"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps23ExpressibleByNilLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "CSo9OS_object"
+- "Sq"
+- "C8Operando19RSNibDesignableView"
+- "P11SwarmClient10SocketData"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "CSo7UIColor"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- "PSo17UICoordinateSpace"
+- "C8Operando17UIDashboardButton"
+- "V8Operando22UIDashboardButtonModel"
+- "V8Operando22UIDashboardButtonStyle"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "CSo7UIImage"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps26_ExpressibleByColorLiteral"
+- "Ps26_ExpressibleByImageLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "85ba6e74a378a5330db709f1ab211cad"

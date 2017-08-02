@@ -1,0 +1,567 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UIWebToolbarViewCallbacks"
+- "UIWebToolbarViewOutlets"
+- "UIWebToolbarViewLogic"
+- "UIWebToolbarView"
+provides-nominal:
+- "V8Operando25UIWebToolbarViewCallbacks"
+- "V8Operando23UIWebToolbarViewOutlets"
+- "C8Operando21UIWebToolbarViewLogic"
+- "C8Operando16UIWebToolbarView"
+provides-member:
+- ["V8Operando25UIWebToolbarViewCallbacks", ""]
+- ["V8Operando23UIWebToolbarViewOutlets", ""]
+- ["C8Operando21UIWebToolbarViewLogic", ""]
+- ["C8Operando16UIWebToolbarView", ""]
+provides-dynamic-lookup:
+- "backButtonPressed"
+- "backwardButton"
+- "changeNumberOfItems"
+- "forwardButton"
+- "forwardButtonPressed"
+- "logic"
+- "numOfItemsLabel"
+- "tabsButton"
+- "tabsButtonPressed"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Int"
+- "NSObject"
+- "RSNibDesignableView"
+- !private "StringLiteralType"
+- "UIButton"
+- "UILabel"
+- "UIWebToolbarView"
+- "UIWebToolbarViewCallbacks"
+- "UIWebToolbarViewLogic"
+- "UIWebToolbarViewOutlets"
+- "VoidBlock"
+depends-member:
+- !private ["Ps9AnyObject", "UIWebToolbarViewLogic"]
+- !private ["Ps9AnyObject", "UIWebToolbarViewOutlets"]
+- !private ["Ps9AnyObject", "addTarget"]
+- !private ["Ps9AnyObject", "backButtonPressed"]
+- !private ["Ps9AnyObject", "backwardButton"]
+- !private ["Ps9AnyObject", "callbacks"]
+- !private ["Ps9AnyObject", "forwardButton"]
+- !private ["Ps9AnyObject", "forwardButtonPressed"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "numOfItemsLabel"]
+- !private ["Ps9AnyObject", "outlets"]
+- !private ["Ps9AnyObject", "tabsButton"]
+- !private ["Ps9AnyObject", "tabsButtonPressed"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "UIWebToolbarViewLogic"]
+- !private ["PSo15CALayerDelegate", "UIWebToolbarViewOutlets"]
+- !private ["PSo15CALayerDelegate", "addTarget"]
+- !private ["PSo15CALayerDelegate", "backwardButton"]
+- !private ["PSo15CALayerDelegate", "forwardButton"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "numOfItemsLabel"]
+- !private ["PSo15CALayerDelegate", "tabsButton"]
+- !private ["PSo15CALayerDelegate", "text"]
+- ["PSo15CALayerDelegate", ""]
+- !private ["Ps7CVarArg", "UIWebToolbarViewLogic"]
+- !private ["Ps7CVarArg", "UIWebToolbarViewOutlets"]
+- !private ["Ps7CVarArg", "addTarget"]
+- !private ["Ps7CVarArg", "backButtonPressed"]
+- !private ["Ps7CVarArg", "backwardButton"]
+- !private ["Ps7CVarArg", "callbacks"]
+- !private ["Ps7CVarArg", "forwardButton"]
+- !private ["Ps7CVarArg", "forwardButtonPressed"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "numOfItemsLabel"]
+- !private ["Ps7CVarArg", "outlets"]
+- !private ["Ps7CVarArg", "tabsButton"]
+- !private ["Ps7CVarArg", "tabsButtonPressed"]
+- !private ["Ps7CVarArg", "text"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "UIWebToolbarViewLogic"]
+- !private ["Ps28CustomDebugStringConvertible", "UIWebToolbarViewOutlets"]
+- !private ["Ps28CustomDebugStringConvertible", "addTarget"]
+- !private ["Ps28CustomDebugStringConvertible", "backButtonPressed"]
+- !private ["Ps28CustomDebugStringConvertible", "backwardButton"]
+- !private ["Ps28CustomDebugStringConvertible", "callbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "forwardButton"]
+- !private ["Ps28CustomDebugStringConvertible", "forwardButtonPressed"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "numOfItemsLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "outlets"]
+- !private ["Ps28CustomDebugStringConvertible", "tabsButton"]
+- !private ["Ps28CustomDebugStringConvertible", "tabsButtonPressed"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "UIWebToolbarViewLogic"]
+- !private ["Ps23CustomStringConvertible", "UIWebToolbarViewOutlets"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "addTarget"]
+- !private ["Ps23CustomStringConvertible", "backButtonPressed"]
+- !private ["Ps23CustomStringConvertible", "backwardButton"]
+- !private ["Ps23CustomStringConvertible", "callbacks"]
+- !private ["Ps23CustomStringConvertible", "forwardButton"]
+- !private ["Ps23CustomStringConvertible", "forwardButtonPressed"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "numOfItemsLabel"]
+- !private ["Ps23CustomStringConvertible", "outlets"]
+- !private ["Ps23CustomStringConvertible", "tabsButton"]
+- !private ["Ps23CustomStringConvertible", "tabsButtonPressed"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIWebToolbarViewLogic"]
+- !private ["Ps9Equatable", "UIWebToolbarViewOutlets"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "addTarget"]
+- !private ["Ps9Equatable", "backButtonPressed"]
+- !private ["Ps9Equatable", "backwardButton"]
+- !private ["Ps9Equatable", "callbacks"]
+- !private ["Ps9Equatable", "forwardButton"]
+- !private ["Ps9Equatable", "forwardButtonPressed"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "numOfItemsLabel"]
+- !private ["Ps9Equatable", "outlets"]
+- !private ["Ps9Equatable", "tabsButton"]
+- !private ["Ps9Equatable", "tabsButtonPressed"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "touchUpInside"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "touchUpInside"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "UIWebToolbarViewLogic"]
+- !private ["Ps8Hashable", "UIWebToolbarViewOutlets"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "addTarget"]
+- !private ["Ps8Hashable", "backButtonPressed"]
+- !private ["Ps8Hashable", "backwardButton"]
+- !private ["Ps8Hashable", "callbacks"]
+- !private ["Ps8Hashable", "forwardButton"]
+- !private ["Ps8Hashable", "forwardButtonPressed"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "numOfItemsLabel"]
+- !private ["Ps8Hashable", "outlets"]
+- !private ["Ps8Hashable", "tabsButton"]
+- !private ["Ps8Hashable", "tabsButtonPressed"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "UIWebToolbarViewLogic"]
+- !private ["PSo8NSCoding", "UIWebToolbarViewOutlets"]
+- !private ["PSo8NSCoding", "addTarget"]
+- !private ["PSo8NSCoding", "backwardButton"]
+- !private ["PSo8NSCoding", "forwardButton"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "numOfItemsLabel"]
+- !private ["PSo8NSCoding", "tabsButton"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "UIWebToolbarViewCallbacks"]
+- ["CSo8NSObject", "UIWebToolbarViewLogic"]
+- ["CSo8NSObject", "UIWebToolbarViewOutlets"]
+- !private ["CSo8NSObject", "addTarget"]
+- ["CSo8NSObject", "backButtonPressed"]
+- ["CSo8NSObject", "backwardButton"]
+- ["CSo8NSObject", "callbacks"]
+- ["CSo8NSObject", "changeNumberOfItems"]
+- ["CSo8NSObject", "forwardButton"]
+- ["CSo8NSObject", "forwardButtonPressed"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "logic"]
+- ["CSo8NSObject", "logic.storage"]
+- ["CSo8NSObject", "numOfItemsLabel"]
+- ["CSo8NSObject", "outlets"]
+- ["CSo8NSObject", "setupWith"]
+- ["CSo8NSObject", "tabsButton"]
+- ["CSo8NSObject", "tabsButtonPressed"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "UIWebToolbarViewLogic"]
+- !private ["PSo16NSObjectProtocol", "UIWebToolbarViewOutlets"]
+- !private ["PSo16NSObjectProtocol", "addTarget"]
+- !private ["PSo16NSObjectProtocol", "backButtonPressed"]
+- !private ["PSo16NSObjectProtocol", "backwardButton"]
+- !private ["PSo16NSObjectProtocol", "callbacks"]
+- !private ["PSo16NSObjectProtocol", "forwardButton"]
+- !private ["PSo16NSObjectProtocol", "forwardButtonPressed"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "numOfItemsLabel"]
+- !private ["PSo16NSObjectProtocol", "outlets"]
+- !private ["PSo16NSObjectProtocol", "tabsButton"]
+- !private ["PSo16NSObjectProtocol", "tabsButtonPressed"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "touchUpInside"]
+- ["C8Operando19RSNibDesignableView", "UIButton"]
+- ["C8Operando19RSNibDesignableView", "UILabel"]
+- ["C8Operando19RSNibDesignableView", "UIWebToolbarViewCallbacks"]
+- ["C8Operando19RSNibDesignableView", "UIWebToolbarViewLogic"]
+- !private ["C8Operando19RSNibDesignableView", "UIWebToolbarViewOutlets"]
+- ["C8Operando19RSNibDesignableView", "backwardButton"]
+- ["C8Operando19RSNibDesignableView", "callbacks"]
+- ["C8Operando19RSNibDesignableView", "forwardButton"]
+- ["C8Operando19RSNibDesignableView", "init"]
+- ["C8Operando19RSNibDesignableView", "logic"]
+- ["C8Operando19RSNibDesignableView", "logic.storage"]
+- ["C8Operando19RSNibDesignableView", "numOfItemsLabel"]
+- ["C8Operando19RSNibDesignableView", "tabsButton"]
+- ["C8Operando19RSNibDesignableView", ""]
+- !private ["Ps16RawRepresentable", "touchUpInside"]
+- !private ["Ps10SetAlgebra", "touchUpInside"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["Vs12StaticString", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "UIWebToolbarViewLogic"]
+- !private ["PSo29UIAccessibilityIdentification", "UIWebToolbarViewOutlets"]
+- !private ["PSo29UIAccessibilityIdentification", "addTarget"]
+- !private ["PSo29UIAccessibilityIdentification", "backwardButton"]
+- !private ["PSo29UIAccessibilityIdentification", "forwardButton"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "numOfItemsLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "tabsButton"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "UIWebToolbarViewLogic"]
+- !private ["PSo12UIAppearance", "UIWebToolbarViewOutlets"]
+- !private ["PSo12UIAppearance", "addTarget"]
+- !private ["PSo12UIAppearance", "backwardButton"]
+- !private ["PSo12UIAppearance", "forwardButton"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "numOfItemsLabel"]
+- !private ["PSo12UIAppearance", "tabsButton"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "UIWebToolbarViewLogic"]
+- !private ["PSo21UIAppearanceContainer", "UIWebToolbarViewOutlets"]
+- !private ["PSo21UIAppearanceContainer", "addTarget"]
+- !private ["PSo21UIAppearanceContainer", "backwardButton"]
+- !private ["PSo21UIAppearanceContainer", "forwardButton"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "numOfItemsLabel"]
+- !private ["PSo21UIAppearanceContainer", "tabsButton"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo8UIButton", "addTarget"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["CSo9UIControl", "addTarget"]
+- !private ["VSC15UIControlEvents", "touchUpInside"]
+- !private ["PSo17UICoordinateSpace", "UIWebToolbarViewLogic"]
+- !private ["PSo17UICoordinateSpace", "UIWebToolbarViewOutlets"]
+- !private ["PSo17UICoordinateSpace", "addTarget"]
+- !private ["PSo17UICoordinateSpace", "backwardButton"]
+- !private ["PSo17UICoordinateSpace", "forwardButton"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "numOfItemsLabel"]
+- !private ["PSo17UICoordinateSpace", "tabsButton"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "UIWebToolbarViewLogic"]
+- !private ["PSo13UIDynamicItem", "UIWebToolbarViewOutlets"]
+- !private ["PSo13UIDynamicItem", "addTarget"]
+- !private ["PSo13UIDynamicItem", "backwardButton"]
+- !private ["PSo13UIDynamicItem", "forwardButton"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "numOfItemsLabel"]
+- !private ["PSo13UIDynamicItem", "tabsButton"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "UIWebToolbarViewLogic"]
+- !private ["PSo18UIFocusEnvironment", "UIWebToolbarViewOutlets"]
+- !private ["PSo18UIFocusEnvironment", "addTarget"]
+- !private ["PSo18UIFocusEnvironment", "backwardButton"]
+- !private ["PSo18UIFocusEnvironment", "forwardButton"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "numOfItemsLabel"]
+- !private ["PSo18UIFocusEnvironment", "tabsButton"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "UIWebToolbarViewLogic"]
+- !private ["PSo11UIFocusItem", "UIWebToolbarViewOutlets"]
+- !private ["PSo11UIFocusItem", "addTarget"]
+- !private ["PSo11UIFocusItem", "backwardButton"]
+- !private ["PSo11UIFocusItem", "forwardButton"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "numOfItemsLabel"]
+- !private ["PSo11UIFocusItem", "tabsButton"]
+- !private ["PSo11UIFocusItem", "text"]
+- ["PSo11UIFocusItem", ""]
+- !private ["CSo7UILabel", "text"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "UIWebToolbarViewCallbacks"]
+- ["CSo11UIResponder", "UIWebToolbarViewLogic"]
+- !private ["CSo11UIResponder", "UIWebToolbarViewOutlets"]
+- !private ["CSo11UIResponder", "addTarget"]
+- ["CSo11UIResponder", "backwardButton"]
+- ["CSo11UIResponder", "callbacks"]
+- ["CSo11UIResponder", "forwardButton"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "logic"]
+- ["CSo11UIResponder", "logic.storage"]
+- ["CSo11UIResponder", "numOfItemsLabel"]
+- ["CSo11UIResponder", "tabsButton"]
+- !private ["CSo11UIResponder", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "UIWebToolbarViewLogic"]
+- !private ["PSo30UIResponderStandardEditActions", "UIWebToolbarViewOutlets"]
+- !private ["PSo30UIResponderStandardEditActions", "addTarget"]
+- !private ["PSo30UIResponderStandardEditActions", "backwardButton"]
+- !private ["PSo30UIResponderStandardEditActions", "forwardButton"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "numOfItemsLabel"]
+- !private ["PSo30UIResponderStandardEditActions", "tabsButton"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo18UITraitEnvironment", "UIWebToolbarViewLogic"]
+- !private ["PSo18UITraitEnvironment", "UIWebToolbarViewOutlets"]
+- !private ["PSo18UITraitEnvironment", "addTarget"]
+- !private ["PSo18UITraitEnvironment", "backwardButton"]
+- !private ["PSo18UITraitEnvironment", "forwardButton"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "numOfItemsLabel"]
+- !private ["PSo18UITraitEnvironment", "tabsButton"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "UIButton"]
+- ["CSo6UIView", "UILabel"]
+- ["CSo6UIView", "UIWebToolbarViewCallbacks"]
+- ["CSo6UIView", "UIWebToolbarViewLogic"]
+- !private ["CSo6UIView", "UIWebToolbarViewOutlets"]
+- !private ["CSo6UIView", "addTarget"]
+- ["CSo6UIView", "backwardButton"]
+- ["CSo6UIView", "callbacks"]
+- ["CSo6UIView", "forwardButton"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "logic"]
+- ["CSo6UIView", "logic.storage"]
+- ["CSo6UIView", "numOfItemsLabel"]
+- ["CSo6UIView", "tabsButton"]
+- !private ["CSo6UIView", "text"]
+- ["C8Operando16UIWebToolbarView", "UIButton"]
+- ["C8Operando16UIWebToolbarView", "UILabel"]
+- ["C8Operando16UIWebToolbarView", "UIWebToolbarViewCallbacks"]
+- ["C8Operando16UIWebToolbarView", "UIWebToolbarViewLogic"]
+- !private ["C8Operando16UIWebToolbarView", "UIWebToolbarViewOutlets"]
+- ["C8Operando16UIWebToolbarView", "backwardButton"]
+- !private ["C8Operando16UIWebToolbarView", "callbacks"]
+- ["C8Operando16UIWebToolbarView", "deinit"]
+- ["C8Operando16UIWebToolbarView", "forwardButton"]
+- ["C8Operando16UIWebToolbarView", "init"]
+- ["C8Operando16UIWebToolbarView", "logic"]
+- !private ["C8Operando16UIWebToolbarView", "logic.storage"]
+- ["C8Operando16UIWebToolbarView", "numOfItemsLabel"]
+- ["C8Operando16UIWebToolbarView", "tabsButton"]
+- ["V8Operando25UIWebToolbarViewCallbacks", "VoidBlock"]
+- ["V8Operando25UIWebToolbarViewCallbacks", "init"]
+- ["V8Operando25UIWebToolbarViewCallbacks", "onBackPress"]
+- ["V8Operando25UIWebToolbarViewCallbacks", "onForwardPress"]
+- ["V8Operando25UIWebToolbarViewCallbacks", "onTabsPress"]
+- ["C8Operando21UIWebToolbarViewLogic", "Int"]
+- ["C8Operando21UIWebToolbarViewLogic", "UIWebToolbarViewCallbacks"]
+- ["C8Operando21UIWebToolbarViewLogic", "UIWebToolbarViewOutlets"]
+- ["C8Operando21UIWebToolbarViewLogic", "backButtonPressed"]
+- !private ["C8Operando21UIWebToolbarViewLogic", "callbacks"]
+- ["C8Operando21UIWebToolbarViewLogic", "changeNumberOfItems"]
+- ["C8Operando21UIWebToolbarViewLogic", "deinit"]
+- ["C8Operando21UIWebToolbarViewLogic", "forwardButtonPressed"]
+- ["C8Operando21UIWebToolbarViewLogic", "init"]
+- !private ["C8Operando21UIWebToolbarViewLogic", "outlets"]
+- ["C8Operando21UIWebToolbarViewLogic", "setupWith"]
+- ["C8Operando21UIWebToolbarViewLogic", "tabsButtonPressed"]
+- ["V8Operando23UIWebToolbarViewOutlets", "UIButton"]
+- ["V8Operando23UIWebToolbarViewOutlets", "UILabel"]
+- ["V8Operando23UIWebToolbarViewOutlets", "backwardButton"]
+- ["V8Operando23UIWebToolbarViewOutlets", "forwardButton"]
+- ["V8Operando23UIWebToolbarViewOutlets", "init"]
+- ["V8Operando23UIWebToolbarViewOutlets", "numOfItemsLabel"]
+- ["V8Operando23UIWebToolbarViewOutlets", "tabsButton"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIWebToolbarViewLogic"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIWebToolbarViewOutlets"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addTarget"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backwardButton"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "forwardButton"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "numOfItemsLabel"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tabsButton"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "UIWebToolbarViewLogic"]
+- !private ["Ps9_Hashable", "UIWebToolbarViewOutlets"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "addTarget"]
+- !private ["Ps9_Hashable", "backButtonPressed"]
+- !private ["Ps9_Hashable", "backwardButton"]
+- !private ["Ps9_Hashable", "callbacks"]
+- !private ["Ps9_Hashable", "forwardButton"]
+- !private ["Ps9_Hashable", "forwardButtonPressed"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "numOfItemsLabel"]
+- !private ["Ps9_Hashable", "outlets"]
+- !private ["Ps9_Hashable", "tabsButton"]
+- !private ["Ps9_Hashable", "tabsButtonPressed"]
+- !private ["Ps9_Hashable", "text"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps9OptionSet"
+- "C8Operando19RSNibDesignableView"
+- !private "Ps16RawRepresentable"
+- !private "Ps10SetAlgebra"
+- !private "P11SwarmClient10SocketData"
+- !private "Vs12StaticString"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "CSo9UIControl"
+- !private "VSC15UIControlEvents"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "C8Operando16UIWebToolbarView"
+- "V8Operando25UIWebToolbarViewCallbacks"
+- "C8Operando21UIWebToolbarViewLogic"
+- "V8Operando23UIWebToolbarViewOutlets"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "b6da2af44e089d9aa86acb49c894b85a"

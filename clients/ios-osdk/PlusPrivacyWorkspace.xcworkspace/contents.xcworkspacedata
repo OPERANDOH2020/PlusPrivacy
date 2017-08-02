@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:SwarmClient/SwarmClient/SwarmClient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPWebContentBlocker/PPWebContentBlocker.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPContactApiHooks/PPContactApiHooks.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPUIPickerControllerHooks/PPUIPickerControllerHooks.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPLocationApiHooks/PPLocationApiHooks.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPCloak/PPCloak.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PPApiHooks/PPApiHooksCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PlusPrivacyCommonUI/PPCommonUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PlusPrivacyCommonTypes/PPCommonTypes.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iOSNM/iOSNM/iOSNM.xcodeproj">
+   </FileRef>
+</Workspace>

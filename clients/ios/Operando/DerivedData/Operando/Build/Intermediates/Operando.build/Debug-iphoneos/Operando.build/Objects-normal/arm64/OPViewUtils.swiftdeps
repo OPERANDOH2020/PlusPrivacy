@@ -1,0 +1,1035 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "OPViewUtils"
+provides-nominal:
+- "C8Operando11OPViewUtils"
+provides-member:
+- ["C8Operando11OPViewUtils", ""]
+- ["CSo6UIView", ""]
+- ["CSo6UIView", "attachPopUpAnimationWithDuration"]
+provides-dynamic-lookup:
+- "attachPopUpAnimationWithDuration"
+depends-top-level:
+- !private "!="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- !private "Bundle"
+- !private "CAKeyframeAnimation"
+- !private "CATransform3DMakeScale"
+- "CFTimeInterval"
+- "CastingPrecedence"
+- !private "Float"
+- !private "NSNotification"
+- !private "NSNumber"
+- !private "NSValue"
+- !private "NotificationCenter"
+- "OPViewUtils"
+- !private "OperationQueue"
+- "String"
+- !private "StringLiteralType"
+- !private "UIAlertAction"
+- !private "UIAlertActionStyle"
+- !private "UIAlertController"
+- !private "UIAlertControllerStyle"
+- !private "UIAlertView"
+- !private "UIApplication"
+- "UIView"
+- "Void"
+- !private "kCAFillModeForwards"
+- !private "kCancelLocalizableKey"
+- !private "kResetLocalizableKey"
+- !private "kResetPasswordAlertDescriptionLocalizableKey"
+- !private "kResetPasswordAlertTitleLocalizableKey"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- !private ["Ps9AnyObject", "CAKeyframeAnimation"]
+- !private ["Ps9AnyObject", "CATransform3DMakeScale"]
+- !private ["Ps9AnyObject", "NSNotification"]
+- !private ["Ps9AnyObject", "NSNumber"]
+- !private ["Ps9AnyObject", "NSValue"]
+- !private ["Ps9AnyObject", "Name"]
+- !private ["Ps9AnyObject", "NotificationCenter"]
+- !private ["Ps9AnyObject", "OperationQueue"]
+- !private ["Ps9AnyObject", "UIAlertAction"]
+- !private ["Ps9AnyObject", "UIAlertActionStyle"]
+- !private ["Ps9AnyObject", "UIAlertController"]
+- !private ["Ps9AnyObject", "UIAlertControllerStyle"]
+- !private ["Ps9AnyObject", "UIAlertView"]
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "add"]
+- !private ["Ps9AnyObject", "addAction"]
+- !private ["Ps9AnyObject", "addObserver"]
+- !private ["Ps9AnyObject", "addTextField"]
+- !private ["Ps9AnyObject", "alpha"]
+- !private ["Ps9AnyObject", "default"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "duration"]
+- !private ["Ps9AnyObject", "fillMode"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isEnabled"]
+- !private ["Ps9AnyObject", "isRemovedOnCompletion"]
+- !private ["Ps9AnyObject", "isUserInteractionEnabled"]
+- !private ["Ps9AnyObject", "kCAFillModeForwards"]
+- !private ["Ps9AnyObject", "kCancelLocalizableKey"]
+- !private ["Ps9AnyObject", "kResetLocalizableKey"]
+- !private ["Ps9AnyObject", "kResetPasswordAlertDescriptionLocalizableKey"]
+- !private ["Ps9AnyObject", "kResetPasswordAlertTitleLocalizableKey"]
+- !private ["Ps9AnyObject", "keyTimes"]
+- !private ["Ps9AnyObject", "keyWindow"]
+- !private ["Ps9AnyObject", "keyboardType"]
+- !private ["Ps9AnyObject", "layer"]
+- !private ["Ps9AnyObject", "localizedStringFor"]
+- !private ["Ps9AnyObject", "main"]
+- !private ["Ps9AnyObject", "placeholder"]
+- !private ["Ps9AnyObject", "present"]
+- !private ["Ps9AnyObject", "returnKeyType"]
+- !private ["Ps9AnyObject", "rootViewController"]
+- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "show"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "textFields"]
+- !private ["Ps9AnyObject", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9AnyObject", "values"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "first"]
+- !private ["Ps23BidirectionalCollection", "first"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["CSo6Bundle", "localizedStringFor"]
+- !private ["PSo8CAAction", "duration"]
+- !private ["PSo8CAAction", "fillMode"]
+- !private ["PSo8CAAction", "init"]
+- !private ["PSo8CAAction", "isRemovedOnCompletion"]
+- !private ["PSo8CAAction", "keyTimes"]
+- !private ["PSo8CAAction", "values"]
+- !private ["CSo11CAAnimation", "duration"]
+- !private ["CSo11CAAnimation", "fillMode"]
+- !private ["CSo11CAAnimation", "init"]
+- !private ["CSo11CAAnimation", "isRemovedOnCompletion"]
+- !private ["CSo11CAAnimation", "keyTimes"]
+- !private ["CSo11CAAnimation", "values"]
+- !private ["CSo19CAKeyframeAnimation", "duration"]
+- !private ["CSo19CAKeyframeAnimation", "fillMode"]
+- !private ["CSo19CAKeyframeAnimation", "init"]
+- !private ["CSo19CAKeyframeAnimation", "isRemovedOnCompletion"]
+- !private ["CSo19CAKeyframeAnimation", "keyTimes"]
+- !private ["CSo19CAKeyframeAnimation", "values"]
+- !private ["CSo7CALayer", "add"]
+- !private ["PSo15CALayerDelegate", "CAKeyframeAnimation"]
+- !private ["PSo15CALayerDelegate", "CATransform3DMakeScale"]
+- !private ["PSo15CALayerDelegate", "NSNumber"]
+- !private ["PSo15CALayerDelegate", "NSValue"]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isUserInteractionEnabled"]
+- !private ["PSo15CALayerDelegate", "kCAFillModeForwards"]
+- !private ["PSo15CALayerDelegate", "keyboardType"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "placeholder"]
+- !private ["PSo15CALayerDelegate", "returnKeyType"]
+- !private ["PSo15CALayerDelegate", "rootViewController"]
+- !private ["PSo15CALayerDelegate", "show"]
+- !private ["PSo15CALayerDelegate", "text"]
+- !private ["PSo13CAMediaTiming", "add"]
+- !private ["PSo13CAMediaTiming", "duration"]
+- !private ["PSo13CAMediaTiming", "fillMode"]
+- !private ["PSo13CAMediaTiming", "init"]
+- !private ["PSo13CAMediaTiming", "isRemovedOnCompletion"]
+- !private ["PSo13CAMediaTiming", "keyTimes"]
+- !private ["PSo13CAMediaTiming", "values"]
+- !private ["CSo19CAPropertyAnimation", "duration"]
+- !private ["CSo19CAPropertyAnimation", "fillMode"]
+- !private ["CSo19CAPropertyAnimation", "init"]
+- !private ["CSo19CAPropertyAnimation", "isRemovedOnCompletion"]
+- !private ["CSo19CAPropertyAnimation", "keyTimes"]
+- !private ["CSo19CAPropertyAnimation", "values"]
+- !private ["Ps7CVarArg", "CAKeyframeAnimation"]
+- !private ["Ps7CVarArg", "CATransform3DMakeScale"]
+- !private ["Ps7CVarArg", "NSNumber"]
+- !private ["Ps7CVarArg", "NSValue"]
+- !private ["Ps7CVarArg", "Name"]
+- !private ["Ps7CVarArg", "add"]
+- !private ["Ps7CVarArg", "addAction"]
+- !private ["Ps7CVarArg", "addObserver"]
+- !private ["Ps7CVarArg", "addTextField"]
+- !private ["Ps7CVarArg", "alpha"]
+- !private ["Ps7CVarArg", "default"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "duration"]
+- !private ["Ps7CVarArg", "fillMode"]
+- !private ["Ps7CVarArg", "first"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isEnabled"]
+- !private ["Ps7CVarArg", "isRemovedOnCompletion"]
+- !private ["Ps7CVarArg", "isUserInteractionEnabled"]
+- !private ["Ps7CVarArg", "kCAFillModeForwards"]
+- !private ["Ps7CVarArg", "keyTimes"]
+- !private ["Ps7CVarArg", "keyWindow"]
+- !private ["Ps7CVarArg", "keyboardType"]
+- !private ["Ps7CVarArg", "layer"]
+- !private ["Ps7CVarArg", "localizedStringFor"]
+- !private ["Ps7CVarArg", "main"]
+- !private ["Ps7CVarArg", "placeholder"]
+- !private ["Ps7CVarArg", "present"]
+- !private ["Ps7CVarArg", "returnKeyType"]
+- !private ["Ps7CVarArg", "rootViewController"]
+- !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "show"]
+- !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "textFields"]
+- !private ["Ps7CVarArg", "topMostPresentedControllerOrSelf"]
+- !private ["Ps7CVarArg", "values"]
+- !private ["Ps10Collection", "first"]
+- !private ["Ps10Comparable", "UITextFieldTextDidChange"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "CAKeyframeAnimation"]
+- !private ["Ps28CustomDebugStringConvertible", "CATransform3DMakeScale"]
+- !private ["Ps28CustomDebugStringConvertible", "NSNumber"]
+- !private ["Ps28CustomDebugStringConvertible", "NSValue"]
+- !private ["Ps28CustomDebugStringConvertible", "Name"]
+- !private ["Ps28CustomDebugStringConvertible", "add"]
+- !private ["Ps28CustomDebugStringConvertible", "addAction"]
+- !private ["Ps28CustomDebugStringConvertible", "addObserver"]
+- !private ["Ps28CustomDebugStringConvertible", "addTextField"]
+- !private ["Ps28CustomDebugStringConvertible", "alpha"]
+- !private ["Ps28CustomDebugStringConvertible", "default"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "duration"]
+- !private ["Ps28CustomDebugStringConvertible", "fillMode"]
+- !private ["Ps28CustomDebugStringConvertible", "first"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isEnabled"]
+- !private ["Ps28CustomDebugStringConvertible", "isRemovedOnCompletion"]
+- !private ["Ps28CustomDebugStringConvertible", "isUserInteractionEnabled"]
+- !private ["Ps28CustomDebugStringConvertible", "kCAFillModeForwards"]
+- !private ["Ps28CustomDebugStringConvertible", "keyTimes"]
+- !private ["Ps28CustomDebugStringConvertible", "keyWindow"]
+- !private ["Ps28CustomDebugStringConvertible", "keyboardType"]
+- !private ["Ps28CustomDebugStringConvertible", "layer"]
+- !private ["Ps28CustomDebugStringConvertible", "localizedStringFor"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- !private ["Ps28CustomDebugStringConvertible", "placeholder"]
+- !private ["Ps28CustomDebugStringConvertible", "present"]
+- !private ["Ps28CustomDebugStringConvertible", "returnKeyType"]
+- !private ["Ps28CustomDebugStringConvertible", "rootViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "show"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "textFields"]
+- !private ["Ps28CustomDebugStringConvertible", "topMostPresentedControllerOrSelf"]
+- !private ["Ps28CustomDebugStringConvertible", "values"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "first"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "CAKeyframeAnimation"]
+- !private ["Ps23CustomStringConvertible", "CATransform3DMakeScale"]
+- !private ["Ps23CustomStringConvertible", "NSNumber"]
+- !private ["Ps23CustomStringConvertible", "NSValue"]
+- !private ["Ps23CustomStringConvertible", "Name"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "add"]
+- !private ["Ps23CustomStringConvertible", "addAction"]
+- !private ["Ps23CustomStringConvertible", "addObserver"]
+- !private ["Ps23CustomStringConvertible", "addTextField"]
+- !private ["Ps23CustomStringConvertible", "alpha"]
+- !private ["Ps23CustomStringConvertible", "default"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "duration"]
+- !private ["Ps23CustomStringConvertible", "fillMode"]
+- !private ["Ps23CustomStringConvertible", "first"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isEnabled"]
+- !private ["Ps23CustomStringConvertible", "isRemovedOnCompletion"]
+- !private ["Ps23CustomStringConvertible", "isUserInteractionEnabled"]
+- !private ["Ps23CustomStringConvertible", "kCAFillModeForwards"]
+- !private ["Ps23CustomStringConvertible", "keyTimes"]
+- !private ["Ps23CustomStringConvertible", "keyWindow"]
+- !private ["Ps23CustomStringConvertible", "keyboardType"]
+- !private ["Ps23CustomStringConvertible", "layer"]
+- !private ["Ps23CustomStringConvertible", "localizedStringFor"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- !private ["Ps23CustomStringConvertible", "placeholder"]
+- !private ["Ps23CustomStringConvertible", "present"]
+- !private ["Ps23CustomStringConvertible", "returnKeyType"]
+- !private ["Ps23CustomStringConvertible", "rootViewController"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "show"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "textFields"]
+- !private ["Ps23CustomStringConvertible", "topMostPresentedControllerOrSelf"]
+- !private ["Ps23CustomStringConvertible", "values"]
+- !private ["Ps9Equatable", "CAKeyframeAnimation"]
+- !private ["Ps9Equatable", "CATransform3DMakeScale"]
+- !private ["Ps9Equatable", "NSNumber"]
+- !private ["Ps9Equatable", "NSValue"]
+- !private ["Ps9Equatable", "Name"]
+- !private ["Ps9Equatable", "UITextFieldTextDidChange"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "add"]
+- !private ["Ps9Equatable", "addAction"]
+- !private ["Ps9Equatable", "addObserver"]
+- !private ["Ps9Equatable", "addTextField"]
+- !private ["Ps9Equatable", "alert"]
+- !private ["Ps9Equatable", "alpha"]
+- !private ["Ps9Equatable", "cancel"]
+- !private ["Ps9Equatable", "default"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "done"]
+- !private ["Ps9Equatable", "duration"]
+- !private ["Ps9Equatable", "emailAddress"]
+- !private ["Ps9Equatable", "fillMode"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isEnabled"]
+- !private ["Ps9Equatable", "isRemovedOnCompletion"]
+- !private ["Ps9Equatable", "isUserInteractionEnabled"]
+- !private ["Ps9Equatable", "kCAFillModeForwards"]
+- !private ["Ps9Equatable", "keyTimes"]
+- !private ["Ps9Equatable", "keyWindow"]
+- !private ["Ps9Equatable", "keyboardType"]
+- !private ["Ps9Equatable", "layer"]
+- !private ["Ps9Equatable", "localizedStringFor"]
+- !private ["Ps9Equatable", "main"]
+- !private ["Ps9Equatable", "placeholder"]
+- !private ["Ps9Equatable", "present"]
+- !private ["Ps9Equatable", "returnKeyType"]
+- !private ["Ps9Equatable", "rootViewController"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "show"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "textFields"]
+- !private ["Ps9Equatable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9Equatable", "values"]
+- !private ["Ps25ExpressibleByArrayLiteral", "first"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "CAKeyframeAnimation"]
+- !private ["Ps8Hashable", "CATransform3DMakeScale"]
+- !private ["Ps8Hashable", "NSNumber"]
+- !private ["Ps8Hashable", "NSValue"]
+- !private ["Ps8Hashable", "Name"]
+- !private ["Ps8Hashable", "UITextFieldTextDidChange"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "add"]
+- !private ["Ps8Hashable", "addAction"]
+- !private ["Ps8Hashable", "addObserver"]
+- !private ["Ps8Hashable", "addTextField"]
+- !private ["Ps8Hashable", "alert"]
+- !private ["Ps8Hashable", "alpha"]
+- !private ["Ps8Hashable", "cancel"]
+- !private ["Ps8Hashable", "default"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "done"]
+- !private ["Ps8Hashable", "duration"]
+- !private ["Ps8Hashable", "emailAddress"]
+- !private ["Ps8Hashable", "fillMode"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isEnabled"]
+- !private ["Ps8Hashable", "isRemovedOnCompletion"]
+- !private ["Ps8Hashable", "isUserInteractionEnabled"]
+- !private ["Ps8Hashable", "kCAFillModeForwards"]
+- !private ["Ps8Hashable", "keyTimes"]
+- !private ["Ps8Hashable", "keyWindow"]
+- !private ["Ps8Hashable", "keyboardType"]
+- !private ["Ps8Hashable", "layer"]
+- !private ["Ps8Hashable", "localizedStringFor"]
+- !private ["Ps8Hashable", "main"]
+- !private ["Ps8Hashable", "placeholder"]
+- !private ["Ps8Hashable", "present"]
+- !private ["Ps8Hashable", "returnKeyType"]
+- !private ["Ps8Hashable", "rootViewController"]
+- !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "show"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "textFields"]
+- !private ["Ps8Hashable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps8Hashable", "values"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "first"]
+- !private ["PSo8NSCoding", "CAKeyframeAnimation"]
+- !private ["PSo8NSCoding", "CATransform3DMakeScale"]
+- !private ["PSo8NSCoding", "NSNumber"]
+- !private ["PSo8NSCoding", "NSValue"]
+- !private ["PSo8NSCoding", "Name"]
+- !private ["PSo8NSCoding", "add"]
+- !private ["PSo8NSCoding", "addAction"]
+- !private ["PSo8NSCoding", "addTextField"]
+- !private ["PSo8NSCoding", "alpha"]
+- !private ["PSo8NSCoding", "duration"]
+- !private ["PSo8NSCoding", "fillMode"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isRemovedOnCompletion"]
+- !private ["PSo8NSCoding", "isUserInteractionEnabled"]
+- !private ["PSo8NSCoding", "kCAFillModeForwards"]
+- !private ["PSo8NSCoding", "keyTimes"]
+- !private ["PSo8NSCoding", "keyboardType"]
+- !private ["PSo8NSCoding", "layer"]
+- !private ["PSo8NSCoding", "placeholder"]
+- !private ["PSo8NSCoding", "present"]
+- !private ["PSo8NSCoding", "returnKeyType"]
+- !private ["PSo8NSCoding", "rootViewController"]
+- !private ["PSo8NSCoding", "show"]
+- !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "textFields"]
+- !private ["PSo8NSCoding", "topMostPresentedControllerOrSelf"]
+- !private ["PSo8NSCoding", "values"]
+- !private ["PSo9NSCopying", "Name"]
+- !private ["PSo9NSCopying", "duration"]
+- !private ["PSo9NSCopying", "fillMode"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEnabled"]
+- !private ["PSo9NSCopying", "isRemovedOnCompletion"]
+- !private ["PSo9NSCopying", "keyTimes"]
+- !private ["PSo9NSCopying", "values"]
+- !private ["PSo26NSExtensionRequestHandling", "addAction"]
+- !private ["PSo26NSExtensionRequestHandling", "addTextField"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "present"]
+- !private ["PSo26NSExtensionRequestHandling", "textFields"]
+- !private ["PSo26NSExtensionRequestHandling", "topMostPresentedControllerOrSelf"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo14NSNotification", "Name"]
+- !private ["CSo8NSNumber", "init"]
+- !private ["CSo8NSObject", "CAKeyframeAnimation"]
+- !private ["CSo8NSObject", "CATransform3DMakeScale"]
+- ["CSo8NSObject", "CFTimeInterval"]
+- !private ["CSo8NSObject", "Float"]
+- !private ["CSo8NSObject", "NSNumber"]
+- !private ["CSo8NSObject", "NSValue"]
+- !private ["CSo8NSObject", "Name"]
+- !private ["CSo8NSObject", "add"]
+- !private ["CSo8NSObject", "addAction"]
+- !private ["CSo8NSObject", "addObserver"]
+- !private ["CSo8NSObject", "addTextField"]
+- !private ["CSo8NSObject", "alpha"]
+- ["CSo8NSObject", "attachPopUpAnimationWithDuration"]
+- !private ["CSo8NSObject", "default"]
+- !private ["CSo8NSObject", "delegate"]
+- !private ["CSo8NSObject", "duration"]
+- !private ["CSo8NSObject", "fillMode"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isEnabled"]
+- !private ["CSo8NSObject", "isRemovedOnCompletion"]
+- !private ["CSo8NSObject", "isUserInteractionEnabled"]
+- !private ["CSo8NSObject", "kCAFillModeForwards"]
+- !private ["CSo8NSObject", "keyTimes"]
+- !private ["CSo8NSObject", "keyWindow"]
+- !private ["CSo8NSObject", "keyboardType"]
+- !private ["CSo8NSObject", "layer"]
+- !private ["CSo8NSObject", "localizedStringFor"]
+- !private ["CSo8NSObject", "main"]
+- !private ["CSo8NSObject", "placeholder"]
+- !private ["CSo8NSObject", "present"]
+- !private ["CSo8NSObject", "returnKeyType"]
+- !private ["CSo8NSObject", "rootViewController"]
+- !private ["CSo8NSObject", "shared"]
+- !private ["CSo8NSObject", "show"]
+- !private ["CSo8NSObject", "text"]
+- !private ["CSo8NSObject", "textFields"]
+- !private ["CSo8NSObject", "topMostPresentedControllerOrSelf"]
+- !private ["CSo8NSObject", "values"]
+- !private ["PSo16NSObjectProtocol", "CAKeyframeAnimation"]
+- !private ["PSo16NSObjectProtocol", "CATransform3DMakeScale"]
+- !private ["PSo16NSObjectProtocol", "NSNumber"]
+- !private ["PSo16NSObjectProtocol", "NSValue"]
+- !private ["PSo16NSObjectProtocol", "Name"]
+- !private ["PSo16NSObjectProtocol", "add"]
+- !private ["PSo16NSObjectProtocol", "addAction"]
+- !private ["PSo16NSObjectProtocol", "addObserver"]
+- !private ["PSo16NSObjectProtocol", "addTextField"]
+- !private ["PSo16NSObjectProtocol", "alpha"]
+- !private ["PSo16NSObjectProtocol", "default"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "duration"]
+- !private ["PSo16NSObjectProtocol", "fillMode"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isEnabled"]
+- !private ["PSo16NSObjectProtocol", "isRemovedOnCompletion"]
+- !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
+- !private ["PSo16NSObjectProtocol", "kCAFillModeForwards"]
+- !private ["PSo16NSObjectProtocol", "keyTimes"]
+- !private ["PSo16NSObjectProtocol", "keyWindow"]
+- !private ["PSo16NSObjectProtocol", "keyboardType"]
+- !private ["PSo16NSObjectProtocol", "layer"]
+- !private ["PSo16NSObjectProtocol", "localizedStringFor"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- !private ["PSo16NSObjectProtocol", "placeholder"]
+- !private ["PSo16NSObjectProtocol", "present"]
+- !private ["PSo16NSObjectProtocol", "returnKeyType"]
+- !private ["PSo16NSObjectProtocol", "rootViewController"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "show"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "textFields"]
+- !private ["PSo16NSObjectProtocol", "topMostPresentedControllerOrSelf"]
+- !private ["PSo16NSObjectProtocol", "values"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo7NSValue", "init"]
+- !private ["VCSo14NSNotification4Name", "UITextFieldTextDidChange"]
+- !private ["CSo18NotificationCenter", "addObserver"]
+- !private ["CSo18NotificationCenter", "default"]
+- ["C8Operando11OPViewUtils", "Bool"]
+- !private ["C8Operando11OPViewUtils", "Bundle"]
+- !private ["C8Operando11OPViewUtils", "NSNotification"]
+- !private ["C8Operando11OPViewUtils", "NotificationCenter"]
+- !private ["C8Operando11OPViewUtils", "OperationQueue"]
+- ["C8Operando11OPViewUtils", "String"]
+- !private ["C8Operando11OPViewUtils", "UIAlertAction"]
+- !private ["C8Operando11OPViewUtils", "UIAlertActionStyle"]
+- !private ["C8Operando11OPViewUtils", "UIAlertController"]
+- !private ["C8Operando11OPViewUtils", "UIAlertControllerStyle"]
+- !private ["C8Operando11OPViewUtils", "UIAlertView"]
+- !private ["C8Operando11OPViewUtils", "UIApplication"]
+- ["C8Operando11OPViewUtils", "UIView"]
+- ["C8Operando11OPViewUtils", "Void"]
+- ["C8Operando11OPViewUtils", "deinit"]
+- ["C8Operando11OPViewUtils", "disableViews"]
+- ["C8Operando11OPViewUtils", "displayAlertWithMessage"]
+- ["C8Operando11OPViewUtils", "displayForgotEmailPassword"]
+- ["C8Operando11OPViewUtils", "enbleViews"]
+- ["C8Operando11OPViewUtils", "init"]
+- !private ["C8Operando11OPViewUtils", "kCancelLocalizableKey"]
+- !private ["C8Operando11OPViewUtils", "kResetLocalizableKey"]
+- !private ["C8Operando11OPViewUtils", "kResetPasswordAlertDescriptionLocalizableKey"]
+- !private ["C8Operando11OPViewUtils", "kResetPasswordAlertTitleLocalizableKey"]
+- ["C8Operando11OPViewUtils", "showOkAlertWithTitle"]
+- !private ["CSo14OperationQueue", "main"]
+- !private ["Ps22RandomAccessCollection", "first"]
+- !private ["Ps26RangeReplaceableCollection", "first"]
+- !private ["Ps16RawRepresentable", "UITextFieldTextDidChange"]
+- !private ["Ps16RawRepresentable", "alert"]
+- !private ["Ps16RawRepresentable", "cancel"]
+- !private ["Ps16RawRepresentable", "default"]
+- !private ["Ps16RawRepresentable", "done"]
+- !private ["Ps16RawRepresentable", "emailAddress"]
+- !private ["Ps8Sequence", "first"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- !private ["P11SwarmClient10SocketData", "first"]
+- !private ["P11SwarmClient10SocketData", "init"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "CAKeyframeAnimation"]
+- !private ["PSo29UIAccessibilityIdentification", "CATransform3DMakeScale"]
+- !private ["PSo29UIAccessibilityIdentification", "NSNumber"]
+- !private ["PSo29UIAccessibilityIdentification", "NSValue"]
+- !private ["PSo29UIAccessibilityIdentification", "alpha"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isUserInteractionEnabled"]
+- !private ["PSo29UIAccessibilityIdentification", "kCAFillModeForwards"]
+- !private ["PSo29UIAccessibilityIdentification", "keyboardType"]
+- !private ["PSo29UIAccessibilityIdentification", "layer"]
+- !private ["PSo29UIAccessibilityIdentification", "placeholder"]
+- !private ["PSo29UIAccessibilityIdentification", "returnKeyType"]
+- !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
+- !private ["PSo29UIAccessibilityIdentification", "show"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["CSo13UIAlertAction", "init"]
+- !private ["CSo13UIAlertAction", "isEnabled"]
+- !private ["OSC18UIAlertActionStyle", "cancel"]
+- !private ["OSC18UIAlertActionStyle", "default"]
+- !private ["CSo17UIAlertController", "addAction"]
+- !private ["CSo17UIAlertController", "addTextField"]
+- !private ["CSo17UIAlertController", "init"]
+- !private ["CSo17UIAlertController", "textFields"]
+- !private ["OSC22UIAlertControllerStyle", "alert"]
+- !private ["CSo11UIAlertView", "init"]
+- !private ["CSo11UIAlertView", "show"]
+- !private ["PSo12UIAppearance", "CAKeyframeAnimation"]
+- !private ["PSo12UIAppearance", "CATransform3DMakeScale"]
+- !private ["PSo12UIAppearance", "NSNumber"]
+- !private ["PSo12UIAppearance", "NSValue"]
+- !private ["PSo12UIAppearance", "alpha"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isUserInteractionEnabled"]
+- !private ["PSo12UIAppearance", "kCAFillModeForwards"]
+- !private ["PSo12UIAppearance", "keyboardType"]
+- !private ["PSo12UIAppearance", "layer"]
+- !private ["PSo12UIAppearance", "placeholder"]
+- !private ["PSo12UIAppearance", "returnKeyType"]
+- !private ["PSo12UIAppearance", "rootViewController"]
+- !private ["PSo12UIAppearance", "show"]
+- !private ["PSo12UIAppearance", "text"]
+- !private ["PSo21UIAppearanceContainer", "CAKeyframeAnimation"]
+- !private ["PSo21UIAppearanceContainer", "CATransform3DMakeScale"]
+- !private ["PSo21UIAppearanceContainer", "NSNumber"]
+- !private ["PSo21UIAppearanceContainer", "NSValue"]
+- !private ["PSo21UIAppearanceContainer", "addAction"]
+- !private ["PSo21UIAppearanceContainer", "addTextField"]
+- !private ["PSo21UIAppearanceContainer", "alpha"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isUserInteractionEnabled"]
+- !private ["PSo21UIAppearanceContainer", "kCAFillModeForwards"]
+- !private ["PSo21UIAppearanceContainer", "keyboardType"]
+- !private ["PSo21UIAppearanceContainer", "layer"]
+- !private ["PSo21UIAppearanceContainer", "placeholder"]
+- !private ["PSo21UIAppearanceContainer", "present"]
+- !private ["PSo21UIAppearanceContainer", "returnKeyType"]
+- !private ["PSo21UIAppearanceContainer", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "show"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "textFields"]
+- !private ["PSo21UIAppearanceContainer", "topMostPresentedControllerOrSelf"]
+- !private ["CSo13UIApplication", "delegate"]
+- !private ["CSo13UIApplication", "keyWindow"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["PSo21UIApplicationDelegate", "window"]
+- !private ["PSo18UIContentContainer", "addAction"]
+- !private ["PSo18UIContentContainer", "addTextField"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "present"]
+- !private ["PSo18UIContentContainer", "textFields"]
+- !private ["PSo18UIContentContainer", "topMostPresentedControllerOrSelf"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "keyboardType"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "placeholder"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "returnKeyType"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["CSo9UIControl", "keyboardType"]
+- !private ["CSo9UIControl", "placeholder"]
+- !private ["CSo9UIControl", "returnKeyType"]
+- !private ["CSo9UIControl", "text"]
+- !private ["PSo17UICoordinateSpace", "CAKeyframeAnimation"]
+- !private ["PSo17UICoordinateSpace", "CATransform3DMakeScale"]
+- !private ["PSo17UICoordinateSpace", "NSNumber"]
+- !private ["PSo17UICoordinateSpace", "NSValue"]
+- !private ["PSo17UICoordinateSpace", "alpha"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isUserInteractionEnabled"]
+- !private ["PSo17UICoordinateSpace", "kCAFillModeForwards"]
+- !private ["PSo17UICoordinateSpace", "keyboardType"]
+- !private ["PSo17UICoordinateSpace", "layer"]
+- !private ["PSo17UICoordinateSpace", "placeholder"]
+- !private ["PSo17UICoordinateSpace", "returnKeyType"]
+- !private ["PSo17UICoordinateSpace", "rootViewController"]
+- !private ["PSo17UICoordinateSpace", "show"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo13UIDynamicItem", "CAKeyframeAnimation"]
+- !private ["PSo13UIDynamicItem", "CATransform3DMakeScale"]
+- !private ["PSo13UIDynamicItem", "NSNumber"]
+- !private ["PSo13UIDynamicItem", "NSValue"]
+- !private ["PSo13UIDynamicItem", "alpha"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isUserInteractionEnabled"]
+- !private ["PSo13UIDynamicItem", "kCAFillModeForwards"]
+- !private ["PSo13UIDynamicItem", "keyboardType"]
+- !private ["PSo13UIDynamicItem", "layer"]
+- !private ["PSo13UIDynamicItem", "placeholder"]
+- !private ["PSo13UIDynamicItem", "returnKeyType"]
+- !private ["PSo13UIDynamicItem", "rootViewController"]
+- !private ["PSo13UIDynamicItem", "show"]
+- !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo18UIFocusEnvironment", "CAKeyframeAnimation"]
+- !private ["PSo18UIFocusEnvironment", "CATransform3DMakeScale"]
+- !private ["PSo18UIFocusEnvironment", "NSNumber"]
+- !private ["PSo18UIFocusEnvironment", "NSValue"]
+- !private ["PSo18UIFocusEnvironment", "addAction"]
+- !private ["PSo18UIFocusEnvironment", "addTextField"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isUserInteractionEnabled"]
+- !private ["PSo18UIFocusEnvironment", "kCAFillModeForwards"]
+- !private ["PSo18UIFocusEnvironment", "keyboardType"]
+- !private ["PSo18UIFocusEnvironment", "layer"]
+- !private ["PSo18UIFocusEnvironment", "placeholder"]
+- !private ["PSo18UIFocusEnvironment", "present"]
+- !private ["PSo18UIFocusEnvironment", "returnKeyType"]
+- !private ["PSo18UIFocusEnvironment", "rootViewController"]
+- !private ["PSo18UIFocusEnvironment", "show"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "textFields"]
+- !private ["PSo18UIFocusEnvironment", "topMostPresentedControllerOrSelf"]
+- !private ["PSo11UIFocusItem", "CAKeyframeAnimation"]
+- !private ["PSo11UIFocusItem", "CATransform3DMakeScale"]
+- !private ["PSo11UIFocusItem", "NSNumber"]
+- !private ["PSo11UIFocusItem", "NSValue"]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isUserInteractionEnabled"]
+- !private ["PSo11UIFocusItem", "kCAFillModeForwards"]
+- !private ["PSo11UIFocusItem", "keyboardType"]
+- !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "placeholder"]
+- !private ["PSo11UIFocusItem", "returnKeyType"]
+- !private ["PSo11UIFocusItem", "rootViewController"]
+- !private ["PSo11UIFocusItem", "show"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo10UIKeyInput", "keyboardType"]
+- !private ["PSo10UIKeyInput", "placeholder"]
+- !private ["PSo10UIKeyInput", "returnKeyType"]
+- !private ["PSo10UIKeyInput", "text"]
+- !private ["OSC14UIKeyboardType", "emailAddress"]
+- !private ["CSo11UIResponder", "CAKeyframeAnimation"]
+- !private ["CSo11UIResponder", "CATransform3DMakeScale"]
+- ["CSo11UIResponder", "CFTimeInterval"]
+- !private ["CSo11UIResponder", "Float"]
+- !private ["CSo11UIResponder", "NSNumber"]
+- !private ["CSo11UIResponder", "NSValue"]
+- !private ["CSo11UIResponder", "addAction"]
+- !private ["CSo11UIResponder", "addTextField"]
+- !private ["CSo11UIResponder", "alpha"]
+- ["CSo11UIResponder", "attachPopUpAnimationWithDuration"]
+- !private ["CSo11UIResponder", "delegate"]
+- !private ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isUserInteractionEnabled"]
+- !private ["CSo11UIResponder", "kCAFillModeForwards"]
+- !private ["CSo11UIResponder", "keyWindow"]
+- !private ["CSo11UIResponder", "keyboardType"]
+- !private ["CSo11UIResponder", "layer"]
+- !private ["CSo11UIResponder", "placeholder"]
+- !private ["CSo11UIResponder", "present"]
+- !private ["CSo11UIResponder", "returnKeyType"]
+- !private ["CSo11UIResponder", "rootViewController"]
+- !private ["CSo11UIResponder", "shared"]
+- !private ["CSo11UIResponder", "show"]
+- !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "textFields"]
+- !private ["CSo11UIResponder", "topMostPresentedControllerOrSelf"]
+- !private ["PSo30UIResponderStandardEditActions", "CAKeyframeAnimation"]
+- !private ["PSo30UIResponderStandardEditActions", "CATransform3DMakeScale"]
+- !private ["PSo30UIResponderStandardEditActions", "NSNumber"]
+- !private ["PSo30UIResponderStandardEditActions", "NSValue"]
+- !private ["PSo30UIResponderStandardEditActions", "addAction"]
+- !private ["PSo30UIResponderStandardEditActions", "addTextField"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "delegate"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isUserInteractionEnabled"]
+- !private ["PSo30UIResponderStandardEditActions", "kCAFillModeForwards"]
+- !private ["PSo30UIResponderStandardEditActions", "keyWindow"]
+- !private ["PSo30UIResponderStandardEditActions", "keyboardType"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- !private ["PSo30UIResponderStandardEditActions", "placeholder"]
+- !private ["PSo30UIResponderStandardEditActions", "present"]
+- !private ["PSo30UIResponderStandardEditActions", "returnKeyType"]
+- !private ["PSo30UIResponderStandardEditActions", "rootViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "show"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "textFields"]
+- !private ["PSo30UIResponderStandardEditActions", "topMostPresentedControllerOrSelf"]
+- !private ["OSC15UIReturnKeyType", "done"]
+- !private ["PSo16UIStateRestoring", "addAction"]
+- !private ["PSo16UIStateRestoring", "addTextField"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "present"]
+- !private ["PSo16UIStateRestoring", "textFields"]
+- !private ["PSo16UIStateRestoring", "topMostPresentedControllerOrSelf"]
+- !private ["CSo11UITextField", "keyboardType"]
+- !private ["CSo11UITextField", "placeholder"]
+- !private ["CSo11UITextField", "returnKeyType"]
+- !private ["CSo11UITextField", "text"]
+- !private ["PSo11UITextInput", "keyboardType"]
+- !private ["PSo11UITextInput", "placeholder"]
+- !private ["PSo11UITextInput", "returnKeyType"]
+- !private ["PSo11UITextInput", "text"]
+- !private ["PSo17UITextInputTraits", "keyboardType"]
+- !private ["PSo17UITextInputTraits", "placeholder"]
+- !private ["PSo17UITextInputTraits", "returnKeyType"]
+- !private ["PSo17UITextInputTraits", "text"]
+- !private ["PSo18UITraitEnvironment", "CAKeyframeAnimation"]
+- !private ["PSo18UITraitEnvironment", "CATransform3DMakeScale"]
+- !private ["PSo18UITraitEnvironment", "NSNumber"]
+- !private ["PSo18UITraitEnvironment", "NSValue"]
+- !private ["PSo18UITraitEnvironment", "addAction"]
+- !private ["PSo18UITraitEnvironment", "addTextField"]
+- !private ["PSo18UITraitEnvironment", "alpha"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isUserInteractionEnabled"]
+- !private ["PSo18UITraitEnvironment", "kCAFillModeForwards"]
+- !private ["PSo18UITraitEnvironment", "keyboardType"]
+- !private ["PSo18UITraitEnvironment", "layer"]
+- !private ["PSo18UITraitEnvironment", "placeholder"]
+- !private ["PSo18UITraitEnvironment", "present"]
+- !private ["PSo18UITraitEnvironment", "returnKeyType"]
+- !private ["PSo18UITraitEnvironment", "rootViewController"]
+- !private ["PSo18UITraitEnvironment", "show"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "textFields"]
+- !private ["PSo18UITraitEnvironment", "topMostPresentedControllerOrSelf"]
+- !private ["CSo6UIView", "CAKeyframeAnimation"]
+- !private ["CSo6UIView", "CATransform3DMakeScale"]
+- ["CSo6UIView", "CFTimeInterval"]
+- !private ["CSo6UIView", "Float"]
+- !private ["CSo6UIView", "NSNumber"]
+- !private ["CSo6UIView", "NSValue"]
+- !private ["CSo6UIView", "alpha"]
+- ["CSo6UIView", "attachPopUpAnimationWithDuration"]
+- !private ["CSo6UIView", "isUserInteractionEnabled"]
+- !private ["CSo6UIView", "kCAFillModeForwards"]
+- !private ["CSo6UIView", "keyboardType"]
+- !private ["CSo6UIView", "layer"]
+- !private ["CSo6UIView", "placeholder"]
+- !private ["CSo6UIView", "returnKeyType"]
+- !private ["CSo6UIView", "rootViewController"]
+- !private ["CSo6UIView", "show"]
+- !private ["CSo6UIView", "text"]
+- !private ["CSo16UIViewController", "addAction"]
+- !private ["CSo16UIViewController", "addTextField"]
+- !private ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "present"]
+- !private ["CSo16UIViewController", "textFields"]
+- !private ["CSo16UIViewController", "topMostPresentedControllerOrSelf"]
+- !private ["CSo8UIWindow", "rootViewController"]
+- !private ["Ps14_ArrayProtocol", "first"]
+- !private ["Ps23_BidirectionalIndexable", "first"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "CAKeyframeAnimation"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "CATransform3DMakeScale"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "NSNumber"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "NSValue"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isUserInteractionEnabled"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "kCAFillModeForwards"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "keyboardType"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layer"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "placeholder"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "returnKeyType"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "show"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps24_DestructorSafeContainer", "first"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "CAKeyframeAnimation"]
+- !private ["Ps9_Hashable", "CATransform3DMakeScale"]
+- !private ["Ps9_Hashable", "NSNumber"]
+- !private ["Ps9_Hashable", "NSValue"]
+- !private ["Ps9_Hashable", "Name"]
+- !private ["Ps9_Hashable", "UITextFieldTextDidChange"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "add"]
+- !private ["Ps9_Hashable", "addAction"]
+- !private ["Ps9_Hashable", "addObserver"]
+- !private ["Ps9_Hashable", "addTextField"]
+- !private ["Ps9_Hashable", "alert"]
+- !private ["Ps9_Hashable", "alpha"]
+- !private ["Ps9_Hashable", "cancel"]
+- !private ["Ps9_Hashable", "default"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "done"]
+- !private ["Ps9_Hashable", "duration"]
+- !private ["Ps9_Hashable", "emailAddress"]
+- !private ["Ps9_Hashable", "fillMode"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isEnabled"]
+- !private ["Ps9_Hashable", "isRemovedOnCompletion"]
+- !private ["Ps9_Hashable", "isUserInteractionEnabled"]
+- !private ["Ps9_Hashable", "kCAFillModeForwards"]
+- !private ["Ps9_Hashable", "keyTimes"]
+- !private ["Ps9_Hashable", "keyWindow"]
+- !private ["Ps9_Hashable", "keyboardType"]
+- !private ["Ps9_Hashable", "layer"]
+- !private ["Ps9_Hashable", "localizedStringFor"]
+- !private ["Ps9_Hashable", "main"]
+- !private ["Ps9_Hashable", "placeholder"]
+- !private ["Ps9_Hashable", "present"]
+- !private ["Ps9_Hashable", "returnKeyType"]
+- !private ["Ps9_Hashable", "rootViewController"]
+- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "show"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "textFields"]
+- !private ["Ps9_Hashable", "topMostPresentedControllerOrSelf"]
+- !private ["Ps9_Hashable", "values"]
+- !private ["Ps10_Indexable", "first"]
+- !private ["Ps14_IndexableBase", "first"]
+- !private ["Ps17_MutableIndexable", "first"]
+- !private ["Ps21_ObjectiveCBridgeable", "UITextFieldTextDidChange"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "first"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps22_RandomAccessIndexable", "first"]
+- !private ["Ps26_RangeReplaceableIndexable", "first"]
+- !private ["Ps20_SwiftNewtypeWrapper", "UITextFieldTextDidChange"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Sb"
+- !private "CSo6Bundle"
+- !private "PSo8CAAction"
+- !private "CSo11CAAnimation"
+- !private "CSo19CAKeyframeAnimation"
+- !private "CSo7CALayer"
+- !private "PSo15CALayerDelegate"
+- !private "PSo13CAMediaTiming"
+- !private "CSo19CAPropertyAnimation"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- !private "CSo14NSNotification"
+- !private "CSo8NSNumber"
+- "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo7NSValue"
+- !private "VCSo14NSNotification4Name"
+- !private "CSo18NotificationCenter"
+- "C8Operando11OPViewUtils"
+- !private "CSo14OperationQueue"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps16RawRepresentable"
+- !private "Ps8Sequence"
+- !private "P11SwarmClient10SocketData"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "CSo13UIAlertAction"
+- !private "OSC18UIAlertActionStyle"
+- !private "CSo17UIAlertController"
+- !private "OSC22UIAlertControllerStyle"
+- !private "CSo11UIAlertView"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "CSo13UIApplication"
+- !private "PSo21UIApplicationDelegate"
+- !private "PSo18UIContentContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "PSo10UIKeyInput"
+- !private "OSC14UIKeyboardType"
+- "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "OSC15UIReturnKeyType"
+- !private "PSo16UIStateRestoring"
+- !private "CSo11UITextField"
+- !private "PSo11UITextInput"
+- !private "PSo17UITextInputTraits"
+- !private "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "CSo16UIViewController"
+- !private "CSo8UIWindow"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- !private "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps17_MutableIndexable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+- !private "Ps20_SwiftNewtypeWrapper"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm64.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "4911b1d9e2e6fb95643944e54ae64481"

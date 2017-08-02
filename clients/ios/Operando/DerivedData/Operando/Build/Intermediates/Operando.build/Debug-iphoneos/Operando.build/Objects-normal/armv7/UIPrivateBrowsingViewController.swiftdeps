@@ -1,0 +1,891 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "kSearchEngineURL"
+- "queryURLPart"
+- "WebTab"
+- "UIPrivateBrowsingViewController"
+provides-nominal:
+- "C8Operando6WebTab"
+- "C8Operando31UIPrivateBrowsingViewController"
+provides-member:
+- ["C8Operando6WebTab", ""]
+- ["C8Operando31UIPrivateBrowsingViewController", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+- "webTabsHostView"
+- "webTabsView"
+- "webTabsViewTopCn"
+- "webToolbarView"
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "Bool"
+- !private "BooleanLiteralType"
+- !private "CGFloat"
+- "NSLayoutConstraint"
+- "StringLiteralType"
+- "UIPrivateBrowsingViewController"
+- !private "UIScreen"
+- "UIView"
+- "UIViewController"
+- "UIWebTabsListView"
+- "UIWebToolbarView"
+- !private "UIWebViewTab"
+- "UIWebViewTabNavigationModel"
+- !private "VoidBlock"
+- "WKNavigationDelegate"
+- "WebTab"
+- "WebTabDescription"
+- "WebTabsControllerLogic"
+- !private "WebTabsControllerLogicCallbacks"
+- !private "WebTabsControllerLogicModel"
+- !private "WebViewTabManagementPool"
+- "kSearchEngineURL"
+- "queryURLPart"
+depends-member:
+- !private ["Ps9AnyObject", "UIScreen"]
+- !private ["Ps9AnyObject", "UIView"]
+- !private ["Ps9AnyObject", "UIWebViewTab"]
+- !private ["Ps9AnyObject", "WebTabsControllerLogic"]
+- !private ["Ps9AnyObject", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps9AnyObject", "WebTabsControllerLogicModel"]
+- !private ["Ps9AnyObject", "WebViewTabManagementPool"]
+- !private ["Ps9AnyObject", "animate"]
+- !private ["Ps9AnyObject", "bounds"]
+- !private ["Ps9AnyObject", "bringSubview"]
+- !private ["Ps9AnyObject", "constant"]
+- !private ["Ps9AnyObject", "constrainView"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isHidden"]
+- !private ["Ps9AnyObject", "layoutIfNeeded"]
+- !private ["Ps9AnyObject", "logic"]
+- !private ["Ps9AnyObject", "main"]
+- !private ["Ps9AnyObject", "present"]
+- !private ["Ps9AnyObject", "setNeedsLayout"]
+- !private ["Ps9AnyObject", "setTabsViewTopConstraint"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "viewDidLoad"]
+- !private ["Ps9AnyObject", "webTabsHostView"]
+- !private ["Ps9AnyObject", "webTabsView"]
+- !private ["Ps9AnyObject", "webTabsViewTopCn"]
+- !private ["Ps9AnyObject", "webToolbarView"]
+- ["Ps9AnyObject", "webView"]
+- ["Ps9AnyObject", "webViewWebContentProcessDidTerminate"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "animate"]
+- !private ["PSo15CALayerDelegate", "bringSubview"]
+- !private ["PSo15CALayerDelegate", "constrainView"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "isHidden"]
+- !private ["PSo15CALayerDelegate", "layoutIfNeeded"]
+- !private ["PSo15CALayerDelegate", "logic"]
+- !private ["PSo15CALayerDelegate", "setNeedsLayout"]
+- !private ["VSC6CGRect", "height"]
+- !private ["VSC6CGRect", "zero"]
+- !private ["Ps7CVarArg", "UIScreen"]
+- !private ["Ps7CVarArg", "UIView"]
+- !private ["Ps7CVarArg", "UIWebViewTab"]
+- !private ["Ps7CVarArg", "WebTabsControllerLogic"]
+- !private ["Ps7CVarArg", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps7CVarArg", "WebTabsControllerLogicModel"]
+- !private ["Ps7CVarArg", "WebViewTabManagementPool"]
+- !private ["Ps7CVarArg", "animate"]
+- !private ["Ps7CVarArg", "bounds"]
+- !private ["Ps7CVarArg", "bringSubview"]
+- !private ["Ps7CVarArg", "constant"]
+- !private ["Ps7CVarArg", "constrainView"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isHidden"]
+- !private ["Ps7CVarArg", "layoutIfNeeded"]
+- !private ["Ps7CVarArg", "logic"]
+- !private ["Ps7CVarArg", "main"]
+- !private ["Ps7CVarArg", "present"]
+- !private ["Ps7CVarArg", "setNeedsLayout"]
+- !private ["Ps7CVarArg", "setTabsViewTopConstraint"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "viewDidLoad"]
+- !private ["Ps7CVarArg", "webTabsHostView"]
+- !private ["Ps7CVarArg", "webTabsView"]
+- !private ["Ps7CVarArg", "webTabsViewTopCn"]
+- !private ["Ps7CVarArg", "webToolbarView"]
+- ["Ps7CVarArg", "webView"]
+- ["Ps7CVarArg", "webViewWebContentProcessDidTerminate"]
+- ["Ps7CVarArg", ""]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "UIScreen"]
+- !private ["Ps28CustomDebugStringConvertible", "UIView"]
+- !private ["Ps28CustomDebugStringConvertible", "UIWebViewTab"]
+- !private ["Ps28CustomDebugStringConvertible", "WebTabsControllerLogic"]
+- !private ["Ps28CustomDebugStringConvertible", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps28CustomDebugStringConvertible", "WebTabsControllerLogicModel"]
+- !private ["Ps28CustomDebugStringConvertible", "WebViewTabManagementPool"]
+- !private ["Ps28CustomDebugStringConvertible", "animate"]
+- !private ["Ps28CustomDebugStringConvertible", "bounds"]
+- !private ["Ps28CustomDebugStringConvertible", "bringSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "constant"]
+- !private ["Ps28CustomDebugStringConvertible", "constrainView"]
+- !private ["Ps28CustomDebugStringConvertible", "height"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isHidden"]
+- !private ["Ps28CustomDebugStringConvertible", "layoutIfNeeded"]
+- !private ["Ps28CustomDebugStringConvertible", "logic"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- !private ["Ps28CustomDebugStringConvertible", "present"]
+- !private ["Ps28CustomDebugStringConvertible", "setNeedsLayout"]
+- !private ["Ps28CustomDebugStringConvertible", "setTabsViewTopConstraint"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- !private ["Ps28CustomDebugStringConvertible", "webTabsHostView"]
+- !private ["Ps28CustomDebugStringConvertible", "webTabsView"]
+- !private ["Ps28CustomDebugStringConvertible", "webTabsViewTopCn"]
+- !private ["Ps28CustomDebugStringConvertible", "webToolbarView"]
+- ["Ps28CustomDebugStringConvertible", "webView"]
+- ["Ps28CustomDebugStringConvertible", "webViewWebContentProcessDidTerminate"]
+- !private ["Ps28CustomDebugStringConvertible", "zero"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "height"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "zero"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "height"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "zero"]
+- !private ["Ps23CustomStringConvertible", "UIScreen"]
+- !private ["Ps23CustomStringConvertible", "UIView"]
+- !private ["Ps23CustomStringConvertible", "UIWebViewTab"]
+- !private ["Ps23CustomStringConvertible", "WebTabsControllerLogic"]
+- !private ["Ps23CustomStringConvertible", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps23CustomStringConvertible", "WebTabsControllerLogicModel"]
+- !private ["Ps23CustomStringConvertible", "WebViewTabManagementPool"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "animate"]
+- !private ["Ps23CustomStringConvertible", "bounds"]
+- !private ["Ps23CustomStringConvertible", "bringSubview"]
+- !private ["Ps23CustomStringConvertible", "constant"]
+- !private ["Ps23CustomStringConvertible", "constrainView"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isHidden"]
+- !private ["Ps23CustomStringConvertible", "layoutIfNeeded"]
+- !private ["Ps23CustomStringConvertible", "logic"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- !private ["Ps23CustomStringConvertible", "present"]
+- !private ["Ps23CustomStringConvertible", "setNeedsLayout"]
+- !private ["Ps23CustomStringConvertible", "setTabsViewTopConstraint"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "viewDidLoad"]
+- !private ["Ps23CustomStringConvertible", "webTabsHostView"]
+- !private ["Ps23CustomStringConvertible", "webTabsView"]
+- !private ["Ps23CustomStringConvertible", "webTabsViewTopCn"]
+- !private ["Ps23CustomStringConvertible", "webToolbarView"]
+- ["Ps23CustomStringConvertible", "webView"]
+- ["Ps23CustomStringConvertible", "webViewWebContentProcessDidTerminate"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIScreen"]
+- !private ["Ps9Equatable", "UIView"]
+- !private ["Ps9Equatable", "UIWebViewTab"]
+- !private ["Ps9Equatable", "WebTabsControllerLogic"]
+- !private ["Ps9Equatable", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps9Equatable", "WebTabsControllerLogicModel"]
+- !private ["Ps9Equatable", "WebViewTabManagementPool"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "animate"]
+- !private ["Ps9Equatable", "bounds"]
+- !private ["Ps9Equatable", "bringSubview"]
+- !private ["Ps9Equatable", "constant"]
+- !private ["Ps9Equatable", "constrainView"]
+- !private ["Ps9Equatable", "curveEaseInOut"]
+- !private ["Ps9Equatable", "height"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isHidden"]
+- !private ["Ps9Equatable", "layoutIfNeeded"]
+- !private ["Ps9Equatable", "logic"]
+- !private ["Ps9Equatable", "main"]
+- !private ["Ps9Equatable", "present"]
+- !private ["Ps9Equatable", "setNeedsLayout"]
+- !private ["Ps9Equatable", "setTabsViewTopConstraint"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "viewDidLoad"]
+- !private ["Ps9Equatable", "webTabsHostView"]
+- !private ["Ps9Equatable", "webTabsView"]
+- !private ["Ps9Equatable", "webTabsViewTopCn"]
+- !private ["Ps9Equatable", "webToolbarView"]
+- ["Ps9Equatable", "webView"]
+- ["Ps9Equatable", "webViewWebContentProcessDidTerminate"]
+- !private ["Ps9Equatable", "zero"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "curveEaseInOut"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "UIScreen"]
+- !private ["Ps8Hashable", "UIView"]
+- !private ["Ps8Hashable", "UIWebViewTab"]
+- !private ["Ps8Hashable", "WebTabsControllerLogic"]
+- !private ["Ps8Hashable", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps8Hashable", "WebTabsControllerLogicModel"]
+- !private ["Ps8Hashable", "WebViewTabManagementPool"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "animate"]
+- !private ["Ps8Hashable", "bounds"]
+- !private ["Ps8Hashable", "bringSubview"]
+- !private ["Ps8Hashable", "constant"]
+- !private ["Ps8Hashable", "constrainView"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isHidden"]
+- !private ["Ps8Hashable", "layoutIfNeeded"]
+- !private ["Ps8Hashable", "logic"]
+- !private ["Ps8Hashable", "main"]
+- !private ["Ps8Hashable", "present"]
+- !private ["Ps8Hashable", "setNeedsLayout"]
+- !private ["Ps8Hashable", "setTabsViewTopConstraint"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "viewDidLoad"]
+- !private ["Ps8Hashable", "webTabsHostView"]
+- !private ["Ps8Hashable", "webTabsView"]
+- !private ["Ps8Hashable", "webTabsViewTopCn"]
+- !private ["Ps8Hashable", "webToolbarView"]
+- ["Ps8Hashable", "webView"]
+- ["Ps8Hashable", "webViewWebContentProcessDidTerminate"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "UIScreen"]
+- !private ["PSo8NSCoding", "UIView"]
+- !private ["PSo8NSCoding", "UIWebViewTab"]
+- !private ["PSo8NSCoding", "WebTabsControllerLogic"]
+- !private ["PSo8NSCoding", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo8NSCoding", "WebTabsControllerLogicModel"]
+- !private ["PSo8NSCoding", "WebViewTabManagementPool"]
+- !private ["PSo8NSCoding", "animate"]
+- !private ["PSo8NSCoding", "bringSubview"]
+- !private ["PSo8NSCoding", "constrainView"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isHidden"]
+- !private ["PSo8NSCoding", "layoutIfNeeded"]
+- !private ["PSo8NSCoding", "logic"]
+- !private ["PSo8NSCoding", "present"]
+- !private ["PSo8NSCoding", "setNeedsLayout"]
+- !private ["PSo8NSCoding", "setTabsViewTopConstraint"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo8NSCoding", "viewDidLoad"]
+- !private ["PSo8NSCoding", "webTabsHostView"]
+- !private ["PSo8NSCoding", "webTabsView"]
+- !private ["PSo8NSCoding", "webTabsViewTopCn"]
+- !private ["PSo8NSCoding", "webToolbarView"]
+- ["PSo8NSCoding", "webView"]
+- ["PSo8NSCoding", "webViewWebContentProcessDidTerminate"]
+- ["PSo8NSCoding", ""]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "UIScreen"]
+- !private ["PSo26NSExtensionRequestHandling", "UIView"]
+- !private ["PSo26NSExtensionRequestHandling", "UIWebViewTab"]
+- !private ["PSo26NSExtensionRequestHandling", "WebTabsControllerLogic"]
+- !private ["PSo26NSExtensionRequestHandling", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo26NSExtensionRequestHandling", "WebTabsControllerLogicModel"]
+- !private ["PSo26NSExtensionRequestHandling", "WebViewTabManagementPool"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "logic"]
+- !private ["PSo26NSExtensionRequestHandling", "present"]
+- !private ["PSo26NSExtensionRequestHandling", "setTabsViewTopConstraint"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- !private ["PSo26NSExtensionRequestHandling", "webTabsHostView"]
+- !private ["PSo26NSExtensionRequestHandling", "webTabsView"]
+- !private ["PSo26NSExtensionRequestHandling", "webTabsViewTopCn"]
+- !private ["PSo26NSExtensionRequestHandling", "webToolbarView"]
+- ["PSo26NSExtensionRequestHandling", "webView"]
+- ["PSo26NSExtensionRequestHandling", "webViewWebContentProcessDidTerminate"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["CSo18NSLayoutConstraint", "constant"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "CGFloat"]
+- ["CSo8NSObject", "NSLayoutConstraint"]
+- !private ["CSo8NSObject", "UIScreen"]
+- ["CSo8NSObject", "UIView"]
+- ["CSo8NSObject", "UIWebTabsListView"]
+- ["CSo8NSObject", "UIWebToolbarView"]
+- !private ["CSo8NSObject", "UIWebViewTab"]
+- !private ["CSo8NSObject", "VoidBlock"]
+- ["CSo8NSObject", "WebTabsControllerLogic"]
+- !private ["CSo8NSObject", "WebTabsControllerLogicCallbacks"]
+- !private ["CSo8NSObject", "WebTabsControllerLogicModel"]
+- !private ["CSo8NSObject", "WebViewTabManagementPool"]
+- !private ["CSo8NSObject", "animate"]
+- !private ["CSo8NSObject", "bounds"]
+- !private ["CSo8NSObject", "bringSubview"]
+- !private ["CSo8NSObject", "constant"]
+- !private ["CSo8NSObject", "constrainView"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isHidden"]
+- !private ["CSo8NSObject", "layoutIfNeeded"]
+- ["CSo8NSObject", "logic"]
+- !private ["CSo8NSObject", "main"]
+- !private ["CSo8NSObject", "present"]
+- !private ["CSo8NSObject", "setNeedsLayout"]
+- ["CSo8NSObject", "setTabsViewTopConstraint"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "webTabsHostView"]
+- ["CSo8NSObject", "webTabsView"]
+- ["CSo8NSObject", "webTabsViewTopCn"]
+- ["CSo8NSObject", "webToolbarView"]
+- ["CSo8NSObject", "webView"]
+- ["CSo8NSObject", "webViewWebContentProcessDidTerminate"]
+- !private ["PSo16NSObjectProtocol", "UIScreen"]
+- !private ["PSo16NSObjectProtocol", "UIView"]
+- !private ["PSo16NSObjectProtocol", "UIWebViewTab"]
+- !private ["PSo16NSObjectProtocol", "WebTabsControllerLogic"]
+- !private ["PSo16NSObjectProtocol", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo16NSObjectProtocol", "WebTabsControllerLogicModel"]
+- !private ["PSo16NSObjectProtocol", "WebViewTabManagementPool"]
+- !private ["PSo16NSObjectProtocol", "animate"]
+- !private ["PSo16NSObjectProtocol", "bounds"]
+- !private ["PSo16NSObjectProtocol", "bringSubview"]
+- !private ["PSo16NSObjectProtocol", "constant"]
+- !private ["PSo16NSObjectProtocol", "constrainView"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isHidden"]
+- !private ["PSo16NSObjectProtocol", "layoutIfNeeded"]
+- !private ["PSo16NSObjectProtocol", "logic"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- !private ["PSo16NSObjectProtocol", "present"]
+- !private ["PSo16NSObjectProtocol", "setNeedsLayout"]
+- !private ["PSo16NSObjectProtocol", "setTabsViewTopConstraint"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "webTabsHostView"]
+- !private ["PSo16NSObjectProtocol", "webTabsView"]
+- !private ["PSo16NSObjectProtocol", "webTabsViewTopCn"]
+- !private ["PSo16NSObjectProtocol", "webToolbarView"]
+- ["PSo16NSObjectProtocol", "webView"]
+- ["PSo16NSObjectProtocol", "webViewWebContentProcessDidTerminate"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "curveEaseInOut"]
+- !private ["C8Operando19RSNibDesignableView", "init"]
+- !private ["C8Operando19RSNibDesignableView", "isHidden"]
+- !private ["C8Operando19RSNibDesignableView", "logic"]
+- !private ["Ps16RawRepresentable", "curveEaseInOut"]
+- !private ["Ps10SetAlgebra", "curveEaseInOut"]
+- !private ["P11SwarmClient10SocketData", "_getBuiltinLogicValue"]
+- ["P11SwarmClient10SocketData", "init"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "animate"]
+- !private ["PSo29UIAccessibilityIdentification", "bringSubview"]
+- !private ["PSo29UIAccessibilityIdentification", "constrainView"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isHidden"]
+- !private ["PSo29UIAccessibilityIdentification", "layoutIfNeeded"]
+- !private ["PSo29UIAccessibilityIdentification", "logic"]
+- !private ["PSo29UIAccessibilityIdentification", "setNeedsLayout"]
+- !private ["PSo12UIAppearance", "animate"]
+- !private ["PSo12UIAppearance", "bringSubview"]
+- !private ["PSo12UIAppearance", "constrainView"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isHidden"]
+- !private ["PSo12UIAppearance", "layoutIfNeeded"]
+- !private ["PSo12UIAppearance", "logic"]
+- !private ["PSo12UIAppearance", "setNeedsLayout"]
+- !private ["PSo21UIAppearanceContainer", "UIScreen"]
+- !private ["PSo21UIAppearanceContainer", "UIView"]
+- !private ["PSo21UIAppearanceContainer", "UIWebViewTab"]
+- !private ["PSo21UIAppearanceContainer", "WebTabsControllerLogic"]
+- !private ["PSo21UIAppearanceContainer", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo21UIAppearanceContainer", "WebTabsControllerLogicModel"]
+- !private ["PSo21UIAppearanceContainer", "WebViewTabManagementPool"]
+- !private ["PSo21UIAppearanceContainer", "animate"]
+- !private ["PSo21UIAppearanceContainer", "bringSubview"]
+- !private ["PSo21UIAppearanceContainer", "constrainView"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isHidden"]
+- !private ["PSo21UIAppearanceContainer", "layoutIfNeeded"]
+- !private ["PSo21UIAppearanceContainer", "logic"]
+- !private ["PSo21UIAppearanceContainer", "present"]
+- !private ["PSo21UIAppearanceContainer", "setNeedsLayout"]
+- !private ["PSo21UIAppearanceContainer", "setTabsViewTopConstraint"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- !private ["PSo21UIAppearanceContainer", "webTabsHostView"]
+- !private ["PSo21UIAppearanceContainer", "webTabsView"]
+- !private ["PSo21UIAppearanceContainer", "webTabsViewTopCn"]
+- !private ["PSo21UIAppearanceContainer", "webToolbarView"]
+- ["PSo21UIAppearanceContainer", "webView"]
+- ["PSo21UIAppearanceContainer", "webViewWebContentProcessDidTerminate"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo26UICollectionViewDataSource", "isHidden"]
+- !private ["PSo24UICollectionViewDelegate", "isHidden"]
+- !private ["PSo34UICollectionViewDelegateFlowLayout", "isHidden"]
+- !private ["PSo18UIContentContainer", "UIScreen"]
+- !private ["PSo18UIContentContainer", "UIView"]
+- !private ["PSo18UIContentContainer", "UIWebViewTab"]
+- !private ["PSo18UIContentContainer", "WebTabsControllerLogic"]
+- !private ["PSo18UIContentContainer", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo18UIContentContainer", "WebTabsControllerLogicModel"]
+- !private ["PSo18UIContentContainer", "WebViewTabManagementPool"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "logic"]
+- !private ["PSo18UIContentContainer", "present"]
+- !private ["PSo18UIContentContainer", "setTabsViewTopConstraint"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo18UIContentContainer", "viewDidLoad"]
+- !private ["PSo18UIContentContainer", "webTabsHostView"]
+- !private ["PSo18UIContentContainer", "webTabsView"]
+- !private ["PSo18UIContentContainer", "webTabsViewTopCn"]
+- !private ["PSo18UIContentContainer", "webToolbarView"]
+- ["PSo18UIContentContainer", "webView"]
+- ["PSo18UIContentContainer", "webViewWebContentProcessDidTerminate"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "animate"]
+- !private ["PSo17UICoordinateSpace", "bringSubview"]
+- !private ["PSo17UICoordinateSpace", "constrainView"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "isHidden"]
+- !private ["PSo17UICoordinateSpace", "layoutIfNeeded"]
+- !private ["PSo17UICoordinateSpace", "logic"]
+- !private ["PSo17UICoordinateSpace", "setNeedsLayout"]
+- !private ["PSo13UIDynamicItem", "animate"]
+- !private ["PSo13UIDynamicItem", "bringSubview"]
+- !private ["PSo13UIDynamicItem", "constrainView"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "isHidden"]
+- !private ["PSo13UIDynamicItem", "layoutIfNeeded"]
+- !private ["PSo13UIDynamicItem", "logic"]
+- !private ["PSo13UIDynamicItem", "setNeedsLayout"]
+- !private ["PSo18UIFocusEnvironment", "UIScreen"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
+- !private ["PSo18UIFocusEnvironment", "UIWebViewTab"]
+- !private ["PSo18UIFocusEnvironment", "WebTabsControllerLogic"]
+- !private ["PSo18UIFocusEnvironment", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo18UIFocusEnvironment", "WebTabsControllerLogicModel"]
+- !private ["PSo18UIFocusEnvironment", "WebViewTabManagementPool"]
+- !private ["PSo18UIFocusEnvironment", "animate"]
+- !private ["PSo18UIFocusEnvironment", "bringSubview"]
+- !private ["PSo18UIFocusEnvironment", "constrainView"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isHidden"]
+- !private ["PSo18UIFocusEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UIFocusEnvironment", "logic"]
+- !private ["PSo18UIFocusEnvironment", "present"]
+- !private ["PSo18UIFocusEnvironment", "setNeedsLayout"]
+- !private ["PSo18UIFocusEnvironment", "setTabsViewTopConstraint"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- !private ["PSo18UIFocusEnvironment", "webTabsHostView"]
+- !private ["PSo18UIFocusEnvironment", "webTabsView"]
+- !private ["PSo18UIFocusEnvironment", "webTabsViewTopCn"]
+- !private ["PSo18UIFocusEnvironment", "webToolbarView"]
+- ["PSo18UIFocusEnvironment", "webView"]
+- ["PSo18UIFocusEnvironment", "webViewWebContentProcessDidTerminate"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "animate"]
+- !private ["PSo11UIFocusItem", "bringSubview"]
+- !private ["PSo11UIFocusItem", "constrainView"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "isHidden"]
+- !private ["PSo11UIFocusItem", "layoutIfNeeded"]
+- !private ["PSo11UIFocusItem", "logic"]
+- !private ["PSo11UIFocusItem", "setNeedsLayout"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "Bool"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "CGFloat"]
+- ["C8Operando31UIPrivateBrowsingViewController", "NSLayoutConstraint"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "UIScreen"]
+- ["C8Operando31UIPrivateBrowsingViewController", "UIView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "UIWebTabsListView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "UIWebToolbarView"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "UIWebViewTab"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "VoidBlock"]
+- ["C8Operando31UIPrivateBrowsingViewController", "WebTabsControllerLogic"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "WebTabsControllerLogicCallbacks"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "WebTabsControllerLogicModel"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "WebViewTabManagementPool"]
+- ["C8Operando31UIPrivateBrowsingViewController", "deinit"]
+- ["C8Operando31UIPrivateBrowsingViewController", "init"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "logic"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "present"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "setTabsViewTopConstraint"]
+- !private ["C8Operando31UIPrivateBrowsingViewController", "view"]
+- ["C8Operando31UIPrivateBrowsingViewController", "viewDidLoad"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webTabsHostView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webTabsView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webTabsViewTopCn"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webToolbarView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webView"]
+- ["C8Operando31UIPrivateBrowsingViewController", "webViewWebContentProcessDidTerminate"]
+- !private ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "CGFloat"]
+- ["CSo11UIResponder", "NSLayoutConstraint"]
+- !private ["CSo11UIResponder", "UIScreen"]
+- ["CSo11UIResponder", "UIView"]
+- ["CSo11UIResponder", "UIWebTabsListView"]
+- ["CSo11UIResponder", "UIWebToolbarView"]
+- !private ["CSo11UIResponder", "UIWebViewTab"]
+- !private ["CSo11UIResponder", "VoidBlock"]
+- ["CSo11UIResponder", "WebTabsControllerLogic"]
+- !private ["CSo11UIResponder", "WebTabsControllerLogicCallbacks"]
+- !private ["CSo11UIResponder", "WebTabsControllerLogicModel"]
+- !private ["CSo11UIResponder", "WebViewTabManagementPool"]
+- !private ["CSo11UIResponder", "animate"]
+- !private ["CSo11UIResponder", "bringSubview"]
+- !private ["CSo11UIResponder", "constrainView"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isHidden"]
+- !private ["CSo11UIResponder", "layoutIfNeeded"]
+- ["CSo11UIResponder", "logic"]
+- !private ["CSo11UIResponder", "present"]
+- !private ["CSo11UIResponder", "setNeedsLayout"]
+- ["CSo11UIResponder", "setTabsViewTopConstraint"]
+- !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "webTabsHostView"]
+- ["CSo11UIResponder", "webTabsView"]
+- ["CSo11UIResponder", "webTabsViewTopCn"]
+- ["CSo11UIResponder", "webToolbarView"]
+- ["CSo11UIResponder", "webView"]
+- ["CSo11UIResponder", "webViewWebContentProcessDidTerminate"]
+- !private ["PSo30UIResponderStandardEditActions", "UIScreen"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "UIWebViewTab"]
+- !private ["PSo30UIResponderStandardEditActions", "WebTabsControllerLogic"]
+- !private ["PSo30UIResponderStandardEditActions", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo30UIResponderStandardEditActions", "WebTabsControllerLogicModel"]
+- !private ["PSo30UIResponderStandardEditActions", "WebViewTabManagementPool"]
+- !private ["PSo30UIResponderStandardEditActions", "animate"]
+- !private ["PSo30UIResponderStandardEditActions", "bringSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "constrainView"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "layoutIfNeeded"]
+- !private ["PSo30UIResponderStandardEditActions", "logic"]
+- !private ["PSo30UIResponderStandardEditActions", "present"]
+- !private ["PSo30UIResponderStandardEditActions", "setNeedsLayout"]
+- !private ["PSo30UIResponderStandardEditActions", "setTabsViewTopConstraint"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "webTabsHostView"]
+- !private ["PSo30UIResponderStandardEditActions", "webTabsView"]
+- !private ["PSo30UIResponderStandardEditActions", "webTabsViewTopCn"]
+- !private ["PSo30UIResponderStandardEditActions", "webToolbarView"]
+- ["PSo30UIResponderStandardEditActions", "webView"]
+- ["PSo30UIResponderStandardEditActions", "webViewWebContentProcessDidTerminate"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["CSo8UIScreen", "bounds"]
+- !private ["CSo8UIScreen", "main"]
+- !private ["PSo20UIScrollViewDelegate", "isHidden"]
+- !private ["PSo16UIStateRestoring", "UIScreen"]
+- !private ["PSo16UIStateRestoring", "UIView"]
+- !private ["PSo16UIStateRestoring", "UIWebViewTab"]
+- !private ["PSo16UIStateRestoring", "WebTabsControllerLogic"]
+- !private ["PSo16UIStateRestoring", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo16UIStateRestoring", "WebTabsControllerLogicModel"]
+- !private ["PSo16UIStateRestoring", "WebViewTabManagementPool"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "logic"]
+- !private ["PSo16UIStateRestoring", "present"]
+- !private ["PSo16UIStateRestoring", "setTabsViewTopConstraint"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo16UIStateRestoring", "viewDidLoad"]
+- !private ["PSo16UIStateRestoring", "webTabsHostView"]
+- !private ["PSo16UIStateRestoring", "webTabsView"]
+- !private ["PSo16UIStateRestoring", "webTabsViewTopCn"]
+- !private ["PSo16UIStateRestoring", "webToolbarView"]
+- ["PSo16UIStateRestoring", "webView"]
+- ["PSo16UIStateRestoring", "webViewWebContentProcessDidTerminate"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "UIScreen"]
+- !private ["PSo18UITraitEnvironment", "UIView"]
+- !private ["PSo18UITraitEnvironment", "UIWebViewTab"]
+- !private ["PSo18UITraitEnvironment", "WebTabsControllerLogic"]
+- !private ["PSo18UITraitEnvironment", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo18UITraitEnvironment", "WebTabsControllerLogicModel"]
+- !private ["PSo18UITraitEnvironment", "WebViewTabManagementPool"]
+- !private ["PSo18UITraitEnvironment", "animate"]
+- !private ["PSo18UITraitEnvironment", "bounds"]
+- !private ["PSo18UITraitEnvironment", "bringSubview"]
+- !private ["PSo18UITraitEnvironment", "constrainView"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isHidden"]
+- !private ["PSo18UITraitEnvironment", "layoutIfNeeded"]
+- !private ["PSo18UITraitEnvironment", "logic"]
+- !private ["PSo18UITraitEnvironment", "main"]
+- !private ["PSo18UITraitEnvironment", "present"]
+- !private ["PSo18UITraitEnvironment", "setNeedsLayout"]
+- !private ["PSo18UITraitEnvironment", "setTabsViewTopConstraint"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["PSo18UITraitEnvironment", "viewDidLoad"]
+- !private ["PSo18UITraitEnvironment", "webTabsHostView"]
+- !private ["PSo18UITraitEnvironment", "webTabsView"]
+- !private ["PSo18UITraitEnvironment", "webTabsViewTopCn"]
+- !private ["PSo18UITraitEnvironment", "webToolbarView"]
+- ["PSo18UITraitEnvironment", "webView"]
+- ["PSo18UITraitEnvironment", "webViewWebContentProcessDidTerminate"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "animate"]
+- !private ["CSo6UIView", "bringSubview"]
+- !private ["CSo6UIView", "constrainView"]
+- !private ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "isHidden"]
+- !private ["CSo6UIView", "layoutIfNeeded"]
+- !private ["CSo6UIView", "logic"]
+- !private ["CSo6UIView", "setNeedsLayout"]
+- !private ["VSC22UIViewAnimationOptions", "curveEaseInOut"]
+- !private ["CSo16UIViewController", "Bool"]
+- !private ["CSo16UIViewController", "CGFloat"]
+- ["CSo16UIViewController", "NSLayoutConstraint"]
+- !private ["CSo16UIViewController", "UIScreen"]
+- ["CSo16UIViewController", "UIView"]
+- ["CSo16UIViewController", "UIWebTabsListView"]
+- ["CSo16UIViewController", "UIWebToolbarView"]
+- !private ["CSo16UIViewController", "UIWebViewTab"]
+- !private ["CSo16UIViewController", "VoidBlock"]
+- ["CSo16UIViewController", "WebTabsControllerLogic"]
+- !private ["CSo16UIViewController", "WebTabsControllerLogicCallbacks"]
+- !private ["CSo16UIViewController", "WebTabsControllerLogicModel"]
+- !private ["CSo16UIViewController", "WebViewTabManagementPool"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "logic"]
+- !private ["CSo16UIViewController", "present"]
+- ["CSo16UIViewController", "setTabsViewTopConstraint"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "webTabsHostView"]
+- ["CSo16UIViewController", "webTabsView"]
+- ["CSo16UIViewController", "webTabsViewTopCn"]
+- ["CSo16UIViewController", "webToolbarView"]
+- ["CSo16UIViewController", "webView"]
+- ["CSo16UIViewController", "webViewWebContentProcessDidTerminate"]
+- ["CSo16UIViewController", ""]
+- !private ["C8Operando17UIWebTabsListView", "isHidden"]
+- !private ["C8Operando16UIWebToolbarView", "logic"]
+- !private ["C8Operando12UIWebViewTab", "init"]
+- !private ["PSo20WKNavigationDelegate", "UIScreen"]
+- !private ["PSo20WKNavigationDelegate", "UIView"]
+- !private ["PSo20WKNavigationDelegate", "UIWebViewTab"]
+- !private ["PSo20WKNavigationDelegate", "WebTabsControllerLogic"]
+- !private ["PSo20WKNavigationDelegate", "WebTabsControllerLogicCallbacks"]
+- !private ["PSo20WKNavigationDelegate", "WebTabsControllerLogicModel"]
+- !private ["PSo20WKNavigationDelegate", "WebViewTabManagementPool"]
+- !private ["PSo20WKNavigationDelegate", "logic"]
+- !private ["PSo20WKNavigationDelegate", "present"]
+- !private ["PSo20WKNavigationDelegate", "setTabsViewTopConstraint"]
+- !private ["PSo20WKNavigationDelegate", "view"]
+- !private ["PSo20WKNavigationDelegate", "webTabsHostView"]
+- !private ["PSo20WKNavigationDelegate", "webTabsView"]
+- !private ["PSo20WKNavigationDelegate", "webTabsViewTopCn"]
+- !private ["PSo20WKNavigationDelegate", "webToolbarView"]
+- ["PSo20WKNavigationDelegate", "webView"]
+- ["PSo20WKNavigationDelegate", "webViewWebContentProcessDidTerminate"]
+- ["PSo20WKNavigationDelegate", ""]
+- ["C8Operando6WebTab", "UIWebViewTabNavigationModel"]
+- ["C8Operando6WebTab", "WebTabDescription"]
+- ["C8Operando6WebTab", "deinit"]
+- ["C8Operando6WebTab", "init"]
+- ["C8Operando6WebTab", "navigationModel"]
+- ["C8Operando6WebTab", "webTabDescription"]
+- !private ["C8Operando22WebTabsControllerLogic", "init"]
+- !private ["V8Operando31WebTabsControllerLogicCallbacks", "init"]
+- !private ["V8Operando27WebTabsControllerLogicModel", "init"]
+- !private ["C8Operando24WebViewTabManagementPool", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "bringSubview"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "constrainView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutIfNeeded"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "logic"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNeedsLayout"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "UIScreen"]
+- !private ["Ps9_Hashable", "UIView"]
+- !private ["Ps9_Hashable", "UIWebViewTab"]
+- !private ["Ps9_Hashable", "WebTabsControllerLogic"]
+- !private ["Ps9_Hashable", "WebTabsControllerLogicCallbacks"]
+- !private ["Ps9_Hashable", "WebTabsControllerLogicModel"]
+- !private ["Ps9_Hashable", "WebViewTabManagementPool"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "animate"]
+- !private ["Ps9_Hashable", "bounds"]
+- !private ["Ps9_Hashable", "bringSubview"]
+- !private ["Ps9_Hashable", "constant"]
+- !private ["Ps9_Hashable", "constrainView"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isHidden"]
+- !private ["Ps9_Hashable", "layoutIfNeeded"]
+- !private ["Ps9_Hashable", "logic"]
+- !private ["Ps9_Hashable", "main"]
+- !private ["Ps9_Hashable", "present"]
+- !private ["Ps9_Hashable", "setNeedsLayout"]
+- !private ["Ps9_Hashable", "setTabsViewTopConstraint"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "viewDidLoad"]
+- !private ["Ps9_Hashable", "webTabsHostView"]
+- !private ["Ps9_Hashable", "webTabsView"]
+- !private ["Ps9_Hashable", "webTabsViewTopCn"]
+- !private ["Ps9_Hashable", "webToolbarView"]
+- ["Ps9_Hashable", "webView"]
+- ["Ps9_Hashable", "webViewWebContentProcessDidTerminate"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "height"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "zero"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "VSC6CGRect"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "CSo18NSLayoutConstraint"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "Ps9OptionSet"
+- !private "C8Operando19RSNibDesignableView"
+- !private "Ps16RawRepresentable"
+- !private "Ps10SetAlgebra"
+- "P11SwarmClient10SocketData"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "PSo26UICollectionViewDataSource"
+- !private "PSo24UICollectionViewDelegate"
+- !private "PSo34UICollectionViewDelegateFlowLayout"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "C8Operando31UIPrivateBrowsingViewController"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "CSo8UIScreen"
+- !private "PSo20UIScrollViewDelegate"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "VSC22UIViewAnimationOptions"
+- "CSo16UIViewController"
+- !private "C8Operando17UIWebTabsListView"
+- !private "C8Operando16UIWebToolbarView"
+- !private "C8Operando12UIWebViewTab"
+- "PSo20WKNavigationDelegate"
+- "C8Operando6WebTab"
+- !private "C8Operando22WebTabsControllerLogic"
+- !private "V8Operando31WebTabsControllerLogicCallbacks"
+- !private "V8Operando27WebTabsControllerLogicModel"
+- !private "C8Operando24WebViewTabManagementPool"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/PPCommonUI.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/PPCommonTypes.swiftmodule/arm.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/SwarmClient.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/ProgressHUD/ProgressHUD.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/NSObject+AutoSwizzle.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlockerEngine.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksCore.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/IHKeyboardAvoiding/IHKeyboardAvoiding.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/PPCloak.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeTableCell.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLResponseSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLRequestSerialization.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/Common.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/MGSwipeTableCell/MGSwipeButton.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/BridgingHeader/Operando-BridgingHeader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFURLSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFHTTPSessionManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFNetworkReachabilityManager.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventDispatcher.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEventIdentifier.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPWebContentBlocker.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/IdentifiedHandler.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/KiteJSONValidator/KiteJSONValidator.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Headers/OPMonitor.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Headers/PPCommonUI-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient-Swift.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Headers/SwarmClient.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Headers/PPActionForWebContent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPEvent.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Headers/PPApiHooksStart.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/AFNetworking/AFSecurityPolicy.h"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonUI.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPApiHooksCore.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCloak.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPWebContentBlocker.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/PPCommonTypes.framework/Modules/module.modulemap"
+- "/Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/SwarmClient.framework/Modules/module.modulemap"
+interface-hash: "19415d50ca20c843ccade3268a4a6f62"
