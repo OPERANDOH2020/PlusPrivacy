@@ -52,7 +52,6 @@ var loginSwarming = {
     inputValidationCheck: {
         node: "UsersManager",
         code: function () {
-
             if (!this.email || this.email.length === 0 || !this.authorisationToken
                 || this.authorisationToken.length === 0) {
                 this.swarm('failed', this.getEntryAdapter());
@@ -80,6 +79,7 @@ var loginSwarming = {
                 else if (userId) {
                     self.userId = userId;
                     self.authenticated = true;
+                    startSwarm("analytics.js","addLogin",self.userId);
                     self.swarm("createOrUpdateSession");
                 }
             }));
@@ -178,7 +178,6 @@ var loginSwarming = {
         code: function () {
             var outlets = sessionsRegistry.findOutletsForSession(this.sessionId);
             if(!outlets || outlets.length === 0){
-
                 this.home("restoreFailed");
                 this.oldSessionId = this.sessionId;
                 this.newSessionId = this.getSessionId();
