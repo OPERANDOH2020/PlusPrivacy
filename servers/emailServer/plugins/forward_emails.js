@@ -44,10 +44,9 @@ function SwarmConnector(){
         return gotConnection;
     }
 }
-
+var swarmConnection = new SwarmConnector();
 var address = require("address-rfc2821").Address;
 var fs = require('fs');
-var edb = new SwarmConnector();
 var jwt = require('jsonwebtoken');
 var cfg;
 var encriptionKey;
@@ -88,27 +87,27 @@ exports.decide_action = function (next,connection) {
             });
             connection.relaying = true;
             next()
-        } else if(!edb.connected()){
+        } else if(!swarmConnection.connected()){
             next(DENYSOFT)
         } else{
-            edb.getRealEmail(alias.toLowerCase(), function (err, realEmail) {
+            swarmConnection.getRealEmail(alias.toLowerCase(), function (err, realEmail) {
                 if (realEmail) {
 
-                    var conversation = JSON.stringify({
+                    var conversation = {
                         "alias": alias,
                         "sender": sender
-                    });
-                    var token = jwt.sign(conversation, encriptionKey, {algorithm: "HS256"});
+                    };
 
                     if(alias.toLowerCase().match('support@plusprivacy.com')||alias.toLowerCase().match('contact@plusprivacy.com')){
                         plugin.loginfo('Forward email');
                         connection.results.add(plugin, {
                             "action":"forwardEmail",
                             "to": realEmail,
-                            "replyTo":"reply_anonymously_to_sender_"+token+"@plusprivacy.com"
+                            "conversation":conversation
                         });
                     }else{
                         plugin.loginfo("Delivering to user");
+                        var token = jwt.sign(JSON.stringify(conversation), encriptionKey, {algorithm: "HS256"});
                         var newSender = sender.split("@").join("_at_") + "_via_plusprivacy@plusprivacy.com"; //needs to come from plusprivacy.com so that we chan perform DKIM signing
                         connection.results.add(plugin, {
                             "action":"relayToUser",
@@ -123,6 +122,7 @@ exports.decide_action = function (next,connection) {
                 }else {
                     next(DENYDISCONNECT)
                 }
+
             })
         }
     })
@@ -168,7 +168,14 @@ exports.perform_action = function (next, connection) {
             break
         case "forwardEmail":
             changeTo(decision.to,true);
-            addReplyTo(decision.replyTo)
+            var conversation = decision.conversation;
+            if(connection.transaction.header.get_all("Reply-To").length>0){
+                conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("")
+            }
+            var reply_to_token = jwt.sign(JSON.stringify(conversation),encriptionKey,{algorithm:"HS256"});
+
+            addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@plusprivacy.com")
+
     }
 
     next();
