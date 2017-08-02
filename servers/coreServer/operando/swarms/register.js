@@ -32,12 +32,13 @@ var registerSwarming = {
                     self.newUser = {};
                     self.home("error");
                 } else {
+                    subscribeUserToNewsletter(user['email']);
                     self.user = user;
 
                     startSwarm("emails.js", "sendEmail", "no-reply@" + thisAdapter.config.Core.operandoHost,
                         user['email'],
                         "Activate account",
-                        "Your account has been registered \nTo activate it, please access the following link:\n http://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode);
+                        "Your account has been registered \nTo activate it, please access the following link:\n https://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode);
 
                     startSwarm("analytics.js","addRegistration",user.email,user.userId);
 
