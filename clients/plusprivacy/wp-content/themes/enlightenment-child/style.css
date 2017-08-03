@@ -511,3 +511,13 @@ a.social_network_link img{
         float:right;
     }
 }
+
+p#european_commission{
+    text-align: left;
+    color:#FFF;
+    font-size: 13px;
+    background: url("images/european_commission.png") no-repeat left center;
+    padding-left: 134px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+}
