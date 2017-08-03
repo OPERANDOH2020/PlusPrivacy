@@ -492,7 +492,7 @@ a.social_network_link img{
 
 @media (max-width: 600px) {
     #sidebar-footer-secondary {
-        bottom: 110px;
+        bottom: 140px;
     }
 }
 
@@ -510,6 +510,10 @@ a.social_network_link img{
         width: 560px;
         float:right;
     }
+}
+
+.entry-content a img {
+    box-shadow: none;
 }
 
 p#european_commission{
