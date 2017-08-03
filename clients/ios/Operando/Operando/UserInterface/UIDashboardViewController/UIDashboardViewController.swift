@@ -8,8 +8,7 @@
 
 import UIKit
 
-struct UIDashBoardViewControllerCallbacks
-{
+struct UIDashBoardViewControllerCallbacks {
     let whenChoosingIdentitiesManagement: VoidBlock?
     let whenChoosingPrivacyForBenefits: VoidBlock?
     let whenChoosingPrivateBrowsing: VoidBlock?
@@ -35,7 +34,7 @@ class UIDashboardViewController: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if self.view.window != nil {
-            self.notificationsButton?.updateNotificationsCountLabel()
+            self.notificationsButton?.logic.updateNotificationsCountLabel()
         }
     }
     

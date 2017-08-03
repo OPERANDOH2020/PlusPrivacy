@@ -10,6 +10,4 @@ import UIKit
 
 class UIDashboardView: RSNibDesignableView {
 
-
-
 }

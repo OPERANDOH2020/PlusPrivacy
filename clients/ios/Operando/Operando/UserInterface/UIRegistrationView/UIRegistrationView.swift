@@ -15,66 +15,98 @@ struct RegistrationInfo {
 
 typealias RegistrationCallback = (_ registrationInfo: RegistrationInfo) -> Void
 
-class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
-{
-    @IBOutlet weak var confirmPasswordTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
- 
-    @IBOutlet weak var signUpBtn: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+
+struct UIRegistrationViewOutlets {
+    let passswordTF: UITextField?
+    let confirmPasswordTF: UITextField?
+    let emailTF: UITextField?
     
-    @IBOutlet weak var passwordsDontMatchLabel: UILabel!
-    @IBOutlet weak var invalidEmailLabel: UILabel!
+    let signUpButton: UIButton?
+    let scrollView: UIScrollView?
+    
+    let passwordsDontMatchLabel: UILabel?
+    let invalidEmailLabel: UILabel?
+    
+    let showSecureEntrySwitch: UISwitch?
+    
+    static let allNil: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: nil, confirmPasswordTF: nil, emailTF: nil, signUpButton: nil, scrollView: nil, passwordsDontMatchLabel: nil, invalidEmailLabel: nil, showSecureEntrySwitch: nil)
+    
+    static let allDefault: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: .init(), confirmPasswordTF: .init(), emailTF: .init(), signUpButton: .init(), scrollView: .init(), passwordsDontMatchLabel: .init(), invalidEmailLabel: .init(), showSecureEntrySwitch: .init())
+}
+
+
+struct UIRegistrationViewLogicCallbacks {
+    let presentOkAlert: CallbackWithString?
+    let registrationCallback: RegistrationCallback?
+}
+
+class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
+    
+    let outlets: UIRegistrationViewOutlets
+    var callbacks: UIRegistrationViewLogicCallbacks?
     
     let normalScrollViewInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
-    private var registrationCallback: RegistrationCallback?
-    private var nextTextFieldPerCurrentTextFieldHash: [Int: UITextField] = [:]
     
     
-    override func commonInit() {
-        super.commonInit()
+    init(outlets: UIRegistrationViewOutlets){
+        self.outlets = outlets;
+        super.init()
+        self.commonInit()
+    }
+    
+    func commonInit() {
         
-        self.invalidEmailLabel.isHidden = true;
-        self.passwordsDontMatchLabel.isHidden = true;
+        outlets.invalidEmailLabel?.isHidden = true;
+        outlets.passwordsDontMatchLabel?.isHidden = true;
         
-        self.emailTF.delegate = self;
-        self.confirmPasswordTF.delegate = self;
-        self.passwordTF.delegate = self
+        outlets.emailTF?.delegate = self;
+        outlets.confirmPasswordTF?.delegate = self;
+        outlets.passswordTF?.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(UIRegistrationView.keyboardWillAppear(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(UIRegistrationView.keyboardWillDisappear(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil);
+        outlets.emailTF?.text = ""
+        outlets.passswordTF?.text = ""
+        outlets.confirmPasswordTF?.text = ""
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil);
         
         self.disableSignupButton();
-        self.scrollView.contentInset = normalScrollViewInsets
+        outlets.scrollView?.contentInset = normalScrollViewInsets
         
         
-        nextTextFieldPerCurrentTextFieldHash[emailTF.hashValue] = passwordTF
-        nextTextFieldPerCurrentTextFieldHash[passwordTF.hashValue] = confirmPasswordTF
+        outlets.emailTF?.addTarget(outlets.passswordTF, action: #selector(UITextField.becomeFirstResponder), for: .editingDidEndOnExit)
         
+        outlets.passswordTF?.addTarget(outlets.confirmPasswordTF, action: #selector(UITextField.becomeFirstResponder), for: .editingDidEndOnExit)
+        
+        outlets.signUpButton?.addTarget(self, action: #selector(didPressSignUp(_:)), for: .touchUpInside)
+        outlets.showSecureEntrySwitch?.addTarget(self, action: #selector(didSwitchShowPasswordsOnOrOff(_:)), for: .editingChanged)
+        
+        outlets.showSecureEntrySwitch?.isOn = true 
+    }
+    
+    
+    func setupWith(callbacks: UIRegistrationViewLogicCallbacks?){
+        self.callbacks = callbacks
     }
     
     deinit{
         NotificationCenter.default.removeObserver(self);
     }
     
-    func setupWith(callback: RegistrationCallback?){
-        self.registrationCallback = callback
-    }
     
-    //MARK: Keyboard 
+    //MARK: Keyboard
     
     func keyboardWillAppear(notification: NSNotification){
-        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0);
+        outlets.scrollView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0);
     }
     
     func keyboardWillDisappear(notification: NSNotification){
-        self.scrollView.contentInset = normalScrollViewInsets
+        outlets.scrollView?.contentInset = normalScrollViewInsets
     }
     
     @IBAction func didPressSignUp(_ sender: AnyObject){
         if let registrationInfo = self.createRegistrationInfo() {
-            self.registrationCallback?(registrationInfo)
+            callbacks?.registrationCallback?(registrationInfo)
         }
     }
     
@@ -86,19 +118,18 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     //MARK: textfield delegate
     
     func textFieldDidEndEditing(_ textField: UITextField){
-        if textField == self.emailTF{
+        if let emailTF = outlets.emailTF, emailTF == textField {
             self.handleEmailDidEndEditing();
         }
         
-        if textField == self.confirmPasswordTF{
+        if let confirmTF = outlets.confirmPasswordTF, confirmTF == textField {
             self.handleConfirmationTFDidEndEditing();
         }
     }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nextTextFieldPerCurrentTextFieldHash[textField.hashValue]?.becomeFirstResponder()
-        if textField == self.confirmPasswordTF {
+        if let confirmTF = outlets.confirmPasswordTF, textField == confirmTF {
             textField.resignFirstResponder()
         }
         return true;
@@ -109,9 +140,10 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     
     private func createRegistrationInfo() -> RegistrationInfo? {
         guard
-              let email = self.emailTF.text,
-              let password = self.passwordTF.text else {
-              OPViewUtils.showOkAlertWithTitle(title: "", andMessage: Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey))
+            let email = outlets.emailTF?.text,
+            let password = outlets.passswordTF?.text,
+            !(email.isEmpty || password.isEmpty) else {
+                self.callbacks?.presentOkAlert?(Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey))
                 return nil
         }
         
@@ -121,10 +153,10 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     
     private func handleEmailDidEndEditing(){
         if self.isEmailValid() == false{
-            self.invalidEmailLabel.isHidden = false;
+            outlets.invalidEmailLabel?.isHidden = false;
         }
         else {
-            self.invalidEmailLabel.isHidden = true;
+            outlets.invalidEmailLabel?.isHidden = true;
             
             if self.doPasswordsMatch(){
                 self.enableSignupButton();
@@ -137,11 +169,11 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     
     private func handleConfirmationTFDidEndEditing(){
         if self.doPasswordsMatch() == false{
-            self.passwordsDontMatchLabel.isHidden = false;
+            outlets.passwordsDontMatchLabel?.isHidden = false;
             self.disableSignupButton();
         }
         else{
-            self.passwordsDontMatchLabel.isHidden = true;
+            outlets.passwordsDontMatchLabel?.isHidden = true;
             if self.isEmailValid(){
                 self.enableSignupButton();
             }
@@ -152,13 +184,13 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     }
     
     private func isEmailValid() -> Bool{
-        guard let email = self.emailTF.text else {return false}
+        guard let email = outlets.emailTF?.text else {return false}
         return OPUtils.isValidEmail(testStr: email);
     }
     
     private func doPasswordsMatch() -> Bool{
-        guard let password = self.passwordTF.text else {return false}
-        guard let confirmation = self.confirmPasswordTF.text else {return false}
+        guard let password = outlets.passswordTF?.text else {return false}
+        guard let confirmation = outlets.confirmPasswordTF?.text else {return false}
         guard password.characters.count > 0 else {return false}
         
         
@@ -166,19 +198,44 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     }
     
     private func disableSignupButton(){
-        self.signUpBtn.isUserInteractionEnabled = false;
-        self.signUpBtn.alpha = 0.6;
+        outlets.signUpButton?.isUserInteractionEnabled = false;
+        outlets.signUpButton?.alpha = 0.6;
     }
     
     private func enableSignupButton(){
-        self.signUpBtn.isUserInteractionEnabled = true;
-        self.signUpBtn.alpha = 1.0;
+        outlets.signUpButton?.isUserInteractionEnabled = true;
+        outlets.signUpButton?.alpha = 1.0;
     }
     
     private func setSecureTextEntry(entry: Bool){
-        self.confirmPasswordTF.isSecureTextEntry = entry;
-        self.passwordTF.isSecureTextEntry = entry;
+        outlets.confirmPasswordTF?.isSecureTextEntry = entry;
+        outlets.passswordTF?.isSecureTextEntry = entry;
     }
+}
+
+
+class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
+{
+    @IBOutlet weak var confirmPasswordTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+ 
+    @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var passwordsDontMatchLabel: UILabel!
+    @IBOutlet weak var invalidEmailLabel: UILabel!
+    @IBOutlet weak var showPasswordSwitch: UISwitch?
+    
+    lazy var logic: UIRegistrationViewLogic = {
+        let outlets: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: self.passwordTF, confirmPasswordTF: self.confirmPasswordTF, emailTF: self.emailTF, signUpButton: self.signUpBtn, scrollView: self.scrollView, passwordsDontMatchLabel: self.passwordsDontMatchLabel, invalidEmailLabel: self.invalidEmailLabel, showSecureEntrySwitch: self.showPasswordSwitch)
+        
+        let logic: UIRegistrationViewLogic = UIRegistrationViewLogic(outlets: outlets)
+        return logic
+        
+    }()
+    
+    
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)

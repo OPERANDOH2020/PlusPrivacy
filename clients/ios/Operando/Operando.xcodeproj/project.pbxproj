@@ -76,6 +76,10 @@
 		985A0D4B1DCCB0E40010C799 /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A0D441DCCB0E40010C799 /* LocksmithInternetProtocol.swift */; };
 		985A0D4C1DCCB0E40010C799 /* LocksmithSecurityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A0D451DCCB0E40010C799 /* LocksmithSecurityClass.swift */; };
 		985BA6B31DC23F0C00BC645B /* NotificationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BA6B21DC23F0C00BC645B /* NotificationsRepository.swift */; };
+		985E14D31F330C190069C2F6 /* UISignInViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E14D21F330C190069C2F6 /* UISignInViewControllerLogicTests.swift */; };
+		985E14D51F330CD40069C2F6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E14D41F330CD40069C2F6 /* Utils.swift */; };
+		985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E14D61F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift */; };
+		985E14D91F3363480069C2F6 /* UIDashboardButtonLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E14D81F3363480069C2F6 /* UIDashboardButtonLogicTests.swift */; };
 		9860B4551DB136C600AFE113 /* UIIdentitiesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9860B4541DB136C600AFE113 /* UIIdentitiesListView.xib */; };
 		98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; };
 		98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -279,6 +283,10 @@
 		985A0D451DCCB0E40010C799 /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocksmithSecurityClass.swift; sourceTree = "<group>"; };
 		985A0D4E1DCCB0F70010C799 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		985BA6B21DC23F0C00BC645B /* NotificationsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsRepository.swift; path = NotificationsRepository/NotificationsRepository.swift; sourceTree = "<group>"; };
+		985E14D21F330C190069C2F6 /* UISignInViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISignInViewControllerLogicTests.swift; path = UserInterface/UISignInViewControllerLogicTests.swift; sourceTree = "<group>"; };
+		985E14D41F330CD40069C2F6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = UserInterface/Utils.swift; sourceTree = "<group>"; };
+		985E14D61F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIRegistrationViewLogicTests.swift; path = UserInterface/UIRegistrationViewLogicTests.swift; sourceTree = "<group>"; };
+		985E14D81F3363480069C2F6 /* UIDashboardButtonLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDashboardButtonLogicTests.swift; path = UserInterface/UIDashboardButtonLogicTests.swift; sourceTree = "<group>"; };
 		9860B4541DB136C600AFE113 /* UIIdentitiesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIIdentitiesListView.xib; path = UserInterface/UIIdentityManagementViewController/UIIdentitiesListView/UIIdentitiesListView.xib; sourceTree = "<group>"; };
 		98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPWebContentBlocker.framework; sourceTree = "<group>"; };
 		9863E8AF1DEC28F50095CA30 /* IdentitiesManagementRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentitiesManagementRepository.swift; sourceTree = "<group>"; };
@@ -977,6 +985,10 @@
 			isa = PBXGroup;
 			children = (
 				981A67601F3224FA002B828D /* UILoginViewLogicTests.swift */,
+				985E14D21F330C190069C2F6 /* UISignInViewControllerLogicTests.swift */,
+				985E14D41F330CD40069C2F6 /* Utils.swift */,
+				985E14D61F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift */,
+				985E14D81F3363480069C2F6 /* UIDashboardButtonLogicTests.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1589,12 +1601,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */,
+				985E14D31F330C190069C2F6 /* UISignInViewControllerLogicTests.swift in Sources */,
 				987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */,
 				981A67611F3224FA002B828D /* UILoginViewLogicTests.swift in Sources */,
 				987072071E82BF0A00151201 /* WebViewTabManagementPoolTests.swift in Sources */,
 				98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */,
 				98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */,
 				98B480041F0E6BA600EF140F /* UIWebToolbarViewTests.swift in Sources */,
+				985E14D51F330CD40069C2F6 /* Utils.swift in Sources */,
+				985E14D91F3363480069C2F6 /* UIDashboardButtonLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

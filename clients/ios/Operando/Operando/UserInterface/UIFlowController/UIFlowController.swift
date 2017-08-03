@@ -87,7 +87,7 @@ class UIFlowController: SSASideMenuDelegate
             weakLoginVC?.navigationController?.popViewController(animated: true)
         }
         
-        loginVC.setupWithCallbacks(loginViewControllerCallbacks)
+        loginVC.logic.setupWithCallbacks(loginViewControllerCallbacks)
         registrationViewController.setupWith(callbacks: registerViewControllerCallbacks)
         
         let navigationController = UINavigationController(rootViewController: loginVC)

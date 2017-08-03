@@ -13,8 +13,8 @@ struct UIRegistrationViewControllerCallbacks{
     let whenUserWantsToSignIn: VoidBlock?
 }
 
-class UIRegistrationViewController: UIViewController
-{
+
+class UIRegistrationViewController: UIViewController {
     @IBOutlet weak var registrationView: UIRegistrationView!
     private var callbacks: UIRegistrationViewControllerCallbacks?
 
@@ -23,15 +23,14 @@ class UIRegistrationViewController: UIViewController
         let _ = self.view
         self.callbacks = callbacks
         
-        self.registrationView.setupWith(callback: callbacks?.whenUserRegisters)
+        self.registrationView.logic.setupWith(callbacks: UIRegistrationViewLogicCallbacks(presentOkAlert: { alertMessage in
+            OPViewUtils.showOkAlertWithTitle(title: "", andMessage: alertMessage)
+        }, registrationCallback: callbacks?.whenUserRegisters))
+        
     }
     
-    @IBAction func signInButtonPressed(_ sender: AnyObject)
-    {
+    @IBAction func signInButtonPressed(_ sender: AnyObject) {
         self.callbacks?.whenUserWantsToSignIn?()
     }
     
-    deinit {
-        print("Registration View Controller deinit")
-    }
 }

@@ -36,14 +36,7 @@ class UILoginViewLogicTests: XCTestCase {
     private func LoginLogic_OnSignIn_CallsWithCorrectValues(from info: LoginInfo) {
         
         let exp = self.expectation(description: "")
-        let outlets = UILoginViewOutlets(emailTF: UITextField(), passwordTF: UITextField(), rememberMeSwitch: UISwitch(), signInButton: UIButton(), forgotPasswordButton: nil)
-        
-        let logic = UILoginViewLogic(outlets: outlets)
-        
-        outlets.emailTF?.text = info.email
-        outlets.passwordTF?.text = info.password
-        outlets.rememberMeSwitch?.isOn = info.wishesToBeRemembered
-        
+        let (logic, outlets) = createLogicPopulated(with: info)
         logic.setupWith(callbacks: UILoginViewCallbacks(whenUserWantsToLogin: { testInfo in
             
             XCTAssert(testInfo.email == info.email)
