@@ -1098,7 +1098,7 @@ var ospSettingsConfigPreferences = {
                 recommended:"no_one"
             },
             tags: [
-                "personal_data",
+                "personal data",
                 "profiling",
                 "advertising",
                 "control",
