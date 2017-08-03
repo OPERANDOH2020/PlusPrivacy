@@ -50,14 +50,13 @@ var fs = require('fs');
 var jwt = require('jsonwebtoken');
 var cfg;
 var encriptionKey;
-var plugin;
-
 
 
 function readConfig(){
     cfg = plugin.config.get('operando.ini',readConfig);
     encriptionKey = fs.readFileSync(cfg.main.encriptionKey);
     plugin.loginfo("Operando configuration: ",cfg);
+
 }
 
 exports.register = function(){
@@ -67,6 +66,7 @@ exports.register = function(){
     plugin = this;
     readConfig();
 };
+
 
 
 
