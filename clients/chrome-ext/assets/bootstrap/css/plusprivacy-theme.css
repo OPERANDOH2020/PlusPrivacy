@@ -605,18 +605,22 @@ footer{
     min-width: 1100px;
     height: 80px;
 }
-
+#footer-copyright{
+    text-align: center;
+}
 #footer-copyright-content{
-    max-width: 1296px;
-    margin: 0 auto;
+    display:inline-block;
     height: 100%;
-    padding: 27px;
+    padding: 17px;
 }
 
-#footer-copyright-content p{
-    text-align: center;
+#footer-copyright-content p#european_commission{
+    text-align: left;
     color:#FFF;
     font-size: 16px;
+    background: url("/operando/assets/images/european_commission.png") no-repeat left -5px;
+    line-height: 48px;
+    padding-left: 160px;
 }
 
 .active .isMockup:before{
