@@ -110,8 +110,6 @@ container.declareDependency("AnalyticsAdapter",['mysqlPersistence'],function(out
 addRegistration = function(userId,userEmail,ip,callback){
     
     persistence.lookup("RegistrationAnalytic",userId,function (err,registrationAnalytic) {
-
-
         if(err){
             callback(err)
         }else{
@@ -142,7 +140,7 @@ addLogin = function(userId,callback){
             if(err){
                 callback(err)
             }else{
-                if(loginAnalytic.__meta.freshRawObject){
+                if(!loginAnalytic.__meta.freshRawObject){
                     this.begin();
                 }else{
                     loginAnalytic["userId"] = userId;

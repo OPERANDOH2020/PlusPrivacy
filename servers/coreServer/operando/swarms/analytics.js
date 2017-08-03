@@ -26,8 +26,6 @@ var analyticsSwarming = {
             var self = this;
             addRegistration(this.userId,this.userEmail,this.ip,S(function(err,result){
 
-                console.log("ADD REGISTRATION ANALYTIC",result);
-
                 if(err){
                     self.err = err.message;
                     self.home('failed');
