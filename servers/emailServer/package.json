@@ -4,6 +4,8 @@
   "version": "0.0.2",
   "dependencies": {
     "swarmcore":"git+https://mastaleru@github.com/PrivateSky/swarmcore.git#master",
-    "uuid":">=2.0.0"
+    "uuid":">=2.0.0",
+    "ini":">0.0.0",
+    "nodemailer-smtp-transport":">=2.7.2"
   }
 }
