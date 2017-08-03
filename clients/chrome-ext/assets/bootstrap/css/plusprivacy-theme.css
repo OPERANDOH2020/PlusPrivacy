@@ -248,15 +248,22 @@ div.tab-content{
 #preferences_tab:after,
 #network_tab:after,
 #abp_preferences_tab:after,
-#pfb_tab:after{
+#pfb_tab:after,
+#feedback_tab:after{
 
     clear: both;
     display: block;
     content:"";
 }
 
-#abp_preferences_tab{
+#abp_preferences_tab,
+#feedback_tab{
     height:100%;
+}
+
+#feedback_tab{
+    margin-left:-20px;
+    margin-right:-20px;
 }
 
 .operando-navbar{
@@ -1811,6 +1818,9 @@ visibility: visible;
 .menu_icon.privacy_icon {
     background-image:url("/operando/assets/images/menu_icons/privacy.png");
 }
+.menu_icon.contact_icon {
+    background-image:url("/operando/assets/images/menu_icons/contact.png");
+}
 
 .menu_icon.notifications_icon {
     background-image:url("/operando/assets/images/menu_icons/notifications.png");
@@ -1945,6 +1955,14 @@ visibility: visible;
 
 .active .menu_icon.abp_icon{
     background-image:url("/operando/assets/images/menu_icons/ad_block_selected.png");
+}
+
+.menu_icon.feedback_icon{
+    background-image:url("/operando/assets/images/menu_icons/feedback.png");
+}
+
+.active .menu_icon.feedback_icon{
+    background-image:url("/operando/assets/images/menu_icons/feedback_selected.png");
 }
 
 .menu_icon.privacy_policy_icon{

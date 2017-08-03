@@ -4,7 +4,7 @@ $(document).ready(function () {
      */
     (function ($) {
         $(window).on("load", function () {
-            $("#wrapper").mCustomScrollbar({
+            $("#wrapper, #feedback_tab iframe").mCustomScrollbar({
                 scrollButtons: {enable: true},
                 theme: "light-thick",
                 scrollbarPosition: "outside",
