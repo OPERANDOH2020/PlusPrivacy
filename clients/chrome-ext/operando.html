@@ -78,6 +78,25 @@
             <ul class="nav navbar-nav pull-right">
 
 
+
+                <li class="no-sub-menu">
+                    <a class="menu_icon contact_icon" target="_blank"
+                       href="https://plusprivacy.com/contact/">
+                        <div class="menu_item_content">
+                            <span class="email">Contact</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="no-sub-menu">
+                    <a class="menu_icon privacy_policy_icon" target="_blank"
+                                                                   href="https://plusprivacy.com/privacy-policy/">
+                        <div class="menu_item_content">
+                            <span class="email">Privacy Policy</span>
+                        </div>
+                    </a>
+                </li>
+
                 <li ui-sref-active="active">
                     <a class="menu_icon notifications_orange_icon" ui-sref="notifications">
                         <div class="menu_item_content">
@@ -85,7 +104,6 @@
                         </div>
                     </a>
                 </li>
-
 
                 <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
 
@@ -227,8 +245,10 @@
 
                     <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon abp_icon"
                                                                        ui-sref="abp">Ad blocking & anti-tracking</a></li>
-                    <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon privacy_policy_icon"
-                                                                       ui-sref="privacyPolicy">Privacy Policy</a></li>
+                    <li ui-sref-active="active" class="no-sub-menu">
+                        <a class="menu_icon feedback_icon"
+                                                                       ui-sref="feedback">Feedback</a>
+                    </li>
 
                 </ul>
             </div>
@@ -248,7 +268,7 @@
         <div id="footer-copyright">
             <div id="footer-copyright-content" class="clearfix">
 
-                <p>This service is supported by the European Commission under the Horizon 2020 Programme (H2020), as part
+                <p id="european_commission">This service is supported by the European Commission under the Horizon 2020 Programme (H2020), as part
                     of the OPERANDO project (GA no. 653704).
                 </p>
 

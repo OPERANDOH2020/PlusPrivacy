@@ -366,7 +366,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             .state('privacyPolicy', {
             url: "/privacy-policy",
             templateUrl: "views/privacy_policy.html"
-            });
+            })
+            .state('feedback', {
+            url: "/feedback",
+            templateUrl: "views/feedback.html"
+        });
 
 
 

@@ -248,15 +248,22 @@ div.tab-content{
 #preferences_tab:after,
 #network_tab:after,
 #abp_preferences_tab:after,
-#pfb_tab:after{
+#pfb_tab:after,
+#feedback_tab:after{
 
     clear: both;
     display: block;
     content:"";
 }
 
-#abp_preferences_tab{
+#abp_preferences_tab,
+#feedback_tab{
     height:100%;
+}
+
+#feedback_tab{
+    margin-left:-20px;
+    margin-right:-20px;
 }
 
 .operando-navbar{
@@ -605,18 +612,22 @@ footer{
     min-width: 1100px;
     height: 80px;
 }
-
+#footer-copyright{
+    text-align: center;
+}
 #footer-copyright-content{
-    max-width: 1296px;
-    margin: 0 auto;
+    display:inline-block;
     height: 100%;
-    padding: 27px;
+    padding: 17px;
 }
 
-#footer-copyright-content p{
-    text-align: center;
+#footer-copyright-content p#european_commission{
+    text-align: left;
     color:#FFF;
     font-size: 16px;
+    background: url("/operando/assets/images/european_commission.png") no-repeat left -5px;
+    line-height: 48px;
+    padding-left: 160px;
 }
 
 .active .isMockup:before{
@@ -1807,6 +1818,9 @@ visibility: visible;
 .menu_icon.privacy_icon {
     background-image:url("/operando/assets/images/menu_icons/privacy.png");
 }
+.menu_icon.contact_icon {
+    background-image:url("/operando/assets/images/menu_icons/contact.png");
+}
 
 .menu_icon.notifications_icon {
     background-image:url("/operando/assets/images/menu_icons/notifications.png");
@@ -1943,12 +1957,16 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/ad_block_selected.png");
 }
 
-.menu_icon.privacy_policy_icon{
-    background-image:url("/operando/assets/images/menu_icons/privacy_policy.png");
+.menu_icon.feedback_icon{
+    background-image:url("/operando/assets/images/menu_icons/feedback.png");
 }
 
-.active .menu_icon.privacy_policy_icon{
-    background-image:url("/operando/assets/images/menu_icons/privacy_policy_selected.png");
+.active .menu_icon.feedback_icon{
+    background-image:url("/operando/assets/images/menu_icons/feedback_selected.png");
+}
+
+.menu_icon.privacy_policy_icon{
+    background-image:url("/operando/assets/images/menu_icons/privacy_policy.png");
 }
 
 .menu_icon.user-account{
