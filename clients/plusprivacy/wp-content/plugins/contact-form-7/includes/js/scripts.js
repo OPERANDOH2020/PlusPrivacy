@@ -86,7 +86,7 @@
 		}
 
 		var $responseOutput = $form.find('div.wpcf7-response-output');
-
+		$('.ajax-loader').removeClass('is-active');
 		$form.wpcf7ClearResponseOutput();
 
 		$form.find('.wpcf7-form-control').removeClass('wpcf7-not-valid');

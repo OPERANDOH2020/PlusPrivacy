@@ -129,10 +129,19 @@ ul.strong_points li.social_networks{
     background-color: #41575c;
     border: 1px solid #31454a;
 }
-.wpcf7 .btn-send-email{
+.wpcf7 input.btn-send-email{
     color: #fff;
     background-color: #41575c;
     border: 1px solid #31454a;
+    border-radius:4px;
+}
+
+.wpcf7 input.btn-send-email:hover{
+    background-color: #344c5c;
+}
+
+.wpcf7 input.btn-send-email:focus{
+    background-color: #41575c;
 }
 
 .wpcf7 .glyphicon{
@@ -145,7 +154,7 @@ ul.strong_points li.social_networks{
 .wpcf7 label{
     color:#41575c;
 }
-.wpcf7 input,
+
 .wpcf7 textarea{
     border-color:#31454a;
     border-left: none;
@@ -156,6 +165,30 @@ ul.strong_points li.social_networks{
 
 .wpcf7{
     margin-bottom: 40px;
+}
+
+.wpcf7-display-none {
+    display: none;
+}
+
+div.wpcf7 .ajax-loader {
+    visibility: hidden;
+    display: inline-block;
+    background-image: url('images/loader.gif');
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 4px;
+    vertical-align: middle;
+}
+
+div.wpcf7 .ajax-loader.is-active {
+    visibility: visible;
+}
+
+div.wpcf7 div.ajax-error {
+    display: none;
 }
 
 
