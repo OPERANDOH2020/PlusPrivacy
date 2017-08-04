@@ -132,7 +132,7 @@ var initOperando = {
                 var users = [
                     {
                         password: "swarm",
-                        email: "admin@plusprivacy.com",
+                        email: "admin@"+thisAdapter.config.core.operandoHost,
                         organisationId: "SystemAdministrators",
                         activationCode:"0"
                     },
@@ -174,7 +174,7 @@ var initOperando = {
                     },
                     {
                         password: "test",
-                        email: "test@plusprivacy.com",
+                        email: "test@"+thisAdapter.config.core.operandoHost,
                         organisationId: "Public",
                         activationCode:"0"
                     }
