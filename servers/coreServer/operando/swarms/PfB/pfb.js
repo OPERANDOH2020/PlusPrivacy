@@ -173,7 +173,7 @@ var privacyForBenefits = {
     notifyUserByEmail:{
         node: "EmailAdapter",
         code: function () {
-            this['from']="deals@"+thisAdapter.config.core.operandoHost;
+            this['from']="deals@"+thisAdapter.config.Core.operandoHost;
             this['subject'] = "PlusPrivacy deal: "+this.service.website;
 
            if(this.action == "subscribed"){

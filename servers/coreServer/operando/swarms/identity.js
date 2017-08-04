@@ -213,7 +213,7 @@ var identitySwarming = {
                 this.home('gotRealEmail')
                 return;
             }
-            else if(this.proxy==="contact@"+thisAdapter.config.core.operandoHost) {
+            else if(this.proxy==="contact@"+thisAdapter.config.Core.operandoHost) {
                 this.realEmail = thisAdapter.config.Core.adminEmail;
                 this.home('gotRealEmail')
                 return
