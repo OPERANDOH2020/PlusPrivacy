@@ -89,6 +89,17 @@ var userService = exports.userService = {
         })
     },
 
+    contactMessage:function(data,success_callback, error_callback){
+        var contactMessageHandler = swarmHub.startSwarm("contact.js", "sendMessage",data);
+        contactMessageHandler.onResponse("success", function(response){
+            success_callback();
+        });
+        contactMessageHandler.onResponse("success", function(response){
+            error_callback();
+        });
+
+    },
+
     resetExtension:function(){
         chrome.tabs.create({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST}, function(){
             chrome.runtime.reload();
