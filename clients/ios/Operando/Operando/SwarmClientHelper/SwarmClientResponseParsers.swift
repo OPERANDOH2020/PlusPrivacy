@@ -16,12 +16,16 @@ struct IdentitiesListResponse {
 }
 
 
-struct Domain
+struct Domain: Equatable
 {
     let id: String
     let name: String
     
     static let defaultEmpty = Domain(id: "", name: "")
+}
+
+func ==(lhs: Domain, rhs: Domain) -> Bool {
+    return lhs.id == rhs.id && lhs.name == rhs.name
 }
 
 struct PfbDealUpdate {

@@ -143,6 +143,8 @@
 		98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */; };
 		98D220BE1E80009D00B3BD06 /* UIWebTabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */; };
 		98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */; };
+		98E0E17F1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E17E1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift */; };
+		98E0E1811F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E1801F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift */; };
 		98EAF66F1CCF86DC00C77649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */; };
 		98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6721CCF86DC00C77649 /* Main.storyboard */; };
 		98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98EAF6751CCF86DC00C77649 /* Assets.xcassets */; };
@@ -364,6 +366,8 @@
 		98D220B91E7FFD1F00B3BD06 /* UIWebTabsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabsListView.xib; path = UserInterface/UIWebTabsView/UIWebTabsListView.xib; sourceTree = "<group>"; };
 		98D220BC1E80009D00B3BD06 /* UIWebTabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabCollectionCell.swift; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.swift; sourceTree = "<group>"; };
 		98D220BD1E80009D00B3BD06 /* UIWebTabCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebTabCollectionCell.xib; path = UserInterface/UIWebTabsView/UIWebTabCollectionCell/UIWebTabCollectionCell.xib; sourceTree = "<group>"; };
+		98E0E17E1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAddIdentityViewLogicTests.swift; path = UserInterface/UIAddIdentityViewLogicTests.swift; sourceTree = "<group>"; };
+		98E0E1801F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAddIdentityViewControllerLogicTests.swift; path = UserInterface/UIAddIdentityViewControllerLogicTests.swift; sourceTree = "<group>"; };
 		98EAF66B1CCF86DC00C77649 /* Operando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Operando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98EAF6731CCF86DC00C77649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -989,6 +993,8 @@
 				985E14D41F330CD40069C2F6 /* Utils.swift */,
 				985E14D61F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift */,
 				985E14D81F3363480069C2F6 /* UIDashboardButtonLogicTests.swift */,
+				98E0E17E1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift */,
+				98E0E1801F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1601,8 +1607,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E0E17F1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift in Sources */,
 				985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */,
 				985E14D31F330C190069C2F6 /* UISignInViewControllerLogicTests.swift in Sources */,
+				98E0E1811F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift in Sources */,
 				987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */,
 				981A67611F3224FA002B828D /* UILoginViewLogicTests.swift in Sources */,
 				987072071E82BF0A00151201 /* WebViewTabManagementPoolTests.swift in Sources */,

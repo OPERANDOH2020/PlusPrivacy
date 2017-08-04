@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol IdentitiesManagementRepository {
+protocol IdentitiesManagementRepository: class {
     func getCurrentIdentitiesListWith(completion: ((_ identitiesListResponse: IdentitiesListResponse, _ error: NSError?) -> Void)?)
     func getCurrentListOfDomainsWith(completion: ((_ domainsList: [Domain], _ error: NSError?) -> Void)?)
     func generateNewIdentityWith(completion: ((_ generatedIdentity: String, _ error: NSError?) -> Void)?)

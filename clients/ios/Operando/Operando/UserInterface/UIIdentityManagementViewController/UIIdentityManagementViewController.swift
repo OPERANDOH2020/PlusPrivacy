@@ -13,11 +13,15 @@ import UIKit
 
 let kMaxNumOfIdentities: Int = 20
 
+struct UIIdentityManagementCallbacks {
+    let obtainNewIdentityWithCompletion: ((_ completion: CallbackWithString?) -> Void)?
+}
 
-class UIIdentityManagementViewController: UIViewController
-{
+class UIIdentityManagementViewController: UIViewController {
     private var realIdentity: String = ""
     private var identitiesRepository: IdentitiesManagementRepository?
+    private var callbacks: UIIdentityManagementCallbacks?
+    
     private var currentNumOfIdentities: Int = 0 {
         didSet{
             self.updateUIBasedOnNumOfIdentities(self.currentNumOfIdentities)
@@ -30,10 +34,11 @@ class UIIdentityManagementViewController: UIViewController
     @IBOutlet weak var realIdentityView: UIRealIdentityView!
     
     
-    func setupWith(identitiesRepository: IdentitiesManagementRepository?) {
+    func setupWith(identitiesRepository: IdentitiesManagementRepository?, callbacks: UIIdentityManagementCallbacks?) {
         let _  = self.view
         self.identitiesRepository = identitiesRepository
         self.loadCurrentIdentitiesWith(repository: identitiesRepository)
+        self.callbacks = callbacks
     }
     
     
@@ -148,11 +153,11 @@ class UIIdentityManagementViewController: UIViewController
     
     
     private func addNewIdentity(){
-        UIAddIdentityAlertViewController.displayAndAddIdentityWith(identitiesRepository: self.identitiesRepository) { identity in
-            self.identitiesListView?.appendAndDisplayNew(item: identity)
-            self.currentNumOfIdentities += 1
+        weak var weakSelf = self
+        self.callbacks?.obtainNewIdentityWithCompletion? { identity in
+            weakSelf?.identitiesListView?.appendAndDisplayNew(item: identity)
+            weakSelf?.currentNumOfIdentities += 1
         }
-        
     }
     
 }

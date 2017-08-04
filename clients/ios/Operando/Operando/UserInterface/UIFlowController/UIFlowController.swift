@@ -130,8 +130,29 @@ class UIFlowController: SSASideMenuDelegate
     
     func displayIdentitiesManagement(){
         let vc = UIViewControllerFactory.identityManagementViewController
-        vc.setupWith(identitiesRepository: dependencies.identityManagementRepo)
+        weak var weakSelf = self
+        
+        vc.setupWith(identitiesRepository: dependencies.identityManagementRepo, callbacks: UIIdentityManagementCallbacks(obtainNewIdentityWithCompletion: { completion  in
+            weakSelf?.displayAddIdentityControllerWith(identityGeneratedCallback: completion)
+        }))
+        
         self.rootController.setMainControllerTo(newController: vc)
+    }
+    
+    func displayAddIdentityControllerWith(identityGeneratedCallback: CallbackWithString?){
+        let identityVC = UIViewControllerFactory.addIdentityController
+        
+        weak var weakVC = identityVC
+        weak var weakSelf = self
+        
+        identityVC.setupWith(identitiesRepository: weakSelf?.dependencies.identityManagementRepo, callbacks: UIAddIdentityViewControllerCallbacks(onExitWithIdentity: { aliasIfAny in
+            if let alias = aliasIfAny {
+                identityGeneratedCallback?(alias)
+            }
+            weakVC?.dismiss(animated: false, completion: nil)
+        }))
+        
+        self.rootController.present(identityVC, animated: false, completion: nil)
     }
     
     func displayPfbDeals() {
