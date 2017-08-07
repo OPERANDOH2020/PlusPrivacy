@@ -540,7 +540,7 @@ a.social_network_link img{
 }
 @media (min-width: 769px) {
     #site-navigation{
-        width: 560px;
+        width: 650px;
         float:right;
     }
 }
