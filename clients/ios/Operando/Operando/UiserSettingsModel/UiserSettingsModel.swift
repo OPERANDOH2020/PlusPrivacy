@@ -16,7 +16,7 @@ struct UserSettingsModelCallbacks {
     let updateCallback: UserSettingsModelUpdateCallback
 }
 
-struct UserSettingsModel {
+struct UserSettingsModel: Equatable {
     let enableAdBlock: Bool
     let clearWebsiteDataOnExit: Bool
     let disableWebsiteProtection: Bool
@@ -43,4 +43,10 @@ struct UserSettingsModel {
     static let defaultSettings: UserSettingsModel = UserSettingsModel(enableAdBlock: true,
                                                                       clearWebsiteDataOnExit: true,
                                                                       disableWebsiteProtection: false)
+}
+
+func ==(lhs: UserSettingsModel, rhs: UserSettingsModel) -> Bool {
+    return lhs.clearWebsiteDataOnExit == rhs.clearWebsiteDataOnExit &&
+           lhs.disableWebsiteProtection == rhs.disableWebsiteProtection &&
+           lhs.enableAdBlock == rhs.enableAdBlock
 }

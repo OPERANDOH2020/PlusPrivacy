@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIWebTabsListView" customModule="Operando" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="sMl-QP-7L0" id="Hjr-y9-EQ5"/>
+                <outlet property="addButton" destination="UIp-3f-P5d" id="koX-da-gCC"/>
+                <outlet property="closeButton" destination="cAu-Si-tsS" id="kIu-nb-MZE"/>
                 <outlet property="collectionView" destination="gA9-u2-mj4" id="1YE-jy-ARm"/>
             </connections>
         </placeholder>
@@ -35,25 +38,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-yV-ZNC">
                     <rect key="frame" x="0.0" y="533" width="334" height="44"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIp-3f-P5d">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIp-3f-P5d" userLabel="addButton">
                             <rect key="frame" x="144" y="0.0" width="46" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="46" id="vad-9z-Zva"/>
                             </constraints>
                             <state key="normal" image="whitePlus"/>
-                            <connections>
-                                <action selector="didPressToAdd:" destination="-1" eventType="touchUpInside" id="HFG-sY-1jU"/>
-                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-Si-tsS">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-Si-tsS" userLabel="closeButton">
                             <rect key="frame" x="288" y="0.0" width="46" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="46" id="NM7-Lx-zwf"/>
                             </constraints>
                             <state key="normal" image="whiteX"/>
-                            <connections>
-                                <action selector="didPressClose:" destination="-1" eventType="touchUpInside" id="dhd-pz-iec"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.66292496469999995" blue="0.62572978440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,45 +8,66 @@
 
 import UIKit
 
-struct UIWebTabsViewCallbacks {
+struct UIWebTabsListViewCallbacks {
     let whenUserPressedClose: VoidBlock?
     let whenUserAddsNewTab: VoidBlock?
     let whenUserSelectedTabAtIndex: ((_ index: Int) -> Void)?
     let whenUserDeletedTabAtIndex: ((_ index: Int) -> Void)?
 }
 
-class UIWebTabsListView: RSNibDesignableView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+struct UIWebTabsListViewOutlets {
+    let collectionView: UICollectionView?
+    let activityIndicator: UIActivityIndicatorView?
+    let addButton: UIButton?
+    let closeButton: UIButton?
+    let containerView: UIView?
+    
+    static let allNil: UIWebTabsListViewOutlets = UIWebTabsListViewOutlets(collectionView: nil, activityIndicator: nil, addButton: nil, closeButton: nil, containerView: nil)
+    
+    static var allDefault: UIWebTabsListViewOutlets {
+        return UIWebTabsListViewOutlets(collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()), activityIndicator: .init(), addButton: .init(), closeButton: .init(), containerView: .init())
+    }
+}
+
+class UIWebTabsListViewLogic: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    let outlets: UIWebTabsListViewOutlets
+
     
     private var webTabs: [WebTabDescription] = []
-    private var callbacks: UIWebTabsViewCallbacks?
+    private var callbacks: UIWebTabsListViewCallbacks?
     
     var inBusyState: Bool = false {
         didSet {
-            self.activityIndicator.isHidden = !self.inBusyState
-            self.isUserInteractionEnabled = !self.inBusyState
+            outlets.activityIndicator?.isHidden = !self.inBusyState
+            outlets.containerView?.isUserInteractionEnabled = !self.inBusyState
         }
     }
     
-    override func commonInit() {
-        super.commonInit()
-        self.setupCollectionView(cv: self.collectionView)
+    init(outlets: UIWebTabsListViewOutlets) {
+        self.outlets = outlets;
+        super.init()
+        
+        self.setupCollectionView(cv: outlets.collectionView)
+        outlets.addButton?.addTarget(self, action: #selector(didPressToAdd(_:)), for: .touchUpInside)
+        outlets.closeButton?.addTarget(self, action: #selector(didPressClose(_:)), for: .touchUpInside)
+        
+        outlets.activityIndicator?.isHidden = true
     }
     
-    func setupWith(webTabs: [WebTabDescription], callbacks: UIWebTabsViewCallbacks?){
+    func setupWith(webTabs: [WebTabDescription], callbacks: UIWebTabsListViewCallbacks?){
         self.callbacks = callbacks
         self.webTabs = webTabs
-        self.collectionView.reloadData()
+        outlets.collectionView?.reloadData()
     }
     
     
     
-    private func setupCollectionView(cv: UICollectionView) {
-        cv.delegate = self
-        cv.dataSource = self
+    private func setupCollectionView(cv: UICollectionView?) {
+        cv?.delegate = self
+        cv?.dataSource = self
         let nib = UINib(nibName: UIWebTabCollectionCell.identifierNibName, bundle: nil)
-        cv.register(nib, forCellWithReuseIdentifier: UIWebTabCollectionCell.identifierNibName)
+        cv?.register(nib, forCellWithReuseIdentifier: UIWebTabCollectionCell.identifierNibName)
     }
     
     
@@ -62,7 +83,7 @@ class UIWebTabsListView: RSNibDesignableView, UICollectionViewDataSource, UIColl
         weak var weakCell = cell
         
         cell?.setupWith(webTabDescription: self.webTabs[indexPath.item], whenClosePressed: {
-            guard let strongCell = weakCell, let cellIdxPath = weakSelf?.collectionView.indexPath(for: strongCell) else {
+            guard let strongCell = weakCell, let cellIdxPath = weakSelf?.outlets.collectionView?.indexPath(for: strongCell) else {
                 return
             }
             weakSelf?.deleteTabAt(indexPath: cellIdxPath)
@@ -81,14 +102,17 @@ class UIWebTabsListView: RSNibDesignableView, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let containerView = self.outlets.containerView else {
+            return .zero
+        }
         let space: CGFloat = 10 + 10 + 6;
-        return CGSize(width: (self.frame.width - space) / 2, height: self.frame.size.height * 0.4)
+        return CGSize(width: (containerView.frame.width - space) / 2, height: containerView.frame.size.height * 0.4)
     }
     
     private func deleteTabAt(indexPath: IndexPath){
         self.webTabs.remove(at: indexPath.item)
         
-        self.collectionView.deleteItems(at: [indexPath])
+        self.outlets.collectionView?.deleteItems(at: [indexPath])
         self.callbacks?.whenUserDeletedTabAtIndex?(indexPath.item)
     }
     
@@ -99,4 +123,20 @@ class UIWebTabsListView: RSNibDesignableView, UICollectionViewDataSource, UIColl
     @IBAction func didPressToAdd(_ sender: Any) {
         self.callbacks?.whenUserAddsNewTab?()
     }
+
+    
+}
+
+class UIWebTabsListView: RSNibDesignableView {
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    
+    private(set) lazy var logic: UIWebTabsListViewLogic = {
+        let outlets: UIWebTabsListViewOutlets = UIWebTabsListViewOutlets(collectionView: self.collectionView, activityIndicator: self.activityIndicator, addButton: self.addButton, closeButton: self.closeButton, containerView: self.contentView)
+        
+        return UIWebTabsListViewLogic(outlets: outlets)
+    }()
+    
 }

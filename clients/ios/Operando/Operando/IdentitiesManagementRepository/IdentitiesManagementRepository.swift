@@ -9,19 +9,30 @@
 import Foundation
 
 
+
 protocol IdentitiesManagementRepository: class {
     func getCurrentIdentitiesListWith(completion: ((_ identitiesListResponse: IdentitiesListResponse, _ error: NSError?) -> Void)?)
     func getCurrentListOfDomainsWith(completion: ((_ domainsList: [Domain], _ error: NSError?) -> Void)?)
     func generateNewIdentityWith(completion: ((_ generatedIdentity: String, _ error: NSError?) -> Void)?)
-    func add(identity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?)
+    func add(identity: String, withCompletion completion: CallbackWithError?)
     func remove(identity: String, withCompletion completion: ((_ nextDefaultIdentity: String, _ error: NSError?) -> Void)?)
-    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?)
+    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: CallbackWithError?)
     func getRealIdentityWith(completion: ((_ identity: String, _ error: NSError?) -> Void)?)
     
 }
 
 
 class DummyIdentitiesRepository: IdentitiesManagementRepository{
+    
+    var domainsList: [Domain] = [Domain(id: "1", name: "dom1"),
+                                 Domain(id: "2", name: "dom2"),
+                                 Domain(id: "3", name: "dom3")]
+    var realIdentity: String = "youAre@real.com"
+    var generatedNewIdentity: String = "someRandomIdentity"
+    var errorForAddIdentity: NSError?
+    
+    var onAddIdentity: ((_ identity: String) -> Void)?
+    
     func getCurrentIdentitiesListWith(completion: ((_ identitiesListResponse: IdentitiesListResponse, _ error: NSError?) -> Void)?){
         
         var identities: [String] = []
@@ -35,27 +46,24 @@ class DummyIdentitiesRepository: IdentitiesManagementRepository{
         
     }
     func getCurrentListOfDomainsWith(completion: ((_ domainsList: [Domain], _ error: NSError?) -> Void)?){
-        
-        var domains: [Domain] = []
-        for i in 1...15 {
-            domains.append(Domain(id: "id\(i)", name: "domain\(i)"))
-        }
+    
         DispatchQueue.main.async {
-            completion?(domains, nil)
+            completion?(self.domainsList, nil)
         }
     }
     
     func generateNewIdentityWith(completion: ((_ generatedIdentity: String, _ error: NSError?) -> Void)?){
         
         DispatchQueue.main.async {
-            completion?("rx45745", nil);
+            completion?(self.generatedNewIdentity, nil);
         }
         
     }
-    func add(identity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?){
+    func add(identity: String, withCompletion completion: CallbackWithError?){
         
+        self.onAddIdentity?(identity)
         DispatchQueue.main.async {
-            completion?(true, nil)
+            completion?(self.errorForAddIdentity)
         }
         
     }
@@ -65,13 +73,13 @@ class DummyIdentitiesRepository: IdentitiesManagementRepository{
         }
     }
     
-    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?){
+    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: CallbackWithError?){
         DispatchQueue.main.async {
-            completion?(true, nil)
+            completion?(nil)
         }
     }
     
     func getRealIdentityWith(completion: ((String, NSError?) -> Void)?) {
-        completion?("youAre@real.com", nil)
+        completion?(self.realIdentity, nil)
     }
 }

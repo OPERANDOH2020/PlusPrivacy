@@ -132,15 +132,10 @@ class UIIdentityManagementViewController: UIViewController {
     private func setAsDefault(identity: String)
     {
         ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
-        self.identitiesRepository?.updateDefaultIdentity(to: identity, withCompletion: { success, error  in
+        self.identitiesRepository?.updateDefaultIdentity(to: identity, withCompletion: { error  in
             ProgressHUD.dismiss()
             if let error = error {
                 OPErrorContainer.displayError(error: error);
-                return
-            }
-            
-            if !success {
-                OPErrorContainer.displayError(error: OPErrorContainer.unknownError)
                 return
             }
             

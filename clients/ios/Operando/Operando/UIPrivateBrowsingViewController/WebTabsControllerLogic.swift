@@ -296,14 +296,14 @@ class WebTabsControllerLogic: NSObject {
             }
             let callbacks = self.callbacksForWebTabsView(self.model.webTabsListView)
             
-            self.model.webTabsListView.setupWith(webTabs: items, callbacks: callbacks)
+            self.model.webTabsListView.logic.setupWith(webTabs: items, callbacks: callbacks)
             self.callbacks.showWebTabsViewOnTop?(self.model.webTabsListView, true, nil)
         }
         
     }
     
     
-    private func callbacksForWebTabsView(_ webTabsView: UIWebTabsListView) -> UIWebTabsViewCallbacks? {
+    private func callbacksForWebTabsView(_ webTabsView: UIWebTabsListView) -> UIWebTabsListViewCallbacks? {
         weak var weakSelf = self
         weak var weakTabsView = webTabsView
         
@@ -311,12 +311,12 @@ class WebTabsControllerLogic: NSObject {
             guard let tabsView = weakTabsView else {
                 return
             }
-            tabsView.inBusyState = false
+            tabsView.logic.inBusyState = false
             weakSelf?.callbacks.hideWebTabsView?(tabsView, false, nil)
         }
         
         let whenUserAddsNewTab: VoidBlock = {
-            weakTabsView?.inBusyState = true
+            weakTabsView?.logic.inBusyState = true
             
             weakSelf?.saveCurrentTabStateWithCompletion {
                 weakSelf?.addNewTab()
@@ -325,7 +325,7 @@ class WebTabsControllerLogic: NSObject {
         }
         
         let whenUserSelectsTab: ((_ index: Int) -> Void)? = { index in
-            weakTabsView?.inBusyState = true
+            weakTabsView?.logic.inBusyState = true
             weakSelf?.saveCurrentTabStateWithCompletion{
                 weakSelf?.changeToTab(atIndex: index, callback: closeWebTabsView)
             }
@@ -335,7 +335,7 @@ class WebTabsControllerLogic: NSObject {
             weakSelf?.removeTabAt(index: index)
         }
         
-        return UIWebTabsViewCallbacks(whenUserPressedClose: closeWebTabsView, whenUserAddsNewTab: whenUserAddsNewTab, whenUserSelectedTabAtIndex: whenUserSelectsTab, whenUserDeletedTabAtIndex: whenUserDeletesTab)
+        return UIWebTabsListViewCallbacks(whenUserPressedClose: closeWebTabsView, whenUserAddsNewTab: whenUserAddsNewTab, whenUserSelectedTabAtIndex: whenUserSelectsTab, whenUserDeletedTabAtIndex: whenUserDeletesTab)
     }
 
 }

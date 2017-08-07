@@ -168,6 +168,8 @@
 		98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F6B1251E7BE62400D193FF /* UIWebToolbarView.xib */; };
 		98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6B1281E7BFC7100D193FF /* UIWebViewTab.swift */; };
 		98F6B12B1E7BFD9300D193FF /* UIWebViewTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F6B12A1E7BFD9300D193FF /* UIWebViewTab.xib */; };
+		98F8FC2F1F3891C900699878 /* UISettingsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F8FC2E1F3891C900699878 /* UISettingsViewTests.swift */; };
+		98F8FC311F38B96900699878 /* UIWebTabsListViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */; };
 		98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */; };
 		98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */; };
 		ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */; };
@@ -397,6 +399,8 @@
 		98F6B1251E7BE62400D193FF /* UIWebToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebToolbarView.xib; path = UserInterface/UIWebToolbarView/UIWebToolbarView.xib; sourceTree = "<group>"; };
 		98F6B1281E7BFC7100D193FF /* UIWebViewTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebViewTab.swift; path = UserInterface/UIWebViewTab/UIWebViewTab.swift; sourceTree = "<group>"; };
 		98F6B12A1E7BFD9300D193FF /* UIWebViewTab.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIWebViewTab.xib; path = UserInterface/UIWebViewTab/UIWebViewTab.xib; sourceTree = "<group>"; };
+		98F8FC2E1F3891C900699878 /* UISettingsViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISettingsViewTests.swift; path = UserInterface/UISettingsViewTests.swift; sourceTree = "<group>"; };
+		98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabsListViewLogicTests.swift; path = UserInterface/UIWebTabsListViewLogicTests.swift; sourceTree = "<group>"; };
 		98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTabsControllerLogicTests.swift; sourceTree = "<group>"; };
 		98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDummyClasses.swift; sourceTree = "<group>"; };
 		ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
@@ -995,6 +999,8 @@
 				985E14D81F3363480069C2F6 /* UIDashboardButtonLogicTests.swift */,
 				98E0E17E1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift */,
 				98E0E1801F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift */,
+				98F8FC2E1F3891C900699878 /* UISettingsViewTests.swift */,
+				98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1031,13 +1037,6 @@
 				98BE1FB21F0299DA00223926 /* UIUserSettingsViewController.swift */,
 			);
 			name = UserSettingsViewController;
-			sourceTree = "<group>";
-		};
-		98D045D91E8AA7A600D97E56 /* UIWebOptionsView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UIWebOptionsView;
 			sourceTree = "<group>";
 		};
 		98D220B61E7FFC8D00B3BD06 /* UIWebTabsListView */ = {
@@ -1121,7 +1120,6 @@
 				9843340A1F06362B0016564E /* LocalizedStringKeys */,
 				98BE1FB11F02990E00223926 /* UserSettingsViewController */,
 				98BE1FAB1F02665600223926 /* UIPrivacyPolicyViewController */,
-				98D045D91E8AA7A600D97E56 /* UIWebOptionsView */,
 				98D220B61E7FFC8D00B3BD06 /* UIWebTabsListView */,
 				98F6B1271E7BFC2D00D193FF /* UIWebViewTab */,
 				98F6B1221E7BE58500D193FF /* UIWebToolbarView */,
@@ -1611,6 +1609,8 @@
 				985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */,
 				985E14D31F330C190069C2F6 /* UISignInViewControllerLogicTests.swift in Sources */,
 				98E0E1811F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift in Sources */,
+				98F8FC311F38B96900699878 /* UIWebTabsListViewLogicTests.swift in Sources */,
+				98F8FC2F1F3891C900699878 /* UISettingsViewTests.swift in Sources */,
 				987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */,
 				981A67611F3224FA002B828D /* UILoginViewLogicTests.swift in Sources */,
 				987072071E82BF0A00151201 /* WebViewTabManagementPoolTests.swift in Sources */,

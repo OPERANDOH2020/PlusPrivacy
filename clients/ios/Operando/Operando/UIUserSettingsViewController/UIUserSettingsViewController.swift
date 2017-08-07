@@ -13,21 +13,18 @@ import UIKit
 class UIUserSettingsViewController: UIViewController {
     
     private var callback: UserSettingsModelUpdateCallback?
-    
     @IBOutlet weak var settingsView: UISettingsView!
     
     
     func setupWith(settingsModel: UserSettingsModel, callback: UserSettingsModelUpdateCallback?){
         _ = self.view
-        
         self.callback = callback
-        self.settingsView.setupWith(settings: settingsModel)
-        
+        self.settingsView.logic.setupWith(settings: settingsModel)
     }
     
     
     @IBAction func didPressApply(_ sender: Any) {
-        self.callback?(self.settingsView.currentSettings)
+        self.callback?(self.settingsView.logic.currentSettings)
         RSCommonUtilities.showOKAlertWithMessage(message: "Done")
     }
     

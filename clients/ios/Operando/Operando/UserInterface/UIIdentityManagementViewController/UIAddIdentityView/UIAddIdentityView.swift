@@ -8,13 +8,16 @@
 
 import UIKit
 
-struct UIAddIdentityViewResult{
+struct UIAddIdentityViewResult: Equatable{
     let email: String
     let domain: Domain
     
     var asFinalIdentity: String {
         return "\(email)@\(domain.name)"
     }
+}
+func ==(lhs: UIAddIdentityViewResult, rhs: UIAddIdentityViewResult) -> Bool {
+    return lhs.email == rhs.email && lhs.domain == rhs.domain
 }
 
 struct UIAddIdentityViewCallbacks{

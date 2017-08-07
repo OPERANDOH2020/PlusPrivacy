@@ -402,27 +402,27 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.swarmClient.startSwarm(SwarmName.identity.rawValue, phase: SwarmPhase.start.rawValue, ctor: IdentityConstructor.generateIdentity.rawValue, arguments: [])
     }
     
-    func add(identity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?)
+    func add(identity: String, withCompletion completion: CallbackWithError?)
     {
         
         workingQueue.async {
             self.whenThereWasAnError = { error in
-                completion?(false, error)
+                completion?(error)
             }
             
             
             self.handlersPerSwarmingName[.identity] = { dataArray in
                 guard let dataDict = dataArray.first as? [String: Any] else {
-                    completion?(false, OPErrorContainer.errorInvalidServerResponse)
+                    completion?(OPErrorContainer.errorInvalidServerResponse)
                     return
                 }
-                guard let successStatus = SwarmClientResponseParsers.parseAddIdentitySuccessStatus(from: dataDict) else{
+                guard let successStatus = SwarmClientResponseParsers.parseAddIdentitySuccessStatus(from: dataDict), successStatus == true else{
                     let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.errorInvalidServerResponse
-                    completion?(false, error)
+                    completion?(error)
                     return
                 }
                 
-                completion?(successStatus, nil)
+                completion?(nil)
             }
         }
         
@@ -455,27 +455,27 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.swarmClient.startSwarm(SwarmName.identity.rawValue, phase: SwarmPhase.start.rawValue, ctor: IdentityConstructor.removeIdentity.rawValue, arguments: [["email": identity] as AnyObject ])
     }
     
-    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: ((_ success: Bool, _ error: NSError?) -> Void)?)
+    func updateDefaultIdentity(to newIdentity: String, withCompletion completion: CallbackWithError?)
     {
         workingQueue.async {
             self.whenThereWasAnError = { error in
-                completion?(false, error)
+                completion?(error)
             }
             
             
             self.handlersPerSwarmingName[.identity] = { dataArray in
                 guard let dataDict = dataArray.first as? [String: Any] else {
-                    completion?(false, OPErrorContainer.errorInvalidServerResponse)
+                    completion?(OPErrorContainer.errorInvalidServerResponse)
                     return
                 }
                 
-                guard let successStatus = SwarmClientResponseParsers.parseUpdateSubstituteIdentitySuccessStatus(from: dataDict) else {
+                guard let successStatus = SwarmClientResponseParsers.parseUpdateSubstituteIdentitySuccessStatus(from: dataDict), successStatus == true  else {
                     let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.errorInvalidServerResponse
-                    completion?(false, error)
+                    completion?(error)
                     return
                 }
                 
-                completion?(successStatus, nil)
+                completion?(nil)
             }
             
         }

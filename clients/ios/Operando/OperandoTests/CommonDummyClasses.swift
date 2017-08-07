@@ -52,15 +52,13 @@ class DummyWebViewTab: UIWebViewTab {
 
 
 
-class DummyWebTabsListView: UIWebTabsListView {
-    override func commonInit() {
-    }
+class DummyWebTabsListViewLogic: UIWebTabsListViewLogic {
     
-    override func setupWith(webTabs: [WebTabDescription], callbacks: UIWebTabsViewCallbacks?) {
+    override func setupWith(webTabs: [WebTabDescription], callbacks: UIWebTabsListViewCallbacks?) {
         self.testWebTabDescriptions = webTabs
         self.testCallbacks = callbacks
     }
     
     var testWebTabDescriptions: [WebTabDescription] = []
-    var testCallbacks: UIWebTabsViewCallbacks?
+    var testCallbacks: UIWebTabsListViewCallbacks?
 }

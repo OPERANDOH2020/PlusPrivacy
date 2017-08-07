@@ -18,6 +18,8 @@ struct UIAddIdentityViewControllerLogicCallbacks {
     let displayAlertWithMessage: CallbackWithString?
     let dismissStatusPopup: VoidBlock?
     let presentError: ((_ error: NSError) -> Void)?
+    
+    static let allNil: UIAddIdentityViewControllerLogicCallbacks = UIAddIdentityViewControllerLogicCallbacks(displayStatusPopupWithMessage: nil, displayAlertWithMessage: nil, dismissStatusPopup: nil, presentError: nil)
 }
 
 class UIAddIdentityViewControllerLogic: NSObject {
@@ -76,7 +78,7 @@ class UIAddIdentityViewControllerLogic: NSObject {
             
             weakSelf?.logicCallbacks.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
             
-            weakRepository?.add(identity: result.asFinalIdentity, withCompletion: { (_, error) in
+            weakRepository?.add(identity: result.asFinalIdentity, withCompletion: { (error) in
                 weakSelf?.logicCallbacks.dismissStatusPopup?()
                 if let error = error {
                     weakSelf?.logicCallbacks.presentError?(error)

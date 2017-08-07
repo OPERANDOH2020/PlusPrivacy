@@ -9,12 +9,33 @@
 import XCTest
 @testable import Operando
 
+class DummyWebTabsListView: UIWebTabsListView {
+    
+    var outletsForLogic: UIWebTabsListViewOutlets?
+    var _logic: UIWebTabsListViewLogic?
+    
+    override func commonInit() {
+    }
+    
+   override var logic: UIWebTabsListViewLogic {
+        get {
+            if _logic == nil {
+                _logic = DummyWebTabsListViewLogic(outlets: self.outletsForLogic ?? .allNil)
+            }
+            
+            return _logic!;
+        }
+    set {
+    }
+    }
+}
+
 class WebTabsControllerLogicTests: XCTestCase {
     
     var logic: WebTabsControllerLogic?
     
     func testOnInitCreatesFirstTab() {
-        let expectation = self.expectation(description: "On init the logic should create it's first tab and ask for a view for it")
+        let expectation = self.expectation(description: "On init the logic should create its first tab and ask for a view for it")
         
         let callbacks: WebTabsControllerLogicCallbacks = WebTabsControllerLogicCallbacks(hideWebViewTabCallback: nil, showWebViewTabCallback: nil, hideWebTabsView: nil, showWebTabsViewOnTop: nil, addNewWebViewTabCallback: { () -> UIWebViewTab in
             expectation.fulfill()
