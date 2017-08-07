@@ -39,7 +39,7 @@ var contactSwarmming = {
         node:"EmailAdapter",
         code:function(){
             var self = this;
-            sendEmail(self.userEmail,"contact@"+thisAdapter.config.Core.operandoHost,self.subject,self.message,S(function(err, deliveryResult){
+            sendContactEmail(self.subject,self.message,self.userEmail,S(function(err, deliveryResult){
                 if (err) {
                     self.error = err.message;
                     self.home('emailDeliveryUnsuccessful');
