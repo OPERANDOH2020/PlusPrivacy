@@ -8,10 +8,11 @@ var plugin;
 var testEmail;
 var testAlias;
 var testDirectory = __dirname+"/../tests";
-
+var fs = require('fs');
 
 function readConfig(){
-    testCfg = plugin.config.get("test.ini",readConfig);
+    var testCfg = plugin.config.get("test.ini",readConfig);
+    plugin.loginfo(testCfg);
     testEmail = testCfg.main.testEmail;
     testAlias = testCfg.main.testAlias
 }
@@ -26,6 +27,7 @@ exports.register = function(){
 exports.performForwardingTest = function (next,connection) {
     if(connection.transaction.rcpt_to[0].user+"@"+connection.transaction.rcpt_to[0].host===testAlias){
         fs.writeFileSync(testDirectory+"/email_received_at_"+new Date().toISOString());
+        next();
     }
     else if(connection.transaction.rcpt_to[0].user+"@"+connection.transaction.rcpt_to[0].host===testEmail){
         fs.writeFileSync(testDirectory+"/email_forwarded_at_"+new Date().toISOString());
@@ -34,4 +36,3 @@ exports.performForwardingTest = function (next,connection) {
         next()
     }
 }
-

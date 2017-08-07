@@ -38,7 +38,7 @@ var forwardedFileName = undefined;
 
 
 
-fs.watch(cfg.testDirectory,function(type,file){
+fs.watch(__dirname,function(type,file){
         if(type == 'rename'){
                 if(file.match("email_received_at_")){
                         receivedFileName = file;
@@ -53,15 +53,17 @@ fs.watch(cfg.testDirectory,function(type,file){
 
                                 fs.unlinkSync(__dirname+"/"+receivedFileName);
                                 fs.unlinkSync(__dirname+"/"+forwardedFileName);
-
+                                fs.unwatchFile(__dirname)
                                 process.exit(0)
                         }else{
                                 console.log("[WARNING] Forwarding took more than "+warning_minutes+" minutes");
+                                fs.unwatchFile(__dirname)
                                 process.exit(1);
                         }
                 }
         }
 })
+
 
 mailer.createTransport(smtpTransport({host:emailHost, port: emailPort, ignoreTLS:true})).sendMail({
         "from": "test@plusprivacy.com",
@@ -74,8 +76,10 @@ mailer.createTransport(smtpTransport({host:emailHost, port: emailPort, ignoreTLS
 var stop_time = 1000*60*critical_minutes;
 setTimeout(function(){
         console.log("[FAILED] Forwarding took more than "+critical_minutes+" minutes")
+        fs.unwatchFile(__dirname)
         process.exit(2)
 },stop_time)
+
 
 
 
