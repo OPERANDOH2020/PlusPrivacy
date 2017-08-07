@@ -94,7 +94,7 @@ var userService = exports.userService = {
         contactMessageHandler.onResponse("success", function(response){
             success_callback();
         });
-        contactMessageHandler.onResponse("success", function(response){
+        contactMessageHandler.onResponse("error", function(response){
             error_callback();
         });
 
