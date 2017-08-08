@@ -21,6 +21,7 @@ enum SwarmName: String
     case user = "UserInfo.js"
     case notification = "notification.js"
     case email = "emails.js"
+    case ude = "UDESwarm.js"
 }
 
 enum SwarmPhase: String
@@ -70,8 +71,10 @@ enum NotificationConstructor: String {
     case dismissNotification = "dismissNotification"
 }
 
-
-
 enum EmailConstructor: String {
     case resetPassword = "resetPassword"
+}
+
+enum UDEConstructor: String {
+    case getApplicationsOnDevice = "getApplicationsOnDevice"
 }

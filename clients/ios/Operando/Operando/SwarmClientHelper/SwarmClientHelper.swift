@@ -25,11 +25,12 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                         PrivacyForBenefitsRepository,
                         UsersRepository,
                         UserInfoRepository,
-                        NotificationsRepository
+                        NotificationsRepository,
+                        AppSCDsRepository
 {
 
 
-    static let ServerURL = "https://plusprivacy.com:8080";
+    static let ServerURL = "http://192.168.100.173:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
     var whenThereWasAnError: ((_ error: NSError?) -> Void)?
@@ -47,6 +48,37 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         super.init()
         self.swarmClient.delegate = self
     }
+    
+    //MARK: AppSCDsRepository
+    
+    func retrieveAllSCDsFor(deviceId: String, completion: (([[String : Any]]?, NSError?) -> Void)?) {
+        workingQueue.async {
+            
+            self.whenThereWasAnError = { error in
+                completion?(nil, error)
+                return
+            }
+            
+            self.handlersPerSwarmingName[.ude] = { dataArray in
+                guard let dict = dataArray.first as? [String: Any] else {
+                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                print(dict["applicationDescriptions"])
+                
+                guard let appSCDs = dict["applicationDescriptions"] as? [[String: Any]] else {
+                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                completion?(appSCDs, nil)
+            }
+        }
+        
+        swarmClient.startSwarm(SwarmName.ude.rawValue, phase: SwarmPhase.start.rawValue, ctor: UDEConstructor.getApplicationsOnDevice.rawValue, arguments: [deviceId as AnyObject])
+    }
+    
     
     //MARK: UsersRepository
     

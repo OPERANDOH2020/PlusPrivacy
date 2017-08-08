@@ -16,7 +16,12 @@ struct UIWebViewTabLogicOutlets {
     let addressTF: UITextField?
     let activityIndicator: UIActivityIndicatorView?
     let addressBarView: UIView?
+    
+    static var allDefault: UIWebViewTabLogicOutlets {
+        return UIWebViewTabLogicOutlets(contentView: .init(), goButton: .init(), addressTF: .init(), activityIndicator: .init(), addressBarView: .init())
+    }
 }
+
 
 class UIWebViewTabLogic: NSObject, WKNavigationDelegate, WKUIDelegate, UITextFieldDelegate,
 LongPressGestureDelegate {
@@ -48,13 +53,13 @@ LongPressGestureDelegate {
     }
     
     
-    func setupWith(model: UIWebViewTabNewWebViewModel, callbacks: UIWebViewTabCallbacks?) {
+    func setupWith(model: UIWebViewTabModel, callbacks: UIWebViewTabCallbacks?) {
         self.callbacks = callbacks
+        self.webView = model.webView
         
-        let webView = self.buildWebView(with: model.setupParameter)
-        self.commonSetupWith(webView: webView, navigationModel: model.navigationModel)
-        self.longPressRecognizer = LongPressGestureRecognizer(webView: webView)
-        self.longPressRecognizer?.longPressGestureDelegate = self
+        self.injectAntiFingerPrint(in: self.webView)
+        self.commonSetupWith(webView: self.webView, navigationModel: model.navigationModel)
+
         
     }
     
@@ -93,58 +98,43 @@ LongPressGestureDelegate {
         let snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.getPageTitle { pageTitle in
-            handler?(WebTabDescription(name: pageTitle ?? "", screenshot: snapshotImage, favIconURL: ""))
-        }
+        
+        handler?(WebTabDescription(name: self.webView?.title ?? "", screenshot: snapshotImage, favIconURL: ""))
+        
         
     }
     
-    
-    func getPageTitle(in callback: ((_ title: String?) -> Void)?){
-        callback?(self.webView?.title)
-    }
     
     //MARK: END OF public methods and initializer
     
     
-    private func buildWebView(with param: WebViewSetupParameter) -> WKWebView {
-        
-        let webViewWithConfiguration: (_ conf: WKWebViewConfiguration) -> WKWebView = { conf in
-            let webView = WKWebView(frame: .zero, configuration: conf)
-            
-            if let path = Bundle.main.path(forResource: "FingerprintPreventing", ofType: "js") {
-                if let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) {
-                    let userScript = WKUserScript(source: source as String, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
-                    webView.configuration.userContentController.addUserScript(userScript)
-                    
-                }
+    private func injectAntiFingerPrint(in webView: WKWebView?) {
+        if let path = Bundle.main.path(forResource: "FingerprintPreventing", ofType: "js") {
+            if let source = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) {
+                let userScript = WKUserScript(source: source as String, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
+                webView?.configuration.userContentController.addUserScript(userScript)
+                
             }
-            return webView
-        }
-        
-        switch param {
-        case .fullConfiguration(let configuration):
-            return webViewWithConfiguration(configuration);
-            
-        case .processPool(let processPool):
-            let conf = self.createConfigurationWith(processPool: processPool)
-            return webViewWithConfiguration(conf)
         }
     }
     
     
-    private func commonSetupWith(webView: WKWebView, navigationModel: UIWebViewTabNavigationModel?){
-        
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        
-        self.webView = webView
-        self.constrain(webView: webView)
+    private func commonSetupWith(webView: WKWebView?, navigationModel: UIWebViewTabNavigationModel?){
+        if let webView = webView {
+            webView.navigationDelegate = self
+            webView.uiDelegate = self
+            
+            self.webView = webView
+            self.constrain(webView: webView)
+            self.longPressRecognizer = LongPressGestureRecognizer(webView: webView)
+            self.longPressRecognizer?.longPressGestureDelegate = self
+        }
         
         if let activityIndicator = self.outlets?.activityIndicator {
             self.outlets?.contentView?.bringSubview(toFront: activityIndicator)
             
         }
+        
         if let navigationModel = navigationModel {
             self.changeNavigationModel(to: navigationModel, callback: nil)
         }
@@ -217,33 +207,12 @@ LongPressGestureDelegate {
         guard !self.urlHistory.contains(url) else {
             return
         }
-        
-        if self.urlHistory.count == 0 {
-            self.currentURLIndex = 0;
-        } else {
-            self.currentURLIndex += 1;
-        }
-        
+
         self.urlHistory.append(url)
-        
+        self.currentURLIndex = self.urlHistory.index(of: url) ?? self.currentURLIndex
         
     }
     
-    private func createConfigurationWith(processPool: WKProcessPool) -> WKWebViewConfiguration {
-        
-        let configuration = WKWebViewConfiguration()
-        configuration.processPool = processPool
-        if #available(iOS 9.0, *) {
-            configuration.allowsAirPlayForMediaPlayback = false
-            configuration.allowsPictureInPictureMediaPlayback = false;
-            configuration.requiresUserActionForMediaPlayback = true;
-        } else {
-            // Fallback on earlier versions
-        };
-        configuration.allowsInlineMediaPlayback = false;
-        return configuration
-        
-    }
     
     //MARK: - WKWebViewDelegate
     

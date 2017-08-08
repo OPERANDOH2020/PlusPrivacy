@@ -150,6 +150,8 @@
         
         [self installInputSwizzlersWithEventDispatcher:[PPEventDispatcher sharedInstance]];
         [self installSupervisorsWithDocument:scdDocument eventsDispatcher:[PPEventDispatcher sharedInstance]];
+        
+        [self trySendToServerSCD:jsonText withCompletion:nil];
     }];
     
 
@@ -161,7 +163,10 @@
         if (errorIfAny) {
             NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
             [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+            return;
         }
+        
+        SAFECALL(completion)
     }];
 }
 

@@ -8,7 +8,7 @@
 
 #import "SCDSender.h"
 
-#define kBaseURL @"https://plusprivacy.com:8080"
+#define kBaseURL @"http://192.168.100.173:8080"
 
 @interface SCDSendParamaters()
 @property (readwrite, strong, nonatomic) NSString *scdJSONText;
@@ -37,7 +37,7 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[self buildSendSCDURL:params]]];
     
-    request.HTTPMethod = @"PUT";
+    request.HTTPMethod = @"POST";
     request.HTTPBody = [params.scdJSONText dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     

@@ -90,7 +90,11 @@ class WebTabsControllerLogic: NSObject {
         
         if self.canCreateNewWebViewTab,
             let webViewTab = callbacks.addNewWebViewTabCallback?() {
-            let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[index].navigationModel, setupParameter: WebViewSetupParameter.processPool(self.sharedProcessPool))
+            
+            let webView = WKWebView(frame: .zero)
+            webView.configuration.processPool = self.sharedProcessPool;
+            
+            let webViewTabModel = UIWebViewTabModel(navigationModel: self.webTabs[index].navigationModel, webView: webView)
             
             webViewTab.logic.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
             self.model.webPool.addNew(webViewTab: webViewTab)
@@ -101,11 +105,11 @@ class WebTabsControllerLogic: NSObject {
         }
         
         if let navigationModel = self.webTabs[index].navigationModel,
-            let reusedWebView = self.model.webPool.oldestWebViewTab {
-            self.model.webPool.markWebViewTab(reusedWebView)
-            reusedWebView.logic.changeNavigationModel(to: navigationModel, callback: {
+            let reusedWebViewTab = self.model.webPool.oldestWebViewTab {
+            self.model.webPool.markWebViewTab(reusedWebViewTab)
+            reusedWebViewTab.logic.changeNavigationModel(to: navigationModel, callback: {
                 self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
-                callback(reusedWebView)
+                callback(reusedWebViewTab)
             })
             return
         }
@@ -221,7 +225,8 @@ class WebTabsControllerLogic: NSObject {
             
             self.webTabs.append(newWebTab)
             
-            let model: UIWebViewTabNewWebViewModel = UIWebViewTabNewWebViewModel(navigationModel: newWebTab.navigationModel, setupParameter: .fullConfiguration(configuration))
+            let webView: WKWebView = WKWebView(frame: .zero, configuration: configuration)
+            let model: UIWebViewTabModel = UIWebViewTabModel(navigationModel: newWebTab.navigationModel, webView: webView)
             
             tabView.logic.setupWith(model: model, callbacks: self.callbacksForWebView())
             self.model.webToolbarViewLogic?.changeNumberOfItems(to: self.webTabs.count)
@@ -267,7 +272,10 @@ class WebTabsControllerLogic: NSObject {
         
         
         if let webViewTab = callbacks.addNewWebViewTabCallback?() {
-            let webViewTabModel = UIWebViewTabNewWebViewModel(navigationModel: self.webTabs[self.activeTabIndex].navigationModel, setupParameter: .processPool(self.sharedProcessPool))
+            let webView = WKWebView(frame: .zero)
+            webView.configuration.processPool = self.sharedProcessPool;
+            
+            let webViewTabModel = UIWebViewTabModel(navigationModel: self.webTabs[self.activeTabIndex].navigationModel, webView: webView)
             
             webViewTab.logic.setupWith(model: webViewTabModel, callbacks: self.callbacksForWebView())
             self.model.webPool.addNew(webViewTab: webViewTab)

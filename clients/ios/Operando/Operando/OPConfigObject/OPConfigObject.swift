@@ -79,6 +79,7 @@ class OPConfigObject: NSObject
         self.flowController?.setSideMenu(enabled: false)
         weak var weakSelf = self
         
+        
         if let (email, password) = CredentialsStore.retrieveLastSavedCredentialsIfAny()
         {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -92,6 +93,12 @@ class OPConfigObject: NSObject
                     weakSelf?.flowController?.displayLoginHierarchy()
                     return
                 }
+                
+                self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
+                    print(scds)
+                    print(error)
+                }
+                
                 weakSelf?.currentUserIdentity = data
                 weakSelf?.flowController?.setupHierarchyStartingWithDashboardIn(window)
                 weakSelf?.flowController?.setSideMenu(enabled: true)
@@ -101,6 +108,7 @@ class OPConfigObject: NSObject
             weakSelf?.flowController?.displayLoginHierarchy()
         }
         
+
     }
     
     func open(url: URL) -> Bool {
@@ -139,6 +147,12 @@ class OPConfigObject: NSObject
             if let error = error {
                 OPErrorContainer.displayError(error: error);
                 return
+            }
+            
+            
+            self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
+                print(scds)
+                print(error)
             }
             
             if loginInfo.wishesToBeRemembered {

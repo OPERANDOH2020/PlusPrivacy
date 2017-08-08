@@ -23,9 +23,9 @@ class DummyWebToolbarLogic: UIWebToolbarViewLogic {
 class DummyWebViewTabLogic: UIWebViewTabLogic {
     
     var testCallbacks: UIWebViewTabCallbacks?
-    var testModel: UIWebViewTabNewWebViewModel?
+    var testModel: UIWebViewTabModel?
     
-    override func setupWith(model: UIWebViewTabNewWebViewModel, callbacks: UIWebViewTabCallbacks?) {
+    override func setupWith(model: UIWebViewTabModel, callbacks: UIWebViewTabCallbacks?) {
         self.testCallbacks = callbacks
         self.testModel = model
     }

@@ -9,13 +9,93 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Operando/Utilities/OPErrorContainer.swift"
-            timestampString = "523548947.936648"
+            filePath = "Operando/OPConfigObject/OPConfigObject.swift"
+            timestampString = "523895816.408412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "displayError(error:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "logiWithInfoAndUpdateUI(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operando/OPConfigObject/OPConfigObject.swift"
+            timestampString = "523895816.408412"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "logiWithInfoAndUpdateUI(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operando/OPConfigObject/OPConfigObject.swift"
+            timestampString = "523895816.408412"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "logiWithInfoAndUpdateUI(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Operando.OPConfigObject.((logiWithInfoAndUpdateUI in _D29924FFD8E288C2B16DAAD1D56AACAF) (Operando.LoginInfo) -&gt; ()).(closure #1)"
+                  moduleName = "Operando"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/OPConfigObject/OPConfigObject.swift"
+                  timestampString = "523895951.291113"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "527">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Operando.OPConfigObject.((logiWithInfoAndUpdateUI in _D29924FFD8E288C2B16DAAD1D56AACAF) (Operando.LoginInfo) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Operando"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Costin/Desktop/Projects/Official/PlusPrivacy/clients/ios/Operando/Operando/OPConfigObject/OPConfigObject.swift"
+                  timestampString = "523895951.292598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operando/OPConfigObject/OPConfigObject.swift"
+            timestampString = "523895803.432988"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "applicationDidStartInWindow(window:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

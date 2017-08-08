@@ -18,6 +18,7 @@
 		9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */; };
 		9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */; };
 		9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */ = {isa = PBXBuildFile; fileRef = 9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */; };
+		981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981991171F39F2B6004F3264 /* AppSCDsRepository.swift */; };
 		981A67611F3224FA002B828D /* UILoginViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A67601F3224FA002B828D /* UILoginViewLogicTests.swift */; };
 		982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982227541DC8EBD40053B993 /* UILocalizable.swift */; };
 		9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */; };
@@ -219,6 +220,7 @@
 		9812DB5A1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAddIdentityAlertViewController.swift; path = UserInterface/UIAddIdentityAlertViewController/UIAddIdentityAlertViewController.swift; sourceTree = "<group>"; };
 		9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UtilityControllers.storyboard; sourceTree = "<group>"; };
 		9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = FingerprintPreventing.js; path = UserInterface/UIWebViewTab/FingerprintPreventing.js; sourceTree = "<group>"; };
+		981991171F39F2B6004F3264 /* AppSCDsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSCDsRepository.swift; path = AppSCDsRepository/AppSCDsRepository.swift; sourceTree = "<group>"; };
 		981A67601F3224FA002B828D /* UILoginViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILoginViewLogicTests.swift; path = UserInterface/UILoginViewLogicTests.swift; sourceTree = "<group>"; };
 		982227541DC8EBD40053B993 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILocalizable.swift; path = UserInterface/UILocalizableLabel/UILocalizable.swift; sourceTree = "<group>"; };
 		9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBrowsingNavigationBar.swift; sourceTree = "<group>"; };
@@ -451,6 +453,14 @@
 				9819317D1F0D1C4000965A7D /* FingerprintPreventing.js */,
 			);
 			name = FingerprintPreventing;
+			sourceTree = "<group>";
+		};
+		981991161F39F27C004F3264 /* AppSCDsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				981991171F39F2B6004F3264 /* AppSCDsRepository.swift */,
+			);
+			name = AppSCDsRepository;
 			sourceTree = "<group>";
 		};
 		982227531DC8EBB90053B993 /* UILocalizable */ = {
@@ -926,6 +936,7 @@
 		9881D2321D0EC845005EE1FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				981991161F39F27C004F3264 /* AppSCDsRepository */,
 				98BE1FAE1F0293EE00223926 /* UiserSettingsModel */,
 				9896F46B1E892D1200BA0D6E /* WebAdBlocker */,
 				9863E8AE1DEC28F50095CA30 /* IdentitiesManagementRepository */,
@@ -1573,6 +1584,7 @@
 				9896F46D1E892D7B00BA0D6E /* WebAdBlocker.swift in Sources */,
 				98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */,
 				98EAF6A61CCF92CA00C77649 /* UISignInViewController.swift in Sources */,
+				981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */,
 				98EAF6B41CCFA83600C77649 /* UIRegistrationViewController.swift in Sources */,
 				9852C6FA1CD0FEA000AF2BE5 /* OPViewUtils.swift in Sources */,
 				985A0D461DCCB0E40010C799 /* Dictionary_Initializers.swift in Sources */,

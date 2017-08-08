@@ -11,18 +11,14 @@ import WebKit
 
 extension URL {
     static func tryBuildWithHttp(with input: String) -> URL? {
-        if let url = URL(string: input), input.contains("http") {
+        if input.contains("http"), let url = URL(string: input) {
             return url
         }
         
-        if let url = URL(string: "http://\(input)") {
+        if input.contains("www."), let url = URL(string: "http://\(input)") {
             return url
         }
-        
-        if let url = URL(string: "http://www.\(input)") {
-            return url
-        }
-        
+            
         return nil
         
     }
@@ -30,7 +26,7 @@ extension URL {
 
 
 
-struct UIWebViewTabNavigationModel {
+struct UIWebViewTabNavigationModel: Equatable {
     let urlList: [URL]
     let currentURLIndex: Int
     init?(urlList: [URL], currentURLIndex: Int) {
@@ -42,14 +38,13 @@ struct UIWebViewTabNavigationModel {
     }
 }
 
-enum WebViewSetupParameter {
-    case fullConfiguration(WKWebViewConfiguration)
-    case processPool(WKProcessPool)
+func ==(lhs: UIWebViewTabNavigationModel, rhs: UIWebViewTabNavigationModel) -> Bool {
+    return lhs.urlList == rhs.urlList && lhs.currentURLIndex == rhs.currentURLIndex
 }
 
-struct UIWebViewTabNewWebViewModel {
+struct UIWebViewTabModel {
     let navigationModel: UIWebViewTabNavigationModel?
-    let setupParameter: WebViewSetupParameter
+    let webView: WKWebView?
 }
 
 
@@ -63,8 +58,12 @@ struct UIWebViewTabCallbacks {
     let whenUserOpensInNewTab: ((_ link: URL) -> Void)?
 }
 
-struct WebTabDescription {
+struct WebTabDescription: Equatable {
     let name: String
     let screenshot: UIImage?
     let favIconURL: String?
 }
+func ==(lhs: WebTabDescription, rhs: WebTabDescription) -> Bool {
+    return lhs.name == rhs.name
+}
+
