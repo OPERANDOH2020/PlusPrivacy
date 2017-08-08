@@ -42,12 +42,6 @@ sendEmail = function(from,to,subject,text,callback){
 
 sendContactEmail = function(subject, text, replyToAddress,callback){
 
-
-    var replyTo = jwt.sign(JSON.stringify({
-        "alias":"contact@" + thisAdapter.config.Core.operandoHost,
-        "sender":replyToAddress
-    }),encryptionKey,{algorithm: "HS256"});
-
     transporter.sendMail({
         "from":"contact@" + thisAdapter.config.Core.operandoHost,
         "to": "contact@"+thisAdapter.config.Core.operandoHost,
@@ -55,6 +49,6 @@ sendContactEmail = function(subject, text, replyToAddress,callback){
         "text": text,
         "replyTo": replyToAddress
     }, callback);
-}
+};
 
 
