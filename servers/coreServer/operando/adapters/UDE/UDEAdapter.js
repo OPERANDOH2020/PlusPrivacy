@@ -81,13 +81,7 @@ function registerModels(callback){
                     length:255
                 },
                 applicationDescription:{
-                    type: "JSON",
-                    length:255,
-                    index:true
-                },
-                applicationName:{
-                    type:"string",
-                    length:255
+                    type: "JSON"
                 }
             }
         }
@@ -188,7 +182,7 @@ registerApplicationInDevice = function(applicationId,deviceId,callback){
 
 deleteUserDevices = function(userId, callback){
 
-    flow.create("registerModels",{
+    flow.create("deleteUserDevices",{
 
         begin:function(){
             this.errs = [];
@@ -230,3 +224,49 @@ deleteUserDevices = function(userId, callback){
 getFilteredDevices = function(filter,callback){
     persistence.filter("UserDevice",filter,callback);
 }
+
+getApplicationsForDevice = function(deviceId,callback){
+    flow.create("getDeviceApplications",{
+
+        begin:function(){
+            this.errs = [];
+            persistence.filter("DeviceApplicationMapping",{"deviceId": deviceId}, this.continue("gotMappings"));
+        },
+        gotMappings:function(err, mappings){
+            var self = this;
+            if(err){
+                callback(err);
+            }
+            else  if(mappings.length === 0){
+                callback(undefined,[])
+            }else{
+                this.descriptions = [];
+                mappings.forEach(function(mapping){
+                    persistence.findById("Application",mapping.applicationId,self.continue("gotApplication"))
+                })
+            }
+        },
+        gotApplication:function(err,application){
+            if(err){
+                this.errs.push(err);
+            }else{
+                this.descriptions.push(application.applicationDescription)
+            }
+        },
+        end:{
+            join:"gotApplication",
+            code:function(){
+                if(this.errs.length>0){
+                    callback(this.errs);
+                }else{
+                    callback(undefined,this.descriptions);
+                }
+            }
+        }
+    })();
+}
+
+
+setTimeout(function(){
+    startSwarm("UDESwarm.js","getApplicationsOnDevice","deviceXX");
+},10000)

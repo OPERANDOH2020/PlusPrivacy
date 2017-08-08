@@ -204,7 +204,7 @@ var identitySwarming = {
     getUserIdWithProxy:{
         node: "IdentityManager",
         code: function () {
-            if(this.proxy==='support@'+thidAdapter.config.core.operandoHost){
+            if(this.proxy==='support@'+thisAdapter.config.Core.operandoHost){
                 /*
                 For this particular proxy the emails must be forwarded to multiple destinations.
                 A little confusing and ugly, but just ignore it.
