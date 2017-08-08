@@ -86,7 +86,7 @@ var websiteService = exports.websiteService = {
             var appVisibility;
 
             appNameRegex = '<div\\sclass="_5xu4">\\s*<header>\\s*<h3.*?>(.*?)</h3>';
-            appIconRegex = /<div\s+class="_5xu4"><i\s+class="img img"\s+style="background-image: url\(&quot;(.+?)&quot;\);/;
+            appIconRegex = /<div\s+class="_5xu4"><i\s+class="img img _2sxw"\s+style="background-image: url\(&quot;(.+?)&quot;\);/;
             permissionsRegex = '<span\\sclass="_5ovn">(.*?)</span>';
             appVisibility = '<div\\sclass="_52ja"><span>(.*?)</span></div>';
 
