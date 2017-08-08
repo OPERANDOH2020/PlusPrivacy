@@ -54,7 +54,7 @@ sendContactEmail = function(subject, text, replyToAddress,callback){
         "to": "contact@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text,
-        "replyTo": to
+        "replyTo": replyTo
     }, callback);
 }
 
