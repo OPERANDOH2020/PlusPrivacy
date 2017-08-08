@@ -52,13 +52,10 @@ var udeSwarming = {
         }
     },
 
-    registerApplication:function(applicationId,deviceId,applicationDescription){
+    registerApplication:function(deviceId,applicationId,applicationDescription){
         this.deviceId = deviceId;
         this.applicationId = applicationId;
         this.applicationDescription = applicationDescription
-
-        console.log(arguments)
-
         this.swarm('registerApp');
     },
     registerApp:{
@@ -70,10 +67,41 @@ var udeSwarming = {
                     self.err = err.message;
                     self.home('failed');
                 }else{
-                    self.home('Application Registered');
+                    registerApplication(self.applicationId,self.applicationDescription,S(function(err,result){
+                        if(err){
+                            self.err = err.message;
+                            self.home('failed')
+                        }else{
+                            self.home('Application Registered');
+                        }
+                    }))
                 }
             }))
         }
+    },
+
+    getApplicationsOnDevice:function(deviceId){
+        this.deviceId = deviceId;
+        this.swarm("getApplications");
+    },
+    getApplications:{
+        node:"UDEAdapter",
+        code:function(){
+            var self = this;
+            getApplicationsForDevice(this.deviceId,S(function(err,result){
+                if(err){
+                    self.err = err;
+                    self.home('failed')
+                }else{
+                    self.applicationDescriptions = result;
+                    self.home("Got descriptions")
+                }
+            }))
+
+        }
+
     }
+
 };
 udeSwarming;
+

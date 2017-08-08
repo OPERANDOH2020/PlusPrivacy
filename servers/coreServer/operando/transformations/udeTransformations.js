@@ -4,7 +4,7 @@
 
 exports.transformations = {
     updateEntity: {
-        method: 'put',
+        method: 'post',
         params: ["deviceId","applicationId","__body"],
         path: '/registerApplication/$deviceId/$applicationId',
         code: function (deviceId,applicationId,applicationDescription,callback) {
