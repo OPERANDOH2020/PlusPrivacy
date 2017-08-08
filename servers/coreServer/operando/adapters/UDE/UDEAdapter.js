@@ -265,8 +265,3 @@ getApplicationsForDevice = function(deviceId,callback){
         }
     })();
 }
-
-
-setTimeout(function(){
-    startSwarm("UDESwarm.js","getApplicationsOnDevice","deviceXX");
-},10000)
