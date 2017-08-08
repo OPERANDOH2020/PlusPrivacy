@@ -54,7 +54,7 @@ sendContactEmail = function(subject, text, replyToAddress,callback){
 
     transporter.sendMail({
         "from":"feedback@" + thisAdapter.config.Core.operandoHost,
-        "to": thisAdapter.config.Core.operandoHost,
+        "to": "contact@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text,
         "replyTo": "pigeon_first@yahoo.com"
