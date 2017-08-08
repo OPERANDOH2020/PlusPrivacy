@@ -42,15 +42,16 @@ sendEmail = function(from,to,subject,text,callback){
 
 sendContactEmail = function(subject, text, replyToAddress,callback){
     to = jwt.sign(JSON.stringify({
-        "alias":"feedback@" + thisAdapter.config.Core.operandoHost,
-        "sender":"contact@" + thisAdapter.config.Core.operandoHost
+        "alias":"contact@" + thisAdapter.config.Core.operandoHost,
+        "sender":replyToAddress
     }),encryptionKey,{algorithm: "HS256"});
 
     transporter.sendMail({
-        "to": "reply_anonymously_to_sender_"+to+"@"+thisAdapter.config.Core.operandoHost,
+        "from":"feedback@" + thisAdapter.config.Core.operandoHost,
+        "to": thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text,
-        "replyTo": replyToAddress
+        "replyTo": to
     }, callback);
 }
 
