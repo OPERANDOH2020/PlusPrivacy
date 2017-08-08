@@ -47,7 +47,6 @@ sendContactEmail = function(subject, text, replyToAddress,callback){
     }),encryptionKey,{algorithm: "HS256"});
 
     transporter.sendMail({
-        "from": "feedback@" + thisAdapter.config.Core.operandoHost,
         "to": "reply_anonymously_to_sender_"+to+"@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text,

@@ -42,7 +42,7 @@ var contactSwarmming = {
             sendContactEmail(self.subject,self.message,self.userEmail,S(function(err, deliveryResult){
                 if (err) {
                     self.error = err.message;
-                    self.home('emailDeliveryUnsuccessful');
+                    self.home('error');
                 } else {
                     self.home('success');
                 }
