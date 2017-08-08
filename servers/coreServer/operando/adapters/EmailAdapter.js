@@ -44,20 +44,17 @@ sendContactEmail = function(subject, text, replyToAddress,callback){
 
 
 
-    /*var replyTo = jwt.sign(JSON.stringify({
+    var replyTo = jwt.sign(JSON.stringify({
         "alias":"contact@" + thisAdapter.config.Core.operandoHost,
         "sender":replyToAddress
-    }),encryptionKey,{algorithm: "HS256"});*/
-
-
-
+    }),encryptionKey,{algorithm: "HS256"});
 
     transporter.sendMail({
         "from":"feedback@" + thisAdapter.config.Core.operandoHost,
         "to": "contact@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
         "text": text,
-        "replyTo": "pigeon_first@yahoo.com"
+        "replyTo": to
     }, callback);
 }
 
