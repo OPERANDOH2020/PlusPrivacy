@@ -20,7 +20,141 @@ struct UIChangePasswordViewCallbacks{
 
 let kMinimumPasswordChars = 5
 
-class UIChangePasswordView: RSNibDesignableView, UITextFieldDelegate {
+struct UIChangePasswordViewOutlets {
+    let currentPasswordTF: UITextField?
+    let confirmPasswordTF: UITextField?
+    let newPasswordTF: UITextField?
+    
+    let cancelButton: UIButton?
+    let changePasswordButton: UIButton?
+    
+    static var allDefault: UIChangePasswordViewOutlets {
+        return UIChangePasswordViewOutlets(currentPasswordTF: .init(), confirmPasswordTF: .init(), newPasswordTF: .init(), cancelButton: .init(), changePasswordButton: .init())
+    }
+    
+}
+
+struct UIChangePasswordViewLogicCallbacks {
+    let displayAlertMessage: CallbackWithString?
+}
+
+class UIChangePasswordViewLogic: NSObject, UITextFieldDelegate {
+    private var callbacks: UIChangePasswordViewCallbacks?
+    private var editingTextField: UITextField?
+
+    let outlets: UIChangePasswordViewOutlets
+    let logicCallbacks: UIChangePasswordViewLogicCallbacks?
+    
+    init(outlets: UIChangePasswordViewOutlets, logicCallbacks: UIChangePasswordViewLogicCallbacks?) {
+        self.outlets = outlets
+        self.logicCallbacks = logicCallbacks
+        super.init()
+        self.commonInit()
+    }
+    
+    private func commonInit() {
+        self.outlets.confirmPasswordTF?.delegate = self
+        self.outlets.newPasswordTF?.delegate = self
+        self.outlets.currentPasswordTF?.delegate = self
+        
+        self.outlets.cancelButton?.addTarget(self, action: #selector(didPressCancel(_:)), for: .touchUpInside)
+        
+        self.outlets.changePasswordButton?.addTarget(self, action: #selector(didPressChange(_:)), for: .touchUpInside)
+    
+    }
+    
+    
+    func setupWith(callbacks: UIChangePasswordViewCallbacks?){
+        self.callbacks = callbacks
+        self.clearEverything()
+    }
+    
+    func clearEverything(){
+        self.outlets.currentPasswordTF?.text = nil
+        self.outlets.newPasswordTF?.text = nil
+        self.outlets.confirmPasswordTF?.text = nil
+    }
+    
+    //MARK: Textfield Delegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        var nextTF: UITextField?
+        if let currentPassTF = self.outlets.currentPasswordTF, currentPassTF == textField {
+            nextTF = self.outlets.newPasswordTF
+        } else if let newPassTF = self.outlets.newPasswordTF, newPassTF == textField {
+            nextTF = self.outlets.confirmPasswordTF
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                textField.resignFirstResponder()
+            })
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            nextTF?.becomeFirstResponder()
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.editingTextField = textField
+        return true
+    }
+    
+    //Mark: IBActions
+    
+    
+    @IBAction func didPressCancel(_ sender: AnyObject) {
+        self.callbacks?.whenCanceled?()
+    }
+    
+    @IBAction func didPressChange(_ sender: AnyObject) {
+        if let errorMessage = self.errorMessageForValidatingPasswords() {
+            self.logicCallbacks?.displayAlertMessage?(errorMessage)
+            return
+        }
+        if let currentPassword = self.outlets.currentPasswordTF?.text,
+            let newPassword = self.outlets.newPasswordTF?.text {
+            self.callbacks?.whenConfirmedToChange?(currentPassword, newPassword)
+        }
+    }
+    
+
+    
+    //MARK: private utilities
+    
+    private func errorMessageForValidatingPasswords() -> String? {
+        guard let newPassword = self.outlets.newPasswordTF?.text, !newPassword.isEmpty,
+            let confirmation = self.outlets.confirmPasswordTF?.text, !confirmation.isEmpty,
+            let currentPassword = self.outlets.currentPasswordTF?.text, !currentPassword.isEmpty else {
+                return Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey)
+        }
+        
+        guard currentPassword.characters.count > 0 else {
+            return Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey)
+        }
+        
+        guard newPassword.characters.count >= kMinimumPasswordChars else {
+            return Bundle.localizedStringFor(key: kPasswordTooShortLocalizableKey)
+        }
+        
+        guard newPassword == confirmation else {
+            return Bundle.localizedStringFor(key: kPasswordsMustMatchLocalizableKey)
+        }
+        
+        guard newPassword != currentPassword else {
+            return Bundle.localizedStringFor(key: kPasswordsAreTheSameLocalizableKey)
+        }
+        
+        return nil
+        
+    }
+
+    
+}
+
+class UIChangePasswordView: RSNibDesignableView {
     
     //MARK: IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -41,12 +175,18 @@ class UIChangePasswordView: RSNibDesignableView, UITextFieldDelegate {
     private var callbacks: UIChangePasswordViewCallbacks?
     private var editingTextField: UITextField?
     
+    private(set) lazy var logic: UIChangePasswordViewLogic = {
+        let outlets: UIChangePasswordViewOutlets = UIChangePasswordViewOutlets(currentPasswordTF: self.currentPasswordTF, confirmPasswordTF: self.confirmPasswordTF, newPasswordTF: self.newPasswordTF, cancelButton: self.cancelButton, changePasswordButton: self.changePasswordButton)
+        
+        
+        return UIChangePasswordViewLogic(outlets: outlets, logicCallbacks: .init(displayAlertMessage: { message in
+            OPViewUtils.showOkAlertWithTitle(title: "", andMessage: message)
+        }))
+    }()
     
     override func commonInit() {
         super.commonInit()
-        self.confirmPasswordTF.delegate = self
-        self.newPasswordTF.delegate = self
-        self.currentPasswordTF.delegate = self
+
         
         NotificationCenter.default.addObserver(self, selector: #selector(UIChangePasswordView.keyboardWillAppear(_:)), name: .UIKeyboardWillShow, object: nil)
         
@@ -58,60 +198,6 @@ class UIChangePasswordView: RSNibDesignableView, UITextFieldDelegate {
     }
     
     
-    func setupWith(callbacks: UIChangePasswordViewCallbacks?){
-        self.callbacks = callbacks
-    }
-    
-    func clearEverything(){
-        self.currentPasswordTF.text = nil
-        self.newPasswordTF.text = nil
-        self.confirmPasswordTF.text = nil 
-    }
-    
-    //MARK: Textfield Delegate
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        var nextTF: UITextField?
-        if textField == self.currentPasswordTF {
-            nextTF = self.newPasswordTF
-        } else if textField == self.newPasswordTF {
-            nextTF = self.confirmPasswordTF
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { 
-                textField.resignFirstResponder()
-            })
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { 
-            nextTF?.becomeFirstResponder()
-        }
-        
-        return true
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.editingTextField = textField
-        return true
-    }
-    
-    //Mark: IBActions
-    
-    
-    @IBAction func didPressCancel(_ sender: AnyObject) {
-        self.callbacks?.whenCanceled?()
-    }
-    
-    @IBAction func didPressChange(_ sender: AnyObject) {
-        
-        if let errorMessage = self.errorMessageForValidatingPasswords() {
-            OPViewUtils.displayAlertWithMessage(message: errorMessage, withTitle: "", addCancelAction: false, withConfirmation: nil)
-            return
-        }
-        
-        self.callbacks?.whenConfirmedToChange?(self.currentPasswordTF.text!, self.newPasswordTF.text!)
-        
-    }
     
     //MARK: Keyboard management
     
@@ -138,34 +224,5 @@ class UIChangePasswordView: RSNibDesignableView, UITextFieldDelegate {
             self.scrollView.layoutIfNeeded()
             }, completion: nil)
     }
-    
-    //MARK: private utilities 
-    
-    private func errorMessageForValidatingPasswords() -> String? {
-        guard let newPassword = self.newPasswordTF.text,
-            let confirmation = self.confirmPasswordTF.text,
-            let currentPassword = self.currentPasswordTF.text else {
-             return Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey)
-        }
         
-        guard currentPassword.characters.count > 0 else {
-            return Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey)
-        }
-        
-        guard newPassword.characters.count >= kMinimumPasswordChars else {
-            return Bundle.localizedStringFor(key: kPasswordTooShortLocalizableKey)
-        }
-        
-        guard newPassword == confirmation else {
-            return Bundle.localizedStringFor(key: kPasswordsMustMatchLocalizableKey)
-        }
-        
-        guard newPassword != currentPassword else {
-            return Bundle.localizedStringFor(key: kPasswordsAreTheSameLocalizableKey)
-        }
-        
-        return nil
-        
-    }
-    
 }

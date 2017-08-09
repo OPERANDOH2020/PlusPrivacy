@@ -23,8 +23,6 @@
 		982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982227541DC8EBD40053B993 /* UILocalizable.swift */; };
 		9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */; };
 		9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9827500D1D08496C00C73411 /* UIBrowsingNavigationBar.xib */; };
-		982750131D08497400C73411 /* UIDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982750111D08497400C73411 /* UIDashboardView.swift */; };
-		982750141D08497400C73411 /* UIDashboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 982750121D08497400C73411 /* UIDashboardView.xib */; };
 		982750171D0849C700C73411 /* UIPrivateBrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982750161D0849C700C73411 /* UIPrivateBrowsingViewController.swift */; };
 		9827501A1D0849D400C73411 /* UserIdentityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982750191D0849D400C73411 /* UserIdentityModel.swift */; };
 		9827501D1D0849E200C73411 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9827501C1D0849E200C73411 /* CredentialsStore.swift */; };
@@ -120,8 +118,6 @@
 		987F77B61F0F749300C70119 /* UIWebViewTabLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F77B51F0F749300C70119 /* UIWebViewTabLogic.swift */; };
 		987F77B81F0FD49900C70119 /* UIWebViewTabLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F77B71F0FD49900C70119 /* UIWebViewTabLogicTests.swift */; };
 		9882DCF71D140F3F00C7A70F /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */; };
-		9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882DCF91D1448BA00C7A70F /* UIScanningView.swift */; };
-		9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9882DCFB1D14498400C7A70F /* UIScanningView.xib */; };
 		988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988E45D51F039B62003D92C5 /* UISettingsView.swift */; };
 		988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 988E45D71F039C3F003D92C5 /* UISettingsView.xib */; };
 		988E45DB1F03C30D003D92C5 /* PPLocationApiHooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */; };
@@ -173,6 +169,9 @@
 		98F8FC311F38B96900699878 /* UIWebTabsListViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */; };
 		98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */; };
 		98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */; };
+		98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */; };
+		98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */; };
+		98FD07E81F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */; };
 		ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */; };
 		ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */; };
 		ADF3CA651DB892F900BD2B7A /* SideMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */; };
@@ -225,8 +224,6 @@
 		982227541DC8EBD40053B993 /* UILocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILocalizable.swift; path = UserInterface/UILocalizableLabel/UILocalizable.swift; sourceTree = "<group>"; };
 		9827500C1D08496C00C73411 /* UIBrowsingNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBrowsingNavigationBar.swift; sourceTree = "<group>"; };
 		9827500D1D08496C00C73411 /* UIBrowsingNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBrowsingNavigationBar.xib; sourceTree = "<group>"; };
-		982750111D08497400C73411 /* UIDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDashboardView.swift; sourceTree = "<group>"; };
-		982750121D08497400C73411 /* UIDashboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIDashboardView.xib; sourceTree = "<group>"; };
 		982750161D0849C700C73411 /* UIPrivateBrowsingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivateBrowsingViewController.swift; sourceTree = "<group>"; };
 		982750191D0849D400C73411 /* UserIdentityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIdentityModel.swift; sourceTree = "<group>"; };
 		9827501C1D0849E200C73411 /* CredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
@@ -346,8 +343,6 @@
 		987F77B51F0F749300C70119 /* UIWebViewTabLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebViewTabLogic.swift; path = UserInterface/UIWebViewTab/UIWebViewTabLogic.swift; sourceTree = "<group>"; };
 		987F77B71F0FD49900C70119 /* UIWebViewTabLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewTabLogicTests.swift; sourceTree = "<group>"; };
 		9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Utilities.swift"; path = "Utilities/NSDate+Utilities.swift"; sourceTree = "<group>"; };
-		9882DCF91D1448BA00C7A70F /* UIScanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScanningView.swift; path = UserInterface/UIScanningView/UIScanningView.swift; sourceTree = "<group>"; };
-		9882DCFB1D14498400C7A70F /* UIScanningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScanningView.xib; path = UserInterface/UIScanningView/UIScanningView.xib; sourceTree = "<group>"; };
 		988E45D51F039B62003D92C5 /* UISettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISettingsView.swift; path = UserInterface/UISettingsView/UISettingsView.swift; sourceTree = "<group>"; };
 		988E45D71F039C3F003D92C5 /* UISettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UISettingsView.xib; path = UserInterface/UISettingsView/UISettingsView.xib; sourceTree = "<group>"; };
 		988E45D91F03C301003D92C5 /* PPLocationApiHooks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPLocationApiHooks.framework; sourceTree = "<group>"; };
@@ -405,6 +400,9 @@
 		98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebTabsListViewLogicTests.swift; path = UserInterface/UIWebTabsListViewLogicTests.swift; sourceTree = "<group>"; };
 		98F9D23F1E82CD0300D013B4 /* WebTabsControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTabsControllerLogicTests.swift; sourceTree = "<group>"; };
 		98F9D2411E82CE0B00D013B4 /* CommonDummyClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDummyClasses.swift; sourceTree = "<group>"; };
+		98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationsListViewLogic.swift; path = UserInterface/UINotificationsListViewLogic.swift; sourceTree = "<group>"; };
+		98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChangePasswordViewLogicTests.swift; path = UserInterface/UIChangePasswordViewLogicTests.swift; sourceTree = "<group>"; };
+		98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAccountViewControllerLogicTests.swift; path = UserInterface/UIAccountViewControllerLogicTests.swift; sourceTree = "<group>"; };
 		ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenu.storyboard; sourceTree = "<group>"; };
 		ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SideMenu.xcassets; sourceTree = "<group>"; };
@@ -479,16 +477,6 @@
 			);
 			name = UIBrowsingNavigationBar;
 			path = UserInterface/UIBrowsingNavigationBar;
-			sourceTree = "<group>";
-		};
-		982750101D08497400C73411 /* UIDashboardView */ = {
-			isa = PBXGroup;
-			children = (
-				982750111D08497400C73411 /* UIDashboardView.swift */,
-				982750121D08497400C73411 /* UIDashboardView.xib */,
-			);
-			name = UIDashboardView;
-			path = UserInterface/UIDashboardView;
 			sourceTree = "<group>";
 		};
 		982750151D0849C700C73411 /* UIPrivateBrowsingViewController */ = {
@@ -953,15 +941,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		9882DCF81D14487F00C7A70F /* UIScanningView */ = {
-			isa = PBXGroup;
-			children = (
-				9882DCF91D1448BA00C7A70F /* UIScanningView.swift */,
-				9882DCFB1D14498400C7A70F /* UIScanningView.xib */,
-			);
-			name = UIScanningView;
-			sourceTree = "<group>";
-		};
 		988E45D41F039A55003D92C5 /* UISettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,6 +991,9 @@
 				98E0E1801F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift */,
 				98F8FC2E1F3891C900699878 /* UISettingsViewTests.swift */,
 				98F8FC301F38B96900699878 /* UIWebTabsListViewLogicTests.swift */,
+				98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */,
+				98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */,
+				98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1148,9 +1130,7 @@
 				982DF0221DB6385C00231BBD /* UIPfbDetailsView */,
 				9812DB591DB52B94009DD50A /* UIAddIdentityAlertViewController */,
 				98668B5F1DB0D1D500FDE63A /* UIFlowController */,
-				9882DCF81D14487F00C7A70F /* UIScanningView */,
 				982750151D0849C700C73411 /* UIPrivateBrowsingViewController */,
-				982750101D08497400C73411 /* UIDashboardView */,
 				9827500B1D08496C00C73411 /* UIBrowsingNavigationBar */,
 				9852C7071CD119E300AF2BE5 /* UINavigationManager */,
 				9852C7041CD1196200AF2BE5 /* UIDashboardViewController */,
@@ -1464,7 +1444,6 @@
 				9852C6F81CD0F68D00AF2BE5 /* UIIdentityCell.xib in Resources */,
 				98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */,
 				9866A7C61DBF854000907D05 /* UINotificationsListView.xib in Resources */,
-				9882DCFC1D14498400C7A70F /* UIScanningView.xib in Resources */,
 				98F647591ED30662008EB91E /* PPCommonTypesBundle.bundle in Resources */,
 				98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */,
 				9866A7B41DBF4B1000907D05 /* Localizable.strings in Resources */,
@@ -1486,7 +1465,6 @@
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
 				ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */,
-				982750141D08497400C73411 /* UIDashboardView.xib in Resources */,
 				9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1548,7 +1526,6 @@
 				986A58F21DB39C7300B622F5 /* SwarmClientHelperTypes.swift in Sources */,
 				9882DCF71D140F3F00C7A70F /* NSDate+Utilities.swift in Sources */,
 				987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */,
-				982750131D08497400C73411 /* UIDashboardView.swift in Sources */,
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
@@ -1557,7 +1534,6 @@
 				9852C7031CD1191B00AF2BE5 /* UIRootViewController.swift in Sources */,
 				985A0D481DCCB0E40010C799 /* LocksmithAccessibleOption.swift in Sources */,
 				982D318A1E842A9B00FE2FB7 /* AFSecurityPolicy.m in Sources */,
-				9882DCFA1D1448BA00C7A70F /* UIScanningView.swift in Sources */,
 				986E3E631DB3CA5600453DC6 /* UIAddIdentityView.swift in Sources */,
 				986D4CAC1DB27F940006DA0B /* PrivacyForBenefitsRepository.swift in Sources */,
 				98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */,
@@ -1619,6 +1595,7 @@
 			files = (
 				98E0E17F1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift in Sources */,
 				985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */,
+				98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */,
 				985E14D31F330C190069C2F6 /* UISignInViewControllerLogicTests.swift in Sources */,
 				98E0E1811F34BF6500DB2B80 /* UIAddIdentityViewControllerLogicTests.swift in Sources */,
 				98F8FC311F38B96900699878 /* UIWebTabsListViewLogicTests.swift in Sources */,
@@ -1629,6 +1606,8 @@
 				98F9D2421E82CE0B00D013B4 /* CommonDummyClasses.swift in Sources */,
 				98F9D2401E82CD0300D013B4 /* WebTabsControllerLogicTests.swift in Sources */,
 				98B480041F0E6BA600EF140F /* UIWebToolbarViewTests.swift in Sources */,
+				98FD07E81F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift in Sources */,
+				98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */,
 				985E14D51F330CD40069C2F6 /* Utils.swift in Sources */,
 				985E14D91F3363480069C2F6 /* UIDashboardButtonLogicTests.swift in Sources */,
 			);

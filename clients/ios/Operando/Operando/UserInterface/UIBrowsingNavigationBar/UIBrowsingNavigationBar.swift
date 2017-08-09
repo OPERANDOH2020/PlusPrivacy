@@ -23,31 +23,25 @@ class UIBrowsingNavigationBar: RSNibDesignableView, UISearchBarDelegate
         searchBar.delegate = self
     }
     
-    @IBAction func didPressBackButton(_ sender: AnyObject)
-    {
+    @IBAction func didPressBackButton(_ sender: AnyObject) {
         self.callbacks?.whenUserPressedBack?()
     }
     
     
-    @IBAction func didPressSearchButton(_ sender: AnyObject)
-    {
+    @IBAction func didPressSearchButton(_ sender: AnyObject) {
         self.searchBarSearchButtonClicked(self.searchBar)
     }
     
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let searchText = searchBar.text
-        {
+        if let searchText = searchBar.text {
             self.callbacks?.whenUserPressedSearchWithString?(searchText)
         }
-        
         searchBar.endEditing(true)
     }
     
     
-    func setupWithCallbacks(callbacks: UIBrowsingNavigationBarCallbacks?)
-    {
+    func setupWithCallbacks(callbacks: UIBrowsingNavigationBarCallbacks?) {
         self.callbacks = callbacks;
     }
 }

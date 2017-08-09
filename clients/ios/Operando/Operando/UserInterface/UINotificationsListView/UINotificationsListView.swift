@@ -14,25 +14,34 @@ struct UINotificationsListViewCallbacks {
     let whenActingUponNotification: NotificationActionCallback?
 }
 
-class UINotificationsListView: RSNibDesignableView, UITableViewDataSource, UITableViewDelegate {
-
+struct UINotificationsListViewOutlets {
+    let noNotificationsLabel: UILabel?
+    let tableView: UITableView?
     
+    static var allDefault: UINotificationsListViewOutlets {
+        return UINotificationsListViewOutlets(noNotificationsLabel: .init(), tableView: .init())
+    }
+    
+    static let allNil: UINotificationsListViewOutlets = UINotificationsListViewOutlets(noNotificationsLabel: nil, tableView: nil)
+}
 
+class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private var notifications: [OPNotification] = []
     private var callbacks: UINotificationsListViewCallbacks?
     
-    @IBOutlet weak var noNotificationsLabel: UILabel?
-    @IBOutlet weak var tableView: UITableView!
+    let outlets: UINotificationsListViewOutlets
+    init(outlets: UINotificationsListViewOutlets) {
+        self.outlets = outlets;
+        super.init()
+        self.commonInit()
+    }
     
-    
-    override func commonInit() {
-        super.commonInit()
-        self.backgroundColor = UIColor.clear
-        self.setupTableView(tableView: self.tableView)
+    private func commonInit() {
+        self.setupTableView(tableView: self.outlets.tableView)
         
-        self.noNotificationsLabel?.text = Bundle.localizedStringFor(key: kNoNotificationsLocalizableKey)
-        self.noNotificationsLabel?.isHidden = true 
+        self.outlets.noNotificationsLabel?.text = Bundle.localizedStringFor(key: kNoNotificationsLocalizableKey)
+        self.outlets.noNotificationsLabel?.isHidden = true
     }
     
     private func setupTableView(tableView: UITableView?){
@@ -51,8 +60,8 @@ class UINotificationsListView: RSNibDesignableView, UITableViewDataSource, UITab
     func setupWith(initialListOfNotifications: [OPNotification], callbacks: UINotificationsListViewCallbacks?){
         self.notifications = initialListOfNotifications
         self.callbacks = callbacks
-        self.tableView.reloadData()
-        self.noNotificationsLabel?.isHidden = self.notifications.count > 0
+        self.outlets.tableView?.reloadData()
+        self.outlets.noNotificationsLabel?.isHidden = self.notifications.count > 0
     }
     
     
@@ -62,13 +71,13 @@ class UINotificationsListView: RSNibDesignableView, UITableViewDataSource, UITab
         }
         
         self.notifications.remove(at: index)
-        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        self.outlets.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         
-        self.noNotificationsLabel?.isHidden = self.notifications.count > 0
+        self.outlets.noNotificationsLabel?.isHidden = self.notifications.count > 0
     }
     
     
-    //MARK: TableView 
+    //MARK: TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -90,16 +99,16 @@ class UINotificationsListView: RSNibDesignableView, UITableViewDataSource, UITab
         
         let button = MGSwipeButton(title: "", icon: UIImage(named: "dismiss"), backgroundColor: .operandoRedDismiss, insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)) { swipeCell -> Bool in
             swipeCell?.hideSwipe(animated: true, completion: { _ in
-                guard let maybeChangedIndexPath = weakSelf?.tableView?.indexPath(for: swipeCell!) else {
+                guard let maybeChangedIndexPath = weakSelf?.outlets.tableView?.indexPath(for: swipeCell!) else {
                     return
                 }
                 weakSelf?.callbacks?.whenDismissingNotificationAtIndex?(notification, maybeChangedIndexPath.row)
             })
             
             return true
-
+            
         }
-
+        
         cell.rightButtons = [button!]
         
         return cell
@@ -131,6 +140,16 @@ class UINotificationsListView: RSNibDesignableView, UITableViewDataSource, UITab
         
         return height + textHeight
     }
+}
+
+class UINotificationsListView: RSNibDesignableView {
+
     
+    @IBOutlet weak var noNotificationsLabel: UILabel?
+    @IBOutlet weak var tableView: UITableView!
+    private(set) lazy var logic: UINotificationsListViewLogic = {
+       let outlets = UINotificationsListViewOutlets(noNotificationsLabel: self.noNotificationsLabel, tableView: self.tableView)
+        return UINotificationsListViewLogic(outlets: outlets)
+    }()
     
 }

@@ -207,9 +207,9 @@ class UIFlowController: SSASideMenuDelegate
     private func createRightMenuViewController() -> UIAccountViewController {
         
         let accountController = UIViewControllerFactory.accountViewController
-        accountController.setupWith(model: UIAccountViewControllerModel(repository: self.dependencies.userInfoRepo,
-                                                                        whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
-                                                                        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback))
+        accountController.logic.setupWith(callbacks:UIAccountViewControllerCallbacks(
+        whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
+        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback))
         
         return accountController
     }

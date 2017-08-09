@@ -66,7 +66,7 @@ class UISignInViewControllerLogic: NSObject {
         return UILoginViewCallbacks(whenUserWantsToLogin: self.signInCallbacks?.whenUserWantsToLogin, whenUserForgetsPassword: {
             weakSelf?.callbacks.presentForgotEmailInputAlert? { email in
                 
-                guard OPUtils.isValidEmail(testStr: email) else {
+                guard OPUtils.isValidEmail(email: email) else {
                     weakSelf?.callbacks.presentOkAlert?(Bundle.localizedStringFor(key: kEmailIsNotValidLocalizableKey))
                     return
                 }

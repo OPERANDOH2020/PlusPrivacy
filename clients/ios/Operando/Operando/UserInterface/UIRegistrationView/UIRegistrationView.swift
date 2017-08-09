@@ -185,7 +185,7 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
     
     private func isEmailValid() -> Bool{
         guard let email = outlets.emailTF?.text else {return false}
-        return OPUtils.isValidEmail(testStr: email);
+        return OPUtils.isValidEmail(email: email);
     }
     
     private func doPasswordsMatch() -> Bool{

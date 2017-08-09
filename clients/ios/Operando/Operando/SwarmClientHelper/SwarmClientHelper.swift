@@ -65,8 +65,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     return
                 }
                 
-                print(dict["applicationDescriptions"])
-                
                 guard let appSCDs = dict["applicationDescriptions"] as? [[String: Any]] else {
                     completion?(nil, OPErrorContainer.errorInvalidServerResponse)
                     return

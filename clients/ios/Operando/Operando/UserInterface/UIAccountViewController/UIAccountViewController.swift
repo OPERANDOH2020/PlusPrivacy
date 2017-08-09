@@ -12,10 +12,64 @@ let kChangePasswordViewHeight: CGFloat = 300
 
 typealias PasswordChangeCallback = (_ currentPassword: String, _ newPassword: String, _ successCallback: VoidBlock?) -> Void
 
-struct UIAccountViewControllerModel{
-    let repository: UserInfoRepository?
+struct UIAccountViewControllerCallbacks {
     let whenUserChoosesToLogout: VoidBlock?
     let whenUserChangesPassword: PasswordChangeCallback?
+}
+
+
+struct UIAccountViewControllerOutlets {
+    let signOutButton: UIButton?
+    let changePasswordViewLogic: UIChangePasswordViewLogic?
+}
+
+struct UIAccountViewControllerLogicCallbacks {
+    let hidePasswordView: VoidBlock?
+    let showPasswordChangingSpinner: VoidBlock?
+    let hidePasswordChangingSpinner: VoidBlock?
+}
+
+class UIAccountViewControllerLogic: NSObject {
+    let outlets: UIAccountViewControllerOutlets
+    let logicCallbacks: UIAccountViewControllerLogicCallbacks?
+    
+    private var callbacks: UIAccountViewControllerCallbacks?
+    
+    init(outlets: UIAccountViewControllerOutlets, logicCallbacks: UIAccountViewControllerLogicCallbacks?) {
+        self.outlets = outlets;
+        self.logicCallbacks = logicCallbacks
+        super.init()
+        
+        outlets.signOutButton?.addTarget(self, action: #selector(didPressSignOut(_:)), for: .touchUpInside)
+    }
+    
+    
+    func setupWith(callbacks: UIAccountViewControllerCallbacks?){
+        self.callbacks = callbacks
+        self.outlets.changePasswordViewLogic?.setupWith(callbacks: self.callbacksFor(changePasswordView: self.outlets.changePasswordViewLogic))
+    }
+    
+    private func callbacksFor(changePasswordView: UIChangePasswordViewLogic?) -> UIChangePasswordViewCallbacks? {
+        weak var weakPV = changePasswordView
+        weak var weakSelf = self
+        return UIChangePasswordViewCallbacks(whenConfirmedToChange: { oldPassword, newPassword in
+            
+            weakSelf?.logicCallbacks?.showPasswordChangingSpinner?()
+            
+            weakSelf?.callbacks?.whenUserChangesPassword?(oldPassword, newPassword){
+                weakSelf?.logicCallbacks?.hidePasswordChangingSpinner?()
+                weakPV?.clearEverything()
+                weakSelf?.logicCallbacks?.hidePasswordView?()
+            }
+            
+        }, whenCanceled: {
+            weakSelf?.logicCallbacks?.hidePasswordView?()
+        })
+    }
+    
+    func didPressSignOut(_ sender: AnyObject) {
+        self.callbacks?.whenUserChoosesToLogout?()
+    }
 }
 
 class UIAccountViewController: UIViewController {
@@ -24,12 +78,25 @@ class UIAccountViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var changePasswordView: UIChangePasswordView!
     
-    private var model: UIAccountViewControllerModel?
 
+    private(set) lazy var logic: UIAccountViewControllerLogic = {
+        
+        let _ = self.view
+        let outlets: UIAccountViewControllerOutlets = UIAccountViewControllerOutlets(signOutButton: self.signOutButton, changePasswordViewLogic: self.changePasswordView.logic)
+        
+        weak var weakSelf = self
+        return UIAccountViewControllerLogic(outlets: outlets, logicCallbacks: UIAccountViewControllerLogicCallbacks(hidePasswordView: {
+            weakSelf?.hidePasswordViewShowButton()
+        }, showPasswordChangingSpinner: {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }, hidePasswordChangingSpinner: {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }))
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hidePasswordViewShowButton()
-        self.changePasswordView.setupWith(callbacks: self.callbacksFor(changePasswordView: self.changePasswordView))
     }
 
     
@@ -38,29 +105,13 @@ class UIAccountViewController: UIViewController {
         self.hidePasswordViewShowButton()
     }
     
-    func setupWith(model: UIAccountViewControllerModel?){
-        let _ = self.view
-        self.model = model
-        
-        model?.repository?.getCurrentUserInfo(in: { info, error in
-            if let error = error {
-                OPErrorContainer.displayError(error: error)
-                return
-            }
-                        
-        })
-        
-    }
+
     
     //MARK: IBActions
     
     @IBAction func didPressChangePasswordButton(_ sender: AnyObject) {
         self.displayPasswordViewHideButton()
 
-    }
-    
-    @IBAction func didPressSignOut(_ sender: AnyObject) {
-        self.model?.whenUserChoosesToLogout?()
     }
     
     
@@ -90,26 +141,4 @@ class UIAccountViewController: UIViewController {
             extra?()
             }, completion: nil)
     }
-    
-    
-    
-    
-    private func callbacksFor(changePasswordView: UIChangePasswordView) -> UIChangePasswordViewCallbacks? {
-        weak var weakPV = changePasswordView
-        weak var weakSelf = self
-        return UIChangePasswordViewCallbacks(whenConfirmedToChange: { oldPassword, newPassword in
-            
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            
-            weakSelf?.model?.whenUserChangesPassword?(oldPassword, newPassword){
-                weakPV?.clearEverything()
-                weakSelf?.hidePasswordViewShowButton()
-            }
-            
-            }, whenCanceled: {
-                weakSelf?.hidePasswordViewShowButton()
-        })
-    }
-    
-    
 }

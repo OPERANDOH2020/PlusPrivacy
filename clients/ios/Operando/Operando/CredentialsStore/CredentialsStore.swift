@@ -9,7 +9,6 @@
 import UIKit
 
 //TO DO: In production, must replace the use of NSUserDefaults with KeyChain
-//NSUserDefaults will be used for the purposes of the demo
 
 class CredentialsStore: NSObject
 {
@@ -28,15 +27,6 @@ class CredentialsStore: NSObject
         
         return (username, password)
         
-        let defaults = UserDefaults.standard;
-        
-        if let username = defaults.object(forKey: DefaultsUsernameKey) as? String,
-               let password = defaults.object(forKey: DefaultsPasswordKey) as? String
-        {
-            return (username, password);
-        }
-        
-        return nil;
     }
     
     

@@ -27,7 +27,7 @@ class UINotificationsViewController: UIViewController {
                 return
             }
             
-            self.notificationsListView.setupWith(initialListOfNotifications: notifications, callbacks: self.callbacksFor(notificationsView: self.notificationsListView, including: notificationCallback))
+            self.notificationsListView.logic.setupWith(initialListOfNotifications: notifications, callbacks: self.callbacksFor(notificationsView: self.notificationsListView, including: notificationCallback))
             
         })
         
@@ -47,7 +47,7 @@ class UINotificationsViewController: UIViewController {
                     OPErrorContainer.displayError(error: error)
                     return
                 }
-                weakNotificationsView?.deleteNotification(at: index)
+                weakNotificationsView?.logic.deleteNotification(at: index)
                 
             })
             
