@@ -15,6 +15,8 @@ var bus = require("bus-service").bus;
 var identities = [];
 var lastUpdate = new Date();
 const oneHour = 60*60*1000;
+var listIdentitiesInProgress = false;
+var waitingForIdentitiesCallbacks = [];
 
 var identityService = exports.identityService = {
 
@@ -56,14 +58,29 @@ var identityService = exports.identityService = {
     },
 
     listIdentities: function (callback) {
-        if(identities.length===0 || (new Date()-lastUpdate>oneHour)) {
-            var listIdentitiesHandler = swarmHub.startSwarm('identity.js', 'getMyIdentities');
-            listIdentitiesHandler.onResponse("getMyIdentities_success", function (swarm) {
-                identities = swarm.identities;
-                callback(swarm.identities);
-            });
-        }else{
-            callback(identities);
+
+        function returnIdentities(identities){
+            while(waitingForIdentitiesCallbacks.length>0){
+                var cbk = waitingForIdentitiesCallbacks.pop();
+                cbk(identities);
+            }
+        }
+        waitingForIdentitiesCallbacks.push(callback);
+
+        if(listIdentitiesInProgress == false){
+            if(identities.length===0 || (new Date()-lastUpdate>oneHour)) {
+                listIdentitiesInProgress = true;
+                var listIdentitiesHandler = swarmHub.startSwarm('identity.js', 'getMyIdentities');
+                listIdentitiesHandler.onResponse("getMyIdentities_success", function (swarm) {
+                    listIdentitiesInProgress = false;
+                    identities = swarm.identities;
+                    lastUpdate = new Date();
+
+                   returnIdentities(swarm.identities);
+                });
+            }else{
+                returnIdentities(identities);
+            }
         }
     },
 
@@ -86,6 +103,8 @@ var identityService = exports.identityService = {
     },
     clearIdentitiesList : function(){
         identities = [];
+        listIdentitiesInProgress = false;
+        waitingForIdentitiesCallbacks = [];
     }
 }
 
