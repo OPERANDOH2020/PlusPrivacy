@@ -12,34 +12,35 @@ import UIKit
 
 typealias IdentityIndexCallback = ((_ item: String, _ index: Int ) -> Void)
 
-struct UIIdentitiesListCallbacks
-{
+struct UIIdentitiesListCallbacks {
     let whenPressedToDeleteItemAtIndex: IdentityIndexCallback?
     let whenActivatedItem: ((_ item: String) -> Void)?
     
 }
 
+struct UIIdentitiesListViewOutlets {
+    let tableView: UITableView?
+}
 
-
-class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate
-{
+class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     
-    private var identitiesList: [String] = []
+    let outlets: UIIdentitiesListViewOutlets
+    init(outlets: UIIdentitiesListViewOutlets) {
+        self.outlets = outlets;
+        super.init()
+        self.setupTableView(tableView: outlets.tableView)
+    }
+    
+    private(set) var identitiesList: [String] = []
     private var callbacks: UIIdentitiesListCallbacks?
     private var currentDefaultIdentity: String = ""
+    
     private var currentDefaultIdentityIndex: Int {
         return self.identitiesList.index(of: self.currentDefaultIdentity) ?? -1
     }
     
-    @IBOutlet var tableView: UITableView?
-    
-    override func commonInit() {
-        super.commonInit()
-        self.setupTableView(tableView: self.tableView)
-    }
-    
-    private func setupTableView(tableView: UITableView?)
-    {
+
+    private func setupTableView(tableView: UITableView?) {
         tableView?.delegate = self;
         tableView?.dataSource = self;
         let nib = UINib(nibName: UIIdentityCell.identifierNibName, bundle: nil);
@@ -50,17 +51,22 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
         
     }
     
-    func setupWith(initialList: [String], defaultIdentityIndex: Int?, andCallbacks callbacks: UIIdentitiesListCallbacks?)
-    {
+    func setupWith(initialList: [String], defaultIdentityIndex: Int?, andCallbacks callbacks: UIIdentitiesListCallbacks?) {
         self.callbacks = callbacks
-        
-        guard let first = initialList.first else {
-            return
-        }
-        
         self.identitiesList = initialList
+        self.swapDefaultIdentityWithFirst(defaultIdentityIndex: defaultIdentityIndex, initialList: initialList)
+        outlets.tableView?.reloadData()
+    }
+    
+    
+    private func swapDefaultIdentityWithFirst(defaultIdentityIndex: Int?, initialList: [String]){
         
         if let defaultIdentityIndex = defaultIdentityIndex {
+            
+            guard let first = initialList.first else {
+                return
+            }
+            
             let defaultIdentity = initialList[defaultIdentityIndex]
             if defaultIdentityIndex != 0 {
                 self.identitiesList.remove(at: defaultIdentityIndex)
@@ -71,27 +77,26 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
             }
             self.currentDefaultIdentity = defaultIdentity
         }
-        
-        self.tableView?.reloadData()
+
+
     }
     
-    
-    func appendAndDisplayNew(item: String)
-    {
+    func appendAndDisplayNew(item: String) {
         self.identitiesList.append(item)
-        self.tableView?.insertRows(at: [IndexPath(row: self.identitiesList.count-1, section: 0)], with: .automatic)
+        outlets.tableView?.insertRows(at: [IndexPath(row: self.identitiesList.count-1, section: 0)], with: .automatic)
     }
     
-    func deleteItemAt(index: Int)
-    {
+    func deleteItemAt(index: Int) {
         self.identitiesList.remove(at: index)
-        self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        outlets.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
-    func displayAsDefault(identity: String)
-    {
+    func displayAsDefault(identity: String) {
+        guard self.identitiesList.contains(identity) else {
+            return
+        }
         self.currentDefaultIdentity = identity
-        self.tableView?.reloadData()
+        outlets.tableView?.reloadData()
         
     }
     
@@ -102,8 +107,7 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.identitiesList.count;
     }
     
@@ -126,11 +130,10 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
         cell.showSwipe(MGSwipeDirection.rightToLeft, animated: true)
     }
     
-    func swipeTableCell(_ cell: MGSwipeTableCell!, swipeButtonsFor direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [Any]!
-    {
+    func swipeTableCell(_ cell: MGSwipeTableCell!, swipeButtonsFor direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [Any]! {
         guard direction == MGSwipeDirection.rightToLeft,
-              let indexPath = self.tableView?.indexPath(for: cell) else {
-            return []
+            let indexPath = outlets.tableView?.indexPath(for: cell) else {
+                return []
         }
         
         weak var weakSelf = self
@@ -139,12 +142,13 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
         let deleteButton = MGSwipeButton(title: Bundle.localizedStringFor(key: kDeleteLocalizableKey), backgroundColor: UIColor.red) { swipeCell -> Bool in
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 , execute: {
-                guard let maybeChangedIndexPath = weakSelf?.tableView?.indexPath(for: swipeCell!) else {
+                guard let maybeChangedIndexPath = weakSelf?.outlets.tableView?.indexPath(for: swipeCell!),
+                let maybeChangedIdentity = weakSelf?.identitiesList[maybeChangedIndexPath.row]  else {
                     return
                 }
-                weakSelf?.callbacks?.whenPressedToDeleteItemAtIndex?(identity, maybeChangedIndexPath.row)
+                weakSelf?.callbacks?.whenPressedToDeleteItemAtIndex?(maybeChangedIdentity, maybeChangedIndexPath.row)
             })
-        
+            
             return true
         }
         
@@ -164,4 +168,13 @@ class UIIdentitiesListView: RSNibDesignableView, UITableViewDataSource, UITableV
         
         return [defaultButton!, deleteButton!]
     }
+    
+}
+
+class UIIdentitiesListView: RSNibDesignableView {
+    @IBOutlet var tableView: UITableView?
+    
+    private(set) lazy var logic: UIIdentitiesListViewLogic = {
+       return UIIdentitiesListViewLogic(outlets: UIIdentitiesListViewOutlets(tableView: self.tableView))
+    }()
 }

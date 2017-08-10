@@ -44,9 +44,9 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
         let controllerLogic: UIAddIdentityViewControllerLogic = UIAddIdentityViewControllerLogic(identityViewLogic: dummyAddViewLogic, logicCallbacks: UIAddIdentityViewControllerLogicCallbacks.allNil)
         
 
-        let dummyIdentitiesRepository: DummyIdentitiesRepository = DummyIdentitiesRepository()
-        dummyIdentitiesRepository.domainsList = domains
-        dummyIdentitiesRepository.generatedNewIdentity = alias;
+        let dummySynchronousIdentitiesRepository: DummySynchronousIdentitiesRepository = DummySynchronousIdentitiesRepository()
+        dummySynchronousIdentitiesRepository.domainsList = domains
+        dummySynchronousIdentitiesRepository.generatedNewIdentity = alias;
         
         let expFirstSetsDomains = self.expectation(description: "")
         let expFillsWithGeneratedIdentity = self.expectation(description: "")
@@ -75,7 +75,7 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
 
         }
         
-        controllerLogic.setupWith(identitiesRepository: dummyIdentitiesRepository, callbacks: nil)
+        controllerLogic.setupWith(identitiesRepository: dummySynchronousIdentitiesRepository, callbacks: nil)
         
         self.waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -87,8 +87,8 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
     }
     
     func _OnRefreshCallback_FillsWithGeneratedAlias(alias: String) {
-        let dummyIdentitiesRepository: DummyIdentitiesRepository = DummyIdentitiesRepository()
-        dummyIdentitiesRepository.generatedNewIdentity = alias
+        let dummySynchronousIdentitiesRepository: DummySynchronousIdentitiesRepository = DummySynchronousIdentitiesRepository()
+        dummySynchronousIdentitiesRepository.generatedNewIdentity = alias
         
         let exp = self.expectation(description: "")
         let dummyAddViewLogic: DummyAddViewLogic = DummyAddViewLogic()
@@ -111,7 +111,7 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
         
         let controllerLogic: UIAddIdentityViewControllerLogic = UIAddIdentityViewControllerLogic(identityViewLogic: dummyAddViewLogic, logicCallbacks: .allNil)
         
-        controllerLogic.setupWith(identitiesRepository: dummyIdentitiesRepository, callbacks: nil)
+        controllerLogic.setupWith(identitiesRepository: dummySynchronousIdentitiesRepository, callbacks: nil)
         
         self.waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -128,7 +128,7 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
         
         let controllerLogic: UIAddIdentityViewControllerLogic = UIAddIdentityViewControllerLogic(identityViewLogic: dummyAddIdentityViewLogic, logicCallbacks: .allNil)
         
-        controllerLogic.setupWith(identitiesRepository: DummyIdentitiesRepository(), callbacks: UIAddIdentityViewControllerCallbacks(onExitWithIdentity: { identity in
+        controllerLogic.setupWith(identitiesRepository: DummySynchronousIdentitiesRepository(), callbacks: UIAddIdentityViewControllerCallbacks(onExitWithIdentity: { identity in
             XCTAssertNil(identity)
             exp.fulfill()
         }))
@@ -153,15 +153,15 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
             }
         }
         
-        let dummyIdentitiesRepository: DummyIdentitiesRepository = DummyIdentitiesRepository()
-        dummyIdentitiesRepository.onAddIdentity = { identity in
+        let dummySynchronousIdentitiesRepository: DummySynchronousIdentitiesRepository = DummySynchronousIdentitiesRepository()
+        dummySynchronousIdentitiesRepository.onAddIdentity = { identity in
             XCTAssert(identity == result.asFinalIdentity)
             expAddIdentityIntoRepository.fulfill()
         }
         
         let logic: UIAddIdentityViewControllerLogic = UIAddIdentityViewControllerLogic(identityViewLogic: dummyAddViewLogic, logicCallbacks: .allNil)
         
-        logic.setupWith(identitiesRepository: dummyIdentitiesRepository, callbacks: UIAddIdentityViewControllerCallbacks(onExitWithIdentity: { identity in
+        logic.setupWith(identitiesRepository: dummySynchronousIdentitiesRepository, callbacks: UIAddIdentityViewControllerCallbacks(onExitWithIdentity: { identity in
             XCTAssert(identity == result.asFinalIdentity)
             expExitWithIdentity.fulfill()
         }))
@@ -172,7 +172,7 @@ class UIAddIdentityViewControllerLogicTests: XCTestCase {
     func test_OnSave_AddIdentityWithError_PrintsErrorAlert() {
         let exp = self.expectation(description: "")
         
-        let dummyRepository: DummyIdentitiesRepository = DummyIdentitiesRepository()
+        let dummyRepository: DummySynchronousIdentitiesRepository = DummySynchronousIdentitiesRepository()
         dummyRepository.errorForAddIdentity = OPErrorContainer.errorInvalidServerResponse
         
         let dummyAddViewLogic: DummyAddViewLogic = DummyAddViewLogic()

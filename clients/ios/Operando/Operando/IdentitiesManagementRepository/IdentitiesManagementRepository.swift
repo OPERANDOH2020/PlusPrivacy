@@ -22,7 +22,7 @@ protocol IdentitiesManagementRepository: class {
 }
 
 
-class DummyIdentitiesRepository: IdentitiesManagementRepository{
+class DummySynchronousIdentitiesRepository: IdentitiesManagementRepository{
     
     var domainsList: [Domain] = [Domain(id: "1", name: "dom1"),
                                  Domain(id: "2", name: "dom2"),
@@ -30,19 +30,22 @@ class DummyIdentitiesRepository: IdentitiesManagementRepository{
     var realIdentity: String = "youAre@real.com"
     var generatedNewIdentity: String = "someRandomIdentity"
     var errorForAddIdentity: NSError?
+    var identitiesList: [String] = []
+    var indexOfDefaultIdentity: Int? = 0
     
     var onAddIdentity: ((_ identity: String) -> Void)?
+    var onRemove: ((_ identity: String, _ completion: ((_ nextDefault: String, _ error: NSError?) -> Void)?) -> Void)?
     
     func getCurrentIdentitiesListWith(completion: ((_ identitiesListResponse: IdentitiesListResponse, _ error: NSError?) -> Void)?){
         
-        var identities: [String] = []
-        for i in 1...15 {
-            identities.append("identity \(i)")
+        if self.identitiesList.count == 0 {
+            for i in 1...15 {
+                self.identitiesList.append("identity \(i)")
+            }
+            
         }
         
-        DispatchQueue.main.async {
-            completion?(IdentitiesListResponse(identitiesList: identities, indexOfDefaultIdentity: 14), nil)
-        }
+            completion?(IdentitiesListResponse(identitiesList: self.identitiesList, indexOfDefaultIdentity: self.indexOfDefaultIdentity), nil)
         
     }
     func getCurrentListOfDomainsWith(completion: ((_ domainsList: [Domain], _ error: NSError?) -> Void)?){
@@ -68,9 +71,13 @@ class DummyIdentitiesRepository: IdentitiesManagementRepository{
         
     }
     func remove(identity: String, withCompletion completion: ((_ success: String, _ error: NSError?) -> Void)?){
-        DispatchQueue.main.async {
+        
+        if self.onRemove == nil {
             completion?("", nil)
+            return
         }
+        
+        self.onRemove?(identity, completion)
     }
     
     func updateDefaultIdentity(to newIdentity: String, withCompletion completion: CallbackWithError?){

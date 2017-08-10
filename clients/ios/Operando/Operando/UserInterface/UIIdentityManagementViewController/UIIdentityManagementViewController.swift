@@ -17,7 +17,32 @@ struct UIIdentityManagementCallbacks {
     let obtainNewIdentityWithCompletion: ((_ completion: CallbackWithString?) -> Void)?
 }
 
-class UIIdentityManagementViewController: UIViewController {
+struct UIIdentityManagementViewControllerOutlets {
+    let identitiesListViewLogic: UIIdentitiesListViewLogic?
+    let addNewIdentityButton: UIButton?
+    let numberOfIdentitiesLeftLabel: UILabel?
+    let realIdentityView: UIRealIdentityView?
+    
+    static let allNil: UIIdentityManagementViewControllerOutlets = UIIdentityManagementViewControllerOutlets(identitiesListViewLogic: nil, addNewIdentityButton: nil, numberOfIdentitiesLeftLabel: nil, realIdentityView: nil)
+}
+
+struct UIIdentityManagementViewControllerLogicCallbacks {
+    let displayStatusPopupWithMessage: CallbackWithString?
+    let dismissStatusPopup: VoidBlock?
+    let displayConfirmationPanel: ((_ title: String, _ message: String, _ confirmationCallback: VoidBlock?) -> Void)?
+    let displayError: CallbackWithError?
+}
+
+class UIIdentityManagementViewControllerLogic: NSObject {
+    let outlets: UIIdentityManagementViewControllerOutlets
+    let logicCallbacks: UIIdentityManagementViewControllerLogicCallbacks?
+    
+    init(outlets: UIIdentityManagementViewControllerOutlets, logicCallbacks: UIIdentityManagementViewControllerLogicCallbacks?) {
+        self.outlets = outlets;
+        self.logicCallbacks = logicCallbacks
+        super.init()
+    }
+    
     private var realIdentity: String = ""
     private var identitiesRepository: IdentitiesManagementRepository?
     private var callbacks: UIIdentityManagementCallbacks?
@@ -28,14 +53,10 @@ class UIIdentityManagementViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var identitiesListView: UIIdentitiesListView?
-    @IBOutlet weak var addNewIdentityButton: UIButton?
-    @IBOutlet weak var numOfIdentitiesLeftLabel: UILabel!
-    @IBOutlet weak var realIdentityView: UIRealIdentityView!
+    
     
     
     func setupWith(identitiesRepository: IdentitiesManagementRepository?, callbacks: UIIdentityManagementCallbacks?) {
-        let _  = self.view
         self.identitiesRepository = identitiesRepository
         self.loadCurrentIdentitiesWith(repository: identitiesRepository)
         self.callbacks = callbacks
@@ -52,13 +73,13 @@ class UIIdentityManagementViewController: UIViewController {
     //MARK: helper
     
     private func updateUIBasedOnNumOfIdentities(_ num: Int){
-        self.numOfIdentitiesLeftLabel.text = "You can add \(kMaxNumOfIdentities - num) more identities"
+        outlets.numberOfIdentitiesLeftLabel?.text = "You can add \(kMaxNumOfIdentities - num) more identities"
         if num == kMaxNumOfIdentities {
-            self.addNewIdentityButton?.isUserInteractionEnabled = false
-            self.addNewIdentityButton?.alpha = 0.6
+            outlets.addNewIdentityButton?.isUserInteractionEnabled = false
+            outlets.addNewIdentityButton?.alpha = 0.6
         } else {
-            self.addNewIdentityButton?.isUserInteractionEnabled = true
-            self.addNewIdentityButton?.alpha = 1.0
+            outlets.addNewIdentityButton?.isUserInteractionEnabled = true
+            outlets.addNewIdentityButton?.alpha = 1.0
         }
     }
     
@@ -66,62 +87,67 @@ class UIIdentityManagementViewController: UIViewController {
     {
         repository?.getRealIdentityWith(completion: { realIdentity, _ in
             self.realIdentity = realIdentity
-            self.realIdentityView.setupWith(identity: realIdentity)
+            self.outlets.realIdentityView?.setupWith(identity: realIdentity)
         })
         
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 3.0);
+        self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+        
         repository?.getCurrentIdentitiesListWith(completion: { (identities, error) in
-            ProgressHUD.dismiss()
+            self.logicCallbacks?.dismissStatusPopup?()
+            
             if let error = error {
-                OPErrorContainer.displayError(error: error)
+                self.logicCallbacks?.displayError?(error)
                 return
             }
             
             self.currentNumOfIdentities = identities.identitiesList.count
-            self.identitiesListView?.setupWith(initialList: identities.identitiesList, defaultIdentityIndex: identities.indexOfDefaultIdentity ,andCallbacks: self.callbacksFor(identitiesListView: self.identitiesListView))
+            self.outlets.identitiesListViewLogic?.setupWith(initialList: identities.identitiesList, defaultIdentityIndex: identities.indexOfDefaultIdentity ,andCallbacks: self.callbacksForIdentitiesListLogic())
             
             if identities.indexOfDefaultIdentity == nil {
                 // this means that the default identity is the real identity
-                self.realIdentityView.changeDisplay(to: .defaultIdentity, animated: true)
+                self.outlets.realIdentityView?.changeDisplay(to: .defaultIdentity, animated: true)
             }
         })
     }
     
     
     
-    private func callbacksFor(identitiesListView: UIIdentitiesListView?) -> UIIdentitiesListCallbacks{
+    private func callbacksForIdentitiesListLogic() -> UIIdentitiesListCallbacks{
         weak var weakSelf = self
         
         return UIIdentitiesListCallbacks(whenPressedToDeleteItemAtIndex: { item, index in
             weakSelf?.delete(identity: item, atIndex: index)
-          }, whenActivatedItem: { item in
-             weakSelf?.setAsDefault(identity: item)
+        }, whenActivatedItem: { item in
+            weakSelf?.setAsDefault(identity: item)
         })
         
     }
     
     private func delete(identity: String, atIndex index: Int){
         
-        OPViewUtils.displayAlertWithMessage(message: Bundle.localizedStringFor(key: kDoYouWantToDeleteSIDLocalizableKey), withTitle: identity, addCancelAction: true) {
-        
-            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+        self.logicCallbacks?.displayConfirmationPanel?(identity, Bundle.localizedStringFor(key: kDoYouWantToDeleteSIDLocalizableKey)) {
+            
+            self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+            
             self.identitiesRepository?.remove(identity: identity, withCompletion: { nextDefaultIdentity, error  in
-                ProgressHUD.dismiss()
+                
+                self.logicCallbacks?.dismissStatusPopup?()
                 if let error = error {
-                    OPErrorContainer.displayError(error: error)
+                    self.logicCallbacks?.displayError?(error)
                     return
                 }
                 if nextDefaultIdentity.characters.count == 0 {
-                    OPErrorContainer.displayError(error: OPErrorContainer.unknownError)
+                    self.logicCallbacks?.displayError?(OPErrorContainer.unknownError)
                     return
                 }
                 
-                self.identitiesListView?.deleteItemAt(index: index)
+                self.outlets.identitiesListViewLogic?.deleteItemAt(index: index)
                 
                 if nextDefaultIdentity == self.realIdentity {
                     // must animate the new custom view
+                    self.outlets.realIdentityView?.changeDisplay(to: .defaultIdentity, animated: true)
                 } else {
-                    self.identitiesListView?.displayAsDefault(identity: nextDefaultIdentity)
+                    self.outlets.identitiesListViewLogic?.displayAsDefault(identity: nextDefaultIdentity)
                 }
                 
                 self.currentNumOfIdentities -= 1
@@ -129,19 +155,19 @@ class UIIdentityManagementViewController: UIViewController {
         }
     }
     
-    private func setAsDefault(identity: String)
-    {
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+    private func setAsDefault(identity: String) {
+        self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+        
         self.identitiesRepository?.updateDefaultIdentity(to: identity, withCompletion: { error  in
-            ProgressHUD.dismiss()
+            self.logicCallbacks?.dismissStatusPopup?()
             if let error = error {
-                OPErrorContainer.displayError(error: error);
+                self.logicCallbacks?.displayError?(error)
                 return
             }
             
             let state: UIRealIdentityViewDisplayState = identity != self.realIdentity ? .nonDefault : .defaultIdentity
-            self.realIdentityView.changeDisplay(to: state, animated: true)
-            self.identitiesListView?.displayAsDefault(identity: identity)
+            self.outlets.realIdentityView?.changeDisplay(to: state, animated: true)
+            self.outlets.identitiesListViewLogic?.displayAsDefault(identity: identity)
             
         })
     }
@@ -150,9 +176,38 @@ class UIIdentityManagementViewController: UIViewController {
     private func addNewIdentity(){
         weak var weakSelf = self
         self.callbacks?.obtainNewIdentityWithCompletion? { identity in
-            weakSelf?.identitiesListView?.appendAndDisplayNew(item: identity)
+            weakSelf?.outlets.identitiesListViewLogic?.appendAndDisplayNew(item: identity)
             weakSelf?.currentNumOfIdentities += 1
         }
     }
+}
+
+class UIIdentityManagementViewController: UIViewController {
+    
+    @IBOutlet weak var identitiesListView: UIIdentitiesListView?
+    @IBOutlet weak var addNewIdentityButton: UIButton?
+    @IBOutlet weak var numOfIdentitiesLeftLabel: UILabel!
+    @IBOutlet weak var realIdentityView: UIRealIdentityView!
+    
+    private(set) lazy var logic: UIIdentityManagementViewControllerLogic = {
+        let _ = self.view
+        
+        let outlets: UIIdentityManagementViewControllerOutlets =
+        UIIdentityManagementViewControllerOutlets(identitiesListViewLogic: self.identitiesListView?.logic, addNewIdentityButton: self.addNewIdentityButton, numberOfIdentitiesLeftLabel: self.numOfIdentitiesLeftLabel, realIdentityView: self.realIdentityView)
+        
+        return UIIdentityManagementViewControllerLogic(outlets: outlets, logicCallbacks: UIIdentityManagementViewControllerLogicCallbacks(displayStatusPopupWithMessage: { status in
+            ProgressHUD.show(status)
+        }, dismissStatusPopup: {
+            ProgressHUD.dismiss()
+        }, displayConfirmationPanel: { (title: String, message: String, callback: VoidBlock?) in
+            OPViewUtils.displayAlertWithMessage(message: message, withTitle: title, addCancelAction: true, withConfirmation: callback)
+            
+        }, displayError: { error in
+            guard let error = error else {
+                return
+            }
+            OPErrorContainer.displayError(error: error)
+        }))
+    }()
     
 }

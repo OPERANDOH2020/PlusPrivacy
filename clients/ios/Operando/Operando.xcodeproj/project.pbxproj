@@ -48,6 +48,8 @@
 		98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */; };
 		98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */; };
 		983D601B1EF1409600A34EB1 /* SwarmClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 987E717B1E8BB90C0006B240 /* SwarmClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		983D9C831F3C45AC003419F9 /* UIIdentitiesListViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D9C821F3C45AC003419F9 /* UIIdentitiesListViewLogicTests.swift */; };
+		983D9C851F3C9F0C003419F9 /* UIIdentityManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D9C841F3C9F0C003419F9 /* UIIdentityManagementTests.swift */; };
 		9843340C1F06364A0016564E /* LocalizedStringKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843340B1F06364A0016564E /* LocalizedStringKeys.swift */; };
 		9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */; };
 		98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 98500BBD1E0935ED00DF87E8 /* KiteJSONValidator.m */; };
@@ -255,6 +257,8 @@
 		98387BBD1DB75A8400A76F01 /* UIDashboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDashboardButton.swift; path = UserInterface/UIDashboardButton/UIDashboardButton.swift; sourceTree = "<group>"; };
 		98387BBF1DB75ACD00A76F01 /* UIDashboardButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIDashboardButton.xib; path = UserInterface/UIDashboardButton/UIDashboardButton.xib; sourceTree = "<group>"; };
 		98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Utilities.swift"; path = "UserInterface/Extensions/UIColor+Utilities.swift"; sourceTree = "<group>"; };
+		983D9C821F3C45AC003419F9 /* UIIdentitiesListViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIIdentitiesListViewLogicTests.swift; path = UserInterface/UIIdentitiesListViewLogicTests.swift; sourceTree = "<group>"; };
+		983D9C841F3C9F0C003419F9 /* UIIdentityManagementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIIdentityManagementTests.swift; path = UserInterface/UIIdentityManagementTests.swift; sourceTree = "<group>"; };
 		9843340B1F06364A0016564E /* LocalizedStringKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedStringKeys.swift; path = UserInterface/LocalizedStringKeys/LocalizedStringKeys.swift; sourceTree = "<group>"; };
 		9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Utilities.swift"; path = "Extensions/NSError+Utilities.swift"; sourceTree = "<group>"; };
 		98500BBC1E0935ED00DF87E8 /* KiteJSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiteJSONValidator.h; sourceTree = "<group>"; };
@@ -994,6 +998,8 @@
 				98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */,
 				98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */,
 				98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */,
+				983D9C821F3C45AC003419F9 /* UIIdentitiesListViewLogicTests.swift */,
+				983D9C841F3C9F0C003419F9 /* UIIdentityManagementTests.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1593,6 +1599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983D9C851F3C9F0C003419F9 /* UIIdentityManagementTests.swift in Sources */,
 				98E0E17F1F34616000DB2B80 /* UIAddIdentityViewLogicTests.swift in Sources */,
 				985E14D71F3345CD0069C2F6 /* UIRegistrationViewLogicTests.swift in Sources */,
 				98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */,
@@ -1610,6 +1617,7 @@
 				98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */,
 				985E14D51F330CD40069C2F6 /* Utils.swift in Sources */,
 				985E14D91F3363480069C2F6 /* UIDashboardButtonLogicTests.swift in Sources */,
+				983D9C831F3C45AC003419F9 /* UIIdentitiesListViewLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

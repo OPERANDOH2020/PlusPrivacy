@@ -132,7 +132,7 @@ class UIFlowController: SSASideMenuDelegate
         let vc = UIViewControllerFactory.identityManagementViewController
         weak var weakSelf = self
         
-        vc.setupWith(identitiesRepository: dependencies.identityManagementRepo, callbacks: UIIdentityManagementCallbacks(obtainNewIdentityWithCompletion: { completion  in
+        vc.logic.setupWith(identitiesRepository: dependencies.identityManagementRepo, callbacks: UIIdentityManagementCallbacks(obtainNewIdentityWithCompletion: { completion  in
             weakSelf?.displayAddIdentityControllerWith(identityGeneratedCallback: completion)
         }))
         

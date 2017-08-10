@@ -35,8 +35,7 @@ class UIIdentityCell: MGSwipeTableCell {
     @IBOutlet weak var identityLabel: UILabel!
     @IBOutlet weak var disclosureImageView: UIImageView!
         
-    func setupWithIdentity(identity: String?, style: UIIdentityCellStyle)
-    {
+    func setupWithIdentity(identity: String?, style: UIIdentityCellStyle) {
         self.checkmarkImageView.isHidden = !style.displaysDefaultIdentityIcon
         self.disclosureImageView.isHidden = !style.displaysDisclosureIcon
         
