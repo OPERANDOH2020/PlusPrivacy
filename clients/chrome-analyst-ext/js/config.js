@@ -1,7 +1,7 @@
 function Config(){
     return {
         swarmClient: {
-            host: "localhost",
+            host: "192.168.100.173",
             port: 8080,
             tenant: "ANALYST-EXTENSION"
         },
