@@ -1,5 +1,5 @@
 angular.module("app").
-controller("socialNetworksController", ["$scope","$stateParams","settings", function($scope, $stateParams, settings) {
+controller("socialNetworksController", ["$scope","$stateParams","settings","connectionService","Notification", function($scope, $stateParams, settings, connectionService, Notification) {
     if (!$stateParams.sn) {
         $scope.osp = {
             key: 'facebook',
@@ -30,5 +30,23 @@ controller("socialNetworksController", ["$scope","$stateParams","settings", func
         });
     }
 
+
+    $scope.savePrivacySettings = function(){
+        connectionService.savePrivacySettings($scope.osp,function(){
+            Notification.success({
+                message: 'Settings updated',
+                positionY: 'bottom',
+                positionX: 'center',
+                delay: 2000
+            });
+        },function(error){
+            Notification.error({
+                message: error,
+                positionY: 'bottom',
+                positionX: 'center',
+                delay: 2000
+            });
+        })
+    };
     $scope.sn = $stateParams.sn;
 }]);
