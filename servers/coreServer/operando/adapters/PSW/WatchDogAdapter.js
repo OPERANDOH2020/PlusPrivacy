@@ -52,4 +52,40 @@ storeUserPreferences = function(current_settings){
     });
 };
 
-recalculateTheRecomenderParameters = utils.recomputeConditionalProbabilitites
+savePrivacySettings = function(settings, callback){
+    var timestamp = Date.now();
+
+    var filePath = process.env.SWARM_PATH+"/operando/adapters/PSW/resources/privacy_settings_versions/OSP.settings_"+timestamp+".json";
+    fs.open(filePath, "wx", function (err, fd) {
+        if (err) {
+            console.log("aas");
+            console.error(err);
+            callback(err);
+        }
+        else {
+            fs.close(fd, function (err) {
+                if (err) {
+                    console.log("aasdasdas");
+                    console.error(err);
+                    callback(err);
+                }
+                else {
+                    fs.writeFile(filePath, JSON.stringify(settings, null, 4), function (err) {
+                        if (err) {
+                            console.error(err);
+                            callback(err);
+                        }
+                        else {
+                            callback(null, true);
+                        }
+                    });
+                }
+            });
+
+        }
+
+    });
+
+};
+
+recalculateTheRecomenderParameters = utils.recomputeConditionalProbabilitites;

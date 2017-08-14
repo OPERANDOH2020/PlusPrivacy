@@ -237,6 +237,7 @@ div.tab-content{
 #pfb_tab,
 #social_networks_tab,
 #notifications_tab,
+#contact_tab,
 #network_tab
 {
     display: block;
@@ -1392,6 +1393,12 @@ h3.privacy_wizard_suggestions_heading{
     margin: 0 auto;
 }
 
+.contact-loader .sk-fading-circle{
+    width:32px;
+    height: 32px;
+    margin: 0px 16px;
+}
+
 .big-loader .sk-fading-circle .sk-circle:before{
     background-color: #584a28;
 }
@@ -2525,4 +2532,13 @@ h4.modal-title.plusprivacy{
     text-align: center;
     font-family: 'Dosis', sans-serif;
     font-weight: 400;
+}
+
+#contact_form .form-group{
+    margin-bottom: 20px;
+}
+#contact_form .form-group:after{
+    clear:both;
+    content:"";
+    display: block;
 }

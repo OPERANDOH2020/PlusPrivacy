@@ -9,25 +9,30 @@
  *    RAFAEL MASTALERU (ROMSOFT)
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
-var privacy_settings = {
+var privacy_settings_swarming = {
 
-    meta: {
-        name: "sn_privacy_settngs.js"
-    },
-
-    vars: {
-        userId: null,
-        sn_privacy_settings:null
-    },
-
-    start: function () {
-
-    },
 
     savePrivacySetting: function(snPrivacySetting){
         if (snPrivacySetting) {
             this.sn_privacy_settings=snPrivacySetting;
-            console.log(this.sn_privacy_settings);
+            this.swarm("saveSNPrivacySettings");
+        }
+    },
+    saveSNPrivacySettings:{
+        node:"WatchDogAdapter",
+        code:function(){
+            var self = this;
+            savePrivacySettings(this.sn_privacy_settings, S(function(err, succeed){
+                if(err){
+                    self.err = err.message;
+                    self.home("error");
+                }
+                else{
+                    delete self.sn_privacy_settings;
+                    self.home("success");
+                }
+            }));
         }
     }
-}
+};
+privacy_settings_swarming;

@@ -52,8 +52,20 @@ var loginSwarming = {
     inputValidationCheck: {
         node: "UsersManager",
         code: function () {
-            if (!this.email || this.email.length === 0 || !this.authorisationToken
+            function emailIsValid(email) {
+                if (!email || email.length === 0) {
+                    return false;
+                }
+                else {
+                    var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+                    return re.test(email);
+                }
+                return false;
+            }
+
+            if (emailIsValid(this.email) === false || !this.authorisationToken
                 || this.authorisationToken.length === 0) {
+                this.error = "emailIsInvalid";
                 this.swarm('failed', this.getEntryAdapter());
                 return;
             }

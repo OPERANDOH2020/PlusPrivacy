@@ -6,6 +6,7 @@
     "swarmcore":"git+https://mastaleru@github.com/PrivateSky/swarmcore.git#master",
     "uuid":">=2.0.0",
     "ini":">0.0.0",
+    "jsonwebtoken":">=7.3.0",
     "nodemailer-smtp-transport":">=2.7.2"
   }
 }

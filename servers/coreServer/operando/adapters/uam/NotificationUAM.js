@@ -33,6 +33,13 @@ var signupNotifications = {
         action_name:"identity",
         zone:"ALL_USERS"
     },
+    feedback: {
+        sender: "PlusPrivacy",
+        title: "Welcome to PlusPrivacy!",
+        description: "Welcome to PlusPrivacy! Please help us make PlusPrivacy better by providing feedback (see the feedback link on the sidebar). Thank you.",
+        action_name:"feedback",
+        zone:"Extension"
+    },
     deals: {
         sender: "WatchDog",
         title: "Privacy deals",
@@ -286,20 +293,18 @@ generateSignupNotifications = function (callback) {
                 console.log(err.message)
             }
             else{
-                if(notifications.length === 0){
-                    this.next("iterateNotifications");
-                }
-                else{
-                    this.next("noNotificationCreated");
-                }
+                this.existingNotifications = notifications;
+                this.next("iterateNotifications");
             }
         },
 
         iterateNotifications: function () {
-
+            var existingActions = this.existingNotifications.map(function(el){return el.action_name});
             var self = this;
             Object.keys(signupNotifications).forEach(function(key, index){
-                self.next("createNotification",undefined,key, index);
+                if(existingActions.indexOf(signupNotifications[key]['action_name']) === -1){
+                    self.next("createNotification",undefined,key, index);
+                }
             });
 
         },
@@ -321,9 +326,6 @@ generateSignupNotifications = function (callback) {
         notificationCreated:function(err, notification){
             console.log(uuid.v1());
             this.notifications.push(notification);
-        },
-        noNotificationCreated: function () {
-            callback(undefined,[]);
         },
         end:{
             join:"notificationCreated",

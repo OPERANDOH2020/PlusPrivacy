@@ -21,7 +21,7 @@ angular.module("app").controller("loginController", function($scope, connectionS
                     delay: 2000
                 });
 
-                $state.go("dashboard.socialNetworks");
+                $state.go("dashboard.socialNetworks",{sn:"facebook"});
 
             },
             function (error) {

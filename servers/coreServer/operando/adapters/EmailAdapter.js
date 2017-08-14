@@ -26,7 +26,6 @@ var fs = require('fs');
 var encryptionKey = fs.readFileSync(thisAdapter.config.Core.emailEncryptionKey).toString();
 
 
-
 sendEmail = function(from,to,subject,text,callback){
     to = jwt.sign(JSON.stringify({
         "alias":from,
@@ -38,6 +37,17 @@ sendEmail = function(from,to,subject,text,callback){
         "subject": subject,
         "text": text
     }, callback)
+};
+
+sendContactEmail = function(subject, text, replyToAddress,callback){
+
+    transporter.sendMail({
+        "from":"contact@" + thisAdapter.config.Core.operandoHost,
+        "to": "contact@"+thisAdapter.config.Core.operandoHost,
+        "subject": subject,
+        "text": text,
+        "replyTo": replyToAddress
+    }, callback);
 };
 
 

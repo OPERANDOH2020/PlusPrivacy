@@ -120,6 +120,10 @@ configFiles = [
         "dest":"adblockpluschrome/operando/util/Config.js"
     },
     {
+            "src":"util/config/Config.testServer.js",
+            "dest":"adblockpluschrome/operando/util/Config.js"
+    },
+    {
         "src":"util/config/Config.debug.js",
         "dest":"adblockpluschrome/operando/util/Config.js"
     }
@@ -137,8 +141,11 @@ for file in files:
 if len(sys.argv) > 1:
     if sys.argv[1] == "release":
         shutil.copy2(os.path.join(extensionFolder,configFiles[0]['src']), os.path.join(BASE_DIR,configFiles[0]['dest']))
+    else:
+        if sys.argv[1] == "test":
+            shutil.copy2(os.path.join(extensionFolder,configFiles[1]['src']), os.path.join(BASE_DIR,configFiles[1]['dest']))
 else:
-    shutil.copy2(os.path.join(extensionFolder,configFiles[1]['src']), os.path.join(BASE_DIR,configFiles[1]['dest']))
+    shutil.copy2(os.path.join(extensionFolder,configFiles[2]['src']), os.path.join(BASE_DIR,configFiles[2]['dest']))
 
 
 buildOperando()

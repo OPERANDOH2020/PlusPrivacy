@@ -132,7 +132,7 @@ var initOperando = {
                 var users = [
                     {
                         password: "swarm",
-                        email: "admin@plusprivacy.com",
+                        email: "admin@"+thisAdapter.config.Core.operandoHost,
                         organisationId: "SystemAdministrators",
                         activationCode:"0"
                     },
@@ -174,7 +174,7 @@ var initOperando = {
                     },
                     {
                         password: "test",
-                        email: "test@plusprivacy.com",
+                        email: "test@"+thisAdapter.config.Core.operandoHost,
                         organisationId: "Public",
                         activationCode:"0"
                     }
@@ -205,9 +205,12 @@ var initOperando = {
                     }
                 }
             }
-
-
+            
+            
+            console.log("CREATING DEFAULT USERS");
+            
             createDefaultUsers(function (errors, result) {
+                
                 if (errors && errors.length>0) {
                     console.log("Could not create the default users\nErrors:",errors,"\nAborting init swarm...")
                 } else {

@@ -370,13 +370,17 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             .state('feedback', {
             url: "/feedback",
             templateUrl: "views/feedback.html"
-        });
+            })
+            .state('contact', {
+                url: "/contact",
+                templateUrl: "views/contact.html",
+                resolve: {
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/operando/controllers/contactController.js');
+                    }]
+                }
+            });
 
-
-
-            // For any unmatched url, redirect to /home
-            //TODO fix this, reminder about notifications
-            //$urlRouterProvider.otherwise("/home");
     })
     .run(["firstRunService","subscriptionsService", "$ocLazyLoad", function(firstRunService, subscriptionsService, $ocLazyLoad){
 

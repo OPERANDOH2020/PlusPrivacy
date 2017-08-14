@@ -176,6 +176,7 @@ angular.module('notifications').
                     switch (actionName){
                         case "identity": $state.go('identityManagement'); break;
                         case "privacy-for-benefits": $state.go('deals'); break;
+                        case "feedback": $state.go('feedback'); break;
                         case "social-network-privacy":
                             notificationService.dismissNotification($scope.notification.notificationId, function(){
                                 $state.go('socialNetworks');

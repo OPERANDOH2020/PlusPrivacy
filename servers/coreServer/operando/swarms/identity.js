@@ -204,7 +204,7 @@ var identitySwarming = {
     getUserIdWithProxy:{
         node: "IdentityManager",
         code: function () {
-            if(this.proxy==='support@plusprivacy.com'){
+            if(this.proxy==='support@'+thisAdapter.config.Core.operandoHost){
                 /*
                 For this particular proxy the emails must be forwarded to multiple destinations.
                 A little confusing and ugly, but just ignore it.
@@ -213,7 +213,7 @@ var identitySwarming = {
                 this.home('gotRealEmail')
                 return;
             }
-            else if(this.proxy==="contact@plusprivacy.com") {
+            else if(this.proxy==="contact@"+thisAdapter.config.Core.operandoHost) {
                 this.realEmail = thisAdapter.config.Core.adminEmail;
                 this.home('gotRealEmail')
                 return

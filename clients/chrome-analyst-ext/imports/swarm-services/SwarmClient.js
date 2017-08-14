@@ -22,7 +22,7 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
     var connectionString;
 
     if (useSocketIo) {
-        if (host === "localhost" || host === "127.0.0.1") {
+        if (host === "localhost" || host === "127.0.0.1" || host === "192.168.100.86"|| host === "192.168.100.173") {
             protocol = "http";
         }
         else {

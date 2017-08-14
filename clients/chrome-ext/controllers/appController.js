@@ -10,7 +10,6 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-
 angular.module("operando").
 controller("appCtrl", ["$scope", "messengerService","$window","$state", function ($scope, messengerService, $window, $state) {
     $scope.userIsLoggedIn = false;
