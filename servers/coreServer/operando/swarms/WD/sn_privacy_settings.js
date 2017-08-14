@@ -18,6 +18,10 @@ var privacy_settings_swarming = {
             this.swarm("saveSNPrivacySettings");
         }
     },
+    getSettingsHistory: function(){
+        this.history = [];
+        this.swarm("retrieveHistory");
+    },
     saveSNPrivacySettings:{
         node:"WatchDogAdapter",
         code:function(){
@@ -29,6 +33,22 @@ var privacy_settings_swarming = {
                 }
                 else{
                     delete self.sn_privacy_settings;
+                    self.home("success");
+                }
+            }));
+        }
+    },
+    retrieveHistory:{
+        node:"WatchDogAdapter",
+        code:function(){
+         var self = this;
+            retrieveSocialNetworksHistory(S(function(err, history){
+                if(err){
+                    self.error = err.message;
+                    self.home("error");
+                }
+                else{
+                    self.history = history;
                     self.home("success");
                 }
             }));
