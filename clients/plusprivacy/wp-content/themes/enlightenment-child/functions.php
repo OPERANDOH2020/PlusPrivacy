@@ -16,4 +16,16 @@ function install_plusprivacy() {
 
 add_action( 'wp_enqueue_scripts', 'install_plusprivacy', 999 );
 
+
+function remove_web_fonts( $html, $handle, $href, $media ){
+    if($handle=="enlightenment-web-fonts"){
+    return ;
+    }
+    else{
+    return $html;
+    }
+}
+
+add_filter( 'style_loader_tag',  'remove_web_fonts', 10, 4 );
 ?>
+

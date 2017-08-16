@@ -15,6 +15,27 @@ License: GNU General Public License v2.0
 /*CUSTOM*/
 
 
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('fonts/OpenSans-Light-webfont.woff') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/OpenSans-Bold-webfont.woff') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/OpenSans-Regular-webfont.woff') format('woff2');
+}
+
 .navbar .nav > li > a {
     color: #31454a;
     -webkit-transition: all .25s ease;
