@@ -120,12 +120,10 @@ var loginSwarming = {
     },
 
     restoreSession: function (userId, clientSessionId) {
-        console.log(this.meta.sessionId, clientSessionId);
         if (clientSessionId == null || clientSessionId == undefined) {
             this.home("restoreFailed");
         }
         else {
-            console.log("Let's restore session");
             this.sessionId = clientSessionId;
             this.userId = userId;
             this.swarm("getOutlets", this.getEntryAdapter());
@@ -133,8 +131,6 @@ var loginSwarming = {
     },
 
     registerNewOSPOrganisation:function(organisationData){
-        console.log(organisationData);
-        console.log("New OSP register request", organisationData);
         this.ospData = organisationData;
         this.swarm("verifyOSPData");
     },
@@ -239,7 +235,6 @@ var loginSwarming = {
                 }
                 else
                  if(session){
-                     console.log("A new session was created!");
                      self.sessionId = session.sessionId;
                      self.authenticated = true;
                      self.setSessionId(self.sessionId);
@@ -267,7 +262,6 @@ var loginSwarming = {
                     }
                     else {
                         if (newSession) {
-                            console.log("Session is valid");
                             self.sessionId = newSession.sessionId;
                             self.authenticated = true;
                             self.setSessionId(self.sessionId);
@@ -295,7 +289,6 @@ var loginSwarming = {
                     self.home("tokenLoginFailed");
                 }
                 else {
-                    console.log("Authentication token validated!");
                     self.sessionId = session.sessionId;
                     self.meta.userId = self.userId;
                     self.authenticated = true;
@@ -318,7 +311,6 @@ var loginSwarming = {
         this.userId = userId;
         this.authorisationToken = authorisationToken;
         this.clientAdapter = thisAdapter.nodeName;
-        console.log("Password: ", authorisationToken);
         if (authorisationToken == "ok") {
             this.authenticated = true;
             cprint("enabling... " + this.clientAdapter);
@@ -366,12 +358,10 @@ var loginSwarming = {
     enableSwarms: {
         node: "EntryPoint",
         code: function () {
-            console.log("swarms enabled",this.userId);
             this.meta.userId = this.userId;
             var outlet = sessionsRegistry.getTemporarily(this.meta.outletId);
             sessionsRegistry.registerOutlet(outlet);
             enableOutlet(this);
-            console.log("Success !");
             if(this.email==="guest@operando.eu"){
                 this.home("success_guest");
             }
