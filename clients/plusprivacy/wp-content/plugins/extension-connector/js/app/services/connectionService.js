@@ -52,8 +52,6 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
 
             var userLoginSuccess = function (swarm) {
 
-                ga('send', 'event', 'login', 'button-pressed', 'website-event');
-
                 swarmHub.off("login.js", "success", userLoginSuccess);
                 if (swarm.authenticated) {
 
@@ -128,7 +126,6 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
             swarmHub.on("login.js", "success_guest", function guestLoginForUserVerification(swarm) {
                 swarmHub.off("login.js", "success_guest", guestLoginForUserVerification);
                 if (swarm.authenticated) {
-                    ga('send', 'event', 'register', 'button-pressed', 'website-event');
                     var registerHandler = swarmHub.startSwarm("register.js", "registerNewUser", user);
                     registerHandler.onResponse("success", function (swarm) {
                         successCallback("success");
