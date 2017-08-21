@@ -13,8 +13,6 @@
 var registerSwarming = {
 
     registerNewUser: function (newUserData) {
-        console.log(newUserData);
-        console.log("New user register request", newUserData);
         this.newUser = newUserData;
         this.swarm("verifyUserData");
     },

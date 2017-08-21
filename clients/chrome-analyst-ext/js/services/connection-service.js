@@ -131,6 +131,13 @@ angular.module("app").factory("connectionService", function(swarmService){
             });
         };
 
+        ConnectionService.prototype.getSettingsHistory = function(callback){
+            var getSettingsHistoryHandler = swarmHub.startSwarm("sn_privacy_settings.js","getSettingsHistory");
+            getSettingsHistoryHandler.onResponse("success",function(swarm){
+                callback(swarm.history);
+            })
+        };
+
         return ConnectionService;
 
     })();

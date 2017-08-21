@@ -58,14 +58,12 @@ savePrivacySettings = function(settings, callback){
     var filePath = process.env.SWARM_PATH+"/operando/adapters/PSW/resources/privacy_settings_versions/OSP.settings_"+timestamp+".json";
     fs.open(filePath, "wx", function (err, fd) {
         if (err) {
-            console.log("aas");
             console.error(err);
             callback(err);
         }
         else {
             fs.close(fd, function (err) {
                 if (err) {
-                    console.log("aasdasdas");
                     console.error(err);
                     callback(err);
                 }
@@ -85,6 +83,31 @@ savePrivacySettings = function(settings, callback){
         }
 
     });
+
+};
+
+retrieveSocialNetworksHistory = function(callback){
+    var history = [];
+    var folderPath = process.env.SWARM_PATH+"/operando/adapters/PSW/resources/privacy_settings_versions";
+
+    if(fs.existsSync(folderPath)){
+        fs.readdir(folderPath, function(err, files){
+            files.forEach(function(file){
+                try{
+                var timestamp = file.split("OSP.settings_")[1].split(".json")[0];
+                    history.push({filename:file,
+                    date:new Date(parseInt(timestamp)).toGMTString()})
+                }
+                catch(e){
+                    console.log(e);
+                }
+            });
+            callback(null,history);
+        })
+    }
+    else{
+        callback(null,history);
+    }
 
 };
 

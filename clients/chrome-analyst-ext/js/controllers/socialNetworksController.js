@@ -1,5 +1,5 @@
 angular.module("app").
-controller("socialNetworksController", ["$scope","$stateParams","settings","connectionService","Notification", function($scope, $stateParams, settings, connectionService, Notification) {
+controller("socialNetworksController", ["$scope","$stateParams","settings","connectionService","Notification","ModalService", function($scope, $stateParams, settings, connectionService, Notification,ModalService) {
     if (!$stateParams.sn) {
         $scope.osp = {
             key: 'facebook',
@@ -48,5 +48,21 @@ controller("socialNetworksController", ["$scope","$stateParams","settings","conn
             });
         })
     };
+    $scope.viewHistory = function(){
+        ModalService.showModal({
+            templateUrl: '/templates/modals/history.html',
+            controller: function ($scope, close) {
+                connectionService.getSettingsHistory(function(settingsHistory){
+
+                })
+                $scope.close = function (result) {
+                    close(result, 500);
+                };
+            }
+        }).then(function (modal) {
+            modal.element.modal();
+        });
+    };
+
     $scope.sn = $stateParams.sn;
 }]);
