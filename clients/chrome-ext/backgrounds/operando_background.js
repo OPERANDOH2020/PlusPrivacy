@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     }
 
                 },
-                {urls: ["<all_urls>"]},
+                {urls: ["*://www.facebook.com/*"]},
                 ["blocking", "requestBody"]);
         }
         return true;

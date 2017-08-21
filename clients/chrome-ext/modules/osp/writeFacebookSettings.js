@@ -195,7 +195,9 @@ function extractHeaders(content, callback) {
     data['__spin_b'] = fbdata.__spin_b;
     data['__spin_t'] = fbdata.__spin_t;
     data['__be'] = fbdata.__be;
+    data['__af'] = fbdata.__af;
     data['__pc'] = fbdata.__pc;
+    data['__rev'] = fbdata.__rev;
     extractedData = data;
     callback(data);
 }
