@@ -17,6 +17,7 @@ var HEADERS_TO_STRIP_LOWERCASE = [
 ];
 
 var DependencyManager = require("DependencyManager").DependencyManager;
+var bus = require("bus-service").bus;
 
 webRequest.onHeadersReceived.addListener(
     function (details) {
@@ -123,6 +124,20 @@ webRequest.onBeforeSendHeaders.addListener(
     },
     {urls: ["*://www.facebook.com/*"]},
     ["blocking", "requestHeaders"]);
+
+
+chrome.webRequest.onHeadersReceived.addListener(
+    function(details) {
+        var feedbackFormUrl = CONSTANTS.FEEDBACK_FORM_URL + "/formResponse";
+        if(details.url.indexOf(feedbackFormUrl)>-1){
+            var saveUserPreferencesCallback = bus.getAction("saveUserPreferences");
+            saveUserPreferencesCallback({preferenceKey: "providedFeedback", preferences: true});
+        }
+
+        return {cancel: false};
+    },
+    {urls: ["*://docs.google.com/*"]},
+    ["blocking"]);
 
 /*
 //prevent fringerprinting
