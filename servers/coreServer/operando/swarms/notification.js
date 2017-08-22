@@ -212,9 +212,9 @@ var notificationSwarming = {
     },
 
     registerInZone: function (zoneName) {
-        var possibleZones = ['iOS', 'Android', 'Extension'];
+        var possibleZones = ['iOS', 'Android', 'Extension','FEEDBACK_SUBMITTED'];
         if (possibleZones.indexOf(zoneName) === -1) {
-            this.err = new Error('The possible user zones are: ', possibleZones).message;
+            this.err = "No such zone name";
             this.home('failed')
         } else {
             this.zone = zoneName;
