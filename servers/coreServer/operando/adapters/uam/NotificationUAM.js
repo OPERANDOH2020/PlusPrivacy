@@ -24,44 +24,36 @@ var signupNotifications = {
         title: "Privacy Questionnaire",
         description: "You have not filled all your social network privacy settings yet. Doing so will tailor your social network privacy settings to your preferences. You can also optimize your social network privacy settings in a single click, using settings recommended by PrivacyPlus.",
         action_name:"social-network-privacy",
-        zone:"ALL_USERS"
+        zones:["ALL_USERS"]
     },
     identity: {
         sender: "WatchDog",
         title: "Add identity",
         description: "You have not yet generated alternative email identities. Doing so will enable you to sign up on websites without disclosing your real email.",
         action_name:"identity",
-        zone:"ALL_USERS"
+        zones:["ALL_USERS"]
     },
     feedback: {
         sender: "PlusPrivacy",
         title: "Welcome to PlusPrivacy!",
         description: "Welcome to PlusPrivacy! Please help us make PlusPrivacy better by providing feedback (see the feedback link on the sidebar). Thank you.",
         action_name:"feedback",
-        zone:"Extension"
+        zones:["Extension","Android"]
     },
     deals: {
         sender: "WatchDog",
         title: "Privacy deals",
         description: "You have not yet accepted any privacy deals. Privacy deals enable you to trade some of your privacy for valuable benefits.",
         action_name:"privacy-for-benefits",
-        zone:"ALL_USERS"
+        zones:["ALL_USERS"]
     },
-    private_browsing_ios: {
+    private_browsing: {
         sender: "WatchDog",
         title: "PrivateBrowsing",
         description: "Check the new feature: private browsing for iOS",
-        action_name:"private_browsing",
-        zone:"iOS"
-    },
-    private_browsing_android: {
-        sender: "WatchDog",
-        title: "PrivateBrowsing",
-        description: "Check the new feature: private browsing for Android",
-        action_name:"private_browsing",
-        zone:"Android"
+        action_name:"private_browsing-ios",
+        zones:["iOS","Android"]
     }
-
 };
 
 
@@ -69,65 +61,85 @@ var signupNotifications = {
 function registerModels(callback){
 
     var models = [
-    {
-        modelName:"Notification",
-        dataModel : {
-            notificationId:{
-                type:"string",
-                pk:true,
-                index:true,
-                length:255
-            },
-            sender:{
-                type: "string",
-                length:255
-            },
-            zone:{
-                type: "string",
-                index: true,
-                length:255
-            },
-            action_argument:{
-                type:"string",
-                length:255
-            },
-            action_name:{
-                type:"string",
-                length:255
-            },
-            title:{
-                type: "string",
-                length:255
-            },
-            description:{
-                type: "string",
-                length:1024
-            },
-            expirationDate:{
-                type: "date"
-            },
-            creationDate:{
-                type:"date"
-            }
-        }
-    },
         {
-
-            modelName:"DismissedNotifications",
-            dataModel:{
-                "id":{
-                    type:"string",
-                    length:255,
-                    pk:true
+            modelName: "NotificationNew",
+            dataModel: {
+                notificationId: {
+                    type: "string",
+                    pk: true,
+                    index: true,
+                    length: 255
                 },
-                "userId":{
-                    type:"string",
-                    length:255,
+                sender: {
+                    type: "string",
+                    length: 255
+                },
+                zones: {
+                    type: "array:ZoneNotificationMapping",
+                    relation: "notificationId:notificationId"
+                },
+                action_argument: {
+                    type: "string",
+                    length: 255
+                },
+                action_name: {
+                    type: "string",
+                    length: 255
+                },
+                title: {
+                    type: "string",
+                    length: 255
+                },
+                description: {
+                    type: "string",
+                    length: 1024
+                },
+                expirationDate: {
+                    type: "date"
+                },
+                creationDate: {
+                    type: "date"
+                }
+            }
+        }, {
+            modelName: "ZoneNotificationMapping",
+            dataModel: {
+                notification: {
+                    type: "NotificationNew",
+                    relation:"notificationId:notificationId"
+                },
+                notificationId: {
+                    type: "string",
+                    length: 255,
                     index:true
                 },
-                "notificationId":{
+                zoneName: {
+                    type: "string",
+                    index: true
+                },
+                mappingId:{
                     type:"string",
-                    length:255
+                    pk:true,
+                    length:254
+                }
+            }
+        },
+        {
+            modelName: "DismissedNotifications",
+            dataModel: {
+                "id": {
+                    type: "string",
+                    length: 255,
+                    pk: true
+                },
+                "userId": {
+                    type: "string",
+                    length: 255,
+                    index: true
+                },
+                "notificationId": {
+                    type: "string",
+                    length: 255
                 }
 
             }
@@ -152,6 +164,7 @@ function registerModels(callback){
             join:"registerDone",
             code:function(){
                 if(callback && this.errs.length>0){
+                    console.log("\n\n\n\nERRORS:",this.errs);
                     callback(this.errs);
                 }else{
                     callback(null);
@@ -176,7 +189,7 @@ container.declareDependency("NotificationUAMAdapter", ["mysqlPersistence"], func
 });
 
 createNotification = function (rawNotificationData, callback) {
-    var notification = apersistence.createRawObject('Notification',uuid.v1());
+    var notification = apersistence.createRawObject("NotificationNew",uuid.v1());
     rawNotificationData.expirationDate = new Date(rawNotificationData.expirationDate);
     persistence.externalUpdate(notification,rawNotificationData);
     notification.creationDate = new Date();
@@ -186,7 +199,7 @@ createNotification = function (rawNotificationData, callback) {
 deleteNotification = function (notificationId, callback) {
     flow.create("Delete Notification", {
         begin: function () {
-            persistence.deleteById("Notification", notificationId, this.continue("deleteReport"));
+            persistence.deleteById("NotificationNew", notificationId, this.continue("deleteReport"));
         },
         deleteReport: function (err, obj) {
             callback(err, obj);
@@ -197,7 +210,7 @@ deleteNotification = function (notificationId, callback) {
 updateNotification = function (notificationDump, callback) {
     flow.create("Update notification", {
         begin: function () {
-            persistence.lookup("Notification", notificationDump.notificationId, this.continue("updateNotification"));
+            persistence.lookup("NotificationNew", notificationDump.notificationId, this.continue("updateNotification"));
         },
 
         updateNotification: function (err, notification) {
@@ -235,27 +248,44 @@ getNotifications = function (userId, userZones, callback) {
                     self.isDissmissed[dismissedNotification.notificationId] = true;
                 })
             }
-            persistence.filter("Notification", {zone: userId}, this.continue("gotNotifications"));
+            persistence.filter("ZoneNotificationMapping", {zoneName: userId}, this.continue("gotNotifications"));
             userZones.forEach(function(zone){
-                    persistence.filter("Notification",{zone:zone},self.continue("gotNotifications"));
+                    persistence.filter("ZoneNotificationMapping",{zoneName:zone},self.continue("gotNotifications"));
             })
         },
 
-        gotNotifications:function(err,notifications){
+        gotNotifications:function(err,notificationsMappings){
             if(err){
                 this.errs.push(err);
             }else{
                 var self = this;
-                notifications.forEach(function(notification){
-                    if(!self.isDissmissed[notification.notificationId]){
-                        self.notifications.push(notification);
-                    }
+                notificationsMappings.forEach(function(notificationMapping){
+
+                    notificationMapping.__meta.loadLazyFields(self.continue("loadNotifications"));
+
                 })
             }
         },
 
+        loadNotifications:function(err,lazyNotification){
+            if (err) {
+                console.err(err);
+            }
+            else {
+                var notification = lazyNotification.notification;
+
+                if (!this.isDissmissed[notification.notificationId]) {
+                    var existingNotificationsIds = this.notifications.map(function(notification){return notification.notificationId});
+                    if(existingNotificationsIds.indexOf(notification.notificationId)==-1){
+                        this.notifications.push(notification);
+                    }
+
+                }
+            }
+        },
+
         deliverNotifications: {
-            join:"gotNotifications",
+            join:"loadNotifications",
             code:function () {
                 if(this.errs.length>0){
                     callback(this.errs, this.notifications);
@@ -275,10 +305,12 @@ dismissNotification = function(userIdOrZone, notificationId, callback){
 };
 
 filterNotifications = function(filter,callback){
-    persistence.filter("Notification",filter,callback);
+    persistence.filter("NotificationNew",filter,callback);
 }
 
 generateSignupNotifications = function (callback) {
+
+
     flow.create("createSignupNotifications", {
         begin: function () {
             this.notifications = [];
@@ -286,7 +318,7 @@ generateSignupNotifications = function (callback) {
         },
 
         getNotificationsFromSystem : function(){
-            persistence.filter("Notification", {},this.continue("checkNotificationsFromSystem"));
+            persistence.filter("NotificationNew", {},this.continue("checkNotificationsFromSystem"));
         },
         checkNotificationsFromSystem: function(err, notifications){
             if(err){
@@ -299,6 +331,7 @@ generateSignupNotifications = function (callback) {
         },
 
         iterateNotifications: function () {
+
             var existingActions = this.existingNotifications.map(function(el){return el.action_name});
             var self = this;
             Object.keys(signupNotifications).forEach(function(key, index){
@@ -310,21 +343,36 @@ generateSignupNotifications = function (callback) {
         },
         createNotification: function (key, index) {
             var self = this;
-            persistence.lookup("Notification", uuid.v1(), function (err, notification) {
-
+            persistence.lookup("NotificationNew", uuid.v1(), function (err, notification) {
                 if (err) {
                     callback(err, null);
                 }
                 else {
                     for (var i in signupNotifications[key]) {
-                        notification[i] = signupNotifications[key][i];
+                        if(i!="zones"){
+                            notification[i] = signupNotifications[key][i];
+                        }
                     }
                     persistence.save(notification, self.continue("notificationCreated"));
                 }
             });
         },
         notificationCreated:function(err, notification){
-            console.log(uuid.v1());
+            //add to mapping
+
+                Object.keys(signupNotifications).forEach(function(key, index){
+                    if(notification['action_name'] === signupNotifications[key]['action_name']){
+                        var zones = signupNotifications[key]['zones'];
+                        console.log(zones);
+                        zones.forEach(function(zoneName){
+                            var newAssociation = apersistence.modelUtilities.createRaw("ZoneNotificationMapping",uuid.v1().split("-").join(""));
+                            newAssociation.zoneName = zoneName;
+                            newAssociation.notificationId = notification.notificationId;
+                            persistence.save(newAssociation);
+                        });
+                    }
+                });
+
             this.notifications.push(notification);
         },
         end:{
@@ -336,6 +384,7 @@ generateSignupNotifications = function (callback) {
 
     })();
 };
+generateSignupNotifications();
 
 clearIdentityNotifications = function(userId){
     clearNotification(userId,signupNotifications.identity.action_name);
@@ -358,7 +407,7 @@ clearNotification = function(userId, action_name){
                 console.log(new Error("userId is invalid"));
             }
             else{
-                persistence.filter("Notification", {action_name: action_name}, this.continue("dismissNotificationsByAction"));
+                persistence.filter("NotificationNew", {action_name: action_name}, this.continue("dismissNotificationsByAction"));
             }
         },
         dismissNotificationsByAction:function(err, notifications){
