@@ -158,6 +158,13 @@ var authenticationService = exports.authenticationService = {
             }
         });
     },
+    changeLoggedInIcon:function(isLoggedIn){
+        var icon = "operando/assets/images/icons/operando/abp-19-grey.png";
+        if(isLoggedIn){
+            icon = "operando/assets/images/icons/operando/abp-19.png"
+        }
+        chrome.browserAction.setIcon({path:icon});
+    },
 
     restoreUserSession: function (successCallback, failCallback, errorCallback, reconnectCallback) {
 
@@ -166,8 +173,14 @@ var authenticationService = exports.authenticationService = {
         }
 
         if(!reconnectCallback){
-            reconnectCallback = function(){}
+            reconnectCallback = function(){
+
+            }
         }
+
+        var customReconnectCallback = function(){
+            chrome.runtime.reload();
+        };
 
         if(authenticationService.isLoggedIn()){//do not restore if already loggedin
             successCallback();
@@ -177,25 +190,32 @@ var authenticationService = exports.authenticationService = {
 
             if (!username || !sessionId) {
                 failCallback();
+                authenticationService.changeLoggedInIcon(false);
             }
-            swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, reconnectCallback);
+            swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, customReconnectCallback);
             swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
                 loggedIn = true;
                 if(successCallback){
                     authenticationService.setUser(successCallback);
                 }
-                swarmHub.off("login.js", "restoreSucceed",restoredSuccessfully);
-            });
 
-            swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
                 var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
                 Cookies.set("sessionId", swarm.meta.sessionId, {expires: cookieValidityDays});
                 Cookies.set("userId", swarm.userId, {expires: cookieValidityDays});
+
+                swarmHub.off("login.js", "restoreSucceed",restoredSuccessfully);
             });
+
+            swarmHub.on('login.js', "restoreFailed", function restoreFailed(swarm) {
+                authenticationService.clearUserData();
+                swarmHub.off("login.js", "restoreSucceed",restoreFailed);
+            });
+
         }
     },
 
     setUser: function (callback) {
+        authenticationService.changeLoggedInIcon(true);
         var setUserHandler = swarmHub.startSwarm('UserInfo.js', 'info');
         setUserHandler.onResponse("result", function(swarm){
             authenticatedUser = swarm.result;
@@ -224,16 +244,20 @@ var authenticationService = exports.authenticationService = {
         }, true);
     },
 
+    clearUserData:function(){
+        authenticationService.changeLoggedInIcon(false);
+        authenticatedUser = {};
+        loggedIn = false;
+        notLoggedInObservable.notify();
+        notLoggedInObservable = swarmHub.createObservable();
+        loggedInObservable = swarmHub.createObservable();
+        Cookies.remove("userId");
+        Cookies.remove("sessionId");
+    },
     logoutCurrentUser: function (callback) {
         swarmHub.startSwarm("login.js", "logout");
         swarmHub.on("login.js", "logoutSucceed", function logoutSucceed(swarm) {
-            authenticatedUser = {};
-            loggedIn = false;
-            notLoggedInObservable.notify();
-            notLoggedInObservable = swarmHub.createObservable();
-            loggedInObservable = swarmHub.createObservable();
-            Cookies.remove("userId");
-            Cookies.remove("sessionId");
+            authenticationService.clearUserData();
             swarmHub.off("login.js", "logoutSucceed",logoutSucceed);
             identityService.clearIdentitiesList();
             swarmService.removeConnection();
