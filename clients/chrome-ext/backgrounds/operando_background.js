@@ -137,6 +137,14 @@ chrome.webRequest.onHeadersReceived.addListener(
     {urls: ["*://docs.google.com/*"]},
     ["blocking"]);
 
+
+chrome.storage.local.get("deviceId",function(response){
+    if(!response.deviceId) {
+        response.deviceId = new Date().getTime().toString(16) + Math.floor(Math.random() * 10000).toString(16);
+    }
+    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+response.deviceId);
+});
+
 /*
 //prevent fringerprinting
 
