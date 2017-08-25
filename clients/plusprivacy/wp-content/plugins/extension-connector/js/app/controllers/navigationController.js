@@ -1,6 +1,5 @@
 menuApp.controller("navigationController", function ($scope, SharedService, userService, accessService, $window) {
 
-
     $scope.menuItems = [
 
         {
