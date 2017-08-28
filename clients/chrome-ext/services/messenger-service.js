@@ -51,9 +51,14 @@ operandoCore
 
         var off = function (event, callback) {
             if (events[event]) {
-                var idx = events[event].indexOf(callback);
-                if (idx != -1) {
-                    events[event].splice(idx, 1);
+                if(callback){
+                    var idx = events[event].indexOf(callback);
+                    if (idx != -1) {
+                        events[event].splice(idx, 1);
+                    }
+                }
+                else{
+                    delete events[event];
                 }
             }
         };

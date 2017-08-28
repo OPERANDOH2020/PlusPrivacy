@@ -58,6 +58,7 @@ operandoCore
                         jobFinished();
                         messengerService.off("facebookMessage",handleFacebookMessages);
                         chrome.tabs.remove(facebookTabId);
+                        facebookTabId = null;
                     }
                     else {
                         if (msg.data.status == "progress") {
@@ -87,10 +88,10 @@ operandoCore
                         jobFinished();
                         messengerService.off("linkedinMessage",handleLinkedinMessages);
                         chrome.tabs.remove(linkedinTabId);
+                        linkedinTabId = null;
                     }
                     else {
                         if (msg.data.status == "progress") {
-                            //console.log(msg.data.progress);
                             callback("linkedin", msg.data.progress, settings.length);
                         }
                     }
@@ -120,6 +121,7 @@ operandoCore
                             jobFinished();
                             messengerService.off("twitterMessage",handleTwitterMessages);
                             chrome.tabs.remove(twitterTabId);
+                            twitterTabId = null;
                         }
                         else {
                             if (msg.data.status == "progress") {
@@ -132,7 +134,19 @@ operandoCore
                                 if(passwordWasPromptedCallback){
                                     passwordWasPromptedCallback();
                                 }
+                            } else if(msg.data.status == "abortTwitter") {
+                                messengerService.off("twitterMessage",handleTwitterMessages);
+                                chrome.tabs.remove(twitterTabId);
+                                twitterTabId = null;
+                                chrome.tabs.update(currentTab.id, {active: true});
+                                callback("twitter", -1, settings.length);// -1 means aborted
+                                jobFinished(true);//true means aborted
+
+                                if(passwordWasPromptedCallback){
+                                    passwordWasPromptedCallback();
+                                }
                             }
+
                         }
                     }
                 };
@@ -184,7 +198,7 @@ operandoCore
                 startApplyingSettings(settingsToBeApplied, callback, completedCallback);
             });
 
-        }
+        };
 
         function startApplyingSettings(settings, callback, completedCallback) {
 
@@ -293,7 +307,33 @@ operandoCore
                 startApplyingSettings(settingsToBeApplied, callback, completedCallback);
 
             });
-        }
+        };
+
+        var cancelEnforcement = function(){
+            messengerService.off("facebookMessage");
+            messengerService.off("linkedinMessage");
+            messengerService.off("twitterMessage");
+
+            var removeTab = function(tabId){
+                if(tabId){
+                    chrome.tabs.get(tabId, function(tab){
+                        if (chrome.runtime.lastError) {
+                            console.log("Tab does not exists");
+                        }
+                        else{
+                            chrome.tabs.remove(tab.id);
+                        }
+                    });
+                }
+
+            };
+
+            removeTab(facebookTabId);
+            removeTab(linkedinTabId);
+            removeTab(twitterTabId);
+
+
+        };
 
         return {
             prepareSettings:prepareSettings,
@@ -302,7 +342,8 @@ operandoCore
             applySettings:startApplyingSettings,
             applyFacebookSettings:increaseFacebookPrivacy,
             applyLinkedInSettings:increaseLinkedInPrivacy,
-            applyTwitterSettings:increaseTwitterPrivacy
+            applyTwitterSettings:increaseTwitterPrivacy,
+            cancelEnforcement:cancelEnforcement
 
         }
 

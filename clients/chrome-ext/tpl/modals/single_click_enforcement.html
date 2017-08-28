@@ -23,7 +23,7 @@
                             <h4>{{progress.ospName}}</h4>
                             <div class="action_progress"><ui-loader status="progress.status"></ui-loader></div>
                         </div>
-                        <progress-bar current="progress.current" total="progress.total"
+                        <progress-bar ng-if = "progress.status !='aborted'" current="progress.current" total="progress.total"
                                       interval="3"></progress-bar>
                         <hr ng-if="!$last"/>
                     </div>
@@ -49,6 +49,9 @@
                     <span ng-if="completedFeedback">{{completedFeedback}}</span>
                     <span ng-if="!completedFeedback">All settings were updated</span>
                 </span>
+                <button type="button" ng-click="cancel()" ng-if="!completed" class="btn btn-primary-black" data-dismiss="modal">
+                    <span>Cancel</span>
+                </button>
                 <button type="button" ng-click="close('Yes')" ng-if="completed" class="btn btn-primary-black" data-dismiss="modal">
                     <span>Close</span>
                 </button>

@@ -23,7 +23,16 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
             ModalService.showModal({
 
                 templateUrl: '/operando/tpl/modals/single_click_enforcement.html',
-                controller: ["$scope", "close", "watchDogService", function ($scope) {
+                controller: ["$scope", "close", "$element", function ($scope, close, $element) {
+
+                    $scope.close = function (result) {
+                        $element.modal('hide');
+                        close(result, 500);
+                    };
+
+                    $scope.cancel = function(){
+                        watchDogService.cancelEnforcement();
+                    };
 
                     function checkIfIsLoggedIn(socialNetwork, callback) {
                         $scope.socialNetwork = socialNetwork;
@@ -68,12 +77,19 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 ospName: ospname,
                                 current: current,
                                 total: total,
-                                status: current < total ? "pending" : "completed"
+                                status: current == -1? "aborted" : (current < total ? "pending" : "completed")
                             };
                             $scope.$apply();
-                        }, function () {
-                            $scope.completedFeedback = socialNetwork + " privacy settings were updated!";
-                            $scope.completed = true;
+                        }, function (aborted) {
+                            if(aborted){
+                                $scope.close("Aborted");
+                                $scope.completed = true;
+                                $scope.isAborted = true;
+                            }
+                            else{
+                                $scope.completedFeedback = socialNetwork + " privacy settings were updated!";
+                                $scope.completed = true;
+                            }
                         });
                     });
                 }]
@@ -154,7 +170,6 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                     }
 
                     switch ($scope.socialNetwork) {
-
                         case "facebook" :
                             showModalProgress("Facebook", settings, watchDogService.applyFacebookSettings);
                             break;
