@@ -105,9 +105,11 @@ var userService = exports.userService = {
     },
 
     resetExtension:function(){
-        chrome.tabs.create({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST}, function(){
-            chrome.runtime.reload();
-        });
+            chrome.storage.sync.clear(function(){
+                chrome.storage.local.clear(function(){
+                    chrome.runtime.reload();
+                });
+            });
     },
 
     provideFeedbackUrl:function(callback){
