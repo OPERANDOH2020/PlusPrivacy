@@ -112,6 +112,10 @@ var userService = exports.userService = {
             });
     },
 
+    sendAnalytics:function(analyticsLabel){
+       swarmHub.startSwarm("analytics.js","actionPerformed",analyticsLabel);
+    },
+
     provideFeedbackUrl:function(callback){
         callback(CONSTANTS.FEEDBACK_FORM_URL);
     }

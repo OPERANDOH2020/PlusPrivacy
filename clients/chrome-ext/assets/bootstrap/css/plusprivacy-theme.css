@@ -2450,6 +2450,10 @@ td.app_permissions{
     text-align: center;
 }
 
+.social_apps_table thead th{
+    text-align: center;
+}
+
 td.readonly{
     background: green;
     color:#FFF;

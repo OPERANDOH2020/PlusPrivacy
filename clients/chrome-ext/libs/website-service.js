@@ -189,7 +189,6 @@ var websiteService = exports.websiteService = {
                 }
             });
 
-            console.log(linkedInApps);
             callback(linkedInApps);
 
         }

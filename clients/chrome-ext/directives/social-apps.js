@@ -60,6 +60,7 @@ angular.module('socialApps',['cfp.loadingBar'])
                                 cfpLoadingBar.start();
                                 cfpLoadingBar.inc();
                                 messengerService.send("removeSocialApp",{sn:$scope.app.socialNetwork,appId: app.appId},function(response){
+                                    messengerService.send("sendAnalytics","changedAppsOrExtensions");
                                     cfpLoadingBar.complete();
                                     if(response.status === "success"){
                                         Notification.success({message: "App removed from "+app['socialNetwork'], positionY: 'bottom', positionX: 'center', delay: 5000});
