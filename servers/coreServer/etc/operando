@@ -20,6 +20,8 @@
      "phantomJsPath":"/home/ciprian/phantomjs-2.1.1-linux-x86_64/bin/",
      "supportTeam":["insert","here","email","addresses"],
      "checkAccess":false,
+     "performSwarmAnalytics":true,
+     "rawAnalyticsFile":"/home/Storage/Workspace/PlusPrivacy/servers/coreServer/analyticsFile.csv",
      "paths":[
         {"core":"etc/coreSwarms"      ,"enabled":true},
 	    {"core":"etc/xSwarms"         ,"enabled":false},

@@ -122,7 +122,6 @@ var udeSwarming = {
                         var device = devices[0];
                         deviceInfo.deviceUserId = device.userId;
                     }
-                    startSwarm("analytics.js","analytics","deviceUnregistered",deviceInfo);
                 }
             }));
         }
