@@ -363,7 +363,7 @@ function onRegistration(meta,args){
 function onDeviceRegistration(meta,args){
     var query = "INSERT INTO DeviceAnalytics " +
         "(deviceId,deviceType,uninstalled,lastLogin) " +
-        "VALUES ('"+args[0]+"','"+meta.tenantId+"',"+false+",'"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"')" +
+        "VALUES ('"+args[0]+"','"+tenantPlatformAnalyticsMap[meta.tenantId].name+"',"+false+",'"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"')" +
         "ON DUPLICATE KEY UPDATE lastLogin='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"' ,numberOfLogins=numberOfLogins+1, uninstalled=false;";
     
     persistence.query(query,logError);
