@@ -1,7 +1,10 @@
 <div class="social_network_settings_panel">
-    <div class="panel-heading">
-        <h2>{{osp.title}} settings editor</h2>
+    <div class="panel-heading clearfix">
+        <h2 style="float:left">{{osp.title}} settings editor</h2>
+        <button ng-click="savePrivacySettings()" style="float:right;" class="btn-primary">Save Settings</button>
+        <button ng-click="viewHistory()" style="float:right;" class="btn-primary">History</button>
     </div>
+
 
     <div class="settings_area" id="settings_area_left">
         <div class="panel-body">

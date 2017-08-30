@@ -18,7 +18,7 @@ angular.module("UIComponent",[])
             scope: {
                 current:"=",
                 total:"=",
-                interval:"=",
+                interval:"="
             },
             controller : function($scope){
                 $scope.$watch("current", function(val){

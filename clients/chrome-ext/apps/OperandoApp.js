@@ -368,8 +368,13 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             templateUrl: "views/privacy_policy.html"
             })
             .state('feedback', {
-            url: "/feedback",
-            templateUrl: "views/feedback.html"
+                url: "/feedback",
+                templateUrl: "views/feedback.html",
+                resolve: {
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/operando/controllers/feedbackController.js');
+                    }]
+                }
             })
             .state('contact', {
                 url: "/contact",

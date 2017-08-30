@@ -1,6 +1,6 @@
 {
-    "accountNotActivated": "Account was not activated!",
-    "invalidCredentials": "Invalid credentials!",
+    "accountNotActivated": "Account was not activated",
+    "invalidCredentials": "Invalid credentials",
     "login": "Login",
     "logout":"Log out",
     "signIn": "Sign In",
@@ -17,5 +17,6 @@
     "back": "Back",
     "privacyDashboard":"Privacy Dashboard",
     "adblockerOptions":"AdBlocker Options",
-    "privacyPolicy":"Privacy Policy"
+    "privacyPolicy":"Privacy Policy",
+    "emailIsInvalid":"Email is invalid"
   }

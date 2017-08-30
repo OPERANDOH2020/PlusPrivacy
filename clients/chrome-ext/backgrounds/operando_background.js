@@ -17,6 +17,7 @@ var HEADERS_TO_STRIP_LOWERCASE = [
 ];
 
 var DependencyManager = require("DependencyManager").DependencyManager;
+var bus = require("bus-service").bus;
 
 webRequest.onHeadersReceived.addListener(
     function (details) {
@@ -67,7 +68,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     }
 
                 },
-                {urls: ["<all_urls>"]},
+                {urls: ["*://www.facebook.com/*"]},
                 ["blocking", "requestBody"]);
         }
         return true;
@@ -123,6 +124,26 @@ webRequest.onBeforeSendHeaders.addListener(
     },
     {urls: ["*://www.facebook.com/*"]},
     ["blocking", "requestHeaders"]);
+
+
+chrome.webRequest.onHeadersReceived.addListener(
+    function(details) {
+        var feedbackFormUrl = CONSTANTS.FEEDBACK_FORM_URL + "/formResponse";
+        if(details.url.indexOf(feedbackFormUrl)>-1){
+            swarmHub.startSwarm("notification.js","registerInZone", "FEEDBACK_SUBMITTED");
+        }
+        return {cancel: false};
+    },
+    {urls: ["*://docs.google.com/*"]},
+    ["blocking"]);
+
+
+chrome.storage.local.get("deviceId",function(response){
+    if(!response.deviceId) {
+        response.deviceId = new Date().getTime().toString(16) + Math.floor(Math.random() * 10000).toString(16);
+    }
+    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+response.deviceId);
+});
 
 /*
 //prevent fringerprinting

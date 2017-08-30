@@ -26,7 +26,6 @@ var fs = require('fs');
 var encryptionKey = fs.readFileSync(thisAdapter.config.Core.emailEncryptionKey).toString();
 
 
-
 sendEmail = function(from,to,subject,text,callback){
     to = jwt.sign(JSON.stringify({
         "alias":from,

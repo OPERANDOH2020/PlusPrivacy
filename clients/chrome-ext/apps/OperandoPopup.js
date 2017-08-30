@@ -30,6 +30,7 @@ angular.module('op-popup', ['operandoCore', 'popupMenu', 'validation', 'validati
                 url: "/",
                 resolve: {
                     i18n: ['i18nService', function (i18nService) {
+                        console.log("resolving i18n");
                         return i18nService.load();
                     }]
                 },

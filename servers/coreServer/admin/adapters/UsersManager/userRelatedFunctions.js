@@ -134,9 +134,20 @@ exports.activateUser = function(activationCode,callback){
 exports.newUserIsValid = function (newUser, callback) {
     //TO DO: Change name of the function. Something like : "createPublicUser"
 
+    function emailIsValid(email){
+        if(!email){
+            return false;
+        }
+        else{
+            var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+            return re.test(email);
+        }
+        return false;
+    }
+
     flow.create("user is valid", {
         begin: function () {
-            if(!newUser.email){
+            if(emailIsValid(newUser.email) === false ){
                 callback(new Error("emailIsInvalid"));
             }
             else if(!newUser.password || newUser.password.length < passwordMinLength){

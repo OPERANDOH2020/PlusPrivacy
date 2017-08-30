@@ -166,7 +166,7 @@ angular.module('extensions', [])
 
 
     })
-   .directive('actionsRow', function (ModalService) {
+   .directive('actionsRow', function (ModalService, messengerService) {
         return {
             restrict: 'A',
             replace: true,
@@ -198,11 +198,14 @@ angular.module('extensions', [])
                     chrome.management.uninstall($scope.extension.id, {showConfirmDialog: showConfirmDialog}, function () {
                         if (chrome.runtime.lastError) {
                             console.log(chrome.runtime.lastError.message);
+                        }else{
+                            messengerService.send("sendAnalytics","changedAppsOrExtensions");
                         }
                     });
                 }
 
                 $scope.toggleEnabled = function () {
+                    messengerService.send("sendAnalytics","changedAppsOrExtensions");
                     switchState(!$scope.extension.enabled);
                 }
 

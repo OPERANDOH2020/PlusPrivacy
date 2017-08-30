@@ -20,6 +20,7 @@ add_shortcode('reset-password', 'reset_user_password');
 add_shortcode('account-login', 'account_login');
 add_shortcode('account-register', 'register_account');
 add_shortcode('user-dashboard', 'user_dashboard');
+add_shortcode('device-removed', 'device_removed');
 
 add_action('wp_enqueue_scripts', 'load_swarm_resources');
 add_action('wp_enqueue_scripts', 'confirmUserController');
@@ -27,6 +28,7 @@ add_action('wp_enqueue_scripts', 'resetPasswordController');
 add_action('wp_enqueue_scripts', 'loginController');
 add_action('wp_enqueue_scripts', 'signupController');
 add_action('wp_enqueue_scripts', 'userDashboardController');
+add_action('wp_enqueue_scripts', 'deviceRemovedController');
 
 function load_swarm_resources()
 {
@@ -100,6 +102,10 @@ function user_dashboard(){
     echo file_get_contents(plugins_url('/html/user/user_dashboard.html', __FILE__));
 }
 
+function device_removed(){
+    echo file_get_contents(plugins_url('/html/device_removed.html', __FILE__));
+}
+
 
 
 /************************************************
@@ -132,6 +138,11 @@ function signupController()
 function userDashboardController(){
     insertScriptIfShortcode("userDashboardController", 'user-dashboard', plugins_url('/js/app/controllers/user/dashboardController.js', __FILE__));
 }
+
+function deviceRemovedController(){
+    insertScriptIfShortcode("uninstallController", 'device-removed', plugins_url('/js/app/controllers/uninstallController.js', __FILE__));
+}
+
 
 
 function insertScriptIfShortcode($script_name, $shortcode, $script)

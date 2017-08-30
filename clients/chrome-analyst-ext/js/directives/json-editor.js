@@ -10,7 +10,14 @@ return {
 
         scope.$watch('actualJson', function() {
             var delta = jsondiffpatch.diff(scope.untouchedJson, scope.actualJson);
-            document.getElementById('json-visual').innerHTML = jsondiffpatch.formatters.html.format(delta, scope.untouchedJson);
+            var differences = jsondiffpatch.formatters.html.format(delta, scope.untouchedJson);
+            if(differences){
+                document.getElementById('json-visual').innerHTML = differences;
+            }else{
+                document.getElementById('json-visual').innerHTML = "No differences";
+            }
+
+
         });
 
     },

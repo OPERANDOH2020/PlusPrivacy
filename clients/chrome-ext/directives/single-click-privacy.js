@@ -23,11 +23,8 @@ angular.module("singleClickPrivacy",[])
                     ModalService.showModal({
 
                         templateUrl: '/operando/tpl/modals/single_click_button_modal.html',
-                        controller: ["$scope", "close", "messengerService", function ($scope, close, messengerService) {
+                        controller: ["$scope", "close", "$element", "messengerService", function ($scope, close, $element, messengerService) {
 
-                            $scope.close = function (result) {
-                                close(result, 500);
-                            };
                             $scope.enforcePrivacy = function(){
 
                                 messengerService.send("dismissPrivacyNotifications");
@@ -36,6 +33,17 @@ angular.module("singleClickPrivacy",[])
 
                                         templateUrl: '/operando/tpl/modals/single_click_enforcement.html',
                                         controller: ["$scope", "close", "watchDogService", function ($scope, close, watchDogService) {
+
+                                            $scope.close = function (result) {
+                                                $element.modal('hide');
+                                                close(result, 500);
+                                            };
+
+                                            $scope.cancel = function(){
+                                                watchDogService.cancelEnforcement();
+                                            };
+
+
                                             var readCookieConf = {
                                                 facebook:{
                                                     url:"https://facebook.com",
@@ -49,7 +57,7 @@ angular.module("singleClickPrivacy",[])
                                                     url:"https://www.twitter.com",
                                                     cookie_name:"auth_token"
                                                 }
-                                            }
+                                            };
 
                                             var readCookie  = function(ospKey,conf){
                                                 return new Promise(function(resolve, reject){
@@ -63,7 +71,7 @@ angular.module("singleClickPrivacy",[])
                                                         }
                                                     });
                                                 });
-                                            }
+                                            };
 
                                             var enforce = function () {
 
@@ -87,19 +95,18 @@ angular.module("singleClickPrivacy",[])
                                                                 ospName: ospname,
                                                                 current: current,
                                                                 total: total,
-                                                                status: current < total ? "pending" : "completed"
-                                                            }
+                                                                status: current == -1? "aborted" : (current < total ? "pending" : "completed")
+                                                            };
                                                             $scope.$apply();
                                                         }, function () {
-                                                            $scope.completed = true;
-
-                                                            $scope.osps.forEach(function(osp){
-                                                                messengerService.send("removePreferences",osp, function(response){
-                                                                    if(response.error){
-                                                                        console.log("Error occured:",response.error);
-                                                                    }
+                                                                $scope.completed = true;
+                                                                $scope.osps.forEach(function(osp){
+                                                                    messengerService.send("removePreferences",osp, function(response){
+                                                                        if(response.error){
+                                                                            console.log("Error occured:",response.error);
+                                                                        }
+                                                                    });
                                                                 });
-                                                            });
 
                                                         });
                                                     }

@@ -120,7 +120,23 @@ angular.module("app").factory("connectionService", function(swarmService){
             getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
                 callback(swarm.ospSettings);
             });
-        }
+        };
+
+        ConnectionService.prototype.savePrivacySettings = function(settings, success_callback, fail_callback){
+            var savePrivacySettingsHandler = swarmHub.startSwarm("sn_privacy_settings.js","savePrivacySetting", settings);
+            savePrivacySettingsHandler.onResponse("success",success_callback);
+
+            savePrivacySettingsHandler.onResponse("error",function(swarm){
+                fail_callback(swarm.error);
+            });
+        };
+
+        ConnectionService.prototype.getSettingsHistory = function(callback){
+            var getSettingsHistoryHandler = swarmHub.startSwarm("sn_privacy_settings.js","getSettingsHistory");
+            getSettingsHistoryHandler.onResponse("success",function(swarm){
+                callback(swarm.history);
+            })
+        };
 
         return ConnectionService;
 
