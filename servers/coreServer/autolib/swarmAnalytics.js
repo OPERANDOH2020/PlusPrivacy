@@ -15,7 +15,7 @@
 var logs = "";
 var num_rows = 0;
 const rowsThreshold = 1;
-var analyticsFile = "/home/Storage/Workspace/PlusPrivacy/servers/coreServer/analyticsFile.csv";
+var analyticsFile = global_swarmSystem_config.Core.rawAnalyticsFile;
 var fs = require('fs');
 var lockFile = require('lockfile');
 var lockParameters = {
@@ -24,7 +24,6 @@ var lockParameters = {
 };
 var analyticMatchFunctions = {};
 var container = require('safebox').container;
-
 
 function ruleMatcher(rule){
     return function(){
