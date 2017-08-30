@@ -11,9 +11,6 @@ var analyticRules = [
     {
         "swarmName":"analytics.js",
         "swarmConstructor":"registrationWithIp",
-        "argumentPatterns":function(meta,args){
-            return true;
-        },
         "analytics":onRegistration,
         "toBeLogged":function(meta,args){
             return "register with "+args[0]; //return email
@@ -38,15 +35,12 @@ var analyticRules = [
         },
         "analytics":onLogout,
         "toBeLogged":function(meta,args){
-            return "logged out with "+args[0]; //return email
+            return "logged out with "+meta.userId; 
         }
     },
     {
         "swarmName":"identity.js",
         "swarmConstructor":"createIdentity",
-        "argumentPatterns":function(meta,args){
-            return true;
-        },
         "analytics":setField('hasAltIdentities'),
         "toBeLogged":function(meta,args){
             return "User "+meta.userId+" created an identity";
@@ -55,12 +49,9 @@ var analyticRules = [
     {
         "swarmName":"UserPreferences.js",
         "swarmConstructor":"removePreferences",
-        "argumentPatterns":function(meta,args){
-            return true;
-        },
         "analytics":setField('didSingleClickPrivacy'),
         "toBeLogged":function(meta,args){
-            return "User "+meta.userId+" removed prefferences";
+            return "User "+meta.userId+" removed preferences";
         }
     },
     {
@@ -100,22 +91,47 @@ var analyticRules = [
         "swarmName":"UDESwarm.js",
         "swarmConstructor":"registerDeviceId",
         "argumentPatterns":function(meta,args){
-            return args[1] !== true;  //a device is registered when a user logs on that device //
+            return args[1] !== true;  //a device is registered when a user logs in on that device
         },
         "analytics": onDeviceRegistration,
         "toBeLogged":function(meta,args){
-            return "User "+meta.userId+" logged in device "+args[0];
+            return "User "+meta.userId+" logged in device "+args[0]+" of type "+tenantPlatformAnalyticsMap[meta.tenantId].name;
+        }
+    },
+    {
+        "swarmName":"UDESwarm.js",
+        "swarmConstructor":"uninstalledOnDevice",
+        "analytics": onUninstall,
+        "toBeLogged":function(meta,args){
+            return "Plusprivacy uninstalled on device "+args[0];
         }
     }
 ];
 
 const tenantPlatformAnalyticsMap = {
     'chromeBrowserExtension':{
+        name:"ChromeExtension",
         loggedIn:"loggedInChrome",
         uses:"usesChrome",
         lastLogin:"lastLoginInChrome",
         totalLoginLength:"totalLoginLengthInChrome",
         lastLoginLength:"lastLoginLengthInChrome"
+    },
+    "ios":{
+        name:"iOS",
+        loggedIn:"loggedIniOS",
+        uses:"usesiOS",
+        lastLogin:"lastLoginIniOS",
+        totalLoginLength:"totalLoginLengthIniOS",
+        lastLoginLength:"lastLoginLengthIniOS"
+    },
+    "androidApp":{
+        name:"Android",
+        loggedIn:"loggedInAndroid",
+        uses:"usesAndroid",
+        lastLogin:"lastLoginInAndroid",
+        totalLoginLength:"totalLoginLengthInAndroid",
+        lastLoginLength:"lastLoginLengthInAndroid"
     }
 };
 
@@ -123,7 +139,7 @@ container.declareDependency("rulesRegistered",['mysqlPersistence','analytics'],f
     if(!outOfService && !rulesRegistered){
         rulesRegistered = true;
         persistence = mysqlPersistence;
-        setupTable(function(err,result){
+        setupTables(function(err,result){
             if(err){
                 console.error("Could not setup the analytics rules.Error: ",err)
             }else{
@@ -133,7 +149,7 @@ container.declareDependency("rulesRegistered",['mysqlPersistence','analytics'],f
     }
 });
 
-function setupTable(callback){
+function setupTables(callback){
     var models = [{
         modelName:"UserAnalytics",
         structure:{
@@ -303,8 +319,8 @@ function onLogout(meta,args){
     var platform = tenantPlatformAnalyticsMap[meta.tenantId];
 
     persistence.query("select userId,"+platform.lastLogin+" from UserAnalytics where userId='"+meta.userId+"';",function(err,result){
-        if(err || result.length<1){
-            console.error("Analytics error: ",err)
+        if(err || result.length===0){
+            console.error("Analytics error: ",result.length===0?new Error("Logout user not registered"):err)
         }
         else if(result[0].lastLoginInChrome!==null){
             var lastLoginLengthInSeconds = (new Date(new Date().toISOString().slice(0, 19).replace('T', ' ')) - new Date(result[0][platform.lastLogin]))/1000;
@@ -316,7 +332,6 @@ function onLogout(meta,args){
                 +"WHERE userId='"+result[0].userId+"';";
 
             persistence.query(query,logError);
-
         }
     });
 }
@@ -338,11 +353,14 @@ function onDeviceRegistration(meta,args){
     var query = "INSERT INTO DeviceAnalytics " +
         "(deviceId,deviceType,uninstalled,lastLogin) " +
         "VALUES ('"+args[0]+"','"+meta.tenantId+"',"+false+",'"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"')" +
-        "ON DUPLICATE KEY UPDATE lastLogin='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"' ,numberOfLogins=numberOfLogins+1;";
+        "ON DUPLICATE KEY UPDATE lastLogin='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"' ,numberOfLogins=numberOfLogins+1, uninstalled=false;";
     
-    
-    console.log(query);
     persistence.query(query,logError);
+}
+
+function onUninstall(meta,args){
+    var query = "UPDATE DeviceAnalytics SET uninstalled=true WHERE deviceId='" + args[0] + "';";
+    persistence.query(query, logError)
 }
 
 function setField(field){

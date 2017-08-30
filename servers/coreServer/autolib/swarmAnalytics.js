@@ -2,26 +2,14 @@
 /*
     The purpose is to map a swarm-phase-arguments combination to some value (analytic).
 
-     argumentPatterns can be:
-        - array -> if looks through all the swarm constructor parameters and it matches if the parameters are equal to the values in the array; if an argument parameter is "_" is matches anything
-        - function -> the function receives the swarm constructor arguments and returns true if the rule applies and false otherwise
+    Each rule has 5 fields:
+        swarmName - name of the swarm to match
+        swarmConstructor - name of the swarmConstructor to match
+        argumentPatterns - a function that uses the meta field of each swarm and the arguments with which the constructor is called to decide wheter the rule can be applied (returns true or false)
+        analytics - a function that is called if the rule applies; it receives the meta and the arguments and runs some asynchronous function (e.g. updates database)
+        toBeLogged - simmilar to analytics; however this function runs synchronously and produces a string that will be logged in the analytycsFile - basically raw logs
 
-
-
-
-     Analytic is the actual string that should be returned as corresponding to the log.
-     Possible values:
-        string -- the value returned for a combination of parameters
-        function -- function that takes as arguments the swarmName,swarmConstructor and the arguments used at runtime and returns a string
-
-
-    Basically each rule is transformed in a function that receives the swarmName,constructor and arguments and,
-    if the rule applies, it returns the result of the analytic function. Otherwise it returns undefined;
-
-    The analytics are temporarily stored in a comma-separated string and once in a while they are dumped in the
-    analytics file. This is done for optimization purposes.
-
-    The job of the user is to define the rules.
+    The user needs to define rules and register them using the global function registerAnalyticsRule;
  */
 
 var logs = "";
@@ -40,7 +28,7 @@ var container = require('safebox').container;
 
 function ruleMatcher(rule){
     return function(){
-        if(rule.argumentPatterns.apply(undefined,arguments)){
+        if(!rule.argumentPatterns || rule.argumentPatterns.apply(undefined,arguments)){
             if(rule.analytics) {
                 rule.analytics.apply(undefined, arguments);
             }
