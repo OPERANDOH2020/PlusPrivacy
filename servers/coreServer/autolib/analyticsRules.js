@@ -88,6 +88,17 @@ var analyticRules = [
         }
     },
     {
+        "swarmName":"notification.js",
+        "swarmConstructor":"registerInZone",
+        "argumentPatterns":function(meta,args){
+            return args[0] === "FEEDBACK_SUBMITTED"
+        },
+        "analytics": setField('filledFeedback'),
+        "toBeLogged":function(meta,args){
+            return "User "+meta.userId+" submitted feedback";
+        }
+    },
+    {
         "swarmName":"UDESwarm.js",
         "swarmConstructor":"registerDeviceId",
         "argumentPatterns":function(meta,args){
