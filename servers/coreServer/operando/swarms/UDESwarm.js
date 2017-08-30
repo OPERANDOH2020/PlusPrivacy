@@ -48,10 +48,10 @@ var udeSwarming = {
             var self = this;
             registerDevice(this.deviceId,this.userId,S(function(err,result){
                 if(err){
-                    self.err = err.message;
+                    self.error = err.message;
                     self.home('failed');
                 }else{
-                    self.home("Device Registered")
+                    self.home("device_registered")
                 }
             }))
         }
