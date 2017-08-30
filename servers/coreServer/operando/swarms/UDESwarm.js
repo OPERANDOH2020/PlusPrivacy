@@ -36,7 +36,12 @@ var udeSwarming = {
         this.userId = disassociate?-1:this.meta.userId; //if disassociate is true, it means that the user logged out so the link between the device and the user must be dropped
         this.swarm("registerDevice");
     },
-    
+
+    uninstalledOnDevice:function(deviceId){
+        this.deviceId = deviceId;
+        this.swarm("uninstalledDevice")
+    },
+
     registerDevice:{
         node:"UDEAdapter",
         code:function(){
@@ -97,9 +102,30 @@ var udeSwarming = {
                     self.home("Got descriptions")
                 }
             }))
-
         }
+    },
 
+    uninstalledDevice:{
+        node:"UDEAdapter",
+        code: function () {
+            var self = this;
+            getFilteredDevices({deviceId: this.deviceId}, S(function (err, devices) {
+                if (err) {
+                    console.error(err);
+                }
+                else {
+                    var deviceInfo = {deviceId:self.deviceId};
+                    if(devices.length===0){
+                          console.log("DEVICE unregistered!");
+                    }
+                    else{
+                        var device = devices[0];
+                        deviceInfo.deviceUserId = device.userId;
+                    }
+                    startSwarm("analytics.js","analytics","deviceUnregistered",deviceInfo);
+                }
+            }));
+        }
     }
 
 };
