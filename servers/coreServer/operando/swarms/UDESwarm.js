@@ -25,7 +25,7 @@ var udeSwarming = {
                     self.err = err.message;
                     self.home('failed');
                 }else{
-                    self.home("Notification Identifier Registered")
+                    self.home("success");
                 }
             }))
         }
@@ -60,7 +60,7 @@ var udeSwarming = {
     registerApplication:function(deviceId,applicationId,applicationDescription){
         this.deviceId = deviceId;
         this.applicationId = applicationId;
-        this.applicationDescription = applicationDescription
+        this.applicationDescription = applicationDescription;
         this.swarm('registerApp');
     },
     registerApp:{
