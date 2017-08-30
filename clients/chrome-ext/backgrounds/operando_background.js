@@ -138,11 +138,10 @@ chrome.webRequest.onHeadersReceived.addListener(
     ["blocking"]);
 
 
-chrome.storage.local.get("deviceId",function(response){
-    if(!response.deviceId) {
-        response.deviceId = new Date().getTime().toString(16) + Math.floor(Math.random() * 10000).toString(16);
-    }
-    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+response.deviceId);
+var getDeviceIdAction = bus.getAction("getDeviceId");
+getDeviceIdAction(function(deviceId){
+    console.log(deviceId);
+    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+deviceId);
 });
 
 /*
