@@ -77,7 +77,7 @@ container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(out
             structure:{
                 user:{
                     type:"DefaultUser",
-                    relation:"userId:userId",
+                    relation:"userId:userId"
                 },
                 zone:{
                     type:"Zone",

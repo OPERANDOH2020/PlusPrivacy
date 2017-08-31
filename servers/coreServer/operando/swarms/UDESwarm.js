@@ -25,7 +25,7 @@ var udeSwarming = {
                     self.err = err.message;
                     self.home('failed');
                 }else{
-                    self.home("Notification Identifier Registered")
+                    self.home("success");
                 }
             }))
         }
@@ -36,17 +36,22 @@ var udeSwarming = {
         this.userId = disassociate?-1:this.meta.userId; //if disassociate is true, it means that the user logged out so the link between the device and the user must be dropped
         this.swarm("registerDevice");
     },
-    
+
+    uninstalledOnDevice:function(deviceId){
+        this.deviceId = deviceId;
+        this.swarm("uninstalledDevice")
+    },
+
     registerDevice:{
         node:"UDEAdapter",
         code:function(){
             var self = this;
             registerDevice(this.deviceId,this.userId,S(function(err,result){
                 if(err){
-                    self.err = err.message;
+                    self.error = err.message;
                     self.home('failed');
                 }else{
-                    self.home("Device Registered")
+                    self.home("device_registered")
                 }
             }))
         }
@@ -55,7 +60,7 @@ var udeSwarming = {
     registerApplication:function(deviceId,applicationId,applicationDescription){
         this.deviceId = deviceId;
         this.applicationId = applicationId;
-        this.applicationDescription = applicationDescription
+        this.applicationDescription = applicationDescription;
         this.swarm('registerApp');
     },
     registerApp:{
@@ -97,9 +102,41 @@ var udeSwarming = {
                     self.home("Got descriptions")
                 }
             }))
-
         }
+    },
 
+    uninstalledDevice:{
+        node:"UDEAdapter",
+        code: function () {
+            var self = this;
+            getFilteredDevices({deviceId: this.deviceId}, S(function (err, devices) {
+                if (err) {
+                    console.error(err);
+                }
+                else {
+                    var deviceInfo = {deviceId:self.deviceId};
+                    if(devices.length===0){
+                          console.log("Device was not registered!");
+                    }
+                    else{
+                        var device = devices[0];
+                        deviceInfo.deviceUserId = device.userId;
+                        self.swarm("removeDeviceFromReccords");
+                    }
+                }
+            }));
+        }
+    },
+    removeDeviceFromReccords:{
+        node:"UDEAdapter",
+        code: function () {
+            var self = this;
+            removeDeviceFromSystem(self.deviceId, S(function (err,device) {
+                if(err){
+                    console.error(err);
+                }
+            }));
+        }
     }
 
 };

@@ -186,7 +186,7 @@ var loginSwarming = {
         code: function () {
             var outlets = sessionsRegistry.findOutletsForSession(this.sessionId);
             if(!outlets || outlets.length === 0){
-                this.home("restoreFailed");
+                //this.home("restoreFailed");
                 this.oldSessionId = this.sessionId;
                 this.newSessionId = this.getSessionId();
                 this.swarm("removeOldSession");

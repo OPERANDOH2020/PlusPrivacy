@@ -60,11 +60,15 @@ var userService = exports.userService = {
     saveUserPreferences:function(data, success_callback, error_callback){
         var saveUserPreferencesHandler =  swarmHub.startSwarm("UserPreferences.js","saveOrUpdatePreferences",data.preferenceKey, data.preferences);
         saveUserPreferencesHandler.onResponse("success", function(response){
-            success_callback(response.preferences);
+            if(success_callback){
+                success_callback(response.preferences);
+            }
         });
 
         saveUserPreferencesHandler.onResponse("failed", function(response){
-            error_callback(response.error);
+            if(error_callback){
+                error_callback(response.error);
+            }
         })
     },
     removePreferences:function(preferenceKey, success_callback, error_callback){
@@ -101,11 +105,20 @@ var userService = exports.userService = {
     },
 
     resetExtension:function(){
-        chrome.tabs.create({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST}, function(){
-            chrome.runtime.reload();
-        });
-    }
+            chrome.storage.sync.clear(function(){
+                chrome.storage.local.clear(function(){
+                    chrome.runtime.reload();
+                });
+            });
+    },
 
+    sendAnalytics:function(analyticsLabel){
+       swarmHub.startSwarm("analytics.js","actionPerformed",analyticsLabel);
+    },
+
+    provideFeedbackUrl:function(callback){
+        callback(CONSTANTS.FEEDBACK_FORM_URL);
+    }
 
 };
 

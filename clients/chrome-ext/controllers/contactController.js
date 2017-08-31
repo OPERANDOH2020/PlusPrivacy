@@ -1,5 +1,5 @@
 angular.module("operando").
-controller("contactController", ["$scope", "messengerService","$window","$state", function ($scope, messengerService, $window, $state) {
+controller("contactController", ["$scope", "messengerService", function ($scope, messengerService) {
 
     $scope.sendMessage = function(){
         $scope.sendingMessage = true;

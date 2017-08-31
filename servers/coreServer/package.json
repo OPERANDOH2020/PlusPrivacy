@@ -65,7 +65,8 @@
 	"url":">=0.11.0",
 	"parse-domain":">=1.1.0",
     "image-diff":">=1.6.3",
-    "geoip-lite":">0.0.0"
+    "geoip-lite":">0.0.0",
+    "lockfile":">0.0.0"
   },
   "optionalDependencies": {},
   "_engineSupported": true,

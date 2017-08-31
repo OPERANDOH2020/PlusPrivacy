@@ -66,6 +66,11 @@ function secureAccount(callback){
         port.postMessage({action: "waitingTwitterCommand", data:{status:"takeMeBackInExtension"}});
     };
 
+    var abortTwitterSettings = function(event){
+        event.preventDefault();
+        port.postMessage({action: "waitingTwitterCommand", data:{status:"abortTwitter"}});
+    }
+
     setTimeout(function(){
         $("#settings_save").removeAttr("disabled");
         $("#settings_save").click();
@@ -93,7 +98,14 @@ function secureAccount(callback){
                 customSubmit(event);
                 return false;
             }
-        })
+        });
+
+        $("#auth_password").bind('input propertychange', function(){
+                $("#save_password").removeAttr("disabled");
+
+        });
+        $("#cancel_password_button").attr("type","button");
+        $("#cancel_password_button").on("click", abortTwitterSettings);
 
     },200);
     port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(0)}});

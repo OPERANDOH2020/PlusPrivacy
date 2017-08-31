@@ -221,6 +221,44 @@ deleteUserDevices = function(userId, callback){
 
 }
 
+removeDeviceFromSystem = function(deviceId, callback){
+    flow.create("removeDeviceFromSystem",{
+        begin:function(){
+            this.errs = [];
+            persistence.filter("UserDevice",{deviceId:deviceId}, this.continue("getDevices"));
+        },
+        getDevices:function(err, devices){
+            var self = this;
+            if(err){
+                callback(err);
+            }
+            else  if(devices.length>0){
+
+                devices.forEach(function(device){
+                    persistence.delete(device, self.continue("waitDevicesDeletion"));
+                })
+            }else{
+                callback(undefined);
+            }
+        },
+        waitDevicesDeletion:function(err){
+            if(err){
+                this.errs.push(err);
+            }
+        },
+        end:{
+            join:"waitDevicesDeletion",
+            code:function(){
+                if(this.errs.length>0){
+                    callback(this.errs[0]);
+                }else{
+                    callback(undefined);
+                }
+            }
+        }
+    })();
+}
+
 getFilteredDevices = function(filter,callback){
     persistence.filter("UserDevice",filter,callback);
 }

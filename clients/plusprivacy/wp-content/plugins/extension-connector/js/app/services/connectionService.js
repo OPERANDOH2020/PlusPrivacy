@@ -1,10 +1,12 @@
 //var SERVER_HOST = "localhost";
 var SERVER_HOST = "plusprivacy.com";
 var SERVER_PORT = "8080";
+//var SERVER_PROTOCOL = "http";
+var SERVER_PROTOCOL = "https"
 var GUEST_EMAIL = "guest@operando.eu";
 var GUEST_PASSWORD = "guest";
 
-angular.module('sharedService').factory("connectionService",function(swarmService, messengerService) {
+angular.module('sharedService').factory("connectionService",function(swarmService, messengerService,$http) {
 
     var ConnectionService;
     ConnectionService = (function () {
@@ -51,8 +53,6 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                 });
 
             var userLoginSuccess = function (swarm) {
-
-                ga('send', 'event', 'login', 'button-pressed', 'website-event');
 
                 swarmHub.off("login.js", "success", userLoginSuccess);
                 if (swarm.authenticated) {
@@ -128,7 +128,6 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
             swarmHub.on("login.js", "success_guest", function guestLoginForUserVerification(swarm) {
                 swarmHub.off("login.js", "success_guest", guestLoginForUserVerification);
                 if (swarm.authenticated) {
-                    ga('send', 'event', 'register', 'button-pressed', 'website-event');
                     var registerHandler = swarmHub.startSwarm("register.js", "registerNewUser", user);
                     registerHandler.onResponse("success", function (swarm) {
                         successCallback("success");
@@ -280,6 +279,18 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                     })
                 }
             });
+        };
+
+
+        ConnectionService.prototype.sendUninstallEvent = function (deviceId) {
+            var req = {
+                method:"POST",
+                url: SERVER_PROTOCOL + "://" + SERVER_HOST + ":" + SERVER_PORT +"/uninstalledApplication/"+deviceId,
+                data:{}
+            };
+            $http(req).then(function(response){
+                console.log(response);
+            })
         };
 
         return ConnectionService;
