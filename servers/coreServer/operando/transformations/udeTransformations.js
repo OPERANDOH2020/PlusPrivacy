@@ -18,7 +18,7 @@ exports.transformations = {
         path: '/uninstalledApplication/$deviceId/',
         code: function (deviceId,callback) {
             startSwarm("UDESwarm.js",'uninstalledOnDevice',deviceId);
-            callback();
+            callback('done');
         }
     }
 }
