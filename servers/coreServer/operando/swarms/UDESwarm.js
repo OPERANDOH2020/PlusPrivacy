@@ -121,13 +121,13 @@ var udeSwarming = {
                     else{
                         var device = devices[0];
                         deviceInfo.deviceUserId = device.userId;
-                        self.swarm("removeDeviceFromReccords");
+                        self.swarm("removeDeviceFromRecords");
                     }
                 }
             }));
         }
     },
-    removeDeviceFromReccords:{
+    removeDeviceFromRecords:{
         node:"UDEAdapter",
         code: function () {
             var self = this;
