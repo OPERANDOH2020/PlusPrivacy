@@ -565,7 +565,6 @@ a.social_network_link img{
         float:right;
     }
 }
-
 .entry-content a img {
     box-shadow: none;
 }
@@ -578,4 +577,10 @@ p#european_commission{
     padding-left: 134px;
     padding-top: 10px;
     margin-bottom: 0px;
+}
+
+#feedback_form textarea{
+    width:100%;
+    border:1px solid #DDD;
+    max-width: 100%;
 }

@@ -531,7 +531,9 @@ exports.usersInZone = function(zoneName,callback){
         }else{
             callback(undefined,result.map(function(mapping){
                 return mapping.user
-            }))
+            }).filter(function(user){
+                return user!==undefined;
+            }));
         }
     })
 }

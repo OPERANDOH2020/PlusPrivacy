@@ -116,12 +116,24 @@ var udeSwarming = {
                 else {
                     var deviceInfo = {deviceId:self.deviceId};
                     if(devices.length===0){
-                          console.log("DEVICE unregistered!");
+                          console.log("Device was not registered!");
                     }
                     else{
                         var device = devices[0];
                         deviceInfo.deviceUserId = device.userId;
+                        self.swarm("removeDeviceFromRecords");
                     }
+                }
+            }));
+        }
+    },
+    removeDeviceFromRecords:{
+        node:"UDEAdapter",
+        code: function () {
+            var self = this;
+            removeDeviceFromSystem(self.deviceId, S(function (err,device) {
+                if(err){
+                    console.error(err);
                 }
             }));
         }

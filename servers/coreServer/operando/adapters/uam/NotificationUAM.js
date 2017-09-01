@@ -50,19 +50,18 @@ var signupNotifications = {
     private_browsing: {
         sender: "WatchDog",
         title: "PrivateBrowsing",
-        description: "Check the new feature: private browsing for iOS",
-        action_name:"private_browsing-ios",
+        description: "Check the new feature: Private Browsing",
+        action_name:"private_browsing",
         zones:["iOS","Android"]
     }
 };
-
 
 
 function registerModels(callback){
 
     var models = [
         {
-            modelName: "NotificationNew",
+            modelName: "Notification",
             dataModel: {
                 notificationId: {
                     type: "string",
@@ -105,7 +104,7 @@ function registerModels(callback){
             modelName: "ZoneNotificationMapping",
             dataModel: {
                 notification: {
-                    type: "NotificationNew",
+                    type: "Notification",
                     relation:"notificationId:notificationId"
                 },
                 notificationId: {
@@ -189,17 +188,26 @@ container.declareDependency("NotificationUAMAdapter", ["mysqlPersistence"], func
 });
 
 createNotification = function (rawNotificationData, callback) {
-    var notification = apersistence.createRawObject("NotificationNew",uuid.v1());
+    console.log(rawNotificationData);
+    var notification = apersistence.createRawObject("Notification",uuid.v1());
     rawNotificationData.expirationDate = new Date(rawNotificationData.expirationDate);
+    notification['action_name'] = rawNotificationData['actionType'];
+    notification['action_argument'] = rawNotificationData['actionArgument'];
     persistence.externalUpdate(notification,rawNotificationData);
     notification.creationDate = new Date();
-    persistence.save(notification, callback);
+    persistence.save(notification, function(err, notification){
+        var newAssociation = apersistence.modelUtilities.createRaw("ZoneNotificationMapping",uuid.v1().split("-").join(""));
+        newAssociation.zoneName = rawNotificationData['zone'];
+        newAssociation.notificationId = notification.notificationId;
+        persistence.save(newAssociation,callback);
+    });
+
 };
 
 deleteNotification = function (notificationId, callback) {
     flow.create("Delete Notification", {
         begin: function () {
-            persistence.deleteById("NotificationNew", notificationId, this.continue("deleteReport"));
+            persistence.deleteById("Notification", notificationId, this.continue("deleteReport"));
         },
         deleteReport: function (err, obj) {
             callback(err, obj);
@@ -210,7 +218,7 @@ deleteNotification = function (notificationId, callback) {
 updateNotification = function (notificationDump, callback) {
     flow.create("Update notification", {
         begin: function () {
-            persistence.lookup("NotificationNew", notificationDump.notificationId, this.continue("updateNotification"));
+            persistence.lookup("Notification", notificationDump.notificationId, this.continue("updateNotification"));
         },
 
         updateNotification: function (err, notification) {
@@ -305,7 +313,7 @@ dismissNotification = function(userIdOrZone, notificationId, callback){
 };
 
 filterNotifications = function(filter,callback){
-    persistence.filter("NotificationNew",filter,callback);
+    persistence.filter("Notification",filter,callback);
 }
 
 generateSignupNotifications = function (callback) {
@@ -318,7 +326,7 @@ generateSignupNotifications = function (callback) {
         },
 
         getNotificationsFromSystem : function(){
-            persistence.filter("NotificationNew", {},this.continue("checkNotificationsFromSystem"));
+            persistence.filter("Notification", {},this.continue("checkNotificationsFromSystem"));
         },
         checkNotificationsFromSystem: function(err, notifications){
             if(err){
@@ -343,7 +351,7 @@ generateSignupNotifications = function (callback) {
         },
         createNotification: function (key, index) {
             var self = this;
-            persistence.lookup("NotificationNew", uuid.v1(), function (err, notification) {
+            persistence.lookup("Notification", uuid.v1(), function (err, notification) {
                 if (err) {
                     callback(err, null);
                 }
@@ -384,7 +392,6 @@ generateSignupNotifications = function (callback) {
 
     })();
 };
-generateSignupNotifications();
 
 clearIdentityNotifications = function(userId){
     clearNotification(userId,signupNotifications.identity.action_name);
@@ -407,7 +414,7 @@ clearNotification = function(userId, action_name){
                 console.log(new Error("userId is invalid"));
             }
             else{
-                persistence.filter("NotificationNew", {action_name: action_name}, this.continue("dismissNotificationsByAction"));
+                persistence.filter("Notification", {action_name: action_name}, this.continue("dismissNotificationsByAction"));
             }
         },
         dismissNotificationsByAction:function(err, notifications){
