@@ -50,11 +50,11 @@ packAnalyticsForDownload = function(callback){
 
     function addTableToArchive(toArchive){
         var tableFields =[];
-        var tmpStream = fs.createWriteStream("./tmp-"+toArchive.file);
+        var tmpStream = fs.createWriteStream("/tmp/"+toArchive.file);
         var q = mysqlPool.query("SELECT * FROM " +toArchive.table+ ";");
         q.on('fields',extractFields).on('result',extractRawData).on('error',callback).on('end',function(){
-            archive.append(fs.createReadStream("./tmp-"+toArchive.file),{name:toArchive.file});
-            fs.unlinkSync("./tmp-"+toArchive.file,function(err){
+            archive.append(fs.createReadStream("/tmp/"+toArchive.file),{name:toArchive.file});
+            fs.unlinkSync("/tmp/"+toArchive.file,function(err){
                 if(err){
                     console.error("Could nor unlink temp file",err);
                 }
@@ -62,6 +62,7 @@ packAnalyticsForDownload = function(callback){
             numTables--;
             if(numTables===0){
                 archive.finalize();
+                callback(undefined,this.thisAdapter.config.Core.operandoHost+outputFile);
             }
         });
 
@@ -79,5 +80,4 @@ packAnalyticsForDownload = function(callback){
             tmpStream.write(tableFields.reduce(function(prev,current){return prev+"\""+data[current]+"\""+",";},"")+"\n",{name:toArchive.file});
         }
     }
-    callback(undefined,this.thisAdapter.config.Core.operandoHost+outputFile);
 };

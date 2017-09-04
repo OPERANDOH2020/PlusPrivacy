@@ -9,7 +9,7 @@ var deviceService = exports.deviceService = {
                 name:"deviceId",
                 value:deviceId,
                 expirationDate:parseInt(Date.now()/1000)+946080000,
-                secure:true});
+                secure:ExtensionConfig.SERVER_HOST_PROTOCOL === "https"?true:false});
             }
         );
     },
@@ -19,7 +19,7 @@ var deviceService = exports.deviceService = {
 
         chrome.storage.local.get("deviceId",function(response){
             if(!response.deviceId) {
-                chrome.cookies.getAll({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST,name:"deviceId",secure:true},function(cookies){
+                chrome.cookies.getAll({url:ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.WEBSITE_HOST,name:"deviceId",secure:ExtensionConfig.SERVER_HOST_PROTOCOL === "https"?true:false},function(cookies){
                     if(cookies.length){
                         var cookie = cookies[0];
                         deviceId = cookie.value;
@@ -40,35 +40,28 @@ var deviceService = exports.deviceService = {
 
     },
 
-    associateUserWithDevice:function(success_callback,error_callback){
+    associateUserWithDevice:function(){
         deviceService.getDeviceId(function(deviceId){
             var handler = swarmHub.startSwarm("UDESwarm.js","registerDeviceId",deviceId);
             handler.onResponse("device_registered",function (swarm) {
                 console.log("Device id is: ",deviceId);
-                success_callback();
             });
 
             handler.onResponse("failed",function (swarm) {
-                error_callback(swarm.error);
+               console.log(swarm.error);
             });
         });
     },
 
-    disassociateUserWithDevice:function(success_callback,error_callback){
-        /*
-         There is a little bug here. However, in the next version this feature will disappear so there is no point in trying to fix it at the moment.
-         */
-
+    disassociateUserWithDevice:function(callback){
         deviceService.getDeviceId(function(deviceId){
-
             var handler = swarmHub.startSwarm("UDESwarm.js","registerDeviceId",deviceId,true);
             handler.onResponse("device_registered",function (swarm) {
-                console.log("Device id is: ",deviceId);
-                success_callback();
+                callback();
             });
 
             handler.onResponse("failed",function (swarm) {
-                error_callback(swarm.error);
+                console.log(swarm.error);
             });
         });
     }

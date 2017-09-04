@@ -38,7 +38,9 @@ controller("appCtrl", ["$scope", "messengerService","$window","$state", function
 
     function logoutHandler(){
         $scope.userIsLoggedIn = false;
-        $window.location.href = "http://plusprivacy.com";
+        messengerService.send("provideLogoutLink",function(response){
+            $window.location.href = response.data;
+        });
     }
 
 }]);

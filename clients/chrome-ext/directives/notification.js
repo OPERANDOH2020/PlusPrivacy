@@ -54,60 +54,33 @@ angular.module('notifications', ['ui-notification'])
             });
         };
 
-        function registerForPushNotifications(callback) {
-            /*
-                This function does the following things:
-
-                1. Generates a device id if the device does not have one.
-                2. Performs the association betwen the current user and the device id.
-                3. Requests a notification token from gcm.
-                4. Registers the notification token with the plusprivacy server.
-             */
-            messengerService.send("associateUserWithDevice", function (response) {
-                messengerService.send("registerForPushNotifications", function (notification) {
-                    messengerService.on("notificationReceived",treatPushNotification);
-                    messengerService.send("notifyWhenLogout", stopPushNotifications);
-                    callback();
-                })
-            })
-        }
-
         function treatPushNotification (notification) {
             Notification(
                 {
-                    title: notification.data.data.title,
-                    message: notification.data.data.description,
+                    title: notification.data.title,
+                    message: notification.data.description,
                     positionY: "top",
                     positionX: "right",
                     delay: "60000",
                     templateUrl: "tpl/notifications/user-notification.html"
                 }, 'warning');
-        }
+        };
 
-        function stopPushNotifications(){
-            messengerService.off("notificationReceived",treatPushNotification);
-            messengerService.send("disassociateUserWithDevice", function () {
-                alert("User was disassociated");
-            });
-        }
-        
          function loadUserNotifications(callback) {
-             registerForPushNotifications(function(){
                  var deferred = $q.defer();
                  messengerService.send("getNotifications", function (response) {
                      notifications = response.data;
                      deferred.resolve(notifications);
                      callback(notifications);
                  });
-
                  return deferred.promise;
-             })
         }
 
         var getUserNotifications = function(callback){
             loadUserNotifications(callback);
         };
 
+        chrome.gcm.onMessage.addListener(treatPushNotification);
         return {
             dismissNotification: dismissNotification,
             notifyUserNow:notifyUserNow,
@@ -159,7 +132,7 @@ angular.module('notifications').
             restrict: 'E',
             replace: true,
             scope: {notification: "="},
-            controller: function ($scope, notificationService, $state ) {
+            controller: function ($scope, notificationService, $state, $window ) {
                     $scope.dismissed = false;
                     $scope.doNotShowNexTime = function () {
 
@@ -177,6 +150,7 @@ angular.module('notifications').
                         case "identity": $state.go('identityManagement'); break;
                         case "privacy-for-benefits": $state.go('deals'); break;
                         case "feedback": $state.go('feedback'); break;
+                        case "openUrl": $window.open($scope.notification['action_argument']); break;
                         case "social-network-privacy":
                             notificationService.dismissNotification($scope.notification.notificationId, function(){
                                 $state.go('socialNetworks');
