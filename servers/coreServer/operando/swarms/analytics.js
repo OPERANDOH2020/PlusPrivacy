@@ -31,7 +31,7 @@ var analyticsSwarming = {
         node:"AnalyticsAdapter",
         code:function(){
             var self = this;
-            packAnalyticsForDownload(function(err,downloadLink){
+            packAnalyticsForDownload(S(function(err,downloadLink){
                 if(err){
                     self.err = err;
                     self.home('failed');
@@ -39,7 +39,7 @@ var analyticsSwarming = {
                     self.link = downloadLink;
                     self.home('gotDownloadUrl');
                 }
-            })
+            }))
         }
     }
 };
