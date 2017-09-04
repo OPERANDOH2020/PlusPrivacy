@@ -62,7 +62,7 @@ packAnalyticsForDownload = function(callback){
             numTables--;
             if(numTables===0){
                 archive.finalize();
-                callback(undefined,this.thisAdapter.config.Core.operandoHost+outputFile);
+                callback(undefined,thisAdapter.config.Core.operandoHost+outputFile);
             }
         });
 
