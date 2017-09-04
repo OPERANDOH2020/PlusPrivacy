@@ -54,14 +54,20 @@ var menuCtrl = {
 							name: "Access Control List Management",
 							url: "apps/examples/ACL-Management/index.html"
 						});
-
+						self.result.push({
+							icon: "glyphicon glyphicon-lock",
+							name: "Download Analytics",
+							url: "apps/examples/AnalyticsManager/index.html"
+						});
 						self.result.push({
 							icon: "glyphicon glyphicon-transfer",
 							name: "Credit Management",
 							url: "apps/examples/CreditManagement/index.html"
 						});
-					}
 
+
+
+					}
 					self.home('gettingListDone');
 				}
 			}))

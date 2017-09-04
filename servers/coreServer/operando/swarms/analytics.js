@@ -23,6 +23,24 @@ var analyticsSwarming = {
         /*
         This constructor receives as sole argument the name of the field to be set in the analytics database.
          */
+    },
+    getDownloadUrl:function(){
+        this.swarm("getLink");
+    },
+    getLink:{
+        node:"AnalyticsAdapter",
+        code:function(){
+            var self = this;
+            packAnalyticsForDownload(function(err,downloadLink){
+                if(err){
+                    self.err = err;
+                    self.home('failed');
+                }else{
+                    self.link = downloadLink;
+                    self.home('gotDownloadUrl');
+                }
+            })
+        }
     }
 };
 analyticsSwarming;

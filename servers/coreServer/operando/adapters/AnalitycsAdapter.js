@@ -13,141 +13,71 @@
 var core = require("swarmcore");
 thisAdapter = core.createAdapter("AnalyticsAdapter");
 
-var container = require('safebox').container;
-var apersistence = require('apersistence');
+var mysql = require('mysql');
 var uuid = require('node-uuid');
-var persistence = undefined;
-var flow = require('callflow');
-var geolocator = require('geoip-lite');
+var archiver = require('archiver');
+var fs = require('fs');
 
-function registerModels(callback){
-    var models = [
+packAnalyticsForDownload = function(callback){
+    var connectionSettings = {
+        connectionLimit:10,
+        host     : thisAdapter.config.Core.mysqlHost,
+        port     : thisAdapter.config.Core.mysqlPort,
+        user     : 'root',
+        password : thisAdapter.config.Core.mysqlDatabasePassword,
+        database : thisAdapter.config.Core.mysqlDatabaseName
+    };
+    var toArchive = [
         {
-            modelName:"RegistrationAnalytic",
-            dataModel : {
-                userId:{
-                    type:"string",
-                    pk:true,
-                    length:255,
-                    index:true
-                },
-                email:{
-                    type: "string",
-                    length:255,
-                    index:true
-                },
-                country:{
-                    type: "string",
-                    length:255,
-                    default:'UNKNOWN'
-                },
-                date:{
-                    type:"datetime"
-                }
-            }
+            table:"UserAnalytics",
+            file:"userAnalytics.csv"
         },
         {
-            modelName:"LoginAnalytic",
-            dataModel:{
-                id:{
-                    type:"string",
-                    pk:true,
-                    length:255
-                },
-                userId:{
-                    type:"string",
-                    length:255
-                },
-                date:{
-                    type:"datetime"
-                }
-            }
+            table:"UserDevice",
+            file:"deviceAnalytics.csv"
         }
     ];
 
-    flow.create("registerModels",{
-        begin:function(){
-            this.errs = [];
-            var self = this;
-            models.forEach(function(model){
-                persistence.registerModel(model.modelName,model.dataModel,self.continue("registerDone"));
-            });
+    var mysqlPool = mysql.createPool(connectionSettings);
+    var outputFile = "/analytics/"+uuid.v1()+".zip";
+    var output = fs.createWriteStream(thisAdapter.config.Core.analyticsArchivesDir+outputFile);
+    var archive = archiver('zip',{zlib:{level:9}});
+    archive.pipe(output);
+    var numTables = toArchive.length;
 
-        },
-        registerDone:function(err,result){
-            if(err) {
-                this.errs.push(err);
+    toArchive.forEach(addTableToArchive);
+
+
+    function addTableToArchive(toArchive){
+        var tableFields =[];
+        var tmpStream = fs.createWriteStream("./tmp-"+toArchive.file);
+        var q = mysqlPool.query("SELECT * FROM " +toArchive.table+ ";");
+        q.on('fields',extractFields).on('result',extractRawData).on('error',callback).on('end',function(){
+            archive.append(fs.createReadStream("./tmp-"+toArchive.file),{name:toArchive.file});
+            fs.unlinkSync("./tmp-"+toArchive.file,function(err){
+                if(err){
+                    console.error("Could nor unlink temp file",err);
+                }
+            })
+            numTables--;
+            if(numTables===0){
+                archive.finalize();
             }
-        },
-        end:{
-            join:"registerDone",
-            code:function(){
-                if(callback && this.errs.length>0){
-                    callback(this.errs);
-                }else{
-                    callback(null);
+        });
+
+        function extractFields(fields){
+            for(var f in fields){
+                if(fields[f].name) {
+                    tableFields.push(fields[f].name)
                 }
             }
+            var toAppend = tableFields.reduce(function(prev,current){return prev+'"'+current+'",';},"")+"\n";
+            tmpStream.write(toAppend,{name:toArchive.file});
         }
-    })()
-}
 
-container.declareDependency("AnalyticsAdapter",['mysqlPersistence'],function(outOfService,mysqlPersistence){
-    if (!outOfService) {
-        persistence = mysqlPersistence;
-        registerModels(function(errs){
-            if(errs){
-                console.error(errs);
-            }else{
-                console.log("Analytics adapter available");
-            }
-        })
-    } else {
-        console.log("Disabling AnalyticsAdapter...");
+        function extractRawData(data){
+            tmpStream.write(tableFields.reduce(function(prev,current){return prev+"\""+data[current]+"\""+",";},"")+"\n",{name:toArchive.file});
+        }
     }
-});
-
-addRegistration = function(userId,userEmail,ip,callback){
-    
-    persistence.lookup("RegistrationAnalytic",userId,function (err,registrationAnalytic) {
-        if(err){
-            callback(err)
-        }else{
-            if(!registrationAnalytic.__meta.freshRawObject){
-                callback(new Error("User already registered"))
-            }else{
-
-                var geolocation = geolocator.lookup(ip)
-                if(geolocation && geolocation.country){
-                    registrationAnalytic["country"] = geolocator.lookup(ip)['country'];
-                }
-                registrationAnalytic["email"] = userEmail;
-                registrationAnalytic["date"] = new Date();
-                
-                persistence.save(registrationAnalytic,callback)
-            }
-        }
-    })
-};
-
-addLogin = function(userId,callback){
-    flow.create("registerModels",{
-        begin:function(){
-            var loginId = uuid.v1();
-            persistence.lookup("LoginAnalytic",loginId, this.continue("gotLoginAnalytic"));
-        },
-        gotLoginAnalytic:function(err, loginAnalytic){
-            if(err){
-                callback(err)
-            }else{
-                if(!loginAnalytic.__meta.freshRawObject){
-                    this.begin();
-                }else{
-                    loginAnalytic["userId"] = userId;
-                    loginAnalytic["date"] = new Date();
-                    persistence.save(loginAnalytic,callback)
-                }
-            }
-        }
-    })();
+    callback(undefined,this.thisAdapter.config.Core.operandoHost+outputFile);
 };
