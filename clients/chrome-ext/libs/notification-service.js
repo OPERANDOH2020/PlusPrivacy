@@ -27,17 +27,11 @@ var notificationService = exports.notificationService = {
             callback();
         })
     },
-    registerForPushNotifications:function(success_callback,error_callback){
+    registerForPushNotifications:function(){
         var plusprivacyGCMId = ["276859564715"];
         chrome.gcm.register(plusprivacyGCMId,function(pushNotificationId){
             deviceService.getDeviceId(function(deviceId){
-                var handler = swarmHub.startSwarm("UDESwarm.js", "updateNotificationToken", deviceId, pushNotificationId);
-                handler.onResponse("success",function (swarm) {
-                    success_callback(swarm);
-                });
-                handler.onResponse("failed",function (swarm) {
-                    error_callback(swarm.err);
-                });
+                swarmHub.startSwarm("UDESwarm.js", "updateNotificationToken", deviceId, pushNotificationId);
             });
         })
     },

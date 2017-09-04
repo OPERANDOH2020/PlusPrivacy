@@ -143,38 +143,3 @@ getDeviceIdAction(function(deviceId){
     console.log(deviceId);
     chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+deviceId);
 });
-
-/*
-//prevent fringerprinting
-
-function prevent_fingerprinting(tab) {
-    insertJavascriptFile(tab.id, "/operando/modules/fingerprinting/prevent.js", function () {
-    });
-    webRequest.onBeforeSendHeaders.addListener(
-        function(details) {
-
-            for (var i = 0; i < details.requestHeaders.length; ++i) {
-                if (details.requestHeaders[i].name === "User-Agent") {
-                    details.requestHeaders[i].value = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
-                }
-
-                if (details.requestHeaders[i].name === "Accept-Language") {
-                    details.requestHeaders[i].value = "en-US";
-                }
-            }
-
-            console.log(details.requestHeaders);
-            return {requestHeaders: details.requestHeaders};
-        },
-        {urls: ["<all_urls>"]},
-        ["blocking", "requestHeaders"]);
-
-
-
-}
-
-chrome.tabs.onCreated.addListener(prevent_fingerprinting);
-chrome.tabs.onUpdated.addListener(function(tabId, info, tab) {
-    if (info.status == 'complete') prevent_fingerprinting(tab);
-});
-*/

@@ -12,6 +12,7 @@
 
 var swarmService = require("swarm-service").swarmService;
 var identityService = require("identity-service").identityService;
+var deviceService = require("device-service").deviceService;
 var loggedIn = false;
 var authenticatedUser = {};
 var loggedInObservable = swarmHub.createObservable();
@@ -191,6 +192,7 @@ var authenticationService = exports.authenticationService = {
             if (!username || !sessionId) {
                 failCallback();
                 authenticationService.changeLoggedInIcon(false);
+                return;
             }
             swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, customReconnectCallback);
             swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
@@ -215,6 +217,11 @@ var authenticationService = exports.authenticationService = {
     },
 
     setUser: function (callback) {
+        var associateUserWithDeviceAction = bus.getAction("associateUserWithDevice");
+        var registerForPushNotificationsAction = bus.getAction("registerForPushNotifications");
+        associateUserWithDeviceAction();
+        registerForPushNotificationsAction();
+
         authenticationService.changeLoggedInIcon(true);
         var setUserHandler = swarmHub.startSwarm('UserInfo.js', 'info');
         setUserHandler.onResponse("result", function(swarm){
@@ -255,7 +262,10 @@ var authenticationService = exports.authenticationService = {
         Cookies.remove("sessionId");
     },
     logoutCurrentUser: function (callback) {
-        swarmHub.startSwarm("login.js", "logout");
+        deviceService.disassociateUserWithDevice(function(){
+            swarmHub.startSwarm("login.js", "logout");
+        });
+
         swarmHub.on("login.js", "logoutSucceed", function logoutSucceed(swarm) {
             authenticationService.clearUserData();
             swarmHub.off("login.js", "logoutSucceed",logoutSucceed);

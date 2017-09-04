@@ -118,6 +118,9 @@ var userService = exports.userService = {
 
     provideFeedbackUrl:function(callback){
         callback(CONSTANTS.FEEDBACK_FORM_URL);
+    },
+    provideLogoutLink:function(callback){
+        callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
     }
 
 };
