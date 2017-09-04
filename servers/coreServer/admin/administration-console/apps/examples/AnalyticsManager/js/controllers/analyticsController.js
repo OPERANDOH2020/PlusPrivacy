@@ -9,7 +9,7 @@ app.controller('analyticsController', ['$scope','swarmHubService',"$window",
 		};
 
 		swarmHub.on("analytics.js","gotDownloadUrl",function(swarm){
-			$window.open(swarm.link);
+			$window.location.href = "https://www."+swarm.link;
 		});
 		swarmHub.on("analytics.js","failed",function(swarm){
 			console.log("Error "+swarm.err+" occured");

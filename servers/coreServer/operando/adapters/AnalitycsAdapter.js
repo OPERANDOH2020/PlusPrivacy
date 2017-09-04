@@ -47,18 +47,13 @@ packAnalyticsForDownload = function(callback){
 
     toArchive.forEach(addTableToArchive);
 
-
     function addTableToArchive(toArchive){
         var tableFields =[];
         var tmpStream = fs.createWriteStream("/tmp/"+toArchive.file);
         var q = mysqlPool.query("SELECT * FROM " +toArchive.table+ ";");
         q.on('fields',extractFields).on('result',extractRawData).on('error',callback).on('end',function(){
             archive.append(fs.createReadStream("/tmp/"+toArchive.file),{name:toArchive.file});
-            fs.unlinkSync("/tmp/"+toArchive.file,function(err){
-                if(err){
-                    console.error("Could nor unlink temp file",err);
-                }
-            })
+            fs.unlinkSync("/tmp/"+toArchive.file);
             numTables--;
             if(numTables===0){
                 archive.finalize();
