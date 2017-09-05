@@ -33,7 +33,7 @@ packAnalyticsForDownload = function(callback){
             file:"userAnalytics.csv"
         },
         {
-            table:"UserDevice",
+            table:"DeviceAnalytics",
             file:"deviceAnalytics.csv"
         }
     ];
