@@ -333,7 +333,7 @@ function onLogout(meta,args){
         if(err || result.length===0){
             console.error("Analytics error: ",result.length===0?new Error("Logout user not registered"):err)
         }
-        else if(result[0].lastLoginInChrome!==null){
+        else if(result[0][platform.lastLogin]!==null){
             var lastLoginLengthInSeconds = (new Date(new Date().toISOString().slice(0, 19).replace('T', ' ')) - new Date(result[0][platform.lastLogin]))/1000;
 
             var query = "UPDATE UserAnalytics SET "
