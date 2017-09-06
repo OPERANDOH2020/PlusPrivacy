@@ -1,0 +1,9 @@
+[{  "title":"How useful are the features of {+P} in protecting your privacy?",
+    "type":"multipleRating",
+    "description":"1 - not useful; 5 - very useful",
+    "required":"true",
+    "range":["1","2","3","4","5"]
+
+
+
+}]
