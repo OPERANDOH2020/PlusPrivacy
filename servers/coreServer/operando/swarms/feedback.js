@@ -1,7 +1,7 @@
 var feedbackSwarming = {
 
     getFeedbackQuestions: function () {
-        this.swarm("getFeedbackFormQuestions")
+        this.swarm("getFeedbackFormQuestions");
     },
     submitFeedback: function (feedback) {
         this.feedback = feedback;
@@ -29,7 +29,8 @@ var feedbackSwarming = {
         node: "FeedbackAdapter",
         code: function () {
             var self = this;
-            submitFeedbackAnswer(this.feedback,S(function(err, feedback){
+
+            submitFeedbackAnswer(this.meta.userId, this.feedback,S(function(err, feedback){
                 if (err) {
                     console.error(err);
                     self.home("error");
