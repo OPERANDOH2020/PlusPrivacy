@@ -116,8 +116,15 @@ var userService = exports.userService = {
        swarmHub.startSwarm("analytics.js","actionPerformed",analyticsLabel);
     },
 
-    provideFeedbackUrl:function(callback){
-        callback(CONSTANTS.FEEDBACK_FORM_URL);
+    provideFeedbackQuestions:function(success_callback, error_callback){
+        var provideFeedbackQuestionsHandler = swarmHub.startSwarm("feedback.js", "getFeedbackQuestions");
+        provideFeedbackQuestionsHandler.onResponse("success",function(swarm){
+            success_callback(swarm.feedbackQuestions);
+        });
+
+        provideFeedbackQuestionsHandler.onResponse("error",function(){
+            error_callback(response);
+        });
     },
     provideLogoutLink:function(callback){
         callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
