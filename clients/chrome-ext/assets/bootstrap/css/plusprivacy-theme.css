@@ -238,7 +238,8 @@ div.tab-content{
 #social_networks_tab,
 #notifications_tab,
 #contact_tab,
-#network_tab
+#network_tab,
+#feedback_tab
 {
     display: block;
     padding: 20px;
@@ -260,11 +261,6 @@ div.tab-content{
 #abp_preferences_tab,
 #feedback_tab{
     height:100%;
-}
-
-#feedback_tab{
-    margin-left:-20px;
-    margin-right:-20px;
 }
 
 .operando-navbar{

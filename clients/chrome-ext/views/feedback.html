@@ -1,3 +1,23 @@
 <div id="feedback_tab" class="content_tab" ng-controller="FeedbackController">
-    <iframe ng-src="{{feedbackUrl}}" width="100%" height="100%" frameBorder="0">Loading...</iframe>
+
+    <h2>Feedback</h2>
+
+    <div class="feedback_description">
+        <p>Thank you for helping to test PlusPrivacy! This service is being developed for global public good and is sponsored by the European Union. We have done our best to maximise your control of your privacy - but we need your feedback to perfect the solution and have it adopted by users at large.  Please help us to improve PlusPrivacy by filling this survey. It will only take a couple of minutes.</p>
+
+        <p>PlusPrivacy team</p>
+        <p class="required">* Required</p>
+    </div>
+
+
+    <div class="questions">
+        <div class="question" ng-repeat="question in feedbackQuestions" ng-switch="question.type">
+        <div ng-switch-when="multipleRating">
+            <div class="question_title">
+                <h4>{{question.title}}</h4>
+            </div>
+        </div>
+        </div>
+    </div>
+
 </div>
