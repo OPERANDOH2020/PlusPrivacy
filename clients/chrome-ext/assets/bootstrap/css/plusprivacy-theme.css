@@ -258,8 +258,7 @@ div.tab-content{
     content:"";
 }
 
-#abp_preferences_tab,
-#feedback_tab{
+#abp_preferences_tab{
     height:100%;
 }
 
@@ -2547,5 +2546,29 @@ h4.modal-title.plusprivacy{
 #contact_form .form-group:after{
     clear:both;
     content:"";
+    display: block;
+}
+
+#feedback_tab ul li{
+    list-style: none;
+    font-size: 14px;
+}
+
+#feedback_tab .questions .question{
+    background:#f1ebdf;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#feedback_tab ul li label{
+    width:50px;
+    display: inline-block;
+}
+
+#feedback_tab ul li label:first-child{
+    display: inline-block;
+    width:300px;
+}
+#feedback_tab .radioQuestion >label {
     display: block;
 }
