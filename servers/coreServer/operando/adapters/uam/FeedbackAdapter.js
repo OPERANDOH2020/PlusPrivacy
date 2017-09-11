@@ -95,7 +95,7 @@ getFeedbackQuestions = function(callback){
 submitFeedbackAnswer = function(userId, feedback, callback){
     flow.create("submitFeedbackFlow", {
         begin: function () {
-            persistence.filter("FeedbackAdapter", {userId: userId}, this.continue("checkPreviousFeedback"));
+            persistence.filter("UserFeedback", {userId: userId}, this.continue("checkPreviousFeedback"));
         },
         checkPreviousFeedback: function (err, userFeedback) {
             if (err) {
@@ -106,9 +106,16 @@ submitFeedbackAnswer = function(userId, feedback, callback){
                 persistence.save(userFeedback[0], callback);
             }
             else {
-                var feedbackRawObj = persistence.createRawObject("Form", uuid.v1());
+                persistence.lookup("UserFeedback",uuid.v1(), this.continue("saveFeedback"));
+            }
+        },
+        saveFeedback:function(err,feedbackRawObj){
+            if(err){
+                callback(err);
+            }
+            else{
                 feedbackRawObj["userId"] = userId;
-                feedbackRawObj["feedback"] = feedback;
+                feedbackRawObj["feedback"] = JSON.stringify(feedback);
                 persistence.save(feedbackRawObj, callback);
             }
         }
