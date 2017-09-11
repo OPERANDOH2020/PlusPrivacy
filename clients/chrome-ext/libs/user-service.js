@@ -126,6 +126,12 @@ var userService = exports.userService = {
             error_callback(response);
         });
     },
+
+    sendFeedback:function(feedback, success_callback, error_callback){
+      var sendFeedbackHandler = swarmHub.startSwarm("feedback.js", "submitFeedback",feedback);
+        sendFeedbackHandler.onResponse("success", success_callback);
+        sendFeedbackHandler.onResponse("error", error_callback);
+    },
     provideLogoutLink:function(callback){
         callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
     }

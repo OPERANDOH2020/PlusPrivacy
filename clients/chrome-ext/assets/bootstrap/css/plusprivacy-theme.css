@@ -2552,6 +2552,7 @@ h4.modal-title.plusprivacy{
 #feedback_tab ul li{
     list-style: none;
     font-size: 14px;
+    padding: 2px 15px;
 }
 
 #feedback_tab .questions .question{
@@ -2560,15 +2561,43 @@ h4.modal-title.plusprivacy{
     margin-bottom: 20px;
 }
 
-#feedback_tab ul li label{
-    width:50px;
-    display: inline-block;
-}
-
-#feedback_tab ul li label:first-child{
-    display: inline-block;
-    width:300px;
-}
 #feedback_tab .radioQuestion >label {
     display: block;
 }
+
+#feedback_tab label{
+    padding-top: 6px;
+}
+
+#feedback_tab{
+    margin: 0 auto;
+    width: 640px;
+}
+
+#feedback_tab ul{
+    padding-left: 0px;
+}
+
+#feedback_tab p{
+    font-size: 17px;
+}
+
+#feedback_tab li.list_header label{
+    padding-left:3px;
+}
+
+#feedback_tab .radioQuestion >label>label {
+    padding-left:20px;
+}
+#feedback_tab .question textarea{
+    width: 100%;
+    resize: vertical;
+}
+
+#feedback_tab li:not(.list_header):nth-child(2n+1){
+    background: #d0cabf;
+}
+#feedback_tab li:not(.list_header):nth-child(2n){
+    background: #ded9cf;
+}
+

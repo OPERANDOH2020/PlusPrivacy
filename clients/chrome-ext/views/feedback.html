@@ -13,58 +13,77 @@
         <p class="required">* Required</p>
     </div>
 
-<form  ng-submit="submitFeedback()">
-    <div class="questions">
-        <div class="question" ng-repeat="question in feedbackQuestions" ng-switch="question.type">
-            <div class="question_title">
-                <h4>{{question.title}}</h4>
-            </div>
-            <div ng-switch-when="multipleRating">
+    <form ng-submit="submitFeedback()">
+        <div class="questions">
+            <div class="question" ng-repeat="question in feedbackQuestions" ng-switch="question.type">
+                <div class="question_title">
+                    <h4>{{question.title}}</h4>
+                </div>
+                <div ng-switch-when="multipleRating">
 
                     <ul>
-                        <li>
-                            <label></label>
-                            <label ng-repeat="rangeItem in question.range">{{rangeItem}}</label>
+                        <li class="list_header">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label><i>{{question.description}}</i></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label ng-repeat="rangeItem in question.range" style="width:{{100/question.range.length}}%">{{rangeItem}}</label>
+                                </div>
+                            </div>
                         </li>
                         <li ng-repeat="item in question.items">
-                            <label>{{item}}</label>
-                            <label ng-repeat="rangeItem in question.range">
-                                <input type="radio" ng-model="answers[question.title+'['+item+']']" name="{{item}}"
-                                       value="{{rangeItem}}"/>
-                                <span></span>
-                            </label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>{{item}}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label ng-repeat="rangeItem in question.range" style="width:{{100/question.range.length}}%">
+                                        <input type="radio" ng-model="answers[question.title+'['+item+']']"
+                                               name="{{item}}"
+                                               value="{{rangeItem}}"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
                         </li>
                     </ul>
 
-            </div>
-            <div ng-switch-when="multipleSelection">
-                <ul>
-                    <li ng-repeat="item in question.items">
+                </div>
+                <div ng-switch-when="multipleSelection">
+                    <ul>
+                        <li ng-repeat="item in question.items">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label>{{item}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>
+                                        <input type="checkbox" ng-model="answers[question.title+'['+item+']']"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-switch-when="radio" class="radioQuestion">
+                    <label ng-repeat="item in question.items">
                         <label>{{item}}</label>
-                        <label>
-                            <input type="checkbox" ng-model="answers[question.title+'['+item+']']"/>
-                            <span></span>
-                        </label>
+                        <input type="radio" ng-model="answers[question.title]" name="{{item}}"
+                               value="{{item}}"/>
+                        <span></span>
+                    </label>
+                </div>
 
-                    </li>
-                </ul>
-            </div>
-
-            <div ng-switch-when="radio" class="radioQuestion">
-                <label ng-repeat="item in question.items">
-                    <label>{{item}}</label>
-                    <input type="radio" ng-model="answers[question.title]" name="{{item}}"
-                           value="{{item}}"/>
-                    <span></span>
-                </label>
-            </div>
-
-            <div ng-switch-when="textInput">
-                <textarea ng-model="answers[question.title]"></textarea>
+                <div ng-switch-when="textInput">
+                    <textarea ng-model="answers[question.title]"></textarea>
+                </div>
             </div>
         </div>
-    </div>
-    <button class="btn-primary" value="Submit">Submit</button>
+        <button class="btn-primary" value="Submit">Submit</button>
     </form>
 
 </div>
