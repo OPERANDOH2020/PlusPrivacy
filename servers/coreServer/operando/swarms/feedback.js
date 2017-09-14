@@ -31,6 +31,7 @@ var feedbackSwarming = {
             var self = this;
 
             submitFeedbackAnswer(this.meta.userId, this.feedback,S(function(err, feedback){
+                delete self.feedback;
                 if (err) {
                     console.error(err);
                     self.home("error");

@@ -102,7 +102,7 @@ submitFeedbackAnswer = function(userId, feedback, callback){
                 callback(err);
             }
             else if (userFeedback.length > 0) {
-                userFeedback[0]['feedback'] = feedback;
+                userFeedback[0]['feedback'] = JSON.stringify(feedback);
                 persistence.save(userFeedback[0], callback);
             }
             else {
