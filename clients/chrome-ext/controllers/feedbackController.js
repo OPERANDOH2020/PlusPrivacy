@@ -2,11 +2,32 @@ angular.module("operando").
 controller("FeedbackController", ["$scope","$sce", "messengerService", function ($scope, $sce, messengerService) {
 
     $scope.answers = {};
+    $scope.previousResponses = {};
 
-    messengerService.send("provideFeedbackQuestions", function(response){
-        $scope.feedbackQuestions = response.data;
-        prepareResponses($scope.feedbackQuestions);
-        $scope.$apply();
+    function loadFeedback(callback){
+        messengerService.send("provideFeedbackQuestions", function(response){
+            $scope.feedbackQuestions = response.data;
+            prepareResponses($scope.feedbackQuestions);
+            if(callback){
+                callback();
+            }
+            $scope.$apply();
+        });
+    }
+
+    messengerService.send("hasUserSubmittedAFeedback", function(response){
+        console.log(response);
+       if(response.status === "success"){
+           if(Object.keys(response.data).length === 0){
+               $scope.feedbackSubmitted = false;
+               loadFeedback();
+           }
+           else{
+               $scope.previousResponses = response.data;
+               $scope.feedbackSubmitted = true;
+               $scope.$apply();
+           }
+       }
     });
 
 
@@ -37,13 +58,24 @@ controller("FeedbackController", ["$scope","$sce", "messengerService", function 
     }
 
     $scope.submitFeedback = function(){
-        console.log($scope.answers);
         messengerService.send("sendFeedback",$scope.answers, function(response){
             if(response.status === "success"){
                 $scope.feedbackSubmitted = true;
                 $scope.$apply();
             }
         })
+    };
+
+    $scope.editFeedback = function(){
+        loadFeedback(function(){
+            $scope.feedbackSubmitted = false;
+            $scope.answers = $scope.previousResponses;
+            for(var i in $scope.answers){
+                if($scope.previousResponses[i]){
+                    $scope.answers[i] = $scope.previousResponses[i];
+                }
+            }
+        });
     }
 
 }]);

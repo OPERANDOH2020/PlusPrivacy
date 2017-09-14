@@ -2,7 +2,7 @@
 
     <h2>Feedback</h2>
 
-    <div ng-if="feedbackSubmitted === false" ng-cloak>
+    <div ng-if="feedbackSubmitted === false" ng-cloak="feedbackSubmitted">
         <div class="feedback_description">
             <p>Thank you for helping to test PlusPrivacy! This service is being developed for global public good and is
                 sponsored by the European Union. We have done our best to maximise your control of your privacy - but we
@@ -12,14 +12,14 @@
 
             <p>PlusPrivacy team</p>
 
-            <p class="required">* Required</p>
+            <p class="question_required">* Required</p>
         </div>
 
         <form ng-submit="submitFeedback()">
             <div class="questions">
                 <div class="question" ng-repeat="question in feedbackQuestions" ng-switch="question.type">
                     <div class="question_title">
-                        <h4>{{question.title}}</h4>
+                        <h4>{{question.title}}<span class="question_required" ng-if="question.required == true">*</span></h4>
                     </div>
                     <div ng-switch-when="multipleRating">
 
@@ -45,6 +45,7 @@
                                                style="width:{{100/question.range.length}}%">
                                             <input type="radio" ng-model="answers[question.title+'['+item+']']"
                                                    name="{{item}}"
+                                                   ng-required="!answers[question.title+'['+item+']']"
                                                    value="{{rangeItem}}"/>
                                             <span></span>
                                         </label>
@@ -77,20 +78,21 @@
                         <label ng-repeat="item in question.items">
                             <label>{{item}}</label>
                             <input type="radio" ng-model="answers[question.title]" name="{{item}}"
+                                   ng-required="!answers[question.title]"
                                    value="{{item}}"/>
                             <span></span>
                         </label>
                     </div>
 
                     <div ng-switch-when="textInput">
-                        <textarea ng-model="answers[question.title]"></textarea>
+                        <textarea ng-required="question.required" ng-model="answers[question.title]"></textarea>
                     </div>
                 </div>
             </div>
             <button class="btn-primary" value="Submit">Submit</button>
         </form>
     </div>
-    <div ng-if="feedbackSubmitted === true">
+    <div ng-if="feedbackSubmitted === true" ng-cloak>
         <p>Thank you for your feedback!</p>
         <button class="btn btn-primary" ng-click="editFeedback()">Change response</button>
     </div>

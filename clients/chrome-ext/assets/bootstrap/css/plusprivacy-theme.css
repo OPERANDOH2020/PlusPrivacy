@@ -2601,3 +2601,7 @@ h4.modal-title.plusprivacy{
     background: #ded9cf;
 }
 
+#feedback_tab .question_required{
+    color:#FF4000;
+    padding-left: 3px;
+}

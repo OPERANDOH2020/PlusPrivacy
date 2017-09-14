@@ -134,6 +134,15 @@ var userService = exports.userService = {
     },
     provideLogoutLink:function(callback){
         callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
+    },
+    hasUserSubmittedAFeedback:function(success_callback, error_callback){
+        var hasUserSubmittedAFeedbackHandler = swarmHub.startSwarm("feedback.js", "hasUserSubmittedAFeedback");
+        hasUserSubmittedAFeedbackHandler.onResponse("success", function(swarm){
+            success_callback(swarm.feedback);
+        });
+        hasUserSubmittedAFeedbackHandler.onResponse("error", function(swarm){
+            error_callback(swarm.error);
+        });
     }
 
 };
