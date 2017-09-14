@@ -61,7 +61,6 @@ function registerModels(callback){
     })()
 }
 
-
 container.declareDependency("FeedbackAdapter", ["mysqlPersistence"], function (outOfService, mysqlPersistence) {
     if (!outOfService) {
         persistence = mysqlPersistence;
@@ -117,6 +116,25 @@ submitFeedbackAnswer = function(userId, feedback, callback){
                 feedbackRawObj["userId"] = userId;
                 feedbackRawObj["feedback"] = JSON.stringify(feedback);
                 persistence.save(feedbackRawObj, callback);
+            }
+        }
+    })();
+};
+
+checkIfUserSubmittedFeedback = function(userId, callback){
+    flow.create("checkIfUserSubmittedFeedback", {
+        begin: function () {
+            persistence.filter("UserFeedback", {userId: userId}, this.continue("checkPreviousFeedback"));
+        },
+        checkPreviousFeedback: function (err, userFeedback) {
+            if (err) {
+                callback(err);
+            }
+            else if (userFeedback.length > 0) {
+                callback(null,JSON.parse(userFeedback[0].feedback));
+            }
+            else {
+                callback(null,{});
             }
         }
     })();

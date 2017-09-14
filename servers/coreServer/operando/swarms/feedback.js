@@ -7,6 +7,10 @@ var feedbackSwarming = {
         this.feedback = feedback;
         this.swarm("submitFeedbackValues")
     },
+    hasUserSubmittedAFeedback:function(){
+        this.userId = this.meta.userId;
+        this.swarm("checkUserFeedback");
+    },
 
     getFeedbackFormQuestions: {
         node: "FeedbackAdapter",
@@ -41,8 +45,24 @@ var feedbackSwarming = {
                 }
             }));
         }
+    },
+    checkUserFeedback:{
+        node:"FeedbackAdapter",
+        code:function(){
+            var self = this;
+            checkIfUserSubmittedFeedback(this.meta.userId, S(function (err, feedback) {
+                if (err) {
+                    console.log(err);
+                    self.error = err;
+                    self.home("error");
+                }
+                else {
+                    self.feedback = feedback;
+                    self.home("success");
+                }
+            }));
+        }
     }
-
 
 };
 feedbackSwarming;
