@@ -39,7 +39,10 @@ controller("FeedbackController", ["$scope","$sce", "messengerService", function 
     $scope.submitFeedback = function(){
         console.log($scope.answers);
         messengerService.send("sendFeedback",$scope.answers, function(response){
-            console.log(response);
+            if(response.status === "success"){
+                $scope.feedbackSubmitted = true;
+                $scope.$apply();
+            }
         })
     }
 
