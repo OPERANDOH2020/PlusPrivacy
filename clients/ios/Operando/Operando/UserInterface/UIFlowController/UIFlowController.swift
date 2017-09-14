@@ -24,6 +24,7 @@ struct Dependencies{
     let userSettingsCallbacks: UserSettingsModelCallbacks?
     let whenTakingActionForNotification: NotificationActionCallback?
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
+    let feedbackFormRepo: OPFeedbackFormProtocol?
 }
 
 
@@ -209,7 +210,14 @@ class UIFlowController: SSASideMenuDelegate
         let accountController = UIViewControllerFactory.accountViewController
         accountController.logic.setupWith(callbacks:UIAccountViewControllerCallbacks(
         whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
-        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback))
+        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback,
+        whenFeedbackFormAccessed: {
+            let feedbackFormVC = UIViewControllerFactory.feedbackFormViewController
+            feedbackFormVC.setup(with: OPFeedbackFormVCInteractor(feedbackForm: OPFeedbackForm(delegate: self.dependencies.feedbackFormRepo),
+                                                                  uiDelegate: feedbackFormVC as? OPFeedbackFormVCProtocol))
+            self.rootController.setMainControllerTo(newController: feedbackFormVC)
+            self.sideMenu?.hideMenuViewController()
+        }))
         
         return accountController
     }

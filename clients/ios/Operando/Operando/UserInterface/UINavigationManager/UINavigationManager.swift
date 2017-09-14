@@ -28,7 +28,6 @@ class UIViewControllerFactory
         return main.instantiateViewController(withIdentifier: "UINotificationsViewController") as! UINotificationsViewController
     }
     
-
     static var identityManagementViewController : UIIdentityManagementViewController{
         return main.instantiateViewController(withIdentifier: "UIIdentityManagementViewController") as! UIIdentityManagementViewController
     }
@@ -36,7 +35,6 @@ class UIViewControllerFactory
     static var dashboardViewController: UIDashboardViewController{
         return main.instantiateViewController(withIdentifier: "UIDashboardViewController") as! UIDashboardViewController
     }
-    
     
     static var privateBrowsingViewController: UIPrivateBrowsingViewController{
         return main.instantiateViewController(withIdentifier: "UIPrivateBrowsingViewController") as! UIPrivateBrowsingViewController
@@ -46,11 +44,9 @@ class UIViewControllerFactory
         return main.instantiateViewController(withIdentifier: "UISignInViewController") as! UISignInViewController
     }
     
-    
     static var registerViewController: UIRegistrationViewController{
         return main.instantiateViewController(withIdentifier: "UIRegistrationViewController") as! UIRegistrationViewController
     }
-    
     
     static var addIdentityController: UIAddIdentityAlertViewController {
         return utility.instantiateViewController(withIdentifier: "UIAddIdentityAlertViewController") as! UIAddIdentityAlertViewController
@@ -62,6 +58,10 @@ class UIViewControllerFactory
     
     static var pfbDealDetailsAlertViewController: UIPfbDetailsAlertViewController {
         return utility.instantiateViewController(withIdentifier: "UIPfbDetailsAlertViewController") as! UIPfbDetailsAlertViewController
+    }
+    
+    static var feedbackFormViewController: OPFeedbackFormViewController {
+        return OPFeedbackFormViewController(nibName: "OPFeedbackFormViewController", bundle: nil)
     }
     
     // MARK: - Left Menu Storyboard

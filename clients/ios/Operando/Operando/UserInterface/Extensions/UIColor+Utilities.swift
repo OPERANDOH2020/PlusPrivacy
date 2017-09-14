@@ -44,6 +44,10 @@ extension UIColor{
         return UIColor(colorLiteralRed: 189.0/255.0, green: 124.0/255.0, blue: 7.0/255.0, alpha: 1.0)
     }
     
+    static var operandoBrownieYellow: UIColor {
+        return UIColor(colorLiteralRed: 254.0/255.0, green: 227.0/255.0, blue: 196.0/255.0, alpha: 1.0)
+    }
+    
     static var operandoCyan: UIColor {
         return UIColor(colorLiteralRed: 19.0/255.0, green: 149.0/255.0, blue: 129.0/255.0, alpha: 1.0)
     }

@@ -174,6 +174,21 @@
 		98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */; };
 		98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */; };
 		98FD07E81F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */; };
+		AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */; };
+		AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */; };
+		AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */; };
+		AD48A8EB1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8EA1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift */; };
+		AD4AD54A1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5441F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift */; };
+		AD4AD54B1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AD5451F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib */; };
+		AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5471F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift */; };
+		AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AD5481F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib */; };
+		AD4AD5501F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD54E1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift */; };
+		AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AD54F1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib */; };
+		AD4AD5561F666D37008E6E49 /* OPFeedbackFormTVTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5541F666D37008E6E49 /* OPFeedbackFormTVTitleCell.swift */; };
+		AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AD5551F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib */; };
+		AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */; };
+		AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */; };
+		AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */; };
 		ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */; };
 		ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */; };
 		ADF3CA651DB892F900BD2B7A /* SideMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */; };
@@ -407,6 +422,21 @@
 		98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationsListViewLogic.swift; path = UserInterface/UINotificationsListViewLogic.swift; sourceTree = "<group>"; };
 		98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChangePasswordViewLogicTests.swift; path = UserInterface/UIChangePasswordViewLogicTests.swift; sourceTree = "<group>"; };
 		98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAccountViewControllerLogicTests.swift; path = UserInterface/UIAccountViewControllerLogicTests.swift; sourceTree = "<group>"; };
+		AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackForm.swift; sourceTree = "<group>"; };
+		AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormViewController.swift; sourceTree = "<group>"; };
+		AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormViewController.xib; sourceTree = "<group>"; };
+		AD48A8EA1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormVCInteractor.swift; sourceTree = "<group>"; };
+		AD4AD5441F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTVRadioCell.swift; sourceTree = "<group>"; };
+		AD4AD5451F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormTVRadioCell.xib; sourceTree = "<group>"; };
+		AD4AD5471F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTVTextInputCell.swift; sourceTree = "<group>"; };
+		AD4AD5481F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormTVTextInputCell.xib; sourceTree = "<group>"; };
+		AD4AD54E1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTVCheckCell.swift; sourceTree = "<group>"; };
+		AD4AD54F1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormTVCheckCell.xib; sourceTree = "<group>"; };
+		AD4AD5541F666D37008E6E49 /* OPFeedbackFormTVTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTVTitleCell.swift; sourceTree = "<group>"; };
+		AD4AD5551F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormTVTitleCell.xib; sourceTree = "<group>"; };
+		AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormVCCellBuilder.swift; sourceTree = "<group>"; };
+		AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTableViewCell.swift; sourceTree = "<group>"; };
+		AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenu.storyboard; sourceTree = "<group>"; };
 		ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SideMenu.xcassets; sourceTree = "<group>"; };
@@ -629,6 +659,7 @@
 			isa = PBXGroup;
 			children = (
 				98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */,
+				AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -928,6 +959,7 @@
 		9881D2321D0EC845005EE1FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD48A8E11F6281FF003E5A88 /* FeedbackForm */,
 				981991161F39F27C004F3264 /* AppSCDsRepository */,
 				98BE1FAE1F0293EE00223926 /* UiserSettingsModel */,
 				9896F46B1E892D1200BA0D6E /* WebAdBlocker */,
@@ -1116,6 +1148,7 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				AD48A8E51F628E97003E5A88 /* OPFeedbackFormViewController */,
 				9843340A1F06362B0016564E /* LocalizedStringKeys */,
 				98BE1FB11F02990E00223926 /* UserSettingsViewController */,
 				98BE1FAB1F02665600223926 /* UIPrivacyPolicyViewController */,
@@ -1289,6 +1322,74 @@
 			name = UIWebViewTab;
 			sourceTree = "<group>";
 		};
+		AD48A8E11F6281FF003E5A88 /* FeedbackForm */ = {
+			isa = PBXGroup;
+			children = (
+				AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */,
+			);
+			path = FeedbackForm;
+			sourceTree = "<group>";
+		};
+		AD48A8E51F628E97003E5A88 /* OPFeedbackFormViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD5411F666CF8008E6E49 /* OPFeedbackFormTVCells */,
+				AD48A8EA1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift */,
+				AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */,
+				AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */,
+				AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */,
+			);
+			path = OPFeedbackFormViewController;
+			sourceTree = "<group>";
+		};
+		AD4AD5411F666CF8008E6E49 /* OPFeedbackFormTVCells */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */,
+				AD4AD5421F666CF8008E6E49 /* OPFeedbackFormTVCheckCell */,
+				AD4AD5431F666CF8008E6E49 /* OPFeedbackFormTVRadioCell */,
+				AD4AD5461F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell */,
+				AD4AD5491F666CF8008E6E49 /* OPFeedbackFormTVTitleCell */,
+			);
+			path = OPFeedbackFormTVCells;
+			sourceTree = "<group>";
+		};
+		AD4AD5421F666CF8008E6E49 /* OPFeedbackFormTVCheckCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD54E1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift */,
+				AD4AD54F1F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib */,
+			);
+			path = OPFeedbackFormTVCheckCell;
+			sourceTree = "<group>";
+		};
+		AD4AD5431F666CF8008E6E49 /* OPFeedbackFormTVRadioCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD5441F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift */,
+				AD4AD5451F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib */,
+			);
+			path = OPFeedbackFormTVRadioCell;
+			sourceTree = "<group>";
+		};
+		AD4AD5461F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD5471F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift */,
+				AD4AD5481F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib */,
+			);
+			path = OPFeedbackFormTVTextInputCell;
+			sourceTree = "<group>";
+		};
+		AD4AD5491F666CF8008E6E49 /* OPFeedbackFormTVTitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AD5541F666D37008E6E49 /* OPFeedbackFormTVTitleCell.swift */,
+				AD4AD5551F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib */,
+			);
+			path = OPFeedbackFormTVTitleCell;
+			sourceTree = "<group>";
+		};
 		ADB2AD4C1DB7FC85003E3AC1 /* SSASideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1440,7 +1541,10 @@
 				98EAF6791CCF86DC00C77649 /* LaunchScreen.storyboard in Resources */,
 				98EAF6AB1CCF976200C77649 /* UIRegistrationView.xib in Resources */,
 				98F6B12B1E7BFD9300D193FF /* UIWebViewTab.xib in Resources */,
+				AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */,
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
+				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
+				AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
 				9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */,
 				988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */,
@@ -1456,6 +1560,7 @@
 				98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */,
 				9860B4551DB136C600AFE113 /* UIIdentitiesListView.xib in Resources */,
 				986E3E651DB3CA6B00453DC6 /* UIAddIdentityView.xib in Resources */,
+				AD4AD54B1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib in Resources */,
 				98F6475A1ED30662008EB91E /* PPCloakBundle.bundle in Resources */,
 				986DB8A61E1CE99900F9BE39 /* schema.json in Resources */,
 				98B89E601EC1DF22009570EC /* LongPress.js in Resources */,
@@ -1467,6 +1572,7 @@
 				98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
+				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
 				989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */,
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
@@ -1492,8 +1598,10 @@
 				98EAF6991CCF893500C77649 /* RSNibDesignableView.swift in Sources */,
 				98EAF6981CCF893500C77649 /* RSCommonUtilities.swift in Sources */,
 				9852C7061CD1197D00AF2BE5 /* UIDashboardViewController.swift in Sources */,
+				AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */,
 				982DF05B1DB65D2800231BBD /* UIPfbDealsViewController.swift in Sources */,
 				982D31891E842A9B00FE2FB7 /* AFNetworkReachabilityManager.m in Sources */,
+				AD4AD54A1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift in Sources */,
 				987084101E8E938E00D9F8E9 /* UIImageView+AFNetworking.m in Sources */,
 				987F77B61F0F749300C70119 /* UIWebViewTabLogic.swift in Sources */,
 				982DF0241DB6388800231BBD /* UIPfbDetailsView.swift in Sources */,
@@ -1505,6 +1613,7 @@
 				989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */,
 				987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */,
+				AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */,
 				986A58F81DB3A43700B622F5 /* UserInfoRepository.swift in Sources */,
 				98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */,
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
@@ -1513,6 +1622,8 @@
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */,
+				AD4AD5561F666D37008E6E49 /* OPFeedbackFormTVTitleCell.swift in Sources */,
+				AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */,
 				9866A7BE1DBF778100907D05 /* UIChangePasswordView.swift in Sources */,
 				9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */,
 				98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */,
@@ -1544,6 +1655,7 @@
 				986D4CAC1DB27F940006DA0B /* PrivacyForBenefitsRepository.swift in Sources */,
 				98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */,
 				98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */,
+				AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */,
 				98F6B1241E7BE5A200D193FF /* UIWebToolbarView.swift in Sources */,
 				98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */,
 				985A0D4C1DCCB0E40010C799 /* LocksmithSecurityClass.swift in Sources */,
@@ -1559,6 +1671,7 @@
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,
 				982DF0631DB6618700231BBD /* UIPfbDealTableViewCell.swift in Sources */,
+				AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,
 				98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */,
 				982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */,
@@ -1567,9 +1680,11 @@
 				98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */,
 				98EAF6A61CCF92CA00C77649 /* UISignInViewController.swift in Sources */,
 				981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */,
+				AD48A8EB1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift in Sources */,
 				98EAF6B41CCFA83600C77649 /* UIRegistrationViewController.swift in Sources */,
 				9852C6FA1CD0FEA000AF2BE5 /* OPViewUtils.swift in Sources */,
 				985A0D461DCCB0E40010C799 /* Dictionary_Initializers.swift in Sources */,
+				AD4AD5501F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift in Sources */,
 				989C41881DBE18E800951AE5 /* MGSwipeTableCell.m in Sources */,
 				982750261D0849FA00C73411 /* OPConfigObject.swift in Sources */,
 				9870840F1E8E938E00D9F8E9 /* UIButton+AFNetworking.m in Sources */,
@@ -1582,6 +1697,7 @@
 				9852C7091CD119FD00AF2BE5 /* UINavigationManager.swift in Sources */,
 				98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */,
 				ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */,
+				AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */,
 				982D318D1E842A9B00FE2FB7 /* AFURLSessionManager.m in Sources */,
 				982D318B1E842A9B00FE2FB7 /* AFURLRequestSerialization.m in Sources */,
 				985A0D4A1DCCB0E40010C799 /* LocksmithInternetAuthenticationType.swift in Sources */,

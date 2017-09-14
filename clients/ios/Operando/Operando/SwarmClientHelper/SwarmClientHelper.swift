@@ -26,11 +26,12 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                         UsersRepository,
                         UserInfoRepository,
                         NotificationsRepository,
-                        AppSCDsRepository
+                        AppSCDsRepository,
+                        OPFeedbackFormProtocol
 {
 
 
-    static let ServerURL = "http://192.168.100.173:8080";
+    static let ServerURL = "http://192.168.103.149:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
     var whenThereWasAnError: ((_ error: NSError?) -> Void)?
@@ -542,6 +543,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.swarmClient.startSwarm(SwarmName.pfb.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.getAllDeals.rawValue, arguments: [])
 
     }
+    
     func subscribeFor(serviceId: Int, withCompletion completion: ((_ update: PfbDealUpdate, _ error: NSError?) -> Void)?)
     {
         workingQueue.async {
@@ -608,7 +610,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     }
     
     
-    
     //MARK: NotificationsRepository
     
     func getAllNotifications(in completion: (([OPNotification], NSError?) -> Void)?) {
@@ -664,6 +665,49 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         }
         
         self.swarmClient.startSwarm(SwarmName.notification.rawValue, phase: SwarmPhase.start.rawValue, ctor: NotificationConstructor.dismissNotification.rawValue, arguments: [notification.id as AnyObject, true as AnyObject])
+    }
+    
+    // MARK: - Feedback Form
+    func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
+    {
+        workingQueue.async {
+            self.whenThereWasAnError = { error in
+                completion?(nil, error)
+            }
+            
+            self.handlersPerSwarmingName[.feedback] = { dataArray in
+                
+                guard let dataDict = dataArray.first as? [String: Any] else {
+                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                completion?(dataDict, nil)
+            }
+        }
+        
+        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.getFeedbackQuestions.rawValue, arguments: [])
+    }
+    
+    func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?) {
+        
+        workingQueue.async {
+            self.whenThereWasAnError = { error in
+                completion?(false)
+            }
+            
+            self.handlersPerSwarmingName[.feedback] = { dataArray in
+                
+                guard (dataArray.first as? [String: Any]) != nil else {
+                    completion?(false)
+                    return
+                }
+                
+                completion?(true)
+            }
+        }
+        
+        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.submitFeedback.rawValue, arguments: [feedbackDictionary as AnyObject])
     }
     
     //MARK: SwarmClientProtocol

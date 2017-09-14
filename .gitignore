@@ -545,3 +545,34 @@ clients/android/PlusPrivacy/.idea/libraries/animated_vector_drawable_25_3_1.xml
 clients/android/PlusPrivacy/.idea/libraries/annotations_13_0.xml
 clients/android/PlusPrivacy/.idea/libraries/appcompat_v7_25_3_1.xml
 clients/android/PlusPrivacy/.idea/libraries/asm_5_0_4.xml
+
+# osx noise
+.DS_Store
+profile
+*.swp
+
+# xcode noise
+build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+clients/ios/Operando/Operando/PPApiHooksCore.framework
+clients/ios/Operando/Operando/PPCloak.framework
+clients/ios/Operando/Operando/PPCloakBundle.bundle
+clients/ios/Operando/Operando/PPCommonTypes.framework
+clients/ios/Operando/Operando/PPCommonTypesBundle.bundle
+clients/ios/Operando/Operando/PPCommonUI.framework
+clients/ios/Operando/Operando/PPCommonUIBundle.bundle
+clients/ios/Operando/Operando/PPLocationApiHooks.framework
+clients/ios/Operando/Operando/PPWebContentBlocker.framework
+clients/ios/Operando/Operando/SwarmClient.framework
+
+# svn & cvs
+.svn
+CVS

@@ -52,7 +52,8 @@ class OPConfigObject: NSObject
                     }
                     callback?(notifications.count)
                 })
-            }
+            },
+            feedbackFormRepo: self.swarmClientHelper
         )
         
         self.flowController = UIFlowController(dependencies: dependencies)

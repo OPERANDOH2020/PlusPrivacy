@@ -15,12 +15,14 @@ typealias PasswordChangeCallback = (_ currentPassword: String, _ newPassword: St
 struct UIAccountViewControllerCallbacks {
     let whenUserChoosesToLogout: VoidBlock?
     let whenUserChangesPassword: PasswordChangeCallback?
+    let whenFeedbackFormAccessed: VoidBlock
 }
 
 
 struct UIAccountViewControllerOutlets {
     let signOutButton: UIButton?
     let changePasswordViewLogic: UIChangePasswordViewLogic?
+    let feedbackButton: UIButton?
 }
 
 struct UIAccountViewControllerLogicCallbacks {
@@ -41,6 +43,7 @@ class UIAccountViewControllerLogic: NSObject {
         super.init()
         
         outlets.signOutButton?.addTarget(self, action: #selector(didPressSignOut(_:)), for: .touchUpInside)
+        outlets.feedbackButton?.addTarget(self, action: #selector(didAccessFeedbackForm(_:)), for: .touchUpInside)
     }
     
     
@@ -70,6 +73,10 @@ class UIAccountViewControllerLogic: NSObject {
     func didPressSignOut(_ sender: AnyObject) {
         self.callbacks?.whenUserChoosesToLogout?()
     }
+    
+    func didAccessFeedbackForm(_ sender: AnyObject) {
+        self.callbacks?.whenFeedbackFormAccessed()
+    }
 }
 
 class UIAccountViewController: UIViewController {
@@ -77,12 +84,13 @@ class UIAccountViewController: UIViewController {
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var changePasswordView: UIChangePasswordView!
+    @IBOutlet weak var feedbackFormButton: UIButton!
     
 
     private(set) lazy var logic: UIAccountViewControllerLogic = {
         
         let _ = self.view
-        let outlets: UIAccountViewControllerOutlets = UIAccountViewControllerOutlets(signOutButton: self.signOutButton, changePasswordViewLogic: self.changePasswordView.logic)
+        let outlets: UIAccountViewControllerOutlets = UIAccountViewControllerOutlets(signOutButton: self.signOutButton, changePasswordViewLogic: self.changePasswordView.logic, feedbackButton: self.feedbackFormButton)
         
         weak var weakSelf = self
         return UIAccountViewControllerLogic(outlets: outlets, logicCallbacks: UIAccountViewControllerLogicCallbacks(hidePasswordView: {
@@ -98,28 +106,22 @@ class UIAccountViewController: UIViewController {
         super.viewDidLoad()
         self.hidePasswordViewShowButton()
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hidePasswordViewShowButton()
     }
     
-
-    
     //MARK: IBActions
-    
     @IBAction func didPressChangePasswordButton(_ sender: AnyObject) {
         self.displayPasswordViewHideButton()
 
     }
     
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self.view.endEditing(true)
     }
-    
     
     private func hidePasswordViewShowButton() {
         self.changePasswordViewHeightConstraint.constant = 0

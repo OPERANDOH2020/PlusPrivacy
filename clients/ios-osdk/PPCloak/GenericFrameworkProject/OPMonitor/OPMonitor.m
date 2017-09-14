@@ -279,6 +279,7 @@
 #pragma mark -
 
 -(void)displayNotificationIfPossible:(NSString*)notification {
+    return;
     if (!self.monitorSettings.allowNotifications) {
         return;
     }
