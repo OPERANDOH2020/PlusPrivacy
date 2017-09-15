@@ -140,3 +140,11 @@ checkIfUserSubmittedFeedback = function(userId, callback){
     })();
 };
 
+retrieveAllFeedback = function(callback){
+    flow.create("retrieveFeedback",{
+        begin:function(){
+            persistence.filter("UserFeedback", {}, callback);
+        }
+    })();
+};
+
