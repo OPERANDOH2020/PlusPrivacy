@@ -330,6 +330,13 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
     var counter = 0;
     var filters = {};
 
+    var requestCounter = 0;
+    function createRequestIdentity(){
+        requestCounter++;
+        return outletId + "/" + requestCounter%96;
+    }
+
+
     this.template_onResponse = function(phaseName, callback){
         filters[this.meta.requestId + phaseName] = callback;
     }
@@ -366,6 +373,7 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
             sessionId: sessionId,
             processIdentity:createRequestIdentity(),
             swarmingName: swarmName,
+            swarmId:createRequestIdentity(),
             tenantId: tenantId,
             outletId: outletId,
             command: "start",

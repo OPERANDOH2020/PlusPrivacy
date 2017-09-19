@@ -1,20 +1,21 @@
 'use strict';
 
 angular.module('app', [
-    'ngAnimate',
+    /*'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch',
+    'ngTouch',*/
     'ngStorage',
     'ui.router',
-    'ui.bootstrap',
+    /*'ui.bootstrap',*/
     'ui.load',
-    'ui.jq',
-    'ui.validate',
+    /*'ui.jq',
+    'ui.validate',*/
     'oc.lazyLoad',
     'pascalprecht.translate',
     'angularModalService',
     'swarm',
-    'ui.footable'
+    'ui.footable',
+    'chart.js'
 ]);

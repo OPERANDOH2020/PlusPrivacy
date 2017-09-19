@@ -1,3 +1,14 @@
+function guid() {
+	function s4() {
+		return Math.floor((1 + Math.random()) * 0x10000)
+				.toString(16)
+				.substring(1);
+	}
+	return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+			s4() + '-' + s4() + s4() + s4();
+}
+
+
 function CommunicationService(){
 }
 
@@ -15,7 +26,7 @@ function CommunicationService(){
 
 			var message = event.data;
 			var channelName = message.name;
-			
+
 			/*TODO: test origin once figure it out and removed "*" from send! 
 			if(event.origin === hostname)
 				... */
@@ -98,16 +109,28 @@ function CommunicationService(){
 			//target.postMessage(data, "*");
 			target.postMessage(data, window.location.protocol + '//' +window.location.host);
 		}
-		
+
 		/*
 			This function allows HubSlave to call swarms from the startSwarm method
 		*/
-		this.publishToChannel = function(name, data){
+		/*this.publishToChannel = function(name, data){
+			console.log(name);
 			var message = {
 				"name": name,
 				"data": data
 			}
 			publish(message);
+		}*/
+
+		this.publishToChannel = function(name, data){
+			var tempId = name+guid();
+			var message = {
+				"name": name,
+				"data": data,
+				"temporarilyId":tempId
+			};
+			publish(message);
+			return tempId;
 		}
 	}
 	
