@@ -9,18 +9,24 @@
 
             <div class="modal-body">
                 <div class="list-group-item">
-                    <div ng-show="notification.zone">
-                        {{previewNotification.zone}}
-                    </div>
-                    <div ng-show="notification.title">
+
+                    <div ng-show="previewNotification.title">
                         {{previewNotification.title}}
                     </div>
-                    <div ng-show="notification.description">
+                    <div ng-show="previewNotification.description">
                         {{previewNotification.description}}
                     </div>
-                    <div ng-show="notification.action">
+                    <div ng-show="previewNotification.action">
                         {{previewNotification.action}}
                     </div>
+
+                    <div ng-show="previewNotification.zone">
+                        {{previewNotification.zone}}
+                    </div>
+                    <div ng-show="previewNotification.users">
+                        {{previewNotification.users}}
+                    </div>
+
                 </div>
 
                 <div class="list-group-item">

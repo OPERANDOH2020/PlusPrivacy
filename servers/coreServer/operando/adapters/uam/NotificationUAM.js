@@ -114,7 +114,8 @@ function registerModels(callback){
                 },
                 zoneName: {
                     type: "string",
-                    index: true
+                    index: true,
+                    length: 255
                 },
                 mappingId:{
                     type:"string",

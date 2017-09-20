@@ -15,11 +15,28 @@
                            <input placeholder="Title" class="form-control no-border" ng-model="notification.title" required>
                         </div>
                         <div class="list-group-item">
+                            <h4>Select the receivers of the notification</h4>
+                            <div class="list-group-item">
                             <label>Zone:</label>
-                            <select ng-model="notification.zone" required>
+                            <select ng-model="notification.zone" >
                                 <option ng-repeat="zone in zones" value="{{zone}}">{{zone}}</option>
                             </select>
+                            </div>
+
+                            <div class="list-group-item">
+                                <script>
+                                    function add(){
+                                        document.getElementById('click-to-upload').click();
+                                        /*
+                                               add this function to bind jQuerry with angular
+                                         */
+                                    }
+                                </script>
+                                <input type="file" id="file" name="file" onchange="add()">
+                                <div id="click-to-upload" ng-click="add()" invisible></div>
+                            </div>
                         </div>
+
                         <div class="list-group-item">
                             <input  placeholder="Description" class="form-control no-border" ng-model="notification.description">
                         </div>
