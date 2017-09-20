@@ -16,7 +16,6 @@ app.controller('feedbackReportStatsController', ['$scope','ModalService','swarmH
 
 
 
-
     function prepareResponses(){
 
     }

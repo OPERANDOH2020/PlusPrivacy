@@ -30,20 +30,27 @@ function CommunicationService(){
 			/*TODO: test origin once figure it out and removed "*" from send! 
 			if(event.origin === hostname)
 				... */
-			
 			var callbacks = channels[channelName];
+			var meta = message.data.meta;
+			var responseCallbacks = channels[meta.currentPhase+meta.requestId];
+
 			if(callbacks){
 				callbacks.forEach(function(callback) {
 					callback(message.data);
 				});
-			}else{
+			}
+			else if(responseCallbacks){
+				responseCallbacks.forEach(function(responseCallback) {
+					responseCallback(message.data);
+				});
+			}
+			else{
 				cprint("Warning: [CommunicationService] nobody listens on channel " + channelName);
 			}
 		}
 		
 		var subscribe = function(callback){
 			var handler = callback || messageListener;
-
 			if (window.addEventListener){
                 window.addEventListener("message", handler, false);
 			} else {
@@ -98,7 +105,6 @@ function CommunicationService(){
 			}else{
 				channels[name].push(callback);
 			}
-			
 			if(!initialized){
 				subscribe();
 				initialized = true;
@@ -113,24 +119,16 @@ function CommunicationService(){
 		/*
 			This function allows HubSlave to call swarms from the startSwarm method
 		*/
-		/*this.publishToChannel = function(name, data){
-			console.log(name);
-			var message = {
-				"name": name,
-				"data": data
-			}
-			publish(message);
-		}*/
 
 		this.publishToChannel = function(name, data){
-			var tempId = name+guid();
+			var requestId = name+guid();
 			var message = {
 				"name": name,
 				"data": data,
-				"temporarilyId":tempId
+				"requestId":requestId
 			};
 			publish(message);
-			return tempId;
+			return requestId;
 		}
 	}
 	

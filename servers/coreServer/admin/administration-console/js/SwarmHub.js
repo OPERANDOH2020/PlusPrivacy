@@ -112,11 +112,11 @@ function SwarmHub(iframeSlave){
 	function receiveMessageFromSlave(event){
 		var message = event.data;
 		var args = message.data;
+
 		if(args && args.length && args.length>1){
 			var swarmName = args[0];
 			var swarmPhase = args[1];
-            var temporarilyId = event.data.temporarilyId;
-
+            args.splice(2, 0, event.data.requestId);
                 if(!self.sendMessagesToSlave){
                     self.sendMessagesToSlave = function(swarm){
                         if(!swarm.meta){

@@ -6,10 +6,9 @@ function SwarmHubClient(){}
 
 
     function dispatchingResponses(swarm){
-        console.log("RAFA",swarm);
-        if(swarm.temporarilyId){
-            //console.log(filters);
-            var callback = filters[swarm.meta.currentPhase+swarm.temporarilyId];
+
+        if(swarm.meta.requestId){
+            var callback = filters[swarm.meta.currentPhase+swarm.meta.requestId];
             if(callback){
                 callback(swarm);
             }
@@ -93,12 +92,11 @@ function SwarmHubClient(){}
         };
 
         if(connection){
-            var tempId = connection.publishToChannel(swarmName, args);
-            console.log(tempId);
+            var requestId = connection.publishToChannel(swarmName, args);
             newCmd.onResponse = function (phaseName, callback) {
-                filters[phaseName+tempId] = callback;
+                filters[phaseName+requestId] = callback;
                 if (connection) {
-                    connection.subscribeToChannel(swarmName, dispatchingResponses);
+                    connection.subscribeToChannel(phaseName+requestId, dispatchingResponses);
                 }
             };
         }
