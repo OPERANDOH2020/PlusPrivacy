@@ -561,3 +561,4 @@ clients/android/PlusPrivacy/build/kotlin-build/caches/artifact-difference.tab.le
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/bundles/debug/res/values/values.xml
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml
+clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/packageReleaseResources/merged.dir/values/values.xml

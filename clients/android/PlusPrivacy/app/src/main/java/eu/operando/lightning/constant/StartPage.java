@@ -25,7 +25,7 @@ public class StartPage {
 
     public static final String FILENAME = "homepage.html";
 
-    private static final String HEAD_1 = "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\">"
+    private static final String HEAD_1 = "<!DOCTYPE html><html xmlns=\"http://assets.www.w3.org/1999/xhtml\">"
             + "<head>"
             + "<meta content=\"en-us\" http-equiv=\"Content-Language\" />"
             + "<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />"

@@ -11,8 +11,8 @@ import eu.operando.swarmclient.models.Swarm;
 public class RegisterSwarm extends Swarm {
     private String status;
 
-    public RegisterSwarm(String name, String email, String password) {
-        this(new RegisterInfo(name, email, password, password));
+    public RegisterSwarm(String email, String password) {
+        this(new RegisterInfo(email, password, password));
     }
 
     private RegisterSwarm(RegisterInfo commandArguments) {
@@ -32,8 +32,7 @@ class RegisterInfo {
     @SerializedName("repeat_password")
     private String repeatPassword;
 
-    RegisterInfo(String username, String email, String password, String repeatPassword) {
-        this.username = username;
+    RegisterInfo(String email, String password, String repeatPassword) {
         this.email = email;
         this.password = password;
         this.repeatPassword = repeatPassword;

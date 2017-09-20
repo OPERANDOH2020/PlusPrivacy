@@ -254,4 +254,9 @@
     <string name="dialog_rename_folder">Rename folder</string>
     <string name="dialog_remove_folder">Remove folder</string>
     <string name="dialog_title_close_browser">Close browser</string>
+    <string name="submit">Submit</string>
+    <string name="start">Start</string>
+    <string name="dialog_sign_in_failed">Sign In Failed</string>
+    <string name="check_your_email_and_password">Check your email and password</string>
+    <string name="facebook_settings">Facebook Settings</string>
 </resources>

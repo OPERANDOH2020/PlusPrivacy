@@ -335,7 +335,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
         if (!mHomepage.startsWith(Constants.ABOUT)) {
             getHome.setText(mHomepage);
         } else {
-            String defaultUrl = "https://www.google.com";
+            String defaultUrl = "https://assets.www.google.com";
             getHome.setText(defaultUrl);
         }
         homePicker.setView(getHome);

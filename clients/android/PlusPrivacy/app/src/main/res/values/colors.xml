@@ -16,6 +16,8 @@
     <color name="border">#000
     </color>
 
+    <color name="overlay_background">#bb000000</color>
+
     <color name="black">#ff000000</color>
     <color name="gray_dark">#222222</color>
     <color name="gray_medium">#cdcdcd</color>

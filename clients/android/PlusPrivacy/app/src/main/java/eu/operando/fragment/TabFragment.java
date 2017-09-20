@@ -131,7 +131,7 @@ public class TabFragment extends Fragment {
                 b.putString("url",url);
             }
         });
-        loadUrl(getArguments().getString("url", "www.google.ro"));
+        loadUrl(getArguments().getString("url", "assets.www.google.ro"));
         webView.setOnLongPressListener(new AdBlockWebView.OnLongPressListener() {
             @Override
             public void onLongPress(String url) {
@@ -152,7 +152,7 @@ public class TabFragment extends Fragment {
     private void go() {
         String url = urlEt.getText().toString();
         if (!android.util.Patterns.WEB_URL.matcher(url).matches()) {
-            url = "http://www.google.com/search?q=" + URLEncoder.encode(url);
+            url = "http://assets.www.google.com/search?q=" + URLEncoder.encode(url);
         }
         url = url.toLowerCase().startsWith("http://") || url.toLowerCase().startsWith("https://") ? url : ("http://" + url);
         webView.loadUrl(url);

@@ -1,7 +1,5 @@
 package eu.operando.swarmclient.models;
 
-import org.json.JSONObject;
-
 import java.io.Serializable;
 
 /**

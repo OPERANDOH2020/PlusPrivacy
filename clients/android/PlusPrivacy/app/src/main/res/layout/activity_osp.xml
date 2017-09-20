@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="?attr/colorPrimary"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        android:id="@+id/questionnaire_submit"
+        android:text="@string/submit"
+        android:onClick="onClickSubmit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ExpandableListView
+
+        android:paddingBottom="50dp"
+        android:layout_above="@+id/questionnaire_submit"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/osp_settings_elv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/black"
+        android:dividerHeight="1dp"
+        android:groupIndicator="@null">
+
+    </ExpandableListView>
+
+</RelativeLayout>

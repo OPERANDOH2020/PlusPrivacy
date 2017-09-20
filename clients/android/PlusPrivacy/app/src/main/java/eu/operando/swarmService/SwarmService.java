@@ -1,6 +1,5 @@
 package eu.operando.swarmService;
 
-import android.util.Log;
 import android.util.Pair;
 
 import com.google.gson.Gson;
@@ -23,8 +22,9 @@ import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SwarmService {
     private static final String SWARMS_URL = "https://plusprivacy.com:8080";
-    private static final String SWARMS_URL_DEBUG = "http://192.168.100.86:8080";
+    private static final String SWARMS_URL_DEBUG = "http://192.168.103.149:8080";
     private static final String SWARMS_URL_JOS = "http://192.168.100.144:9001";
+    private static final String SWARMS_URL_CIPRIAN = "http://192.168.103.133:8080";
 
     private static SwarmService instance;
 
@@ -48,16 +48,16 @@ public class SwarmService {
     }
 
     public void logout(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm(new Swarm("login.js", "userLogout", (Object) null), callback);
+        swarmClient.startSwarm(new Swarm("login.js", "logout", (Object) null), callback);
     }
 
-    public void signUp(final String name, final String email, final String password, final SwarmCallback<? extends Swarm> callback) {
+    public void signUp(final String email, final String password, final SwarmCallback<? extends Swarm> callback) {
         //connect to swarms
         login("guest@operando.eu", "guest", new SwarmCallback<Swarm>() {
             @Override
             public void call(Swarm result) {
                 //register user
-                swarmClient.startSwarm(new RegisterSwarm(name, email, password), new SwarmCallback<RegisterSwarm>() {
+                swarmClient.startSwarm(new RegisterSwarm(email, password), new SwarmCallback<RegisterSwarm>() {
 
                     @Override
                     public void call(RegisterSwarm result) {
@@ -70,7 +70,7 @@ public class SwarmService {
                         logout(new SwarmCallback<Swarm>() {
                             @Override
                             public void call(Swarm result) {
-                                swarmClient.restartSocket();
+//                                swarmClient.restartSocket();
                             }
                         });
                     }

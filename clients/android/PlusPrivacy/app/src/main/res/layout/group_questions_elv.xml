@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryDark">
+
+    <ImageView
+        android:id="@+id/social_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_fb" />
+
+    <TextView
+        android:id="@+id/question_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/arrow"
+        android:layout_toRightOf="@id/social_icon"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:layout_marginRight="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/rightarrow" />
+
+    <!--<RadioGroup-->
+        <!--android:id="@+id/answer_item_radio_group"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="25dp" />-->
+
+</RelativeLayout>

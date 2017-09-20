@@ -3,7 +3,6 @@ package eu.operando.swarmclient.models;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
@@ -16,6 +15,10 @@ import java.lang.reflect.ParameterizedType;
 public abstract class SwarmCallback<T extends Swarm> {
     private String resultEvent;
     private Class<? extends T> type;
+
+    public Class<? extends T> getType() {
+        return type;
+    }
 
     @SuppressWarnings("unchecked")
     public SwarmCallback() {

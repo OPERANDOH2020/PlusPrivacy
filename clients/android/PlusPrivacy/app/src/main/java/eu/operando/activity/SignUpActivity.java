@@ -20,7 +20,6 @@ import eu.operando.swarmService.models.RegisterSwarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText inputName;
     private EditText inputEmail;
     private EditText inputPassword;
 
@@ -39,7 +38,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        inputName = (EditText) findViewById(R.id.input_name);
         inputEmail = (EditText) findViewById(R.id.input_email);
         inputPassword = (EditText) findViewById(R.id.input_password);
 
@@ -54,33 +52,29 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.btn_signup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = inputName.getText().toString();
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
 
-                signUp(name, email, password);
+                signUp(email, password);
             }
         });
 
     }
 
-    private void signUp(String name, final String email, final String password) {
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+    private void signUp(final String email, final String password) {
+        if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "Please complete all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
         final OperandoProgressDialog dialog = new OperandoProgressDialog(this, "Creating account...");
         dialog.show();
-        SwarmService.getInstance().signUp(name, email, password, new SwarmCallback<RegisterSwarm>() {
+        SwarmService.getInstance().signUp(email, password, new SwarmCallback<RegisterSwarm>() {
             @Override
             public void call(final RegisterSwarm result) {
                 Log.d("Register", "call() called with: result = [" + result + "]");
                 onSignUpSuccess(email, password, result, dialog);
             }
-
-
         });
-
     }
 
     private void onSignUpSuccess(final String email, final String password, final RegisterSwarm result, final ProgressDialog dialog) {

@@ -76,12 +76,16 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp"/>
         </RelativeLayout>
-        <ListView
-            android:id="@+id/identitiesLV"
+        <ExpandableListView
+
+            android:groupIndicator="@null"
+            android:id="@+id/identities_elv"
+            android:dividerHeight="1dp"
             android:divider="@android:color/black"
             android:layout_width="match_parent"
-            android:dividerHeight="1dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+        </ExpandableListView>
+
     </LinearLayout>
     <TextView
         android:id="@+id/addIdentityBtn"

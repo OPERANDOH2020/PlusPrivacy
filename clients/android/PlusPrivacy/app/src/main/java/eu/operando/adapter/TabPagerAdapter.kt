@@ -41,7 +41,7 @@ class TabPagerAdapter(fm: FragmentManager, val context: Context, val tabHost: Ta
     }
 
     init {
-        addTab("www.google.ro")
+        addTab("assets.www.google.ro")
     }
 
     fun addTab(url: String) {

@@ -4,10 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Handler;
+import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,6 +27,8 @@ import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarm;
 import eu.operando.swarmService.models.LoginSwarm;
+import eu.operando.swarmService.models.RegisterZoneSwarm;
+import eu.operando.swarmService.models.UDESwarm;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
@@ -68,18 +71,19 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        disconnectDialog =
-                                new AlertDialog.Builder(MainActivity.this)
-                                        .setMessage("Connection lost, trying to reconnect...")
-                                        .setNegativeButton("Exit PlusPrivacy", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                finish();
-                                            }
-                                        }).setCancelable(false)
-                                        .create();
-                        disconnectDialog.show();
-
+                        if (!isFinishing()) {
+                            disconnectDialog =
+                                    new AlertDialog.Builder(MainActivity.this)
+                                            .setMessage("Connection lost, trying to reconnect...")
+                                            .setNegativeButton("Exit PlusPrivacy", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    finish();
+                                                }
+                                            }).setCancelable(false)
+                                            .create();
+                            disconnectDialog.show();
+                        }
                     }
                 });
             }
@@ -112,23 +116,59 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         loadingDialog.dismiss();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (!result.isAuthenticated()) {
-                                    Storage.clearData();
-                                    finish();
-                                } else {
-                                    Storage.saveUserID(result.getUserId());
-                                    initUI();
-                                }
-                            }
-                        }, 1);
+
+                        if (!result.isAuthenticated()) {
+                            Storage.clearData();
+                            finish();
+                        } else {
+                            Storage.saveUserID(result.getUserId());
+                            initUI();
+                            registerZone();
+                        }
                     }
                 });
 
             }
         });
+    }
+
+    private void registerZone() {
+        SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("Android"), new SwarmCallback<RegisterZoneSwarm>() {
+            @Override
+            public void call(final RegisterZoneSwarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("RegisterZoneSwarm", result.toString());
+                    }
+                });
+            }
+        });
+        final String androidId = Settings.Secure.getString(
+                getContentResolver(), Settings.Secure.ANDROID_ID);
+        Log.w("UUID", androidId);
+        SwarmClient.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
+            @Override
+            public void call(final UDESwarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("UDESwarm", result.toString());
+                    }
+                });
+            }
+        });
+//        SwarmClient.getInstance().startSwarm(new PrivacyWizardSwarm("getOSPSettings"), new SwarmCallback<PrivacyWizardSwarm>() {
+//            @Override
+//            public void call(final PrivacyWizardSwarm result) {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Log.e("PrivacyWizardSwarm got", result.getOspSettings().getFacebook().getWhoCanSeeFuturePosts().getRead().getName());
+//                    }
+//                });
+//            }
+//        });
     }
 
     private void initUI() {
@@ -166,6 +206,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                KotlinBrowserActivityKt.start(MainBrowserActivity.this);
                 startActivity(new Intent(MainActivity.this, MainBrowserActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_osp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                KotlinBrowserActivityKt.start(MainBrowserActivity.this);
+                startActivity(new Intent(MainActivity.this, OSPSettingsActivity.class));
             }
         });
     }
@@ -208,7 +256,6 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.unsafe_apps)).setText(getString(R.string.potentially_unsafe_apps) + " " + unsafe);
             if (unsafe == 0)
                 ((TextView) findViewById(R.id.unsafe_apps)).setTextColor(getResources().getColor(android.R.color.holo_green_light));
-
 
         }
         Storage.saveAppList(installedApps);
@@ -272,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onDrawerItemClicked(int index) {
 //        Toast.makeText(this, index + "", Toast.LENGTH_SHORT).show();
-        switch (index+1) {
+        switch (index + 1) {
 //            case 0: //Trusted Apps
 //                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
 ////                TrustedAppsActivity.start(this);
@@ -303,5 +350,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         return resideMenu.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SwarmService.getInstance().logout(null);
     }
 }

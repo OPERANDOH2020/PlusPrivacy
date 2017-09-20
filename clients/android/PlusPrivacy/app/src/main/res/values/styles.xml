@@ -1,5 +1,17 @@
 <resources>
 
+    <style name="InjectingButtonShowCaseView">
+        <item name="sv_titleTextAppearance">@style/InjectingButtonTitle</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail</item>
+        <item name="sv_backgroundColor">@color/overlay_background</item>
+        <item name="sv_showcaseColor">@color/colorPrimaryDark</item>
+        <item name="sv_buttonText">@android:string/ok</item>
+    </style>
+
+    <style name="InjectingButtonTitle" parent="TextAppearance.ShowcaseView.Title">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->

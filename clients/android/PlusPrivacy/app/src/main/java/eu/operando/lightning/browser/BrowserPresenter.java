@@ -12,9 +12,8 @@ import com.anthonycr.bonsai.Schedulers;
 
 import javax.inject.Inject;
 
-import eu.operando.R;
-import eu.operando.lightning.activity.TabsManager;
 import eu.operando.BrowserApp;
+import eu.operando.lightning.activity.TabsManager;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.preference.PreferenceManager;
@@ -323,6 +322,7 @@ public class BrowserPresenter {
         if (mTabsModel.size() == 1) {
             startingTab.resumeTimers();
         }
+        startingTab.setAdBlock();
 
         mView.notifyTabViewAdded();
 

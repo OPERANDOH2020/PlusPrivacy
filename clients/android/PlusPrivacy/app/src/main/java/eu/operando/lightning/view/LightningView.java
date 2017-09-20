@@ -135,7 +135,7 @@ public class LightningView {
         mWebView.setNetworkAvailable(true);
         mWebView.setWebChromeClient(new LightningChromeClient(activity, this));
 //        mWebView.setWebViewClient(new AdblockWebClient(activity, this, mPreferences.getAdBlockEnabled()));
-        mWebView.setWebViewClient(AdblockWebClient.getInstance(activity, this, mPreferences.getAdBlockEnabled()));
+
         mWebView.setDownloadListener(new LightningDownloadListener(activity));
         mGestureDetector = new GestureDetector(activity, new CustomGestureListener());
         mWebView.setOnTouchListener(new TouchListener());
@@ -143,6 +143,7 @@ public class LightningView {
         initializeSettings();
         initializePreferences(activity);
 
+        setAdBlock();
         if (url != null) {
             if (!url.trim().isEmpty()) {
                 mWebView.loadUrl(url, mRequestHeaders);
@@ -154,6 +155,10 @@ public class LightningView {
         }
     }
 
+
+    public void setAdBlock(){
+        mWebView.setWebViewClient(AdblockWebClient.getInstance(mActivity, this, mPreferences.getAdBlockEnabled()));
+    }
     /**
      * Sets whether this tab was the
      * result of a new intent sent

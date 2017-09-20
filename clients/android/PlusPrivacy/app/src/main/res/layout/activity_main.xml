@@ -1,225 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/activity_main"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:fillViewport="true">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"/>
-
-        <RelativeLayout
-            android:id="@+id/real_identity_rl"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:layout_margin="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/real_identity_rl"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_identities"/>
+                android:layout_below="@id/toolbar"
+                android:layout_margin="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <TextView
-                android:id="@+id/tv_identity"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_identities" />
+
+                <TextView
+                    android:id="@+id/tv_identity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="8dp"
+                    android:text="@string/your_real_identity"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/real_identity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_identity"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_right_arrow" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/apps_rl"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/your_real_identity"
-                android:textSize="18sp"/>
+                android:layout_below="@id/real_identity_rl"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <TextView
-                android:id="@+id/real_identity"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_scan" />
+
+                <TextView
+                    android:id="@+id/tv_installed_apps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="8dp"
+                    android:text="@string/installed_apps"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/unsafe_apps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_installed_apps"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/potentially_unsafe_apps"
+                    android:textColor="@color/amaranth_red"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_right_arrow" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/notifications_rl"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_identity"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
+                android:layout_below="@id/apps_rl"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <ImageView
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/ic_notifications" />
+
+                <TextView
+                    android:id="@+id/tv_notifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:text="You have 3 notifications"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_right_arrow" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/btn_identities"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
+                android:layout_below="@id/notifications_rl"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-        <RelativeLayout
-            android:id="@+id/apps_rl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/real_identity_rl"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
+                <ImageView
+                    android:id="@+id/identities_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_identities" />
 
-            <ImageView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/identities_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="Identity Management" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/btn_browser"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_scan"/>
+                android:layout_below="@id/btn_identities"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <TextView
-                android:id="@+id/tv_installed_apps"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/browser_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_private_browsing" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/browser_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="Private Browsing" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/btn_pfb"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/installed_apps"
-                android:textSize="18sp"/>
+                android:layout_below="@id/btn_browser"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <TextView
-                android:id="@+id/unsafe_apps"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/deals_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_deals" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/deals_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="Privacy for Benefit" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_osp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_installed_apps"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:text="@string/potentially_unsafe_apps"
-                android:textColor="@color/amaranth_red"
-                android:textSize="18sp"/>
+                android:layout_below="@id/btn_pfb"
+                android:layout_marginBottom="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/osp_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_social_network" />
 
-        <RelativeLayout
-            android:id="@+id/notifications_rl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/apps_rl"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/osp_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="@string/facebook_settings" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="7dp"
-                android:layout_marginTop="7dp"
-                android:src="@drawable/ic_notifications"/>
+            </RelativeLayout>
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="8dp"
-                android:text="You have 3 notifications"
-                android:textSize="18sp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/btn_identities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/notifications_rl"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:id="@+id/identities_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_identities"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/identities_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Identity Management"/>
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/btn_browser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_identities"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:id="@+id/browser_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_private_browsing"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/browser_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Private Browsing"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/btn_pfb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_browser"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:id="@+id/deals_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_deals"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/deals_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Privacy for Benefit"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

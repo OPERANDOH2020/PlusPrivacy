@@ -37,9 +37,9 @@ public class BrowserActivity extends AppCompatActivity {
         tabLayout = ((TabLayout) findViewById(R.id.tabhost));
         tabs.add(tabLayout.newTab());
         tabLayout.addTab(tabs.get(0));
-        urls.add(new Pair<>("www.google.com", ""));
+        urls.add(new Pair<>("assets.www.google.com", ""));
 
-        fragment = TabFragment.newInstance("www.google.com");
+        fragment = TabFragment.newInstance("assets.www.google.com");
         fragment.setUrlLoadListener(new TabFragment.UrlLoadListener() {
             @Override
             public void onUrlLoaded(String title, String url) {
@@ -70,7 +70,7 @@ public class BrowserActivity extends AppCompatActivity {
         findViewById(R.id.fab_new_tab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newTab("www.google.ro");
+                newTab("assets.www.google.ro");
                 ((FloatingActionMenu) findViewById(R.id.fab_menu)).close(true);
             }
         });

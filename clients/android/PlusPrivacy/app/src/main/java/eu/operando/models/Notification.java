@@ -1,7 +1,5 @@
 package eu.operando.models;
 
-import java.util.ArrayList;
-
 /**
  * Created by Edy on 1/3/2017.
  */
@@ -36,5 +34,17 @@ public class Notification {
 
     public String getAction_name() {
         return action_name;
+    }
+
+    @Override
+    public String toString() {
+        return "Notification{" +
+                "notificationId='" + notificationId + '\'' +
+                ", sender='" + sender + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", zone='" + zone + '\'' +
+                ", action_name='" + action_name + '\'' +
+                '}';
     }
 }

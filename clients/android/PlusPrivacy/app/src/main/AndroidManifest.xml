@@ -21,14 +21,25 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SignUpActivity"/>
-        <activity android:name=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activity.OSPSettingsActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activity.PrivacyWizardWebViewActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.ScannerActivity"
             android:label="Application Scanner"/>
         <activity
             android:name=".activity.IdentitiesActivity"
             android:label="Identity Management"/>
-        <activity android:name=".activity.CreateIdentityActivity"/>
+        <activity
+            android:name=".activity.CreateIdentityActivity"
+            android:windowSoftInputMode="adjustResize"
+            />
         <activity
             android:name=".activity.PFBActivity"
             android:label="Privacy for Benefit"/>
@@ -60,18 +71,18 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.APP_BROWSER"/>
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW"/>-->
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<category android:name="android.intent.category.BROWSABLE"/>-->
 
-                <data android:scheme="file"/>
-                <data android:mimeType="text/html"/>
-                <data android:mimeType="text/plain"/>
-                <data android:mimeType="application/xhtml+xml"/>
-                <data android:mimeType="application/vnd.wap.xhtml+xml"/>
-            </intent-filter>
+                <!--<data android:scheme="file"/>-->
+                <!--<data android:mimeType="text/html"/>-->
+                <!--<data android:mimeType="text/plain"/>-->
+                <!--<data android:mimeType="application/xhtml+xml"/>-->
+                <!--<data android:mimeType="application/vnd.wap.xhtml+xml"/>-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 

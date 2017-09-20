@@ -1,14 +1,15 @@
 package eu.operando.activity;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.customView.SignInFailedDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.LoginSwarm;
@@ -94,13 +96,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-
         final OperandoProgressDialog progressDialog = new OperandoProgressDialog(this);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
         swarmLogin(email, password, progressDialog);
-
     }
 
     private void swarmLogin(final String username, final String password, final ProgressDialog dialog) {
@@ -121,16 +121,21 @@ public class LoginActivity extends AppCompatActivity {
                                     storeCredentials(username, password);
                                     finish();
                                 } else {
+                                    showFailedLoginDialog();
                                     emailText.setText("");
                                     passwordText.setText("");
                                 }
                             }
-                        }, 1);
+                        }, 100);
                     }
                 });
-
             }
         });
+    }
+
+    public void showFailedLoginDialog(){
+        DialogFragment newFragment = new SignInFailedDialog();
+        newFragment.show(getFragmentManager(), "SignInFailedDialog");
     }
 
     public void showResetPasswordDialog() {

@@ -1,5 +1,7 @@
 package eu.operando.lightning.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -16,6 +18,12 @@ import eu.operando.R;
 
 @SuppressWarnings("deprecation")
 public class MainBrowserActivity extends BrowserActivity {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, MainBrowserActivity.class);
+        context.startActivity(starter);
+        ((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 
     @NonNull
     @Override

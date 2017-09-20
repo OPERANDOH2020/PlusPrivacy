@@ -1,7 +1,6 @@
 package eu.operando.swarmclient;
 
 import android.util.Log;
-import android.util.Pair;
 
 import com.google.gson.Gson;
 
@@ -17,14 +16,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import eu.operando.storage.Storage;
-import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 import io.socket.client.IO;
@@ -109,7 +105,7 @@ public class SwarmClient {
                     Log.e("Connect", "call() called with: args = [" + Arrays.toString(args) + "]");
 
 
-                    SwarmService.getInstance().autoLogin();
+//                    SwarmService.getInstance().autoLogin();
                     if (connectionListener != null) {
                         connectionListener.onConnect();
                     }
@@ -138,6 +134,7 @@ public class SwarmClient {
             listeners.put(callback.getResultEvent(), callback);
         }
         try {
+            Log.e("startSwarm", new JSONObject(gson.toJson(swarm)).toString());
             ioSocket.emit("message", new JSONObject(gson.toJson(swarm)));
         } catch (JSONException e) {
             e.printStackTrace();
