@@ -238,7 +238,8 @@ div.tab-content{
 #social_networks_tab,
 #notifications_tab,
 #contact_tab,
-#network_tab
+#network_tab,
+#feedback_tab
 {
     display: block;
     padding: 20px;
@@ -257,14 +258,8 @@ div.tab-content{
     content:"";
 }
 
-#abp_preferences_tab,
-#feedback_tab{
+#abp_preferences_tab{
     height:100%;
-}
-
-#feedback_tab{
-    margin-left:-20px;
-    margin-right:-20px;
 }
 
 .operando-navbar{
@@ -2552,4 +2547,61 @@ h4.modal-title.plusprivacy{
     clear:both;
     content:"";
     display: block;
+}
+
+#feedback_tab ul li{
+    list-style: none;
+    font-size: 14px;
+    padding: 2px 15px;
+}
+
+#feedback_tab .questions .question{
+    background:#f1ebdf;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#feedback_tab .radioQuestion >label {
+    display: block;
+}
+
+#feedback_tab label{
+    padding-top: 6px;
+}
+
+#feedback_tab{
+    margin: 0 auto;
+    width: 640px;
+}
+
+#feedback_tab ul{
+    padding-left: 0px;
+}
+
+#feedback_tab p{
+    font-size: 17px;
+}
+
+#feedback_tab li.list_header label{
+    padding-left:3px;
+}
+
+#feedback_tab .radioQuestion >label>label {
+    padding-left:20px;
+}
+#feedback_tab .question textarea{
+    width: 100%;
+    resize: vertical;
+}
+
+#feedback_tab li:not(.list_header):nth-child(2n+1){
+    background: #d0cabf;
+}
+#feedback_tab li:not(.list_header):nth-child(2n){
+    background: #ded9cf;
+}
+
+#feedback_tab .question_required{
+    color:#FF4000;
+    padding-left: 3px;
 }

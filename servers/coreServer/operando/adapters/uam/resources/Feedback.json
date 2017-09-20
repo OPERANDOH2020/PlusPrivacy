@@ -1,0 +1,91 @@
+[
+  {
+    "title": "How useful are the features of {+P} in protecting your privacy?",
+    "type": "multipleRating",
+    "description": "1 - not useful; 5 - very useful",
+    "required": true,
+    "range": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "items": [
+      "Social networks privacy settings",
+      "Extensions & apps",
+      "Ad blocking and anti-tracking",
+      "Alternative email identities",
+      "Mobile apps",
+      "Single Click Privacy"
+    ]
+  },
+  {
+    "title": "How useful are the unified settings of social networks in {+P}?",
+    "type": "multipleRating",
+    "description": "1 - not useful; 5 - very useful",
+    "required": true,
+    "range": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "items": [
+      "Facebook",
+      "Linkedin",
+      "Twitter"
+    ]
+  },
+  {
+    "title": "Settings of which other social networks should be included?",
+    "type": "multipleSelection",
+    "required": false,
+    "items": [
+      "Pinterest",
+      "Xing",
+      "Reddit",
+      "Tumblr",
+      "Google+",
+      "Instagram",
+      "Youtube",
+      "VKontakte"
+    ]
+  },
+  {
+    "title": "Additional feedback on social network privacy features",
+    "type": "textInput",
+    "required": false
+  },
+  {
+    "title": "Additional feedback on Extensions & Apps feature",
+    "type": "textInput",
+    "required": false
+  },
+  {
+    "title": "Additional feedback on Alternative Email Identities feature",
+    "type": "textInput",
+    "required": false
+  },
+  {
+    "title": "Would you trade some of your privacy for an economic benefit, such as price discount? ",
+    "type": "radio",
+    "required": true,
+    "items": [
+      "Yes",
+      "No",
+      "Depends on the benefit"
+    ]
+  },
+  {
+    "title": "Additional feedback on {+P} mobile apps",
+    "type": "textInput",
+    "required": false
+  },
+  {
+    "title": "Any other feedback?",
+    "type": "textInput",
+    "required": false
+  }
+]

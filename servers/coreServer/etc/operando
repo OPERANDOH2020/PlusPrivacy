@@ -68,6 +68,7 @@
                         {"node":"operando/adapters/CreditAdapter.js"                  ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/UserPreferencesAdapter.js"         ,"enabled":true  , "step":10},
                         {"node":"operando/adapters/AnalitycsAdapter.js"               ,"enabled":true  , "step":10},
+                        {"node":"operando/adapters/uam/FeedbackAdapter.js"            ,"enabled":true  , "step":10},
                         {"node":"admin/adapters/TestsManager.js",                      "enabled":false, "step":5},
                         {"node":"launchEmailServer.js",                                "enabled":false, "step":5}
             ]
