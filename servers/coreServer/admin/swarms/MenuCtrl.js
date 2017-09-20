@@ -65,7 +65,11 @@ var menuCtrl = {
 							url: "apps/examples/CreditManagement/index.html"
 						});
 
-
+						self.result.push({
+							icon: "glyphicon glyphicon-thumbs-up",
+							name: "Feedback Report",
+							url: "apps/examples/FeedbackReport/index.html"
+						});
 
 					}
 					self.home('gettingListDone');

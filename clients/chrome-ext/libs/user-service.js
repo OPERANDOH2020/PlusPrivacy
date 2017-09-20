@@ -126,8 +126,23 @@ var userService = exports.userService = {
             error_callback(response);
         });
     },
+
+    sendFeedback:function(feedback, success_callback, error_callback){
+      var sendFeedbackHandler = swarmHub.startSwarm("feedback.js", "submitFeedback",feedback);
+        sendFeedbackHandler.onResponse("success", success_callback);
+        sendFeedbackHandler.onResponse("error", error_callback);
+    },
     provideLogoutLink:function(callback){
         callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
+    },
+    hasUserSubmittedAFeedback:function(success_callback, error_callback){
+        var hasUserSubmittedAFeedbackHandler = swarmHub.startSwarm("feedback.js", "hasUserSubmittedAFeedback");
+        hasUserSubmittedAFeedbackHandler.onResponse("success", function(swarm){
+            success_callback(swarm.feedback);
+        });
+        hasUserSubmittedAFeedbackHandler.onResponse("error", function(swarm){
+            error_callback(swarm.error);
+        });
     }
 
 };

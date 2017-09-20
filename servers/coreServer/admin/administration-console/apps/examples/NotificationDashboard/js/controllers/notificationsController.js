@@ -11,6 +11,21 @@ app.controller('notificationsController', ['$scope','ModalService','swarmHubServ
 
         swarmHub.startSwarm("zones.js","getAllZones");
 
+
+        $scope.add = function() {
+            var f = document.getElementById('file').files[0];
+            var r = new FileReader();
+
+            r.onloadend = function(e) {
+                $scope.notification.users = e.target.result.split("\"").filter(function (user) {
+                    return user.length>1;
+                });
+                delete $scope.notification.zone;
+            }
+            r.readAsText(f);
+        };
+
+
         $scope.sendNotification = function(){
             if($scope.notification.actionType !==undefined){
                 $scope.notification.action = $scope.notification.actionType;
@@ -18,6 +33,11 @@ app.controller('notificationsController', ['$scope','ModalService','swarmHubServ
                     $scope.notification.action+=" with argument: "+$scope.notification.actionArgument
                 }
             }
+
+            if($scope.notification.zone){
+                delete $scope.notification.users;
+            }
+
             $scope.notificationWasSent = false;
             $scope.errorOccured = false;
 
@@ -56,7 +76,8 @@ app.controller('notificationsController', ['$scope','ModalService','swarmHubServ
 app.controller('previewNotificationController', ['$scope',"notification","$element",'close', function($scope,notification,$element, close) {
     var template={
         "title":"Title: ",
-        "zone":"Receiver: ",
+        "zone":"Receivers: ",
+        "users":"Receivers: ",
         "type":"Type of notification: ",
         "category":"Category: ",
         "description":"Description: ",
@@ -65,10 +86,18 @@ app.controller('previewNotificationController', ['$scope',"notification","$eleme
 
     $scope.notification = notification;
 
+
     $scope.previewNotification = {};
     for(var field in template){
-        $scope.previewNotification[field] = template[field]+notification[field];
+        if($scope.notification[field]) {
+            $scope.previewNotification[field] = template[field] + notification[field];
+            if($scope.previewNotification[field].length>500){
+                $scope.previewNotification[field] = $scope.previewNotification[field].slice(0,497)+"...";
+            }
+        }
     }
+
+    console.log($scope.notification,$scope.previewNotification);
 
     $scope.send = function(){
         $scope.notification.expirationDate = new Date($scope.notification.expirationDate);

@@ -74,9 +74,17 @@ var notificationSwarming = {
 
     sendNotification: function (notification) {
         this.notification = notification;
-        this.swarm("getReceivers")
+        if(this.notification.zone){
+            this.swarm("getReceiversFromZone")
+        }else if(this.notification.users){
+            this.swarm('validateUsers')
+        }else{
+            this.err = "Need to provide either the zone or the intended users in order to send a notification";
+            this.home('failed');
+        }
     },
-    getReceivers: {
+
+    getReceiversFromZone: {
         node: "UsersManager",
         code: function () {
             var self = this;
@@ -86,7 +94,7 @@ var notificationSwarming = {
                     self.home('failed');
                 } else {
                     try{
-                        self.users = users.map(function (user) {return user.userId;});
+                        self.notification.users = users.map(function (user) {return user.userId;});
                     }
                     catch (e){
                         console.error(e);
@@ -97,16 +105,106 @@ var notificationSwarming = {
             }))
         }
     },
+    validateUsers:{
+        node:"UsersManager",
+        code:function() {
+            //in case some users are provided with email addresses, here you extract their userIds
+
+
+            var emailRegex = "@[a-zA-Z0-9]+.";
+            var self = this;
+            var usersByEmail = [];
+            var usersById = [];
+
+            self.notification.users.forEach(function (user) {
+                if (user.match(emailRegex) !== null) {
+                    usersByEmail.push(user);
+                } else {
+                    usersById.push(user);
+                }
+            });
+
+            validateIds(function(err,validIds1){
+                if(err){
+                    self.err = err.message;
+                    self.home('failed');
+                }else {
+                    validateEmails(function (err, validIds2) {
+                        if(err) {
+                            self.err = err.message;
+                            self.home('failed');
+                        }else{
+                            self.notification.users = validIds1.map(function(user){return user.userId}).concat(validIds2.map(function(user){return user.userId}));
+                            if(self.notification.users.length===0){
+                                self.err = "No valid users provided";
+                                self.home('failed');
+                            }else{
+                                self.swarm("createZoneForNotification")
+                            }
+                        }
+                    })
+                }
+            });
+
+
+            function validateEmails(callback) {
+                if(usersByEmail.length===0){
+                    callback(undefined,[]);
+                }else {
+                    filterUsers({"email": usersByEmail}, S(callback))
+                }
+            }
+
+            function validateIds(callback) {
+                if(usersById.length===0){
+                    callback(undefined,[]);
+                }else {
+                    filterUsers({"userId": usersById}, S(callback))
+                }
+            }
+        }
+    },
+
+
+    createZoneForNotification:{
+        node:"UsersManager",
+        code:function(){
+
+            console.log(this.notification.users);
+
+            var self = this;
+            var newZoneName = "notification-"+new Date().toGMTString();
+            createZone(newZoneName,S(function(err,result){
+                if(err){
+                    self.err = err.message;
+                    self.home('failed')
+                }else{
+                    self.notification.zone = newZoneName;
+                    var usersToAdd = self.notification.users.length;
+
+                    self.notification.users.forEach(function (user) {
+                        addUserToZone(user,newZoneName,S(function(err,result){
+                            usersToAdd--;
+                            if(usersToAdd===0){
+                                self.swarm("getUserDevices");
+                            }
+                        }))
+                    })
+                }
+            }))
+        }
+    },
+
     getUserDevices: {
         node: "UDEAdapter",
         code: function () {
             var self = this;
-            getFilteredDevices({"userId": self.users}, S(function (err, devices) {
+            getFilteredDevices({"userId": self.notification.users}, S(function (err, devices) {
                 if (err) {
                     self.err = err.message;
                     self.home('failed')
                 } else {
-                    delete self.users; // so we don't have to carry it anymore
+                    delete self.notification.users; // so we don't have to carry it anymore
                     
                     self.devicesPushNotificationTokens = devices.map(function (device) {return device.notificationIdentifier});
                     self.devicesPushNotificationTokens = self.devicesPushNotificationTokens.filter(function(token){

@@ -86,16 +86,17 @@ container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(out
                 userId:{
                     type:"string",
                     index:true,
-                    length:254
+                    length:255
                 },
                 zoneName:{
                     type:"string",
-                    index:true
+                    index:true,
+                    length:255
                 },
                 mappingId:{
                     type:"string",
                     pk:true,
-                    length:254
+                    length:255
                 }
             }
         },
@@ -105,7 +106,8 @@ container.declareDependency('userRelatedTypes',['mysqlPersistence'],function(out
                 zoneName:{
                     type:"string",
                     pk:true,
-                    index:true
+                    index:true,
+                    length:255
                 },
                 users:{
                     type:"array:UserZoneMapping",
