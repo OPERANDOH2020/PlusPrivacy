@@ -277,7 +277,7 @@ getNotifications = function (userId, userZones, callback) {
 
         loadNotifications:function(err,lazyNotification){
             if (err) {
-                console.err(err);
+                console.error(err);
             }
             else {
                 var notification = lazyNotification.notification;
@@ -287,7 +287,6 @@ getNotifications = function (userId, userZones, callback) {
                     if(existingNotificationsIds.indexOf(notification.notificationId)==-1){
                         this.notifications.push(notification);
                     }
-
                 }
             }
         },

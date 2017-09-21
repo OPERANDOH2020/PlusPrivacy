@@ -104,7 +104,7 @@ var feedbackSwarming = {
                     self.home("error");
                 }else{
                     var feedbackResponses = feedbackResponses.map(function(f){
-                       return f.feedback;
+                       return JSON.parse(f.feedback);
                     });
                     self.feedbackResponses = feedbackResponses;
                     self.home("success");

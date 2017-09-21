@@ -1,16 +1,55 @@
 <div ng-controller="feedbackReportStatsController">
-    <div class="ng-scope" ui-view="">
-        <div class="bg-light lter b-b wrapper-md ng-scope">
+    <div ui-view="">
+        <div class="bg-light lter b-b wrapper-md pageTitle">
             <h1 class="m-n font-thin h3">Feedback Stats</h1>
         </div>
 
 
-        <div>
-            <canvas id="line" class="chart chart-line" chart-data="data"
-                    chart-labels="labels" chart-series="series" chart-options="options"
-                    chart-dataset-override="datasetOverride" chart-click="onClick">
-            </canvas>
+        <div class="wrapper-md">
+
+
+            <div class="row" ng-repeat="chart in charts" style="margin-right: 20px; margin-left: 20px;">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            {{chart.options.title.text}}
+                        </div>
+
+                        <canvas class="chart chart-bar"
+                                chart-data="chart.data" chart-colors="chart.colors" chart-options="chart.options"
+                                chart-labels="chart.labels" chart-series="chart.series">
+                        </canvas>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div ng-repeat="textResponse in textResponses">
+
+
+                <div class="panel panel-default" style="margin:20px">
+                    <div class="panel-heading">
+                        {{textResponse.title}}
+                    </div>
+
+
+                    <div ng-repeat="response in textResponse.responses">
+
+                        <div class="m-l-lg panel b-a" style="margin-top: 20px; margin-right: 20px">
+                            <div class="panel-heading pos-rlt b-b b-light">
+                                <div>{{response}}</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
+
     </div>
 </div>
