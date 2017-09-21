@@ -1,0 +1,60 @@
+<div ng-controller="emailController">
+    <div class="ng-scope" ui-view="">
+        <div class="bg-light lter b-b wrapper-md ng-scope">
+            <h1 class="m-n font-thin h3">Email Manager</h1>
+        </div>
+        <div class="wrapper-md ng-scope">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Send Emails
+                </div>
+
+                <form name="CreateEmail" class="form-validation">
+                    <div class="list-group list-group-sm">
+                        <div class="list-group-item">
+                            <input placeholder="From " class="form-control " ng-model="email.from" ng-pattern="hostRegex"  required>
+                            <span style="{color:red}" ng-hide="fromIsValid()">The domain of the sender must be {{host}}</span>
+                        </div>
+
+                        <div class="list-group-item" class="form-control" >
+                            <h4>TO:</h4>
+                            <div class="list-group-item">
+                            <label>Zone:</label>
+                            <select ng-model="email.zone" >
+                                <option ng-repeat="zone in zones" value="{{zone}}">{{zone}}</option>
+                            </select>
+                            </div>
+
+                            <div class="list-group-item">
+                                <script>
+                                    function add(){
+                                        document.getElementById('click-to-upload').click();
+                                        /*
+                                               add this function to bind jQuerry with angular
+                                         */
+                                    }
+                                </script>
+                                <input type="file" id="file" name="file" onchange="add()">
+                                <div id="click-to-upload" ng-click="add()" invisible></div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item">
+                            <input placeholder="Subject" class="form-control " ng-model="email.subject" required>
+                        </div>
+
+                        <div class="list-group-item">
+                            <textarea rows="5" placeholder="Content" class="form-control" ng-model="email.content" required></textarea>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="panel-body b-b b-light">
+                    <div class="col-lg-6" style="float: right">
+                        <button style="float: right" class="btn btn-lg btn-primary" ng-click="sendEmail()" ng-disabled='CreateEmail.$invalid || !fromIsValid()' type="button">Send email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

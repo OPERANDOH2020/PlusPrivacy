@@ -50,6 +50,12 @@ var menuCtrl = {
 							default: true
 						});
 						self.result.push({
+							icon: "glyphicon glyphicon-envelope",
+							name: "Send emails",
+							url: "apps/examples/EmailDashboard/index.html",
+							default: true
+						});
+						self.result.push({
 							icon: "glyphicon glyphicon-lock",
 							name: "Access Control List Management",
 							url: "apps/examples/ACL-Management/index.html"
