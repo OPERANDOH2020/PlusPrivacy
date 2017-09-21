@@ -1,0 +1,33 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">This is what your email looks like</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group-item">
+                    <div ng-show="previewEmail.from">
+                        {{previewEmail.from}}
+                    </div>
+                    <div ng-show="previewEmail.to">
+                        {{previewEmail.to}}
+                    </div>
+                    <div ng-show="previewEmail.subject">
+                        {{previewEmail.subject}}
+                    </div>
+                    <div ng-show="previewEmail.content">
+                        {{previewEmail.content}}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div>
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="send()" >Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

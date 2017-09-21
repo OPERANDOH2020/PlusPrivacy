@@ -93,13 +93,7 @@ var notificationSwarming = {
                     self.err = err.message;
                     self.home('failed');
                 } else {
-                    try{
-                        self.notification.users = users.map(function (user) {return user.userId;});
-                    }
-                    catch (e){
-                        console.error(e);
-                    }
-
+                    self.notification.users = users.map(function (user) {return user.userId;});
                     self.swarm("getUserDevices");
                 }
             }))
