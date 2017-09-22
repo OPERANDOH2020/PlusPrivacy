@@ -1,10 +1,7 @@
 function _es_submit() {
-	if(document.es_form.es_set_name.value=="") {
+	if(document.es_form.es_templ_heading.value=="") {
 		alert(es_compose_notices.es_configuration_name);
-		document.es_form.es_set_name.focus();
-		return false;
-	} else if(document.es_form.es_set_templid.value=="") {
-		alert(es_compose_notices.es_configuration_template);
+		document.es_form.es_templ_heading.focus();
 		return false;
 	}
 }

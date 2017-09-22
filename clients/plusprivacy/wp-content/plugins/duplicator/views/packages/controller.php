@@ -1,6 +1,6 @@
 <?php
 
-DUP_Util::CheckPermissions('export');
+DUP_Util::hasCapability('export');
 
 global $wpdb;
 

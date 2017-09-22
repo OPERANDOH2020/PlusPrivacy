@@ -1,555 +1,745 @@
 <?php
-	// Exit if accessed directly
-	if (! defined('DUPLICATOR_INIT')) {
-		$_baseURL = "http://" . strlen($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : $_SERVER['HTTP_HOST'];
-		header("HTTP/1.1 301 Moved Permanently");
-		header("Location: $_baseURL");
-		exit; 
-	}
-	//DETECT ARCHIVE FILES
-	$zip_files = DUPX_Util::get_zip_files();
-	$zip_count = count($zip_files);
-	
-	if ($zip_count > 1) {
-		$zip_name = "Too many zip files in directory";
-	} else if ($zip_count == 1) {
-		$zip_name = $zip_files[0];
-	} else {
-		$zip_name  = "No package file found";
-	}
-	
-	$req01a = @is_writeable($GLOBALS["CURRENT_ROOT_PATH"]) 	? 'Pass' : 'Fail';
-	if (is_dir($GLOBALS["CURRENT_ROOT_PATH"])) {
-		if ($dh = @opendir($GLOBALS["CURRENT_ROOT_PATH"])) {
-			closedir($dh);
-		} else {
-			$req01a = 'Fail';
+//VIEW: STEP 1- INPUT
+
+//ARCHIVE FILE
+$arcStatus	= (file_exists($GLOBALS['ARCHIVE_PATH']))	? 'Pass' : 'Fail';
+$arcFormat  = ($arcStatus == 'Pass') ? 'Pass' : 'StatusFailed';
+$arcSize    = @filesize($GLOBALS['ARCHIVE_PATH']);
+$arcSize    = is_numeric($arcSize) ? $arcSize : 0;
+$zip_archive_enabled = class_exists('ZipArchive') ? 'Enabled' : 'Not Enabled';
+
+$arcSizeRatio  = (((1.0) * $arcSize)  / $GLOBALS['FW_PACKAGE_EST_SIZE']) * 100;
+$arcSizeStatus = ($arcSizeRatio > 90) ? 'Pass' : 'Fail';
+
+//ARCHIVE FORMAT
+if ($arcStatus) {
+	if (class_exists('ZipArchive')){
+		$zip = new ZipArchive();
+		if($zip->open($GLOBALS['ARCHIVE_PATH']) === TRUE ) {
+
+			$arcFilePath = basename($GLOBALS['ARCHIVE_PATH']);
+			$arcFilePath = substr($arcFilePath, 0, strrpos($arcFilePath, "."));
+			$badFiles  = array('__MACOSX', $arcFilePath);
+			$goodFiles = array('database.sql', 'installer-backup.php');
+			$goodFilesFound = true;
+			$badFilesFound  = false;
+
+			foreach ($badFiles as $val) {
+				if (is_numeric($zip->locateName("{$val}/"))) {
+					$badFilesFound = true;
+					break;
+				}
+			}
+
+			foreach ($goodFiles as $val) {
+				if ($zip->locateName($val) !== true) {
+					$goodFilesFound = false;
+				}
+			}
+
+			$arcFormat = ($goodFilesFound == false && $badFilesFound == true) ? 'Fail' : 'Pass';
 		}
+	} else {
+		$arcFormat = 'NoZipArchive';
 	}
-	$req01b   = ($zip_count == 1) ? 'Pass' : 'Fail';
-	$req01    = ($req01a == 'Pass' && $req01b == 'Pass') ? 'Pass' : 'Fail';
-	$safe_ini = strtolower(@ini_get('safe_mode'));
-	$req02    =  $safe_ini  != 'on' || $safe_ini != 'yes' || $safe_ini != 'true' || ini_get("safe_mode") != 1 ? 'Pass' : 'Fail';
-	$req03    = function_exists('mysqli_connect') ? 'Pass' : 'Fail';
-	$php_compare  = version_compare(phpversion(), '5.2.9');
-	$req04 = $php_compare >= 0 ? 'Pass' : 'Fail';
-	$total_req = ($req01 == 'Pass' && $req02 == 'Pass' && $req03 == 'Pass' && $req04 == 'Pass') ? 'Pass' : 'Fail';
+}
+
+$all_arc = ($arcStatus == 'Pass' && $arcFormat != 'Fail' && $arcSizeStatus == 'Pass') ? 'Pass' : 'Fail';
+
+//REQUIRMENTS
+$req      	= array();
+$req['01']	= DUPX_Server::isDirWritable($GLOBALS["CURRENT_ROOT_PATH"]) ? 'Pass' : 'Fail';
+$req['02']	= 'Pass'; //Place-holder for future check
+$req['03']	= 'Pass'; //Place-holder for future check; 
+$req['04']	= function_exists('mysqli_connect')	 ? 'Pass' : 'Fail';
+$req['05']	= DUPX_Server::$php_version_safe	 ? 'Pass' : 'Fail';
+$all_req  	= in_array('Fail', $req) 			 ? 'Fail' : 'Pass';
+
+//NOTICES
+$openbase		= ini_get("open_basedir");
+$scanfiles		= @scandir($GLOBALS["CURRENT_ROOT_PATH"]);
+$scancount		= is_array($scanfiles) ? (count($scanfiles)) : -1;
+$datetime1		= $GLOBALS['FW_CREATED'];
+$datetime2		= date("Y-m-d H:i:s");
+$fulldays		= round(abs(strtotime($datetime1) - strtotime($datetime2))/86400);
+$root_path		= DUPX_U::setSafePath($GLOBALS['CURRENT_ROOT_PATH']);
+$wpconf_path	= "{$root_path}/wp-config.php";
+$max_time_zero  = @set_time_limit(0);
+$max_time_size  = 314572800;  //300MB
+$max_time_ini   = ini_get('max_execution_time');
+$max_time_warn  = (is_numeric($max_time_ini) && $max_time_ini < 31  && $max_time_ini > 0) && $arcSize > $max_time_size;
+
+
+$notice		    = array();
+if (!$GLOBALS['FW_ARCHIVE_ONLYDB']) {
+	$notice['01']   = ! file_exists($wpconf_path)	? 'Good' : 'Warn';
+	$notice['02']   = $scancount <= 35 ? 'Good' : 'Warn';
+}
+$notice['03']	= $fulldays <= 120 ? 'Good' : 'Warn';
+$notice['04']	= 'Good'; //Place-holder for future check
+$notice['05']	= DUPX_Server::$php_version_53_plus	 ? 'Good' : 'Warn';
+$notice['06']	= empty($openbase)	 ? 'Good' : 'Warn';
+$notice['07']	= ! $max_time_warn	 ? 'Good' : 'Warn';
+$all_notice  	= in_array('Warn', $notice) ? 'Warn' : 'Good';
+
+//SUMMATION
+$req_success  = ($all_req == 'Pass');
+$req_notice   = ($all_notice == 'Good');
+$all_success  = ($req_success && $req_notice);
+$agree_msg    = "To enable this button the checkbox above under the 'Terms & Notices' must be checked.";
 ?>
 
-<script type="text/javascript">
-	/** **********************************************
-	* METHOD:  Performs Ajax post to extract files and create db
-	* Timeout (10000000 = 166 minutes) */
-	Duplicator.runDeployment = function() {
-		
-        var $form = $('#dup-step1-input-form');
-        $form.parsley().validate();
-        if (!$form.parsley().isValid()) {
-            return;
-        }
 
-	
-		var msg =  "Continue installation with the following settings?\n\n";
-			msg += "Server: " + $("#dbhost").val() + "\nDatabase: " + $("#dbname").val() + "\n\n";
-			msg += "WARNING: Be sure these database parameters are correct!\n";
-			msg += "Entering the wrong information WILL overwrite an existing database.\n";
-			msg += "Make sure to have backups of all your data before proceeding.\n\n";
-			
-		var answer = confirm(msg);
-		if (answer) {
-			$.ajax({
-				type: "POST",
-				timeout: 10000000,
-				dataType: "json",
-				url: window.location.href,
-				data: $form.serialize(),
-				beforeSend: function() {
-					Duplicator.showProgressBar();
-					$form.hide();
-					$('#dup-step1-result-form').show();
-				},			
-				success: function(data, textStatus, xhr){ 
-					if (typeof(data) != 'undefined' && data.pass == 1) {
-						$("#ajax-dbhost").val($("#dbhost").val());
-						$("#ajax-dbport").val($("#dbport").val());
-						$("#ajax-dbuser").val($("#dbuser").val());
-						$("#ajax-dbpass").val($("#dbpass").val());
-						$("#ajax-dbname").val($("#dbname").val());
-						$("#ajax-dbcharset").val($("#dbcharset").val());
-						$("#ajax-dbcollate").val($("#dbcollate").val());
-						$("#ajax-logging").val($("input:radio[name=logging]:checked").val());
-						$("#ajax-json").val(escape(JSON.stringify(data)));
-						setTimeout(function() {$('#dup-step1-result-form').submit();}, 1000);
-						$('#progress-area').fadeOut(700);
-					} else {
-						Duplicator.hideProgressBar();
-					}
-				},
-				error: function(xhr) { 
-					var status = "<b>server code:</b> " + xhr.status + "<br/><b>status:</b> " + xhr.statusText + "<br/><b>response:</b> " +  xhr.responseText;
-					$('#ajaxerr-data').html(status);
-					Duplicator.hideProgressBar();
-				}
-			});	
-		} 
-	};
+<form id='s1-input-form' method="post" class="content-form" >
+<input type="hidden" name="action_ajax" value="1" />
+<input type="hidden" name="action_step" value="1" />
+<input type="hidden" name="archive_name"  value="<?php echo $GLOBALS['FW_PACKAGE_NAME'] ?>" />
 
-	/** **********************************************
-	* METHOD: Accetps Useage Warning */
-	Duplicator.acceptWarning = function() {
-		if ($("#accept-warnings").is(':checked')) {
-			$("#dup-step1-deploy-btn").removeAttr("disabled");
-		} else {
-			$("#dup-step1-deploy-btn").attr("disabled", "true");
-		}
-	};
+<div class="hdr-main">
+    Step <span class="step">1</span> of 4: Deployment
+</div>
+<br/>
+	
 
-	/** **********************************************
-	* METHOD: Go back on AJAX result view */
-	Duplicator.hideErrorResult = function() {
-		$('#dup-step1-result-form').hide();			
-		$('#dup-step1-input-form').show(200);
-	};
-	
-	/** **********************************************
-	* METHOD: Shows results of database connection 
-	* Timeout (45000 = 45 secs) */
-	Duplicator.dlgTestDB = function () {		
-		$.ajax({
-			type: "POST",
-			timeout: 45000,
-			url: window.location.href + '?' + 'dbtest=1',
-			data: $('#dup-step1-input-form').serialize(),
-			success: function(data){ $('#dbconn-test-msg').html(data); },
-			error:   function(data){ alert('An error occurred while testing the database connection!  Contact your server admin to make sure the connection inputs are correct!'); }
-		});
-		
-		$('#dbconn-test-msg').html("Attempting Connection.  Please wait...");
-		$("#s1-dbconn-status").show(500);
-		
-	};
-	
-	Duplicator.showDeleteWarning = function () {
-		($('#dbaction-empty').prop('checked')) 
-			? $('#dup-step1-warning-emptydb').show(300)
-			: $('#dup-step1-warning-emptydb').hide(300);
-	};
-	
-	Duplicator.togglePort = function () {
-		
-		$('#s1-dbport-btn').hide();
-		$('#dbport').show();
-	}
-	
-	
-	//DOCUMENT LOAD
-	$(document).ready(function() {
-		$('#dup-step1-dialog-data').appendTo('#dup-step1-result-container');
-		$( "input[name='dbaction']").click(Duplicator.showDeleteWarning);
-		Duplicator.acceptWarning();
-		Duplicator.showDeleteWarning();		
-		
-		//MySQL Mode
-		$("input[name=dbmysqlmode]").click(function() {
-			if ($(this).val() == 'CUSTOM') {
-				$('#dbmysqlmode_3_view').show();
-			} else {
-				$('#dbmysqlmode_3_view').hide();
-			}
-		});
-		
-		if ($("input[name=dbmysqlmode]:checked").val() == 'CUSTOM') {
-			$('#dbmysqlmode_3_view').show();
-		}
-		
-	});
-</script>
-
-
-<!-- =========================================
-VIEW: STEP 1- INPUT -->
-<form id='dup-step1-input-form' method="post" class="content-form"  data-parsley-validate="true" data-parsley-excluded="input[type=hidden], [disabled], :hidden">
-	<input type="hidden" name="action_ajax" value="1" />
-	<input type="hidden" name="action_step" value="1" />
-	<input type="hidden" name="package_name"  value="<?php echo $zip_name ?>" />
-	
-	<!--div class="dup-logfile-link">
-		<select name="logging" id="logging">
-		    <option value="1" selected="selected">Light Logging</option>
-		    <option value="2">Detailed Logging</option>
-		</select>
-	</div-->
-	<div class="hdr-main">
-		Step 1: Deploy Files &amp; Database
+<!-- ====================================
+ARCHIVE
+==================================== -->
+<div class="hdr-sub1" id="s1-area-archive-file-link" data-type="toggle" data-target="#s1-area-archive-file">
+    <a href="javascript:void(0)"><i class="dupx-plus-square"></i> Archive</a>
+	<div class="<?php echo ($all_arc == 'Pass') ? 'status-badge-pass' : 'status-badge-fail'; ?>" style="float:right">
+		<?php echo ($all_arc == 'Pass') ? 'Pass' : 'Fail'; ?>
 	</div>
-	
-	<!-- CHECKS: FAIL -->
-	<?php if ( $total_req == 'Fail')  :	?>
-	
-		<div class="dup-box">
-			<div class="dup-box-title">
-				<div id="system-circle" class="circle-fail"></div> &nbsp; Requirements: Fail
-				<div class="dup-box-arrow"></div>
-			</div>
-			<div class="dup-box-panel" style="display:none">	
-				<div id="dup-step1-result-container"></div>
-			</div> 
-		</div><br/>
-	
-    	<i id="s1-sys-req-msg">
-			This installation will not be able to proceed until the system requirements pass. Please validate your system requirements by clicking on the button above. 
-			In order to get these values to pass please contact your server administrator, hosting provider or visit the online FAQ.
-		</i><br/>
-    		    
-    	<div style="line-height:28px; font-size:14px; padding:0px 0px 0px 30px; font-weight:normal">
-    	    <b>Helpful Resources:</b><br/>
-    	    &raquo; <a href="https://snapcreek.com/duplicator/docs/faqs-tech/" target="_blank">Common FAQs</a> <br/>
-    	    &raquo; <a href="https://snapcreek.com/duplicator/docs/guide/" target="_blank">User Guide</a> <br/>
-    	    &raquo; <a href="https://snapcreek.com/duplicator/docs/faqs-tech/#faq-resource-040-q" target="_blank">Approved Hosts</a> <br/>
-    	</div><br/>
-	
-	<!-- CHECKS: PASS -->
-	<?php else : ?>	
-	
-	
-		<div class="dup-box">
-			<div class="dup-box-title">
-				<div id="system-circle" class="circle-pass"></div> &nbsp; Requirements: Pass
-				<div class="dup-box-arrow"></div>
-			</div>
-			<div class="dup-box-panel" style="display:none">	
-				<div id="dup-step1-result-container"></div>
-			</div> 
-		</div><br/>
-	
-    	<div class="title-header">
-    	    MySQL Database
-    	</div>
-    	<table class="s1-opts">
-			<tr>
-				<td>Action</td>
-				<td>
-					<div class="s1-modes">
-						<input type="radio" name="dbaction" id="dbaction-create" value="create" checked="checked" />
-						<label for="dbaction-create">Create New Database</label>
+</div>
+<div id="s1-area-archive-file" style="display:none">
+
+    <table class="s1-archive-local">
+		<tr>
+			<td colspan="2"><div class="hdr-sub3">Site Details</div></td>
+		</tr>
+		 <tr>
+            <td>Site:</td>
+            <td><?php echo $GLOBALS['FW_BLOGNAME'];?> </td>
+        </tr>
+        <tr>
+            <td>Notes:</td>
+            <td><?php echo strlen($GLOBALS['FW_PACKAGE_NOTES']) ? "{$GLOBALS['FW_PACKAGE_NOTES']}" : " - no notes - ";?></td>
+        </tr>
+		<?php if ($GLOBALS['FW_ARCHIVE_ONLYDB']) :?>
+		<tr>
+			<td>Mode:</td>
+			<td>Archive only database was enabled during package package creation.</td>
+		</tr>
+		<?php endif; ?>
+	</table>
+
+	<table class="s1-archive-local">
+		<tr>
+			<td colspan="2"><div class="hdr-sub3">File Details</div></td>
+		</tr>
+        <tr style="vertical-align:top">
+            <td>Size:</td>
+            <td>
+			<?php
+				$projectedSize = DUPX_U::readableByteSize($GLOBALS['FW_PACKAGE_EST_SIZE']);
+				$actualSize	= DUPX_U::readableByteSize($arcSize);
+				echo "{$actualSize}<br/>";
+				if ($arcSizeStatus == 'Fail' ) {
+					echo "<span class='dupx-fail'>The archive file size is currently <b>{$actualSize}</b> and its estimated file size should be around <b>{$projectedSize}</b>.  "
+					. "The archive file may not have been fully downloaded to the server.  If so please wait for the file to completely download and then refresh this page.<br/><br/>";
+
+					echo "This warning is only shown when the file has more than a 10% size ratio difference from when it was originally built.  Please review the file sizes "
+					. "to make sure the archive was downloaded to this server correctly if the download is complete.</span>";
+				}
+			?>
+			</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><?php echo "{$GLOBALS['FW_PACKAGE_NAME']}";?> </td>
+        </tr>
+        <tr>
+            <td>Path:</td>
+            <td><?php echo "{$GLOBALS['CURRENT_ROOT_PATH']}";?> </td>
+        </tr>
+		<tr>
+			<td>Status:</td>
+			<td>
+				<?php if ($arcStatus != 'Fail') : ?>
+					<span class="dupx-pass">File Found</span>
+				<?php else : ?>
+					<div class="s1-archive-failed-msg">
+						<b class="dupx-fail">Archive File Not Found!</b><br/>
+						The archive file name below must be the <u>exact</u> name of the archive file placed in the deployment path (character for character).
+						If the file does not have the same name then rename it to the name above.
+						<br/><br/>
+
+						When downloading the package files make sure both files are from the same package line in the packages view.  The archive file also
+						must be completely downloaded to the server before starting the install.  The following zip files were found at the deployment path:
+						<?php
+							//DETECT ARCHIVE FILES
+							$zip_files = DUPX_Server::getZipFiles();
+							$zip_count = count($zip_files);
+
+							if ($zip_count >= 1) {
+								echo "<ol style='padding:10px 20px 0 20px; font-style:italic'>";
+								foreach($zip_files as $file) {
+									echo "<li> '{$file}'</li>";
+								}
+								echo "</ol>";
+							} else {
+								echo  "<br/><br/> <i>- No zip files found -</i>";
+							}
+						?>
 					</div>
-					<div class="s1-modes">
-						<input type="radio" name="dbaction" id="dbaction-empty" value="empty" />
-						<label for="dbaction-empty">Connect and Remove All Data</label>						
+				<?php endif; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Format:</td>
+			<td>
+				<?php if ($arcFormat == 'Pass') : ?>
+					<span class="dupx-pass">Good structure</span>
+				<?php elseif ($arcFormat == 'StatusFailed') : ?>
+					<span class="dupx-fail">Unable to validate format</span><br/>
+				<?php elseif ($arcFormat == 'NoZipArchive') : ?>
+					<div class="s1-archive-failed-msg">
+						The PHP extraction library <a href="" target="_help">ZipArchive</a> was not found on this server.  There are a few options:
+						<ol>
+							<li>Contact your host to enable the this PHP library. <a href="" target="_help">[more info]</a></li>
+							<li>Enable 'Manual package extraction' in the options menu and <a href="" target="_help">Manually extract the archive</a></li>
+						</ol>
 					</div>
-				</td>
-			</tr>			
-    	    <tr>
-				<td>Host</td>
-				<td>
-					<table class="s1-opts-dbhost">
-						<tr>
-							<td><input type="text" name="dbhost" id="dbhost" required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBHOST']); ?>" placeholder="localhost" style="width:410px" /></td>
-							<td style="vertical-align:top">
-								<input id="s1-dbport-btn" type="button" onclick="Duplicator.togglePort()" class="s1-small-btn" value="Port: <?php echo htmlspecialchars($GLOBALS['FW_DBPORT']); ?>" />
-								<input name="dbport" id="dbport" type="text" style="width:80px; display:none" value="<?php echo htmlspecialchars($GLOBALS['FW_DBPORT']); ?>" />
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>Name</td>
-				<td><input type="text" name="dbname" id="dbname"  required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBNAME']); ?>"  placeholder="new or existing database name"  /></td>
-			</tr>
-			<tr>
-				<td>User</td>
-				<td><input type="text" name="dbuser" id="dbuser" required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBUSER']); ?>" placeholder="valid database username" /></td>
-			</tr>
-    	    <tr>
-				<td>Password</td>
-				<td><input type="text" name="dbpass" id="dbpass" value="<?php echo htmlspecialchars($GLOBALS['FW_DBPASS']); ?>"  placeholder="valid database user password"   /></td>
-			</tr>
-    	</table>
-		
-		
-		<!-- =========================================
-		DIALOG: DB CONNECTION CHECK  -->
-		<div id="s1-dbconn">
-			<input type="button" onclick="Duplicator.dlgTestDB()" class="s1-small-btn" value="Test Connection" />
-			<div id="s1-dbconn-status" style="display:none">
-				<div style="padding: 0px 10px 10px 10px;">		
-					<div id="dbconn-test-msg" style="min-height:80px"></div>
-				</div>
-				<small><input type="button" onclick="$('#s1-dbconn-status').hide(500)" class="s1-small-btn" value="Hide Message" /></small>
-			</div>
+				<?php else : ?>
+					<div class="s1-archive-failed-msg">
+						<b class="dupx-fail">Invalid Archive Format Detected!</b><br/>
+						The archive files contents must be laid out in a specific format.  If the format has been changed the install process will error out.
+						<br/><br/>
+
+						This scenario is rare but can happen on some systems during the download and upload process of the zip without a user being aware of
+						the issue. Please check the contents of the zip archive and be sure its contents match the layout of your site.
+						<br/><br/>
+
+						Files such as database.sql and wp-config.php should be at the root of the archive.  For more details see the FAQ article
+						<a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=invalid_ar_fmt#faq-installer-020-q" target="_help">The archive format is changing on my Mac what might be the problem?</a>
+					</div>
+				<?php endif; ?>
+			</td>
+		</tr>
+    </table>
+
+</div>
+<br/><br/>
+
+
+<!-- ====================================
+VALIDATION
+==================================== -->
+<div class="hdr-sub1" id="s1-area-sys-setup-link" data-type="toggle" data-target="#s1-area-sys-setup">
+	<a href="javascript:void(0)"><i class="dupx-plus-square"></i> Validation</a>
+	<div class="<?php echo ($req_success) ? 'status-badge-pass' : 'status-badge-fail'; ?>" style="float:right">
+		<?php echo ($req_success) ? 'Pass' : 'Fail'; ?>
+	</div>
+</div>
+<div id="s1-area-sys-setup" style="display:none">
+	<div class='info-top'>The system validation checks help to make sure the system is ready for install.</div>
+
+    <!-- *** REQUIREMENTS ***  -->
+	<div class="s1-reqs" id="s1-reqs-all">
+		<div class="header">
+			<table class="s1-checks-area">
+				<tr>
+					<td class="title">Requirements <small>(must pass)</small></td>
+					<td class="toggle"><a href="javascript:void(0)" onclick="DUPX.toggleAll('#s1-reqs-all')">[toggle]</a></td>
+				</tr>
+			</table>
 		</div>
 
-    	<!-- !!DO NOT CHANGE/EDIT OR REMOVE THIS SECTION!!
-    	If your interested in Private Label Rights please contact us at the URL below to discuss
-    	customizations to product labeling: http://snapcreek.com	-->
-    	<a href="javascript:void(0)" onclick="$('#dup-step1-cpanel').toggle(250)"><b>Need Setup Help...</b></a>
-    	<div id='dup-step1-cpanel' style="display:none">
-    	    <div style="padding:10px 0px 0px 10px;line-height:22px">
-    		&raquo; Check out the <a href="https://snapcreek.com/duplicator/docs/faqs-tech/#faq-resource-070-q" target="_blank">video tutorials &amp; guides</a> <br/>
-    		&raquo; Get help from our <a href="https://snapcreek.com/duplicator/docs/faqs-tech/#faq-resource" target="_blank">resources section</a>
-    	    </div>
-    	</div><br/><br/>
-    		    
-    	<a href="javascript:void(0)" onclick="$('#dup-step1-adv-opts').toggle(250)"><b>Advanced Options...</b></a>
-    	<div id='dup-step1-adv-opts' style="display:none">
-			<table class="s1-opts">
-				<tr><td><input type="checkbox" name="zip_manual"  id="zip_manual" value="1" /> <label for="zip_manual">Manual package extraction</label></td></tr>
-				<tr><td><input type="checkbox" name="dbnbsp" id="dbnbsp" value="1" /> <label for="dbnbsp">Fix non-breaking space characters</label></td></tr>
+		<!-- REQ 1 -->
+		<div class="status <?php echo strtolower($req['01']); ?>"><?php echo $req['01']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-reqs01">+ Permissions</div>
+		<div class="info" id="s1-reqs01">
+			<table>
+				<tr>
+					<td><b>Deployment Path:</b> </td>
+					<td><i><?php echo "{$GLOBALS['CURRENT_ROOT_PATH']}"; ?></i> </td>
+				</tr>
+				<tr>
+					<td><b>Suhosin Extension:</b> </td>
+					<td><?php echo extension_loaded('suhosin') ? "<i class='dupx-fail'>Enabled</i>" : "<i class='dupx-pass'>Disabled</i>"; ?> </td>
+				</tr>
+				<tr>
+					<td><b>PHP Safe Mode:</b> </td>
+					<td><?php echo (DUPX_Server::$php_safe_mode_on)  ? "<i class='dupx-fail'>Enabled</i>" : "<i class='dupx-pass'>Disabled</i>"; ?> </td>
+				</tr>
+			</table><br/>
+
+			The deployment path above must be writable by PHP in order to extract the archive file.  Incorrect permissions and extension such as
+			<a href="https://suhosin.org/stories/index.html" target="_blank">suhosin</a> can sometimes inter-fear with PHP being able to write/extract files.
+			Please see the <a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=installer_perms#faq-trouble-055-q" target="_blank">FAQ permission</a> help link for complete details.
+			PHP with <a href='http://php.net/manual/en/features.safe-mode.php' target='_blank'>safe mode</a> should be disabled.  If this test fails
+			please contact your hosting provider or server administrator to disable PHP safe mode.
+		</div>
+
+		<!-- REQ 2
+		<div class="status <?php echo strtolower($req['02']); ?>"><?php echo $req['02']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-reqs02">+ Place Holder</div>
+		<div class="info" id="s1-reqs02"></div>-->
+
+		<!-- REQ 3
+		<div class="status <?php echo strtolower($req['03']); ?>"><?php echo $req['03']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-reqs03">+ Place Holder</div>
+		<div class="info" id="s1-reqs03"></div> -->
+
+		<!-- REQ 4 -->
+		<div class="status <?php echo strtolower($req['04']); ?>"><?php echo $req['04']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-reqs04">+ PHP Mysqli</div>
+		<div class="info" id="s1-reqs04">
+			Support for the PHP <a href='http://us2.php.net/manual/en/mysqli.installation.php' target='_blank'>mysqli extension</a> is required.
+			Please contact your hosting provider or server administrator to enable the mysqli extension.  <i>The detection for this call uses
+			the function_exists('mysqli_connect') call.</i>
+		</div>
+
+		<!-- REQ 5 -->
+		<div class="status <?php echo strtolower($req['05']); ?>"><?php echo $req['05']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-reqs05">+ PHP Min Version</div>
+		<div class="info" id="s1-reqs05">
+			This server is running PHP: <b><?php echo DUPX_Server::$php_version ?></b>. <i>A minimum of PHP 5.2.17 is required</i>.
+			Contact your hosting provider or server administrator and let them know you would like to upgrade your PHP version.
+		</div>
+	</div><br/>
+
+
+	<!-- *** NOTICES ***  -->
+	<div class="s1-reqs" id="s1-notice-all">
+		<div class="header">
+			<table class="s1-checks-area">
+				<tr>
+					<td class="title">Notices <small>(optional)</small></td>
+					<td class="toggle"><a href="javascript:void(0)" onclick="DUPX.toggleAll('#s1-notice-all')">[toggle]</a></td>
+				</tr>
 			</table>
-			
-			
-    	    <table class="s1-opts s1-advopts">
-				<tr>
-					<td>Logging</td>
-					<td colspan="2">
-						<input type="radio" name="logging" id="logging-light" value="1" checked="true"> <label for="logging-light">Light</label> &nbsp; 
-						<input type="radio" name="logging" id="logging-detailed" value="2"> <label for="logging-detailed">Detailed</label> &nbsp; 
-						<input type="radio" name="logging" id="logging-debug" value="3"> <label for="logging-debug">Debug</label>
-					</td>
-				</tr>	
-				<tr>
-					<td>Config Cache</td>
-					<td style="width:125px"><input type="checkbox" name="cache_wp" id="cache_wp" <?php echo ($GLOBALS['FW_CACHE_WP']) ? "checked='checked'" : ""; ?> /> <label for="cache_wp">Keep Enabled</label></td>
-					<td><input type="checkbox" name="cache_path" id="cache_path" <?php echo ($GLOBALS['FW_CACHE_PATH']) ? "checked='checked'" : ""; ?> /> <label for="cache_path">Keep Home Path</label></td>
-				</tr>	
-				<tr>
-					<td>Config SSL</td>
-					<td><input type="checkbox" name="ssl_admin" id="ssl_admin" <?php echo ($GLOBALS['FW_SSL_ADMIN']) ? "checked='checked'" : ""; ?> /> <label for="ssl_admin">Enforce on Admin</label></td>
-					<td><input type="checkbox" name="ssl_login" id="ssl_login" <?php echo ($GLOBALS['FW_SSL_LOGIN']) ? "checked='checked'" : ""; ?> /> <label for="ssl_login">Enforce on Login</label></td>
-				</tr>		
-				<tr>
-					<td style="vertical-align:top">MySQL Mode</td>
-					<td colspan="2">
-						<input type="radio" name="dbmysqlmode" id="dbmysqlmode_1" checked="true" value="DEFAULT"/> <label for="dbmysqlmode_1">Default</label> &nbsp;
-						<input type="radio" name="dbmysqlmode" id="dbmysqlmode_2" value="DISABLE"/> <label for="dbmysqlmode_2">Disable</label> &nbsp;
-						<input type="radio" name="dbmysqlmode" id="dbmysqlmode_3" value="CUSTOM"/> <label for="dbmysqlmode_3">Custom</label> &nbsp;
-						<div id="dbmysqlmode_3_view" style="display:none; padding:5px">
-							<input type="text" name="dbmysqlmode_opts" value="" /><br/>
-							<small>Separate additional <a href="?help#help-mysql-mode" target="_blank">sql modes</a> with commas &amp; no spaces.<br/>
-								Example: <i>NO_ENGINE_SUBSTITUTION,NO_ZERO_IN_DATE,...</i>.</small>
-						</div>
-					</td>
-				</tr>					
-    	    </table>
-			
-			<table class="s1-opts s1-advopts">
-				<tr><td style="width:130px">MySQL Charset</td><td><input type="text" name="dbcharset" id="dbcharset" value="<?php echo $_POST['dbcharset'] ?>" /> </td></tr>
-				<tr><td>MySQL Collation </td><td><input type="text" name="dbcollate" id="dbcollate" value="<?php echo $_POST['dbcollate'] ?>" /> </tr>
-    	    </table>
-			<small><i>For an overview of these settings see the <a href="?help=1" target="_blank">help page</a></i></small><br/>
-    	</div>
-		
-		
-		<div class="dup-step1-gopro">
-			*Create the database and users <b>from the installer</b> with <a target="_blank" href="https://snapcreek.com/duplicator/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_content=free_install_step1&utm_campaign=duplicator_pro">Duplicator Pro!</a> - Requires cPanel.
-		</div>	
+		</div>
 
-		<!-- NOTICES  -->
-    	<div id="dup-step1-warning">
-    	    <b>WARNINGS &amp; NOTICES</b> 
-    	    <p>
-				<b>Disclaimer:</b> 
-				This plugin require above average technical knowledge. Please use it at your own risk and always back up your database and files beforehand using another backup
-				system besides the Duplicator. If you're not sure about how to use this tool then please enlist the guidance of a technical professional.  <u>Always</u> test 
-				this installer in a sandbox environment before trying to deploy into a production setting.
-			</p>    
-    	    <p>
-				<b>Database:</b>
-				Do not connect to an existing database unless you are 100% sure you want to remove all of it's data. Connecting to a database 
-				that already exists will permanently DELETE all data in that database. This tool is designed to populate and fill a database with NEW data from a duplicated
-				database using the SQL script in the package name above.
-			</p>    
-    	    <p>
-				<b>Setup:</b>
-				Only the archive and installer.php file should be in the install directory, unless you have manually extracted the package and checked the 
-				'Manual Package Extraction' checkbox. All other files will be OVERWRITTEN during install.  Make sure you have full backups of all your databases and files 
-				before continuing with an installation.</p>    
-    	    <p>
-				<b>Manual Extraction:</b> 
-				Manual extraction requires that all contents in the package are extracted to the same directory as the installer.php file.  
-				Manual extraction is only needed when your server does not support the ZipArchive extension.  Please see the online help for more details.
-			</p>			    
-    	    <p>
-				<b>After Install:</b>When you are done with the installation remove the installer.php, installer-data.sql and the installer-log.txt files from your directory. 
-				These files contain sensitive information and should not remain on a production system.
-			</p><br/>
-    	</div>
-    		    
-    	<div id="dup-step1-warning-check">
-    	    <input id="accept-warnings" name="accpet-warnings" type="checkbox" onclick="Duplicator.acceptWarning()" /> <label for="accept-warnings">I have read all warnings &amp; notices</label><br/>
-			<div id="dup-step1-warning-emptydb">
-				The remove action will delete <u>all</u> tables and data from the database!
+		<?php if (!$GLOBALS['FW_ARCHIVE_ONLYDB']) :?>
+
+			<!-- NOTICE 1 -->
+			<div class="status <?php echo ($notice['01'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['01']; ?></div>
+			<div class="title" data-type="toggle" data-target="#s1-notice01">+ Configuration File</div>
+			<div class="info" id="s1-notice01">
+				Duplicator works best by placing the installer and archive files into an empty directory.  If a wp-config.php file is found in the extraction
+				directory it might indicate that a pre-existing WordPress site exists which can lead to a bad install.
+				<br/><br/>
+				<b>Options:</b>
+				<ul style="margin-bottom: 0">
+					<li>If the archive was already manually extracted then <a href="javascript:void(0)" onclick="DUPX.getManaualArchiveOpt()">[Enable Manual Archive Extraction]</a></li>
+					<li>If the wp-config file is not needed then remove it.</li>
+				</ul>
 			</div>
-    	</div><br/><br/>
-    		    
-    	<div class="dup-footer-buttons">
-    	    <input id="dup-step1-deploy-btn" type="button" value=" Run Deployment " onclick="Duplicator.runDeployment()" />
-    	</div>		
 
-	<?php endif; ?>	
+			<!-- NOTICE 2 -->
+			<div class="status <?php echo ($notice['02'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['02']; ?></div>
+			<div class="title" data-type="toggle" data-target="#s1-notice02">+ Directory Setup</div>
+			<div class="info" id="s1-notice02">
+				<b>Deployment Path:</b> <i><?php echo "{$GLOBALS['CURRENT_ROOT_PATH']}"; ?></i>
+				<br/><br/>
+				There are currently <?php echo "<b>[{$scancount}]</b>";?>  items in the deployment path. These items will be overwritten if they also exist
+				inside the archive file.  The notice is to prevent overwriting an existing site or trying to install on-top of one which
+				can have un-intended results. <i>This notice shows if it detects more than 40 items.</i>
+
+				<br/><br/>
+				<b>Options:</b>
+				<ul style="margin-bottom: 0">
+					<li>If the archive was already manually extracted then <a href="javascript:void(0)" onclick="DUPX.getManaualArchiveOpt()">[Enable Manual Archive Extraction]</a></li>
+					<li>If the files/directories are not the same as those in the archive then this notice can be ignored.</li>
+					<li>Remove the files if they are not needed and refresh this page.</li>
+				</ul>
+			</div>
+
+		<?php endif; ?>
+
+		<!-- NOTICE 3 -->
+		<div class="status <?php echo ($notice['03'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['03']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-notice03">+ Package Age</div>
+		<div class="info" id="s1-notice03">
+			<?php echo "The package is {$fulldays} day(s) old. Packages older than 120 days might be considered stale.  If you are comfortable with a package that that was created over "
+			. "four months ago please ignore this notice."; ?>
+		</div>
+
+        <!-- NOTICE 4
+		<div class="status <?php echo ($notice['04'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['04']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-notice04">+ Placeholder</div>
+		<div class="info" id="s1-notice04">
+		</div>-->
+
+		<!-- NOTICE 5 -->
+		<div class="status <?php echo ($notice['05'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['05']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-notice05">+ PHP Version 5.2</div>
+		<div class="info" id="s1-notice05">
+			<?php
+				$currentPHP = DUPX_Server::$php_version;
+				$cssStyle   = DUPX_Server::$php_version_53_plus	 ? 'color:green' : 'color:red';
+				echo "<b style='{$cssStyle}'>This server is currently running PHP version [{$currentPHP}]</b>.<br/>"
+				. "Duplicator allows PHP 5.2 to be used during install but does not officially support it.  If your using PHP 5.2 we strongly recommend NOT using it and having your "
+				. "host upgrade to a newer more stable, secure and widely supported version.  The <a href='http://php.net/eol.php' target='_blank'>end of life for PHP 5.2</a> "
+				. "was in January of 2011 and is not recommended for use.<br/><br/>";
+
+				echo "Many plugin and theme authors are no longer supporting PHP 5.2 and trying to use it can result in site wide problems and compatibility warnings and errors.  "
+				. "Please note if you continue with the install using PHP 5.2 the Duplicator support team will not be able to help with issues or troubleshooting your site.  "
+				. "If your server is running <b>PHP 5.3+</b> please feel free to reach out for help if you run into issues with your migration/install.";
+			?>
+		</div>
+
+		<!-- NOTICE 6 -->
+		<div class="status <?php echo ($notice['06'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['06']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-notice06">+ PHP Open Base</div>
+		<div class="info" id="s1-notice06">
+			<b>Open BaseDir:</b> <i><?php echo $notice['06'] == 'Good' ? "<i class='dupx-pass'>Disabled</i>" : "<i class='dupx-fail'>Enabled</i>"; ?></i>
+			<br/><br/>
+
+			If <a href="http://www.php.net/manual/en/ini.core.php#ini.open-basedir" target="_blank">open_basedir</a> is enabled and you're
+			having issues getting your site to install properly; please work with your host and follow these steps to prevent issues:
+			<ol style="margin:7px; line-height:19px">
+				<li>Disable the open_basedir setting in the php.ini file</li>
+				<li>If the host will not disable, then add the path below to the open_basedir setting in the php.ini<br/>
+					<i style="color:maroon">"<?php echo str_replace('\\', '/', dirname( __FILE__ )); ?>"</i>
+				</li>
+				<li>Save the settings and restart the web server</li>
+			</ol>
+			Note: This warning will still show if you choose option #2 and open_basedir is enabled, but should allow the installer to run properly.  Please work with your
+			hosting provider or server administrator to set this up correctly.
+		</div>
+
+		<!-- NOTICE 7 -->
+		<div class="status <?php echo ($notice['07'] == 'Good') ? 'pass' : 'fail' ?>"><?php echo $notice['07']; ?></div>
+		<div class="title" data-type="toggle" data-target="#s1-notice07">+ PHP Timeout</div>
+		<div class="info" id="s1-notice07">
+			<b>Archive Size:</b> <?php echo DUPX_U::readableByteSize($arcSize) ?>  <small>(detection limit is set at <?php echo DUPX_U::readableByteSize($max_time_size) ?>) </small><br/>
+			<b>PHP max_execution_time:</b> <?php echo "{$max_time_ini}"; ?> <small>(zero means no limit)</small> <br/>
+			<b>PHP set_time_limit:</b> <?php echo ($max_time_zero) ? '<i style="color:green">Success</i>' : '<i style="color:maroon">Failed</i>' ?>
+			<br/><br/>
+
+			The PHP <a href="http://php.net/manual/en/info.configuration.php#ini.max-execution-time" target="_blank">max_execution_time</a> setting is used to
+			determine how long a PHP process is allowed to run.  If the setting is too small and the archive file size is too large then PHP may not have enough
+			time to finish running before the process is killed causing a timeout.
+			<br/><br/>
+
+			Duplicator attempts to turn off the timeout by using the
+			<a href="http://php.net/manual/en/function.set-time-limit.php" target="_blank">set_time_limit</a> setting.   If this notice shows as a warning then it is
+			still safe to continue with the install.  However, if a timeout occurs then you will need to consider working with the max_execution_time setting or extracting the
+			archive file using the 'Manual package extraction' method.
+			Please see the	<a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=installer_timeout#faq-trouble-100-q" target="_blank">FAQ timeout</a> help link for more details.
+
+		</div>
+	</div>
+</div>
+<br/><br/>
+	
+
+<!-- ====================================
+OPTIONS
+==================================== -->
+<div class="hdr-sub1" data-type="toggle" data-target="#s1-area-adv-opts">
+	<a href="javascript:void(0)"><i class="dupx-plus-square"></i> Options</a>
+</div>
+<div id="s1-area-adv-opts" style="display:none">
+	<div class="help-target"><a href="?help#help-s1" target="_blank">[help]</a></div>
+	<br/>
+	<div class="hdr-sub3">Advanced</div>
+	<table class="dupx-opts dupx-advopts">
+		<tr>
+			<td>Extraction:</td>
+			<td>
+
+				<select id="archive_engine" name="archive_engine" size="2">
+					<option value="manual">Manual Archive Extraction</option>
+					<?php
+					//ZIP-ARCHIVE
+					echo (! $zip_archive_enabled)
+						? '<option disabled="true">PHP ZipArchive (not detected on server)</option>'
+						: '<option value="ziparchive" selected="true">PHP ZipArchive</option>';
+					?>
+				</select>
+			</td>
+		</tr>
+	</table>
+
+	<table class="dupx-opts dupx-advopts">
+		<tr>
+			<td>Config Files:</td>
+			<td>
+				<input type="checkbox" name="retain_config" id="retain_config" value="1" />
+				<label for="retain_config" style="font-weight: normal">Retain original .htaccess, .user.ini and web.config</label>
+			</td>
+		</tr>
+		<tr>
+			<td>File Times:</td>
+			<td>
+				<input type="radio" name="archive_filetime" id="archive_filetime_now" value="current" checked="checked" /> <label class="radio" for="archive_filetime_now" title='Set the files current date time to now'>Current</label>
+				<input type="radio" name="archive_filetime" id="archive_filetime_orginal" value="original" /> <label class="radio" for="archive_filetime_orginal" title="Keep the files date time the same">Original</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Logging:</td>
+			<td>
+				<input type="radio" name="logging" id="logging-light" value="1" checked="true"> <label for="logging-light">Light</label>
+				<input type="radio" name="logging" id="logging-detailed" value="2"> <label for="logging-detailed">Detailed</label>
+				<input type="radio" name="logging" id="logging-debug" value="3"> <label for="logging-debug">Debug</label>
+			</td>
+		</tr>
+	</table>
+     <br/><br/>
+
+     <!-- *** SETUP HELP *** -->
+     <div class="hdr-sub3">Setup Help</div>
+     <div id='s1-area-setup-help'>
+        <div style="padding:10px 0px 0px 10px;line-height:22px">
+			<table style='width:100%'>
+				<tr>
+					<td style="width:200px">
+						&raquo; Watch the <a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=installer_vid_tutor#faq-resource-070-q" target="_blank">video tutorials</a> <br/>
+						&raquo; Read helpful <a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=installer_help_art" target="_blank">articles</a> <br/>
+					</td>
+					<td>
+						 &raquo; Visit the <a href="https://snapcreek.com/duplicator/docs/quick-start/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_quickstart" target="_blank">quick start guides</a> <br/>
+						 &raquo; Browse the <a href="https://snapcreek.com/duplicator/docs/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=installer_online_docs" target="_blank">online docs</a> <br/>
+					</td>
+				</tr>
+			</table>
+        </div>
+     </div><br/>
+
+</div>
+<br/><br/>
+
+<!-- ====================================
+NOTICES
+==================================== -->
+<div id="dialog-server-notice" style="display:none">
+	<div id="s1-warning-msg">
+		<b>TERMS &amp; NOTICES</b> <br/><br/>
+
+		<b>Disclaimer:</b>
+		The Duplicator software and installer should be used at your own risk.  Users should always back up or have backups of your database and files before running this installer.
+		If you're not sure about how to use this tool then please enlist the guidance of a technical professional.  <u>Always</u> test this installer in a sandbox environment
+		before trying to deploy into a production environment.  Be sure that if anything happens during the install that you have a backup recovery plan in place.   By accepting
+		this agreement the users of this software do not hold liable Snapcreek LLC or any of its affiliates/members liable for any issues that might occur during use of this software.
+		<br/><br/>
+
+
+		<b>Database:</b>
+		Do not connect to an existing database unless you are 100% sure you want to remove all of it's data. Connecting to a database that already exists will permanently
+		DELETE all data in that database. This tool is designed to populate and fill a database with NEW data from a duplicated database using the SQL script in the
+		package name above.
+		<br/><br/>
+
+		<b>Setup:</b>
+		Only the archive and installer file should be in the install directory, unless you have manually extracted the package and checked the
+		'Manual Package Extraction' checkbox. All other files will be OVERWRITTEN during install.  Make sure you have full backups of all your databases and files
+		before continuing with an installation. Manual extraction requires that all contents in the package are extracted to the same directory as the installer file.
+		Manual extraction is only needed when your server does not support the ZipArchive extension.  Please see the online help for more details.
+		<br/><br/>
+
+		<b>After Install:</b> When you are done with the installation you must remove the these files/directories:
+		<ul>
+			<li>installer.php</li>
+			<li>installer-data.sql</li>
+			<li>installer-backup.php</li>
+			<li>installer-log.txt</li>
+			<li>database.sql</li>
+		</ul>
+
+		These files contain sensitive information and should not remain on a production system for system integrity and security protection.
+		<br/><br/>
+
+		<b>License Overview</b><br/>
+		Duplicator is licensed under the GPL v3 https://www.gnu.org/licenses/gpl-3.0.en.html including the following disclaimers and limitation of liability.
+		<br/><br/>
+
+		<b>Disclaimer of Warranty</b><br/>
+		THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+		PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+		FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME
+		THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+		<br/><br/>
+
+		<b>Limitation of Liability</b><br/>
+		IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS
+		PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE
+		PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO
+		OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+		<br/><br/>
+	</div>
+</div>
+
+<div id="s1-warning-check">
+	<input id="accept-warnings" name="accpet-warnings" type="checkbox" onclick="DUPX.acceptWarning()" />
+	<label for="accept-warnings">I have read and accept all <a href="javascript:void(0)" onclick="DUPX.showNotices()">terms &amp; notices</a> <small style="font-style:italic">(required to continue)</small></label><br/>
+</div>
+
+
+<?php if (! $req_success  ||  $all_arc == 'Fail') :?>
+	<div class="s1-err-msg">
+		<i>
+			This installation will not be able to proceed until the 'Archive' and 'Validation' sections pass. Please adjust your servers settings or contact your
+			server administrator, hosting provider or visit the resources below for additional help.
+		</i>
+		<div style="padding:10px">
+			&raquo; <a href="https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_validfail_techfaq" target="_blank">Technical FAQs</a> <br/>
+			&raquo; <a href="https://snapcreek.com/support/docs/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_validfail_onlinedocs" target="_blank">Online Documentation</a> <br/>
+		</div>
+	</div> <br/><br/>
+<?php else : ?>
+    <br/><br/><br/>
+    <br/><br/><br/>
+    <div class="dupx-footer-buttons">
+        <button id="s1-deploy-btn" type="button" class="default-btn" onclick="DUPX.runExtraction()" title="<?php echo $agree_msg; ?>"> Next </button>
+    </div>
+<?php endif; ?>
+
 </form>
+
 
 
 <!-- =========================================
 VIEW: STEP 1 - AJAX RESULT
-Auto Posts to view.step2.php  -->
-<form id='dup-step1-result-form' method="post" class="content-form" style="display:none">
-	<input type="hidden" name="action_step" value="2" />
-	<input type="hidden" name="package_name" value="<?php echo $zip_name ?>" />
-	<input type="hidden" name="logging" id="ajax-logging"  />	
-	<input type="hidden" name="dbhost" id="ajax-dbhost" />
-	<input type="hidden" name="dbport" id="ajax-dbport" />
-	<input type="hidden" name="dbuser" id="ajax-dbuser" />
-	<input type="hidden" name="dbpass" id="ajax-dbpass" />
-	<input type="hidden" name="dbname" id="ajax-dbname" />
-	<input type="hidden" name="json"   id="ajax-json" />
-	<input type="hidden" name="dbcharset" id="ajax-dbcharset" />
-	<input type="hidden" name="dbcollate" id="ajax-dbcollate" />
-	
-    <div class="dup-logfile-link"><a href="installer-log.txt" target="_blank">installer-log.txt</a></div>
+Auto Posts to view.step2.php
+========================================= -->
+<form id='s1-result-form' method="post" class="content-form" style="display:none">
+
+	 <div class="dupx-logfile-link"><a href="installer-log.txt" target="install_log">installer-log.txt</a></div>
 	<div class="hdr-main">
-		Step 1: Deploy Files &amp; Database
+        Step <span class="step">1</span> of 4: Deployment
 	</div>
-	    
+
+	<!--  POST PARAMS -->
+	<div class="dupx-debug">
+		<input type="hidden" name="action_step" value="2" />
+		<input type="hidden" name="archive_name" value="<?php echo $GLOBALS['FW_PACKAGE_NAME'] ?>" />
+		<input type="hidden" name="logging" id="ajax-logging"  />
+		<input type="hidden" name="retain_config" id="ajax-retain-config"  />
+		<input type="hidden" name="json"    id="ajax-json" />
+		<textarea id='ajax-json-debug' name='json_debug_view'></textarea>
+		<input type='submit' value='manual submit'>
+	</div>
+
 	<!--  PROGRESS BAR -->
 	<div id="progress-area">
 	    <div style="width:500px; margin:auto">
-		<h3>Processing Files &amp; Database Please Wait...</h3>
+		<h3>Running Deployment Processes Please Wait...</h3>
 		<div id="progress-bar"></div>
 		<i>This may take several minutes</i>
 	    </div>
 	</div>
-	    
+
 	<!--  AJAX SYSTEM ERROR -->
 	<div id="ajaxerr-area" style="display:none">
 	    <p>Please try again an issue has occurred.</p>
 	    <div style="padding: 0px 10px 10px 0px;">
-			<div id="ajaxerr-data">An unknown issue has occurred with the file and database setup process.  Please see the installer-log.txt file for more details.</div>
+			<div id="ajaxerr-data">An unknown issue has occurred with the file and database set up process.  Please see the installer-log.txt file for more details.</div>
 			<div style="text-align:center; margin:10px auto 0px auto">
-				<input type="button" onclick='Duplicator.hideErrorResult()' value="&laquo; Try Again" /><br/><br/>
-				<i style='font-size:11px'>See online help for more details at <a href='https://snapcreek.com/ticket' target='_blank'>snapcreek.com</a></i>
+				<input type="button" class="default-btn" onclick="DUPX.hideErrorResult()" value="&laquo; Try Again" /><br/><br/>
+				<i style='font-size:11px'>See online help for more details at <a href='https://snapcreek.com/ticket?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_ajaxerr_ticket' target='_blank'>snapcreek.com</a></i>
 			</div>
 	    </div>
 	</div>
 </form>
 
+<script>
+    DUPX.getManaualArchiveOpt = function ()
+    {
+        $("html, body").animate({scrollTop: $(document).height()}, 1500);
+        $("a[data-target='#s1-area-adv-opts']").find('i').removeClass('dupx-plus-square').addClass('dupx-minus-square');
+        $('#s1-area-adv-opts').show(1000);
+        $('select#archive_engine').val('manual').focus();
+    };
 
-<!-- =========================================
-PANEL: SERVER CHECKS  -->
-<div id="dup-step1-dialog" title="System Status" style="display:none">
-<div id="dup-step1-dialog-data" style="padding: 0px 10px 10px 10px;">
+	/** Performs Ajax post to extract files and create db
+	 * Timeout (10000000 = 166 minutes) */
+	DUPX.runExtraction = function()
+	{
+		var $form = $('#s1-input-form');
+
+		//1800000 = 30 minutes
+		//If the extraction takes longer than 30 minutes then user
+		//will probably want to do a manual extraction or even FTP
+		$.ajax({
+			type: "POST",
+			timeout:1800000,
+			dataType: "json",
+			url: window.location.href,
+			data: $form.serialize(),
+			beforeSend: function() {
+				DUPX.showProgressBar();
+				$form.hide();
+				$('#s1-result-form').show();
+			},			
+			success: function(data) {
+				var dataJSON = JSON.stringify(data);
+				$("#ajax-json-debug").val(dataJSON);
+                if (typeof(data) != 'undefined' && data.pass == 1) {
+					$("#ajax-logging").val($("input:radio[name=logging]:checked").val());
+					 $("#ajax-retain-config").val($("#retain_config").is(":checked") ? 1 : 0);
+					$("#ajax-json").val(escape(dataJSON));
+					<?php if (! $GLOBALS['DUPX_DEBUG']) : ?>
+						setTimeout(function() {$('#s1-result-form').submit();}, 500);
+					<?php endif; ?>
+					$('#progress-area').fadeOut(1000);
+				} else {
+					$('#ajaxerr-data').html('Error Processing Step 1');
+					DUPX.hideProgressBar();
+				}
+			},
+			error: function(xhr) {
+				var status  = "<b>Server Code:</b> "	+ xhr.status		+ "<br/>";
+					status += "<b>Status:</b> "			+ xhr.statusText	+ "<br/>";
+					status += "<b>Response:</b> "		+ xhr.responseText  + "";
+					status += "<hr/><b>Additional Troubleshooting Tips:</b><br/>";
+					status += "- Check the <a href='installer-log.txt' target='install_log'>installer-log.txt</a> file for warnings or errors.<br/>";
+					status += "- Check the web server and PHP error logs. <br/>";
+					status += "- For timeout issues visit the <a href='https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_ajaxextract_tofaq#faq-trouble-100-q' target='_blank'>Timeout FAQ Section</a><br/>";
+				$('#ajaxerr-data').html(status);
+				DUPX.hideProgressBar();
+			}
+		});	
+		
+	};
+
+	/** Accetps Useage Warning */
+	DUPX.acceptWarning = function()
+    {
+		if ($("#accept-warnings").is(':checked')) {
+            $("#s1-deploy-btn").removeAttr("disabled");
+			$("#s1-deploy-btn").removeAttr("title");
+        } else {
+            $("#s1-deploy-btn").attr("disabled", "true");
+			$("#s1-deploy-btn").attr("title", "<?php echo $agree_msg; ?>");
+        }
+	}
+
+	/** Server Terms Dialog*/
+	DUPX.showNotices = function()
+	{
+		modal({
+			type: 'alert',
+			title: 'Terms and Notices',
+			text: $('#dialog-server-notice').html()
+		});
+	}
+
+
+	/** Go back on AJAX result view */
+	DUPX.hideErrorResult = function()
+    {
+		$('#s1-result-form').hide();
+		$('#s1-input-form').show(200);
+	}
 	
-	<div style="font-size:12px">
-		<b>Archive Name:</b> <?php echo $zip_name; ?> <br/>
-		<b>Package Notes:</b> <?php echo empty($GLOBALS['FW_PACKAGE_NOTES']) ? 'No notes provided for this pakcage.' : $GLOBALS['FW_PACKAGE_NOTES']; ?>
-	</div>
-	<br/>
-	
-	<!-- SYSTEM REQUIREMENTS -->
-	<b>REQUIREMENTS</b> &nbsp; <i style='font-size:11px'>click links for details</i>
-	<hr size="1"/>
-	
-	<table style="width:100%">
-	<tr>
-		<td style="width:300px"><a href="javascript:void(0)" onclick="$('#dup-req-rootdir').toggle(200)">Root Directory</a></td>
-		<td class="<?php echo ($req01 == 'Pass') ? 'dup-pass' : 'dup-fail' ?>"><?php echo $req01; ?></td>
-	</tr>
-	<tr>
-		<td colspan="2" id="dup-req-rootdir" class='dup-step1-dialog-data-details'>
-		<?php
-		echo "<i>Path: {$GLOBALS['CURRENT_ROOT_PATH']} </i><br/>";
-		printf("<b>[%s]</b> %s <br/>", $req01a, "Is Writable by PHP");
-		printf("<b>[%s]</b> %s ", $req01b, "Contains only one zip file<div style='padding-left:70px'>Result = {$zip_name} <br/> <i>Note: Manual extraction still requires the archive.zip file</i> </div> ");
-		?>
-		</td>
-	</tr>
-	<tr>
-		<td><a href="javascript:void(0)" onclick="$('#dup-req-mysqli').toggle(200)">MySQLi Support</a></td>
-		<td class="<?php echo ($req03 == 'Pass') ? 'dup-pass' : 'dup-fail' ?>"><?php echo $req03; ?></td>
-	</tr>	
-	<tr>
-		<td colspan="2" id="dup-req-mysqli" class='dup-step1-dialog-data-details'>
-			The Duplicator needs the PHP mysqli extension installed to run properly.  This is a very common extension and can be easily installed by your
-			host or server administrator.  For more details see the <a href="http://us2.php.net/manual/en/mysqli.installation.php" target="_blank" >online overview</a>.
-		</td>
-	</tr>
-	<tr>
-		<td><a href="javascript:void(0)" onclick="$('#dup-req-safemode').toggle(200)">Safe Mode Off</a></td>
-		<td class="<?php echo ($req02 == 'Pass') ? 'dup-pass' : 'dup-fail' ?>"><?php echo $req02; ?></td>
-	</tr>
-	<tr>
-		<td colspan="2" id="dup-req-safemode" class='dup-step1-dialog-data-details'>
-			The Duplicator requires that PHP safe mode be turned off.  Safe mode is a very uncommon setting and can be easily turned off by your
-			host or server administrator.  For more details see the <a href="http://php.net/manual/en/features.safe-mode.php" target="_blank" >online overview</a>.
-		</td>
-	</tr>	
-	<tr>
-		<td valign="top"><a href="javascript:void(0)" onclick="$('#dup-req-phpver').toggle(200)">PHP Version</a> </td>
-		<td class="<?php echo ($req04 == 'Pass') ? 'dup-pass' : 'dup-fail' ?>"><?php echo $req04; ?> </td>
-	</tr>
-	<tr>
-		<td colspan="2" id="dup-req-phpver" class='dup-step1-dialog-data-details'>
-			This server is currently running PHP version: <b><?php echo phpversion(); ?></b>. The Duplicator requires a version of 5.2.9+ or better. 
-			To upgrade your PHP version contact your host or server administrator.  
-		</td>
-	</tr>		
-	</table>
-	<br/>
-
-	<!-- SYSTEM CHECKS -->
-	<b>CHECKS</b><hr  size="1"/>
-	<table style="width:100%">
-	<tr>
-		<td style="width:300px"></td>
-		<td></td>
-	</tr>
-	<tr>
-		<?php if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') !== false): ?>
-			<td><b>Web Server:</b> Apache</td>
-			<td><div class='dup-pass'>Good</div></td>
-		<?php elseif (stristr($_SERVER['SERVER_SOFTWARE'], 'LiteSpeed') !== false): ?> 
-			<td><b>Web Server:</b> LiteSpeed</td>
-			<td><div class='dup-ok'>OK</div></td>
-		<?php elseif (stristr($_SERVER['SERVER_SOFTWARE'], 'nginx') !== false): ?> 
-			<td><b>Web Server:</b> Nginx</td>
-			<td><div class='dup-ok'>OK</div></td>
-		<?php elseif (stristr($_SERVER['SERVER_SOFTWARE'], 'lighttpd') !== false): ?> 
-			<td><b>Web Server:</b> Lighthttpd</td>
-			<td><div class='dup-ok'>OK</div></td>
-		<?php elseif (stristr($_SERVER['SERVER_SOFTWARE'], 'iis') !== false): ?> 
-			<td><b>Web Server:</b> Microsoft IIS</td>
-			<td><div class='dup-ok'>OK</div></td>
-		<?php else: ?>
-			<td><b>Web Server:</b> Not detected</td>
-			<td><div class='dup-fail'>Caution</div></td>
-		<?php endif; ?>				
-	</tr>
-	<tr>
-		<?php
-			$open_basedir_set = ini_get("open_basedir");
-			if (empty($open_basedir_set)):
-		?>
-			<td><b>Open Base Dir:</b> Off
-			<td><div class='dup-pass'>Good</div>
-		<?php else: ?>
-			<td><b>Open Base Dir:</b> On</td>
-			<td><div class='dup-fail'>Caution</div></td>
-		<?php endif; ?>
-	</tr>
-	</table>
-
-	<hr class='dup-dots' />
-	<!-- SAPI -->
-	<b>PHP MAX MEMORY:</b> <?php echo @ini_get('memory_limit') ?><br/>
-	<b>PHP SAPI:</b>  <?php echo php_sapi_name(); ?><br/>
-	<b>PHP ZIP Archive:</b> <?php echo class_exists('ZipArchive') ? 'Is Installed' : 'Not Installed'; ?> <br/>
-	<b>CDN Accessible:</b> <?php echo ( DUPX_Util::is_url_active("ajax.aspnetcdn.com", 443) && DUPX_Util::is_url_active("ajax.googleapis.com", 443)) ? 'Yes' : 'No'; ?> 
-	<br/><br/>
-	Need an <a href='https://snapcreek.com/duplicator/docs/faqs-tech/#faq-resource-040-q' target='_blank'>approved</a> Duplicator hosting provider?
-
-</div>
-</div>
-
-
-
+	//DOCUMENT LOAD
+	$(document).ready(function()
+    {
+		DUPX.acceptWarning();
+        $("*[data-type='toggle']").click(DUPX.toggleClick);
+        <?php echo ($all_arc == 'Fail') 	? "$('#s1-area-archive-file-link').trigger('click');" 	: ""; ?>
+		<?php echo (! $all_success)         ? "$('#s1-area-sys-setup-link').trigger('click');"      : ""; ?>
+	})
+</script>

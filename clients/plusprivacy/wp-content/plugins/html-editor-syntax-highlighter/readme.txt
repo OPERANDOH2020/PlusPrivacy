@@ -1,42 +1,88 @@
 === HTML Editor Syntax Highlighter ===
-Contributors: nixdns, arniebradfo, rraub, collinprice,
+Contributors: nixdns, arniebradfo, rraub, collinprice
 Donate link: https://www.paypal.me/mukhortov/5
-Tags: editor, html editor, text editor, post editor, syntax, highlighting, highlighter, syntax highlighting, syntax highlighter, codemirror, code, code highlighter, code coloring
-Requires at least: 4.0.11
-Tested up to: 4.5.2
-Stable tag: 1.7.2
+Tags: syntax highlighter, codemirror, text editor, code highlighter, code coloring, editor, html editor, theme editor, plugin editor, syntax, highlighting, highlighter, syntax highlighting, codemirror.js, code,
+Requires at least: 4.0.15
+Tested up to: 4.8.1
+Stable tag: 2.2.2
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add syntax highlighting to the HTML editor using Codemirror.js
+Add syntax highlighting to the all WordPress code editors using Codemirror.js
 
 == Description ==
 
-Add syntax highlighting in the WordPress Post & Page HTML/text editor using Codemirror.js
+Add syntax highlighting in the WordPress Post & Page HTML text editor and the Theme & Plugin editors using Codemirror.js
 
 = Features =
 
 * Syntax highlighting in the Post/Page HTML editor
-* _NEW:_ Syntax highlighting for WordPress shortcodes
-* Save your posts and pages pressing Ctrl+S (Cmd+S on Mac)
+* _NEW:_ Syntax highlighting in the Theme & Plugin editors
+* Syntax highlighting for WordPress shortcodes
+* Save your posts and pages pressing `Ctrl+S` (`Cmd+S` on Mac)
 * Restore cursor position after page is reloaded
-* _NEW:_ Huge Selection of themes
+* Huge Selection of themes and other customization options
 * Fullscreen mode: toggle with F11/Esc hotkeys
-
-If you like the plugin, please [donate](https://www.paypal.me/mukhortov/5) and leave a review :)
 
 If you would like to contribute to this plugin, view the [github repo](https://github.com/mukhortov/HESH-WordPress-Plugin).
 
-== Installation ==
+== Frequently Asked Questions ==
 
-1. Upload the 'html-editor-syntax-highlighter' directory to the '/wp-content/plugins/' directory
-2. Activate the plugin on the 'Plugins' page
+= Does it work with Internet Explorer? =
+Not really... It is partially supported in IE 11. Known bugs are tracked [here](https://github.com/mukhortov/HESH-WordPress-Plugin/issues/41), but won't be fixed. Anything less that IE 10 isn't even supported by Microsoft anymore. If you are using Internet Explorer you should get a [better browser](https://www.mozilla.org/en-US/firefox/new/).
+
+= How do I use Fullscreen? =
+The fullscreen button on the top right of the editor will do one of two things depending on the _"Enable full-height editor and distraction-free functionality"_ setting in your _"Screen Options"_ (in the top right of the editor page):
+* On: Toggles the "distraction free mode".
+* Off: Toggles the "fullscreen mode".
+
+= Can I search? =
+Yes! Seach with `Ctrl+F` (`Cmd+F` on Mac). Replace with `Ctrl+alt+F` (`Cmd+alt+F` on Mac).
 
 == Changelog ==
 
+= 2.2.2 =
+* fixed bug: github updater in production issue #52
+* updated Codemirror to latest release version
+
+= 2.2.1 = 
+* fixed bug: editor was not stopping when switching between visual editor and text editor
+
+= 2.2.0 = 
+* added search & replace with dialog
+* added highlighing options
+* added auto-close tags and brackets option
+* added code-folding option
+* added scrollbars option
+* added keyMap options
+* added _Default_ and _None_ themes
+* fixed bug: made tab management agnostic to tab count and names - #50
+
+= 2.1.0 = 
+* added search
+* add highlighting for `<!--nextpage-->`
+* fixed bug: Theme and Plugin Editor not working
+
+= 2.0.1 =
+* fixed bug: esc key weirdness
+* fixed bug: don't steal editor focus from title on _'Add New Post'_
+* fixed bug: scrollbar appears in middle of text editor
+* fixed bug: toolbar can be too big
+
+= 2.0.0 =
+* now adjusts to the _'Enable full-height editor and distraction-free functionality'_ setting
+* syntax highlighting on Theme and Plugin Editor pages
+* fixed bug: native wp editor buttons work on content - no longer overwrites with emulating buttons
+* __Settings:__
+	* added an extendable settings panel
+	* saves settings to WordPress user profile
+	* added more text customization settings
+* basically rewrote the whole codebase
+
 = 1.7.2 =
-* fixed bug: code mirror not initializing properly when new user tries to edit post for the first time
-* fixed bug: CodeMirror no longer trying to load on "All Post" and "All Pages"
+* fixed bug: pre v5.4 php was causing an error - `func_that_returns_array()['index']` syntax is [not allowed](http://php.net/manual/en/language.types.array.php#example-105)
+* fixed bug: CodeMirror not initializing properly when new user tries to edit post for the first time
+* fixed bug: CodeMirror no longer trying to load on "All Posts" and "All Pages"
 * fixed bug: Font and theme were reset to default when switching to the visual editor and back
 
 = 1.7.1 =
@@ -160,8 +206,7 @@ Bug fix (thanks to collinprice):
 Initial release.
 
 
-
-
 == Screenshots ==
 1. Syntax highlighting in the Post/Page HTML editor.
-2. Syntax highlighting in the Post/Page HTML editor - full screen mode.
+2. Settings Panel.
+3. Syntax highlighting in the Theme/Plugin editor.

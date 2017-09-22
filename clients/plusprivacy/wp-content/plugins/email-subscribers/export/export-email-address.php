@@ -13,9 +13,21 @@ if ( !empty($_SERVER) && !empty($_GET) && !empty($_GET['es']) && $_GET['es'] == 
 	global $wpdb;
 	$option = isset($_REQUEST['option']) ? $_REQUEST['option'] : '';
 	switch ($option) {
-		case "view_subscriber":
+		case "view_all_subscribers":
 			$sSql = "SELECT es_email_mail as Email, es_email_name as Name, es_email_status as Status, es_email_created as Created,";
-			$sSql = $sSql . " es_email_group as Emailgroup from ". $wpdb->prefix . "es_emaillist WHERE es_email_status IN ( 'Confirmed', 'Single Opt In' ) ORDER BY es_email_mail";
+			$sSql = $sSql . " es_email_group as EmailGroup from ". $wpdb->prefix . "es_emaillist ORDER BY es_email_created";
+			$data = $wpdb->get_results($sSql);
+			es_cls_common::download($data, 's', '');
+			break;
+		case "view_active_subscribers":
+			$sSql = "SELECT es_email_mail as Email, es_email_name as Name, es_email_status as Status, es_email_created as Created,";
+			$sSql = $sSql . " es_email_group as EmailGroup from ". $wpdb->prefix . "es_emaillist WHERE es_email_status IN ( 'Confirmed', 'Single Opt In' ) ORDER BY es_email_created";
+			$data = $wpdb->get_results($sSql);
+			es_cls_common::download($data, 's', '');
+			break;
+		case "view_inactive_subscribers":
+			$sSql = "SELECT es_email_mail as Email, es_email_name as Name, es_email_status as Status, es_email_created as Created,";
+			$sSql = $sSql . " es_email_group as EmailGroup from ". $wpdb->prefix . "es_emaillist WHERE es_email_status IN ( 'Unconfirmed', 'Unsubscribed' ) ORDER BY es_email_created";
 			$data = $wpdb->get_results($sSql);
 			es_cls_common::download($data, 's', '');
 			break;

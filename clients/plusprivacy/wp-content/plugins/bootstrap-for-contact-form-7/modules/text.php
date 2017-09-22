@@ -7,11 +7,13 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_text' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text', 11 );
 
 function cf7bs_add_shortcode_text() {
-	wpcf7_add_shortcode( array(
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
+	$tags = array(
 		'text',
 		'text*',
 		'email',
@@ -20,11 +22,22 @@ function cf7bs_add_shortcode_text() {
 		'url*',
 		'tel',
 		'tel*',
-	), 'cf7bs_text_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		call_user_func( $remove_func, $tag );
+	}
+
+	$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? true : array(
+		'name-attr' => true,
+	);
+
+	call_user_func( $add_func, $tags, 'cf7bs_text_shortcode_handler', $features );
 }
 
 function cf7bs_text_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag_obj = new $classname( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';
@@ -121,10 +134,12 @@ function cf7bs_text_shortcode_handler( $tag ) {
 
 		$tag = cf7bs_text_to_count( $tag, $count_down );
 
+		$handler_func = function_exists( 'wpcf7_count_form_tag_handler' ) ? 'wpcf7_count_form_tag_handler' : 'wpcf7_count_shortcode_handler';
+
 		if ( ! empty( $$count_mode ) ) {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag ) . ' ' . $$count_mode;
+			$$count_mode = call_user_func( $handler_func, $tag ) . ' ' . $$count_mode;
 		} else {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag );
+			$$count_mode = call_user_func( $handler_func, $tag );
 		}
 	}
 
@@ -160,12 +175,15 @@ function cf7bs_text_shortcode_handler( $tag ) {
 }
 
 function cf7bs_text_to_count( $tag, $count_down = false ) {
-	$tag['type'] = 'count';
-	$tag['basetype'] = 'count';
-	$tag['options'] = array();
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+	$tag_obj = new $classname( $tag );
+
+	$tag_obj->type = 'count';
+	$tag_obj->basetype = 'count';
+	$tag_obj->options = array();
 
 	if ( $count_down ) {
-		$tag['options'][] = 'down';
+		$tag_obj->options[] = 'down';
 	}
 
 	return $tag;

@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 class es_cls_intermediate {
@@ -74,9 +74,6 @@ class es_cls_intermediate {
 		global $wpdb;
 		$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
 		switch($current_page) {
-			case 'add':
-				require_once(ES_DIR.'settings'.DIRECTORY_SEPARATOR.'settings-add.php');
-				break;
 			case 'sync':
 				require_once(ES_DIR.'settings'.DIRECTORY_SEPARATOR.'setting-sync.php');
 				break;
@@ -98,38 +95,6 @@ class es_cls_intermediate {
 				break;
 			default:
 				require_once(ES_DIR.'sentmail'.DIRECTORY_SEPARATOR.'sentmail-show.php');
-				break;
-		}
-	}
-
-	public static function es_roles() {
-		global $wpdb;
-		$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
-		switch($current_page) {
-			case 'add':
-				require_once(ES_DIR.'roles'.DIRECTORY_SEPARATOR.'roles-add.php');
-				break;
-			case 'edit':
-				require_once(ES_DIR.'roles'.DIRECTORY_SEPARATOR.'roles-edit.php');
-				break;
-			default:
-				require_once(ES_DIR.'roles'.DIRECTORY_SEPARATOR.'roles-add.php');
-				break;
-		}
-	}
-	
-	public static function es_cron() {
-		global $wpdb;
-		$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
-		switch($current_page) {
-			case 'add':
-				require_once(ES_DIR.'cron'.DIRECTORY_SEPARATOR.'cron-add.php');
-				break;
-			case 'edit':
-				require_once(ES_DIR.'cron'.DIRECTORY_SEPARATOR.'cron-edit.php');
-				break;
-			default:
-				require_once(ES_DIR.'cron'.DIRECTORY_SEPARATOR.'cron-add.php');
 				break;
 		}
 	}

@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 if ( !empty( $_POST ) && ! wp_verify_nonce( $_REQUEST['wp_create_nonce'], 'subscriber-nonce' ) ) {
@@ -13,8 +13,8 @@ $es_c_email_subscribers_ver = get_option('email-subscribers');
 if ( $es_c_email_subscribers_ver != "2.9" ) {
 	?><div class="error fade">
 		<p>
-			Note: You have recently upgraded the plugin and your tables are not sync. 
-			Please <a title="Sync plugin tables." href="<?php echo ES_ADMINURL; ?>?page=es-settings&amp;ac=sync"><?php echo __( 'Click Here', ES_TDOMAIN ); ?></a> to sync the table. 
+			Note: You have recently upgraded the plugin and your tables are not sync.
+			Please <a title="Sync plugin tables." href="<?php echo ES_ADMINURL; ?>?page=es-settings&amp;ac=sync"><?php echo __( 'Click Here', ES_TDOMAIN ); ?></a> to sync the table.
 			This is mandatory and it will not affect your data.
 		</p>
 	</div><?php
@@ -28,7 +28,7 @@ $search_count = isset($_POST['searchquery_cnt']) ? $_POST['searchquery_cnt'] : '
 if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
 	es_cls_security::es_check_number($did);
-	
+
 	$es_success = '';
 	$es_success_msg = FALSE;
 
@@ -36,7 +36,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 
 		//	Just security thingy that wordpress offers us
 		check_admin_referer('es_form_show');
-				
+
 		// First check if ID exist with requested ID
 		$result = es_cls_dbquery::es_view_subscriber_count($did);
 		if ($result != '1') {
@@ -50,7 +50,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 			if (isset($_GET['ac']) && $_GET['ac'] == 'del' && isset($_GET['did']) && $_GET['did'] != '') {
 				//	Delete selected record from the table
 				es_cls_dbquery::es_view_subscriber_delete($did);
-				
+
 				//	Set success message
 				$es_success_msg = TRUE;
 				$es_success = __( 'Record deleted.', ES_TDOMAIN );
@@ -58,9 +58,9 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 
 			if (isset($_GET['ac']) && $_GET['ac'] == 'resend' && isset($_GET['did']) && $_GET['did'] != '') {
 				$did = isset($_GET['did']) ? $_GET['did'] : '0';
-				$setting = array();
-				$setting = es_cls_settings::es_setting_select(1);
-				if( $setting['es_c_optinoption'] != "Double Opt In" ) {
+				$es_c_optinoption = get_option( 'ig_es_optintype' );
+
+				if( $es_c_optinoption != "Double Opt In" ) {
 					?>
 					<div class="error fade">
 						<p><strong>
@@ -78,12 +78,12 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 		}
 	} else {
 		check_admin_referer('es_form_show');
-		
+
 		if (isset($_POST['frm_es_bulkaction']) && $_POST['frm_es_bulkaction'] == 'delete') {
 
 			$chk_delete = isset($_POST['chk_delete']) ? $_POST['chk_delete'] : '';
 
-			if(!empty($chk_delete)) {			
+			if(!empty($chk_delete)) {
 				$count = count($chk_delete);
 				for($i=0; $i<$count; $i++) {
 					$del_id = $chk_delete[$i];
@@ -105,10 +105,10 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 		} elseif (isset($_POST['frm_es_bulkaction']) && $_POST['frm_es_bulkaction'] == 'resend') {
 
 			$chk_delete = isset($_POST['chk_delete']) ? $_POST['chk_delete'] : '';
-			
-			$setting = array();
-			$setting = es_cls_settings::es_setting_select(1);
-			if( $setting['es_c_optinoption'] != "Double Opt In" ) {
+
+			$es_c_optinoption = get_option( 'ig_es_optintype' );
+
+			if( $es_c_optinoption != "Double Opt In" ) {
 				?>
 				<div class="error fade">
 					<p><strong>
@@ -117,7 +117,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 				</div>
 				<?php
 			} else {
-				if(!empty($chk_delete)) {			
+				if(!empty($chk_delete)) {
 					$count = count($chk_delete);
 					$idlist = "";
 					for($i = 0; $i<$count; $i++) {
@@ -188,7 +188,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 				if (!empty($es_email_status)) {
 					$count = count($chk_delete);
 					$idstatus = "";
-					for ($i=0; $i < $count; $i++) { 
+					for ($i=0; $i < $count; $i++) {
 						$update_id = $chk_delete[$i];
 						if ($i < 1) {
 							$idstatus = $update_id;
@@ -222,7 +222,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 
 		}
 	}
-	
+
 	if ($es_success_msg == TRUE) {
 		?>
 		<div class="notice notice-success is-dismissible">
@@ -379,7 +379,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 					</tr>
 				</tfoot>
 				<tbody>
-					<?php 
+					<?php
 						$i = 0;
 						$displayisthere = FALSE;
 						if(count($myData) > 0) {
@@ -388,22 +388,22 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 							} else {
 								$i = $offset;
 							}
-							foreach ($myData as $data) {					
+							foreach ($myData as $data) {
 								?>
 								<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; } ?>">
 									<td align="left"><input name="chk_delete[]" id="chk_delete[]" type="checkbox" value="<?php echo $data['es_email_id'] ?>" /></td>
 									<td><?php echo $data['es_email_mail']; ?></td>
-									<td><?php echo stripslashes($data['es_email_name']); ?></td>     
+									<td><?php echo stripslashes($data['es_email_name']); ?></td>
 									<td><?php echo es_cls_common::es_disp_status($data['es_email_status']); ?></td>
 									<td><?php echo stripslashes($data['es_email_group']); ?></td>
 									<td><?php echo get_date_from_gmt($data['es_email_created'],'Y-m-d H:i:s'); ?></td>
 									<td>
-										<div> 
+										<div>
 											<span class="edit">
-												<a title="Edit" href="<?php echo ES_ADMINURL; ?>?page=es-view-subscribers&amp;ac=edit&amp;did=<?php echo $data['es_email_id']; ?>">
+												<a href="<?php echo ES_ADMINURL; ?>?page=es-view-subscribers&amp;ac=edit&amp;did=<?php echo $data['es_email_id']; ?>">
 													<?php echo __( 'Edit', ES_TDOMAIN ); ?>
 												</a> |
-											</span> 
+											</span>
 											<span class="trash">
 												<a onClick="javascript:_es_delete('<?php echo $data['es_email_id']; ?>')" href="javascript:void(0);">
 													<?php echo __( 'Delete', ES_TDOMAIN ); ?>
@@ -412,11 +412,11 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 											<?php
 											if($data['es_email_status'] != "Confirmed" && $data['es_email_status'] != "Single Opt In" ) {
 												?>
-												<span class="edit"> 
+												<span class="edit">
 													| <a onClick="javascript:_es_resend('<?php echo $data['es_email_id']; ?>')" href="javascript:void(0);">
 													<?php echo __( 'Resend Confirmation', ES_TDOMAIN ); ?>
 													</a>
-												</span> 
+												</span>
 												<?php
 											}
 											?>
@@ -425,13 +425,13 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 								</tr>
 								<?php
 								$i = $i+1;
-							} 
+							}
 						} else {
 							?>
 							<tr>
 								<td colspan="7" align="center"><?php echo __( 'No records available.', ES_TDOMAIN ); ?></td>
 							</tr>
-							<?php 
+							<?php
 						}
 						?>
 				</tbody>
@@ -446,6 +446,4 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 			<input type="hidden" name="wp_create_nonce" id="wp_create_nonce" value="<?php echo $nonce; ?>"/>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

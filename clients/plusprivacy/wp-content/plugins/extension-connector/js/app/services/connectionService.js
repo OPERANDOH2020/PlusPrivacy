@@ -1,8 +1,8 @@
-//var SERVER_HOST = "localhost";
-var SERVER_HOST = "plusprivacy.com";
+var SERVER_HOST = "localhost";
+//var SERVER_HOST = "plusprivacy.com";
 var SERVER_PORT = "8080";
-//var SERVER_PROTOCOL = "http";
-var SERVER_PROTOCOL = "https"
+var SERVER_PROTOCOL = "http";
+//var SERVER_PROTOCOL = "https";
 var GUEST_EMAIL = "guest@operando.eu";
 var GUEST_PASSWORD = "guest";
 
@@ -283,14 +283,16 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
 
 
         ConnectionService.prototype.sendUninstallEvent = function (deviceId) {
-            var req = {
+
+            $http.post(SERVER_PROTOCOL + "://" + SERVER_HOST + ":" + SERVER_PORT +"/uninstalledApplication/"+deviceId,{});
+            /*var req = {
                 method:"POST",
                 url: SERVER_PROTOCOL + "://" + SERVER_HOST + ":" + SERVER_PORT +"/uninstalledApplication/"+deviceId,
                 data:{}
             };
             $http(req).then(function(response){
                 console.log(response);
-            })
+            })*/
         };
 
         return ConnectionService;

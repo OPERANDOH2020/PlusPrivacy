@@ -12,15 +12,13 @@ function wpcf7_add_form_tag_submit() {
 }
 
 function wpcf7_submit_form_tag_handler( $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
-
 	$class = wpcf7_form_controls_class( $tag->type );
 
 	$atts = array();
 
 	$atts['class'] = $tag->get_class_option( $class );
 	$atts['id'] = $tag->get_id_option();
-	$atts['tabindex'] = $tag->get_option( 'tabindex', 'int', true );
+	$atts['tabindex'] = $tag->get_option( 'tabindex', 'signed_int', true );
 
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
@@ -54,7 +52,7 @@ function wpcf7_tag_generator_submit( $contact_form, $args = '' ) {
 
 	$description = __( "Generate a form-tag for a submit button. For more details, see %s.", 'contact-form-7' );
 
-	$desc_link = wpcf7_link( __( 'http://contactform7.com/submit-button/', 'contact-form-7' ), __( 'Submit Button', 'contact-form-7' ) );
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/submit-button/', 'contact-form-7' ), __( 'Submit Button', 'contact-form-7' ) );
 
 ?>
 <div class="control-box">

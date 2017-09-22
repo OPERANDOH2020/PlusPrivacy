@@ -97,34 +97,77 @@ function cf7bs_enqueue_styles() {
 add_action( 'wpcf7_enqueue_styles', 'cf7bs_enqueue_styles' );
 
 function cf7bs_inline_styles() {
+	$url = function_exists( 'wpcf7_plugin_url' ) ? wpcf7_plugin_url() : WPCF7_PLUGIN_URL;
+	$url = untrailingslashit( $url );
+
 	?>
 	<style type="text/css">
 		div.wpcf7 .screen-reader-response {
-			display: none;
+			position: absolute;
+			overflow: hidden;
+			clip: rect(1px, 1px, 1px, 1px);
+			height: 1px;
+			width: 1px;
+			margin: 0;
+			padding: 0;
+			border: 0;
 		}
-		div.wpcf7 img.ajax-loader {
-			border: none;
-			vertical-align: middle;
-			margin-left: 4px;
-		}
+
 		div.wpcf7 .form-inline img.ajax-loader {
 			display: inline;
 		}
+
+		div.wpcf7 .ajax-loader {
+			visibility: hidden;
+			display: inline-block;
+			background-image: url('<?php echo $url . '/images/ajax-loader.gif'; ?>');
+			width: 16px;
+			height: 16px;
+			border: none;
+			padding: 0;
+			margin: 0 0 0 4px;
+			vertical-align: middle;
+		}
+
+		div.wpcf7 .ajax-loader.is-active {
+			visibility: visible;
+		}
+
 		div.wpcf7 div.ajax-error {
 			display: none;
 		}
+
 		div.wpcf7 .wpcf7-display-none {
 			display: none;
 		}
+
+		div.wpcf7 .placeheld {
+			color: #888;
+		}
+
+		div.wpcf7 .wpcf7-recaptcha iframe {
+			margin-bottom: 0;
+		}
+
+		div.wpcf7 input[type="file"] {
+			cursor: pointer;
+		}
+
+		div.wpcf7 input[type="file"]:disabled {
+			cursor: default;
+		}
+
 		div.wpcf7 .form-inline .form-group {
 			max-width: 250px;
 		}
+
 		div.wpcf7 .input-group-addon img {
 			height: 100%;
 			width: auto;
 			max-width: none !important;
 			border-radius: 5px;
 		}
+
 		div.wpcf7 .input-group-addon.input-group-has-image {
 			padding: 0;
 		}
@@ -276,3 +319,22 @@ function cf7bs_editor_panels( $panels ) {
 	return $panels;
 }
 add_filter( 'wpcf7_editor_panels', 'cf7bs_editor_panels' );
+
+function cf7bs_adjust_rest_feedback_response( $response, $result ) {
+	if ( 'validation_failed' == $result['status'] ) {
+		$invalid_fields = array();
+
+		foreach ( (array) $result['invalid_fields'] as $name => $field ) {
+			$invalid_fields[] = array(
+				'into' => '.form-group.' . sanitize_html_class( $name ),
+				'message' => $field['reason'],
+				'idref' => $field['idref'],
+			);
+		}
+
+		$response['invalidFields'] = $invalid_fields;
+	}
+
+	return $response;
+}
+add_filter( 'wpcf7_ajax_json_echo', 'cf7bs_adjust_rest_feedback_response', 10, 2 );

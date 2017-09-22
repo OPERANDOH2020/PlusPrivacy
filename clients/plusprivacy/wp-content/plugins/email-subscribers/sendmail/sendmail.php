@@ -56,7 +56,7 @@ if ($sendmailsubmit == 'yes') {
 	if ($es_error_found == FALSE) {
 		es_cls_sendmail::es_prepare_newsletter_manual( $es_templ_heading, $es_sent_type, $es_email_group );
 		$es_success_msg = TRUE;
-		$es_success = __( 'Mail sent successfully. ', ES_TDOMAIN );
+		$es_success = __( 'Email sent successfully. ', ES_TDOMAIN );
 		if ($es_success_msg == TRUE) {
 			?><div class="notice notice-success is-dismissible">
 				<p><strong>
@@ -198,6 +198,4 @@ if ($es_error_found == TRUE && isset($es_errors[0]) == TRUE) {
 		<?php wp_nonce_field('es_form_submit'); ?>
 		<input type="button" class="button-primary" onclick="_es_redirect()" value="<?php echo __( 'Reset', ES_TDOMAIN ); ?>" />
 	</form>
-	<div style="padding-top:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

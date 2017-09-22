@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 if( (isset($_GET['es'])) && ($_GET['es'] == "subscribe") ) {
@@ -45,22 +45,24 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "subscribe") ) {
 				$form['es_email_mail'] = $es_email;
 				$form['es_email_group'] = $es_group;
 
-				$data = es_cls_settings::es_setting_select(1);
-				if( $data['es_c_optinoption'] == "Double Opt In" ) {
+				$es_optintype = get_option( 'ig_es_optintype' );
+
+				if( $es_optintype == "Double Opt In" ) {
 					$form['es_email_status'] = "Unconfirmed";
 				} else {
 					$form['es_email_status'] = "Single Opt In";
 				}
 
 				$action = es_cls_dbquery::es_view_subscriber_widget($form);
-				if($action == "sus") {
+				if( $action == "sus" ) {
 					$subscribers = array();
 					$subscribers = es_cls_dbquery::es_view_subscriber_one($es_email,$es_group);
-					if( $data['es_c_optinoption'] == "Double Opt In" ) {
+					if( $es_optintype == "Double Opt In" ) {
 						es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, "optin", 0);
 						echo "subscribed-pending-doubleoptin";
 					} else {
-						if ( $data['es_c_usermailoption'] == "YES" ) {
+						$es_c_usermailoption = get_option( 'ig_es_welcomeemail' );
+						if ( $es_c_usermailoption == "YES" ) {
 							es_cls_sendmail::es_sendmail("welcome", $template = 0, $subscribers, "welcome", 0);
 						}
 						echo "subscribed-successfully";

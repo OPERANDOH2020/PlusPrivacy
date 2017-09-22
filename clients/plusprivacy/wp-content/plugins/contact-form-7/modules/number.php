@@ -11,12 +11,10 @@ add_action( 'wpcf7_init', 'wpcf7_add_form_tag_number' );
 
 function wpcf7_add_form_tag_number() {
 	wpcf7_add_form_tag( array( 'number', 'number*', 'range', 'range*' ),
-		'wpcf7_number_form_tag_handler', true );
+		'wpcf7_number_form_tag_handler', array( 'name-attr' => true ) );
 }
 
 function wpcf7_number_form_tag_handler( $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
-
 	if ( empty( $tag->name ) ) {
 		return '';
 	}
@@ -35,7 +33,7 @@ function wpcf7_number_form_tag_handler( $tag ) {
 
 	$atts['class'] = $tag->get_class_option( $class );
 	$atts['id'] = $tag->get_id_option();
-	$atts['tabindex'] = $tag->get_option( 'tabindex', 'int', true );
+	$atts['tabindex'] = $tag->get_option( 'tabindex', 'signed_int', true );
 	$atts['min'] = $tag->get_option( 'min', 'signed_int', true );
 	$atts['max'] = $tag->get_option( 'max', 'signed_int', true );
 	$atts['step'] = $tag->get_option( 'step', 'int', true );
@@ -89,8 +87,6 @@ add_filter( 'wpcf7_validate_range', 'wpcf7_number_validation_filter', 10, 2 );
 add_filter( 'wpcf7_validate_range*', 'wpcf7_number_validation_filter', 10, 2 );
 
 function wpcf7_number_validation_filter( $result, $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
-
 	$name = $tag->name;
 
 	$value = isset( $_POST[$name] )
@@ -133,7 +129,8 @@ function wpcf7_number_messages( $messages ) {
 		'number_too_large' => array(
 			'description' => __( "Number is larger than maximum limit", 'contact-form-7' ),
 			'default' => __( "The number is larger than the maximum allowed.", 'contact-form-7' )
-		) ) );
+		),
+	) );
 }
 
 
@@ -153,7 +150,7 @@ function wpcf7_tag_generator_number( $contact_form, $args = '' ) {
 
 	$description = __( "Generate a form-tag for a field for numeric value input. For more details, see %s.", 'contact-form-7' );
 
-	$desc_link = wpcf7_link( __( 'http://contactform7.com/number-fields/', 'contact-form-7' ), __( 'Number Fields', 'contact-form-7' ) );
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/number-fields/', 'contact-form-7' ), __( 'Number Fields', 'contact-form-7' ) );
 
 ?>
 <div class="control-box">

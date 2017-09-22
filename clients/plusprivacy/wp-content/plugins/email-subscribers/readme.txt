@@ -1,11 +1,11 @@
 === Email Subscribers & Newsletters ===
-Contributors: icegram, storeapps, niravmehta, Mansi Shah, akash123dhawade, ravioza
+Contributors: icegram, storeapps, niravmehta, Mansi Shah, akash123dhawade, ravioza, sandhyam, Tarun.Parswani
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPTHCDC382KVA
-Author URI: http://www.icegram.com/
+Author URI: https://www.icegram.com/
 Tags: email marketing, email newsletter form, email signup, email widget, newsletter, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
 Requires at least: 3.4
-Tested up to: 4.7.4
-Stable tag: 3.2.10
+Tested up to: 4.8.1
+Stable tag: 3.3.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.htmlss
 
@@ -18,21 +18,21 @@ Email Subscribers is a complete newsletter plugin which lets you **collect leads
 > This works very well indeed... It **does all the necessary things for a newsletter/email list(s)**... **It is simple, clean, easy to engage, and looks good**... I was also easily able to do some styling on the input forms by adding its widget css into my child's style.css file and add and/or change some properties and values... Thanks much for making this available and staying on top of it... :-)
 > - [crzyhrse](https://wordpress.org/support/topic/very-well-indeed)
 
-### Perfect Plugin for All your Newsletter Needs
+**Perfect Plugin for All your Newsletter Needs**
 
 Email Subscribers is a fully featured subscription plugin specially created keeping in mind all the needs and requirements of a **regular blogger, website owner, marketer and developers**. It helps you achieve all the things you need to build a list and keep them engaged within a single plugin.
 
 **Easily Collect Leads On Your Website** : Insert a neat looking subscription anywhere on your website. This subscription box is beautifully designed and grabs audiences attention instantly.
 
-**Send Automated Updates when a Post is published** : Save on time by automating the process of sending emails each time a blog post is published. 
+**Send Automated Updates when a Post is published** : Save on time by automating the process of sending emails each time a blog post is published.
 
 **Quickly Create, Schedule and Send Newsletters** : Create beautiful newsletters using the HTML editor and send them to your subscribers either manually or via cron.
 
-> **Complete Plugin. Configured within 5 minutes. Works 100%** - 
-I am very satisfied with this easy and complete plugin/widget. In 5 minutes or less I configured it and is working 100%. I had to delete what I was using from jetpack because it just stop working and I could not figured out why. So this one seems to be the right for me. Thanks 
+> **Complete Plugin. Configured within 5 minutes. Works 100%** -
+I am very satisfied with this easy and complete plugin/widget. In 5 minutes or less I configured it and is working 100%. I had to delete what I was using from jetpack because it just stop working and I could not figured out why. So this one seems to be the right for me. Thanks
 > - [Vsoraya](https://wordpress.org/support/topic/perfect-and-easy-9/)
 
-### Complete Feature List of Email Subscribers
+**Complete Feature List of Email Subscribers**
 
 * Send **notification emails** to subscribers when new posts are published.
 * Option to **schedule mail (Cron job option)** or **send them manually**.
@@ -48,13 +48,13 @@ I am very satisfied with this easy and complete plugin/widget. In 5 minutes or l
 * Support **localization or internationalization**.
 * **Include/exclude categories** while sending a newsletter.
 * **Ability to control user access** (Roles and Capabilities).
-* Easy **Integration with [Icegram](https://wordpress.org/plugins/icegram/) and [Rainmaker](https://wordpress.org/plugins/icegram-rainmaker/)** plugin
+* Easy **Integration with free plugins [Icegram](https://wordpress.org/plugins/icegram/) and [Rainmaker](https://wordpress.org/plugins/icegram-rainmaker/)**
 
-> **Best Email Subscriber Plugin!!** - 
+> **Best Email Subscriber Plugin!!** -
 > I have tried quite a few subscribe by email type plugins and this by far blows them all out of the water. Beautiful emails and and great backend design for the admin. This works so nice and works well with SMTP solutions
 > - [Mike Price](https://wordpress.org/support/topic/best-email-subscriber-plugin/)
 
-### Start Collecting Leads Anywhere on Your Website
+**Start Collecting Leads Anywhere on Your Website**
 
 Email subscribers lets you collect leads from anyplace on your website. You can either directly insert the subscription form as a shortcode, show it as a widget or simple add it to your site’s theme using php.
 
@@ -64,81 +64,82 @@ Email subscribers lets you collect leads from anyplace on your website. You can 
 
 *   **Widget option**
 
-Go to Dashboard->Appearance->Widgets. Drag and drop the Email Subscribers widget to your sidebar location.
+Go to Appearance -> Widgets. Drag and drop the Email Subscribers widget to your desired location.
 
 *   **Add directly in the theme**
 
-`<?php es_subbox( $namefield = "YES", $desc = "", $group = "" ); ?>`
+Add following line of PHP code directly in your theme :
+`es_subbox( $namefield = "YES", $desc = "", $group = "" );`
 
-> **Great Plugin** - 
+> **Great Plugin** -
 > Works as expected. Great way to build an email list on your own site. It allows my clients to manage their own lists via login. I love the automatic notifications to subscribers when new posts are created. Looking forward to a “premium” paid version that includes email templates.
 > - [jj9617](https://wordpress.org/support/topic/great-plugin-10646/)
 
-### Send Automated Mails as soon as a New Blog Post is Published
+**Send Automated Emails as soon as a New Blog Post is Published**
 
 As soon as you publish a new blogpost, email subscribers will automatically send the people on your list a notification, informing them about the new blogpost.
 
-> **Great product and support** - 
+> **Great product and support** -
 > I highly recommend this product. It does everything it says it will do, is easily adaptable to your website, and Mansi’s level of support is fantastic. Unlike some of the other similar plugins, this one gives you total control over who requests to subscribe to your newsletter or blog.
 > - [ForPm](https://wordpress.org/support/topic/great-product-and-support-11/)
 
-### It’s a One-time Setup
+**It’s a One-time Setup**
 
 Once you setup a ‘New blogpost’ notification mail, you won’t have to look at it ever again. Email Subscribers will detect everytime a new blog article is published on your website and then send an notification email to your list informing them about the article.
 
-> **Easy to use but super powerfull** - 
+> **Easy to use but super powerfull** -
 > **Easy to configure, tweak and manage**. And works like a charm
 > - [Aleksander](https://wordpress.org/support/topic/easy-to-use-but-super-powerfull/)
 
-### Create Beautiful Newsletters Within Minutes
+**Create Beautiful Newsletters Within Minutes**
 
 Email subscribers has a HTML editor which lets you create elegant newsletter, emails and send them to your subscribers. You can add images, infographics, links, content etc and make your newsletters engaging for your subscribers.
 
-> **Impressive and simple** - 
+> **Impressive and simple** -
 > Found this plugin, most impressed, simple to set up, easy to use and the support is overwhelming
 > - [Closeburn](https://wordpress.org/support/topic/impressive-and-simple/)
 
-### Send/Schedule Emails either Automatically or Manually
+**Send/Schedule Emails either Automatically or Manually**
 
 Using Email subscribers you can either choose to send the newsletters/ emails manually or schedule them using a cron job.
 
-### Detailed Documentation
+**Detailed Documentation**
 
-Email subscribers has a vast, well documented series of article that can help you understand each feature in detail. Please go ahead and read it incase of any questions : [Email Subscribers Documentation](http://www.icegram.com/knowledgebase_category/email-subscribers).
+Email subscribers has a vast, well documented series of article that can help you understand each feature in detail. Please go ahead and read it incase of any questions : [Email Subscribers Documentation](https://www.icegram.com/knowledgebase_category/email-subscribers).
 
-> **Hitman of email subscribing** - 
+> **Hitman of email subscribing** -
 > the best plugin for getting subscribers.Combine it with any popup and you don’t need anything else.the help (FAQ) section is really detailed.
 > - [DrowsyReader](https://wordpress.org/support/topic/hitman-of-email-subscribing/)
 
-### Friendly Approachable Support
+**Friendly Approachable Support**
 
 Don’t believe it? Have a look at the review section. The support guys are friendly and ever willing to assist you with whatever be your query. Feel free to contact them with both pre-sales, after-sales questions.
 
-> **Lightning support** - 
+> **Lightning support** -
 > Had 3 questions about the plugin, got extensive support with each one. Continue doing what you’re doing! Thanks a lot! 5/5
 > - [DomLaurin](https://wordpress.org/support/topic/lightning-support/)
 
-### Get more benefits by using these free plugins
+**Get more benefits by using Email Subscribers with these free plugins**
 
-**Use Email Subscribers with it's Free Addon - Email Subscribers - Group Selector**
+**Email Subscribers - Group Selector**
 
-[Email Subscribers - Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/) will extend Email Subscribers Form functionality by providing an grouping option right next to the form. The user can then subscribe to whichever group most appeals to him. 
+[Email Subscribers - Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/) will extend Email Subscribers Form functionality by providing an grouping option right next to the form. The user can then subscribe to whichever group most appeals to him.
 
 For example: Subscribe either to pop music or to rock music.
 
-**Get more form styles using the Free Addon Rainmaker**
+**Get more form styles by using Rainmaker**
 
-Email subscribers easily integrates with another light weight plugin called [Rainmaker](https://wordpress.org/plugins/icegram-rainmaker/stats/). This plugin provides you **multiple, beautiful form design templates**. It also **lets you redirect the user to another url as soon as they subscribe to your form**.
+Email subscribers easily integrates with another light weight plugin called [Rainmaker](https://wordpress.org/plugins/icegram-rainmaker/). This plugin provides you **multiple, beautiful form design templates**. It also **lets you redirect the user to another url as soon as they subscribe to your form**.
 
-Using Rainmaker, you can extend the core features of Email subscribers making the forms even more useful and templates even more elegant.
+Using Rainmaker, you can extend the core features of Email Subscribers making the forms even more useful and styles even more elegant.
 
-### Help Fellow WordPressers by Writing a Review
+**Help Fellow WordPressers by Writing a Review**
 
 If you like Email Subscribers, please leave a [5 star](https://wordpress.org/support/view/plugin-reviews/email-subscribers?filter=5#postform) review on WordPress. That helps fellow website owners access Email Subscribers easily and benefit from it!
 
-### Translators
+**Translators**
 
-**Translations inside plugin**
+Translations inside plugin :
 
 * Catalan (ca) - Jordi Jorda
 * Czech (cs_CZ) - Martin & Tomas
@@ -147,22 +148,33 @@ If you like Email Subscribers, please leave a [5 star](https://wordpress.org/sup
 * French (fr_FR) - [Serge](https://profiles.wordpress.org/kalyx)
 * Hungarian (hu_HU) - Zsolt Edelényi
 * Lithuanian (lt_LT) - Andrius
+* Norwegian (nb_NO) - Helge Rosseboe
 * Polish (pl_PL) - Witold
 * Swedish (sv_SE) - Rune Svennelid
 * Turkish (tr_TR) - [Erkan ORUÇ](http://designerkan.com/)
 
-**Translations on [translate.wordpress.org](https://translate.wordpress.org/)**
+Translations on [translate.wordpress.org](https://translate.wordpress.org/) :
 
+* Dutch Nederlands - [Erwin](https://profiles.wordpress.org/erwindouwes/) , [mesan00](https://profiles.wordpress.org/mesan00) ([nl_NL](https://translate.wordpress.org/locale/nl/default/wp-plugins/email-subscribers))
 * Czech - Martin & Tomas ([cs_CZ](https://translate.wordpress.org/locale/cs/default/wp-plugins/email-subscribers))
 * Italian - [daepa](https://profiles.wordpress.org/daepa/) ([it_IT](https://translate.wordpress.org/locale/it/default/wp-plugins/email-subscribers))
 * Lithuanian - [kubandrius](https://profiles.wordpress.org/kubandrius/) ([lt_LT](https://translate.wordpress.org/locale/lt/default/wp-plugins/email-subscribers))
-* Dutch Nederlands - [Erwin](https://profiles.wordpress.org/erwindouwes/) ([nl_NL](https://translate.wordpress.org/locale/nl/default/wp-plugins/email-subscribers))
+
+You too can contribute to translations and make it 100% complete. Contribute from here - [Translate Email Subscribers into your language](https://translate.wordpress.org/projects/wp-plugins/email-subscribers)
+
+**Some of our other free plugins on WordPress.org**
+
+1. [Icegram](https://wordpress.org/plugins/icegram/) - Popups, Welcome Bar, Optins and Lead Generation Plugin
+2. [Rainmaker](https://wordpress.org/plugins/icegram-rainmaker/) - Best Forms Plugin on WordPress
+3. [Email Subscribers – Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/)
+4. [News Announcement Scroll](https://wordpress.org/plugins/news-announcement-scroll/)
+5. [Temporary Login Without Password](https://wordpress.org/plugins/temporary-login-without-password/)
 
 == Installation ==
 
 Option 1:
 
-1. Go to WordPress Dashboard->Plugins->Add New
+1. Go to WordPress Dashboard. Locate Plugins -> Add New
 2. Search Email Subscribers plugin using search option
 3. Find the plugin and click Install Now button
 4. After installation, click on Activate Plugin link to activate the plugin.
@@ -170,15 +182,7 @@ Option 1:
 Option 2:
 
 1. Download the plugin email-subscribers.zip
-2. Unpack the email-subscribers.zip file and extract the email-subscribers folder
-3. Upload the plugin folder to your /wp-content/plugins/ directory
-4. Go to WordPress dashboard, click on Plugins from the menu
-5. Locate the Email Subscribers plugin and click on Activate link to activate the plugin.
-
-Option 3:
-
-1. Download the plugin email-subscribers.zip
-2. Go to WordPress Dashboard->Plugins->Add New
+2. Go to WordPress Dashboard. Locate Plugins -> Add New
 3. Click on Upload Plugin link from top
 4. Upload the downloaded email-subscribers.zip file and click on Install Now
 5. After installation, click on Activate Plugin link to activate the plugin.
@@ -187,127 +191,220 @@ Option 3:
 
 = 1. How to install and activate Email Subscribers on multisite installation? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-install-and-activate-plugin-single-multisite/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-install-and-activate-plugin-single-multisite/).
 
 = 2. How to add subscription box to your website? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-add-subscription-box-to-website/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-add-subscription-box-to-website/).
 
-= 3. How to Import and export email address? =
+= 3. How to modify the existing emails like emails like Confirmation, Welcome, Admin emails and Cron Settings and Assign User Roles? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-import-or-export-email-address-to-subscriber-list/).
+Refer [here](https://www.icegram.com/documentation/es-general-plugin-settings/).
 
-= 4. How to modify the existing email content like Confirmation email, Welcome email, Admin emails? =
+= 4. How to Import and export email address? =
 
-Refer [here](http://www.icegram.com/documentation/es-general-plugin-settings/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-import-or-export-email-address-to-subscriber-list/).
 
 = 5. How to change/update/translate any strings from the plugin? =
 
-Refer steps from [here](http://www.icegram.com/documentation/es-how-to-change-update-translate-any-texts-from-email-subscribers/).
+Refer steps from [here](https://www.icegram.com/documentation/es-how-to-change-update-translate-any-texts-from-email-subscribers/).
 
 = 6. How to add unsubscribe link in emails? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-add-unsubscribe-link-in-emails/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-add-unsubscribe-link-in-emails/).
 
-= 7. What are Static Templates and Dynamic Templates? =
+= 7. How to Compose and Send Newsletter Emails =
 
-Refer [here](http://www.icegram.com/documentation/es-what-are-static-templates-and-dynamic-templates/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-compose-and-send-static-newsletter-mails/).
 
-= 8. How to Compose and Send Newsletter Emails =
+= 8. How to Configure and Send Post Notification emails to subscribers when new posts are published? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-compose-and-send-static-newsletter-mails/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-configure-and-send-notification-emails-to-subscribers-when-new-posts-are-published/).
 
-= 9. How to Configure and Send Post Notification emails to subscribers when new posts are published? =
+= 9. What are the available keywords in the Post Notifications? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-configure-and-send-notification-emails-to-subscribers-when-new-posts-are-published/).
+Refer [here](https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-post-notifications/).
 
-= 10. How to Send a sample new post notification email to testgroup/myself? =
+= 10. How to send a sample new post notification email to testgroup/myself? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-send-a-sample-new-post-notification-email-to-testgroup-myself/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-send-a-sample-new-post-notification-email-to-testgroup-myself/).
 
-= 11. How to check Sent emails reports? =
+= 11. How to check sent emails reports? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-check-sent-emails/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-check-sent-emails/).
 
-= 12. How to Add/Update Existing Subscribers Group? =
+= 12. How to Add/Update Existing Subscribers Group & Status? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-add-update-existing-subscribers-group/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-add-update-existing-subscribers-group/).
 
 = 13. Subscribers are not receiving Emails =
 
-Check steps from [here](http://www.icegram.com/documentation/es-subscribers-are-not-receiving-emails/).
+Check steps from [here](https://www.icegram.com/documentation/es-subscribers-are-not-receiving-emails/).
 
-= 14. How to show subscribe form inside a popup? = 
+= 14. How to show subscribe form inside a popup? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-show-subscribe-form-inside-a-popup/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-show-subscribe-form-inside-a-popup/).
 
 = 15. How to use Rainmaker’s form in Email Subscribers? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-use-rainmakers-form-in-email-subscribers/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-use-rainmakers-form-in-email-subscribers/).
 
-= 16. How to Schedule Cron Emails/auto mails? =
+= 16. How to Redirect Subscribers to a new page/url after successful sign up? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-schedule-cron-emails/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-redirect-subscribers-to-a-new-page-url-after-successful-sign-up/).
 
-= 17. How to Schedule Cron Emails/auto emails for Email Subscribers in cPanel? =
+= 17. How to add captcha in Subscribe form of Email Subscribers? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-cpanel/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-add-captcha-in-subscribe-form-of-email-subscribers/).
 
-= 18. How to Schedule Cron Emails/auto emails in Parallels Plesk? =
+= 18. How to Schedule Cron Emails/auto emails? =
 
-Refer [here](http://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-parallels-plesk/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-schedule-cron-emails/).
 
-= 19. What to do if Hosting doesn’t support Cron Jobs =
+= 17. How to Schedule Cron Emails in cPanel? =
 
-Refer [here](http://www.icegram.com/documentation/es-what-to-do-if-hosting-doesnt-support-cron-jobs/).
+Refer [here](https://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-cpanel/).
 
-= 20. Email Subscribers FAQ =
+= 18. How to Schedule Cron Emails in Parallels Plesk? =
 
-Refer [here](http://www.icegram.com/documentation/es-faq/). 
+Refer [here](https://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-parallels-plesk/).
 
-= 21. How to add group selection in front end subscription box =
+= 19. What to do if Hosting doesn’t support Cron Jobs? =
 
-Use [Email Subscribers - Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/) add-on.
+Refer [here](https://www.icegram.com/documentation/es-what-to-do-if-hosting-doesnt-support-cron-jobs/).
 
-= How to install and activate the plugin? and How to setup subscription box widget?﻿ =
+= 20. CSS Help =
 
-[youtube http://www.youtube.com/watch?v=xTlvNCTF46k]
+Refer [here](https://www.icegram.com/documentation/es-css-help/).
 
-= How to compose Newsletter and How to Send Newsletter Emails to subscribers? =
+= 21. Email Subscribers FAQ =
 
-[youtube http://www.youtube.com/watch?v=_Gwxvs9oAIs]
+Refer [here](https://www.icegram.com/documentation/es-faq/).
 
-= How to setup notification mail when news posts are published in the blog? =
+= 22. How to add group selection in front end subscription box =
 
-[youtube http://www.youtube.com/watch?v=-qd4HvXRW7k]
-
-= How to Import & Export email address? =
-
-[youtube http://www.youtube.com/watch?v=SZEJCijAS1o]
+Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/).
 
 == Screenshots ==
 
 1. Front Page - Subscription Form
 
-2. Admin page - Subscribers Management 
+2. Admin page - Subscribers
 
-3. Admin page - Compose Email 
+3. Admin page - Compose Email
 
-4. Admin page - Post Notifications Management 
+4. Admin page - Post Notifications
 
 5. Admin page - Newsletters
 
-6. Admin page - Cron Job Settings & Details (Schedule email)
+6. Admin page - Settings Tab 1 - Admin related Settings
 
-7. Admin page - Email Settings 
+7. Admin page - Settings Tab 2 - Signup Confirmation related Settings
 
-8. Admin page - User Roles Management 
+8. Admin page - Settings Tab 3 - User Roles related Settings
 
-9. Admin page - Reports of all emails sent 
+9. Admin page - Settings Tab 4 - Cron Job (Schedule Email) related Settings
 
-10 Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
+10. Admin page - Reports of all Newsletter & Post Notification emails sent
+
+11. Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
 
 == Changelog ==
+
+= 3.3.7 (08.09.2017) =
+
+* Fix: Keywords ###NAME### and ###EMAIL### not showing correct details while sending post notifications emails (in HTML type only)
+
+= 3.3.6 (07.09.2017) =
+
+* New: Allow emails with special characters to get subscribed
+* New: Show groups in dropdown while creating subscribe form via widget
+* New: Show Preview button above the WordPress editor at the time of editing a composed Newletter / Post Notification
+* Fix: Extra line breaks (`<br>` tags) removed when sending HTML emails
+* Fix: Remove hardcoded ENGINE while creating default tables for new users
+* Fix: Remove hardcoded Collation while creating default tables for new users
+* Update: Only one line break while auto inserting unsubscribe link in the emails
+* Update: Improvements in logic to create default tables on first activation
+* Update: Email preview page after an email is composed or sent
+* Update: Show Preview in new column on Compose screen with a search dashicon
+* Update: Footer text
+* Update: POT file
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+* Update: Translation for Norwegian (nb_NO) language added (Thanks to Helge Rosseboe)
+
+= 3.3.5 (21.08.2017) =
+
+* New: UI & structure for Help & Info page
+* Fix: Some users were getting error - Cannot modify header information – headers already sent - when publishing/accessing a post
+* Fix: Unable to select Opt In type from Settings
+* Fix: In-built translations were not loading
+* Fix: CSS getting included in all admin pages
+* Fix: Missing `</span>` tag on Help & Info menu
+* Fix: Enable to translate 'Add Subscription Form' FAQ on Help & Info page
+* Update: Improvement in logic to get post author name for keyword ###POSTAUTHOR###
+* Update: Improved default content for welcome email
+* Update: Do not include ###GROUP### name by default in welcome email. Admin can add ###GROUP### name manually using keyword (New users only)
+* Update: Text improvement at few places
+* Update: POT file
+* Tweak: Show Cron menu before User Roles menu in Email Subscribers -> Settings for better accessibility
+* Tweak: Use email dashicon instead of mail image for Email Subscribers menu
+* Tweak: Use search dashicon instead of preview image for Reports menu
+* Tweak: Use no dashicon instead of delete image for Reports menu
+
+= 3.3.4 (26.07.2017) =
+
+* New: Keyword ###POSTAUTHOR### to display Post Author name in Post Notification emails
+* New: Improvements in default settings and the email content created on first install of plugin (New users only)
+* New: Display Blog Name in FROM name instead of Admin (New users only)
+* Update: POT file
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+* Tweak: Do not highlight 'Reports' menu in Grey color
+* Tweak: Documentation links
+
+= 3.3.3 (11.07.2017) =
+
+* Fix: Settings used to get reset to default values when upgraded to a version higher than version 3.3
+
+= 3.3.2 (10.07.2017) =
+
+* New: Improvements in default Post Notification & Newsletter templates created on first install of plugin (New users only)
+* Update: Mention while creating emails (under Compose) that Available Keywords are for Post Notifications only
+* Update: POT file
+* New: Translation for Norwegian (nb_NO) language added (Thanks to Helge Rosseboe)
+* Update: Translation for Spanish (es_ES) language updated (Thanks to David Bravo)
+* Update: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Update: Translation for Hungarian (hu_HU) language updated (Thanks to Zsolt Edelényi)
+* Update: Translation for Swedish (sv_SE) language updated (Thanks to Rune Svennelid)
+* Update: Translation for Lithuanian (lt_LT) language updated (Thanks to Andrius)
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for Turkish (tr_TR) language updated (Thanks to Erkan ORUÇ)
+
+= 3.3.1 (19.06.2017) =
+
+* New: Admin can now include user subscribed group name in the Welcome Email (Email Subscribers v3.3.1+)
+* Update: Documentation links
+* Update: POT file
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for Lithuanian (lt_LT) language updated (Thanks to Andrius)
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+
+= 3.3 (13.06.2017) =
+
+* New: Merged Roles and Cron menu into Settings
+* New: Tab structure for Settings
+* Fix: Javacript error on saving composed email template
+* Update: Moved settings data from custom table to WordPress options table
+* Update: Do not allow to assign roles for Help & Info and Settings menu
+* Update: Text correction at few places
+* Update: POT file
+
+= 3.2.11 (05.06.2017) =
+
+* Fix: Export filters was not generating correct data
+* Update: POT file
+* Update: Translation for Czech (cs_CZ) language updated (Thanks to Martin)
+* Tweak: Do not show confirm notice while exporting subscribers
 
 = 3.2.10 (11.05.2017) =
 
@@ -543,6 +640,101 @@ Use [Email Subscribers - Group Selector](https://wordpress.org/plugins/email-sub
 For the changelog of earlier versions, please refer to the separate [changelog.txt](https://plugins.svn.wordpress.org/email-subscribers/trunk/changelog.txt) file.
 
 == Upgrade Notice ==
+
+= 3.3.7 (08.09.2017) =
+
+* Fix: Keywords ###NAME### and ###EMAIL### not showing correct details while sending post notifications emails (in HTML type only)
+
+= 3.3.6 (07.09.2017) =
+
+* New: Allow emails with special characters to get subscribed
+* New: Show groups in dropdown while creating subscribe form via widget
+* New: Show Preview button above the WordPress editor at the time of editing a composed Newletter / Post Notification
+* Fix: Extra line breaks (`<br>` tags) removed when sending HTML emails
+* Fix: Remove hardcoded ENGINE while creating default tables for new users
+* Fix: Remove hardcoded Collation while creating default tables for new users
+* Update: Only one line break while auto inserting unsubscribe link in the emails
+* Update: Improvements in logic to create default tables on first activation
+* Update: Email preview page after an email is composed or sent
+* Update: Show Preview in new column on Compose screen with a search dashicon
+* Update: Footer text
+* Update: POT file
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+* Update: Translation for Norwegian (nb_NO) language added (Thanks to Helge Rosseboe)
+
+= 3.3.5 (21.08.2017) =
+
+* New: UI & structure for Help & Info page
+* Fix: Some users were getting error - Cannot modify header information – headers already sent - when publishing/accessing a post
+* Fix: Unable to select Opt In type from Settings
+* Fix: In-built translations were not loading
+* Fix: CSS getting included in all admin pages
+* Fix: Missing `</span>` tag on Help & Info menu
+* Fix: Enable to translate 'Add Subscription Form' FAQ on Help & Info page
+* Update: Improvement in logic to get post author name for keyword ###POSTAUTHOR###
+* Update: Improved default content for welcome email
+* Update: Do not include ###GROUP### name by default in welcome email. Admin can add ###GROUP### name manually using keyword (New users only)
+* Update: Text improvement at few places
+* Update: POT file
+* Tweak: Show Cron menu before User Roles menu in Email Subscribers -> Settings for better accessibility
+* Tweak: Use email dashicon instead of mail image for Email Subscribers menu
+* Tweak: Use search dashicon instead of preview image for Reports menu
+* Tweak: Use no dashicon instead of delete image for Reports menu
+
+= 3.3.4 (26.07.2017) =
+
+* New: Keyword ###POSTAUTHOR### to display Post Author name in Post Notification emails
+* New: Improvements in default settings and the email content created on first install of plugin (New users only)
+* New: Display Blog Name in FROM name instead of Admin (New users only)
+* Update: POT file
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+* Tweak: Do not highlight 'Reports' menu in Grey color
+* Tweak: Documentation links
+
+= 3.3.3 (11.07.2017) =
+
+* Fix: Settings used to get reset to default values when upgraded to a version higher than version 3.3
+
+= 3.3.2 (10.07.2017) =
+
+* New: Improvements in default Post Notification & Newsletter templates created on first install of plugin (New users only)
+* Update: Mention while creating emails (under Compose) that Available Keywords are for Post Notifications only
+* Update: POT file
+* New: Translation for Norwegian (nb_NO) language added (Thanks to Helge Rosseboe)
+* Update: Translation for Spanish (es_ES) language updated (Thanks to David Bravo)
+* Update: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Update: Translation for Hungarian (hu_HU) language updated (Thanks to Zsolt Edelényi)
+* Update: Translation for Swedish (sv_SE) language updated (Thanks to Rune Svennelid)
+* Update: Translation for Lithuanian (lt_LT) language updated (Thanks to Andrius)
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for Turkish (tr_TR) language updated (Thanks to Erkan ORUÇ)
+
+= 3.3.1 (19.06.2017) =
+
+* New: Admin can now include user subscribed group name in the Welcome Email (Email Subscribers v3.3.1+)
+* Update: Documentation links
+* Update: POT file
+* Update: Translation for French (fr_FR) language updated (Thanks to Serge)
+* Update: Translation for Lithuanian (lt_LT) language updated (Thanks to Andrius)
+* Update: Translation for German (de_DE) language updated (Thanks to Markus Buschmann)
+
+= 3.3 (13.06.2017) =
+
+* New: Merged Roles and Cron menu into Settings
+* New: Tab structure for Settings
+* Fix: Javacript error on saving composed email template
+* Update: Moved settings data from custom table to WordPress options table
+* Update: Do not allow to assign roles for Help & Info and Settings menu
+* Update: Text correction at few places
+* Update: POT file
+
+= 3.2.11 (05.06.2017) =
+
+* Fix: Export filters was not generating correct data
+* Update: POT file
+* Update: Translation for Czech (cs_CZ) language updated (Thanks to Martin)
+* Tweak: Do not show confirm notice while exporting subscribers
 
 = 3.2.10 (11.05.2017) =
 

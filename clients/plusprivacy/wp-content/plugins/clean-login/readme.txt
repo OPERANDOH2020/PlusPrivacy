@@ -3,8 +3,8 @@ Contributors: hornero, carazo
 Donate link: http://codection.com
 Tags: form, login, registration, editor, lost password, responsive, wpml, internationalization, languages, role, CAPTCHA, honeypot, shortcode, wordpress, frontend
 Requires at least: 3.4
-Tested up to: 4.6
-Stable tag: 1.7.10
+Tested up to: 4.7
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,28 @@ Please, refer to [Installation section](https://wordpress.org/plugins/clean-logi
 12. WPML. Certificate of Compatibility
 
 == Changelog ==
+
+= 1.8.1 =
+*   $_POST sanitizing bug solved. Thanks to tomykas (@tomykas)
+
+= 1.8 =
+*   Norwegian language included. Thanks to Pablo Gómez Margareto
+*   Security exploits fixed, described below. Thanks to Ipstenu (Mika Epstein)
+*   Sanitize, escape, and validate all POST calls. Bug fixed
+*   Checked using Nonces and permissions. Bug fixed
+*   Prevent direct file access for all PHP files. Bug fixed
+*   Unique function name for all internal functions. Bug fixed
+*   index.php file (silence is golden) included.
+*	clean_login_register_session removed, code consequently updated.
+
+= 1.7.12 =
+*   Trying to get property of non-object at clean_login_load_before_headers() function is now fixed. Thanks to rasika17 (@rasika17) for reporting this issue.
+
+= 1.7.11 =
+*   Thumbnail image updated. icon-128x128 and icon-256x256
+*   Text domain updated to clean-login, https://translate.wordpress.org/locale/es/default/wp-plugins/clean-login
+*   get_translated_option_page() function bug fixed. Thanks to Ignazio Lucenti
+*   The third parameter for preg_match_all became optional from PHP 5.4.0. but before it's mandatory. Fixed! Thanks to Hemant Arora (@hemantkumararora)
 
 = 1.7.10 =
 *   Ukrainian language included. Thanks to Павел Дидыченко @didychenko
