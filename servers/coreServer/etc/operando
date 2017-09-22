@@ -1,5 +1,5 @@
 {
- "development":true,
+ "development":false,
  "logsPath":"logs",
  "verbose":false,
  "systemId": "operandoDemo",
