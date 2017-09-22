@@ -69,7 +69,7 @@
     "required": false
   },
   {
-    "title": "Would you trade some of your privacy for an economic benefit, such as price discount? ",
+    "title": "Would you trade some of your privacy for an economic benefit, such as price discount?",
     "type": "radio",
     "required": true,
     "items": [
