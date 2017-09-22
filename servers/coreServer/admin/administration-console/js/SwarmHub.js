@@ -112,22 +112,23 @@ function SwarmHub(iframeSlave){
 	function receiveMessageFromSlave(event){
 		var message = event.data;
 		var args = message.data;
+
 		if(args && args.length && args.length>1){
 			var swarmName = args[0];
 			var swarmPhase = args[1];
-
-			if(!self.sendMessagesToSlave){
-                self.sendMessagesToSlave = function(swarm){
-                    if(!swarm.meta){
-                        //just a simple test in order to check if we got a swarm object
-                        return;
-                    }
-                    //reply to Slave
-                    if(connection){
-                        connection.publishToChannel(swarm.meta.swarmingName, swarm);
+            args.splice(2, 0, event.data.requestId);
+                if(!self.sendMessagesToSlave){
+                    self.sendMessagesToSlave = function(swarm){
+                        if(!swarm.meta){
+                            //just a simple test in order to check if we got a swarm object
+                            return;
+                        }
+                        //reply to Slave
+                        if(connection){
+                            connection.publishToChannel(swarm.meta.swarmingName, swarm);
+                        }
                     }
                 }
-            }
 
             setSwarmConnectionListner(swarmName);
 			self.startSwarm.apply(self, args);
@@ -136,6 +137,10 @@ function SwarmHub(iframeSlave){
 			eprint("The message should include swarmName and swarmPhase");
 		}
 	}
+
+    function sendSwarmInformationToSlave(swarm){
+        connection.publishToChannel(swarm.meta.swarmingName,swarm);
+    }
 	
 	if(connection){
 	    connection.subscribe(receiveMessageFromSlave);
