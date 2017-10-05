@@ -27,6 +27,15 @@ angular.module("app").directive("settingEditor", ["$rootScope", function ($rootS
                 $rootScope.$broadcast('deleteSNSetting',$scope.setting.id);
             };
 
+            $scope.toggleActivation = function(){
+                if(typeof $scope.setting.isActive != "undefined"){
+                    $scope.setting.isActive = !$scope.setting.isActive;
+                }
+                else{
+                    $scope.setting.isActive = false;
+                }
+            };
+
             $scope.removeReadOption = function(option){
                 if($scope.setting.read.availableSettings[option]){
                     delete $scope.setting.read.availableSettings[option];

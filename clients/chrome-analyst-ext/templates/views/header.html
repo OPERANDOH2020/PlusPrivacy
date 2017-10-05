@@ -25,7 +25,6 @@
 
                     <ul class="dropdown-menu">
 
-
                         <li class="dropdown" ng-repeat="osp in osps">
 
                             <a ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown" ui-sref="dashboard.socialNetworks({sn:osp.key})">
@@ -36,47 +35,37 @@
 
                             </a>
 
-                            <ul class="dropdown-menu">
-
-                                <li><a href="#">Link 1</a></li>
-
-                                <li class="dropdown">
-
-                                    <a href="#6" class="dropdown-toggle" data-toggle="dropdown">
-
-                                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-
-                                        <span class="menu-description">Even More</span>
-
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-
-                                        <li><a href="#">Link 1</a></li>
-
-                                        <li><a href="#">Link 2</a></li>
-
-                                    </ul>
-
-                                </li>
-
-                            </ul>
-
                         </li>
 
                     </ul>
 
                 </li>
 
-                <li class="active">
+                <li class="dropdown" ui-sref-active="active">
 
-                    <a href="#3">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
 
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 
-                        <span class="menu-description">Active Link</span>
+                        <span class="menu-description">EULA Changes</span>
 
                     </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li class="dropdown" ng-repeat="osp in osps">
+
+                            <a ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown" ui-sref="dashboard.eula({sn:osp.key})">
+
+                                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+
+                                <span class="menu-description">{{osp.title}}</span>
+
+                            </a>
+
+                        </li>
+
+                    </ul>
 
                 </li>
 
@@ -86,7 +75,6 @@
 
         <ul class="nav navbar-nav pull-right">
 
-
             <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
                 <a class="menu_icon user-account dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                    data-close-others="true">
@@ -95,7 +83,6 @@
                         <span class="email"> {{user.email}} </span>
                     </div>
                 </a>
-
 
                 <ul class="dropdown-menu dropdown-menu-default">
                     <li ng-class="{active: $state.includes('account')}">

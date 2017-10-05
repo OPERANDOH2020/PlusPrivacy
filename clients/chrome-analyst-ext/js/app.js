@@ -93,6 +93,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             data: {
                 bodyClasses: 'dashboard'
             }
+        })
+        .state("dashboard.eula",{
+            url:"/eula/:sn?",
+            views: {
+                'container@': {
+                    templateUrl: "../templates/views/eula.html",
+                }
+            },
+            resolve: {
+                loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/controllers/eulaController.js');
+                }]
+            },
+            data: {
+                bodyClasses: 'dashboard'
+            }
         });
 
 

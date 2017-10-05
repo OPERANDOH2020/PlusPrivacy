@@ -231,15 +231,6 @@ button.edit-setting-delete{
     opacity: 1;
 }
 
-.edit-setting{
-    opacity: 0.6;
-}
-.edit-setting:hover,
-.edit-setting.editMode
-{
-    opacity: 1;
-}
-
 .edit-setting:hover .setting_actions{
     visibility: visible;
 }
@@ -247,4 +238,20 @@ button.edit-setting-delete{
 .settings_area{
     width: 50%;
     float: left;
+}
+
+.panel-body .icon_is_active{
+    background: url(/assets/images/icons/active.png) no-repeat left 2px;
+    padding: 10px;
+    display: inline-block;
+    float: left;
+    margin-right: 8px;
+}
+
+.panel-body .icon_is_inactive{
+    background: url(/assets/images/icons/offline.png) no-repeat left 2px;
+    padding: 10px;
+    display: inline-block;
+    float: left;
+    margin-right: 8px;
 }
