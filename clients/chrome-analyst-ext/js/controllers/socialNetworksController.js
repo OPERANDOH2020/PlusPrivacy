@@ -53,8 +53,10 @@ controller("socialNetworksController", ["$scope","$stateParams","settings","conn
             templateUrl: '/templates/modals/history.html',
             controller: function ($scope, close) {
                 connectionService.getSettingsHistory(function(settingsHistory){
-
-                })
+                    console.log(settingsHistory);
+                    $scope.history = settingsHistory;
+                    $scope.$apply();
+                });
                 $scope.close = function (result) {
                     close(result, 500);
                 };
