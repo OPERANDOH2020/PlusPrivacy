@@ -35,12 +35,27 @@ var pfbService = exports.pfbService = {
         var acceptPfBDeal = swarmHub.startSwarm("pfb.js", "acceptDeal", pfbDealId);
         acceptPfBDeal.onResponse("dealAccepted", function(swarm){
             success_callback(swarm.deal);
+
+            for(var i = 0; i< currentDeals.length; i++){
+                if(currentDeals[i]['offerId'] == pfbDealId){
+                    currentDeals[i].subscribed = true;
+                    break;
+                }
+            }
+
         })
     },
 
     unsubscribePfbDeal: function(pfbDealId, success_callback){
         var unsubscribePfbDealHandler = swarmHub.startSwarm("pfb.js", "unsubscribeDeal", pfbDealId);
         unsubscribePfbDealHandler.onResponse("dealUnsubscribed", function(swarm){
+            for(var i = 0; i< currentDeals.length; i++){
+                if(currentDeals[i]['offerId'] == pfbDealId){
+                    currentDeals[i].subscribed = false;
+                    delete currentDeals[i]['voucher'];
+                    break;
+                }
+            }
             success_callback(swarm.deal);
         })
     },
