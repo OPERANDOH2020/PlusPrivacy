@@ -12,4 +12,6 @@
     <dimen name="default_padding">8dp</dimen>
     <dimen name="extra_padding">16dp</dimen>
 
+    <dimen name="feedback_padding">10dp</dimen>
+
 </resources>

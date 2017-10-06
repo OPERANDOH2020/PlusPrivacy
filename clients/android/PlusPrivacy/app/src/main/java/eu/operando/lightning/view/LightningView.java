@@ -583,7 +583,7 @@ public class LightningView {
     public synchronized void onPause() {
         if (mWebView != null) {
             mWebView.onPause();
-            Log.d(TAG, "WebView onPause: " + mWebView.getId());
+            Log.d(TAG, "WebView saveState: " + mWebView.getId());
         }
     }
 
@@ -593,7 +593,7 @@ public class LightningView {
     public synchronized void onResume() {
         if (mWebView != null) {
             mWebView.onResume();
-            Log.d(TAG, "WebView onResume: " + mWebView.getId());
+            Log.d(TAG, "WebView onLoading: " + mWebView.getId());
         }
     }
 

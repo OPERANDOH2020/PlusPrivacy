@@ -259,4 +259,9 @@
     <string name="dialog_sign_in_failed">Sign In Failed</string>
     <string name="check_your_email_and_password">Check your email and password</string>
     <string name="facebook_settings">Facebook Settings</string>
+    <string name="feedback">Feedback</string>
+    <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
+    <string name="change_response">Change response</string>
+    <string name="privacy_for_benefit">Privacy for Benefit</string>
 </resources>

@@ -21,6 +21,7 @@ import com.special.ResideMenu.ResideMenuItem;
 import java.util.List;
 
 import eu.operando.R;
+import eu.operando.feedback.view.FeedbackActivity;
 import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
@@ -281,12 +282,15 @@ public class MainActivity extends AppCompatActivity {
 //                "Trusted apps",
                 "About",
                 "Privacy Policy",
-                "Settings"};
+                "Settings",
+                "Feedback"
+        };
         int[] icons = new int[]{
 //                R.drawable.ic_trusted,
                 R.drawable.ic_action_about,
                 R.drawable.ic_privacy_policy,
-                R.drawable.ic_settings
+                R.drawable.ic_settings,
+                R.drawable.ic_feedback
         };
 
         for (int i = 0; i < titles.length; i++) {
@@ -333,10 +337,17 @@ public class MainActivity extends AppCompatActivity {
             case 3: //Settings
                 SettingsActivity.start(this);
                 break;
-            case 4: //LogOut
+            case 4: //Feedback
+                startFeedbackActivity();
+                break;
+            case 5: //LogOut
                 logOut();
                 break;
         }
+    }
+
+    private void startFeedbackActivity() {
+        startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
     }
 
     private void logOut() {

@@ -62,7 +62,7 @@ public abstract class ThemableBrowserActivity extends AppCompatActivity {
      * Called after the activity is resumed
      * and the UI becomes visible to the user.
      * Called by onWindowFocusChanged only if
-     * onResume has been called.
+     * onLoading has been called.
      */
     void onWindowVisibleToUserAfterResume() {
 

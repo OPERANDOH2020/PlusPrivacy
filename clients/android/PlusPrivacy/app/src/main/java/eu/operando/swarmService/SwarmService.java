@@ -7,6 +7,10 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import eu.operando.feedback.SwarmCallbackModified;
+import eu.operando.feedback.entity.FeedbackQuestionListEntity;
+import eu.operando.feedback.entity.FeedbackResultSwarmModel;
+import eu.operando.models.PFBObject;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.models.IdentityListSwarm;
 import eu.operando.swarmService.models.LoginSwarm;
@@ -78,6 +82,7 @@ public class SwarmService {
             }
         });
     }
+
     public void resetPassword(final String email, final SwarmCallback<Swarm> callback){
         login("guest@operando.eu", "guest", new SwarmCallback<Swarm>() {
             @Override
@@ -95,5 +100,21 @@ public class SwarmService {
         if (credentials.first != null && credentials.second != null) {
             login(credentials.first, credentials.second,null);
         }
+    }
+
+    public void getFeedbackQuestions(SwarmCallbackModified<FeedbackQuestionListEntity> callback){
+        swarmClient.startSwarm("feedback.js", "getFeedbackQuestions", callback);
+    }
+
+    public void submitFeedback(SwarmCallbackModified<Swarm> callback, Object... args){
+        swarmClient.startSwarm(callback, "feedback.js", "submitFeedback", args);
+    }
+
+    public void hasUserSubmittedAFeedback(SwarmCallbackModified<FeedbackResultSwarmModel> callback){
+        swarmClient.startSwarm("feedback.js", "hasUserSubmittedAFeedback", callback);
+    }
+
+    public void getAllDeals(SwarmCallbackModified<PFBObject> callback){
+        swarmClient.startSwarm("pfb.js", "getAllDeals", callback);
     }
 }

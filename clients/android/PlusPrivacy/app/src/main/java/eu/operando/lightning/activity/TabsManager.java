@@ -248,7 +248,7 @@ public class TabsManager {
      * Method used to resume all the tabs in the browser.
      * This is necessary because we cannot pause the
      * WebView when the app is open currently due to a
-     * bug in the WebView, where calling onResume doesn't
+     * bug in the WebView, where calling onLoading doesn't
      * consistently resume it.
      *
      * @param context the context needed to initialize
@@ -271,7 +271,7 @@ public class TabsManager {
      * Method used to pause all the tabs in the browser.
      * This is necessary because we cannot pause the
      * WebView when the app is open currently due to a
-     * bug in the WebView, where calling onResume doesn't
+     * bug in the WebView, where calling onLoading doesn't
      * consistently resume it.
      */
     public void pauseAll() {
