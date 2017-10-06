@@ -17,7 +17,7 @@ app.controller('notificationsController', ['$scope','ModalService','swarmHubServ
             var r = new FileReader();
 
             r.onloadend = function(e) {
-                $scope.notification.users = e.target.result.split("\"").filter(function (user) {
+                $scope.notification.users = e.target.result.split(new RegExp("\",\ ")).filter(function (user) {
                     return user.length>1;
                 });
                 delete $scope.notification.zone;
