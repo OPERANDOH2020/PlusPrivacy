@@ -562,3 +562,8 @@ clients/android/PlusPrivacy/ResideMenu/build/intermediates/bundles/debug/res/val
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/packageReleaseResources/merged.dir/values/values.xml
+*.bin
+*.lock
+*.len
+*.properties
+*.iml
