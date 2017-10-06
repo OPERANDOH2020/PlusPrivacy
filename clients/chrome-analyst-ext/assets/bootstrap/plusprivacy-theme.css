@@ -98,6 +98,11 @@ button.btn.btn-primary:focus{
     color:#FFF;
 }
 
+.navbar-nav > li > a.notifications {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #ee9a27;
     border-color: #ee9a27;
@@ -254,5 +259,28 @@ button.edit-setting-delete{
     display: inline-block;
     float: left;
     margin-right: 8px;
+}
+.notifications_item{
+    width: 32px;
+    height: 30px;
+    display: block;
+    background: url("/assets/images/icons/notification.png") no-repeat left top;
+}
+.navbar-nav > li > a.notifications:hover .notifications_item,
+li.dropdown.open .notifications_item{
+    background: url("/assets/images/icons/notification.png") no-repeat left bottom;
+}
+
+.notifications_count{
+    position: absolute;
+    top: 11px;
+    left: 17px;
+    color: #6f5924;
+    display: grid;
+    width: 12px;
+}
+.notifications_count span{
+    text-align: center;
+    font-size: 11px;
 }
 

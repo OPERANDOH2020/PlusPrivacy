@@ -72,9 +72,32 @@
             </ul>
 
         </div>
+<div class="nav navbar-nav pull-right">
+        <ul class="nav navbar-nav pull-left">
+            <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
+                <a class="menus_icon notifications" data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true">
+                    <div class="menu_item_content">
+                        <span class="notifications_item"></span>
+                        <span class="notifications_count"><span>2</span></span>
+                    </div>
+                </a>
 
-        <ul class="nav navbar-nav pull-right">
+                <ul class="dropdown-menu dropdown-menu-default">
+                    <li ng-class="{active: $state.includes('account')}">
+                        <a class="menu_icon account" ui-sref="account.personal-details">Account</a>
+                    </li>
+                    <li class="divider"></li>
 
+                    <li>
+                        <a class="menu_icon logout" ng-click="logout()">
+                            Log Out </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav pull-left">
             <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
                 <a class="menu_icon user-account dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                    data-close-others="true">
@@ -97,6 +120,7 @@
                 </ul>
             </li>
         </ul>
+    </div>
 
 
 
