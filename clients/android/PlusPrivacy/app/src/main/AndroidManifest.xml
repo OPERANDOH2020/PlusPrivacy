@@ -31,7 +31,7 @@
             android:name=".activity.OSPSettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".activity.PrivacyWizardWebViewActivity"
+            android:name=".activity.PrivacySettingsWebViewActivity"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.ScannerActivity"
@@ -53,11 +53,6 @@
             android:name=".activity.PermissionsActivity"
             android:label="Permissions"/>
         <activity android:name=".activity.KotlinBrowserActivity">
-        </activity>
-        <activity
-            android:name=".activity.BrowserActivity"
-            android:label=""
-            android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".lightning.activity.MainBrowserActivity"

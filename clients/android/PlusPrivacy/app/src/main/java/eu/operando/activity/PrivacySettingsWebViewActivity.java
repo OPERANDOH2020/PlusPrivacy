@@ -37,7 +37,7 @@ import eu.operando.customView.OperandoProgressDialog;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class PrivacyWizardWebViewActivity extends BaseActivity {
+public class PrivacySettingsWebViewActivity extends BaseActivity {
 
     private WebView myWebView;
     private String privacySettingsString;

@@ -78,8 +78,8 @@ public class FeedbackPresenterImpl implements FeedbackPresenter,
     public void onFinished(List<FeedbackQuestionEntity> items) {
         if (feedbackView != null) {
             Log.e("onFinished", "onFinished: " + items.toString());
+//            feedbackView.hideProgress();
             feedbackView.setItems(items, feedbackDataModel.getFeedbackSubmitEntity(items));
-            feedbackView.hideProgress();
         }
     }
 

@@ -24,7 +24,8 @@ import eu.operando.swarmclient.models.SwarmCallback;
 /**
  * Created by Edy on 10/20/2016.
  */
-public class CreateIdentityActivity extends AppCompatActivity {
+public class
+CreateIdentityActivity extends AppCompatActivity {
     public static final String TAG = "CreateIdentityActivity";
     private Spinner domainsSpinner;
     private EditText aliasET;
