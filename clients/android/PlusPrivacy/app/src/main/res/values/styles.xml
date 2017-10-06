@@ -25,6 +25,10 @@
         <item name="colorAccent">@color/main_background</item>
         <item name="android:textColorPrimary">@color/main_background</item>
         <item name="android:background">@color/colorPrimaryDark</item>
+
+        <item name="android:colorControlNormal">#ffd600</item>
+        <item name="android:colorControlActivated">#0091ea</item>
+        <item name="android:colorControlHighlight">#c51162</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

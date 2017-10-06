@@ -105,7 +105,7 @@ public class OSPSettingsActivity extends BaseActivity {
             public void call(Swarm result) {
 
                 facebookQuestions = ((PrivacyWizardSwarm) result).getOspSettings().getFacebook();
-                if (facebookQuestions.size() != 0){
+                if (facebookQuestions.size() != 0) {
                     progressDialog.dismiss();
                 }
                 Log.e("PrivacyWizardSwarm", ((PrivacyWizardSwarm) result).getOspSettings().getFacebook().get(0).getRead().getName().toString());
@@ -129,7 +129,7 @@ public class OSPSettingsActivity extends BaseActivity {
                     public void call(GetUserPreferencesSwarm result) {
 //                        Log.e("GetUserPrefSwm", result.getPreferences().get(0).getSettingValue());
                         final Map<Integer, Integer> checkedList;
-                        if (result.getPreferences().size() == 0){
+                        if (result.getPreferences().size() == 0) {
                             checkedList = initCheckedStateFromRecommendedValues();
                         } else {
                             checkedList = convertAnswersToHashMap(facebookQuestions, result.getPreferences());
@@ -159,7 +159,11 @@ public class OSPSettingsActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
 //        elvAdapter.saveCheckedStateInSharedPrefs();
-        sendSaveUserPreferencesSwarm(convertAnswers());
+        if (elvAdapter != null && elvAdapter.getQuestions() != null) {
+            if (elvAdapter.getQuestions().size() != 0) {
+                sendSaveUserPreferencesSwarm(convertAnswers());
+            }
+        }
     }
 
     @Override

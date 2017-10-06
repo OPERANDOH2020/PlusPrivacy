@@ -25,6 +25,9 @@
             android:name=".activity.MainActivity"
             android:theme="@style/AppTheme"/>
         <activity
+            android:name=".feedback.view.FeedbackActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".activity.OSPSettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity

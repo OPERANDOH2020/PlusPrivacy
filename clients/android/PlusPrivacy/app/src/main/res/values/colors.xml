@@ -13,9 +13,9 @@
     <color name="primary_text">#212121</color>
     <color name="bright_orange">#F77F00</color>
     <color name="main_background">#FFDCA0</color>
-    <color name="border">#000
-    </color>
+    <color name="border">#000</color>
 
+    <color name="green_button">#00a493</color>
     <color name="overlay_background">#bb000000</color>
 
     <color name="black">#ff000000</color>
@@ -53,4 +53,7 @@
     <color name="icon_dark_theme_disabled">#8AFFFFFF</color>
 
     <color name="error_red">#F44336</color>
+
+    <color name="colorControlNormal">#000</color>
+    <color name="colorControlActivated">#000</color>
 </resources>

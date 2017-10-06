@@ -23,6 +23,7 @@ public abstract class SwarmCallback<T extends Swarm> {
     @SuppressWarnings("unchecked")
     public SwarmCallback() {
         this.type = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        Log.e("SwarmCallback type", type.getName());
     }
 
     public void setResultEvent(String resultEvent) {

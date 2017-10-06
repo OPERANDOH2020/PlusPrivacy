@@ -1304,7 +1304,7 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause");
+        Log.d(TAG, "saveState");
         mTabsManager.pauseAll();
         try {
             getApplication().unregisterReceiver(mNetworkReceiver);
@@ -1352,7 +1352,7 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume");
+        Log.d(TAG, "onLoading");
         if (mSwapBookmarksAndTabs != mPreferences.getBookmarksAndTabsSwapped()) {
             restart();
         }

@@ -101,8 +101,8 @@ public class BrowserPresenter {
             } else {
                 if (mCurrentTab != null) {
                     // TODO: Restore this when Google fixes the bug where the WebView is
-                    // blank after calling onPause followed by onResume.
-                    // mCurrentTab.onPause();
+                    // blank after calling saveState followed by onLoading.
+                    // mCurrentTab.saveState();
                     mCurrentTab.setIsForegroundTab(false);
                 }
 

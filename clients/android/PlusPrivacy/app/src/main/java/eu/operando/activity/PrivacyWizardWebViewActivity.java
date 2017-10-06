@@ -1,7 +1,6 @@
 package eu.operando.activity;
 
 import android.graphics.Bitmap;
-import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -83,13 +81,16 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
         myWebView.loadUrl("http://facebook.com");
     }
 
-    public void startInjectingOnClick(View view) {
+    public void startInjectiinngOnClick(View view) {
+        injectScriptForPrivacySettings();
+    }
+
+    public void injectScriptForPrivacySettings() {
 
         injectScriptFile("test_jquery.js");
-        if ( webAppInterface.isJQueryLoaded == 0 ){
+        if (webAppInterface.isJQueryLoaded == 0) {
             injectScriptFile("jquery214min.js");
         }
-
 //        injectScriptFile("test_jquery.js");
 //        Log.e("loading jquery", String.valueOf(webAppInterface.isJQueryLoaded));
 
@@ -105,7 +106,7 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
         progressDialog.show();
     }
 
-    public void setOverlay(){
+    public void setOverlay() {
 
         final ShowcaseView showcaseView = new ShowcaseView.Builder(this)
                 .withMaterialShowcase()
@@ -128,7 +129,7 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
         });
     }
 
-    public void changeStatusBarColor(int color){
+    public void changeStatusBarColor(int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -177,16 +178,13 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-
             super.onPageStarted(view, url, favicon);
-
-            Log.e("webclient PageStarted", url);
         }
 
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            // this method is needed to ignore SSL certificate errors if you are visiting https website
-            handler.proceed();
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+//            injectScriptForPrivacySettings();
         }
     }
 
@@ -213,7 +211,7 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
         }
     }
 
-    public class WebAppInterface{
+    public class WebAppInterface {
 
         private String privacySettings;
         private int isJQueryLoaded;
