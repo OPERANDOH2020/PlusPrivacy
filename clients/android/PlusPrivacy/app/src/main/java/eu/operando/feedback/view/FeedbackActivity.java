@@ -64,7 +64,7 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
     protected void onResume() {
         super.onResume();
         presenter.restoreState();
-        if (feedbackQuestionsAdapter != null){
+        if (feedbackQuestionsAdapter != null) {
             feedbackQuestionsAdapter.notifyDataSetChanged();
         }
     }
@@ -105,6 +105,7 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
     @Override
     public void showProgress() {
         if (!isFinishing()) {
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -123,13 +124,16 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
 
     @Override
     public void setItems(final List<FeedbackQuestionEntity> items, final FeedbackSubmitEntitty feedbackSubmitEntitty) {
-        runOnUiThread(new Runnable() {
+
+        recyclerView.post(new Runnable() {
             @Override
             public void run() {
                 feedbackQuestionsAdapter = new FeedbackQuestionsAdapter(items, getApplicationContext(), feedbackSubmitEntitty);
                 recyclerView.setAdapter(feedbackQuestionsAdapter);
+                progressDialog.dismiss();
             }
         });
+
     }
 
     @Override
@@ -159,7 +163,8 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
 
     @Override
     public void installFeedbackFragment() {
-        runOnUiThread(new Runnable() {
+
+        recyclerView.post(new Runnable() {
             @Override
             public void run() {
                 FeedbackFragment firstFragment = new FeedbackFragment();
@@ -172,7 +177,6 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
                         ContextCompat.getColor(getApplicationContext(), R.color.main_background));
             }
         });
-
     }
 
     @Override
