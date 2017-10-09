@@ -29,6 +29,7 @@
     "gcm",
     "storage",
     "cookies",
+    "notifications",
     "http://*.facebook.com/",
     "http://*.twitter.com/",
     "http://*.linkedin.com/",

@@ -264,8 +264,13 @@ button.edit-setting-delete{
     width: 32px;
     height: 30px;
     display: block;
+    background: url("/assets/images/icons/notification.png") no-repeat left center;
+}
+
+.no-notification .notifications_item {
     background: url("/assets/images/icons/notification.png") no-repeat left top;
 }
+
 .navbar-nav > li > a.notifications:hover .notifications_item,
 li.dropdown.open .notifications_item{
     background: url("/assets/images/icons/notification.png") no-repeat left bottom;
@@ -284,3 +289,55 @@ li.dropdown.open .notifications_item{
     font-size: 11px;
 }
 
+.dropdown-menu{
+    left:auto;
+    right:0px;
+    padding-bottom: 0px;
+}
+.notifications_header{
+    text-align: center;
+    height: 48px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #d2c6ad;
+
+}
+
+.dropdown-menu > li.notification_item > a
+{
+    display: inline-block;
+    padding: 15px;
+    margin: 0;
+    width: 100%;
+    background-color: #F1EBDF;
+    border-radius: 0px;
+    border-bottom: 1px solid #d2c6ad;
+    border-top:none;
+    cursor: pointer;
+}
+
+.dropdown-menu > li.notification_item:last-child > a
+{
+    border-bottom: none;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.dropdown-menu > li.notification_item > a:hover{
+    background-color:#efe7d6 ;
+}
+
+.dropdown-menu > li.notification_item.new > a{
+    background-color: #e8dcc4;
+    padding-left: 32px;
+}
+
+.dropdown-menu > li.notification_item.new > a:hover{
+    background-color: #e4d4b3;
+}
+.dropdown-menu > li.notification_item.new > a.menu_icon.openUrl{
+    background-image: url("/assets/images/icons/security_change.png");
+    background-repeat:no-repeat;
+    background-position:2px center ;
+}

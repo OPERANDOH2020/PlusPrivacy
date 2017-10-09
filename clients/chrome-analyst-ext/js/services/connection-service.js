@@ -149,8 +149,8 @@ angular.module("app").factory("connectionService", function(swarmService,deviceS
         };
 
         ConnectionService.prototype.getNotifications = function(callback){
-            var getNotificationsHandler = swarmHub.startSwarm("notification.js","getNotifications");
-            getNotificationsHandler.onResponse("gotNotifications", function(swarm){
+            var getNotificationsHandler = swarmHub.startSwarm("notification.js","getAllNotifications",true, 10);
+            getNotificationsHandler.onResponse("gotAllNotifications", function(swarm){
                 callback(swarm.notifications);
             });
         };
@@ -161,7 +161,7 @@ angular.module("app").factory("connectionService", function(swarmService,deviceS
                 callback();
             })
         };
-            ConnectionService.prototype.notificationReceived = function(callback){
+            ConnectionService.prototype.onNotificationReceived = function(callback){
             chrome.gcm.onMessage.addListener(callback);
         }
         return ConnectionService;

@@ -59,7 +59,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             },
             resolve: {
                 loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load('/js/controllers/ospsController.js');
+                    return $ocLazyLoad.load('/js/controllers/headerController.js');
                 }],
                 resolvedUser: function (userService, $state) {
                     return userService.getCurrentUser().then(function (user) {
