@@ -17,11 +17,11 @@ angular.module("app").directive("settingEditor", ["$rootScope", function ($rootS
 
             $scope.toggleAddNewOption = function(){
                 $scope.addNewOptionIsVisible = !$scope.addNewOptionIsVisible;
-            }
+            };
             $scope.edit = function () {
                 $rootScope.$broadcast('closeEditMode');
                 $scope.editMode = true;
-            }
+            };
 
             $scope.deleteSetting = function () {
                 $rootScope.$broadcast('deleteSNSetting',$scope.setting.id);
@@ -40,16 +40,16 @@ angular.module("app").directive("settingEditor", ["$rootScope", function ($rootS
                 if($scope.setting.read.availableSettings[option]){
                     delete $scope.setting.read.availableSettings[option];
                 }
-            }
+            };
 
             $scope.insertReadOption = function(){
                 if($scope.newOption.key && !$scope.setting.read.availableSettings[$scope.newOption.key]){
                     $scope.setting.read.availableSettings[$scope.newOption.key] = {
                         name: $scope.newOption.name
-                    }
+                    };
                     $scope.newOption = {};
                 }
-            }
+            };
 
             $scope.$on('closeEditMode', function (event) {
                 $scope.editMode = false;

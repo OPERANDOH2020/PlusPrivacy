@@ -109,6 +109,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             data: {
                 bodyClasses: 'dashboard'
             }
+        })
+        .state("dashboard.notifications",{
+            url:"/notifications",
+            views:{
+                'container@':{
+                    templateUrl:"../templates/views/notifications.html"
+                }
+            },
+            resolve:{
+                loadController:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load("/js/controllers/notificationsController.js");
+                }]
+            },
+            data: {
+                bodyClasses: 'dashboard'
+            }
         });
 
 

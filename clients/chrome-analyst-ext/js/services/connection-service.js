@@ -148,8 +148,8 @@ angular.module("app").factory("connectionService", function(swarmService,deviceS
             })
         };
 
-        ConnectionService.prototype.getNotifications = function(callback){
-            var getNotificationsHandler = swarmHub.startSwarm("notification.js","getAllNotifications",true, 10);
+        ConnectionService.prototype.getNotifications = function(index, callback){
+            var getNotificationsHandler = swarmHub.startSwarm("notification.js","getAllNotifications",true, index);
             getNotificationsHandler.onResponse("gotAllNotifications", function(swarm){
                 callback(swarm.notifications);
             });

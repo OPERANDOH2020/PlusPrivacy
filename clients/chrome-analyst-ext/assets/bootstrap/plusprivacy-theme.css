@@ -155,7 +155,9 @@ button.delete-btn:hover{
     background-color: #F1EBDF;
 }
 
-.panel-setting.panel>.panel-heading {
+
+.panel-setting.panel>.panel-heading,
+.panel-notification.panel>.panel-heading{
     background-color: #F1EBDF;
     border-color: #d2c6ad;
     background-image: none!important;
@@ -174,6 +176,21 @@ button.btn-primary{
     border: 1px solid #ffaa30;
     padding: 6px 10px;
 }
+
+button.btn-primary.btn-green{
+    background: #68ce2a;
+    border: 1px solid #68ce2a;
+}
+
+button.btn-primary.btn-green:hover,
+button.btn-primary.btn-green:hover,
+button.btn-primary.btn-green:focus,
+button.btn-primary.btn-green:active
+{
+    background: #68ce2a;
+    border: 1px solid #68ce2a;
+}
+
 button.btn-primary:hover,
 button.btn-primary:focus,
 button.btn-primary:active,
@@ -183,6 +200,15 @@ button.btn-primary
     border-color: #FF9900;
     outline:none;
     box-shadonw:none;
+}
+
+
+button.btn-primary:hover,
+button.btn-primary:active,
+button.btn-primary:active:focus,
+button.btn-primary:active:hover{
+    background: #e69316;
+    border-color: #e69316;
 }
 
 
@@ -340,4 +366,18 @@ li.dropdown.open .notifications_item{
     background-image: url("/assets/images/icons/security_change.png");
     background-repeat:no-repeat;
     background-position:2px center ;
+}
+
+.notifications_container{
+    padding: 20px;
+}
+
+.notification-action{
+    width: 80px;
+    float:right;
+}
+
+.notification-content{
+    width: auto;
+    overflow: hidden;
 }

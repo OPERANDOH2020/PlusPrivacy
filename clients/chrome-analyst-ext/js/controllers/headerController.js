@@ -50,7 +50,7 @@ controller("headerController", ["$scope", "$state", "ospService","connectionServ
         });
     };
 
-    connectionService.getNotifications(notificationsHandler);
+    connectionService.getNotifications(0,notificationsHandler);
 
     connectionService.onNotificationReceived(handlePushedNotifications);
 
