@@ -94,10 +94,10 @@ function registerModels(callback){
                     length: 1024
                 },
                 expirationDate: {
-                    type: "date"
+                    type: "datetime"
                 },
                 creationDate: {
-                    type: "date"
+                    type: "datetime"
                 }
             }
         }, {
@@ -304,6 +304,79 @@ getNotifications = function (userId, userZones, callback) {
         }
     })();
 };
+
+
+
+getAllUserNotifications = function (userId,userZones, callback){
+    flow.create("Get all notificaitons for user", {
+        begin: function () {
+            this.notifications = [];
+            this.isDissmissed = {};
+            this.errs = [];
+            persistence.filter('DismissedNotifications',{"userId":userId},this.continue("gotDismissedNotifications"))
+        },
+
+        gotDismissedNotifications:function(err,dismissedNotifications){
+            if(err){
+                this.errs.push(err);
+            }else{
+                var self = this;
+                dismissedNotifications.forEach(function(dismissedNotification){
+                    self.isDissmissed[dismissedNotification.notificationId] = true;
+                })
+            }
+            persistence.filter("ZoneNotificationMapping", {zoneName: userId}, this.continue("gotNotifications"));
+            userZones.forEach(function(zone){
+                persistence.filter("ZoneNotificationMapping",{zoneName:zone},self.continue("gotNotifications"));
+            })
+        },
+
+        gotNotifications:function(err,notificationsMappings){
+            if(err){
+                this.errs.push(err);
+            }else{
+                var self = this;
+                notificationsMappings.forEach(function(notificationMapping){
+
+                    notificationMapping.__meta.loadLazyFields(self.continue("loadNotifications"));
+
+                })
+            }
+        },
+
+        loadNotifications:function(err,lazyNotification){
+            if (err) {
+                console.error(err);
+            }
+            else {
+                var notification = lazyNotification.notification;
+                notification['isDismissed'] = this.isDissmissed[notification.notificationId]?true:false;
+                this.notifications.push(notification);
+            }
+        },
+
+        deliverNotifications: {
+            join:"loadNotifications",
+            code:function () {
+                this.notifications=this.notifications.sort(function(a,b){
+                    if(a.creationDate == null){
+                        a.creationDate = new Date(0);
+                    }
+
+                    if(b.creationDate == null){
+                        b.creationDate = new Date(0);
+                    }
+                   return a.creationDate.getTime() - b.creationDate.getTime();
+                });
+                if(this.errs.length>0){
+                    callback(this.errs, this.notifications);
+                }else{
+                    callback(undefined,this.notifications)
+                }
+            }
+        }
+    })();
+},
 
 dismissNotification = function(userIdOrZone, notificationId, callback){
     var dismissedNotification = apersistence.createRawObject("DismissedNotifications",uuid.v1());
