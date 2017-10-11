@@ -8,9 +8,19 @@
         "value": "\"v=2&lang=ro-ro\""
     },
     {
+        "domain": ".linkedin.com",
+        "expires": "Wed, 11 Oct 2017 11:23:11 GMT",
+        "expiry": 1507720991,
+        "httponly": false,
+        "name": "RT",
+        "path": "/",
+        "secure": false,
+        "value": "s=1507720391596&r=https%3A%2F%2Fwww.linkedin.com%2Fpsettings%2Fprivacy"
+    },
+    {
         "domain": "www.linkedin.com",
-        "expires": "Wed, 26 Jun 2019 12:43:56 GMT",
-        "expiry": 1561553036,
+        "expires": "Fri, 11 Oct 2019 11:13:10 GMT",
+        "expiry": 1570792390,
         "httponly": false,
         "name": "visit",
         "path": "/",
@@ -18,49 +28,29 @@
         "value": "\"v=1&M\""
     },
     {
-        "domain": ".ads.linkedin.com",
-        "expires": "Tue, 26 Dec 2017 00:43:56 GMT",
-        "expiry": 1514249036,
-        "httponly": false,
-        "name": "BizoID",
-        "path": "/",
-        "secure": true,
-        "value": "0a554fbe-5dbf-4595-a399-0a9c9611cff0"
-    },
-    {
-        "domain": ".ads.linkedin.com",
-        "expires": "Tue, 26 Dec 2017 00:43:56 GMT",
-        "expiry": 1514249036,
-        "httponly": false,
-        "name": "BizoData",
-        "path": "/",
-        "secure": true,
-        "value": "Jr3BxHJOIisO8dcBN8fLo0IiiHGAKl0mBJKwXt38eFMnd8kVXhDRH80jZXMthf2YipisDm8uLb945H2LLhJUptCJ9SIXuipSaiiipm3jYNqNkSvE78GTpnbXJgXDLASJZILtiidtv6ipe8buSyipnlLMqHLnRAQ8EiifuQ8Uip1tisVgI79tSHKuTutZfMz4oc4EE6HlmzEKXsGuW7Y0Dhd7nn16Gl0cOtBIVcLhUGoGNptA1e6rLPisSUlzOItGf79JJ0bAwUY8x0ZQCaNoZ0DzMOV3rvl8r30o2emSOGaJpY"
-    },
-    {
         "domain": ".linkedin.com",
-        "expires": "Mon, 26 Jun 2017 12:53:54 GMT",
-        "expiry": 1498481634,
-        "httponly": false,
-        "name": "RT",
-        "path": "/",
-        "secure": false,
-        "value": "s=1498481034156&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Flogin"
-    },
-    {
-        "domain": ".linkedin.com",
-        "expires": "Tue, 27 Jun 2017 10:06:46 GMT",
-        "expiry": 1498558006,
+        "expires": "Wed, 11 Oct 2017 12:30:33 GMT",
+        "expiry": 1507725033,
         "httponly": false,
         "name": "lidc",
         "path": "/",
         "secure": false,
-        "value": "\"b=OB94:g=256:u=5:i=1498481033:t=1498558006:s=AQE1XVvAszguFHDF47VoShGkLUxRkxTn\""
+        "value": "\"b=OB94:g=409:u=11:i=1507720388:t=1507725033:s=AQFmF_ssXeq53EN0wsoFJOIf_10minV_\""
+    },
+    {
+        "domain": ".www.linkedin.com",
+        "expires": "Thu, 11 Oct 2018 11:13:07 GMT",
+        "expiry": 1539256387,
+        "httponly": true,
+        "name": "li_at",
+        "path": "/",
+        "secure": true,
+        "value": "AQEDASJMuNIDNl1UAAABXwsjXKYAAAFfLy_gpk4AcmnmlwzWRPmBxwIJdR0EaRKpojdt1dLJDCcZlSv1Ei3hIdjco9QiBfqivJBskj-yZP3LHJMOi3ATodWmZPB3lTwZ03msPIEgnd1IcsOxzi_TayJe"
     },
     {
         "domain": ".linkedin.com",
-        "expires": "Sun, 24 Sep 2017 12:43:53 GMT",
-        "expiry": 1506257033,
+        "expires": "Tue, 09 Jan 2018 11:13:07 GMT",
+        "expiry": 1515496387,
         "httponly": false,
         "name": "liap",
         "path": "/",
@@ -69,62 +59,42 @@
     },
     {
         "domain": ".www.linkedin.com",
-        "expires": "Sun, 24 Sep 2017 12:43:53 GMT",
-        "expiry": 1506257033,
+        "expires": "Tue, 09 Jan 2018 11:13:07 GMT",
+        "expiry": 1515496387,
         "httponly": false,
         "name": "JSESSIONID",
         "path": "/",
         "secure": true,
-        "value": "\"ajax:8197814872496477791\""
+        "value": "\"ajax:1812151156875765312\""
     },
     {
         "domain": ".www.linkedin.com",
-        "expires": "Tue, 26 Jun 2018 12:43:53 GMT",
-        "expiry": 1530017033,
-        "httponly": true,
-        "name": "li_at",
-        "path": "/",
-        "secure": true,
-        "value": "AQEDASJMuNIFTO8iAAABXORuANkAAAFc5iV02U4AyO5mvOgaixGZ0vXiZAvIEj_YNgK-apy9FIdc4TAgvB_BlR0pE3ccFCadNjphZh9VPda9h26m8RhOM9iijOGDRGdfgniw-oYV7UNstkGsAQo-W313"
-    },
-    {
-        "domain": ".www.linkedin.com",
-        "expires": "Sun, 24 Sep 2017 12:43:53 GMT",
-        "expiry": 1506257033,
+        "expires": "Tue, 09 Jan 2018 11:13:07 GMT",
+        "expiry": 1515496387,
         "httponly": false,
         "name": "sl",
         "path": "/",
         "secure": false,
-        "value": "\"v=1&NoEEZ\""
-    },
-    {
-        "domain": "accounts.google.com",
-        "expires": "Wed, 26 Jun 2019 12:43:50 GMT",
-        "expiry": 1561553030,
-        "httponly": true,
-        "name": "GAPS",
-        "path": "/",
-        "secure": true,
-        "value": "1:OETQxe5wg3eKBGB_Ys7x1pgruDhFDA:AkN4Ckedh3UrlDdN"
+        "value": "\"v=1&IpVFT\""
     },
     {
         "domain": ".www.linkedin.com",
-        "expires": "Thu, 27 Jun 2019 00:21:22 GMT",
-        "expiry": 1561594882,
+        "expires": "Fri, 11 Oct 2019 22:50:38 GMT",
+        "expiry": 1570834238,
         "httponly": true,
         "name": "bscookie",
         "path": "/",
         "secure": true,
-        "value": "\"v=1&201706261243507ea03509-b6cf-4cdf-8642-1da659d756e9AQH8qitA136sqeuEs3NAUX-LUEaGZTux\""
+        "value": "\"v=1&201710111113068355a047-e16a-4855-8418-e2d28c7b7588AQGGjL5CeuVWOAmTJLVVzWhcinO0zJ_i\""
     },
     {
         "domain": ".linkedin.com",
-        "expires": "Thu, 27 Jun 2019 00:21:22 GMT",
-        "expiry": 1561594882,
+        "expires": "Fri, 11 Oct 2019 22:50:38 GMT",
+        "expiry": 1570834238,
         "httponly": false,
         "name": "bcookie",
         "path": "/",
         "secure": false,
-        "value": "\"v=2&f1922c8d-4a2d-409f-8665-5d16f6ee4e75\""
+        "value": "\"v=2&4ffc8682-f067-49de-8a67-501982aa4f94\""
     }
 ]
