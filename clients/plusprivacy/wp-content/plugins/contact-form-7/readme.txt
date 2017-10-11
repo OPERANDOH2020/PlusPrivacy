@@ -1,12 +1,12 @@
 === Contact Form 7 ===
 Contributors: takayukister
-Donate link: http://contactform7.com/donate/
+Donate link: https://contactform7.com/donate/
 Tags: contact, form, contact form, feedback, email, ajax, captcha, akismet, multilingual
-Requires at least: 4.5
-Tested up to: 4.7
-Stable tag: 4.6
+Requires at least: 4.7
+Tested up to: 4.8.1
+Stable tag: 4.9
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Just another contact form plugin. Simple but flexible.
 
@@ -16,11 +16,11 @@ Contact Form 7 can manage multiple contact forms, plus you can customize the for
 
 = Docs & Support =
 
-You can find [docs](http://contactform7.com/docs/), [FAQ](http://contactform7.com/faq/) and more detailed information about Contact Form 7 on [contactform7.com](http://contactform7.com/). If you were unable to find the answer to your question on the FAQ or in any of the documentation, you should check the [support forum](http://wordpress.org/support/plugin/contact-form-7) on WordPress.org. If you can't locate any topics that pertain to your particular issue, post a new topic for it.
+You can find [docs](https://contactform7.com/docs/), [FAQ](https://contactform7.com/faq/) and more detailed information about Contact Form 7 on [contactform7.com](https://contactform7.com/). If you were unable to find the answer to your question on the FAQ or in any of the documentation, you should check the [support forum](https://wordpress.org/support/plugin/contact-form-7/) on WordPress.org. If you can't locate any topics that pertain to your particular issue, post a new topic for it.
 
 = Contact Form 7 Needs Your Support =
 
-It is hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using Contact Form 7 and find it useful, please consider [__making a donation__](http://contactform7.com/donate/). Your donation will help encourage and support the plugin's continued development and better user support.
+It is hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using Contact Form 7 and find it useful, please consider [__making a donation__](https://contactform7.com/donate/). Your donation will help encourage and support the plugin's continued development and better user support.
 
 = Recommended Plugins =
 
@@ -33,7 +33,7 @@ Jason Hendriks - Postman is a next-generation SMTP Mailer, software that assists
 
 = Translations =
 
-You can [translate Contact Form 7](http://contactform7.com/translating-contact-form-7/) on [__translate.wordpress.org__](https://translate.wordpress.org/projects/wp-plugins/contact-form-7).
+You can [translate Contact Form 7](https://contactform7.com/translating-contact-form-7/) on [__translate.wordpress.org__](https://translate.wordpress.org/projects/wp-plugins/contact-form-7).
 
 == Installation ==
 
@@ -42,17 +42,17 @@ You can [translate Contact Form 7](http://contactform7.com/translating-contact-f
 
 You will find 'Contact' menu in your WordPress admin panel.
 
-For basic usage, you can also have a look at the [plugin homepage](http://contactform7.com/).
+For basic usage, you can also have a look at the [plugin web site](https://contactform7.com/).
 
 == Frequently Asked Questions ==
 
 Do you have questions or issues with Contact Form 7? Use these support channels appropriately.
 
-1. [Docs](http://contactform7.com/docs/)
-1. [FAQ](http://contactform7.com/faq/)
-1. [Support Forum](http://wordpress.org/support/plugin/contact-form-7)
+1. [Docs](https://contactform7.com/docs/)
+1. [FAQ](https://contactform7.com/faq/)
+1. [Support Forum](https://wordpress.org/support/plugin/contact-form-7/)
 
-[Support](http://contactform7.com/support/)
+[Support](https://contactform7.com/support/)
 
 == Screenshots ==
 
@@ -60,32 +60,36 @@ Do you have questions or issues with Contact Form 7? Use these support channels 
 
 == Changelog ==
 
-For more information, see [Releases](http://contactform7.com/category/releases/).
+For more information, see [Releases](https://contactform7.com/category/releases/).
 
-= 4.6 =
+= 4.9 =
 
-* Ajax loader: HTML markup changed to `<span>` to be easily customizable with CSS.
-* Appends a proper header and footer to HTML mail content automatically.
-* `[_serial_number]` special mail-tag.
-* New form-tag type for hidden fields.
-* `default:shortcode_attr` form-tag option.
-* `WPCF7_Shortcode`, `WPCF7_ShortcodeManager`, `wpcf7_add_shortcode()`, `wpcf7_scan_shortcode()`, and some other classes and functions have become deprecated.
-* Removed all language files from the _languages_ folder. Translations have moved to [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/contact-form-7).
+* Supports subscribers_only setting
+* Changes the default value of WPCF7_VERIFY_NONCE to false
+* WPCF7_FormTagsManager::collect_tag_types() supports invert option
+* New filter hooks: wpcf7_verify_nonce, wpcf7_subscribers_only_notice, wpcf7_remote_ip_addr, and wpcf7_submission_is_blacklisted
+* Fixed: Form-tag's tabindex option did not accept 0 or negative integer values
+* Shows a validation error when no option in a radio buttons group is checked
+* Config validator: Adds a validation rule against the use of deprecated settings (on_sent_ok and on_submit)
+* Allows to pass the skip_mail option through the WPCF7_ContactForm::submit() and WPCF7_Submission::get_instance() function parameters.
+* Triggers wpcf7beforesubmit custom DOM event. You can manipulate the formData object through an event handler.
 
-= 4.5.1 =
+= 4.8.1 =
 
-* Avoids JavaScript strict-mode errors seen with ill-designed themes.
-* Fixed a bug around reCAPTCHA's callback and expired-callback options.
-* Specifies cursor style for file uploading fields.
-* Corrects language tags for locale codes with modifying suffix like '_formal'.
-* Corrects wpcf7_is_rtl() output. Added 5 locales to the RTL locales list.
-* Language Packs: Language files for Portuguese (Brazil) (pt_BR) and Hebrew (he_IL) have been removed.
+* wpcf7.initForm JavaScript function added to isolate form initialization process.
+* Fix response message duplication caused by repeated click on submit button.
+* Clear $phpmailer->AltBody to avoid unintended inheritance from previous wp_mail() calls.
+* Fix incorrect character count of textarea input.
+* Akismet: Exclude the comment_author, comment_author_email, and comment_author_url values from the comment_content value.
+* REST API: More reliable approach to build route URLs.
+* Include free_text inputs into event.detail.inputs.
 
-= 4.5 =
+= 4.8 =
 
-* The default contact form template is revised.
-* reCAPTCHA: Run grecaptcha.reset() after a submission.
-* The autocomplete option for form-tags and wpcf7_form_autocomplete filter hook are introduced to manage autocomplete attribute.
-* The config validator is revised. The wpcf7_config_validator_validate action hook is introduced to allow 3rd-party to cut in.
-* A bug in character count form-tag is fixed.
-* Language Packs: Language files for Danish (da_DK), Polish (pl_PL), and Czech (cs_CZ) have been removed from the plugin package.
+* Stopped using jquery.form.js.
+* Added custom REST API endpoints for Ajax form submissions.
+* WPCF7_FormTag class implements ArrayAccess interface.
+* WPCF7_FormTagsManager::filter() filters form-tags based on features they support.
+* New form-tag features: do-not-store, display-block, and display-hidden
+* Removed inappropriate content from h1 headings.
+* Added the support of size:invisible option to the reCAPTCHA form-tag.

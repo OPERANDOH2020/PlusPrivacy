@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 /* DESCRIPTION: Methods and Objects in this file are global and common in 
  * nature use this file to place all shared methods and varibles */	
 
@@ -8,6 +8,7 @@ Duplicator.UI		= new Object();
 Duplicator.Pack		= new Object();
 Duplicator.Settings = new Object();
 Duplicator.Tools	= new Object();
+Duplicator.Debug	= new Object();
 
 //GLOBAL CONSTANTS
 Duplicator.DEBUG_AJAX_RESPONSE = false;
@@ -43,11 +44,11 @@ Duplicator.ReloadWindow = function(data)
 };
 
 //Basic Util Methods here:
-Duplicator.OpenLogWindow = function(log) 
+Duplicator.OpenLogWindow = function(target)
 {
-	var logFile = log || null;
-	if (logFile == null) {
-		window.open('?page=duplicator-tools', 'Log Window');
+	var target = "log-win" || null;
+	if (target != null) {
+		window.open('?page=duplicator-tools', 'log-win');
 	} else {
 		window.open('<?php echo DUPLICATOR_SSDIR_URL; ?>' + '/' + log)
 	}
@@ -59,14 +60,14 @@ Duplicator.OpenLogWindow = function(log)
 *  ============================================================================	*/
 
 /*	Saves the state of a UI element */ 
-Duplicator.UI.SaveViewStateByPost = function (key, value) 
+Duplicator.UI.SaveViewState = function (key, value) 
 {
 	if (key != undefined && value != undefined ) {
 		jQuery.ajax({
 			type: "POST",
 			url: ajaxurl,
 			dataType: "json",
-			data: {action : 'DUP_UI_SaveViewStateByPost', key: key, value: value},
+			data: {action : 'DUP_CTRL_UI_SaveViewState', key: key, value: value},
 			success: function(data) {},
 			error: function(data) {}
 		});	
@@ -98,11 +99,27 @@ Duplicator.UI.ToggleMetaBox = function()
 	var key   = $panel.attr('id');
 	var value = $panel.is(":visible") ? 0 : 1;
 	$panel.toggle();
-	Duplicator.UI.SaveViewStateByPost(key, value);
+	Duplicator.UI.SaveViewState(key, value);
 	(value) 
 		? $arrow.removeClass().addClass('fa fa-caret-up') 
 		: $arrow.removeClass().addClass('fa fa-caret-down');
 	
+}
+
+Duplicator.UI.readonly = function(item)
+{
+	jQuery(item).attr('readonly', 'true').css({color:'#999'});
+}
+
+Duplicator.UI.disable = function(item)
+{
+	jQuery(item).attr('disabled', 'true').css({color:'#999'});
+}
+
+Duplicator.UI.enable = function(item)
+{
+	jQuery(item).removeAttr('disabled').css({color:'#000'});
+	jQuery(item).removeAttr('readonly').css({color:'#000'});
 }
 
 //Init
@@ -149,23 +166,73 @@ jQuery(document).ready(function($)
 			? $arrow.html('<i class="fa fa-caret-up"></i>')
 			: $arrow.html('<i class="fa fa-caret-down"></i>');
 	});
-	
-	//Look for tooltip data
-	$('i[data-tooltip!=""]').qtip({ 
-		content: {
-			attr: 'data-tooltip',
-			title: {
-				text: function() { return  $(this).attr('data-tooltip-title'); }
+
+
+	Duplicator.UI.loadQtip = function()
+	{
+		//Look for tooltip data
+		$('i[data-tooltip!=""]').qtip({
+			content: {
+				attr: 'data-tooltip',
+				title: {
+					text: function() { return  $(this).attr('data-tooltip-title'); }
+				}
+			},
+			style: {
+				classes: 'qtip-light qtip-rounded qtip-shadow',
+				width: 500
+			},
+			 position: {
+				my: 'top left',
+				at: 'bottom center'
 			}
-		},
-		style: {
-			classes: 'qtip-light qtip-rounded qtip-shadow',
-			width: 500
-		},
-		 position: {
-			my: 'top left', 
-			at: 'bottom center'
+		});
+	}
+
+	Duplicator.UI.loadQtip();
+
+
+	//HANDLEBARS HELPERS
+	if  (typeof(Handlebars) != "undefined"){
+
+		function _handleBarscheckCondition(v1, operator, v2) {
+			switch(operator) {
+				case '==':
+					return (v1 == v2);
+				case '===':
+					return (v1 === v2);
+				case '!==':
+					return (v1 !== v2);
+				case '<':
+					return (v1 < v2);
+				case '<=':
+					return (v1 <= v2);
+				case '>':
+					return (v1 > v2);
+				case '>=':
+					return (v1 >= v2);
+				case '&&':
+					return (v1 && v2);
+				case '||':
+					return (v1 || v2);
+				case 'obj||':
+					v1 = typeof(v1) == 'object' ? v1.length : v1;
+					v2 = typeof(v2) == 'object' ? v2.length : v2;
+					return (v1 !=0 || v2 != 0);
+				default:
+					return false;
+			}
 		}
-	});
+
+		Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+			return _handleBarscheckCondition(v1, operator, v2)
+						? options.fn(this)
+						: options.inverse(this);
+		});
+
+		Handlebars.registerHelper('if_eq',		function(a, b, opts) { return (a == b) ? opts.fn(this) : opts.inverse(this);});
+		Handlebars.registerHelper('if_neq',		function(a, b, opts) { return (a != b) ? opts.fn(this) : opts.inverse(this);});
+	}
+
 });	
 </script>

@@ -2,15 +2,15 @@
 
 Contributors: neilgee
 Donate link: https://www.paypal.com/au/cgi-bin/webscr?cmd=_flow&SESSION=UTMvXh9tc4f-d1yspwlf9gW0wyybSe1mzkx1p1to3k1VqHoWE7AulrQABSi&dispatch=5885d80a13c0db1f8e263663d3faee8d64813b57e559a2578463e58274899069
-Tags: lightbox, video, responsive, modal, pop-up
+Tags: lightbox, video, responsive, modal, pop-up, gallery, images
 Requires at least: 4.0
-Tested up to: 4.7
-Stable tag: 1.3.7
+Tested up to: 4.8
+Stable tag: 1.4.1
 Plugin Name: VenoBox Lightbox
 Plugin URI: http://wpbeaches.com
 Description: Responsive video and image pop-up lightbox
 Author: Neil Gee
-Version: 1.3.7
+Version: 1.4.1
 Author URI: http://wpbeaches.com/
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -61,6 +61,22 @@ Ability to enable/disable VenoBox gallery for images on a per post/page/custom p
 
 
 == Changelog ==
+
+= 1.4.1 =
+* 16/7/17
+* Higher z-index layer on lightbox overlay
+* Re-work post metabox to disable VenoBox on a post/page basis, previous metabox conflict with Beaver Builder. Checkbox now positioned in Publish metabox area.
+* Load minified scripts on admin settings page
+* Swap tab order in settings - Plugin Options / Markup Instructions
+
+= 1.4.0 =
+* 7/7/17
+* Upgraded to core VenoBox 1.8.2
+* Added a legacy mark up box to update any manual data attributes code as the data attribute usage has changed.
+* Position title and pagination top or bottom.
+* Added pre-loader spinner choice.
+* Change navigation and title colors.
+* Ability to autoplay videos. Credit @codibit - https://github.com/codibit
 
 = 1.3.7 =
 * 12/11/16

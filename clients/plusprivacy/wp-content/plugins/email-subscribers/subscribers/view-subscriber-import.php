@@ -155,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<?php echo __( 'Select CSV file', ES_TDOMAIN ); ?>
 									<p class="description">
 										<?php echo __( 'Check CSV structure ', ES_TDOMAIN ); ?>
-										<a target="_blank" href="http://www.icegram.com/documentation/es-how-to-import-or-export-email-addresses/"><?php echo __( 'from here', ES_TDOMAIN ); ?></a>
+										<a target="_blank" href="https://www.icegram.com/documentation/es-how-to-import-or-export-email-addresses/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page"><?php echo __( 'from here', ES_TDOMAIN ); ?></a>
 									</p>
 								</label>
 							</th>
@@ -213,6 +213,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</form>
 		</div>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

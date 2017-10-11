@@ -5,11 +5,11 @@ if(!function_exists('add_action')){
 	exit;
 }
 
-define('LOGINIZER_VERSION', '1.3.2');
+define('LOGINIZER_VERSION', '1.3.8');
 define('LOGINIZER_DIR', WP_PLUGIN_DIR.'/'.basename(dirname(LOGINIZER_FILE)));
 define('LOGINIZER_URL', plugins_url('', LOGINIZER_FILE));
 define('LOGINIZER_PRO_URL', 'https://loginizer.com/features#compare');
-define('LOGINIZER_DOCS', 'https://loginizer.com/wiki/');
+define('LOGINIZER_DOCS', 'https://loginizer.com/docs/');
 
 include_once(LOGINIZER_DIR.'/functions.php');
 
@@ -180,6 +180,9 @@ function loginizer_load_plugin(){
 	
 	// The IP Method to use
 	$loginizer['ip_method'] = get_option('loginizer_ip_method');
+	if($loginizer['ip_method'] == 3){
+		$loginizer['custom_ip_method'] = get_option('loginizer_custom_ip_method');
+	}
 	
 	// Load settings
 	$options = get_option('loginizer_options');
@@ -189,6 +192,19 @@ function loginizer_load_plugin(){
 	$loginizer['lockouts_extend'] = empty($options['lockouts_extend']) ? 86400 : $options['lockouts_extend']; // 24 hours
 	$loginizer['reset_retries'] = empty($options['reset_retries']) ? 86400 : $options['reset_retries']; // 24 hours
 	$loginizer['notify_email'] = empty($options['notify_email']) ? 0 : $options['notify_email'];
+	
+	// Default messages
+	$loginizer['d_msg']['inv_userpass'] = 'Incorrect Username or Password';
+	$loginizer['d_msg']['ip_blacklisted'] = 'Your IP has been blacklisted';
+	
+	// Message Strings
+	$loginizer['msg'] = get_option('loginizer_msg');
+	
+	foreach($loginizer['d_msg'] as $lk => $lv){
+		if(empty($loginizer['msg'][$lk])){
+			$loginizer['msg'][$lk] = $loginizer['d_msg'][$lk];
+		}
+	}
 		
 	// Load the blacklist and whitelist
 	$loginizer['blacklist'] = get_option('loginizer_blacklist');
@@ -228,6 +244,7 @@ function loginizer_load_plugin(){
 	// Is called before displaying the error message so that we dont show that the username is wrong or the password
 	// Update Error message
 	add_action('wp_login_errors', 'loginizer_error_handler', 10001, 2);
+	add_action('woocommerce_login_failed', 'loginizer_woocommerce_error_handler', 10001);
 	
 	// Is the premium features there ?
 	if(file_exists(LOGINIZER_DIR.'/premium.php')){
@@ -462,20 +479,20 @@ function loginizer_is_blacklisted(){
 	foreach($blacklist as $k => $v){
 		
 		// Is the IP in the blacklist ?
-		if(ip2long($v['start']) <= ip2long($loginizer['current_ip']) && ip2long($loginizer['current_ip']) <= ip2long($v['end'])){
+		if(inet_ptoi($v['start']) <= inet_ptoi($loginizer['current_ip']) && inet_ptoi($loginizer['current_ip']) <= inet_ptoi($v['end'])){
 			$result = 1;
 			break;
 		}
 		
 		// Is it in a wider range ?
-		if(ip2long($v['start']) >= 0 && ip2long($v['end']) < 0){
+		if(inet_ptoi($v['start']) >= 0 && inet_ptoi($v['end']) < 0){
 			
-			// Since the end of the RANGE (i.e. current IP range) is beyond the +ve value of ip2long, 
+			// Since the end of the RANGE (i.e. current IP range) is beyond the +ve value of inet_ptoi, 
 			// if the current IP is <= than the start of the range, it is within the range
 			// OR
 			// if the current IP is <= than the end of the range, it is within the range
-			if(ip2long($v['start']) <= ip2long($loginizer['current_ip'])
-				|| ip2long($loginizer['current_ip']) <= ip2long($v['end'])){				
+			if(inet_ptoi($v['start']) <= inet_ptoi($loginizer['current_ip'])
+				|| inet_ptoi($loginizer['current_ip']) <= inet_ptoi($v['end'])){				
 				$result = 1;
 				break;
 			}
@@ -486,7 +503,7 @@ function loginizer_is_blacklisted(){
 		
 	// You are blacklisted
 	if(!empty($result)){
-		$lz_error['ip_blacklisted'] = 'Your IP has been blacklisted';
+		$lz_error['ip_blacklisted'] = $loginizer['msg']['ip_blacklisted'];
 		return true;
 	}
 	
@@ -503,20 +520,20 @@ function loginizer_is_whitelisted(){
 	foreach($whitelist as $k => $v){
 		
 		// Is the IP in the blacklist ?
-		if(ip2long($v['start']) <= ip2long($loginizer['current_ip']) && ip2long($loginizer['current_ip']) <= ip2long($v['end'])){
+		if(inet_ptoi($v['start']) <= inet_ptoi($loginizer['current_ip']) && inet_ptoi($loginizer['current_ip']) <= inet_ptoi($v['end'])){
 			$result = 1;
 			break;
 		}
 		
 		// Is it in a wider range ?
-		if(ip2long($v['start']) >= 0 && ip2long($v['end']) < 0){
+		if(inet_ptoi($v['start']) >= 0 && inet_ptoi($v['end']) < 0){
 			
-			// Since the end of the RANGE (i.e. current IP range) is beyond the +ve value of ip2long, 
+			// Since the end of the RANGE (i.e. current IP range) is beyond the +ve value of inet_ptoi, 
 			// if the current IP is <= than the start of the range, it is within the range
 			// OR
 			// if the current IP is <= than the end of the range, it is within the range
-			if(ip2long($v['start']) <= ip2long($loginizer['current_ip'])
-				|| ip2long($loginizer['current_ip']) <= ip2long($v['end'])){				
+			if(inet_ptoi($v['start']) <= inet_ptoi($loginizer['current_ip'])
+				|| inet_ptoi($loginizer['current_ip']) <= inet_ptoi($v['end'])){				
 				$result = 1;
 				break;
 			}
@@ -606,7 +623,7 @@ function loginizer_error_handler($errors, $redirect_to){
 	
 	// Add the error
 	if(!empty($lz_user_pass) && !empty($show_error) && empty($lz_cannot_login)){
-		$errors->add('invalid_userpass', '<b>ERROR:</b> Incorrect Username or Password');
+		$errors->add('invalid_userpass', '<b>ERROR:</b> ' . $loginizer['msg']['inv_userpass']);
 	}
 	
 	// Add the number of retires left as well
@@ -615,6 +632,19 @@ function loginizer_error_handler($errors, $redirect_to){
 	}
 	
 	return $errors;
+	
+}
+
+
+
+// Handles the error of the password not being there
+function loginizer_woocommerce_error_handler(){
+	
+	global $wpdb, $loginizer, $lz_user_pass, $lz_cannot_login;
+	
+	if(function_exists('wc_add_notice')){
+		wc_add_notice( loginizer_retries_left(), 'error' );
+	}
 	
 }
 
@@ -802,7 +832,7 @@ function loginizer_page_footer(){
 	<br />
 	<div style="width:45%;background:#FFF;padding:15px; margin:auto">
 		<b>Let your friends know that you have secured your website :</b>
-		<form method="get" action="http://twitter.com/intent/tweet" id="tweet" onsubmit="return dotweet(this);">
+		<form method="get" action="https://twitter.com/intent/tweet" id="tweet" onsubmit="return dotweet(this);">
 			<textarea name="text" cols="45" row="3" style="resize:none;">I just secured my @WordPress site against #bruteforce using @loginizer</textarea>
 			&nbsp; &nbsp; <input type="submit" value="Tweet!" class="button button-primary" onsubmit="return false;" id="twitter-btn" style="margin-top:20px;"/>
 		</form>
@@ -851,7 +881,7 @@ function loginizer_page_dashboard(){
 		}
 		
 		// Save the License
-		if(empty($json)){
+		if(empty($json['license'])){
 		
 			$lz_error['lic_invalid'] = __('The license key is invalid', 'loginizer');
 			return loginizer_page_dashboard_T();
@@ -871,9 +901,15 @@ function loginizer_page_dashboard(){
 	if(isset($_POST['save_lz_ip_method'])){
 		
 		$ip_method = (int) lz_optpost('lz_ip_method');
+		$custom_ip_method = lz_optpost('lz_custom_ip_method');
 		
-		if($ip_method >= 0 && $ip_method <= 2){
+		if($ip_method >= 0 && $ip_method <= 3){
 			update_option('loginizer_ip_method', $ip_method);
+		}
+		
+		// Custom Method name ?
+		if($ip_method == 3){
+			update_option('loginizer_custom_ip_method', $custom_ip_method);
 		}
 		
 	}
@@ -1020,11 +1056,13 @@ input[type="text"], textarea, select {
 				<td>'.lz_getip().'
 					<div style="float:right">
 						Method : 
-						<select name="lz_ip_method" style="font-size:11px; width:150px">
+						<select name="lz_ip_method" id="lz_ip_method" style="font-size:11px; width:150px" onchange="lz_ip_method_handle()">
 							<option value="0" '.lz_POSTselect('lz_ip_method', 0, (@$loginizer['ip_method'] == 0)).'>REMOTE_ADDR</option>
 							<option value="1" '.lz_POSTselect('lz_ip_method', 1, (@$loginizer['ip_method'] == 1)).'>HTTP_X_FORWARDED_FOR</option>
 							<option value="2" '.lz_POSTselect('lz_ip_method', 2, (@$loginizer['ip_method'] == 2)).'>HTTP_CLIENT_IP</option>
+							<option value="3" '.lz_POSTselect('lz_ip_method', 3, (@$loginizer['ip_method'] == 3)).'>CUSTOM</option>
 						</select>
+						<input name="lz_custom_ip_method" id="lz_custom_ip_method" type="text" value="'.lz_optpost('lz_custom_ip_method', @$loginizer['custom_ip_method']).'" style="font-size:11px; width:100px; display:none" />
 						<input name="save_lz_ip_method" class="button button-primary" value="Save" type="submit" />
 					</div>
 				</td>
@@ -1049,6 +1087,21 @@ input[type="text"], textarea, select {
 		
 		</div>
 	</div>
+
+<script type="text/javascript">
+
+function lz_ip_method_handle(){
+	var ele = jQuery('#lz_ip_method');
+	if(ele.val() == 3){
+		jQuery('#lz_custom_ip_method').show();
+	}else{
+		jQuery('#lz_custom_ip_method').hide();
+	}
+};
+
+lz_ip_method_handle();
+
+</script>
 	
 	<div id="" class="postbox">
 	
@@ -1182,7 +1235,7 @@ function loginizer_page_brute_force(){
 	}
 	
 	// Delete a Blackist IP range
-	if(isset($_GET['bdelid'])){
+	if(isset($_POST['bdelid'])){
 		
 		$delid = (int) lz_optreq('bdelid');
 		
@@ -1197,8 +1250,20 @@ function loginizer_page_brute_force(){
 			
 	}
 	
+	// Delete all Blackist IP ranges
+	if(isset($_POST['del_all_blacklist'])){
+		
+		// Unset and save
+		update_option('loginizer_blacklist', array());
+		
+		echo '<div id="message" class="updated fade"><p>'
+			. __('The Blacklist IP range(s) have been cleared successfully', 'loginizer')
+			. '</p></div><br />';
+			
+	}
+	
 	// Delete a Whitelist IP range
-	if(isset($_GET['delid'])){
+	if(isset($_POST['delid'])){
 		
 		$delid = (int) lz_optreq('delid');
 		
@@ -1209,6 +1274,18 @@ function loginizer_page_brute_force(){
 		
 		echo '<div id="message" class="updated fade"><p>'
 			. __('The Whitelist IP range has been deleted successfully', 'loginizer')
+			. '</p></div><br />';
+			
+	}
+	
+	// Delete all Blackist IP ranges
+	if(isset($_POST['del_all_whitelist'])){
+		
+		// Unset and save
+		update_option('loginizer_whitelist', array());
+		
+		echo '<div id="message" class="updated fade"><p>'
+			. __('The Whitelist IP range(s) have been cleared successfully', 'loginizer')
 			. '</p></div><br />';
 			
 	}
@@ -1284,10 +1361,10 @@ function loginizer_page_brute_force(){
 		}
 		
 		// Regular ranges will work
-		if(ip2long($start_ip) > ip2long($end_ip)){
+		if(inet_ptoi($start_ip) > inet_ptoi($end_ip)){
 			
 			// BUT, if 0.0.0.1 - 255.255.255.255 is given, it will not work
-			if(ip2long($start_ip) >= 0 && ip2long($end_ip) < 0){
+			if(inet_ptoi($start_ip) >= 0 && inet_ptoi($end_ip) < 0){
 				// This is right
 			}else{
 				$error[] = 'The End IP cannot be smaller than the Start IP';
@@ -1302,21 +1379,21 @@ function loginizer_page_brute_force(){
 			foreach($blacklist as $k => $v){
 				
 				// This is to check if there is any other range exists with the same Start or End IP
-				if(( ip2long($start_ip) <= ip2long($v['start']) && ip2long($v['start']) <= ip2long($end_ip) )
-					|| ( ip2long($start_ip) <= ip2long($v['end']) && ip2long($v['end']) <= ip2long($end_ip) )
+				if(( inet_ptoi($start_ip) <= inet_ptoi($v['start']) && inet_ptoi($v['start']) <= inet_ptoi($end_ip) )
+					|| ( inet_ptoi($start_ip) <= inet_ptoi($v['end']) && inet_ptoi($v['end']) <= inet_ptoi($end_ip) )
 				){
 					$error[] = 'The Start IP or End IP submitted conflicts with an existing IP range !';
 					break;
 				}
 				
 				// This is to check if there is any other range exists with the same Start IP
-				if(ip2long($v['start']) <= ip2long($start_ip) && ip2long($start_ip) <= ip2long($v['end'])){
+				if(inet_ptoi($v['start']) <= inet_ptoi($start_ip) && inet_ptoi($start_ip) <= inet_ptoi($v['end'])){
 					$error[] = 'The Start IP is present in an existing range !';
 					break;
 				}
 				
 				// This is to check if there is any other range exists with the same End IP
-				if(ip2long($v['start']) <= ip2long($end_ip) && ip2long($end_ip) <= ip2long($v['end'])){
+				if(inet_ptoi($v['start']) <= inet_ptoi($end_ip) && inet_ptoi($end_ip) <= inet_ptoi($v['end'])){
 					$error[] = 'The End IP is present in an existing range!';
 					break;
 				}
@@ -1370,10 +1447,10 @@ function loginizer_page_brute_force(){
 			$error[] = 'Please provide a valid end IP';			
 		}
 			
-		if(ip2long($start_ip) > ip2long($end_ip)){
+		if(inet_ptoi($start_ip) > inet_ptoi($end_ip)){
 			
 			// BUT, if 0.0.0.1 - 255.255.255.255 is given, it will not work
-			if(ip2long($start_ip) >= 0 && ip2long($end_ip) < 0){
+			if(inet_ptoi($start_ip) >= 0 && inet_ptoi($end_ip) < 0){
 				// This is right
 			}else{
 				$error[] = 'The End IP cannot be smaller than the Start IP';
@@ -1388,21 +1465,21 @@ function loginizer_page_brute_force(){
 			foreach($whitelist as $k => $v){
 				
 				// This is to check if there is any other range exists with the same Start or End IP
-				if(( ip2long($start_ip) <= ip2long($v['start']) && ip2long($v['start']) <= ip2long($end_ip) )
-					|| ( ip2long($start_ip) <= ip2long($v['end']) && ip2long($v['end']) <= ip2long($end_ip) )
+				if(( inet_ptoi($start_ip) <= inet_ptoi($v['start']) && inet_ptoi($v['start']) <= inet_ptoi($end_ip) )
+					|| ( inet_ptoi($start_ip) <= inet_ptoi($v['end']) && inet_ptoi($v['end']) <= inet_ptoi($end_ip) )
 				){
 					$error[] = 'The Start IP or End IP submitted conflicts with an existing IP range !';
 					break;
 				}
 				
 				// This is to check if there is any other range exists with the same Start IP
-				if(ip2long($v['start']) <= ip2long($start_ip) && ip2long($start_ip) <= ip2long($v['end'])){
+				if(inet_ptoi($v['start']) <= inet_ptoi($start_ip) && inet_ptoi($start_ip) <= inet_ptoi($v['end'])){
 					$error[] = 'The Start IP is present in an existing range !';
 					break;
 				}
 				
 				// This is to check if there is any other range exists with the same End IP
-				if(ip2long($v['start']) <= ip2long($end_ip) && ip2long($end_ip) <= ip2long($v['end'])){
+				if(inet_ptoi($v['start']) <= inet_ptoi($end_ip) && inet_ptoi($end_ip) <= inet_ptoi($v['end'])){
 					$error[] = 'The End IP is present in an existing range!';
 					break;
 				}
@@ -1432,7 +1509,22 @@ function loginizer_page_brute_force(){
 			lz_report_error($error);echo '<br />';
 		}
 	}
-					
+	
+	// Save the messages
+	if(isset($_POST['save_err_msgs_lz'])){
+		
+		$msgs['inv_userpass'] = lz_optpost('msg_inv_userpass');
+		$msgs['ip_blacklisted'] = lz_optpost('msg_ip_blacklisted');
+		
+		// Update them
+		update_option('loginizer_msg', $msgs);
+				
+		echo '<div id="message" class="updated fade"><p>'
+				. __('Error messages were saved successfully', 'loginizer')
+				. '</p></div><br />';
+				
+	}
+
 	// Count the Results
 	$tmp = lz_selectquery("SELECT COUNT(*) AS num FROM `".$wpdb->prefix."loginizer_logs`");
 	//print_r($tmp);
@@ -1457,6 +1549,8 @@ function loginizer_page_brute_force(){
 	// Reload the settings
 	$loginizer['blacklist'] = get_option('loginizer_blacklist');
 	$loginizer['whitelist'] = get_option('loginizer_whitelist');
+	
+	$saved_msgs = get_option('loginizer_msg');
 	
 	?>
 
@@ -1503,6 +1597,7 @@ function loginizer_page_brute_force(){
 			<tr>
 				<th scope="row" valign="top" style="background:#EFEFEF;" width="20">#</th>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('IP','loginizer'); ?></th>
+				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Attempted Username','loginizer'); ?></th>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Last Failed Attempt  (DD/MM/YYYY)','loginizer'); ?></th>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Failed Attempts Count','loginizer'); ?></th>
 				<th scope="row" valign="top" style="background:#EFEFEF;" width="150"><?php echo __('Lockouts Count','loginizer'); ?></th>
@@ -1526,6 +1621,9 @@ function loginizer_page_brute_force(){
 						</td>
 						<td>
 							'.$iv['ip'].'
+						</td>
+						<td>
+							'.$iv['username'].'
 						</td>
 						<td>
 							'.date('d/m/Y H:i:s', $iv['time']).'
@@ -1613,6 +1711,67 @@ function loginizer_page_brute_force(){
 	</div>
 	<br />
 	
+<?php
+	
+	wp_enqueue_script('jquery-paginate', LOGINIZER_URL.'/jquery-paginate.js', array('jquery'), '1.10.15');
+	
+?>
+
+<style>
+.page-navigation a {
+margin: 5px 2px;
+display: inline-block;
+padding: 5px 8px;
+color: #0073aa;
+background: #e5e5e5 none repeat scroll 0 0;
+border: 1px solid #ccc;
+text-decoration: none;
+transition-duration: 0.05s;
+transition-property: border, background, color;
+transition-timing-function: ease-in-out;
+}
+ 
+.page-navigation a[data-selected] {
+background-color: #00a0d2;
+color: #fff;
+}
+</style>
+
+<script>
+
+jQuery(document).ready(function(){
+	jQuery('#lz_bl_table').paginate({ limit: 11, navigationWrapper: jQuery('#lz_bl_nav')});
+	jQuery('#lz_wl_table').paginate({ limit: 11, navigationWrapper: jQuery('#lz_wl_nav')});
+});
+
+// Delete a Blacklist / Whitelist IP Range
+function del_confirm(field, todo_id, msg){
+	var ret = confirm(msg);
+	
+	if(ret){
+		jQuery('#lz_bl_wl_todo').attr('name', field);
+		jQuery('#lz_bl_wl_todo').val(todo_id);
+		jQuery('#lz_bl_wl_form').submit();
+	}
+	
+	return false;
+	
+}
+
+// Delete all Blacklist / Whitelist IP Ranges
+function del_confirm_all(msg){
+	var ret = confirm(msg);
+	
+	if(ret){
+		return true;
+	}
+	
+	return false;
+	
+}
+
+</script>
+	
 	<div id="" class="postbox">
 	
 		<button class="handlediv button-link" aria-expanded="true" type="button">
@@ -1644,11 +1803,13 @@ function loginizer_page_brute_force(){
 				</td>
 			</tr>
 		</table><br />
-		<input name="blacklist_iprange" class="button button-primary action" value="<?php echo __('Add Blacklist IP Range','loginizer'); ?>" type="submit" />		
+		<input name="blacklist_iprange" class="button button-primary action" value="<?php echo __('Add Blacklist IP Range','loginizer'); ?>" type="submit" />
+		<input style="float:right" name="del_all_blacklist" onclick="return del_confirm_all('<?php echo __('Are you sure you want to delete all Blacklist IP Range(s) ?','loginizer'); ?>')" class="button action" value="<?php echo __('Delete All Blacklist IP Range(s)','loginizer'); ?>" type="submit" />
 		</form>
 		</div>
 		
-		<table class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
+		<div id="lz_bl_nav" style="margin: 5px 10px; text-align:right"></div>
+		<table id="lz_bl_table" class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
 			<tr>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Start IP','loginizer'); ?></th>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('End IP','loginizer'); ?></th>
@@ -1677,7 +1838,7 @@ function loginizer_page_brute_force(){
 								'.date('d/m/Y', $iv['time']).'
 							</td>
 							<td>
-								<a class="submitdelete" href="admin.php?page=loginizer_brute_force&bdelid='.$ik.'" onclick="return confirm(\'Are you sure you want to delete this IP range ?\')">Delete</a>
+								<a class="submitdelete" href="javascript:void(0)" onclick="return del_confirm(\'bdelid\', '.$ik.', \'Are you sure you want to delete this IP range ?\')">Delete</a>
 							</td>
 						</tr>';
 					}
@@ -1685,7 +1846,10 @@ function loginizer_page_brute_force(){
 			?>
 		</table>
 		<br />
-		
+		<form action="" method="post" id="lz_bl_wl_form">
+		<?php wp_nonce_field('loginizer-options'); ?>
+		<input type="hidden" value="" name="" id="lz_bl_wl_todo"/> 
+		</form>
 	</div>
 	
 	<br />
@@ -1720,11 +1884,13 @@ function loginizer_page_brute_force(){
 				</td>
 			</tr>
 		</table><br />
-		<input name="whitelist_iprange" class="button button-primary action" value="<?php echo __('Add Whitelist IP Range','loginizer'); ?>" type="submit" />
+		<input name="whitelist_iprange" class="button button-primary action" value="<?php echo __('Add Whitelist IP Range','loginizer'); ?>" type="submit" />		
+		<input style="float:right" name="del_all_whitelist" onclick="return del_confirm_all('<?php echo __('Are you sure you want to delete all Whitelist IP Range(s) ?','loginizer'); ?>')" class="button action" value="<?php echo __('Delete All Whitelist IP Range(s)','loginizer'); ?>" type="submit" />
 		</form>
 		</div>
 		
-		<table class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
+		<div id="lz_wl_nav" style="margin: 5px 10px; text-align:right"></div>
+		<table id="lz_wl_table" class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
 		<tr>
 			<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Start IP','loginizer'); ?></th>
 			<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('End IP','loginizer'); ?></th>
@@ -1753,7 +1919,7 @@ function loginizer_page_brute_force(){
 							'.date('d/m/Y', $iv['time']).'
 						</td>
 						<td>
-							<a class="submitdelete" href="admin.php?page=loginizer_brute_force&delid='.$ik.'" onclick="return confirm(\'Are you sure you want to delete this IP range ?\')">Delete</a>
+							<a class="submitdelete" href="javascript:void(0)" onclick="return del_confirm(\'delid\', '.$ik.', \'Are you sure you want to delete this IP range ?\')">Delete</a>
 						</td>
 					</tr>';
 				}
@@ -1763,7 +1929,42 @@ function loginizer_page_brute_force(){
 		<br />
 	
 	</div>
-	
+
+	<div id="" class="postbox">
+
+		<button class="handlediv button-link" aria-expanded="true" type="button">
+			<span class="screen-reader-text">Toggle panel: Error Messages</span>
+			<span class="toggle-indicator" aria-hidden="true"></span>
+		</button>
+
+		<h2 class="hndle ui-sortable-handle">
+			<span><?php echo __('Error Messages', 'loginizer'); ?></span>
+		</h2>
+
+		<div class="inside">
+
+			<form action="" method="post" enctype="multipart/form-data">
+				<?php wp_nonce_field('loginizer-options'); ?>
+				<table class="form-table">
+					<tr>
+						<th scope="row" valign="top"><label for="msg_inv_userpass"><?php echo __('Failed Login Attempt','loginizer'); ?></label></th>
+						<td>
+							<input type="text" size="25" value="<?php echo esc_attr($saved_msgs['inv_userpass']); ?>" name="msg_inv_userpass" id="msg_inv_userpass" />
+							<?php echo __('Default: <em>&quot;' . $loginizer['d_msg']['inv_userpass']. '&quot;</em>', 'loginizer'); ?><br />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" valign="top"><label for="msg_ip_blacklisted"><?php echo __('Blacklisted IP','loginizer'); ?></label></th>
+						<td>
+							<input type="text" size="25" value="<?php echo esc_attr($saved_msgs['ip_blacklisted']); ?>" name="msg_ip_blacklisted" id="msg_ip_blacklisted" />
+							<?php echo __('Default: <em>&quot;' . $loginizer['d_msg']['ip_blacklisted']. '&quot;</em>', 'loginizer'); ?><br />
+						</td>
+					</tr>
+				</table><br />
+				<input name="save_err_msgs_lz" class="button button-primary action" value="<?php echo __('Save Error Messages','loginizer'); ?>" type="submit" />
+			</form>
+		</div>
+	</div>
 <?php
 
 loginizer_page_footer();
@@ -1790,6 +1991,9 @@ global $wpdb;
 	delete_option('loginizer_last_reset');
 	delete_option('loginizer_whitelist');
 	delete_option('loginizer_blacklist');
+	delete_option('loginizer_msg');
+	delete_option('loginizer_security');
+	delete_option('loginizer_wp_admin');
 
 }
 

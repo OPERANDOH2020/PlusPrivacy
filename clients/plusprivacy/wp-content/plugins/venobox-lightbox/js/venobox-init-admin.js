@@ -6,8 +6,9 @@ jQuery(document).ready(function($){
       // framewidth: '1600px',        // default: ''
       // frameheight: '1000px',       // default: ''
       // bgcolor: '#5dff5e',
-      numeratio: true,            // default: false
-      infinigall: true           // default: false
+      numeratio: true,          // default: false
+      infinigall: true,         // default: false
+      autoplay: false           // default: false
 
     });
 
@@ -20,7 +21,9 @@ jQuery(document).ready(function($){
         bgcolor: '#5dff5e',         // default: '#fff'
         titleattr: 'data-title',    // default: 'title'
         numeratio: true,            // default: false
-        infinigall: true            // default: false
+        infinigall: true,          // default: false
+        autoplay: false             // default: false
+
     });
 
     /* auto-open #firstlink on page load */

@@ -77,7 +77,7 @@ angular.module('identities', [])
 
 
                                 $scope.generateIdentity = function () {
-                                    messengerService.send("generateIdentity", {}, function (response) {
+                                    messengerService.send("generateIdentity", function (response) {
                                         if (response.status == "success") {
                                             $scope.identity.alias = response.data.email;
                                             $scope.refreshSID();

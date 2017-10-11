@@ -59,7 +59,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             },
             resolve: {
                 loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load('/js/controllers/ospsController.js');
+                    return $ocLazyLoad.load('/js/controllers/headerController.js');
                 }],
                 resolvedUser: function (userService, $state) {
                     return userService.getCurrentUser().then(function (user) {
@@ -88,6 +88,38 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             resolve: {
                 loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load('/js/controllers/socialNetworksController.js');
+                }]
+            },
+            data: {
+                bodyClasses: 'dashboard'
+            }
+        })
+        .state("dashboard.eula",{
+            url:"/eula/:sn?",
+            views: {
+                'container@': {
+                    templateUrl: "../templates/views/eula.html",
+                }
+            },
+            resolve: {
+                loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/controllers/eulaController.js');
+                }]
+            },
+            data: {
+                bodyClasses: 'dashboard'
+            }
+        })
+        .state("dashboard.notifications",{
+            url:"/notifications",
+            views:{
+                'container@':{
+                    templateUrl:"../templates/views/notifications.html"
+                }
+            },
+            resolve:{
+                loadController:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load("/js/controllers/notificationsController.js");
                 }]
             },
             data: {

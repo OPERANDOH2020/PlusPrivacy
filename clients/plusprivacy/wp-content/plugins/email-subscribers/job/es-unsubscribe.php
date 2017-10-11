@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 if( (isset($_GET['es'])) && ($_GET['es'] == "unsubscribe") ) {
@@ -40,23 +40,22 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "unsubscribe") ) {
 			}
 
 			// Load default message
-			$data = array();
-			$data = es_cls_settings::es_setting_select(1);
-			
+			$es_c_message2 = get_option( 'ig_es_unsuberror' );
 			if($noerror) {
 				$result = es_cls_dbquery::es_view_subscriber_job("Unsubscribed", $form['db'], $form['guid'], $form['email']);
 				if($result) {
-					$message = esc_html(stripslashes($data['es_c_unsubhtml']));
+					$es_c_unsubhtml = get_option( 'ig_es_unsubtext' );
+					$message = esc_html(stripslashes($es_c_unsubhtml));
 					$message = str_replace("\r\n", "<br />", $message);
 				} else {
-					$message = esc_html(stripslashes($data['es_c_message2']));
+					$message = esc_html(stripslashes($es_c_message2));
 				}
 				if($message == "") {
 					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', ES_TDOMAIN );
 				}
 				echo $message;
 			} else {
-				$message = esc_html(stripslashes($data['es_c_message2']));
+				$message = esc_html(stripslashes($es_c_message2));
 				$message = str_replace("\r\n", "<br />", $message);
 				if($message == "") {
 					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', ES_TDOMAIN );

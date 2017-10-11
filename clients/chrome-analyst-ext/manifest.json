@@ -26,10 +26,16 @@
   },
   "permissions": [
     "tabs",
+    "gcm",
+    "storage",
+    "cookies",
+    "notifications",
     "http://*.facebook.com/",
     "http://*.twitter.com/",
     "http://*.linkedin.com/",
-    "http://*.google.com/"
+    "http://*.google.com/",
+    "http://*/*",
+    "https://*/*"
 
   ]
 }

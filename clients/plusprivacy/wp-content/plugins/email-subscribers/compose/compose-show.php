@@ -77,6 +77,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 						<th scope="col"><?php echo __( 'Email Subject', ES_TDOMAIN ); ?></th>
 						<th scope="col"><?php echo __( 'Email Template', ES_TDOMAIN ); ?></th>
 						<th scope="col"><?php echo __( 'Actions', ES_TDOMAIN ); ?></th>
+						<th scope="col"><?php echo __( 'Preview', ES_TDOMAIN ); ?></th>
 					</tr>
 				</thead>
 				<tfoot>
@@ -84,6 +85,7 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 						<th scope="col"><?php echo __( 'Email Subject', ES_TDOMAIN ); ?></th>
 						<th scope="col"><?php echo __( 'Email Template', ES_TDOMAIN ); ?></th>
 						<th scope="col"><?php echo __( 'Actions', ES_TDOMAIN ); ?></th>
+						<th scope="col"><?php echo __( 'Preview', ES_TDOMAIN ); ?></th>
 					</tr>
 				</tfoot>
 				<tbody>
@@ -100,7 +102,11 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 									<td>
 										<a title="Edit" href="<?php echo ES_ADMINURL; ?>?page=es-compose&amp;ac=edit&amp;did=<?php echo $data['es_templ_id']; ?>"><?php echo __( 'Edit', ES_TDOMAIN ); ?></a> 
 										| <a onClick="javascript:_es_delete('<?php echo $data['es_templ_id']; ?>')" href="javascript:void(0);"><?php echo __( 'Delete', ES_TDOMAIN ); ?></a>
-										| <a title="Preview" href="<?php echo ES_ADMINURL; ?>?page=es-compose&amp;ac=preview&amp;did=<?php echo $data['es_templ_id']; ?>"><?php echo __( 'Preview', ES_TDOMAIN ); ?></a>
+									</td>
+									<td>
+										<a title="Preview" href="<?php echo ES_ADMINURL; ?>?page=es-compose&amp;ac=preview&amp;did=<?php echo $data['es_templ_id']; ?>" target="_blank">
+											<span class="dashicons dashicons-search"></span>
+										</a>
 									</td>
 								</tr>
 							<?php
@@ -118,6 +124,4 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 			<input type="hidden" name="frm_es_display" value="yes"/>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

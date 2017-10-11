@@ -61,19 +61,19 @@ $cnt_comment_author = $wpdb->get_var( "SELECT count(DISTINCT comment_author_emai
 						<td><?php echo __( '1', ES_TDOMAIN ); ?></td>
 						<td><?php echo __( 'All Subscribers', ES_TDOMAIN ); ?></td>
 						<td><?php echo $cnt_all_subscribers; ?></td>
-						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_subscriber')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
+						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_all_subscribers')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
 					</tr>
 					<tr class="alternate">
 						<td><?php echo __( '2', ES_TDOMAIN ); ?></td>
 						<td><?php echo __( 'Active Subscribers (Status: Confirmed & Single Opt In)', ES_TDOMAIN ); ?></td>
 						<td><?php echo $cnt_active_subscribers; ?></td>
-						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_subscriber')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
+						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_active_subscribers')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
 					</tr>
 					<tr>
 						<td><?php echo __( '3', ES_TDOMAIN ); ?></td>
 						<td><?php echo __( 'Inactive Subscribers (Status: Unconfirmed & Unsubscribed)', ES_TDOMAIN ); ?></td>
 						<td><?php echo $cnt_inactive_subscribers; ?></td>
-						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_subscriber')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
+						<td><a onClick="javascript:_es_exportcsv('<?php echo $home_url. "?es=export"; ?>', 'view_inactive_subscribers')" href="javascript:void(0);"><?php echo __( 'Click to Export in CSV', ES_TDOMAIN ); ?></a></td>
 					</tr>
 					<tr class="alternate">
 						<td><?php echo __( '4', ES_TDOMAIN ); ?></td>
@@ -91,6 +91,4 @@ $cnt_comment_author = $wpdb->get_var( "SELECT count(DISTINCT comment_author_emai
 			</table>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

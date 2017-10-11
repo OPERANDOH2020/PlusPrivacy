@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 function es_plugin_query_vars($vars) {

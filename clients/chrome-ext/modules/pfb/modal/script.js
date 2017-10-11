@@ -1,10 +1,7 @@
 $('#myModal').modal();
 
-
-console.log(window.location.href);
 var base64data = window.location.href.substring(window.location.href.indexOf("#") + 1);
 var data = JSON.parse(atob(base64data));
-console.log(data);
 var offer;
 var parentTab;
 var cancelShowOffer = false;

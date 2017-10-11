@@ -47,7 +47,6 @@ function postToFacebook(settings, item, total) {
                 sendPostRequest(settings, extractedData, resolve,reject);
             }
         }
-
     });
 }
 

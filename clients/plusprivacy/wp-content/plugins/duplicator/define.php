@@ -2,7 +2,7 @@
 //Prevent directly browsing to the file
 if (function_exists('plugin_dir_url')) 
 {		
-    define('DUPLICATOR_VERSION',        '1.1.24');
+    define('DUPLICATOR_VERSION',        '1.2.24');
     define('DUPLICATOR_HOMEPAGE',       'http://lifeinthegrid.com/labs/duplicator');
     define('DUPLICATOR_PLUGIN_URL',     plugin_dir_url(__FILE__));
 	define('DUPLICATOR_SITE_URL',		get_site_url());
@@ -36,15 +36,15 @@ if (function_exists('plugin_dir_url'))
     define('DUPLICATOR_DB_MAX_TIME',     5000);
 	define('DUPLICATOR_DB_EOF_MARKER',   'DUPLICATOR_MYSQLDUMP_EOF');
 	//SCANNER CONSTRAINTS 
-	define('DUPLICATOR_SCAN_SITE',			157286400);	//150MB
+	define('DUPLICATOR_SCAN_SIZE_DEFAULT',	157286400);	//150MB
 	define('DUPLICATOR_SCAN_WARNFILESIZE',	3145728);	//3MB
-	define('DUPLICATOR_SCAN_CACHESIZE',		524288);	//512K
-	define('DUPLICATOR_SCAN_DB_ALL_ROWS',	1000000);	//1 rows million per DB
+	define('DUPLICATOR_SCAN_CACHESIZE',		1048576);	//1MB
+	define('DUPLICATOR_SCAN_DB_ALL_ROWS',	500000);	//500k per DB
 	define('DUPLICATOR_SCAN_DB_ALL_SIZE',	52428800);	//50MB DB
 	define('DUPLICATOR_SCAN_DB_TBL_ROWS',	100000);    //100K rows per table
 	define('DUPLICATOR_SCAN_DB_TBL_SIZE',	10485760);  //10MB Table
 	define('DUPLICATOR_SCAN_TIMEOUT',		150);		//Seconds
-	define('DUPLICATOR_SCAN_MIN_WP',		'3.9.0');
+	define('DUPLICATOR_SCAN_MIN_WP',		'4.7.0');
 	
     $GLOBALS['DUPLICATOR_SERVER_LIST'] = array('Apache','LiteSpeed', 'Nginx', 'Lighttpd', 'IIS', 'WebServerX', 'uWSGI');
 	$GLOBALS['DUPLICATOR_OPTS_DELETE'] = array('duplicator_ui_view_state', 'duplicator_package_active', 'duplicator_settings');

@@ -12,7 +12,6 @@
 
 
 var authenticationService = require("authentication-service").authenticationService;
-var swarmService = require("swarm-service").swarmService;
 var portObserversPool = require("observers-pool").portObserversPool;
 var bus = require("bus-service").bus;
 
@@ -24,7 +23,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
             portObserversPool.unregisterPortObserver(clientPort);
             clientPort = null;
         });
-
 
         if (clientPort.name === "OPERANDO_MESSAGER" || clientPort.name === "INPUT_TRACKER") {
 

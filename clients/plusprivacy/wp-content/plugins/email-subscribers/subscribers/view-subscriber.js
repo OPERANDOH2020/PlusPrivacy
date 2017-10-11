@@ -148,10 +148,8 @@ function _es_action_visible(val) {
 }
 
 function _es_exportcsv(url, option) {
-	if(confirm(es_view_subscriber_notices.es_subscriber_export)) {
-		document.frm_es_subscriberexport.action= url+"&option="+option;
-		document.frm_es_subscriberexport.submit();
-	}
+	document.frm_es_subscriberexport.action= url+"&option="+option;
+	document.frm_es_subscriberexport.submit();
 }
 
 function _es_importemail() {

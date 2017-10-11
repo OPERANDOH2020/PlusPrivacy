@@ -255,5 +255,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		  <?php wp_nonce_field('es_form_add'); ?>
 	    </form>
 	</div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

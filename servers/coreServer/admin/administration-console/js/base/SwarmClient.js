@@ -330,6 +330,13 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
     var counter = 0;
     var filters = {};
 
+    var requestCounter = 0;
+    function createRequestIdentity(){
+        requestCounter++;
+        return outletId + "/" + requestCounter%96;
+    }
+
+
     this.template_onResponse = function(phaseName, callback){
         filters[this.meta.requestId + phaseName] = callback;
     }
@@ -342,10 +349,10 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
         }
     }
 
-    this.startSwarm = function (swarmName, ctorName) {
+    this.startSwarm = function (swarmName, ctorName, requestId) {
         var cmd;
         counter++;
-        var requestId = outletId + counter;
+        //var requestId = outletId + counter;
         if(typeof swarmName !== "string"){
             cmd = swarmName;
             swarmName = swarmName.meta.swarmingName;
@@ -355,17 +362,17 @@ function SwarmClient(host, port, userId, authToken, tenantId, loginCtor, securit
             };
             cmd.onResponse = this.template_onResponse.bind(cmd);
         }
-        var args = Array.prototype.slice.call(arguments,2);
+        var args = Array.prototype.slice.call(arguments,3);
         for(var i=0;i<args.length; i++ ){
             if(objectIsShapeSerializable(args[i])){
                 args[i] = args[i].getInnerValues();
             }
         }
-
         var meta =  {
             sessionId: sessionId,
             processIdentity:createRequestIdentity(),
             swarmingName: swarmName,
+            swarmId:createRequestIdentity(),
             tenantId: tenantId,
             outletId: outletId,
             command: "start",

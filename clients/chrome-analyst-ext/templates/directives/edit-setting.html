@@ -6,14 +6,15 @@
 
             <div class="setting_actions">
                 <button class="edit-setting-edit" ng-click="edit()">Edit</button>
-                <button class="edit-setting-deactivate">Deactivate</button>
+                <button class="edit-setting-deactivate" ng-click="toggleActivation()">{{setting.isActive == false?"Activate":"Deactivate"}}</button>
                 <button class="edit-setting-delete"  ng-click="deleteSetting()">Delete</button>
             </div>
         </div>
         <div ng-switch="editMode">
 
             <div class="panel-body" ng-switch-when="false">
-                <span>Status:{{setting.isActive?"Active":"Inactive"}}</span>
+                <span ng-class="(setting.isActive == false)?'icon_is_inactive':'icon_is_active'"></span>
+                <span>Status:{{setting.isActive == false?"Inactive":"Active"}}</span>
             </div>
 
             <div class="panel-body" ng-switch-when="true">

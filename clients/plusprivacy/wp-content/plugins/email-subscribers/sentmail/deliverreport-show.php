@@ -28,9 +28,6 @@ if ($sentguid == '') {
 		margin-left:2px;
 		margin-right:2px;
 	}
-	.current {
-		background: none repeat scroll 0 0 #BBBBBB;
-	}
 </style>
 
 <?php
@@ -138,6 +135,4 @@ if ($sentguid == '') {
 			</div>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

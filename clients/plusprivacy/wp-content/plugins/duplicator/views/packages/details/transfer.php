@@ -1,26 +1,34 @@
 <style>
-	h3 {margin:10px 0 5px 0}
-	div.transfer-panel {padding: 20px 5px 10px 10px;}
-	div.transfer-hdr { border-bottom: 0px solid #dfdfdf; margin: -15px 0 0 0}
+	div.panel {padding: 20px 5px 10px 10px;}
+	div.area {font-size:16px; text-align: center; line-height: 30px; width:500px; margin:auto}
+	ul.li {padding:2px}
 </style>
 
-<div class="transfer-panel">
-	<div class="transfer-hdr">
-		<h2><i class="fa fa-arrow-circle-right"></i> <?php _e('Manual Transfer', 'duplicator'); ?></h2>
-	</div>
+<div class="panel">
+
 	<br/>
-	
-	<div style="font-size:16px; text-align: center; line-height: 30px">
-		<img src="<?php echo DUPLICATOR_PLUGIN_URL ?>assets/img/logo-dpro-300x50.png"  /> 
-		<?php 		
-			echo '<h2>' .  __('This option is available only in Duplicator Professional.', 'duplicator')  . '</h2>';
-			_e('Manual transfer lets you copy a package to Amazon S3, Dropbox, Google Drive, FTP or another directory.', 'duplicator');
-			echo '<br/>';
-			_e('Simply choose your destination and hit the transfer button.', 'duplicator');
+	<div class="area">
+		<img src="<?php echo DUPLICATOR_PLUGIN_URL ?>assets/img/logo-dpro-300x50.png"  />
+		<h2>
+			<?php _e('Transfer your packages to multiple<br/> locations  with Duplicator Pro', 'duplicator') ?>
+		</h2>
+
+		<div style='text-align: left; margin:auto; width:200px'>
+			<ul>
+				<li><i class="fa fa-amazon"></i> <?php _e('Amazon S3', 'duplicator'); ?></li>
+				<li><i class="fa fa-dropbox"></i> <?php _e(' Dropbox', 'duplicator'); ?></li>
+				<li><i class="fa fa-google"></i> <?php _e('Google Drive', 'duplicator'); ?></li>
+				<li><i class="fa fa-upload"></i> <?php _e('FTP', 'duplicator'); ?></li>
+				<li><i class="fa fa-folder-open-o"></i> <?php _e('Custom Directory', 'duplicator'); ?></li>
+			</ul>
+		</div>
+		<?php
+			_e('Set up a one-time storage location and automatically <br/> push the package to your destination.', 'duplicator');
 		?>
-	</div>
+	</div><br/>
+
 	<p style="text-align:center">
-		<a href="https://snapcreek.com/duplicator/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_content=free_manual_transfer&utm_campaign=duplicator_pro" target="_blank" class="button button-primary button-large dup-check-it-btn" >
+		<a href="https://snapcreek.com/duplicator/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_content=manual_transfer&utm_campaign=duplicator_pro" target="_blank" class="button button-primary button-large dup-check-it-btn" >
 			<?php _e('Learn More', 'duplicator') ?>
 		</a>
 	</p>

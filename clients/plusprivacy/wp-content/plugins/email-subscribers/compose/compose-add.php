@@ -35,12 +35,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$form['es_templ_status'] = isset($_POST['es_templ_status']) ? $_POST['es_templ_status'] : '';
 		$form['es_email_type'] = isset($_POST['es_email_type']) ? $_POST['es_email_type'] : '';
 
-		//	No errors found, we can add this Group to the table
+		//	No errors found, we can add this to the table
 		if ($es_error_found == FALSE) {
 			$action = false;
 			$action = es_cls_compose::es_template_ins($form, $action = "insert");
 			if($action) {
-				$es_success = __( 'Template successfully created. ', ES_TDOMAIN );
+				$es_success = __( 'Successfully created. ', ES_TDOMAIN );
 			}
 
 			// Reset the form fields
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
 		</h2>
 		<form name="es_form" method="post" action="#" onsubmit="return _es_submit()">
-			<label for="tag-link"><?php echo __( 'Select your Mail Template', ES_TDOMAIN ); ?></label>
+			<label for="tag-link"><?php echo __( 'Select your Email Template', ES_TDOMAIN ); ?></label>
 			<select name="es_email_type" id="es_email_type">
 				<option value='Newsletter' selected="selected"><?php echo __( 'Newsletter', ES_TDOMAIN ); ?></option>
 				<option value='Post Notification'><?php echo __( 'Post Notification', ES_TDOMAIN ); ?></option>
@@ -84,13 +84,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<label for="tag-link"><?php echo __( 'Enter your Email Subject', ES_TDOMAIN ); ?></label>
 			<input name="es_templ_heading" type="text" id="es_templ_heading" value="" size="80" maxlength="225" />
-			<p><?php echo __( 'Keyword: ###POSTTITLE###', ES_TDOMAIN ); ?></p>
+			<p><?php echo __( 'Available Keyword: ###POSTTITLE### (For Post Notification only)', ES_TDOMAIN ); ?></p>
 
 			<label for="tag-link"><?php echo __( 'Enter Content for your Email', ES_TDOMAIN ); ?></label>
 			<?php $settings_body = array( 'textarea_rows' => 25 ); ?>
 			<?php wp_editor("", "es_templ_body", $settings_body);?>
 			<p>
-				<?php echo sprintf(__( '%s : ###NAME###, ###EMAIL###, ###DATE###, ###POSTTITLE###, ###POSTLINK###, ###POSTLINK-WITHTITLE###, ###POSTLINK-ONLY###, ###POSTIMAGE###, ###POSTDESC###, ###POSTFULL###', ES_TDOMAIN ), '<a href="http://www.icegram.com/documentation/es-what-are-static-templates-and-dynamic-templates/" target="_blank">' . __( 'Available Keywords', ES_TDOMAIN ) . '</a>' ); ?><br />
+				<?php echo sprintf(__( '%s: ###NAME###, ###EMAIL###, ###DATE###, ###POSTTITLE###, ###POSTLINK###, ###POSTIMAGE###, ###POSTDESC###, ###POSTAUTHOR###, ###POSTLINK-WITHTITLE###, ###POSTLINK-ONLY###, ###POSTFULL### (For Post Notification only)', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-post-notifications/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'Available Keywords', ES_TDOMAIN ) . '</a>' ); ?><br />
 			</p>
 
 			<div class="template_status" style="display:none;">
@@ -107,5 +107,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php wp_nonce_field('es_form_add'); ?>
 		</form>
 	</div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>
