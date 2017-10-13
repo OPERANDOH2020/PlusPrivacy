@@ -3,20 +3,13 @@ package eu.operando.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import javax.inject.Inject;
-
-import eu.operando.BrowserApp;
 import eu.operando.R;
 import eu.operando.lightning.fragment.PrivacySettingsFragment;
-import eu.operando.lightning.preference.PreferenceManager;
 
 public class SettingsActivity extends Activity {
 //    @Inject PreferenceManager prefManager;

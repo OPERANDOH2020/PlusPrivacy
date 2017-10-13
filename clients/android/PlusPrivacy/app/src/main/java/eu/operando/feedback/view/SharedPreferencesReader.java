@@ -3,6 +3,8 @@ package eu.operando.feedback.view;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import javax.inject.Inject;
+
 import eu.operando.storage.Storage;
 
 /**
@@ -17,6 +19,7 @@ public class SharedPreferencesReader {
     private final Context context;
     private String userID;
 
+    @Inject
     public SharedPreferencesReader(Context context) {
         this.context = context;
         userID = Storage.readUserID();

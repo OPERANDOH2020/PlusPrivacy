@@ -12,7 +12,7 @@ import com.anthonycr.bonsai.SingleSubscriber;
 
 import java.util.List;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.database.HistoryItem;
 
 /**
@@ -33,7 +33,7 @@ public final class HistoryModel {
         return Completable.create(new CompletableAction() {
             @Override
             public void onSubscribe(@NonNull CompletableSubscriber subscriber) {
-                BrowserApp.getAppComponent()
+                PlusPrivacyApp.getAppComponent()
                     .historyDatabase()
                     .deleteHistory();
 
@@ -54,7 +54,7 @@ public final class HistoryModel {
         return Completable.create(new CompletableAction() {
             @Override
             public void onSubscribe(@NonNull CompletableSubscriber subscriber) {
-                BrowserApp.getAppComponent()
+                PlusPrivacyApp.getAppComponent()
                     .historyDatabase()
                     .deleteHistoryItem(url);
 
@@ -78,7 +78,7 @@ public final class HistoryModel {
         return Completable.create(new CompletableAction() {
             @Override
             public void onSubscribe(@NonNull CompletableSubscriber subscriber) {
-                BrowserApp.getAppComponent()
+                PlusPrivacyApp.getAppComponent()
                     .historyDatabase()
                     .visitHistoryItem(url, title);
 
@@ -104,7 +104,7 @@ public final class HistoryModel {
         return Single.create(new SingleAction<List<HistoryItem>>() {
             @Override
             public void onSubscribe(@NonNull SingleSubscriber<List<HistoryItem>> subscriber) {
-                List<HistoryItem> result = BrowserApp.getAppComponent()
+                List<HistoryItem> result = PlusPrivacyApp.getAppComponent()
                     .historyDatabase().findItemsContaining(query);
 
                 subscriber.onItem(result);
@@ -125,7 +125,7 @@ public final class HistoryModel {
         return Single.create(new SingleAction<List<HistoryItem>>() {
             @Override
             public void onSubscribe(@NonNull SingleSubscriber<List<HistoryItem>> subscriber) {
-                List<HistoryItem> result = BrowserApp.getAppComponent()
+                List<HistoryItem> result = PlusPrivacyApp.getAppComponent()
                     .historyDatabase().getLastHundredItems();
 
                 subscriber.onItem(result);

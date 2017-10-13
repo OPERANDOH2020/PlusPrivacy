@@ -17,7 +17,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.Utils;
 
@@ -60,7 +60,7 @@ public class StartPage {
     @Inject PreferenceManager mPreferenceManager;
 
     public StartPage() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTitle = mApp.getString(R.string.home);
     }
 

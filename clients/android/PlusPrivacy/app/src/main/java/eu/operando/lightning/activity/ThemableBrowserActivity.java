@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.ThemeUtils;
 
@@ -24,7 +24,7 @@ public abstract class ThemableBrowserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTheme = mPreferences.getUseTheme();
         mShowTabsInDrawer = mPreferences.getShowTabsInDrawer(!isTablet());
 

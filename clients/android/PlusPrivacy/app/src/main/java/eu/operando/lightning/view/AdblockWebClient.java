@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.dialog.BrowserDialog;
@@ -110,7 +110,7 @@ public class AdblockWebClient extends WebViewClient {
 
     private AdblockWebClient(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds) {
         Log.e("AdblockWebClient", "constructor call");
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         Preconditions.checkNonNull(activity);
         Preconditions.checkNonNull(lightningView);
         mActivity = activity;

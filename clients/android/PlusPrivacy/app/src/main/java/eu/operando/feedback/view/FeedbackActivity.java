@@ -17,14 +17,13 @@ import java.util.List;
 import eu.operando.R;
 import eu.operando.activity.BaseActivity;
 import eu.operando.customView.OperandoProgressDialog;
-import eu.operando.feedback.FeedbackDialog;
-import eu.operando.feedback.model.FeedbackDataModelImpl;
 import eu.operando.feedback.entity.FeedbackQuestionEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
+import eu.operando.feedback.model.FeedbackDataModelImpl;
 import eu.operando.feedback.presenter.FeedbackPresenter;
 import eu.operando.feedback.presenter.FeedbackPresenterImpl;
 
-import static eu.operando.feedback.FeedbackDialog.SUBMIT_FEEDBACK_KEY;
+import static eu.operando.feedback.view.FeedbackDialog.SUBMIT_FEEDBACK_KEY;
 
 /**
  * Created by Matei_Alexandru on 27.09.2017.
@@ -44,8 +43,11 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-        SharedPreferencesReader sharedPreferencesReader = new SharedPreferencesReader(this);
-        presenter = new FeedbackPresenterImpl(this, new FeedbackDataModelImpl(sharedPreferencesReader));
+
+//        DaggerMyComponent.builder().contextModule(new ContextModule(getApplicationContext())).build().inject(this);
+//        DaggerMyComponent.builder().sharedPreferencesModule(new SharedPreferencesModule()).build().inject(this);
+//        SharedPreferencesReader sharedPreferencesReader = new SharedPreferencesReader(this);
+        presenter = new FeedbackPresenterImpl(this, new FeedbackDataModelImpl());
         initUI();
         presenter.onLoading();
     }

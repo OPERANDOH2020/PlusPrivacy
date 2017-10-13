@@ -22,7 +22,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.ColorInt;
@@ -76,7 +75,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.anthonycr.bonsai.Completable;
@@ -91,8 +89,8 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.browser.BookmarksView;
 import eu.operando.lightning.browser.BrowserPresenter;
 import eu.operando.lightning.browser.BrowserView;
@@ -219,7 +217,7 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         setContentView(R.layout.activity_main_br);
         ButterKnife.bind(this);
 

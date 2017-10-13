@@ -5,7 +5,7 @@ import android.preference.PreferenceFragment;
 
 import javax.inject.Inject;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 
 /**
@@ -22,6 +22,6 @@ public class LightningPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
     }
 }

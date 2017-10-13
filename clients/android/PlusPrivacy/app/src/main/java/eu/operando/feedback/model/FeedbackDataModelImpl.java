@@ -10,7 +10,6 @@ import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
 import eu.operando.feedback.repository.FeedbackDataRepository;
 import eu.operando.feedback.repository.FeedbackRepository;
-import eu.operando.feedback.view.SharedPreferencesReader;
 
 import static eu.operando.feedback.entity.FeedbackSubmitEntitty.MULTIPLE_SELECTION;
 import static eu.operando.feedback.entity.FeedbackSubmitEntitty.RADIO;
@@ -30,8 +29,12 @@ public class FeedbackDataModelImpl implements FeedbackDataModel,
 
     private FeedbackRepository feedbackRepository;
 
-    public FeedbackDataModelImpl(SharedPreferencesReader sharedPreferencesReader) {
-        feedbackRepository = new FeedbackDataRepository(sharedPreferencesReader);
+//    public FeedbackDataModelImpl(SharedPreferencesReader sharedPreferencesReader) {
+//        feedbackRepository = new FeedbackDataRepository(sharedPreferencesReader);
+//    }
+
+    public FeedbackDataModelImpl() {
+        feedbackRepository = new FeedbackDataRepository();
     }
 
     private HasUserSubmittedAFeedbackPresenterListener hasUserSubmittedAFeedbackPresenterListener;

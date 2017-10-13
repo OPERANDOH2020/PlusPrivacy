@@ -2,12 +2,10 @@ package eu.operando.androidsdk;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +22,7 @@ public class OSDK {
 
         try {
             InputStream schema = context.getAssets().open("schema.json");
-            InputStream scd = context.getAssets().open("scd.json");
+            InputStream scd = context.getAssets().open("AppSCD.json");
             String inputStr;
             StringBuilder schemaStringBuilder = new StringBuilder();
             BufferedReader reader = new BufferedReader(new InputStreamReader(schema));

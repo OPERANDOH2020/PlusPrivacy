@@ -12,15 +12,16 @@ public class FeedbackDataStoreFactory {
 
     private SharedPreferencesReader sharedPreferencesReader;
 
-    public FeedbackDataStoreFactory(SharedPreferencesReader sharedPreferencesReader) {
-        this.sharedPreferencesReader = sharedPreferencesReader;
+    public FeedbackDataStoreFactory() {
+//        this.sharedPreferencesReader = new SharedPreferencesReader();
     }
 
     public FeedbackDataStore create(DataStoreType type) {
 
         switch (type){
             case SHARED_PREFERENCES:
-                return new SharedPreferencesFeedbackDataStore(sharedPreferencesReader);
+//                return new SharedPreferencesFeedbackDataStore(sharedPreferencesReader);
+                return new SharedPreferencesFeedbackDataStore();
             case NETWORK:
                 return new NetworkFeedbackDataStore();
             default:

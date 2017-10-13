@@ -1,0 +1,37 @@
+{
+  "title": "PlusPrivacy",
+  "bundleId": "eu.romsoft.PlusPrivacy",
+  "accessedHosts": {
+    "reasonNonDisclosure": "PlusPrivacy integrates a web browser."
+  },
+  "accessedInputs": [
+    {
+      "inputType": "loc",
+      "privacyDescription": {
+        "usageLevel": 6
+      },
+      "accessFrequency": "F1",
+      "userControl": "C1"
+    },
+    {
+      "inputType": "contacts",
+      "privacyDescription": {
+        "usageLevel": 4
+      },
+      "accessFrequency": "F1",
+      "userControl": "C2"
+    },
+    {
+      "inputType": "cam",
+      "privacyDescription": {
+        "usageLevel": 5,
+        "thirdParties":[{
+          "name": "Facebook",
+          "url": "wwww.facebook.com"
+        }]
+      },
+      "accessFrequency": "F1",
+      "userControl": "C2"
+    }
+  ]
+}

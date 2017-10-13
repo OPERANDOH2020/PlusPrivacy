@@ -3,9 +3,12 @@ package eu.operando.feedback.repository;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import javax.inject.Inject;
+
+import eu.operando.PlusPrivacyApp;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
-import eu.operando.feedback.view.SharedPreferencesReader;
+import eu.operando.feedback.repository.dagger.MySharedPreferences;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.
@@ -14,21 +17,19 @@ import eu.operando.feedback.view.SharedPreferencesReader;
 
 public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
 
-    private SharedPreferencesReader sharedPreferencesReader;
-
-    public SharedPreferencesFeedbackDataStore(SharedPreferencesReader sharedPreferencesReader) {
-        this.sharedPreferencesReader = sharedPreferencesReader;
-    }
+    @Inject
+    public MySharedPreferences mySharedPreferences;
 
     public SharedPreferencesFeedbackDataStore() {
+        PlusPrivacyApp.getMyComponent().inject(this);
     }
 
     @Override
     public FeedbackSubmitEntitty getFeedbackResponse() {
 
-        SharedPreferences settings = sharedPreferencesReader.getSharedPreferences();
+        SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
         String jsonFeedbackResponse = settings.getString(
-                sharedPreferencesReader.getUserID(),
+                mySharedPreferences.getUserID(),
                 ""
         );
         return new FeedbackSubmitEntitty(jsonFeedbackResponse);
@@ -36,11 +37,11 @@ public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
 
     @Override
     public void setFeedbackResponse(FeedbackSubmitEntitty feedbackSubmitEntitty, FeedbackRepository.OnSubmitFeedbackModelListener listener) {
-        SharedPreferences settings = sharedPreferencesReader.getSharedPreferences();
+        SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
         SharedPreferences.Editor editor = settings.edit();
 
         editor.putString(
-                sharedPreferencesReader.getUserID(),
+                mySharedPreferences.getUserID(),
                 feedbackSubmitEntitty.getJsonElement().toString()
         );
         editor.apply();

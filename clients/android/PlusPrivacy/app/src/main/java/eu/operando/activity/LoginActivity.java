@@ -21,7 +21,7 @@ import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.customView.SignInFailedDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.LoginSwarm;
+import eu.operando.swarmService.models.LoginSwarmEntity;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
@@ -105,9 +105,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void swarmLogin(final String username, final String password, final ProgressDialog dialog) {
 
-        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarm>() {
+        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarmEntity>() {
+
             @Override
-            public void call(final LoginSwarm result) {
+            public void call(final LoginSwarmEntity result) {
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

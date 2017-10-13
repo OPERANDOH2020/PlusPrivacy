@@ -27,7 +27,7 @@ import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarm;
-import eu.operando.swarmService.models.LoginSwarm;
+import eu.operando.swarmService.models.LoginSwarmEntity;
 import eu.operando.swarmService.models.RegisterZoneSwarm;
 import eu.operando.swarmService.models.UDESwarm;
 import eu.operando.swarmclient.SwarmClient;
@@ -110,14 +110,13 @@ public class MainActivity extends AppCompatActivity {
         loadingDialog.setMessage("Please wait...");
         loadingDialog.show();
 
-        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarm>() {
+        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarmEntity>() {
             @Override
-            public void call(final LoginSwarm result) {
+            public void call(final LoginSwarmEntity result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         loadingDialog.dismiss();
-
                         if (!result.isAuthenticated()) {
                             Storage.clearData();
                             finish();
@@ -128,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         });
     }

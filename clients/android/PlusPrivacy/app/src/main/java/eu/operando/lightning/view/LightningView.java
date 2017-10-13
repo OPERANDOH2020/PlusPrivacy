@@ -44,7 +44,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.constant.BookmarkPage;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.constant.HistoryPage;
@@ -107,7 +107,7 @@ public class LightningView {
     @Inject LightningDialogBuilder mBookmarksDialogBuilder;
 
     public LightningView(@NonNull Activity activity, @Nullable String url, boolean isIncognito) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mActivity = activity;
         mUIController = (UIController) activity;
         mWebView = new WebView(activity);

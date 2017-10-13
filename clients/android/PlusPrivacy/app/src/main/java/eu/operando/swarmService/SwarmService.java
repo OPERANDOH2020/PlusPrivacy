@@ -1,21 +1,15 @@
 package eu.operando.swarmService;
 
-import android.util.Pair;
-
 import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import eu.operando.feedback.SwarmCallbackModified;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
-import eu.operando.models.PFBObject;
-import eu.operando.storage.Storage;
-import eu.operando.swarmService.models.IdentityListSwarm;
-import eu.operando.swarmService.models.LoginSwarm;
-import eu.operando.swarmService.models.RegisterSwarm;
-import eu.operando.swarmService.models.ResetPasswordSwarm;
+import eu.operando.swarmService.models.PfbSwarmEntity;
+import eu.operando.swarmService.models.RegisterInfo;
+import eu.operando.swarmService.models.RegisterSwarmEntity;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
@@ -48,11 +42,11 @@ public class SwarmService {
     }
 
     public void login(String username, String password, SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm(new LoginSwarm(username, password), callback);
+        swarmClient.startSwarm(callback, "login.js", "userLogin", username, password);
     }
 
     public void logout(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm(new Swarm("login.js", "logout", (Object) null), callback);
+        swarmClient.startSwarm("login.js", "logout", callback);
     }
 
     public void signUp(final String email, final String password, final SwarmCallback<? extends Swarm> callback) {
@@ -61,10 +55,9 @@ public class SwarmService {
             @Override
             public void call(Swarm result) {
                 //register user
-                swarmClient.startSwarm(new RegisterSwarm(email, password), new SwarmCallback<RegisterSwarm>() {
-
+                registerSwarm(email, password, new SwarmCallback<RegisterSwarmEntity>() {
                     @Override
-                    public void call(RegisterSwarm result) {
+                    public void call(RegisterSwarmEntity result) {
                         try {
                             callback.result(new JSONObject(new Gson().toJson(result)));
                         } catch (JSONException e) {
@@ -83,38 +76,40 @@ public class SwarmService {
         });
     }
 
-    public void resetPassword(final String email, final SwarmCallback<Swarm> callback){
+    public void registerSwarm(String email, String password, final SwarmCallback<? extends Swarm> callback){
+        swarmClient.startSwarm(callback, "register.js", "registerNewUser", new RegisterInfo(email, password, password));
+    }
+
+    public void resetPassword(final String email, final SwarmCallback<Swarm> callback) {
         login("guest@operando.eu", "guest", new SwarmCallback<Swarm>() {
             @Override
             public void call(Swarm result) {
-                swarmClient.startSwarm(new ResetPasswordSwarm(email), callback);
+                swarmClient.startSwarm(callback, "UserInfo.js", "resetPassword", email);
             }
         });
     }
+
     public void getIdentitiesList(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm(new IdentityListSwarm(),callback);
+        swarmClient.startSwarm("identity.js", "getMyIdentities", callback);
     }
 
-    public void autoLogin(){
-        Pair<String, String> credentials = Storage.readCredentials();
-        if (credentials.first != null && credentials.second != null) {
-            login(credentials.first, credentials.second,null);
-        }
-    }
-
-    public void getFeedbackQuestions(SwarmCallbackModified<FeedbackQuestionListEntity> callback){
+    public void getFeedbackQuestions(SwarmCallback<FeedbackQuestionListEntity> callback) {
         swarmClient.startSwarm("feedback.js", "getFeedbackQuestions", callback);
     }
 
-    public void submitFeedback(SwarmCallbackModified<Swarm> callback, Object... args){
+    public void submitFeedback(SwarmCallback<Swarm> callback, Object... args) {
         swarmClient.startSwarm(callback, "feedback.js", "submitFeedback", args);
     }
 
-    public void hasUserSubmittedAFeedback(SwarmCallbackModified<FeedbackResultSwarmModel> callback){
+    public void hasUserSubmittedAFeedback(SwarmCallback<FeedbackResultSwarmModel> callback) {
         swarmClient.startSwarm("feedback.js", "hasUserSubmittedAFeedback", callback);
     }
 
-    public void getAllDeals(SwarmCallbackModified<PFBObject> callback){
+    public void getAllDeals(SwarmCallback<PfbSwarmEntity> callback) {
         swarmClient.startSwarm("pfb.js", "getAllDeals", callback);
+    }
+
+    public void acceptDeal(SwarmCallback<PfbSwarmEntity> callback, boolean accept, String offerId) {
+        swarmClient.startSwarm(callback, "pfb.js", accept ? "acceptDeal" : "unsubscribeDeal", offerId);
     }
 }

@@ -6,12 +6,13 @@ import eu.operando.swarmclient.models.Swarm;
  * Created by Edy on 11/3/2016.
  */
 
-public class LoginSwarm extends Swarm {
+public class LoginSwarmEntity extends Swarm {
     private boolean authenticated;
     private String email;
     private String userId;
-    public LoginSwarm(String username, String password) {
-        super("login.js", "userLogin", username,password);
+
+    public LoginSwarmEntity(String swarmingName, String ctor, Object... commandArguments) {
+        super(swarmingName, ctor, commandArguments);
     }
 
     public boolean isAuthenticated() {

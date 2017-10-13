@@ -25,7 +25,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.database.HistoryItem;
 import eu.operando.lightning.database.history.HistoryModel;
 import eu.operando.lightning.utils.Preconditions;
@@ -56,7 +56,7 @@ public class HistoryPage {
     @Inject Application mApp;
 
     public HistoryPage() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTitle = mApp.getString(R.string.action_history);
     }
 

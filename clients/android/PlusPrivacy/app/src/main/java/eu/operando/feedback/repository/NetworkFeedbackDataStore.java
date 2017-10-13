@@ -4,12 +4,12 @@ import android.util.Log;
 
 import com.google.gson.JsonElement;
 
-import eu.operando.feedback.SwarmCallbackModified;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmclient.models.Swarm;
+import eu.operando.swarmclient.models.SwarmCallback;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.
@@ -25,7 +25,7 @@ public class NetworkFeedbackDataStore implements FeedbackDataStore {
 
     @Override
     public void setFeedbackResponse(FeedbackSubmitEntitty feedbackSubmitEntitty, final FeedbackRepository.OnSubmitFeedbackModelListener listener) {
-        SwarmService.getInstance().submitFeedback(new SwarmCallbackModified<Swarm>() {
+        SwarmService.getInstance().submitFeedback(new SwarmCallback<Swarm>() {
 
             @Override
             public void call(Swarm result) {
@@ -37,13 +37,12 @@ public class NetworkFeedbackDataStore implements FeedbackDataStore {
 
     @Override
     public FeedbackQuestionListEntity getFeedbackQuestionList(final FeedbackRepository.OnFinishedLoadingModelListener listener) {
-        SwarmService.getInstance().getFeedbackQuestions(new SwarmCallbackModified<FeedbackQuestionListEntity>() {
+        SwarmService.getInstance().getFeedbackQuestions(new SwarmCallback<FeedbackQuestionListEntity>() {
 
             @Override
-            public void call(Swarm result) {
+            public void call(FeedbackQuestionListEntity result) {
                 try {
-                    FeedbackQuestionListEntity questions = ((FeedbackQuestionListEntity) result);
-                    listener.onFinishedLoadingRep(questions);
+                    listener.onFinishedLoadingRep(result);
                 } catch (Exception e) {
                     listener.onErrorModel();
                 }
@@ -54,13 +53,13 @@ public class NetworkFeedbackDataStore implements FeedbackDataStore {
 
     @Override
     public boolean hasUserSubmittedAFeedback(final FeedbackRepository.HasUserSubmittedAFeedbackModelListener listener) {
-        SwarmService.getInstance().hasUserSubmittedAFeedback(new SwarmCallbackModified<FeedbackResultSwarmModel>() {
+        SwarmService.getInstance().hasUserSubmittedAFeedback(new SwarmCallback<FeedbackResultSwarmModel>() {
 
             @Override
-            public void call(Swarm result) {
+            public void call(FeedbackResultSwarmModel result) {
 
                 Log.e("hasUserSubmittedAFeed", result.toString());
-                JsonElement jsonElement = ((FeedbackResultSwarmModel) result).getJsonElement();
+                JsonElement jsonElement = result.getJsonElement();
 
                 if (jsonElement.getAsJsonObject().entrySet().size() == 0) {
 

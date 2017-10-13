@@ -29,8 +29,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.constant.BookmarkPage;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.constant.HistoryPage;
@@ -66,7 +66,7 @@ public class TabsManager {
     @Inject Application mApp;
 
     public TabsManager() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
     }
 
     // TODO remove and make presenter call new tab methods so it always knows

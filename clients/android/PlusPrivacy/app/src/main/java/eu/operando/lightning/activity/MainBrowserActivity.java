@@ -84,6 +84,4 @@ public class MainBrowserActivity extends BrowserActivity {
             }
         });
     }
-
-
 }

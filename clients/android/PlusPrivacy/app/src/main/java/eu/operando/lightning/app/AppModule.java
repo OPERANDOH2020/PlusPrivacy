@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import javax.inject.Singleton;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.database.bookmark.BookmarkDatabase;
 import eu.operando.lightning.database.bookmark.BookmarkModel;
 import dagger.Module;
@@ -15,9 +15,9 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    private final BrowserApp mApp;
+    private final PlusPrivacyApp mApp;
 
-    public AppModule(BrowserApp app) {
+    public AppModule(PlusPrivacyApp app) {
         this.mApp = app;
     }
 

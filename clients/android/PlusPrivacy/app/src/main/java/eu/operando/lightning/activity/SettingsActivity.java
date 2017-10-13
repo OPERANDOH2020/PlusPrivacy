@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 
 public class SettingsActivity extends ThemableSettingsActivity {
 
@@ -56,7 +56,7 @@ public class SettingsActivity extends ThemableSettingsActivity {
             }
 
             if (header.titleRes == R.string.debug_title) {
-                if (BrowserApp.isRelease()) {
+                if (PlusPrivacyApp.isRelease()) {
                     headerIterator.remove();
                 } else {
                     mFragments.add(header.fragment);

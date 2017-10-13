@@ -32,12 +32,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.lightning.activity.BookmarkUiModel;
 import eu.operando.lightning.activity.ReadingActivity;
 import eu.operando.lightning.activity.TabsManager;
 import eu.operando.lightning.animation.AnimationUtils;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.browser.BookmarksView;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
@@ -111,7 +111,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         final Bundle arguments = getArguments();
         final Context context = getContext();
         mUiController = (UIController) context;

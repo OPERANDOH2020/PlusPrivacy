@@ -19,25 +19,26 @@ import android.widget.ListView;
 import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.customView.PfbCustomDialog;
 import eu.operando.models.PFBObject;
 import eu.operando.models.PfbDeal;
-import eu.operando.swarmService.models.GetPFBSwarm;
-import eu.operando.swarmclient.SwarmClient;
-import eu.operando.swarmclient.models.Swarm;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmService.models.PfbSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 
 public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCallback {
 
-    private SwarmClient swarmClient;
-    private ArrayList<PFBObject> pfbs;
+    private SwarmService swarmService;
+    private List<PFBObject> pfbs;
     private BaseAdapter adapter;
     private ListView listView;
+    public static final String PFB_OBJECT = "PfbObject";
+    private DialogFragment pfbCustomDialog;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, PFBActivity.class);
@@ -50,7 +51,7 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
         setContentView(R.layout.activity_pfb);
 
         initUi();
-        swarmClient = SwarmClient.getInstance();
+        swarmService = SwarmService.getInstance();
         getPFB();
     }
 
@@ -58,7 +59,6 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
 
         initProgressDialog();
         listView = (ListView) findViewById(R.id.pfb_lv);
-
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,10 +74,9 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
     }
 
     public void getPFB() {
-        swarmClient.startSwarm(new GetPFBSwarm(), new SwarmCallback<GetPFBSwarm>() {
-
+        SwarmService.getInstance().getAllDeals(new SwarmCallback<PfbSwarmEntity>() {
             @Override
-            public void call(final GetPFBSwarm result) {
+            public void call(final PfbSwarmEntity result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -116,7 +115,6 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
                                         item.setSubscribed(isChecked);
                                     }
                                 });
-
                                 helper.getView().setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -126,7 +124,6 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
                                 });
                             }
                         };
-
                         listView.setAdapter(adapter);
                     }
                 });
@@ -137,41 +134,25 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
     @Override
     public void switchPFB(final boolean accept, final PFBObject pfbObject) {
         Log.e("DEALS", "switchPFB() called with: accept = [" + accept + "], serviceId = [" + pfbObject.getOfferId() + "]");
-
-        swarmClient.startSwarm(new Swarm("pfb.js", accept ? "acceptDeal" : "unsubscribeDeal", pfbObject.getOfferId()), new SwarmCallback<GetPFBSwarm>() {
+        SwarmService.getInstance().acceptDeal(new SwarmCallback<PfbSwarmEntity>() {
             @Override
-            public void call(GetPFBSwarm result) {
-                Log.e("switchPFB", result.getDeal().toString());
+            public void call(PfbSwarmEntity result) {
+
                 final PfbDeal pfbDeal = result.getDeal();
+                Log.e("switchPFB", pfbDeal.toString());
                 pfbObject.setVoucher(pfbDeal.getVoucher());
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
                         refreshVoucher(pfbDeal.getVoucher(), accept);
+                        adapter.notifyDataSetChanged();
                     }
                 });
             }
-        });
-        adapter.notifyDataSetChanged();
+        }, accept, pfbObject.getOfferId());
     }
-
-//    public void switchPFB(boolean accept, String serviceId) {
-//        Log.e("DEALS", "switchPFB() called with: accept = [" + accept + "], serviceId = [" + serviceId + "]");
-//        swarmClient.startSwarm(new Swarm("pfb.js", accept ? "acceptDeal" : "unsubscribeDeal", serviceId), new SwarmCallback<GetPFBSwarm>() {
-//            @Override
-//            public void call(GetPFBSwarm result) {
-//                Log.e("switchPFB", result.getDeal().toString());
-//                PfbDeal pfbDeal = result.getDeal();
-//            }
-//        });
-//        adapter.notifyDataSetChanged();
-//    }
-
-    public static final String PFB_OBJECT = "PfbObject";
-    private final String PFB_CUSTOM_DIALOG_TAG = "PfbCustomDialog";
-
-    private DialogFragment pfbCustomDialog;
 
     public void showDialog(PFBObject item) {
         pfbCustomDialog = new PfbCustomDialog();
@@ -188,7 +169,6 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
         if (pfbCustomDialog != null) {
             ((PfbCustomDialog) pfbCustomDialog).updateVoucher(voucher, subscribe);
         }
-
     }
 
 }

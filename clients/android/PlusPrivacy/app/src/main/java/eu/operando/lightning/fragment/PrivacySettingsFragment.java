@@ -21,7 +21,7 @@ import com.anthonycr.bonsai.CompletableSubscriber;
 import com.anthonycr.bonsai.Schedulers;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.dialog.BrowserDialog;
 import eu.operando.lightning.utils.Utils;
 import eu.operando.lightning.utils.WebUtils;
@@ -48,7 +48,7 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preference_privacy);
 

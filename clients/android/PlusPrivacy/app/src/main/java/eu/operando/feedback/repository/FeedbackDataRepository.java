@@ -3,7 +3,6 @@ package eu.operando.feedback.repository;
 import eu.operando.feedback.entity.DataStoreType;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
-import eu.operando.feedback.view.SharedPreferencesReader;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.
@@ -14,8 +13,12 @@ public class FeedbackDataRepository implements FeedbackRepository {
 
     private FeedbackDataStoreFactory feedbackDataStoreFactory;
 
-    public FeedbackDataRepository(SharedPreferencesReader sharedPreferencesReader) {
-        this.feedbackDataStoreFactory = new FeedbackDataStoreFactory(sharedPreferencesReader);
+//    public FeedbackDataRepository(SharedPreferencesReader sharedPreferencesReader) {
+//        this.feedbackDataStoreFactory = new FeedbackDataStoreFactory(sharedPreferencesReader);
+//    }
+
+    public FeedbackDataRepository() {
+        this.feedbackDataStoreFactory = new FeedbackDataStoreFactory();
     }
 
     @Override

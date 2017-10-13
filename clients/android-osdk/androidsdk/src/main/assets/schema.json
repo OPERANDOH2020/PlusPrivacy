@@ -2,13 +2,45 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Operando Self-Compliance Document Schema",
   "description": "To describe and validate Operando certified applications self-compliance documents",
+  "definitions": {
+    "inputType": {
+      "description": "A string describing the sensor type.",
+      "type": "string",
+      "enum": [
+        "loc",
+        "mic",
+        "cam",
+        "gyro",
+        "acc",
+        "prox",
+        "touchID",
+        "bar",
+        "force",
+        "pedo",
+        "magneto",
+        "contacts",
+        "bat",
+        "motion",
+        "info"
+      ]
+    },
+    "accessFrequency": {
+      "description": "A string describing how often will the data be queried during an application's lifetime",
+      "type": "string",
+      "enum": [ "F1", "F2", "F3", "F4"]
+    },
+    "userControl": {
+      "description": "A string describing whether the user has control over the process of gathering/querying data or not",
+      "type": "string",
+      "enum": ["C1", "C2", "C3"]
+    }
+  },
   "type": "object",
   "properties": {
     "appIconURL": {
       "type": "string",
       "description": "A valid url which points to the application's icon"
     },
-
     "bundleId": {
       "description": "A string which uniquely identifies the app",
       "type": "string"
@@ -18,12 +50,50 @@
       "type": "string"
     },
 
-    "accessedHosts": {
-      "description": "The list of URLS that the app will access",
+    "sdkCheck": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "object",
+        "required": ["sdkName", "denyWithZeroValues"],
+        "properties": {
+          "sdkName": {"type": "string"},
+          "denyWithZeroValues": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/inputType"}
+          }
+        }
       }
+    },
+
+    "accessedHosts": {
+      "description": "The list of hosts that the app will access or a reason for which these cannot be stated, such as the presence of a web browser in the app.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "hostList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "hostList"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "reasonNonDisclosure": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "reasonNonDisclosure"
+          ]
+        }
+      ]
     },
     "accessedInputs": {
       "description": "The list of items describing the accessed sensors and their security level",
@@ -32,16 +102,10 @@
         "description": "An object describing a sensor used by the application and it's security level",
         "type": "object",
         "properties": {
-          "inputType": {
-            "description": "A string describing the sensor type.",
-            "type": "string",
-            "enum": ["loc", "mic", "cam", "gyro", "acc", "prox", "touchID", "bar", "force", "pedo", "magneto",
-              "contacts", "bat"]
-          },
-
+          "inputType": {"$ref": "#/definitions/inputType"},
           "privacyDescription": {
             "properties": {
-              "privacyLevel": {
+              "usageLevel": {
                 "description": "An integer describing the privacy level (which indicates how the data collected from this senser is being used. Corresponding to PL{i}",
                 "type": "integer",
                 "minimum": 1,
@@ -62,10 +126,10 @@
                       "type": "string"
                     }
                   },
-
-                  "required": ["name", "url"]
-
-
+                  "required": [
+                    "name",
+                    "url"
+                  ]
                 }
               }
             },
@@ -73,36 +137,56 @@
               {
                 "type": "object",
                 "properties": {
-                  "privacyLevel": { "enum": [1,2,3,4,6] }
+                  "usageLevel": {
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      6
+                    ]
+                  }
                 },
-                "required": ["privacyLevel"]
+                "required": [
+                  "usageLevel"
+                ]
               },
               {
                 "type": "object",
                 "properties": {
-                  "privacyLevel":  { "enum": [5] }
+                  "usageLevel": {
+                    "enum": [
+                      5
+                    ]
+                  }
                 },
-                "required": ["privacyLevel", "thirdParties"]
+                "required": [
+                  "usageLevel",
+                  "thirdParties"
+                ]
               }
             ]
-
           },
-
           "accessFrequency": {
-            "description": "A string specifying how often the data from this sensor if fetched/queried.",
-            "enum": ["continuously", "continuousIntervals", "singularSample"]
+            "$ref": "#/definitions/accessFrequency"
           },
-
           "userControl": {
-            "type" : "boolean",
-            "description": "A boolean which indicates whether the user can control if or when the the data is being collected"
+            "$ref": "#/definitions/userControl"
           }
-
         },
-        "required": ["inputType", "privacyDescription", "accessFrequency", "userControl"]
+        "required": [
+          "inputType",
+          "privacyDescription",
+          "accessFrequency",
+          "userControl"
+        ]
       }
     }
   },
-
-  "required": ["accessedInputs", "accessedHosts", "bundleId", "title"]
+  "required": [
+    "accessedInputs",
+    "accessedHosts",
+    "bundleId",
+    "title"
+  ]
 }

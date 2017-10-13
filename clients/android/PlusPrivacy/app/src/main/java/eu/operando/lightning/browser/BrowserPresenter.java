@@ -12,7 +12,7 @@ import com.anthonycr.bonsai.Schedulers;
 
 import javax.inject.Inject;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.activity.TabsManager;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
@@ -39,7 +39,7 @@ public class BrowserPresenter {
     private boolean mShouldClose;
 
     public BrowserPresenter(@NonNull BrowserView view, boolean isIncognito) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTabsModel = ((UIController) view).getTabModel();
         mView = view;
         mIsIncognito = isIncognito;

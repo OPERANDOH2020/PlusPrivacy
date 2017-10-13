@@ -17,7 +17,7 @@ import eu.operando.R;
 import eu.operando.adapter.IdentitiesExpandableListViewAdapter;
 import eu.operando.models.Identity;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.IdentityListSwarm;
+import eu.operando.swarmService.models.IdentityListSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class IdentitiesActivity extends BaseActivity {
@@ -67,9 +67,9 @@ public class IdentitiesActivity extends BaseActivity {
     }
 
     public void getIdentities() {
-        SwarmService.getInstance().getIdentitiesList(new SwarmCallback<IdentityListSwarm>() {
+        SwarmService.getInstance().getIdentitiesList(new SwarmCallback<IdentityListSwarmEntity>() {
             @Override
-            public void call(final IdentityListSwarm result) {
+            public void call(final IdentityListSwarmEntity result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -111,6 +111,5 @@ public class IdentitiesActivity extends BaseActivity {
         finish();
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
-
 
 }

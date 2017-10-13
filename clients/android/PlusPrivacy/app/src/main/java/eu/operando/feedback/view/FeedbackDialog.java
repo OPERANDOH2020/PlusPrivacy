@@ -1,4 +1,4 @@
-package eu.operando.feedback;
+package eu.operando.feedback.view;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

@@ -3,6 +3,7 @@ clients/android/PlusPrivacy/libadblockplus-android/build/
 clients/android/PlusPrivacy/ResideMenu/build/
 clients/android/PlusPrivacy/ResideMenu/build/intermediates/
 clients/android/PlusPrivacy/.idea/
+clients/android/android-osdk/.idea/
 clients/android/PlusPrivacy/libadblockplus-android/.externalNativeBuild/ndkBuild/debug/armeabi-v7a/android_gradle_build.json
 clients/android/PlusPrivacy/libadblockplus-android/.externalNativeBuild/ndkBuild/debug/armeabi-v7a/ndkBuild_build_command.txt
 clients/android/PlusPrivacy/libadblockplus-android/.externalNativeBuild/ndkBuild/debug/armeabi-v7a/ndkBuild_build_output.txt

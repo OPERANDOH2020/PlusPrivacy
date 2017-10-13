@@ -36,8 +36,8 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.database.HistoryItem;
 import eu.operando.lightning.database.bookmark.BookmarkModel;
 import eu.operando.lightning.database.history.HistoryModel;
@@ -78,7 +78,7 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable {
 
     public SuggestionsAdapter(@NonNull Context context, boolean dark, boolean incognito) {
         super();
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mContext = context;
         mDarkTheme = dark || incognito;
         mIsIncognito = incognito;

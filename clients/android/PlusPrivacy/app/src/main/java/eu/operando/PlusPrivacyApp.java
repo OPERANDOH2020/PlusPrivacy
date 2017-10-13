@@ -21,6 +21,9 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
+import eu.operando.feedback.repository.dagger.DaggerMyComponent;
+import eu.operando.feedback.repository.dagger.MyComponent;
+import eu.operando.feedback.repository.dagger.SharedPreferencesModule;
 import eu.operando.lightning.app.AppComponent;
 import eu.operando.lightning.app.AppModule;
 import eu.operando.lightning.app.DaggerAppComponent;
@@ -35,15 +38,18 @@ import eu.operando.lightning.utils.Preconditions;
 import io.paperdb.Paper;
 
 
-public class BrowserApp extends Application {
+public class PlusPrivacyApp extends Application {
 
     private static final String TAG = "BrowserApp";
 
-    @Nullable private static AppComponent sAppComponent;
+    @Nullable
+    private static AppComponent sAppComponent;
     private static final Executor mIOThread = Executors.newSingleThreadExecutor();
 
-    @Inject PreferenceManager mPreferenceManager;
-    @Inject BookmarkModel mBookmarkModel;
+    @Inject
+    PreferenceManager mPreferenceManager;
+    @Inject
+    BookmarkModel mBookmarkModel;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -56,13 +62,13 @@ public class BrowserApp extends Application {
         Paper.init(this);
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-                .detectAll()
-                .penaltyLog()
-                .build());
+                    .detectAll()
+                    .penaltyLog()
+                    .build());
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-                .detectAll()
-                .penaltyLog()
-                .build());
+                    .detectAll()
+                    .penaltyLog()
+                    .build());
         }
 
         final Thread.UncaughtExceptionHandler defaultHandler = Thread.getDefaultUncaughtExceptionHandler();
@@ -89,14 +95,14 @@ public class BrowserApp extends Application {
         Schedulers.worker().execute(new Runnable() {
             @Override
             public void run() {
-                List<HistoryItem> oldBookmarks = LegacyBookmarkManager.destructiveGetBookmarks(BrowserApp.this);
+                List<HistoryItem> oldBookmarks = LegacyBookmarkManager.destructiveGetBookmarks(PlusPrivacyApp.this);
 
                 if (!oldBookmarks.isEmpty()) {
                     // If there are old bookmarks, import them
                     mBookmarkModel.addBookmarkList(oldBookmarks).subscribeOn(Schedulers.io()).subscribe();
                 } else if (mBookmarkModel.count() == 0) {
                     // If the database is empty, fill it from the assets list
-                    List<HistoryItem> assetsBookmarks = BookmarkExporter.importBookmarksFromAssets(BrowserApp.this);
+                    List<HistoryItem> assetsBookmarks = BookmarkExporter.importBookmarksFromAssets(PlusPrivacyApp.this);
                     mBookmarkModel.addBookmarkList(assetsBookmarks).subscribeOn(Schedulers.io()).subscribe();
                 }
             }
@@ -113,9 +119,24 @@ public class BrowserApp extends Application {
             @Override
             public void onActivityDestroyed(Activity activity) {
                 Log.d(TAG, "Cleaning up after the Android framework");
-                MemoryLeakUtils.clearNextServedView(activity, BrowserApp.this);
+                MemoryLeakUtils.clearNextServedView(activity, PlusPrivacyApp.this);
             }
         });
+
+        injectSharedPref();
+
+    }
+
+    private void injectSharedPref() {
+        myComponent = DaggerMyComponent.builder()
+                .sharedPreferencesModule(new SharedPreferencesModule(getApplicationContext()))
+                .build();
+    }
+
+    private static MyComponent myComponent;
+
+    public static MyComponent getMyComponent() {
+        return myComponent;
     }
 
     @NonNull

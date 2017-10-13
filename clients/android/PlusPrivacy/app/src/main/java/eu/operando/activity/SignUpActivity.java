@@ -16,7 +16,7 @@ import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.RegisterSwarm;
+import eu.operando.swarmService.models.RegisterSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -68,16 +68,16 @@ public class SignUpActivity extends AppCompatActivity {
         }
         final OperandoProgressDialog dialog = new OperandoProgressDialog(this, "Creating account...");
         dialog.show();
-        SwarmService.getInstance().signUp(email, password, new SwarmCallback<RegisterSwarm>() {
+        SwarmService.getInstance().signUp(email, password, new SwarmCallback<RegisterSwarmEntity>() {
             @Override
-            public void call(final RegisterSwarm result) {
+            public void call(final RegisterSwarmEntity result) {
                 Log.d("Register", "call() called with: result = [" + result + "]");
                 onSignUpSuccess(email, password, result, dialog);
             }
         });
     }
 
-    private void onSignUpSuccess(final String email, final String password, final RegisterSwarm result, final ProgressDialog dialog) {
+    private void onSignUpSuccess(final String email, final String password, final RegisterSwarmEntity result, final ProgressDialog dialog) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

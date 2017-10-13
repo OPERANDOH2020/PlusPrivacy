@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -158,7 +157,7 @@ public class OSPSettingsActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-//        elvAdapter.saveCheckedStateInSharedPrefs();
+
         if (elvAdapter != null && elvAdapter.getQuestions() != null) {
             if (elvAdapter.getQuestions().size() != 0) {
                 sendSaveUserPreferencesSwarm(convertAnswers());
@@ -166,26 +165,27 @@ public class OSPSettingsActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.questionnaire, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.questionnaire_toolbar_recommended:
-                userRecommendedSettings();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.questionnaire, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.questionnaire_toolbar_recommended:
+//                userRecommendedSettings();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     private void userRecommendedSettings() {
         elvAdapter.initCheckedStateFromRecommendedValues();
         elvAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Recommended settings loaded", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickSubmit(View view) {
@@ -196,6 +196,10 @@ public class OSPSettingsActivity extends BaseActivity {
         Intent intent = new Intent(OSPSettingsActivity.this, PrivacySettingsWebViewActivity.class);
         intent.putExtra(PRIVACY_SETTINGS_TAG, privacySettings);
         startActivity(intent);
+    }
+
+    public void onClickRecommended(View view) {
+        userRecommendedSettings();
     }
 
     private String editOspSettingsJSON(List<Preference> userAnswers) {
@@ -320,5 +324,6 @@ public class OSPSettingsActivity extends BaseActivity {
         }
         return 0;
     }
+
 
 }

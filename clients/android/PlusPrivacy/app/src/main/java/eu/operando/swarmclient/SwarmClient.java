@@ -21,7 +21,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import eu.operando.feedback.SwarmCallbackModified;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 import io.socket.client.IO;
@@ -143,7 +142,7 @@ public class SwarmClient {
         Log.d("swclient EMIT", "startSwarm() called with: swarm = [" + swarm + "], callback = [" + callback + "]");
     }
 
-    public void startSwarm(String swarmingName, String ctor, SwarmCallbackModified callback) {
+    public void startSwarm(String swarmingName, String ctor, SwarmCallback callback) {
         Swarm swarm = new Swarm(swarmingName, ctor);
         if (callback != null) {
             callback.setResultEvent(swarm.getMeta().getCtor());
@@ -158,7 +157,7 @@ public class SwarmClient {
         Log.d("swclient EMIT", "startSwarm() called with: swarm = [" + swarm + "], callback = [" + callback + "]");
     }
 
-    public void startSwarm(SwarmCallbackModified callback, String swarmingName, String ctor, Object... args) {
+    public void startSwarm(SwarmCallback callback, String swarmingName, String ctor, Object... args) {
         Swarm swarm = new Swarm(swarmingName, ctor, args);
         if (callback != null) {
             callback.setResultEvent(swarm.getMeta().getCtor());

@@ -81,7 +81,7 @@ public class PrivacyWizardWebViewActivity extends BaseActivity {
         myWebView.loadUrl("http://facebook.com");
     }
 
-    public void startInjectiinngOnClick(View view) {
+    public void startInjectingOnClick(View view) {
         injectScriptForPrivacySettings();
     }
 
