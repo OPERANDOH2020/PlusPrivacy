@@ -1,0 +1,536 @@
+[
+    {
+        "domain": ".google.com",
+        "expires": "Tue, 17 Apr 2018 19:51:29 GMT",
+        "expiry": 1523994689,
+        "httponly": false,
+        "name": "__utmz",
+        "path": "/policies/terms/",
+        "secure": false,
+        "value": "173272373.1508226689.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)"
+    },
+    {
+        "domain": ".google.com",
+        "httponly": false,
+        "name": "__utmc",
+        "path": "/policies/terms/",
+        "secure": false,
+        "value": "173272373"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Tue, 17 Oct 2017 08:21:29 GMT",
+        "expiry": 1508228489,
+        "httponly": false,
+        "name": "__utmb",
+        "path": "/policies/terms/",
+        "secure": false,
+        "value": "173272373.1.10.1508226689"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:29 GMT",
+        "expiry": 1571298689,
+        "httponly": false,
+        "name": "__utma",
+        "path": "/policies/terms/",
+        "secure": false,
+        "value": "173272373.140470816.1508226689.1508226689.1508226689.1"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Tue, 17 Oct 2017 08:01:29 GMT",
+        "expiry": 1508227289,
+        "httponly": false,
+        "name": "__utmt",
+        "path": "/policies/terms/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Mon, 15 Jan 2018 07:51:25 GMT",
+        "expiry": 1516002685,
+        "httponly": false,
+        "name": "SIDCC",
+        "path": "/",
+        "secure": false,
+        "value": "AE4kn7-Jn607a4NucEoDHH66RVgVf92G1p4KNTSCFweVokf1Q7Jwb6vrxHUruzPKkYw52OiRaNT72YCGtLMT"
+    },
+    {
+        "domain": "adssettings.google.com",
+        "expires": "Thu, 16 Nov 2017 07:51:28 GMT",
+        "expiry": 1510818688,
+        "httponly": false,
+        "name": "OTZ",
+        "path": "/",
+        "secure": true,
+        "value": "4098711_44_48_123900_44_436380"
+    },
+    {
+        "domain": ".adssettings.google.com",
+        "expires": "Tue, 17 Apr 2018 19:51:28 GMT",
+        "expiry": 1523994688,
+        "httponly": false,
+        "name": "__utmz",
+        "path": "/",
+        "secure": false,
+        "value": "45122676.1508226689.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)"
+    },
+    {
+        "domain": ".adssettings.google.com",
+        "httponly": false,
+        "name": "__utmc",
+        "path": "/",
+        "secure": false,
+        "value": "45122676"
+    },
+    {
+        "domain": ".adssettings.google.com",
+        "expires": "Tue, 17 Oct 2017 08:21:28 GMT",
+        "expiry": 1508228488,
+        "httponly": false,
+        "name": "__utmb",
+        "path": "/",
+        "secure": false,
+        "value": "45122676.1.10.1508226689"
+    },
+    {
+        "domain": ".adssettings.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:28 GMT",
+        "expiry": 1571298688,
+        "httponly": false,
+        "name": "__utma",
+        "path": "/",
+        "secure": false,
+        "value": "45122676.46535425.1508226689.1508226689.1508226689.1"
+    },
+    {
+        "domain": ".adssettings.google.com",
+        "expires": "Tue, 17 Oct 2017 08:01:28 GMT",
+        "expiry": 1508227288,
+        "httponly": false,
+        "name": "__utmt_t0",
+        "path": "/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Tue, 24 Oct 2017 07:51:28 GMT",
+        "expiry": 1508831488,
+        "httponly": false,
+        "name": "1P_JAR",
+        "path": "/",
+        "secure": false,
+        "value": "2017-10-17-7"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Tue, 17 Apr 2018 19:51:27 GMT",
+        "expiry": 1523994687,
+        "httponly": false,
+        "name": "__utmz",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.1508226683.1.1.utmcsr=accounts.google.com|utmccn=(referral)|utmcmd=referral|utmcct=/CheckCookie"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "httponly": false,
+        "name": "__utmc",
+        "path": "/",
+        "secure": false,
+        "value": "245730968"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Tue, 17 Oct 2017 08:21:27 GMT",
+        "expiry": 1508228487,
+        "httponly": false,
+        "name": "__utmb",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.2.10.1508226683"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:27 GMT",
+        "expiry": 1571298687,
+        "httponly": false,
+        "name": "__utma",
+        "path": "/",
+        "secure": false,
+        "value": "245730968.313867820.1508226683.1508226683.1508226683.1"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Tue, 17 Oct 2017 07:52:25 GMT",
+        "expiry": 1508226745,
+        "httponly": false,
+        "name": "_gat",
+        "path": "/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Wed, 18 Oct 2017 07:51:25 GMT",
+        "expiry": 1508313085,
+        "httponly": false,
+        "name": "_gid",
+        "path": "/",
+        "secure": false,
+        "value": "GA1.3.1175783668.1508226686"
+    },
+    {
+        "domain": ".myactivity.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:25 GMT",
+        "expiry": 1571298685,
+        "httponly": false,
+        "name": "_ga",
+        "path": "/",
+        "secure": false,
+        "value": "GA1.3.1359909920.1508226686"
+    },
+    {
+        "domain": "www.google.com",
+        "expires": "Thu, 16 Nov 2017 07:51:23 GMT",
+        "expiry": 1510818683,
+        "httponly": false,
+        "name": "OTZ",
+        "path": "/",
+        "secure": true,
+        "value": "4098711_44_48_123900_44_436380"
+    },
+    {
+        "domain": "myaccount.google.com",
+        "expires": "Thu, 16 Nov 2017 07:51:23 GMT",
+        "expiry": 1510818683,
+        "httponly": false,
+        "name": "OTZ",
+        "path": "/",
+        "secure": true,
+        "value": "4098711_44_48_123900_44_436380"
+    },
+    {
+        "domain": ".myaccount.google.com",
+        "expires": "Tue, 17 Oct 2017 08:01:23 GMT",
+        "expiry": 1508227283,
+        "httponly": false,
+        "name": "__utmt_t0",
+        "path": "/",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": "myaccount.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:19 GMT",
+        "expiry": 1571298679,
+        "httponly": true,
+        "name": "OSID",
+        "path": "/",
+        "secure": true,
+        "value": "SwUgfauRCEuKpHPQGb-MFw-0NHQPj3RK_bkkVKrpFxthAduRD3whioKn99kVTOg2n2jnlA."
+    },
+    {
+        "domain": "accounts.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:19 GMT",
+        "expiry": 1571298679,
+        "httponly": true,
+        "name": "GAPS",
+        "path": "/",
+        "secure": true,
+        "value": "1:lCGEVMFb65FKSFAzXxqIe2VjUN8XnYNuRLcwCrdTsimibitwNivOg73P9xc5ijvtFywLRAWJO50A5qdgYA6Xh2x1x7jbEg:XZE6wwSP92J8jMY5"
+    },
+    {
+        "domain": "accounts.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:18 GMT",
+        "expiry": 1571298678,
+        "httponly": true,
+        "name": "LSID",
+        "path": "/",
+        "secure": true,
+        "value": "o.myaccount.google.com|s.FR|s.RO|s.youtube:SwUgfYKq-G7JtxmAKMpVhisPuO1Vo4uUeQMvNFCYheo2O_8dZDf3QTp-a75unf9yoBJX7A."
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Wed, 18 Apr 2018 07:51:17 GMT",
+        "expiry": 1524037877,
+        "httponly": true,
+        "name": "NID",
+        "path": "/",
+        "secure": false,
+        "value": "114=OpR0ZB3l1tBcSUwutmNGZ5EtlG4wIeK5TUAAH9eeCVsI9WedzBLBfIdh4uH3_j0AX8chOi2BubpjLCYwQ7HdBYgXaZDXVadIbhBRLY2Kq3eyjRI7H43BlButgWvwNYAy"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Sun, 10 Jan 2038 07:59:59 GMT",
+        "expiry": 2146723199,
+        "httponly": false,
+        "name": "CONSENT",
+        "path": "/",
+        "secure": false,
+        "value": "YES+FR.ro+20170326-06-0"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "SAPISID",
+        "path": "/",
+        "secure": true,
+        "value": "pvm3Jvje5y6cnQIX/Ash_g9sD_o8R-vSi_"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "APISID",
+        "path": "/",
+        "secure": false,
+        "value": "ZEU9l41XyX69KSqA/Aoqvy7LLOSJ3fwup0"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": true,
+        "name": "SSID",
+        "path": "/",
+        "secure": true,
+        "value": "ANuGuZ8q37YnXmfv7"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": true,
+        "name": "HSID",
+        "path": "/",
+        "secure": false,
+        "value": "A3ICSCy1EPGL_3IIk"
+    },
+    {
+        "domain": ".google.fr",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "SID",
+        "path": "/",
+        "secure": false,
+        "value": "SwUgfXnNJryMjoMhCrmqMQm4CAk33mze5v6g_7xt6OnSOT7qw0O3VxG_gH86T2Nf-Hu-7Q."
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Wed, 18 Apr 2018 07:51:17 GMT",
+        "expiry": 1524037877,
+        "httponly": true,
+        "name": "NID",
+        "path": "/",
+        "secure": false,
+        "value": "114=E96DPuSY_UTuDNED4n-Xt7U3TYdmoAbVQbWo-Z2P0imCESD7bU7_9Gjjab2WQr5fp0f3nR-nVT7b_199beKa2BkLeDX1aU5qUyTADK7o78ktxc-MEIIdkKZLLX0QUAbE"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Sun, 10 Jan 2038 07:59:59 GMT",
+        "expiry": 2146723199,
+        "httponly": false,
+        "name": "CONSENT",
+        "path": "/",
+        "secure": false,
+        "value": "YES+FR.ro+20170326-06-0"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "SAPISID",
+        "path": "/",
+        "secure": true,
+        "value": "pvm3Jvje5y6cnQIX/Ash_g9sD_o8R-vSi_"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "APISID",
+        "path": "/",
+        "secure": false,
+        "value": "ZEU9l41XyX69KSqA/Aoqvy7LLOSJ3fwup0"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": true,
+        "name": "SSID",
+        "path": "/",
+        "secure": true,
+        "value": "ANuGuZ8q37YnXmfv7"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": true,
+        "name": "HSID",
+        "path": "/",
+        "secure": false,
+        "value": "A3ICSCy1EPGL_3IIk"
+    },
+    {
+        "domain": ".google.ro",
+        "expires": "Thu, 17 Oct 2019 07:51:17 GMT",
+        "expiry": 1571298677,
+        "httponly": false,
+        "name": "SID",
+        "path": "/",
+        "secure": false,
+        "value": "SwUgfXnNJryMjoMhCrmqMQm4CAk33mze5v6g_7xt6OnSOT7qw0O3VxG_gH86T2Nf-Hu-7Q."
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Sun, 10 Jan 2038 07:59:59 GMT",
+        "expiry": 2146723199,
+        "httponly": false,
+        "name": "CONSENT",
+        "path": "/",
+        "secure": false,
+        "value": "YES+FR.ro+20170326-06-0"
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "SAPISID",
+        "path": "/",
+        "secure": true,
+        "value": "pvm3Jvje5y6cnQIX/Ash_g9sD_o8R-vSi_"
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "APISID",
+        "path": "/",
+        "secure": false,
+        "value": "ZEU9l41XyX69KSqA/Aoqvy7LLOSJ3fwup0"
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": true,
+        "name": "SSID",
+        "path": "/",
+        "secure": true,
+        "value": "ANuGuZ8q37YnXmfv7"
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": true,
+        "name": "HSID",
+        "path": "/",
+        "secure": false,
+        "value": "A3ICSCy1EPGL_3IIk"
+    },
+    {
+        "domain": ".youtube.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "SID",
+        "path": "/",
+        "secure": false,
+        "value": "SwUgfXnNJryMjoMhCrmqMQm4CAk33mze5v6g_7xt6OnSOT7qw0O3VxG_gH86T2Nf-Hu-7Q."
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Sun, 10 Jan 2038 07:59:59 GMT",
+        "expiry": 2146723199,
+        "httponly": false,
+        "name": "CONSENT",
+        "path": "/",
+        "secure": false,
+        "value": "YES+FR.ro+20170326-06-0"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Wed, 18 Apr 2018 07:51:16 GMT",
+        "expiry": 1524037876,
+        "httponly": true,
+        "name": "NID",
+        "path": "/",
+        "secure": false,
+        "value": "114=JaoryWgMrXH3JHUxTdAug1QeUP9QJNlCRnZh33FyXlEQDh54_uriKvf3v4AhLApxdTtAc0dhmX7EgbuL_Hhk0z6TZTxrrNus62MHBL-RcF2EqNbBZzwEZphG1q4xcKci1xo8DRi-8C6sQSf_Yg"
+    },
+    {
+        "domain": "accounts.google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": true,
+        "name": "ACCOUNT_CHOOSER",
+        "path": "/",
+        "secure": true,
+        "value": "AFx_qI69Bsf8VfFF3lt2uNq95ZlyrAyIUT4w7SudMjJvXyoaDdQsVEBTSnA7ep8u9DJRHVjbIQKn2uOURlSAek57Tkh2ej79jYtBv4a-HYPJTItIm3p8Kxd_gfFj3hVLZ-9e_xwfLftO"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "SAPISID",
+        "path": "/",
+        "secure": true,
+        "value": "pvm3Jvje5y6cnQIX/Ash_g9sD_o8R-vSi_"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "APISID",
+        "path": "/",
+        "secure": false,
+        "value": "ZEU9l41XyX69KSqA/Aoqvy7LLOSJ3fwup0"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": true,
+        "name": "SSID",
+        "path": "/",
+        "secure": true,
+        "value": "ARX4YzuWwJEw8IhOv"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": true,
+        "name": "HSID",
+        "path": "/",
+        "secure": false,
+        "value": "AZ2p1JiXMSugXNL61"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Thu, 17 Oct 2019 07:51:16 GMT",
+        "expiry": 1571298676,
+        "httponly": false,
+        "name": "SID",
+        "path": "/",
+        "secure": false,
+        "value": "SwUgfXnNJryMjoMhCrmqMQm4CAk33mze5v6g_7xt6OnSOT7qw0O3VxG_gH86T2Nf-Hu-7Q."
+    }
+]

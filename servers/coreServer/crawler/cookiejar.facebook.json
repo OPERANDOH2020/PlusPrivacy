@@ -1,0 +1,98 @@
+[
+    {
+        "domain": ".facebook.com",
+        "httponly": false,
+        "name": "presence",
+        "path": "/",
+        "secure": true,
+        "value": "EDvF3EtimeF1508226707EuserFA21B16019020703A2EstateFDutF1508226707397CEchFDp_5f1B16019020703F1CC"
+    },
+    {
+        "domain": ".accounts.google.com",
+        "expires": "Wed, 25 Sep 2019 08:36:01 GMT",
+        "expiry": 1569389761,
+        "httponly": true,
+        "name": "GAPS",
+        "path": "/",
+        "secure": true,
+        "value": "1:5JhJFrCMQjjJaSGysQrXZV_WGqfN4g:MOWvepLrj5DswhVT"
+    },
+    {
+        "domain": ".facebook.com",
+        "httponly": false,
+        "name": "x-referer",
+        "path": "/",
+        "secure": true,
+        "value": "eyJyIjoiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NldHRpbmdzP3RhYj1hcHBsaWNhdGlvbnMiLCJoIjoiL3NldHRpbmdzP3RhYj1hcHBsaWNhdGlvbnMiLCJzIjoid3d3In0%3D"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Wed, 24 Apr 2019 11:39:00 GMT",
+        "expiry": 1556095140,
+        "httponly": true,
+        "name": "datr",
+        "path": "/",
+        "secure": true,
+        "value": "6TXiWE6EJ80Wz0o7swKYl3AQ"
+    },
+    {
+        "domain": ".google.com",
+        "expires": "Mon, 08 Jan 2018 11:03:07 GMT",
+        "expiry": 1515402187,
+        "httponly": false,
+        "name": "SIDCC",
+        "path": "/",
+        "secure": false,
+        "value": "AE4kn79oj6EZOfYN3CZv9rDDFjG5I1NkwNMKFyqcmcxo-Gm1VsCPJp2cT8FHhIkwW9G9dbErbI3nkPwv0Z0"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Thu, 17 Oct 2019 07:23:37 GMT",
+        "expiry": 1571286217,
+        "httponly": true,
+        "name": "sb",
+        "path": "/",
+        "secure": true,
+        "value": "MTbiWNR4ye3pMlnM1c2xF4E0"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Mon, 15 Jan 2018 07:23:37 GMT",
+        "expiry": 1515993817,
+        "httponly": false,
+        "name": "c_user",
+        "path": "/",
+        "secure": true,
+        "value": "100016019020703"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Mon, 15 Jan 2018 07:23:37 GMT",
+        "expiry": 1515993817,
+        "httponly": true,
+        "name": "xs",
+        "path": "/",
+        "secure": true,
+        "value": "35%3ALu0LKt_75giSHQ%3A2%3A1508225015%3A-1%3A-1"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Mon, 15 Jan 2018 07:23:37 GMT",
+        "expiry": 1515993817,
+        "httponly": true,
+        "name": "fr",
+        "path": "/",
+        "secure": true,
+        "value": "0C96UB1xr8dW5k2qZ.AWUgy4NqY2AbWdQCr5zv8fyORFM.BY4jXp.5t.AAA.0.0.BZ5a_2.AWXN7SMw"
+    },
+    {
+        "domain": ".facebook.com",
+        "expires": "Mon, 15 Jan 2018 07:23:37 GMT",
+        "expiry": 1515993817,
+        "httponly": true,
+        "name": "pl",
+        "path": "/",
+        "secure": true,
+        "value": "n"
+    }
+]
