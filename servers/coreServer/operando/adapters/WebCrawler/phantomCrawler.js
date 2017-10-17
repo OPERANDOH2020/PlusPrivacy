@@ -16,7 +16,7 @@ phantom.cookiesEnabled = true;
 phantom.javascriptEnabled = true;
 
 
-var pathToCrawler = system.env.SWARM_PATH+"/operando/adapters/WebCrawler/";
+var pathToCrawler = system.env.SWARM_PATH+"/crawler/";
 var config = JSON.parse(fs.read(pathToCrawler+"urls.json"));
 
 

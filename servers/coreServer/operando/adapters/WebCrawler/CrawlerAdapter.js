@@ -7,15 +7,24 @@ var core = require("swarmcore");
 var imageDiff = require('image-diff');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
-
+var crawlerConfig = getMyConfig("CrawlerAdapter");
 
 thisAdapter = core.createAdapter("CrawlerAdapter");
 process.env.phantomJsPath = thisAdapter.config.Core.phantomJsPath;
 //process.env.phantomJsPath = "/home/ciprian/phantomjs-2.1.1-linux-x86_64/bin/";
 
 
-var crawlerPath = process.env.SWARM_PATH+"/operando/adapters/WebCrawler/";
-//var crawlerPath = "/home/Storage/Workspace/PlusPrivacy/servers/coreServer/operando/adapters/WebCrawler/";
+var adapterPath  = process.env.SWARM_PATH+"/operando/adapters/WebCrawler/";
+
+if(crawlerConfig){
+    var crawlerPath = process.env.SWARM_PATH+"/"+crawlerConfig.crawlerPath+"/";
+}
+else{
+    var crawlerPath = adapterPath;
+}
+
+
+
 
 if(!process.env.phantomJsPath){
     console.error("The environment of the crawling adaptor must contain the path towards phantomJs!");
@@ -30,7 +39,7 @@ function periodicallyScan(){
 
 function startCrawling(callback) {
     console.log("Running the web crawler");
-    var crawler = spawn(process.env.phantomJsPath+"phantomjs", ["--web-security=false","--ssl-protocol=tlsv1","--ignore-ssl-errors=true",crawlerPath+"phantomCrawler.js"]);  //the args are to avoid "SSL handshake fail" errors
+    var crawler = spawn(process.env.phantomJsPath+"phantomjs", ["--web-security=false","--ssl-protocol=tlsv1","--ignore-ssl-errors=true",adapterPath+"phantomCrawler.js"]);  //the args are to avoid "SSL handshake fail" errors
 
     crawler.stdout.on('data',function(data){
         //console.log("[X|Crawling.stdout:\n",data.toString());
