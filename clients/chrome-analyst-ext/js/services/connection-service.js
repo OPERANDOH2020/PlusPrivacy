@@ -1,12 +1,21 @@
-var Config = new Config();
-var SERVER_HOST = Config.swarmClient.host;
-var SERVER_PORT = Config.swarmClient.port;
-var TENANT = Config.swarmClient.tenant;
+var ExtensionConfig = new Config();
+var SERVER_HOST = ExtensionConfig.swarmClient.host;
+var SERVER_PORT = ExtensionConfig.swarmClient.port;
+var TENANT = ExtensionConfig.swarmClient.tenant;
 
-angular.module("app").factory("connectionService", function(swarmService){
+angular.module("app").factory("connectionService", function(swarmService,deviceService){
 
     var ConnectionService;
     ConnectionService = (function () {
+
+        function registerForPushNotifications(){
+            var plusprivacyGCMId = ["276859564715"];
+            chrome.gcm.register(plusprivacyGCMId,function(pushNotificationId){
+                deviceService.getDeviceId(function(deviceId){
+                    swarmHub.startSwarm("UDESwarm.js", "updateNotificationToken", deviceId, pushNotificationId);
+                });
+            })
+        };
 
         function ConnectionService() {
 
@@ -50,6 +59,7 @@ angular.module("app").factory("connectionService", function(swarmService){
             var getUserHandler = swarmHub.startSwarm('UserInfo.js', 'info');
             getUserHandler.onResponse("result", function (swarm) {
                 authenticated = true;
+                deviceService.associateUserWithDevice(registerForPushNotifications);
                 user = swarm.result;
                 if (callback) {
                     callback(user);
@@ -138,14 +148,28 @@ angular.module("app").factory("connectionService", function(swarmService){
             })
         };
 
-        return ConnectionService;
+        ConnectionService.prototype.getNotifications = function(index, callback){
+            var getNotificationsHandler = swarmHub.startSwarm("notification.js","getAllNotifications",true, index);
+            getNotificationsHandler.onResponse("gotAllNotifications", function(swarm){
+                callback({notifications: swarm.notifications, count: swarm.totalNotificationsCount});
+            });
+        };
 
+        ConnectionService.prototype.dismissNotification = function(notificationId, callback){
+            var dismissNotificationHandler = swarmHub.startSwarm("notification.js", "dismissNotification", notificationId);
+            dismissNotificationHandler.onResponse("notificationDismissed", function(){
+                callback();
+            })
+        };
+            ConnectionService.prototype.onNotificationReceived = function(callback){
+            chrome.gcm.onMessage.addListener(callback);
+        }
+        return ConnectionService;
     })();
 
     if (typeof(window.angularConnectionService) === 'undefined' || window.angularConnectionService === null) {
         window.angularConnectionService = new ConnectionService();
     }
-
     return window.angularConnectionService;
 
 });

@@ -1,0 +1,6 @@
+<div class="notifications_container" ng-controller="notificationController">
+    <h2>Notifications</h2>
+
+<notification-large ng-repeat="notification in notifications" notification="notification"></notification-large>
+<button ng-click="loadMore()">Load more...</button>
+</div>

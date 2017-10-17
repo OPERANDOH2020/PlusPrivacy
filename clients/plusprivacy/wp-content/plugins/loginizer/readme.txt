@@ -2,8 +2,8 @@
 Contributors: loginizer
 Tags: access, admin, Loginizer, login, logs, ban ip, failed login, ip, whitelist ip, blacklist ip, failed attempts, lockouts, hack, authentication, login, security, rename login url, rename login, rename wp-admin, secure wp-admin, rename admin url, secure admin
 Requires at least: 3.0
-Tested up to: 4.7
-Stable tag: 1.3.2
+Tested up to: 4.8
+Stable tag: 1.3.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -13,7 +13,7 @@ Loginizer is a WordPress security plugin which helps you fight against bruteforc
 
 Loginizer is a WordPress plugin which helps you fight against bruteforce attack by blocking login for the IP after it reaches maximum retries allowed. You can blacklist or whitelist IPs for login using Loginizer. You can use various other features like Two Factor Auth, reCAPTCHA, PasswordLess Login, etc. to improve security of your website.
 
-Loginizer is actively used by more than 300000+ WordPress websites.
+Loginizer is actively used by more than 550000+ WordPress websites.
 
 You can find our official documentation at <a href="https://loginizer.com/docs">https://loginizer.com/docs</a> and our Frequently Asked Questions on our support portal at <a href="https://loginizer.com/members">https://loginizer.com/members</a>. We are also active in our community support forums on <a href="https://wordpress.org/support/plugin/loginizer">wordpress.org</a> if you are one of our free users. Our Premium Support Ticket System is at <a href="https://loginizer.com/members">https://loginizer.com/members</a>
 
@@ -64,6 +64,31 @@ That's it. You're done!
 3. Loginizer Brute Force Settings page
 
 == Changelog ==
+
+= 1.3.8 =
+* [Feature] Added an option to Delete the entire Blacklist / Whitelist IP Ranges.
+* [Feature] Custom IP Header added as an option for detecting the IP as per the Proxy settings of a server.
+* [Bug Fix] In WooCommerce the number of login retries left was not being shown. This is fixed.
+
+= 1.3.7 =
+* [Bug Fix] Blacklist and Whitelist IPs were not being deleted. This is fixed.
+
+= 1.3.6 =
+* [Feature] Pagination added to the Blacklist and Whitelist IPs
+* [Bug Fix] SQL Injection fix for X-Forwarded-For. This is fixed. Vulnerability was found by Jonas Lejon of WPScans.com
+* [Bug Fix] There was a missing referrer check in Blacklist and Whitelist IP Wizard. This is fixed.
+
+= 1.3.5 =
+* [Feature] Added a wizard for admins to set their own language strings for Brute Force messages
+* [Bug Fix] Twitter box shown in Loginizer was not accessed over HTTPS.
+
+= 1.3.4 =
+* [Bug Fix] Fixed the BigInteger Class for PHP 7 compatibility.
+
+= 1.3.3 =
+* [Feature] IPv6 support has been added.
+* [Feature] The last attempted username will now be shown in the Login Logs.
+* [Bug Fix] The documentation in the plugin was pointing to a wrong link. This is now fixed.
 
 = 1.3.2 =
 * [Feature] Added option to choose between REMOTE_ADDR, HTTP_CLIENT_IP and HTTP_X_FORWARDED for websites behind a proxy 

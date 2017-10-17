@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 require_once(ES_DIR.'classes'.DIRECTORY_SEPARATOR.'es-register.php');

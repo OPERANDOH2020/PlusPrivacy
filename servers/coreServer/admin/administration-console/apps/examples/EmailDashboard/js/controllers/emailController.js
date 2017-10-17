@@ -26,7 +26,7 @@ app.controller('emailController', ['$scope','ModalService','swarmHubService',
             var r = new FileReader();
 
             r.onloadend = function(e) {
-                $scope.email.users = e.target.result.split("\"").filter(function (user) {
+                $scope.email.users = e.target.result.split(new RegExp("\",\ ")).filter(function (user) {
                     return user.length>1;
                 });
                 delete $scope.email.zone;

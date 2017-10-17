@@ -174,8 +174,6 @@ TabsManager.prototype.offerIsAccepted = function(offerId, callback){
             callback(existence);
         });
     });
-
-
 };
 
 TabsManager.prototype.getLastVisitedUrl = function(notificationId, callback){

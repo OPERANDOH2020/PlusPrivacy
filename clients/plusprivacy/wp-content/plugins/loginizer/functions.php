@@ -1,5 +1,7 @@
 <?php
 
+include_once(LOGINIZER_DIR.'/IPv6/IPv6.php');
+
 // Get the client IP
 function _lz_getip(){
 	if(isset($_SERVER["REMOTE_ADDR"])){
@@ -33,6 +35,15 @@ function lz_getip(){
 		$ip = $_SERVER["HTTP_CLIENT_IP"];
 	}
 	
+	if(@$loginizer['ip_method'] == 3 && isset($_SERVER[@$loginizer['custom_ip_method']])){
+		$ip = $_SERVER[@$loginizer['custom_ip_method']];
+	}
+	
+	// Hacking fix for X-Forwarded-For
+	if(!lz_valid_ip($ip)){
+		return '';
+	}
+	
 	return $ip;
 	
 }
@@ -52,11 +63,30 @@ function lz_selectquery($query, $array = 0){
 
 // Check if an IP is valid
 function lz_valid_ip($ip){
-
+	
+	// IPv6
+	if(lz_valid_ipv6($ip)){
+		return true;
+	}
+	
+	// IPv4
 	if(!ip2long($ip)){
 		return false;
-	}	
+	}
+	
 	return true;
+}
+
+function lz_valid_ipv6($ip){
+
+	$pattern = '/^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$/';
+	
+	if(!preg_match($pattern, $ip)){
+		return false;	
+	}
+	
+	return true;
+	
 }
 
 // Check if a field is posted via POST else return default value
@@ -302,3 +332,15 @@ function lz_get_page($get = 'page', $resperpage = 50){
 	return $page;
 }
 
+// Replaces the Variables with the supplied ones
+function lz_lang_vars_name($str, $array){
+	
+	foreach($array as $k => $v){
+		
+		$str = str_replace('$'.$k, $v, $str);
+	
+	}
+	
+	return $str;
+
+}

@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 class es_cls_dbquery {
@@ -27,7 +27,7 @@ class es_cls_dbquery {
 		}
 		if($id > 0) {
 			$sSql = $sSql . " and es_email_id=".$id;
-			
+
 		}
 		$sSql = $sSql . " order by es_email_id asc";
 		$arrRes = $wpdb->get_results($sSql, ARRAY_A);
@@ -53,7 +53,7 @@ class es_cls_dbquery {
 
 		if($id > 0) {
 			$sSql = $sSql . " and es_email_id=".$id;
-			
+
 		}
 		$sSql = $sSql . " order by es_email_id desc";
 		$sSql = $sSql . " LIMIT $offset, $limit";
@@ -96,9 +96,9 @@ class es_cls_dbquery {
 				return "ext";
 			} else {
 				$guid = es_cls_common::es_generate_guid(60);
-				$sql = $wpdb->prepare("INSERT INTO `".$wpdb->prefix."es_emaillist` 
+				$sql = $wpdb->prepare("INSERT INTO `".$wpdb->prefix."es_emaillist`
 						(`es_email_name`,`es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`)
-						VALUES(%s, %s, %s, %s, %d, %s, %s)", array(trim($es_subscriber_name), trim($es_subscriber_email), 
+						VALUES(%s, %s, %s, %s, %d, %s, %s)", array(trim($es_subscriber_name), trim($es_subscriber_email),
 						trim($es_subscriber_status), $CurrentDate, 0, trim($es_subscriber_group), $guid));
 				$wpdb->query($sql);
 
@@ -113,14 +113,14 @@ class es_cls_dbquery {
 
 				if (( in_array('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) || array_key_exists('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) )) {			// To Do- Handle via actions
 
-					$es_settings = es_cls_settings::es_setting_select();
+					$es_c_optinoption = get_option( 'ig_es_optintype' );
 					$subscribers = array();
 					$subscribers = self::es_view_subscriber_one($es_subscriber_email,$es_subscriber_group);
 
 					if( did_action( 'rainmaker_post_lead' ) >= 1 ) {
-						if ( (!empty($es_settings['es_c_optinoption'])) && ($es_settings['es_c_optinoption'] == 'Double Opt In') ) {
+						if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Double Opt In') ) {
 							es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, "optin", 0);
-						} else if ( (!empty($es_settings['es_c_optinoption'])) && ($es_settings['es_c_optinoption'] == 'Single Opt In' ) ) {
+						} else if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Single Opt In' ) ) {
 							es_cls_sendmail::es_sendmail("welcome", $template = 0, $subscribers, "welcome", 0);
 						}
 					}
@@ -128,14 +128,14 @@ class es_cls_dbquery {
 				return "sus";
 			}
 		} elseif($action == "update") {
-			$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$es_subscriber_email."'"; 
+			$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$es_subscriber_email."'";
 			$sSql = $sSql . " and es_email_group='".trim($es_subscriber_group)."' and es_email_id != ".$data["es_email_id"];
 			$result = $wpdb->get_var($sSql);
 			if ( $result > 0) {
 				return "ext";
 			} else {
 				$sSql = $wpdb->prepare("UPDATE `".$wpdb->prefix."es_emaillist` SET `es_email_name` = %s, `es_email_mail` = %s,
-						`es_email_status` = %s, `es_email_group` = %s WHERE es_email_id = %d LIMIT 1", array($es_subscriber_name, $es_subscriber_email, 
+						`es_email_status` = %s, `es_email_group` = %s WHERE es_email_id = %d LIMIT 1", array($es_subscriber_name, $es_subscriber_email,
 						$es_subscriber_status, $es_subscriber_group, $data["es_email_id"]));
 				$wpdb->query($sSql);
 				return "sus";
@@ -345,6 +345,48 @@ class es_cls_dbquery {
 
 		return $inactive_subscribers_count;
 
+	}
+
+	// Query to fetch survey result
+	public static function es_survey_res() {
+		global $wpdb;
+
+		$args = array(
+			'post_type' 	=> 'post', 
+			'post_status'   => 'publish',
+			'fields'		=> 'ids',
+			'date_query'    => array(
+									'after'   => '- 30 days'
+							)
+		);
+		$query = new WP_Query( $args );
+
+		$posts = $query->posts;
+		$avg_post = (round((count($posts)/4)) > 1 ) ? round((count($posts)/4)) : 1 ;
+
+		$sSql = "SELECT  
+					SUM((CASE WHEN 	es_sent_source = 'Post Notification' THEN 1 ELSE 0 END)) AS post_notification,
+					SUM((CASE WHEN 	es_sent_source = 'Newsletter' THEN 1 ELSE 0 END)) AS newsletter,
+					SUM((CASE WHEN 	es_sent_type = 'Cron' THEN 1 ELSE 0 END)) AS cron,
+					SUM((CASE WHEN 	es_sent_type = 'Immediately' THEN 1 ELSE 0 END)) AS immediately
+				FROM ".$wpdb->prefix . "es_sentdetails";
+		$es_query_res = $wpdb->get_results( $sSql, ARRAY_A );
+
+		$total_subscribers = es_cls_dbquery::es_view_subscriber_count(0);
+		$active_subscribers = es_cls_dbquery::es_active_subscribers();
+
+		$opt_in_type = get_option( 'ig_es_optintype', 'Double Opt In' );
+
+		$es_survey_res['post_notification'] = (!empty($es_query_res[0]['post_notification'])) ? $es_query_res[0]['post_notification'] : 0;
+		$es_survey_res['newsletter'] = (!empty($es_query_res[0]['newsletter'])) ? $es_query_res[0]['newsletter'] : 0;
+		$es_survey_res['cron'] = (!empty($es_query_res[0]['cron'])) ? $es_query_res[0]['cron'] : 0;
+		$es_survey_res['immediately'] = (!empty($es_query_res[0]['immediately'])) ? $es_query_res[0]['immediately'] : 0;
+		$es_survey_res['es_active_subscribers']	= $active_subscribers;	
+		$es_survey_res['es_total_subscribers'] = $total_subscribers;
+		$es_survey_res['es_avg_post_cnt'] = $avg_post;
+		$es_survey_res['es_opt_in_type'] = $opt_in_type;		
+
+		return $es_survey_res;
 	}
 
 }

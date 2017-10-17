@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 class es_cls_sendmail {
@@ -13,7 +13,7 @@ class es_cls_sendmail {
 				$subscribers = es_cls_dbquery::es_view_subscriber_bulk($idlist);
 				es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, $action = "optin-group", "Immediately");
 				break;
-				
+
 			case 'single':
 				$subscribers = es_cls_dbquery::es_view_subscriber_search($search = "", $id);
 				es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, $action = "optin-single", "Immediately");
@@ -28,11 +28,11 @@ class es_cls_sendmail {
 		es_cls_sendmail::es_sendmail("welcome", $template = 0, $subscribers, $action = "welcome", 0, "Immediately");
 	}
 
-	public static function es_prepare_notification( $post_status, $original_post_status, $post_id ) {	
+	public static function es_prepare_notification( $post_status, $original_post_status, $post_id ) {
 		if( ( $post_status == 'publish' ) && ( $original_post_status != 'publish' ) ) {
 			$notification = array();
-			
-			// $post_id is Object type containing the post information 
+
+			// $post_id is Object type containing the post information
 			// Thus we need to get post_id from $post_id object
 			if(is_numeric($post_id)) {
 				$post_id = $post_id;
@@ -56,6 +56,7 @@ class es_cls_sendmail {
 				} else {
 					$mailsenttype = "Immediately";
 				}
+
 				$subscribers = array();
 				$subscribers = es_cls_notification::es_notification_subscribers($notification);
 				if ( count($subscribers) > 0 ) {
@@ -86,24 +87,24 @@ class es_cls_sendmail {
 		$replaceto = array("<ul>", "</ul>", "<li>" ,"</li>", "<ol>", "</ol>", "</h2>", "</h1>");
 		$count = 1;
 
-		$settings = es_cls_settings::es_setting_select(1);
-		if( trim($settings['es_c_fromname']) == "" || trim($settings['es_c_fromemail']) == '' ) {
+		$settings = es_cls_settings::es_get_all_settings();
+		if( trim($settings['ig_es_fromname']) == "" || trim($settings['ig_es_fromemail']) == '' ) {
 			get_currentuserinfo();
 			$sender_name = $user_login;
 			$sender_email = $user_email;
 		} else {
-			$sender_name = stripslashes($settings['es_c_fromname']);
-			$sender_email = $settings['es_c_fromemail'];
+			$sender_name = stripslashes($settings['ig_es_fromname']);
+			$sender_email = $settings['ig_es_fromemail'];
 		}
 
-		if( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
+		if( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
 			$htmlmail = true;
 		}
 
-		if( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "WP PLAINTEXT MAIL" ) { // check this code
+		if( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "WP PLAINTEXT MAIL" ) { // check this code
 			$wpmail = true;
 		}
-		
+
 		$headers  = "From: \"$sender_name\" <$sender_email>\n";
 		$headers .= "Return-Path: <" . $sender_email . ">\n";
 		$headers .= "Reply-To: \"" . $sender_name . "\" <" . $sender_email . ">\n";
@@ -119,32 +120,41 @@ class es_cls_sendmail {
 
 		$url = home_url('/');
 		$viewstatus = '<img src="'.$url.'?es=viewstatus&delvid=###DELVIID###" width="1" height="1" />';
-		
+
 		foreach ($crondeliveryqueue as $crondelivery) {
 			$es_email_id = $crondelivery['es_deliver_emailid'];
 			$es_deliver_id = $crondelivery['es_deliver_id'];
 			$subscriber = es_cls_dbquery::es_view_subscriber_search("", $es_email_id);
 			if(count($subscriber) > 0) {
-				$unsublink = $settings['es_c_unsublink'];				
+				$unsublink = $settings['ig_es_unsublink'];
 				$unsublink = str_replace("###DBID###", $subscriber[0]["es_email_id"], $unsublink);
-				$unsublink = str_replace("###EMAIL###", $subscriber[0]["es_email_mail"], $unsublink);
+				$unsublink = str_replace("###EMAIL###", rawurlencode($subscriber[0]["es_email_mail"]), $unsublink);
 				$unsublink = str_replace("###GUID###", $subscriber[0]["es_email_guid"], $unsublink);
 				$unsublink  = $unsublink . "&cache=".$cacheid;
-				
-				$unsubtext = stripslashes($settings['es_c_unsubtext']);
+
+				$unsubtext = stripslashes($settings['ig_es_unsubcontent']);
 				$unsubtext = str_replace("###LINK###", $unsublink , $unsubtext);
-				if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-					$unsubtext = '<br><br>' . $unsubtext;
+				if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+					$unsubtext = '<br>' . $unsubtext;
 				} else {
-					$unsubtext = '\n\n' . $unsubtext;
+					$unsubtext = '\n' . $unsubtext;
 				}
 
 				$viewstslink = str_replace("###DELVIID###", $es_deliver_id, $viewstatus);
 				$content_send = str_replace("###EMAIL###", $subscriber[0]["es_email_mail"], $content);
-				$content_send = str_replace("###NAME###", $subscriber[0]["es_email_name"], $content_send);	
-				
-				if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-					$content_send = nl2br($content_send);
+				$content_send = str_replace("###NAME###", $subscriber[0]["es_email_name"], $content_send);
+
+				if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+
+					$temp_content = $content_send;
+					$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+					if(isset($GLOBALS['wp_embed'])) {
+						$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+					}
+					$temp_content = wpautop( $temp_content );
+					// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+					$content_send = $temp_content;
+
 					$content_send = str_replace($replacefrom, $replaceto, $content_send);
 				} else {
 					$content_send = str_replace("<br />", "\r\n", $content_send);
@@ -163,20 +173,27 @@ class es_cls_sendmail {
 			if($count % 25 == 0) {
 				sleep(60); //sleep 60 seconds for every 25 emails.
 			}
-			
+
 		}
 
-		$es_cron_adminmail = get_option('es_cron_adminmail');
-		if($es_cron_adminmail <> "") {
-			$adminmail = $settings['es_c_adminemail'];
+		$es_cron_adminmail = get_option('ig_es_cron_adminmail');
+		if($es_cron_adminmail != "") {
+			$adminmail = $settings['ig_es_adminemail'];
 			$crondate = date('Y-m-d G:i:s');
 			$count = $count - 1;
-			$es_cron_adminmail = str_replace("###COUNT###", $count, $es_cron_adminmail);	
-			$es_cron_adminmail = str_replace("###DATE###", $crondate, $es_cron_adminmail);	
-			$es_cron_adminmail = str_replace("###SUBJECT###", $subject, $es_cron_adminmail);	
-			
+			$es_cron_adminmail = str_replace("###COUNT###", $count, $es_cron_adminmail);
+			$es_cron_adminmail = str_replace("###DATE###", $crondate, $es_cron_adminmail);
+			$es_cron_adminmail = str_replace("###SUBJECT###", $subject, $es_cron_adminmail);
+
 			if($htmlmail) {
-				$es_cron_adminmail = nl2br($es_cron_adminmail);
+				$temp_content = $es_cron_adminmail;
+				$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+				if(isset($GLOBALS['wp_embed'])) {
+					$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+				}
+				$temp_content = wpautop( $temp_content );
+				// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+				$es_cron_adminmail = $temp_content;
 			} else {
 				$es_cron_adminmail = str_replace("<br />", "\r\n", $es_cron_adminmail);
 				$es_cron_adminmail = str_replace("<br>", "\r\n", $es_cron_adminmail);
@@ -208,27 +225,27 @@ class es_cls_sendmail {
 		$replacefrom = array("<ul><br />", "</ul><br />", "<li><br />", "</li><br />", "<ol><br />", "</ol><br />", "</h2><br />", "</h1><br />");
 		$replaceto = array("<ul>", "</ul>", "<li>" ,"</li>", "<ol>", "</ol>", "</h2>", "</h1>");
 
-		$settings = es_cls_settings::es_setting_select(1);
-		$adminmail = $settings['es_c_adminemail'];
-		$es_c_adminmailoption = $settings['es_c_adminmailoption'];
-		$es_c_usermailoption = $settings['es_c_usermailoption'];
+		$settings = es_cls_settings::es_get_all_settings();
+		$adminmail = $settings['ig_es_adminemail'];
+		$es_c_adminmailoption = $settings['ig_es_notifyadmin'];
+		$es_c_usermailoption = $settings['ig_es_welcomeemail'];
 
-		if( trim($settings['es_c_fromname']) == "" || trim($settings['es_c_fromemail']) == '' ) {
+		if( trim($settings['ig_es_fromname']) == "" || trim($settings['ig_es_fromemail']) == '' ) {
 			get_currentuserinfo();
 			$sender_name = $user_login;
 			$sender_email = $user_email;
 		} else {
-			$sender_name = stripslashes($settings['es_c_fromname']);
-			$sender_email = $settings['es_c_fromemail'];
+			$sender_name = stripslashes($settings['ig_es_fromname']);
+			$sender_email = $settings['ig_es_fromemail'];
 		}
 
-		if( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
+		if( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
 			$htmlmail = true;
 		} else {
 			$htmlmail = false;
 		}
 
-		if( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "WP PLAINTEXT MAIL" ) {
+		if( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "WP PLAINTEXT MAIL" ) {
 			$wpmail = true;
 		} else {
 			$wpmail = false;
@@ -249,13 +266,13 @@ class es_cls_sendmail {
 
 		switch($type) {
 			case 'optin':
-				$subject = stripslashes($settings['es_c_optinsubject']);
-				$content = stripslashes($settings['es_c_optincontent']);
+				$subject = stripslashes($settings['ig_es_confirmsubject']);
+				$content = stripslashes($settings['ig_es_confirmcontent']);
 				break;
 
 			case 'welcome':
-				$subject = stripslashes($settings['es_c_usermailsubject']);
-				$content = stripslashes($settings['es_c_usermailcontant']);
+				$subject = stripslashes($settings['ig_es_welcomesubject']);
+				$content = stripslashes($settings['ig_es_welcomecontent']);
 				break;
 
 			case 'newsletter':
@@ -274,12 +291,12 @@ class es_cls_sendmail {
 				$post_thumbnail  = "";
 				$post_thumbnail_link  = "";
 				$post = get_post($post_id);
-				$excerpt_length = 50; 						// Change this value to increase the content length in newsletter.
+				$excerpt_length = 50;					//Change this value to change the ###POSTDESC### content in the Post Notification. It also considers spaces as a character.
 				$post_title = $post->post_title;
 				$subject = str_replace('###POSTTITLE###', $post_title, $subject);
 				$post_link = get_permalink($post_id);
 				$subject = str_replace('###POSTLINK###', $post_link, $subject);
-				$post_date = $post->post_modified;			
+				$post_date = $post->post_modified;
 
 				// Get full post
 				$post_full = $post->post_content;
@@ -295,8 +312,9 @@ class es_cls_sendmail {
 					$the_excerpt = implode(' ', $words);
 				}
 
+				// Size of ###POSTIMAGE###
 				if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail($post_id)) ) {
-					$es_post_image_size = get_option( 'es_c_post_image_size', 'full' );
+					$es_post_image_size = get_option( 'ig_es_post_image_size', 'full' );
 					switch ( $es_post_image_size ) {
 						case 'full':
 							$post_thumbnail = get_the_post_thumbnail( $post_id, 'full' );
@@ -319,10 +337,15 @@ class es_cls_sendmail {
 				if($post_link != "") {
 					$post_link_with_title = "<a href='".$post_link."' target='_blank'>".$post_title."</a>";
 					$content = str_replace('###POSTLINK-WITHTITLE###', $post_link_with_title, $content);
-					
+
 					$post_link = "<a href='".$post_link."' target='_blank'>".$post_link."</a>";
 				}
 
+				// To get post author name for ###POSTAUTHOR###
+				$post_author_id = $post->post_author;
+				$post_author = get_the_author_meta( 'display_name' , $post_author_id );
+
+				$content = str_replace('###POSTAUTHOR###', $post_author, $content);
 				$content = str_replace('###POSTTITLE###', $post_title, $content);
 				$content = str_replace('###POSTLINK###', $post_link, $content);
 				$content = str_replace('###POSTIMAGE###', $post_thumbnail_link, $content);
@@ -332,7 +355,7 @@ class es_cls_sendmail {
 				break;
 		}
 
-		if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
+		if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
 			$content = str_replace("\r\n", "<br />", $content);
 		} else {
 			$content = str_replace("<br />", "\r\n", $content);
@@ -359,9 +382,9 @@ class es_cls_sendmail {
 					case 'optin':
 						$content_send = str_replace("###NAME###", $name, $content);
 						$content_send = str_replace("###EMAIL###", $to, $content_send);
-						$optinlink = $settings['es_c_optinlink'];
+						$optinlink = $settings['ig_es_optinlink'];
 						$optinlink = str_replace("###DBID###", $subscriber["es_email_id"], $optinlink);
-						$optinlink = str_replace("###EMAIL###", $subscriber["es_email_mail"], $optinlink);
+						$optinlink = str_replace("###EMAIL###", rawurlencode($subscriber["es_email_mail"]), $optinlink);
 						$optinlink = str_replace("###GUID###", $subscriber["es_email_guid"], $optinlink);
 						$optinlink  = $optinlink . "&cache=".$cacheid;
 						$content_send = str_replace("###LINK###", $optinlink , $content_send);
@@ -373,20 +396,29 @@ class es_cls_sendmail {
 						$content_send = str_replace("###GROUP###", $group, $content_send);
 
 						// Making an unsubscribe link
-						$unsublink = $settings['es_c_unsublink'];
+						$unsublink = $settings['ig_es_unsublink'];
 						$unsublink = str_replace("###DBID###", $subscriber["es_email_id"], $unsublink);
-						$unsublink = str_replace("###EMAIL###", $subscriber["es_email_mail"], $unsublink);
+						$unsublink = str_replace("###EMAIL###", rawurlencode($subscriber["es_email_mail"]), $unsublink);
 						$unsublink = str_replace("###GUID###", $subscriber["es_email_guid"], $unsublink);
 						$unsublink  = $unsublink . "&cache=".$cacheid;
 						$content_send = str_replace("###LINK###", $unsublink, $content_send);
 
-						$adminmailsubject = stripslashes($settings['es_c_adminmailsubject']);	
-						$adminmailcontant = stripslashes($settings['es_c_adminmailcontant']);
+						$adminmailsubject = stripslashes($settings['ig_es_admin_new_sub_subject']);
+						$adminmailcontant = stripslashes($settings['ig_es_admin_new_sub_content']);
 						$adminmailcontant = str_replace("###NAME###", $name , $adminmailcontant);
 						$adminmailcontant = str_replace("###EMAIL###", $to, $adminmailcontant);
+						$adminmailcontant = str_replace("###GROUP###", $group, $adminmailcontant);
 
-						if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-							$adminmailcontant = nl2br($adminmailcontant);
+						if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+							$temp_content = $adminmailcontant;
+							$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+							if(isset($GLOBALS['wp_embed'])) {
+								$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+							}
+							$temp_content = wpautop( $temp_content );
+							// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+							$adminmailcontant = $temp_content;
+
 							$content_send = str_replace($replacefrom, $replaceto, $content_send);
 						} else {
 							$adminmailcontant = str_replace("<br />", "\r\n", $adminmailcontant);
@@ -396,27 +428,35 @@ class es_cls_sendmail {
 
 					case 'newsletter':
 						if($mailsenttype != "Cron") { 					// Cron mail not sending by this method
-							$unsublink = $settings['es_c_unsublink'];
+							$unsublink = $settings['ig_es_unsublink'];
 							$unsublink = str_replace("###DBID###", $subscriber["es_email_id"], $unsublink);
-							$unsublink = str_replace("###EMAIL###", $subscriber["es_email_mail"], $unsublink);
+							$unsublink = str_replace("###EMAIL###", rawurlencode($subscriber["es_email_mail"]), $unsublink);
 							$unsublink = str_replace("###GUID###", $subscriber["es_email_guid"], $unsublink);
 							$unsublink  = $unsublink . "&cache=".$cacheid;
 
-							$unsubtext = stripslashes($settings['es_c_unsubtext']);
+							$unsubtext = stripslashes($settings['ig_es_unsubcontent']);
 							$unsubtext = str_replace("###LINK###", $unsublink , $unsubtext);
-							if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-								$unsubtext = '<br><br>' . $unsubtext;
+							if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+								$unsubtext = '<br>' . $unsubtext;
 							} else {
-								$unsubtext = '\n\n' . $unsubtext;
+								$unsubtext = '\n' . $unsubtext;
 							}
 
 							$returnid = es_cls_delivery::es_delivery_ins($sendguid, $subscriber["es_email_id"], $subscriber["es_email_mail"], $mailsenttype);
 							$viewstslink = str_replace("###DELVIID###", $returnid, $viewstatus);
 							$content_send = str_replace("###EMAIL###", $subscriber["es_email_mail"], $content);
-							$content_send = str_replace("###NAME###", $subscriber["es_email_name"], $content_send);	
-							
-							if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-								$content_send = nl2br($content_send);
+							$content_send = str_replace("###NAME###", $subscriber["es_email_name"], $content_send);
+
+							if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+								$temp_content = $content_send;
+								$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+								if(isset($GLOBALS['wp_embed'])) {
+									$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+								}
+								$temp_content = wpautop( $temp_content );
+								// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+								$content_send = $temp_content;
+
 								$content_send = str_replace($replacefrom, $replaceto, $content_send);
 							} else {
 								$content_send = str_replace("<br />", "\r\n", $content_send);
@@ -430,27 +470,35 @@ class es_cls_sendmail {
 					case 'notification':  // notification mail to subscribers
 						if($mailsenttype != "Cron") { 					// Cron mail not sending by this method
 
-							$unsublink = $settings['es_c_unsublink'];				
+							$unsublink = $settings['ig_es_unsublink'];
 							$unsublink = str_replace("###DBID###", $subscriber["es_email_id"], $unsublink);
-							$unsublink = str_replace("###EMAIL###", $subscriber["es_email_mail"], $unsublink);
+							$unsublink = str_replace("###EMAIL###", rawurlencode($subscriber["es_email_mail"]), $unsublink);
 							$unsublink = str_replace("###GUID###", $subscriber["es_email_guid"], $unsublink);
 							$unsublink  = $unsublink . "&cache=".$cacheid;
-							$unsubtext = stripslashes($settings['es_c_unsubtext']);
+							$unsubtext = stripslashes($settings['ig_es_unsubcontent']);
 							$unsubtext = str_replace("###LINK###", $unsublink , $unsubtext);
-							if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-								$unsubtext = '<br><br>' . $unsubtext;
+							if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+								$unsubtext = '<br>' . $unsubtext;
 							} else {
-								$unsubtext = '\n\n' . $unsubtext;
+								$unsubtext = '\n' . $unsubtext;
 							}
 
 							$returnid = es_cls_delivery::es_delivery_ins($sendguid, $subscriber["es_email_id"], $subscriber["es_email_mail"], $mailsenttype);
 							$viewstslink = str_replace("###DELVIID###", $returnid, $viewstatus);
 
 							$content_send = str_replace("###EMAIL###", $subscriber["es_email_mail"], $content);
-							$content_send = str_replace("###NAME###", $subscriber["es_email_name"], $content_send);	
-							
-							if ( $settings['es_c_mailtype'] == "WP HTML MAIL" || $settings['es_c_mailtype'] == "PHP HTML MAIL" ) {
-								$content_send = nl2br($content_send);
+							$content_send = str_replace("###NAME###", $subscriber["es_email_name"], $content_send);
+
+							if ( $settings['ig_es_emailtype'] == "WP HTML MAIL" || $settings['ig_es_emailtype'] == "PHP HTML MAIL" ) {
+								$temp_content = $content_send;
+								$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+								if(isset($GLOBALS['wp_embed'])) {
+									$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+								}
+								$temp_content = wpautop( $temp_content );
+								// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+								$content_send = $temp_content;
+
 								$content_send = str_replace($replacefrom, $replaceto, $content_send);
 							} else {
 								$content_send = str_replace("<br />", "\r\n", $content_send);
@@ -475,7 +523,7 @@ class es_cls_sendmail {
 					}
 
 					// Admin mails
-					if($type == "welcome" && $adminmail <> "" && $es_c_adminmailoption == "YES") {
+					if($type == "welcome" && $adminmail != "" && $es_c_adminmailoption == "YES") {
 						wp_mail($adminmail, $adminmailsubject, $adminmailcontant, $headers);
 					}
 				} else {		// PHP Mail
@@ -484,14 +532,14 @@ class es_cls_sendmail {
 						if($es_c_usermailoption == "YES") {
 							mail($to ,$subject, $content_send . $unsubtext . $viewstslink, $headers);
 						}
-					} else {	
-						if($mailsenttype != "Cron") { 					// Cron mail not sending by this method 
+					} else {
+						if($mailsenttype != "Cron") { 					// Cron mail not sending by this method
 							mail($to ,$subject, $content_send . $unsubtext . $viewstslink, $headers);
 						}
 					}
 
 					// Admin mails
-					if($type == "welcome" && $adminmail <> "" && $es_c_adminmailoption == "YES") {
+					if($type == "welcome" && $adminmail != "" && $es_c_adminmailoption == "YES") {
 						mail($adminmail, $adminmailsubject, $adminmailcontant, $headers);
 					}
 				}
@@ -502,25 +550,34 @@ class es_cls_sendmail {
 		if( $type == "newsletter" || $type == "notification" ) {
 			$count = $count - 1;
 			es_cls_sentmail::es_sentmail_ups($sendguid, $subject);
-			if($adminmail != "") {
+			if( $adminmail != "" ) {
 
-				$subject = get_option('es_c_sentreport_subject', 'nosubjectexists');
+				$subject = get_option('ig_es_sentreport_subject', 'nosubjectexists');
 				if ( $subject == "" || $subject == "nosubjectexists") {
 					$subject = es_cls_common::es_sent_report_subject();
 				}
 
-				if($mailsenttype == "Cron") {
+				if( $mailsenttype == "Cron" ) {
 					$subject = $subject . " - Cron Email scheduled";
 				}
 
-				if($htmlmail) {
-					$reportmail = get_option('es_c_sentreport', 'nooptionexists');
+				if( $htmlmail ) {
+					$reportmail = get_option('ig_es_sentreport', 'nooptionexists');
 					if ( $reportmail == "" || $reportmail == "nooptionexists") {
 						$reportmail = es_cls_common::es_sent_report_html();
 					}
-					$reportmail = nl2br($reportmail);
+
+					$temp_content = $reportmail;
+					$temp_content =  convert_chars(convert_smilies( wptexturize( $temp_content )));
+					if(isset($GLOBALS['wp_embed'])) {
+						$temp_content = $GLOBALS['wp_embed']->autoembed($temp_content);
+					}
+					$temp_content = wpautop( $temp_content );
+					// $temp_content = do_shortcode( shortcode_unautop( $temp_content ) );
+					$reportmail = $temp_content;
+
 				} else {
-					$reportmail = get_option('es_c_sentreport', 'nooptionexists');
+					$reportmail = get_option('ig_es_sentreport', 'nooptionexists');
 					if ( $reportmail == "" || $reportmail == "nooptionexists") {
 						$reportmail = es_cls_common::es_sent_report_plain();
 					}
@@ -528,9 +585,9 @@ class es_cls_sendmail {
 					$reportmail = str_replace("<br>", "\r\n", $reportmail);
 				}
 				$enddate = date('Y-m-d G:i:s');
-				$reportmail = str_replace("###COUNT###", $count, $reportmail);	
-				$reportmail = str_replace("###UNIQUE###", $sendguid, $reportmail);	
-				$reportmail = str_replace("###STARTTIME###", $currentdate, $reportmail);	
+				$reportmail = str_replace("###COUNT###", $count, $reportmail);
+				$reportmail = str_replace("###UNIQUE###", $sendguid, $reportmail);
+				$reportmail = str_replace("###STARTTIME###", $currentdate, $reportmail);
 				$reportmail = str_replace("###ENDTIME###", $enddate, $reportmail);
 				if($wpmail) {
 					wp_mail($adminmail, $subject, $reportmail, $headers);

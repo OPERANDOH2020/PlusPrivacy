@@ -2,12 +2,12 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 if( (isset($_GET['es'])) && ($_GET['es'] == "cron") ) {
 
-	$es_c_cronguid = isset($_GET['guid']) ? $_GET['guid'] : '';  
+	$es_c_cronguid = isset($_GET['guid']) ? $_GET['guid'] : '';
 	$es_c_cronguid = trim($es_c_cronguid);
 
 	if($es_c_cronguid != "") {
@@ -15,12 +15,12 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "cron") ) {
 		$es_c_cronguid_noslash = str_replace("-", "", $es_c_cronguid);
 		$security2 = strlen($es_c_cronguid_noslash);
 		if($security1 == 34 && $security2 == 30) {
-			if (!preg_match('/[^a-z]/', $es_c_cronguid_noslash)) {
-			   	$es_c_cronurl = get_option('es_c_cronurl');	
-				$es_c_croncount = get_option('es_cron_mailcount');
+			if ( !preg_match('/[^a-z]/', $es_c_cronguid_noslash) ) {
+			   	$es_c_cronurl = get_option('ig_es_cronurl');
+				$es_c_croncount = get_option('ig_es_cron_mailcount');
 				parse_str($es_c_cronurl, $output);
 				if($es_c_cronguid == $output['guid']) {
-					if(!is_numeric($es_c_croncount)) {
+					if( !is_numeric($es_c_croncount) ) {	//if $es_c_croncount is coming empty, then set $es_c_croncount should be passed empty?
 						$es_c_croncount = 50;
 					}
 

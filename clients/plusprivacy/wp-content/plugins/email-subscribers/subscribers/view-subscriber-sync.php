@@ -2,7 +2,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 ?>
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$es_errors = array();
 	$es_success = '';
 	$es_error_found = FALSE;
-	
+
 	$es_registered = "";
 	$es_registered_group = "";
 
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		//	No errors found, we can add this Group to the table
 		if ($es_error_found == FALSE) {
-			update_option( 'es_c_emailsubscribers', $form );	// what will happent to option??
+			update_option( 'ig_es_sync_wp_users', $form );	// what will happent to option??
 
 			// Reset the form fields
 			$form = array(
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 	}
 
-	$es_c_emailsubscribers = get_option( 'es_c_emailsubscribers', 'norecord' );
+	$es_c_emailsubscribers = get_option( 'ig_es_sync_wp_users', 'norecord' );
 	if($es_c_emailsubscribers != 'norecord' && $es_c_emailsubscribers != "") {
 
 		$es_sync_unserialized_data = maybe_unserialize($es_c_emailsubscribers);
@@ -124,8 +124,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 									if(count($groups) > 0) {
 										$i = 1;
 										foreach ($groups as $group) {
-											if($group["es_email_group"] == $es_registered_group) { 
-												$thisselected = "selected='selected'" ; 
+											if($group["es_email_group"] == $es_registered_group) {
+												$thisselected = "selected='selected'" ;
 											}
 											?><option value='<?php echo $group["es_email_group"]; ?>' <?php echo $thisselected; ?>><?php echo $group["es_email_group"]; ?></option><?php
 											$thisselected = "";
@@ -145,6 +145,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php wp_nonce_field('es_form_add'); ?>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

@@ -7,9 +7,9 @@ Author URI:        https://leaves-and-love.net
 Contributors:      flixos90
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
-Tested up to:      4.6
-Stable tag:        1.4.0
-Version:           1.4.0
+Tested up to:      4.8
+Stable tag:        1.4.4
+Version:           1.4.4
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
@@ -110,6 +110,20 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.4.4 =
+* Fixed: critical bug with REALLY SIMPLE CAPTCHA not showing image
+
+= 1.4.3 =
+* Fixed: plugin compatibility fatal errors with Contact Form 7 version 4.8 related to form validation and REALLY SIMPLE CAPTCHA
+* Fixed: Contact Form 7 version 4.7 features are now being used
+* Fixed: correct styles for latest Contact Form 7 versions are now being printed
+
+= 1.4.2 =
+* Fixed: plugin compatibility fatal errors with Contact Form 7 version 4.6 with count and CAPTCHA shortcodes
+
+= 1.4.1 =
+* Fixed: plugin is now compatible with Contact Form 7 version 4.6 and its renamed functions / classes
 
 = 1.4.0 =
 * Enhanced: all form settings except `submit_size`, `submit_type` and `required_html` can now be overridden on a per-field basis by providing the setting name and its intended value as a shortcode attribute

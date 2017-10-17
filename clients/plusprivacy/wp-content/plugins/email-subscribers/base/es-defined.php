@@ -29,7 +29,4 @@ if(!defined('ES_FAV')) define('ES_FAV', admin_url( 'admin.php?page=es-general-in
 
 if(!defined('ES_ADMINURL')) define( 'ES_ADMINURL', site_url( '/wp-admin/admin.php' ) );
 
-$es_rating_text = __( 'If you like <strong>Email Subscribers</strong>, please consider leaving us a <a target="_blank" href="https://wordpress.org/support/plugin/email-subscribers/reviews/?filter=5#new-post">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge thank you from Icegram in advance!', ES_TDOMAIN );
-define( 'ES_OFFICIAL', $es_rating_text );
-
 global $es_includes;

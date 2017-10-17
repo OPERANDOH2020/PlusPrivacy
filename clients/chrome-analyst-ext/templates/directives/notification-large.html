@@ -1,0 +1,18 @@
+<div class="panel panel-default panel-notification">
+    <div class="panel-heading">{{notification.title}}</div>
+    <div class="panel-body">
+
+        <div class="notification-action">
+            <div ng-switch="notification.isDismissed">
+                <button ng-switch-when="false" class="btn-primary" ng-click="resolve()">Resolve</button>
+                <button ng-switch-when="true" class="btn-primary btn-green"  disabled="disabled">Resolved</button>
+            </div>
+
+        </div>
+        <div class="notification-content">
+            {{notification.description}}
+        </div>
+
+
+    </div>
+</div>

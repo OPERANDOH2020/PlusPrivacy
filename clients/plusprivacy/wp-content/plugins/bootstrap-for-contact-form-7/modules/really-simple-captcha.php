@@ -7,18 +7,38 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_captcha' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha', 11 );
 
 function cf7bs_add_shortcode_captcha() {
-	wpcf7_add_shortcode( array(
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
+	$tags = array(
 		'captchac',
 		'captchar',
-	), 'cf7bs_captcha_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		call_user_func( $remove_func, $tag );
+	}
+
+	$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? true : array(
+		'name-attr' => true,
+	);
+
+	call_user_func( $add_func, 'captchac', 'cf7bs_captcha_shortcode_handler', true );
+
+	$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? true : array(
+		'name-attr'    => true,
+		'do-not-store' => true,
+	);
+
+	call_user_func( $add_func, 'captchar', 'cf7bs_captcha_shortcode_handler', true );
 }
 
 function cf7bs_captcha_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag_obj = new $classname( $tag );
 
 	if ( 'captchac' == $tag_obj->type && ! class_exists( 'ReallySimpleCaptcha' ) ) {
 		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'bootstrap-for-contact-form-7' ) . '</em>';
@@ -31,15 +51,15 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 	$validation_error = wpcf7_get_validation_error( $tag_obj->name );
 
 	if ( 'captchac' == $tag_obj->type ) {
-		if ( $image_sizes_array = preg_grep( '%^size:[smlSML]$%', $tag['options'] ) ) {
-			$tag['options'] = array_values( array_diff_key( $tag['options'], $image_sizes_array ) );
+		if ( $image_sizes_array = preg_grep( '%^size:[smlSML]$%', $tag_obj->options ) ) {
+			$tag_obj->options = array_values( array_diff_key( $tag_obj->options, $image_sizes_array ) );
 		}
 		$size = cf7bs_get_form_property( 'size', 0, $tag_obj );
 		$image_size = 'large' == $size ? 'l' : ( 'small' == $size ? 's' : 'm' );
-		$tag['options'][] = 'size:' . $image_size;
+		$tag_obj->options[] = 'size:' . $image_size;
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
-			'name'				=> wpcf7_captcha_shortcode_handler( $tag ),
+			'name'				=> function_exists( 'wpcf7_captchac_form_tag_handler' ) ? wpcf7_captchac_form_tag_handler( $tag ) : ( function_exists( 'wpcf7_captcha_form_tag_handler' ) ? wpcf7_captcha_form_tag_handler( $tag ) : wpcf7_captcha_shortcode_handler( $tag ) ),
 			'type'				=> 'custom',
 			'label'				=> $tag_obj->content,
 			'help_text'			=> $validation_error,
@@ -65,7 +85,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 		}
 
 		// size is not used since Bootstrap input fields always scale 100%
-		//$atts['size'] = $tag->get_size_option( '40' );
+		//$atts['size'] = $tag_obj->get_size_option( '40' );
 
 		$value = (string) reset( $tag_obj->values );
 		$placeholder = '';
@@ -88,7 +108,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 
 			$tag = cf7bs_captchar_to_captchac( $tag );
 
-			$$captchac_mode = wpcf7_captcha_shortcode_handler( $tag );
+			$$captchac_mode = function_exists( 'wpcf7_captchac_form_tag_handler' ) ? wpcf7_captchac_form_tag_handler( $tag ) : ( function_exists( 'wpcf7_captcha_form_tag_handler' ) ? wpcf7_captcha_form_tag_handler( $tag ) : wpcf7_captcha_shortcode_handler( $tag ) );
 		}
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
@@ -125,20 +145,26 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 }
 
 function cf7bs_captchar_to_captchac( $tag ) {
-	$tag['type'] = 'captchac';
-	$tag['basetype'] = 'captchac';
-	$tag['options'] = array();
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+	$tag_obj = new $classname( $tag );
+
+	$tag_obj->type = 'captchac';
+	$tag_obj->basetype = 'captchac';
+	$tag_obj->options = array();
 
 	$size = cf7bs_get_form_property( 'size' );
 	$image_size = 'large' == $size ? 'l' : ( 'small' == $size ? 's' : 'm' );
-	$tag['options'][] = 'size:' . $image_size;
+	$tag_obj->options[] = 'size:' . $image_size;
 
 	return $tag;
 }
 
 function cf7bs_captchar_has_captchac( $tag ) {
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+	$tag_obj = new $classname( $tag );
+
 	$pattern = sprintf( '/^%s(:.+)?$/i', preg_quote( 'include_captchac', '/' ) );
-	return (bool) preg_grep( $pattern, $tag['options'] );
+	return (bool) preg_grep( $pattern, $tag_obj->options );
 }
 
 add_filter( 'wpcf7_ajax_onload', 'cf7bs_captcha_ajax_refill', 11 );
@@ -149,7 +175,7 @@ function cf7bs_captcha_ajax_refill( $items ) {
 		return $items;
 	}
 
-	$fes = wpcf7_scan_shortcode( array( 'type' => 'captchar' ) );
+	$fes = wpcf7_scan_form_tags( array( 'type' => 'captchar' ) );
 
 	if ( empty( $fes ) ) {
 		return $items;

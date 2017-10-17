@@ -3,6 +3,7 @@
  */
 
 var webPage = require('webpage');
+var system = require('system');
 var page = webPage.create();
 var fs = require('fs');
 
@@ -15,7 +16,7 @@ phantom.cookiesEnabled = true;
 phantom.javascriptEnabled = true;
 
 
-var pathToCrawler = "operando/adapters/WebCrawler/";
+var pathToCrawler = system.env.SWARM_PATH+"/crawler/";
 var config = JSON.parse(fs.read(pathToCrawler+"urls.json"));
 
 
@@ -34,10 +35,12 @@ function changeCookieJar(network){
     }
 }
 
-
 page.onResourceReceived = function (response) {
     pageResponses[response.url] = response.status;
     fs.write(CookieJar, JSON.stringify(phantom.cookies), "w");
+};
+page.onResourceError = function(resourceError) {
+    console.log(resourceError.url + ': ' + resourceError.errorString);
 };
 page.onLoadStarted = function() {
     loadInProgress = true;
@@ -55,7 +58,7 @@ function openUrl(name,url){
             if (status === "success") {
                 console.log("Opened " + name + " at url " + url);
             } else {
-                console.log("Could not open " + name + " at url " + url);
+                console.log("Could not open " + name + " at url " + url, status);
             }
         })
     }
@@ -101,17 +104,20 @@ var predefinedFunctions = {
         });
     },
     insertGoogleEmail:function () {
-            page.evaluate(function () {
-                document.getElementById("Email").value = "jon.crawlson@gmail.com";
-                document.getElementById("next").click();
-            });
-        
+        page.evaluate(function () {
+            document.getElementById("identifierId").value = "jon.crawlson@gmail.com";
+            document.getElementById("identifierNext").click();
+        });
+        wait()();
     },
     insertGooglePassword:function(){
-            page.evaluate(function () {
-                document.getElementById('Passwd').value = "privacycrawler";
-                document.getElementById("signIn").click();
-            });
+        page.evaluate(function () {
+            document.getElementsByName('password')[0].value = "privacycrawler";
+        });
+        page.evaluate(function () {
+            document.getElementById("passwordNext").click();
+        });
+        wait()();
     },
     clearCookies:phantom.clearCookies,
     wait:wait
@@ -126,12 +132,11 @@ var loadInProgress = false;//This is set to true when a page is still loading
 function readPage(name){
     return function() {
         page.render(pathToCrawler+name+".png",{format:"png"});
-
     }
 }
 
 
-steps = []
+steps = [];
 
 for(var network in config){
     steps.push(changeCookieJar(network));
@@ -150,7 +155,7 @@ for(var network in config){
     })
 }
 
-interval = setInterval(executeRequestsStepByStep,100);
+setInterval(executeRequestsStepByStep,100);
 function executeRequestsStepByStep(){
     if(waiting === true){
         return;

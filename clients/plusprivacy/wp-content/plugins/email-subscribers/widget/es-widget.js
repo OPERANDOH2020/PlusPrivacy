@@ -33,7 +33,7 @@ function es_submit_page(e, url) {
 
 		var date_now = "";
 		var mynumber = Math.random();
-		var str= "es_email="+ encodeURI(es_email.value) + "&es_name=" + encodeURI(es_name.value) + "&es_group=" + encodeURI(es_group.value) + "&timestamp=" + encodeURI(date_now) + "&action=" + encodeURI(mynumber);
+		var str= "es_email="+ encodeURIComponent(es_email.value) + "&es_name=" + encodeURIComponent(es_name.value) + "&es_group=" + encodeURIComponent(es_group.value) + "&timestamp=" + encodeURIComponent(date_now) + "&action=" + encodeURIComponent(mynumber);
 
 		es_submit_request(url+'/?es=subscribe', str, es_widget_form); // Passing the form to the submit request
 	}

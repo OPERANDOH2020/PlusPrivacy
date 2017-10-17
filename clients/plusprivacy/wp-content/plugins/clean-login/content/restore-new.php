@@ -1,6 +1,7 @@
 <?php
+	if ( ! defined( 'ABSPATH' ) ) exit; 
 	$new_password = sanitize_text_field( $_GET['pass'] );
-	$login_url = get_translated_option_page( 'cl_login_url','');
+	$login_url = clean_login_get_translated_option_page( 'cl_login_url','');
 ?>
 
 <div class="cleanlogin-container">
@@ -8,7 +9,7 @@
 		
 		<fieldset>
 			<div class="cleanlogin-field">
-				<label><?php echo __( 'Your new password is', 'cleanlogin' ); ?></label>
+				<label><?php echo __( 'Your new password is', 'clean-login' ); ?></label>
 				<input type="text" name="pass" value="<?php echo $new_password; ?>">
 			</div>
 		
@@ -17,7 +18,7 @@
 		<div class="cleanlogin-form-bottom">
 				
 			<?php if ( $login_url != '' )
-				echo "<a href='$login_url' class='cleanlogin-form-login-link'>". __( 'Log in', 'cleanlogin') ."</a>";
+				echo "<a href='$login_url' class='cleanlogin-form-login-link'>". __( 'Log in', 'clean-login') ."</a>";
 			?>
 						
 		</div>

@@ -15,6 +15,19 @@ var notificationSwarming = {
     getNotifications: function () {
         this.swarm("getUserZones");
     },
+
+    getAllNotifications:function(showDismissedNotifications, index){
+        this.showDismissedNotifications = showDismissedNotifications;
+        this.currentIndex = index;
+        this.swarm("getUserZones");
+    },
+
+    dismissNotification: function (notificationId) {
+        this.userId = this.meta.userId;
+        this.notificationId = notificationId;
+        this.swarm("dismissUserNotification");
+    },
+
     getUserZones: {
         node: "UsersManager",
         code: function () {
@@ -36,25 +49,47 @@ var notificationSwarming = {
         node: "NotificationUAM",
         code: function () {
             var self = this;
-            getNotifications(this.meta.userId, this.zones, S(function (err, notifications) {
-                if (err) {
-                    self.err = err.message;
-                    console.log(err);
-                    self.home('failed');
-                }
-                else {
-                    self.notifications = notifications;
-                    self.home("gotNotifications");
-                }
-            }));
+            if (this.showDismissedNotifications) {
+                getAllUserNotifications(this.meta.userId, this.zones,S(function(err, notifications){
+                    if (err) {
+                        self.err = err.message;
+                        console.log(err);
+                        self.home('failed');
+                    }
+                    else {
+                        self.totalNotificationsCount = notifications.length;
+                        if(notifications.length>self.currentIndex){
+                            if(notifications.length>self.currentIndex+10){
+                                notifications = notifications.splice(self.currentIndex,10);
+                            }
+                            else{
+                                notifications = notifications.splice(self.currentIndex,notifications.length);
+                            }
+                        }
+                        else{
+                            notifications = [];
+                        }
+                        self.notifications = notifications;
+                        self.home("gotAllNotifications");
+                    }
+                }));
+            }
+            else {
+                getNotifications(this.meta.userId, this.zones, S(function (err, notifications) {
+                    if (err) {
+                        self.err = err.message;
+                        console.log(err);
+                        self.home('failed');
+                    }
+                    else {
+                        self.notifications = notifications;
+                        self.home("gotNotifications");
+                    }
+                }));
+            }
         }
     },
 
-    dismissNotification: function (notificationId) {
-        this.userId = this.meta.userId;
-        this.notificationId = notificationId;
-        this.swarm("dismissUserNotification");
-    },
     dismissUserNotification: {
         node: "NotificationUAM",
         code: function () {
@@ -99,6 +134,11 @@ var notificationSwarming = {
             }))
         }
     },
+
+    retrieveAllNotifications:{
+        node:""
+    },
+
     validateUsers:{
         node:"UsersManager",
         code:function() {
@@ -140,7 +180,6 @@ var notificationSwarming = {
                 }
             });
 
-
             function validateEmails(callback) {
                 if(usersByEmail.length===0){
                     callback(undefined,[]);
@@ -163,9 +202,6 @@ var notificationSwarming = {
     createZoneForNotification:{
         node:"UsersManager",
         code:function(){
-
-            console.log(this.notification.users);
-
             var self = this;
             var newZoneName = "notification-"+new Date().toGMTString();
             createZone(newZoneName,S(function(err,result){

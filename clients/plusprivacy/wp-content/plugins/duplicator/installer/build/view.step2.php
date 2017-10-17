@@ -1,298 +1,418 @@
 <?php
-	// Exit if accessed directly
-	if (! defined('DUPLICATOR_INIT')) {
-		$_baseURL = "http://" . strlen($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : $_SERVER['HTTP_HOST'];;
-		header("HTTP/1.1 301 Moved Permanently");
-		header("Location: $_baseURL");
-		exit; 
-	}
-	$dbh = DUPX_Util::db_connect($_POST['dbhost'], $_POST['dbuser'], $_POST['dbpass'], $_POST['dbname'], $_POST['dbport']);
-
-	$all_tables     = DUPX_Util::get_database_tables($dbh);
-	$active_plugins = DUPX_Util::get_active_plugins($dbh);
-	
-
-	$old_path = $GLOBALS['FW_WPROOT'];
-	$new_path = DUPX_Util::set_safe_path($GLOBALS['CURRENT_ROOT_PATH']);
-	$new_path = ((strrpos($old_path, '/') + 1) == strlen($old_path)) ? DUPX_Util::add_slash($new_path) : $new_path; 
+    $_POST['logging'] = isset($_POST['logging']) ? trim($_POST['logging']) : 1;
 ?>
-
-<script type="text/javascript">
-	/** **********************************************
-	* METHOD:  
-	* Timeout (10000000 = 166 minutes) */
-	Duplicator.runUpdate = function() {
-		
-		//Validation
-		var wp_username = $.trim($("#wp_username").val()).length || 0;
-		var wp_password = $.trim($("#wp_password").val()).length || 0;
-		
-		if ( $.trim($("#url_new").val()) == "" )  {alert("The 'New URL' field is required!"); return false;}
-		if ( $.trim($("#siteurl").val()) == "" )  {alert("The 'Site URL' field is required!"); return false;}
-		if (wp_username >= 1 && wp_username < 4) {alert("The New Admin Account 'Username' must be four or more characters"); return false;}
-		if (wp_username >= 4 && wp_password < 6) {alert("The New Admin Account 'Password' must be six or more characters"); return false;}
-
-		$.ajax({
-			type: "POST",
-			timeout: 10000000,
-			dataType: "json",			
-			url: window.location.href,
-			data: $('#dup-step2-input-form').serialize(),
-			beforeSend: function() {
-				Duplicator.showProgressBar();
-				$('#dup-step2-input-form').hide();
-				$('#dup-step2-result-form').show();
-			},			
-			success: function(data){ 
-				if (typeof(data) != 'undefined' && data.step2.pass == 1) {
-					$("#ajax-url_new").val($("#url_new").val());
-					$("#ajax-json").val(escape(JSON.stringify(data)));
-					setTimeout(function(){$('#dup-step2-result-form').submit();}, 1000);
-					$('#progress-area').fadeOut(1800);
-				} else {
-					Duplicator.hideProgressBar();
-				}
-			},
-			error: function(xhr) { 
-				var status = "<b>server code:</b> " + xhr.status + "<br/><b>status:</b> " + xhr.statusText + "<br/><b>response:</b> " +  xhr.responseText;
-				$('#ajaxerr-data').html(status);
-				Duplicator.hideProgressBar();
-			}
-		});
-	};
-
-	/** **********************************************
-	* METHOD: Returns the windows active url */
-	Duplicator.getNewURL = function(id) {
-		var filename= window.location.pathname.split('/').pop() || 'installer.php' ;
-		$("#" + id).val(window.location.href.replace(filename, ''));
-	};
-	
-	/** **********************************************
-	* METHOD: Allows user to edit the package url  */
-	Duplicator.editOldURL = function() {
-		var msg = 'This is the URL that was generated when the package was created.\n';
-		msg += 'Changing this value may cause issues with the install process.\n\n';
-		msg += 'Only modify  this value if you know exactly what the value should be.\n';
-		msg += 'See "General Settings" in the WordPress Administrator for more details.\n\n';
-		msg += 'Are you sure you want to continue?';
-	
-		if (confirm(msg)) {
-			$("#url_old").removeAttr('readonly');
-			$("#url_old").removeClass('readonly');
-			$('#edit_url_old').hide('slow');
-		}
-	};
-	
-	/** **********************************************
-	* METHOD: Allows user to edit the package path  */
-	Duplicator.editOldPath = function() {
-		var msg = 'This is the SERVER URL that was generated when the package was created.\n';
-		msg += 'Changing this value may cause issues with the install process.\n\n';
-		msg += 'Only modify  this value if you know exactly what the value should be.\n';
-		msg += 'Are you sure you want to continue?';
-	
-		if (confirm(msg)) {
-			$("#path_old").removeAttr('readonly');
-			$("#path_old").removeClass('readonly');
-			$('#edit_path_old').hide('slow');
-		}
-	};
-	
-	/** **********************************************
-	* METHOD: Go back on AJAX result view */
-	Duplicator.hideErrorResult2 = function() {
-		$('#dup-step2-result-form').hide();			
-		$('#dup-step2-input-form').show(200);
-	};
-	
-	//DOCUMENT LOAD
-	$(document).ready(function() {
-		Duplicator.getNewURL('url_new');
-		Duplicator.getNewURL('siteurl');
-		
-		$("#wp_password").passStrength({
-				shortPass: 		"top_shortPass",
-				badPass:		"top_badPass",
-				goodPass:		"top_goodPass",
-				strongPass:		"top_strongPass",
-				baseStyle:		"top_testresult",
-				userid:			"#wp_username",
-				messageloc:		1	});
-	});
-</script>
 
 
 <!-- =========================================
 VIEW: STEP 2- INPUT -->
-<form id='dup-step2-input-form' method="post" class="content-form">
-	<input type="hidden" name="action_ajax"	 value="2" />
-	<input type="hidden" name="action_step"	 value="2" />
-	<input type="hidden" name="logging"		 value="<?php echo $_POST['logging'] ?>" />
-	<input type="hidden" name="package_name" value="<?php echo $_POST['package_name'] ?>" />
-	<input type="hidden" name="json"		 value="<?php echo $_POST['json']; ?>" />
-	<input type="hidden" name="dbhost"		 value="<?php echo $_POST['dbhost'] ?>" />
-	<input type="hidden" name="dbport"		 value="<?php echo $_POST['dbport'] ?>" />
-	<input type="hidden" name="dbuser" 		 value="<?php echo $_POST['dbuser'] ?>" />
-	<input type="hidden" name="dbpass" 		 value="<?php echo htmlentities($_POST['dbpass']) ?>" />
-	<input type="hidden" name="dbname" 		 value="<?php echo $_POST['dbname'] ?>" />
-	<input type="hidden" name="dbcharset" 	 value="<?php echo $_POST['dbcharset'] ?>" />
-	<input type="hidden" name="dbcollate" 	 value="<?php echo $_POST['dbcollate'] ?>" />
-	
-	<div class="dup-logfile-link"><a href="installer-log.txt" target="_blank">installer-log.txt</a></div>
+<form id='s2-input-form' method="post" class="content-form"  data-parsley-validate="true" data-parsley-excluded="input[type=hidden], [disabled], :hidden">
+<input type="hidden" name="action_ajax" value="2" />
+<input type="hidden" name="action_step" value="2" />
+<input type="hidden" name="archive_name"  value="<?php echo $GLOBALS['FW_PACKAGE_NAME'] ?>" />
+<input type="hidden" name="logging" id="logging" value="<?php echo $_POST['logging'] ?>" />
+
+    <div class="dupx-logfile-link"><a href="installer-log.txt?now=<?php echo $GLOBALS['NOW_DATE'] ?>" target="install_log">installer-log.txt</a></div>
 	<div class="hdr-main">
-		Step 2: Update Files &amp; Database
-	</div><br />
-
-	<div class="title-header">Old Settings</div>
-	<table class="table-inputs-step2">
-		<tr valign="top">
-			<td style="width:80px">URL</td>
-			<td>
-				<input type="text" name="url_old" id="url_old" value="<?php echo $GLOBALS['FW_URL_OLD'] ?>" readonly="readonly"  class="readonly" />
-				<a href="javascript:Duplicator.editOldURL()" id="edit_url_old" style="font-size:12px">edit</a>		
-			</td>
-		</tr>
-		<tr valign="top">
-			<td>Path</td>
-			<td>
-				<input type="text" name="path_old" id="path_old" value="<?php echo $old_path ?>" readonly="readonly"  class="readonly" />
-				<a href="javascript:Duplicator.editOldPath()" id="edit_path_old" style="font-size:12px">edit</a>		
-			</td>
-		</tr>
-	</table>
-
-	<div class="title-header" style="margin-top:8px">New Settings</div>
-	<table class="table-inputs-step2">		
-		<tr>
-			<td style="width:80px">URL</td>
-			<td>
-				<input type="text" name="url_new" id="url_new" value="<?php echo $GLOBALS['FW_URL_NEW'] ?>" />
-				<a href="javascript:Duplicator.getNewURL('url_new')" style="font-size:12px">get</a>
-			</td>
-		</tr>
-		<tr>
-			<td>Path</td>
-			<td><input type="text" name="path_new" id="path_new" value="<?php echo $new_path ?>" /></td>
-		</tr>	
-		<tr>
-			<td>Title</td>
-			<td><input type="text" name="blogname" id="blogname" value="<?php echo $GLOBALS['FW_BLOGNAME'] ?>" /></td>
-		</tr>
-	</table>
-	<br/><br/>
-		
-	<!-- ==========================
-    ADVANCED OPTIONS -->
-	<a href="javascript:void(0)" onclick="$('#dup-step2-adv-opts').toggle(0)"><b>Advanced Options...</b></a>
-	<div id='dup-step2-adv-opts' style="display:none;">
-		
-		<br/>
-		<div class="hdr-sub">Add New Admin Account</div>
-		<table class="table-inputs-step2" style="margin-top:7px">
-			<tr><td colspan="2"><i style="color:gray;font-size: 11px">This feature is optional.  If the username already exists the account will NOT be created or updated.</i></td></tr>
-			<tr>
-				<td>Username </td>
-				<td><input type="text" name="wp_username" id="wp_username" value="" title="4 characters minimum" placeholder="(4 or more characters)" /></td>
-			</tr>	
-			<tr>
-				<td valign="top">Password</td>
-				<td><input type="text" name="wp_password" id="wp_password" value="" title="6 characters minimum"  placeholder="(6 or more characters)" /></td>
-			</tr>
-		</table>
-		<br/><br/>
-		
-		
-		<div class="hdr-sub">Scan Options</div>
-		<table style="width: 100%;">
-			<tr>
-				<td valign="top" style="width:80px">Site URL</td>
-				<td>
-					<input type="text" name="siteurl" id="siteurl" value="" />
-					<a href="javascript:Duplicator.getNewURL('siteurl')" style="font-size:12px">get</a><br/>
-				</td>
-			</tr>
-		</table><br/>
-		<table>
-			<tr>
-				<td style="padding-right:10px">
-					Scan Tables
-					<div class="dup-step2-allnonelinks">
-						<a href="javascript:void(0)" onclick="$('#tables option').prop('selected',true);">[All]</a> 
-						<a href="javascript:void(0)" onclick="$('#tables option').prop('selected',false);">[None]</a>
-					</div><br style="clear:both" />
-					<select id="tables" name="tables[]" multiple="multiple" style="width:315px; height:100px">
-						<?php
-						foreach( $all_tables as $table ) {
-							echo '<option selected="selected" value="' . DUPX_Util::esc_html_attr( $table ) . '">' . $table . '</option>';
-						} 
-						?>
-					</select>
-
-				</td>
-				<td valign="top">
-					Activate Plugins
-					<div class="dup-step2-allnonelinks">
-						<a href="javascript:void(0)" onclick="$('#plugins option').prop('selected',true);">[All]</a> 
-						<a href="javascript:void(0)" onclick="$('#plugins option').prop('selected',false);">[None]</a>
-					</div><br style="clear:both" />
-					<select id="plugins" name="plugins[]" multiple="multiple" style="width:315px; height:100px">
-						<?php
-						foreach ($active_plugins as $plugin) {
-							echo '<option selected="selected" value="' . DUPX_Util::esc_html_attr( $plugin ) . '">' . dirname($plugin) . '</option>';
-						} 
-						?>
-					</select>
-				</td>
-			</tr>							
-		</table><br/>
-		
-		<input type="checkbox" name="postguid" id="postguid" value="1" /> <label for="postguid">Keep Post GUID unchanged</label><br/>
-		
-		<input type="checkbox" name="fullsearch" id="fullsearch" value="1" /> <label for="fullsearch">Enable Full Search <small>(very slow)</small> </label><br/>
-		<br/><br/><br/><br/>	
-		
+        Step <span class="step">2</span> of 4: Install Database
 	</div>
 
-	<div class="dup-footer-buttons" style='position: absolute; bottom:20px'>
-		<input id="dup-step2-next" type="button" value=" Run Update " onclick="Duplicator.runUpdate()"  />
-	</div>	
+	<div class="s2-btngrp">
+		<input id="s2-basic-btn" type="button" value="Basic" class="active" onclick="DUPX.togglePanels('basic')" />
+		<input id="s2-cpnl-btn" type="button" value="cPanel" class="in-active" onclick="DUPX.togglePanels('cpanel')" />
+	</div>
+
+
+	<!-- =========================================
+	BASIC PANEL -->
+	<div id="s2-basic-pane">
+		<div class="hdr-sub1" data-type="toggle" data-target="#s2-area-setup">
+			<a href="javascript:void(0)"><i class="dupx-minus-square"></i> Setup</a>
+		</div>
+		<div id="s2-area-setup">
+			<table class="dupx-opts">
+				<tr>
+					<td>Action:</td>
+					<td>
+						<select name="dbaction" id="dbaction">
+							<option value="create">Create New Database</option>
+							<option value="empty" selected="true">Connect and Remove All Data</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Host:</td>
+					<td>
+						<table class="s2-opts-dbhost">
+							<tr>
+								<td><input type="text" name="dbhost" id="dbhost" required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBHOST']); ?>" placeholder="localhost" style="width:450px" /></td>
+								<td style="vertical-align:top">
+									<input id="s2-dbport-btn" type="button" onclick="DUPX.togglePort()" class="s2-small-btn" value="Port: <?php echo htmlspecialchars($GLOBALS['FW_DBPORT']); ?>" />
+									<input name="dbport" id="dbport" type="text" style="width:80px; display:none" value="<?php echo htmlspecialchars($GLOBALS['FW_DBPORT']); ?>" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>Database:</td>
+					<td>
+						<input type="text" name="dbname" id="dbname"  required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBNAME']); ?>"  placeholder="new or existing database name"  />
+						 <div id="s2-warning-emptydb">
+							 <label for="accept-warnings">Warning: The selected 'Action' above will remove <u>all data</u> from this database!</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>User:</td>
+					<td><input type="text" name="dbuser" id="dbuser" required="true" value="<?php echo htmlspecialchars($GLOBALS['FW_DBUSER']); ?>" placeholder="valid database username" /></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="text" name="dbpass" id="dbpass" value="<?php echo htmlspecialchars($GLOBALS['FW_DBPASS']); ?>"  placeholder="valid database user password"   /></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+	<!-- =========================================
+	C-PANEL PANEL -->
+	<div id="s2-cpnl-pane">
+		<div class="s2-gopro">
+			<h2>cPanel Connectivity</h2>
+
+			<?php if( DUPX_U::isURLActive($_SERVER['SERVER_NAME'], 2083) ): ?>
+				<div class='s2-cpanel-login'>
+					<b>Login to this server's cPanel</b><br/>
+					<a href="https://<?php echo $_SERVER['SERVER_NAME'] ?>:2083" target="cpanel" style="color:#fff">[<?php echo $_SERVER['SERVER_NAME'] ?>:2083]</a>
+				</div>
+			<?php else : ?>
+				<div class='s2-cpanel-off'>
+					<b>This server does not appear to support cPanel!</b><br/>
+					Consider <a href="https://snapcreek.com/wordpress-hosting/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_content=free_install_no_cpanel&utm_campaign=duplicator_pro" target="cpanel" style="color:#fff;font-weight:bold">upgrading</a> to a host that does.<br/>
+				</div>
+			<?php endif; ?>
+
+
+			<div style="text-align: center; font-size: 14px">
+                                Want <span style="font-style: italic;">even easier</span> installs?  
+				<a target="_blank" href="https://snapcreek.com/duplicator/?utm_source=duplicator_free&amp;utm_medium=wordpress_plugin&amp;utm_content=free_install_step2&amp;utm_campaign=duplicator_pro"><b>Duplicator Pro</b></a>
+                                 allows the following <b>right from the installer:</b>
+			</div>
+			<ul>
+				<li>Directly login to cPanel</li>
+				<li>Instantly create new databases &amp; users</li>
+				<li>Preview and select existing databases  &amp; users</li>
+			</ul>
+			<small>
+				Note: Hosts that support cPanel provide remote access to server resources, allowing operations such as direct database and user creation.
+				Since the <a target="_blank" href="https://snapcreek.com/duplicator/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_content=free_install_cpanel_note&utm_campaign=duplicator_pro">Duplicator Pro</a>
+			        installer can directly access cPanel, it dramatically speeds up your workflow.
+				</small>
+		</div>
+	</div>
+
+    <!-- =========================================
+    DIALOG: DB CONNECTION CHECK  -->
+    <div id="s2-dbconn">
+        <div id="s2-dbconn-status" style="display:none">
+            <div style="padding: 0px 10px 10px 10px;">
+                <div id="s2-dbconn-test-msg" style="min-height:80px"></div>
+            </div>
+            <small><input type="button" onclick="$('#s2-dbconn-status').hide(500)" class="s2-small-btn" value="Hide Message" /></small>
+        </div>
+    </div>
+
+
+    <br/>
+
+    <!-- ====================================
+    OPTIONS
+    ==================================== -->
+    <div class="hdr-sub1" data-type="toggle" data-target="#s2-area-adv-opts">
+        <a  href="javascript:void(0)"><i class="dupx-plus-square"></i> Options</a>
+    </div>
+    <div id='s2-area-adv-opts' style="display:none">
+		<div class="help-target"><a href="?help#help-s2" target="_blank">[help]</a></div>
+		
+		<table class="dupx-opts dupx-advopts">
+			<tr>
+				<td>Spacing:</td>
+				<td colspan="2">
+					<input type="checkbox" name="dbnbsp" id="dbnbsp" value="1" /> <label for="dbnbsp">Fix non-breaking space characters</label>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">Mode:</td>
+				<td colspan="2">
+					<input type="radio" name="dbmysqlmode" id="dbmysqlmode_1" checked="true" value="DEFAULT"/> <label for="dbmysqlmode_1">Default</label> &nbsp;
+					<input type="radio" name="dbmysqlmode" id="dbmysqlmode_2" value="DISABLE"/> <label for="dbmysqlmode_2">Disable</label> &nbsp;
+					<input type="radio" name="dbmysqlmode" id="dbmysqlmode_3" value="CUSTOM"/> <label for="dbmysqlmode_3">Custom</label> &nbsp;
+					<div id="dbmysqlmode_3_view" style="display:none; padding:5px">
+						<input type="text" name="dbmysqlmode_opts" value="" /><br/>
+						<small>Separate additional <a href="?help#help-mysql-mode" target="_blank">sql modes</a> with commas &amp; no spaces.<br/>
+							Example: <i>NO_ENGINE_SUBSTITUTION,NO_ZERO_IN_DATE,...</i>.</small>
+					</div>
+				</td>
+			</tr>
+			<tr><td style="width:130px">Charset:</td><td><input type="text" name="dbcharset" id="dbcharset" value="<?php echo $_POST['dbcharset'] ?>" /> </td></tr>
+			<tr><td>Collation:</td><td><input type="text" name="dbcollate" id="dbcollate" value="<?php echo $_POST['dbcollate'] ?>" /> </tr>
+		</table>
+    
+    </div>
+    <br/><br/><br/>
+    <br/><br/><br/>
+
+    <div class="dupx-footer-buttons">
+        <input type="button" onclick="DUPX.testDatabase()" class="default-btn" value="Test Database" />
+        <input id="dup-step2-deploy-btn" type="button" class="default-btn" value=" Next " onclick="DUPX.confirmDeployment()" />
+    </div>
+
 </form>
 
 
 <!-- =========================================
-VIEW: STEP 2 - AJAX RESULT  -->
-<form id='dup-step2-result-form' method="post" class="content-form" style="display:none">
-	<input type="hidden" name="action_step"  value="3" />
-	<input type="hidden" name="package_name" value="<?php echo $_POST['package_name'] ?>" />
-	<!-- Set via jQuery -->
-	<input type="hidden" name="url_new" id="ajax-url_new"  />
-	<input type="hidden" name="json"    id="ajax-json" />	
-	
-	<div class="dup-logfile-link"><a href="installer-log.txt" target="_blank">installer-log.txt</a></div>
+VIEW: STEP 2 - AJAX RESULT
+Auto Posts to view.step3.php
+========================================= -->
+<form id='s2-result-form' method="post" class="content-form" style="display:none">
+
+    <div class="dupx-logfile-link"><a href="installer-log.txt" target="install_log">installer-log.txt</a></div>
 	<div class="hdr-main">
-		Step 2: Update Files &amp; Database
-	</div><br />
-	
+        Step <span class="step">2</span> of 4: Install Database
+	</div>
+
+	<!--  POST PARAMS -->
+	<div class="dupx-debug">
+		<input type="hidden" name="action_step" value="3" />
+		<input type="hidden" name="archive_name" value="<?php echo $GLOBALS['FW_PACKAGE_NAME'] ?>" />
+		<input type="hidden" name="logging" id="ajax-logging"  />
+		<input type="hidden" name="retain_config" value="<?php echo $_POST['retain_config']; ?>" />
+		<input type="hidden" name="dbhost" id="ajax-dbhost" />
+		<input type="hidden" name="dbport" id="ajax-dbport" />
+		<input type="hidden" name="dbuser" id="ajax-dbuser" />
+		<input type="hidden" name="dbpass" id="ajax-dbpass" />
+		<input type="hidden" name="dbname" id="ajax-dbname" />
+		<input type="hidden" name="json"   id="ajax-json" />
+		<input type="hidden" name="dbcharset" id="ajax-dbcharset" />
+		<input type="hidden" name="dbcollate" id="ajax-dbcollate" />
+		<br/>
+		<input type='submit' value='manual submit'>
+	</div>
+
 	<!--  PROGRESS BAR -->
 	<div id="progress-area">
-		<div style="width:500px; margin:auto">
-			<h3>Processing Data Replacement Please Wait...</h3>
-			<div id="progress-bar"></div>
-			<i>This may take several minutes</i>
-		</div>
+	    <div style="width:500px; margin:auto">
+		<h3>Installing Database Please Wait...</h3>
+		<div id="progress-bar"></div>
+		<i>This may take several minutes</i>
+	    </div>
 	</div>
-	
+
 	<!--  AJAX SYSTEM ERROR -->
 	<div id="ajaxerr-area" style="display:none">
-		<p>Please try again an issue has occurred.</p>
-		<div style="padding: 0px 10px 10px 10px;">
-			<div id="ajaxerr-data">An unknown issue has occurred with the data replacement setup process.  Please see the installer-log.txt file for more details.</div>
+	    <p>Please try again an issue has occurred.</p>
+	    <div style="padding: 0px 10px 10px 0px;">
+			<div id="ajaxerr-data">An unknown issue has occurred with the file and database set up process.  Please see the installer-log.txt file for more details.</div>
 			<div style="text-align:center; margin:10px auto 0px auto">
-				<input type="button" onclick='Duplicator.hideErrorResult2()' value="&laquo; Try Again" /><br/><br/>
-				<i style='font-size:11px'>See online help for more details at <a href='https://snapcreek.com/ticket' target='_blank'>snapcreek.com</a></i>
+				<input type="button" class="default-btn" onclick='DUPX.hideErrorResult()' value="&laquo; Try Again" /><br/><br/>
+				<i style='font-size:11px'>See online help for more details at <a href='https://snapcreek.com/ticket?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_ajaxstep2_ticket' target='_blank'>snapcreek.com</a></i>
 			</div>
-		</div>
+	    </div>
 	</div>
 </form>
 
+
+
+<!-- CONFIRM DIALOG -->
+<div id="dialog-confirm-content" style="display:none">
+	<div style="padding:0 0 25px 0">
+		<b>Run installer with these settings?</b>
+	</div>
+
+	<b>Database Settings:</b><br/>
+	<table style="margin-left:20px">
+		<tr>
+			<td><b>Server:</b></td>
+			<td><i id="dlg-dbhost"></i></td>
+		</tr>
+		<tr>
+			<td><b>Name:</b></td>
+			<td><i id="dlg-dbname"></i></td>
+		</tr>
+		<tr>
+			<td><b>User:</b></td>
+			<td><i id="dlg-dbuser"></i></td>
+		</tr>
+	</table>
+	<br/><br/>
+
+	<small> WARNING: Be sure these database parameters are correct! Entering the wrong information WILL overwrite an existing database.
+	Make sure to have backups of all your data before proceeding.</small><br/>
+</div>
+
+
+<script>
+/* Confirm Dialog to validate run */
+DUPX.confirmDeployment = function()
+{
+	var $form = $('#s2-input-form');
+	$form.parsley().validate();
+	if (!$form.parsley().isValid()) {
+		return;
+	}
+
+	$('#dlg-dbhost').html($("#dbhost").val());
+	$('#dlg-dbname').html($("#dbname").val());
+	$('#dlg-dbuser').html($("#dbuser").val());
+
+	modal({
+		type: 'confirm',
+		title: 'Install Confirmation',
+		text: $('#dialog-confirm-content').html(),
+		callback: function(result)
+		{
+			if (result == true) {
+				DUPX.runDeployment();
+			}
+		}
+	});
+}
+
+
+/* Performs Ajax post to extract files and create db
+ * Timeout (10000000 = 166 minutes) */
+DUPX.runDeployment = function()
+{
+	var $form = $('#s2-input-form');
+	var dbhost = $("#dbhost").val();
+	var dbname = $("#dbname").val();
+	var dbuser = $("#dbuser").val();
+
+	$.ajax({
+		type: "POST",
+		timeout: 1800000,
+		dataType: "json",
+		url: window.location.href,
+		data: $form.serialize(),
+		beforeSend: function() {
+			DUPX.showProgressBar();
+			$form.hide();
+			$('#s2-result-form').show();
+		},
+		success: function(data, textStatus, xhr){
+			if (typeof(data) != 'undefined' && data.pass == 1) {
+				$("#ajax-dbhost").val($("#dbhost").val());
+				$("#ajax-dbport").val($("#dbport").val());
+				$("#ajax-dbuser").val($("#dbuser").val());
+				$("#ajax-dbpass").val($("#dbpass").val());
+				$("#ajax-dbname").val($("#dbname").val());
+				$("#ajax-dbcharset").val($("#dbcharset").val());
+				$("#ajax-dbcollate").val($("#dbcollate").val());
+				$("#ajax-logging").val($("#logging").val());
+				$("#ajax-json").val(escape(JSON.stringify(data)));
+				<?php if (! $GLOBALS['DUPX_DEBUG']) : ?>
+					setTimeout(function() {$('#s2-result-form').submit();}, 500);
+				<?php endif; ?>
+				$('#progress-area').fadeOut(1000);
+			} else {
+				DUPX.hideProgressBar();
+			}
+		},
+		error: function(xhr) {
+			var status  = "<b>Server Code:</b> "	+ xhr.status		+ "<br/>";
+			status += "<b>Status:</b> "				+ xhr.statusText	+ "<br/>";
+			status += "<b>Response:</b> "			+ xhr.responseText  + "";
+			status += "<hr/><b>Additional Troubleshooting Tips:</b><br/>";
+			status += "- Check the <a href='installer-log.txt' target='install_log'>installer-log.txt</a> file for warnings or errors.<br/>";
+			status += "- Check the web server and PHP error logs. <br/>";
+			status += "- For timeout issues visit the <a href='https://snapcreek.com/duplicator/docs/faqs-tech/?utm_source=duplicator_free&utm_medium=wordpress_plugin&utm_campaign=problem_resolution&utm_content=inst_step2deploy_timout#faq-trouble-100-q' target='_blank'>Timeout FAQ Section</a><br/>";
+			$('#ajaxerr-data').html(status);
+			DUPX.hideProgressBar();
+		}
+	});
+
+}
+
+/**
+ *  Toggles the cpanel Login area  */
+DUPX.togglePanels = function (pane)
+{
+	$('#s2-basic-pane, #s2-cpnl-pane').hide();
+	$('#s2-basic-btn, #s2-cpnl-btn').removeClass('active in-active');
+	if (pane == 'basic') {
+		$('#s2-basic-pane').show();
+		$('#s2-basic-btn').addClass('active');
+		$('#s2-cpnl-btn').addClass('in-active');
+	} else {
+		$('#s2-cpnl-pane').show(200);
+		$('#s2-cpnl-btn').addClass('active');
+		$('#s2-basic-btn').addClass('in-active');
+	}
+}
+
+
+/** Go back on AJAX result view */
+DUPX.hideErrorResult = function()
+{
+	$('#s2-result-form').hide();
+	$('#s2-input-form').show(200);
+}
+
+
+/** Shows results of database connection
+* Timeout (45000 = 45 secs) */
+DUPX.testDatabase = function ()
+{
+	$.ajax({
+		type: "POST",
+		timeout: 45000,
+		url: window.location.href + '?' + 'dbtest=1',
+		data: $('#s2-input-form').serialize(),
+		success: function(data){ $('#s2-dbconn-test-msg').html(data); },
+		error:   function(data){ alert('An error occurred while testing the database connection!  Contact your server admin to make sure the connection inputs are correct!'); }
+	});
+
+	$('#s2-dbconn-test-msg').html("Attempting Connection.  Please wait...");
+	$("#s2-dbconn-status").show(100);
+
+}
+
+
+DUPX.showDeleteWarning = function ()
+{
+	($('#dbaction').val() == 'empty')
+		? $('#s2-warning-emptydb').show(200)
+		: $('#s2-warning-emptydb').hide(200);
+}
+
+
+DUPX.togglePort = function ()
+{
+	$('#s2-dbport-btn').hide();
+	$('#dbport').show();
+}
+
+
+//DOCUMENT LOAD
+$(document).ready(function()
+{
+	$('#dup-s2-dialog-data').appendTo('#dup-s2-result-container');
+	$("select#dbaction").click(DUPX.showDeleteWarning);
+	DUPX.showDeleteWarning();
+
+	//MySQL Mode
+	$("input[name=dbmysqlmode]").click(function() {
+		if ($(this).val() == 'CUSTOM') {
+			$('#dbmysqlmode_3_view').show();
+		} else {
+			$('#dbmysqlmode_3_view').hide();
+		}
+	});
+
+	if ($("input[name=dbmysqlmode]:checked").val() == 'CUSTOM') {
+		$('#dbmysqlmode_3_view').show();
+	}
+	$("*[data-type='toggle']").click(DUPX.toggleClick);
+});
+</script>

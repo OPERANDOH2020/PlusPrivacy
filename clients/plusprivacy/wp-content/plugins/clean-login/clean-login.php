@@ -1,22 +1,27 @@
 <?php
 /**
  * @package Clean_Login
- * @version 1.7.10
+ * @version 1.8.1
  */
 /*
 Plugin Name: Clean Login
 Plugin URI: http://cleanlogin.codection.com
 Description: Responsive Frontend Login and Registration plugin. A plugin for displaying login, register, editor and restore password forms through shortcodes. [clean-login] [clean-login-edit] [clean-login-register] [clean-login-restore]
 Author: codection
-Version: 1.7.10
+Version: 1.8.1
 Author URI: https://codection.com
+Text Domain: clean-login
+Domain Path: /lang
 */
+
+if ( ! defined( 'ABSPATH' ) ) exit; 
 
 /**
  * Enqueue plugin style
  *
  * @since 0.8
  */
+
 function clean_login_enqueue_style() {
     wp_register_style( 'clean-login-css', plugins_url( 'content/style.css', __FILE__ ) );
     wp_enqueue_style( 'clean-login-css' );
@@ -28,66 +33,66 @@ add_action( 'wp_enqueue_scripts', 'clean_login_enqueue_style' );
  *
  * @since 0.8
  */
-function show_clean_login($atts) {
+function clean_login_show($atts) {
 
 	ob_start();
 	
 	if ( isset( $_GET['authentication'] ) ) {
 		if ( $_GET['authentication'] == 'success' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully logged in!', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully logged in!', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['authentication'] == 'failed' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Wrong credentials', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Wrong credentials', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['authentication'] == 'logout' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully logged out!', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully logged out!', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['authentication'] == 'failed-activation' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Something went wrong while activating your user', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Something went wrong while activating your user', 'clean-login' ) ."</p></div>";
 				else if ( $_GET['authentication'] == 'disabled' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Your account is currently disabled', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Your account is currently disabled', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['authentication'] == 'success-activation' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully activated', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'Successfully activated', 'clean-login' ) ."</p></div>";
 	}
 
 	if ( is_user_logged_in() ) {
 		// show user preview data
-		get_template_file( 'login-preview.php' );
+		clean_login_get_template_file( 'login-preview.php' );
 
 	} else {
 		// show login form
-		get_template_file( 'login-form.php' );
+		clean_login_get_template_file( 'login-form.php' );
 	}
 
 	return ob_get_clean();
 
 }
-add_shortcode('clean-login', 'show_clean_login');
+add_shortcode('clean-login', 'clean_login_show');
 
 /**
  * [clean-login-edit] shortcode
  *
  * @since 0.8
  */
-function show_clean_login_edit($atts) {
+function clean_login_edit_show($atts) {
 	
 	ob_start();
 
 	if ( isset( $_GET['updated'] ) ) {
 		if ( $_GET['updated'] == 'success' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'Information updated', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'Information updated', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['updated'] == 'passcomplex' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['updated'] == 'wrongpass' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be identical', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be identical', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['updated'] == 'wrongmail' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Error updating email', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Error updating email', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['updated'] == 'failed' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Something strange has ocurred', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Something strange has ocurred', 'clean-login' ) ."</p></div>";
 	}
 
 	if ( is_user_logged_in() ) {
-		get_template_file( 'login-edit.php' );
+		clean_login_get_template_file( 'login-edit.php' );
 	} else {
-		echo "<div class='cleanlogin-notification error'><p>". __( 'You need to be logged in to edit your profile', 'cleanlogin' ) ."</p></div>";
-		get_template_file( 'login-form.php' );
+		echo "<div class='cleanlogin-notification error'><p>". __( 'You need to be logged in to edit your profile', 'clean-login' ) ."</p></div>";
+		clean_login_get_template_file( 'login-form.php' );
 		/*$login_url = get_option( 'cl_login_url', '');
 		if ( $login_url != '' )
 			echo "<script>window.location = '$login_url'</script>";*/
@@ -96,14 +101,14 @@ function show_clean_login_edit($atts) {
 	return ob_get_clean();
 
 }
-add_shortcode('clean-login-edit', 'show_clean_login_edit');
+add_shortcode('clean-login-edit', 'clean_login_edit_show');
 
 /**
  * [clean-login-register] shortcode
  *
  * @since 0.8
  */
-function show_clean_login_register($atts) {
+function clean_login_register_show($atts) {
 	
 	$param = shortcode_atts( array(
         'role' => false,
@@ -113,36 +118,36 @@ function show_clean_login_register($atts) {
 
 	if ( isset( $_GET['created'] ) ) {
 		if ( $_GET['created'] == 'success' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'User created', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'User created', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'success-link' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'User created', 'cleanlogin' ) ."<br>". __( 'Please confirm your account, you will receive an email', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'User created', 'clean-login' ) ."<br>". __( 'Please confirm your account, you will receive an email', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'created' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'New user created', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'New user created', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'passcomplex' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wronguser' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Username is not valid', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Username is not valid', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wrongname' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'First name is not valid', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'First name is not valid', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wrongsurname' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Last name is not valid', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Last name is not valid', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wrongpass' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be identical and filled', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Passwords must be identical and filled', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wrongmail' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Email is not valid', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Email is not valid', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'wrongcaptcha' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'CAPTCHA is not valid, please try again', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'CAPTCHA is not valid, please try again', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'failed' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Something strange has ocurred while created the new user', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Something strange has ocurred while created the new user', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['created'] == 'terms' )
-			echo "<div class='cleanlogin-notification error'><p>\"". get_option ( 'cl_termsconditionsMSG' ) . '" ' .__( 'must be checked', 'cleanlogin' ) . "</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>\"". get_option ( 'cl_termsconditionsMSG' ) . '" ' .__( 'must be checked', 'clean-login' ) . "</p></div>";
 	}
 
 	if ( !is_user_logged_in() ) {
-		get_template_file( 'register-form.php', $param );
+		clean_login_get_template_file( 'register-form.php', $param );
 	} else {
-		echo "<div class='cleanlogin-notification error'><p>". __( 'You are now logged in. It makes no sense to register a new user', 'cleanlogin' ) ."</p></div>";
-		get_template_file( 'login-preview.php' );
+		echo "<div class='cleanlogin-notification error'><p>". __( 'You are now logged in. It makes no sense to register a new user', 'clean-login' ) ."</p></div>";
+		clean_login_get_template_file( 'login-preview.php' );
 		/*$login_url = get_option( 'cl_login_url', '');
 		if ( $login_url != '' )
 			echo "<script>window.location = '$login_url'</script>";*/
@@ -151,36 +156,36 @@ function show_clean_login_register($atts) {
 	return ob_get_clean();
 
 }
-add_shortcode('clean-login-register', 'show_clean_login_register');
+add_shortcode('clean-login-register', 'clean_login_register_show');
 
 /**
  * [clean-login-restore] shortcode
  *
  * @since 0.8
  */
-function show_clean_login_restore($atts) {
+function clean_login_restore_show($atts) {
 
 	ob_start();
 
 	if ( isset( $_GET['sent'] ) ) {
 		if ( $_GET['sent'] == 'success' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'You will receive an email with the activation link', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'You will receive an email with the activation link', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['sent'] == 'sent' )
-			echo "<div class='cleanlogin-notification success'><p>". __( 'You may receive an email with the activation link', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification success'><p>". __( 'You may receive an email with the activation link', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['sent'] == 'failed' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'An error has ocurred sending the email', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'An error has ocurred sending the email', 'clean-login' ) ."</p></div>";
 		else if ( $_GET['sent'] == 'wronguser' )
-			echo "<div class='cleanlogin-notification error'><p>". __( 'Username is not valid', 'cleanlogin' ) ."</p></div>";
+			echo "<div class='cleanlogin-notification error'><p>". __( 'Username is not valid', 'clean-login' ) ."</p></div>";
 	}
 
 	if ( !is_user_logged_in() ) {
 		if ( isset( $_GET['pass'] ) ) {
-			get_template_file( 'restore-new.php' );
+			clean_login_get_template_file( 'restore-new.php' );
 		} else
-			get_template_file( 'restore-form.php' );
+			clean_login_get_template_file( 'restore-form.php' );
 	} else {
-		echo "<div class='cleanlogin-notification error'><p>". __( 'You are now logged in. It makes no sense to restore your account', 'cleanlogin' ) ."</p></div>";
-		get_template_file( 'login-preview.php' );
+		echo "<div class='cleanlogin-notification error'><p>". __( 'You are now logged in. It makes no sense to restore your account', 'clean-login' ) ."</p></div>";
+		clean_login_get_template_file( 'login-preview.php' );
 		/*$login_url = get_option( 'cl_login_url', '');
 		if ( $login_url != '' )
 			echo "<script>window.location = '$login_url'</script>";*/
@@ -189,7 +194,7 @@ function show_clean_login_restore($atts) {
 	return ob_get_clean();
 
 }
-add_shortcode('clean-login-restore', 'show_clean_login_restore');
+add_shortcode('clean-login-restore', 'clean_login_restore_show');
 
 
 /**
@@ -197,9 +202,10 @@ add_shortcode('clean-login-restore', 'show_clean_login_restore');
  *
  * @since 1.2
  */
-function is_password_complex($candidate) {
-
-	if (!preg_match_all('$\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$', $candidate))
+function clean_login_is_password_complex($candidate) {
+	// The third parameter for preg_match_all became optional from PHP 5.4.0. but before it's mandatory
+	$dummy = array();
+	if (!preg_match_all('$\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$', $candidate, $dummy))
         return false;
     return true;
 
@@ -223,16 +229,17 @@ function is_password_complex($candidate) {
 function clean_login_load_before_headers() {
 	global $wp_query; 
 	if ( is_singular() ) { 
-		$post = $wp_query->get_queried_object(); 
+		$post = $wp_query->get_queried_object();
+		
 		// If contains any shortcode of our ones
-		if ( strpos($post->post_content, 'clean-login' ) !== false || strpos($post->post_content, 'cleanlogin' ) !== false) {
+		if ( $post && strpos($post->post_content, 'clean-login' ) !== false ) {
 
 			// Sets the redirect url to the current page 
 			$url = clean_login_url_cleaner( wp_get_referer() );
 
 			// LOGIN
 			if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'login' ) {
-				$url = get_translated_option_page( 'cl_login_url','');
+				$url = clean_login_get_translated_option_page( 'cl_login_url','');
 				
 				$user = wp_signon();
 				if ( is_wp_error( $user ) )
@@ -244,7 +251,7 @@ function clean_login_load_before_headers() {
 						$url = esc_url( add_query_arg( 'authentication', 'disabled', $url ) );
 					}
 					else 
-						$url = get_option('cl_login_redirect', false) ? esc_url(apply_filters('cl_login_redirect_url', get_translated_option_page('cl_login_redirect_url'), $user)): esc_url( add_query_arg( 'authentication', 'success', $url ) );
+						$url = get_option('cl_login_redirect', false) ? esc_url(apply_filters('cl_login_redirect_url', clean_login_get_translated_option_page('cl_login_redirect_url'), $user)): esc_url( add_query_arg( 'authentication', 'success', $url ) );
 				}
 					
 
@@ -264,12 +271,12 @@ function clean_login_load_before_headers() {
 				$current_user = wp_get_current_user();
 				$userdata = array( 'ID' => $current_user->ID );
 
-				$first_name = isset( $_POST['first_name'] ) ? $_POST['first_name'] : '';
-				$last_name = isset( $_POST['last_name'] ) ? $_POST['last_name'] : '';
+				$first_name = isset( $_POST['first_name'] ) ? sanitize_text_field( $_POST['first_name'] ) : '';
+				$last_name = isset( $_POST['last_name'] ) ? sanitize_text_field( $_POST['last_name'] ) : '';
 				$userdata['first_name'] = $first_name;
 				$userdata['last_name'] = $last_name;
 			
-				$email = isset( $_POST['email'] ) ? $_POST['email'] : '';
+				$email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
 				if ( ! $email || empty ( $email ) ) {
 					$url = esc_url( add_query_arg( 'updated', 'wrongmail', $url ) );
 				} elseif ( ! is_email( $email ) ) {
@@ -289,7 +296,7 @@ function clean_login_load_before_headers() {
 						$url = esc_url( add_query_arg( 'updated', 'wrongpass', $url ) );
 					}
 					else {
-						if( $enable_passcomplex && !is_password_complex($_POST['pass1']) )
+						if( $enable_passcomplex && !clean_login_is_password_complex($_POST['pass1']) )
 							$url = esc_url( add_query_arg( 'updated', 'passcomplex', $url ) );
 						else
 							$userdata['user_pass'] = $_POST['pass1'];
@@ -338,32 +345,34 @@ function clean_login_load_before_headers() {
 
     			//if nameandsurname is checked then get them
     			if ($nameandsurname) {
-    				$first_name = isset( $_POST['first_name'] ) ? $_POST['first_name'] : '';
-    				$last_name = isset( $_POST['last_name'] ) ? $_POST['last_name'] : '';
+    				$first_name = isset( $_POST['first_name'] ) ? sanitize_text_field( $_POST['first_name'] ) : '';
+    				$last_name = isset( $_POST['last_name'] ) ? sanitize_text_field( $_POST['last_name'] ) : '';
     			}
     			//if email as username is checked then use email as username
     			if ($emailusername)
-    				$username = isset( $_POST['username'] ) ? $_POST['username'] : '';
+    				$username = isset( $_POST['username'] ) ? sanitize_user( $_POST['username'] ) : '';
 				else 
-					$username = isset( $_POST['email'] ) ? $_POST['email'] : '';
-				$email = isset( $_POST['email'] ) ? $_POST['email'] : '';
+					$username = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
+				$email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
 				$pass1 = isset( $_POST['pass1'] ) ? $_POST['pass1'] : '';
 				//if single password is checked then use pass1 as pass2
 				if ($singlepassword)
 					$pass2 = isset( $_POST['pass2'] ) ? $_POST['pass2'] : '';
 				else
 					$pass2 = isset( $_POST['pass1'] ) ? $_POST['pass1'] : '';
-				$website = isset( $_POST['website'] ) ? $_POST['website'] : '';
-				$captcha = isset( $_POST['captcha'] ) ? $_POST['captcha'] : '';
+				$website = isset( $_POST['website'] ) ? sanitize_text_field( $_POST['website'] ) : '';
+				$captcha = isset( $_POST['captcha'] ) ? sanitize_text_field( $_POST['captcha'] ) : '';
+				if( !session_id() ) session_start();
 				$captcha_session = isset( $_SESSION['cleanlogin-captcha'] ) ? $_SESSION['cleanlogin-captcha'] : '';
-				$role = isset( $_POST['role'] ) ? $_POST['role'] : '';
+				if( session_id() ) session_destroy();
+				$role = isset( $_POST['role'] ) ? sanitize_text_field( $_POST['role'] ) : '';
 				$terms = isset( $_POST['termsconditions'] ) && $_POST['termsconditions'] == 'on' ? true : false;
 				
 				// terms and conditions
 				if( $termsconditions && !$terms )
 					$url = esc_url( add_query_arg( 'created', 'terms', $url ) );
 				// password complexity checker
-				else if( $enable_passcomplex && !is_password_complex($pass1) )
+				else if( $enable_passcomplex && !clean_login_is_password_complex($pass1) )
 					$url = esc_url( add_query_arg( 'created', 'passcomplex', $url ) );
 				// check if the selected role is contained in the roles selected in CL
 				else if ( $create_customrole && !in_array($role, $newuserroles))
@@ -372,7 +381,7 @@ function clean_login_load_before_headers() {
 				else if( $enable_captcha && $captcha != $captcha_session )
 					$url = esc_url( add_query_arg( 'created', 'wrongcaptcha', $url ) );
 				// honeypot detection
-				else if( $website != ' ' )
+				else if( $website != '.' )
 					$url = esc_url( add_query_arg( 'created', 'created', $url ) );
 				// if nameandsurname then check them
 				else if( $nameandsurname && $first_name == '' )
@@ -403,9 +412,9 @@ function clean_login_load_before_headers() {
 							$url_msg = wp_nonce_url( $url_msg, $user->ID );
 
 							$blog_title = get_bloginfo();
-							$message = sprintf( __( "Use the following link to activate your account: <a href='%s'>activate your account</a>.<br/><br/>%s<br/>", 'cleanlogin' ), $url_msg, $blog_title );
+							$message = sprintf( __( "Use the following link to activate your account: <a href='%s'>activate your account</a>.<br/><br/>%s<br/>", 'clean-login' ), $url_msg, $blog_title );
 
-							$subject = "[$blog_title] " . __( 'Activate your account', 'cleanlogin' );
+							$subject = "[$blog_title] " . __( 'Activate your account', 'clean-login' );
 							add_filter( 'wp_mail_content_type', 'clean_login_set_html_content_type' );
 							if( !wp_mail( $email, $subject , $message ) )
 								$url = esc_url( add_query_arg( 'created', 'failed', $url ) );
@@ -432,11 +441,11 @@ function clean_login_load_before_headers() {
 						$blog_title = get_bloginfo();
 
 						if ( $create_standby_role && !$emailvalidation )
-							$message = sprintf( __( "New user registered: %s <br/><br/>Please change the role from 'Stand By' to 'Subscriber' or higher to allow full site access", 'cleanlogin' ), $username );
+							$message = sprintf( __( "New user registered: %s <br/><br/>Please change the role from 'Stand By' to 'Subscriber' or higher to allow full site access", 'clean-login' ), $username );
 						else
-							$message = sprintf( __( "New user registered: %s <br/>", 'cleanlogin' ), $username );
+							$message = sprintf( __( "New user registered: %s <br/>", 'clean-login' ), $username );
 						
-						$subject = "[$blog_title] " . __( 'New user', 'cleanlogin' );
+						$subject = "[$blog_title] " . __( 'New user', 'clean-login' );
 						add_filter( 'wp_mail_content_type', 'clean_login_set_html_content_type' );
 						if( !wp_mail( $adminemail, $subject, $message ) )
 							$url = esc_url( add_query_arg( 'sent', 'failed', $url ) );
@@ -458,7 +467,7 @@ function clean_login_load_before_headers() {
 				// if automatic login is enabled then log the user in and redirect them, checking if it was successful or not,
 				//  is not compatible with email validation feature. This had no meaning!
 				if($automaticlogin && $successful_registration && !$emailvalidation) {
-					$url = esc_url(get_translated_option_page('cl_url_redirect'));
+					$url = esc_url(clean_login_get_translated_option_page('cl_url_redirect'));
 					wp_signon(array('user_login' => $username, 'user_password' => $pass1), false);
 				}					
 					
@@ -473,7 +482,7 @@ function clean_login_load_before_headers() {
 				if ( !wp_verify_nonce($retrieved_nonce, $user_id ) )
 					die( 'Failed security check, expired Activation Link due to duplication or date.' );
 
-				$url = get_translated_option_page( 'cl_login_url', '');
+				$url = clean_login_get_translated_option_page( 'cl_login_url', '');
 				
 				$user = get_user_by( 'id', $user_id );
 				
@@ -490,8 +499,8 @@ function clean_login_load_before_headers() {
 			} else if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'restore' ) {
 				$url = esc_url( add_query_arg( 'sent', 'success', $url ) );
 
-				$username = isset( $_POST['username'] ) ? $_POST['username'] : '';
-				$website = isset( $_POST['website'] ) ? $_POST['website'] : '';
+				$username = isset( $_POST['username'] ) ? sanitize_user( $_POST['username'] ) : '';
+				$website = isset( $_POST['website'] ) ? sanitize_text_field( $_POST['website'] ) : '';
 
 				// Since 1.1 (get username from email if so)
 				if ( is_email( $username ) ) {
@@ -503,7 +512,7 @@ function clean_login_load_before_headers() {
 				}
 
 				// honeypot detection
-				if( $website != ' ' )
+				if( $website != '.' )
 					$url = esc_url( add_query_arg( 'sent', 'sent', $url ) );
 				else if( $username == '' || !username_exists( $username ) )
 					$url = esc_url( add_query_arg( 'sent', 'wronguser', $url ) );
@@ -516,9 +525,9 @@ function clean_login_load_before_headers() {
 
 					$email = $user->user_email;
 					$blog_title = get_bloginfo();
-					$message = sprintf( __( "Use the following link to restore your password: <a href='%s'>restore your password</a> <br/><br/>%s<br/>", 'cleanlogin' ), $url_msg, $blog_title );
+					$message = sprintf( __( "Use the following link to restore your password: <a href='%s'>restore your password</a> <br/><br/>%s<br/>", 'clean-login' ), $url_msg, $blog_title );
 
-					$subject = "[$blog_title] " . __( 'Restore your password', 'cleanlogin' );
+					$subject = "[$blog_title] " . __( 'Restore your password', 'clean-login' );
 					add_filter( 'wp_mail_content_type', 'clean_login_set_html_content_type' );
 					if( !wp_mail( $email, $subject , $message ) )
 						$url = esc_url( add_query_arg( 'sent', 'failed', $url ) );
@@ -538,7 +547,7 @@ function clean_login_load_before_headers() {
 				if ( !wp_verify_nonce($retrieved_nonce, $user_id ) )
 					die( 'Failed security check, expired Activation Link due to duplication or date.' );
 
-				$edit_url = get_translated_option_page( 'cl_edit_url', '');
+				$edit_url = clean_login_get_translated_option_page( 'cl_edit_url', '');
 				
 				// If edit profile page exists the user will be redirected there
 				if( $edit_url != '') {
@@ -549,7 +558,7 @@ function clean_login_load_before_headers() {
 
 				// If not, a new password will be generated and notified
 				} else {
-					$url = get_translated_option_page( 'cl_restore_url', '');
+					$url = clean_login_get_translated_option_page( 'cl_restore_url', '');
 					// check if password complexity is checked
 					$enable_passcomplex = get_option( 'cl_passcomplex' ) == 'on' ? true : false;
 					
@@ -631,18 +640,6 @@ function clean_login_block_dashboard_access() {
 add_action( 'admin_init', 'clean_login_block_dashboard_access', 1 );
 
 /**
- * session_start();
- *
- * @since 0.9
- */
-
-function clean_login_register_session(){
-    if( !session_id() )
-        session_start();
-}
-add_action('init','clean_login_register_session');
-
-/**
  * Detect shortcodes and update the plugin options
  *
  * @since 0.8
@@ -705,7 +702,7 @@ add_action( 'admin_init', 'clean_login_add_roles');
 * @since 0.8
 */
 function clean_login_load_textdomain(){
-	load_plugin_textdomain( 'cleanlogin', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+	load_plugin_textdomain( 'clean-login', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 }
 add_action( 'plugins_loaded', 'clean_login_load_textdomain' );
 
@@ -714,14 +711,14 @@ add_action( 'plugins_loaded', 'clean_login_load_textdomain' );
 *
 * @since 1.6
 */
-function codection_plugin_row_meta( $links, $file ){
+function clean_login_plugin_row_meta( $links, $file ){
 	if ( strpos( $file, basename( __FILE__ ) ) !== false ) {
-		$new_links = array( '<a href="https://www.paypal.me/codection" target="_blank">' . __( 'Donate', 'cleanlogin' ) . '</a>' );
+		$new_links = array( '<a href="https://www.paypal.me/codection" target="_blank">' . __( 'Donate', 'clean-login' ) . '</a>' );
 		$links = array_merge( $links, $new_links );
 	}
 	return $links;
 }
-add_filter('plugin_row_meta', 'codection_plugin_row_meta', 10, 2);
+add_filter('plugin_row_meta', 'clean_login_plugin_row_meta', 10, 2);
 
 /*  __               __                  __               __  _                 
    / /_  ____ ______/ /_____  ____  ____/ /  ____  ____  / /_(_)___  ____  _____
@@ -758,7 +755,7 @@ function clean_login_options() {
 	        <!-- donation box -->
 	        <div class="card">
 
-			    <h3 class="title" id="like-donate-more" style="cursor: pointer;"><?php echo __( 'Do you like it?', 'cleanlogin' ); ?> <span id="like-donate-arrow" class="dashicons dashicons-arrow-down"></span><span id="like-donate-smile" class="dashicons dashicons-smiley hidden"></span></h3>
+			    <h3 class="title" id="like-donate-more" style="cursor: pointer;"><?php echo __( 'Do you like it?', 'clean-login' ); ?> <span id="like-donate-arrow" class="dashicons dashicons-arrow-down"></span><span id="like-donate-smile" class="dashicons dashicons-smiley hidden"></span></h3>
 			    <div class="hidden" id="like-donate">
 				    <p>Hi there! We are <a href="https://twitter.com/fjcarazo" target="_blank" title="Javier Carazo">Javier Carazo</a> and <a href="https://twitter.com/ahornero" target="_blank" title="Alberto Hornero">Alberto Hornero</a> from <a href="http://codection.com">Codection</a>, developers of this plugin. We have been spending many hours to develop this plugin, we keep updating it and we always try do the best in the <a href="https://wordpress.org/support/plugin/clean-login">support forum</a>.</p>
 				    <p>If you like it, you can <strong>buy us a cup of coffee</strong> or whatever ;-)</p>
@@ -773,9 +770,9 @@ function clean_login_options() {
 			</div>
 			<br>
 
-	        <h2><?php echo __( 'Clean Login status', 'cleanlogin' ); ?></h2>
+	        <h2><?php echo __( 'Clean Login status', 'clean-login' ); ?></h2>
 
-	        <p><?php echo __( 'Below you can check the plugin status regarding the shortcodes usage and the pages/posts which contain  it.', 'cleanlogin' ); ?></p>
+	        <p><?php echo __( 'Below you can check the plugin status regarding the shortcodes usage and the pages/posts which contain  it.', 'clean-login' ); ?></p>
 
 
 	    	<table class="widefat importers">
@@ -783,43 +780,43 @@ function clean_login_options() {
 					<tr class="alternate">
 						<td class="import-system row-title"><a>[clean-login]</a></td>
 						<?php if( !$login_url ): ?>
-							<td class="desc"><?php echo __( 'Currently not used', 'cleanlogin' ); ?></td>
+							<td class="desc"><?php echo __( 'Currently not used', 'clean-login' ); ?></td>
 						<?php else: ?>
-							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'cleanlogin' ), $login_url ); ?></td>
+							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'clean-login' ), $login_url ); ?></td>
 						<?php endif; ?>
-						<td class="desc"><?php echo __( 'This shortcode contains login form and login information.', 'cleanlogin' ); ?></td>
+						<td class="desc"><?php echo __( 'This shortcode contains login form and login information.', 'clean-login' ); ?></td>
 					</tr>
 					<tr>
 						<td class="import-system row-title"><a>[clean-login-edit]</a></td>
 						<?php if( !$edit_url ): ?>
-							<td class="desc"><?php echo __( 'Currently not used', 'cleanlogin' ); ?></td>
+							<td class="desc"><?php echo __( 'Currently not used', 'clean-login' ); ?></td>
 						<?php else: ?>
-							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'cleanlogin' ), $edit_url ); ?></td>
+							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'clean-login' ), $edit_url ); ?></td>
 						<?php endif; ?>
-						<td class="desc"><?php echo __( 'This shortcode contains the profile editor. If you include in a page/post a link will appear on your login preview.', 'cleanlogin' ); ?></td>
+						<td class="desc"><?php echo __( 'This shortcode contains the profile editor. If you include in a page/post a link will appear on your login preview.', 'clean-login' ); ?></td>
 					</tr>
 					<tr class="alternate">
 						<td class="import-system row-title"><a>[clean-login-register]</a></td>
 						<?php if( !$register_url ): ?>
-							<td class="desc"><?php echo __( 'Currently not used', 'cleanlogin' ); ?></td>
+							<td class="desc"><?php echo __( 'Currently not used', 'clean-login' ); ?></td>
 						<?php else: ?>
-							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'cleanlogin' ), $register_url ); ?></td>
+							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'clean-login' ), $register_url ); ?></td>
 						<?php endif; ?>
-						<td class="desc"><?php echo __( 'This shortcode contains the register form. If you include in a page/post a link will appear on your login form.', 'cleanlogin' ); ?></td>
+						<td class="desc"><?php echo __( 'This shortcode contains the register form. If you include in a page/post a link will appear on your login form.', 'clean-login' ); ?></td>
 					</tr>
 					<tr>
 						<td class="import-system row-title"><a>[clean-login-restore]</a></td>
 						<?php if( !$restore_url ): ?>
-							<td class="desc"><?php echo __( 'Currently not used', 'cleanlogin' ); ?></td>
+							<td class="desc"><?php echo __( 'Currently not used', 'clean-login' ); ?></td>
 						<?php else: ?>
-							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'cleanlogin' ), $restore_url ); ?></td>
+							<td class="desc"><?php printf( __( 'Used <a href="%s">here</a>', 'clean-login' ), $restore_url ); ?></td>
 						<?php endif; ?>
-						<td class="desc"><?php echo __( 'This shortcode contains the restore (lost password?) form. If you include in a page/post a link will appear on your login form.', 'cleanlogin' ); ?></td>
+						<td class="desc"><?php echo __( 'This shortcode contains the restore (lost password?) form. If you include in a page/post a link will appear on your login form.', 'clean-login' ); ?></td>
 					</tr>
 				</tbody>
 			</table>
 
-			<h2><?php echo __( 'Options', 'cleanlogin' ); ?></h2>
+			<h2><?php echo __( 'Options', 'clean-login' ); ?></h2>
 
     <?php
 
@@ -827,6 +824,8 @@ function clean_login_options() {
     $hidden_field_value = 'hidden_field_to_update_others';
 
     if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == $hidden_field_value ) {
+	
+		$_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 
         update_option( 'cl_adminbar', isset( $_POST['adminbar'] ) ? $_POST['adminbar'] : '' );
         update_option( 'cl_dashboard', isset( $_POST['dashboard'] ) ? $_POST['dashboard'] : '' );
@@ -852,7 +851,7 @@ function clean_login_options() {
         update_option( 'cl_logout_redirect', isset( $_POST['logoutredirect'] ) ? $_POST['logoutredirect'] : '' );
         update_option( 'cl_logout_redirect_url', isset($_POST['logoutredirect']) && isset($_POST['logoutredirect_url']) ? esc_url_raw($_POST['logoutredirect_url']) : home_url() );
 
-		echo '<div class="updated"><p><strong>'. __( 'Settings saved.', 'cleanlogin' ) .'</strong></p></div>';
+		echo '<div class="updated"><p><strong>'. __( 'Settings saved.', 'clean-login' ) .'</strong></p></div>';
     }
 
     // Recoger las opciones del plugin
@@ -885,34 +884,34 @@ function clean_login_options() {
     	<table class="form-table">
 			<tbody>
 				<tr>
-					<th scope="row"><?php echo __( 'Admin bar', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Admin bar', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="adminbar" type="checkbox" id="adminbar" <?php if( $adminbar == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Hide admin bar for non-admin users?', 'cleanlogin' ); ?></label>
+						<label><input name="adminbar" type="checkbox" id="adminbar" <?php if( $adminbar == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Hide admin bar for non-admin users?', 'clean-login' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Dashboard access', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Dashboard access', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="dashboard" type="checkbox" id="dashboard" <?php if( $dashboard == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Disable dashboard access for non-admin users?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'Please note that you can only log in through <strong>wp-login.php</strong> and this plugin. <strong>wp-admin</strong> permalink will be inaccessible.', 'cleanlogin' ); ?></p>
+						<label><input name="dashboard" type="checkbox" id="dashboard" <?php if( $dashboard == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Disable dashboard access for non-admin users?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'Please note that you can only log in through <strong>wp-login.php</strong> and this plugin. <strong>wp-admin</strong> permalink will be inaccessible.', 'clean-login' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Antispam protection', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Antispam protection', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="antispam" type="checkbox" id="antispam" <?php if( $antispam == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable captcha?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'Honeypot antispam detection is enabled by default.', 'cleanlogin' ); ?></p>
-						<p class="description"><?php echo __( 'For captcha usage the PHP-GD library needs to be enabled in your server/hosting.', 'cleanlogin' ); ?></p>
+						<label><input name="antispam" type="checkbox" id="antispam" <?php if( $antispam == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable captcha?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'Honeypot antispam detection is enabled by default.', 'clean-login' ); ?></p>
+						<p class="description"><?php echo __( 'For captcha usage the PHP-GD library needs to be enabled in your server/hosting.', 'clean-login' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'User role', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'User role', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="standby" type="checkbox" id="standby" <?php if( $standby == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable Standby role?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'Standby role disables all the capabilities for new users, until the administrator changes. It usefull for site with restricted components.', 'cleanlogin' ); ?></p>
+						<label><input name="standby" type="checkbox" id="standby" <?php if( $standby == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable Standby role?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'Standby role disables all the capabilities for new users, until the administrator changes. It usefull for site with restricted components.', 'clean-login' ); ?></p>
 						<br>
-						<label><input name="chooserole" type="checkbox" id="chooserole" <?php if( $chooserole == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Choose the role(s) in the registration form?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'This feature allows you to choose the role from the frontend, with the selected roles you want to show. You can also define an standard predefined role through a shortcode parameter, e.g. [clean-login-register role="contributor"]. Anyway, you need to choose only the role(s) you want to accept to avoid security/infiltration issues.', 'cleanlogin' ); ?></p>
+						<label><input name="chooserole" type="checkbox" id="chooserole" <?php if( $chooserole == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Choose the role(s) in the registration form?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'This feature allows you to choose the role from the frontend, with the selected roles you want to show. You can also define an standard predefined role through a shortcode parameter, e.g. [clean-login-register role="contributor"]. Anyway, you need to choose only the role(s) you want to accept to avoid security/infiltration issues.', 'clean-login' ); ?></p>
 						<p>
 							<select name="newuserroles[]" id="newuserroles" multiple size="5"><?php wp_dropdown_roles(); ?></select>
 							<?php //print_r($newuserroles); ?>
@@ -920,73 +919,73 @@ function clean_login_options() {
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Hide username', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Hide username', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="hideuser" type="checkbox" id="hideuser" <?php if( $hideuser == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Hide username?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'Hide username from the preview form.', 'cleanlogin' ); ?></p>
+						<label><input name="hideuser" type="checkbox" id="hideuser" <?php if( $hideuser == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Hide username?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'Hide username from the preview form.', 'clean-login' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Password complexity', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Password complexity', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="passcomplex" type="checkbox" id="passcomplex" <?php if( $passcomplex == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable password complexity?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'cleanlogin' ); ?></p>
+						<label><input name="passcomplex" type="checkbox" id="passcomplex" <?php if( $passcomplex == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable password complexity?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'Passwords must be eight characters including one upper/lowercase letter, one special/symbol character and alphanumeric characters. Passwords should not contain the user\'s username, email, or first/last name.', 'clean-login' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Email notification', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Email notification', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="emailnotification" type="checkbox" id="emailnotification" <?php if( $emailnotification == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable email notification for new registered users?', 'cleanlogin' ); ?></label>
-						<p><textarea name="emailnotificationcontent" id="emailnotificationcontent" placeholder="<?php echo __( 'Please use HMTL tags for all formatting. And also you can use:', 'cleanlogin' ) . ' {username} {password} {email}'; ?>" rows="8" cols="50" class="large-text code"><?php echo $emailnotificationcontent; ?></textarea></p>
+						<label><input name="emailnotification" type="checkbox" id="emailnotification" <?php if( $emailnotification == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Enable email notification for new registered users?', 'clean-login' ); ?></label>
+						<p><textarea name="emailnotificationcontent" id="emailnotificationcontent" placeholder="<?php echo __( 'Please use HMTL tags for all formatting. And also you can use:', 'clean-login' ) . ' {username} {password} {email}'; ?>" rows="8" cols="50" class="large-text code"><?php echo $emailnotificationcontent; ?></textarea></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Terms and conditions', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Terms and conditions', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="termsconditions" type="checkbox" id="termsconditions" <?php if( $termsconditions == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Accept terms / conditions in the registration form?', 'cleanlogin' ); ?></label>
-						<p><input name="termsconditionsMSG" type="text" id="termsconditionsMSG" value="<?php echo $termsconditionsMSG; ?>" placeholder="<?php echo __( 'Terms and conditions message', 'cleanlogin' ); ?>" class="regular-text"></p>
-						<p><input name="termsconditionsURL" type="url" id="termsconditionsURL" value="<?php echo $termsconditionsURL; ?>" placeholder="<?php echo __( 'Target URL', 'cleanlogin' ); ?>" class="regular-text"></p>
+						<label><input name="termsconditions" type="checkbox" id="termsconditions" <?php if( $termsconditions == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Accept terms / conditions in the registration form?', 'clean-login' ); ?></label>
+						<p><input name="termsconditionsMSG" type="text" id="termsconditionsMSG" value="<?php echo $termsconditionsMSG; ?>" placeholder="<?php echo __( 'Terms and conditions message', 'clean-login' ); ?>" class="regular-text"></p>
+						<p><input name="termsconditionsURL" type="url" id="termsconditionsURL" value="<?php echo $termsconditionsURL; ?>" placeholder="<?php echo __( 'Target URL', 'clean-login' ); ?>" class="regular-text"></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Use Email as Username', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Use Email as Username', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="emailusername" type="checkbox" id="emailusername" <?php if( $emailusername == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Allow user to use email as username? If you want to use both, WP Email Login plugin will help you', 'cleanlogin' ); ?></label>
+						<label><input name="emailusername" type="checkbox" id="emailusername" <?php if( $emailusername == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Allow user to use email as username? If you want to use both, WP Email Login plugin will help you', 'clean-login' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Single Password', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Single Password', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="singlepassword" type="checkbox" id="singlepassword" <?php if( $singlepassword == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Only ask for password once on registration form?', 'cleanlogin' ); ?></label>
+						<label><input name="singlepassword" type="checkbox" id="singlepassword" <?php if( $singlepassword == 'on' ) echo 'checked="checked"'; ?>><?php echo __( 'Only ask for password once on registration form?', 'clean-login' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Registration', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Registration', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="automaticlogin" type="checkbox" id="automaticlogin" <?php if( $automaticlogin != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Automatically Login after registration?', 'cleanlogin' ); ?></label>
+						<label><input name="automaticlogin" type="checkbox" id="automaticlogin" <?php if( $automaticlogin != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Automatically Login after registration?', 'clean-login' ); ?></label>
 						<div id="urlredirect">
-							<p class="description"><?php echo __( 'URL after registration (if blank then homepage)', 'cleanlogin' ); ?></p>
+							<p class="description"><?php echo __( 'URL after registration (if blank then homepage)', 'clean-login' ); ?></p>
 							<label><input class="regular-text" type="text" name="urlredirect" value="<?php echo $urlredirect; ?>"></label>
 						</div>
 						<br>
-						<label><input name="nameandsurname" type="checkbox" id="nameandsurname" <?php if( $nameandsurname != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Add name and surname?', 'cleanlogin' ); ?></label>
+						<label><input name="nameandsurname" type="checkbox" id="nameandsurname" <?php if( $nameandsurname != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Add name and surname?', 'clean-login' ); ?></label>
 						<br>
-						<label><input name="emailvalidation" type="checkbox" id="emailvalidation" <?php if( $emailvalidation != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Validate user registration through an email?', 'cleanlogin' ); ?></label>
-						<p class="description"><?php echo __( 'This feature cannot be used with the automatic login after registration', 'cleanlogin' ); ?></p>
+						<label><input name="emailvalidation" type="checkbox" id="emailvalidation" <?php if( $emailvalidation != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Validate user registration through an email?', 'clean-login' ); ?></label>
+						<p class="description"><?php echo __( 'This feature cannot be used with the automatic login after registration', 'clean-login' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo __( 'Redirections', 'cleanlogin' ); ?></th>
+					<th scope="row"><?php echo __( 'Redirections', 'clean-login' ); ?></th>
 					<td>
-						<label><input name="loginredirect" type="checkbox" id="loginredirect" <?php if( $loginredirect != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Redirect after log in?', 'cleanlogin' ); ?></label>
+						<label><input name="loginredirect" type="checkbox" id="loginredirect" <?php if( $loginredirect != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Redirect after log in?', 'clean-login' ); ?></label>
 						<div id="loginredirect_url">
-							<p class="description"><?php echo __( 'URL after login (if blank then homepage)', 'cleanlogin' ); ?></p>
+							<p class="description"><?php echo __( 'URL after login (if blank then homepage)', 'clean-login' ); ?></p>
 							<label><input class="regular-text" type="text" name="loginredirect_url" value="<?php echo $loginredirect_url; ?>"></label>
 						</div>
 						<br>
-						<label><input name="logoutredirect" type="checkbox" id="logoutredirect" <?php if( $logoutredirect != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Redirect after log out?', 'cleanlogin' ); ?></label>
+						<label><input name="logoutredirect" type="checkbox" id="logoutredirect" <?php if( $logoutredirect != '' ) echo 'checked="checked"'; ?>><?php echo __( 'Redirect after log out?', 'clean-login' ); ?></label>
 						<div id="logoutredirect_url">
-							<p class="description"><?php echo __( 'URL after logout (if blank then homepage)', 'cleanlogin' ); ?></p>
+							<p class="description"><?php echo __( 'URL after logout (if blank then homepage)', 'clean-login' ); ?></p>
 							<label><input class="regular-text" type="text" name="logoutredirect_url" value="<?php echo $logoutredirect_url; ?>"></label>
 						</div>
 					</td>
@@ -996,7 +995,7 @@ function clean_login_options() {
 		</table>
 		<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="<?php echo $hidden_field_value; ?>">
 
-	    <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php echo __( 'Save Changes', 'cleanlogin' ); ?>" /></p>
+	    <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php echo __( 'Save Changes', 'clean-login' ); ?>" /></p>
         </form>
 
     </div>
@@ -1127,7 +1126,7 @@ class clean_login_widget extends WP_Widget {
 		parent::__construct(
 			'clean_login_widget', 
 			'Clean Login status and links', 
-			array( 'description' => __( 'Use this widget to show the user login status and Clean Login links.', 'cleanlogin' ), ) 
+			array( 'description' => __( 'Use this widget to show the user login status and Clean Login links.', 'clean-login' ), ) 
 		);
 	}
 
@@ -1157,18 +1156,18 @@ class clean_login_widget extends WP_Widget {
 			if ( $edit_url != '' || $login_url != '' ) echo "<ul>";
 			
 			if ( $edit_url != '' )
-				echo "<li><a href='$edit_url'>". __( 'Edit my profile', 'cleanlogin') ."</a></li>";
+				echo "<li><a href='$edit_url'>". __( 'Edit my profile', 'clean-login') ."</a></li>";
 
 			if ( $login_url != '' )
-				echo "<li><a href='$login_url?action=logout'>". __( 'Logout', 'cleanlogin') ."</a></li>";
+				echo "<li><a href='$login_url?action=logout'>". __( 'Logout', 'clean-login') ."</a></li>";
 			
 			if ( $edit_url != '' || $login_url != '' ) echo "</ul>";
 
 		} else {
 			echo "<ul>";
-			if ( $login_url != '' ) echo "<li><a href='$login_url'>". __( 'Log in', 'cleanlogin') ."</a></li>";
-			if ( $register_url != '' ) echo "<li><a href='$register_url'>". __( 'Register', 'cleanlogin') ."</a></li>";
-			if ( $restore_url != '' )echo "<li><a href='$restore_url'>". __( 'Lost password?', 'cleanlogin') ."</a></li>";
+			if ( $login_url != '' ) echo "<li><a href='$login_url'>". __( 'Log in', 'clean-login') ."</a></li>";
+			if ( $register_url != '' ) echo "<li><a href='$register_url'>". __( 'Register', 'clean-login') ."</a></li>";
+			if ( $restore_url != '' )echo "<li><a href='$restore_url'>". __( 'Lost password?', 'clean-login') ."</a></li>";
 			echo "</ul>";
 		}
 		// Output ends
@@ -1181,7 +1180,7 @@ class clean_login_widget extends WP_Widget {
 		if ( isset( $instance[ 'title' ] ) )
 			$title = $instance[ 'title' ];
 		else
-			$title = __( 'User login status', 'cleanlogin' );
+			$title = __( 'User login status', 'clean-login' );
 		// Widget admin form
 		?>
 		<p>
@@ -1225,7 +1224,7 @@ add_filter("plugin_action_links_$plugin", 'clean_login_settings_link' );
 * @since 1.6.1
 */
 function clean_login_redirect_after_logout(){
-	$logoutredirect_url = get_option('cl_logout_redirect_url', false) ? esc_url(apply_filters('cl_logout_redirect_url', get_translated_option_page('cl_logout_redirect_url'))): home_url();
+	$logoutredirect_url = get_option('cl_logout_redirect_url', false) ? esc_url(apply_filters('cl_logout_redirect_url', clean_login_get_translated_option_page('cl_logout_redirect_url'))): home_url();
 	wp_redirect( $logoutredirect_url );
 	exit();
 }
@@ -1238,7 +1237,7 @@ if( get_option('cl_logout_redirect', false) != '' )
  *
  * @since 1.7.7
  */
-function get_template_file($template, $param = false){
+function clean_login_get_template_file($template, $param = false){
 	if ( $overridden_template = locate_template( 'clean-login/'.$template ) ) {
 		require($overridden_template);
 	} else {
@@ -1251,14 +1250,14 @@ function get_template_file($template, $param = false){
  *
  * @since 1.7.7
  */
-function get_translated_option_page($page, $param = false) {
+function clean_login_get_translated_option_page($page, $param = false) {
 	$url = get_option($page, $param);
 	//if WPML is installed get the page translation
 	if (!function_exists('icl_object_id')) {
 		return $url;
 	} else {
 		//get the page ID
-		$pid = url_to_postid( $page ); 
+		$pid = url_to_postid( $url ); 
 		//set the translated urls
 		return get_permalink( icl_object_id( $pid, 'page', false, ICL_LANGUAGE_CODE ) );
 	}
@@ -1270,11 +1269,11 @@ function get_translated_option_page($page, $param = false) {
  * @since 1.7.9
  */
 
-function cl_load_admin_textdomain_in_frontend() {
+function clean_login_load_admin_textdomain_in_frontend() {
     if ( ! is_admin() && get_option( 'cl_chooserole' ) == 'on' ) {
         load_textdomain( 'default', WP_LANG_DIR . '/admin-' . get_locale() . '.mo' );
     }
 }
-add_action( 'init', 'cl_load_admin_textdomain_in_frontend' );
+add_action( 'init', 'clean_login_load_admin_textdomain_in_frontend' );
 
 ?>

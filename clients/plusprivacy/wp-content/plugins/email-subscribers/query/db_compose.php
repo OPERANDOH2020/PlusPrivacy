@@ -65,16 +65,20 @@ class es_cls_compose {
 
 		global $wpdb;
 
-		if($action == "insert") {
-			$sSql = $wpdb->prepare("INSERT INTO `".$wpdb->prefix."es_templatetable` (`es_templ_heading`,
-			`es_templ_body`, `es_templ_status`, `es_email_type`)
-			VALUES(%s, %s, %s, %s)", 
-			array(trim($data["es_templ_heading"]), trim($data["es_templ_body"]), trim($data["es_templ_status"]), trim($data["es_email_type"])));
-		} elseif($action == "update") {
+		if( $action == "insert" ) {
+
+			// to set es_templ_slug as empty for all newly created emails
+			$data["es_templ_slug"] = (isset($data["es_templ_slug"])) ? $data["es_templ_slug"] : NULL;
+
+			$sSql = "INSERT INTO `".$wpdb->prefix."es_templatetable` (`es_templ_heading`,
+			`es_templ_body`, `es_templ_status`, `es_email_type`, `es_templ_slug`)
+			VALUES('". trim($data["es_templ_heading"]) ."', '". trim($data["es_templ_body"])."', '". trim($data["es_templ_status"])."', '". trim($data["es_email_type"])."', NULLIF('". $data["es_templ_slug"]."', '') )";
+		} elseif( $action == "update" ) {
 			$sSql = $wpdb->prepare("UPDATE `".$wpdb->prefix."es_templatetable` SET `es_templ_heading` = %s, `es_templ_body` = %s, 
-			`es_templ_status` = %s, `es_email_type` = %s	WHERE es_templ_id = %d	LIMIT 1", 
+			`es_templ_status` = %s, `es_email_type` = %s WHERE es_templ_id = %d LIMIT 1", 
 			array($data["es_templ_heading"], $data["es_templ_body"], $data["es_templ_status"], $data["es_email_type"], $data["es_templ_id"]));
 		}
+
 		$wpdb->query($sSql);
 
 		return true;

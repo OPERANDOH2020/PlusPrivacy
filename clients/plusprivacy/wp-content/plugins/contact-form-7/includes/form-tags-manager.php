@@ -1,9 +1,9 @@
 <?php
 
-function wpcf7_add_form_tag( $tag, $func, $has_name = false ) {
+function wpcf7_add_form_tag( $tag, $func, $features = '' ) {
 	$manager = WPCF7_FormTagsManager::get_instance();
 
-	return $manager->add( $tag, $func, $has_name );
+	return $manager->add( $tag, $func, $features );
 }
 
 function wpcf7_remove_form_tag( $tag ) {
@@ -28,11 +28,17 @@ function wpcf7_scan_form_tags( $cond = null ) {
 	return array();
 }
 
+function wpcf7_form_tag_supports( $tag, $feature ) {
+	$manager = WPCF7_FormTagsManager::get_instance();
+
+	return $manager->tag_type_supports( $tag, $feature );
+}
+
 class WPCF7_FormTagsManager {
 
 	private static $instance;
 
-	private $tags = array();
+	private $tag_types = array();
 	private $scanned_tags = null; // Tags scanned at the last time of scan()
 
 	private function __construct() {}
@@ -49,10 +55,16 @@ class WPCF7_FormTagsManager {
 		return $this->scanned_tags;
 	}
 
-	public function add( $tag, $func, $has_name = false ) {
+	public function add( $tag, $func, $features = '' ) {
 		if ( ! is_callable( $func ) ) {
 			return;
 		}
+
+		if ( true === $features ) { // for back-compat
+			$features = array( 'name-attr' => true );
+		}
+
+		$features = wp_parse_args( $features, array() );
 
 		$tags = array_filter( array_unique( (array) $tag ) );
 
@@ -60,15 +72,47 @@ class WPCF7_FormTagsManager {
 			$tag = $this->sanitize_tag_type( $tag );
 
 			if ( ! $this->tag_type_exists( $tag ) ) {
-				$this->tags[$tag] = array(
+				$this->tag_types[$tag] = array(
 					'function' => $func,
-					'has_name' => (boolean) $has_name );
+					'features' => $features,
+				);
 			}
 		}
 	}
 
 	public function tag_type_exists( $tag ) {
-		return isset( $this->tags[$tag] );
+		return isset( $this->tag_types[$tag] );
+	}
+
+	public function tag_type_supports( $tag, $feature ) {
+		$feature = array_filter( (array) $feature );
+
+		if ( isset( $this->tag_types[$tag]['features'] ) ) {
+			return (bool) array_intersect(
+				array_keys( array_filter( $this->tag_types[$tag]['features'] ) ),
+				$feature );
+		}
+
+		return false;
+	}
+
+	public function collect_tag_types( $feature = null, $invert = false ) {
+		$tag_types = array_keys( $this->tag_types );
+
+		if ( empty( $feature ) ) {
+			return $tag_types;
+		}
+
+		$output = array();
+
+		foreach ( $tag_types as $tag ) {
+			if ( ! $invert && $this->tag_type_supports( $tag, $feature )
+			|| $invert && ! $this->tag_type_supports( $tag, $feature ) ) {
+				$output[] = $tag;
+			}
+		}
+
+		return $output;
 	}
 
 	private function sanitize_tag_type( $tag ) {
@@ -79,11 +123,11 @@ class WPCF7_FormTagsManager {
 	}
 
 	public function remove( $tag ) {
-		unset( $this->tags[$tag] );
+		unset( $this->tag_types[$tag] );
 	}
 
 	public function normalize( $content ) {
-		if ( empty( $this->tags ) ) {
+		if ( empty( $this->tag_types ) ) {
 			return $content;
 		}
 
@@ -126,7 +170,7 @@ class WPCF7_FormTagsManager {
 	public function scan( $content, $replace = false ) {
 		$this->scanned_tags = array();
 
-		if ( empty( $this->tags ) ) {
+		if ( empty( $this->tag_types ) ) {
 			if ( $replace ) {
 				return $content;
 			} else {
@@ -151,8 +195,56 @@ class WPCF7_FormTagsManager {
 		}
 	}
 
+	public function filter( $input, $cond ) {
+		if ( is_array( $input ) ) {
+			$tags = $input;
+		} elseif ( is_string( $input ) ) {
+			$tags = $this->scan( $input );
+		} else {
+			$tags = $this->scanned_tags;
+		}
+
+		if ( empty( $tags ) ) {
+			return array();
+		}
+
+		$cond = wp_parse_args( $cond, array(
+			'type' => array(),
+			'name' => array(),
+			'feature' => '',
+		) );
+
+		$cond['type'] = array_filter( (array) $cond['type'] );
+		$cond['name'] = array_filter( (array) $cond['name'] );
+		$cond['feature'] = is_string( $cond['feature'] )
+			? trim( $cond['feature'] ) : '';
+
+		$output = array();
+
+		foreach ( $tags as $tag ) {
+			$tag = new WPCF7_FormTag( $tag );
+
+			if ( $cond['type'] && ! in_array( $tag->type, $cond['type'], true ) ) {
+				continue;
+			}
+
+			if ( $cond['name'] && ! in_array( $tag->name, $cond['name'], true ) ) {
+				continue;
+			}
+
+			if ( $cond['feature']
+			&& ! $this->tag_type_supports( $tag->type, $cond['feature'] ) ) {
+				continue;
+			}
+
+			$output[] = $tag;
+		}
+
+		return $output;
+	}
+
 	private function tag_regex() {
-		$tagnames = array_keys( $this->tags );
+		$tagnames = array_keys( $this->tag_types );
 		$tagregexp = join( '|', array_map( 'preg_quote', $tagnames ) );
 
 		return '(\[?)'
@@ -184,11 +276,13 @@ class WPCF7_FormTagsManager {
 			'pipes' => null,
 			'labels' => array(),
 			'attr' => '',
-			'content' => '' );
+			'content' => '',
+		);
 
 		if ( is_array( $attr ) ) {
 			if ( is_array( $attr['options'] ) ) {
-				if ( $this->tags[$tag]['has_name'] && ! empty( $attr['options'] ) ) {
+				if ( $this->tag_type_supports( $tag, 'name-attr' )
+				&& ! empty( $attr['options'] ) ) {
 					$scanned_tag['name'] = array_shift( $attr['options'] );
 
 					if ( ! wpcf7_is_name( $scanned_tag['name'] ) ) {
@@ -224,10 +318,12 @@ class WPCF7_FormTagsManager {
 
 		$scanned_tag = apply_filters( 'wpcf7_form_tag', $scanned_tag, $replace );
 
+		$scanned_tag = new WPCF7_FormTag( $scanned_tag );
+
 		$this->scanned_tags[] = $scanned_tag;
 
 		if ( $replace ) {
-			$func = $this->tags[$tag]['function'];
+			$func = $this->tag_types[$tag]['function'];
 			return $m[1] . call_user_func( $func, $scanned_tag ) . $m[6];
 		} else {
 			return $m[0];

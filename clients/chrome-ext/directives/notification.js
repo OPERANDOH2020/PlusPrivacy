@@ -18,7 +18,6 @@ angular.module('notifications', ['ui-notification'])
             messengerService.send("dismissNotification", {notificationId:notificationId}, function(data){
 
                 notifications = notifications.filter(function( notification ) {
-                    console.log(notification);
                     return notification.notificationId !== notificationId;
                 });
 
@@ -141,7 +140,6 @@ angular.module('notifications').
                                 $scope.dismissed = true;
                                 $scope.$apply();
                             },500);
-
                         });
                 };
                 $scope.takeAction = function(actionName){

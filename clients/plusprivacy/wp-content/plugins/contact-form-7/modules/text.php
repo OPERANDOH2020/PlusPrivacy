@@ -14,12 +14,10 @@ add_action( 'wpcf7_init', 'wpcf7_add_form_tag_text' );
 function wpcf7_add_form_tag_text() {
 	wpcf7_add_form_tag(
 		array( 'text', 'text*', 'email', 'email*', 'url', 'url*', 'tel', 'tel*' ),
-		'wpcf7_text_form_tag_handler', true );
+		'wpcf7_text_form_tag_handler', array( 'name-attr' => true ) );
 }
 
 function wpcf7_text_form_tag_handler( $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
-
 	if ( empty( $tag->name ) ) {
 		return '';
 	}
@@ -49,7 +47,7 @@ function wpcf7_text_form_tag_handler( $tag ) {
 
 	$atts['class'] = $tag->get_class_option( $class );
 	$atts['id'] = $tag->get_id_option();
-	$atts['tabindex'] = $tag->get_option( 'tabindex', 'int', true );
+	$atts['tabindex'] = $tag->get_option( 'tabindex', 'signed_int', true );
 
 	$atts['autocomplete'] = $tag->get_option( 'autocomplete',
 		'[-0-9a-zA-Z]+', true );
@@ -107,8 +105,6 @@ add_filter( 'wpcf7_validate_tel', 'wpcf7_text_validation_filter', 10, 2 );
 add_filter( 'wpcf7_validate_tel*', 'wpcf7_text_validation_filter', 10, 2 );
 
 function wpcf7_text_validation_filter( $result, $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
-
 	$name = $tag->name;
 
 	$value = isset( $_POST[$name] )
@@ -145,7 +141,7 @@ function wpcf7_text_validation_filter( $result, $tag ) {
 		}
 	}
 
-	if ( ! empty( $value ) ) {
+	if ( '' !== $value ) {
 		$maxlength = $tag->get_maxlength_option();
 		$minlength = $tag->get_minlength_option();
 
@@ -173,21 +169,30 @@ function wpcf7_text_validation_filter( $result, $tag ) {
 add_filter( 'wpcf7_messages', 'wpcf7_text_messages' );
 
 function wpcf7_text_messages( $messages ) {
-	return array_merge( $messages, array(
+	$messages = array_merge( $messages, array(
 		'invalid_email' => array(
-			'description' => __( "Email address that the sender entered is invalid", 'contact-form-7' ),
-			'default' => __( "The e-mail address entered is invalid.", 'contact-form-7' )
+			'description' =>
+				__( "Email address that the sender entered is invalid", 'contact-form-7' ),
+			'default' =>
+				__( "The e-mail address entered is invalid.", 'contact-form-7' ),
 		),
 
 		'invalid_url' => array(
-			'description' => __( "URL that the sender entered is invalid", 'contact-form-7' ),
-			'default' => __( "The URL is invalid.", 'contact-form-7' )
+			'description' =>
+				__( "URL that the sender entered is invalid", 'contact-form-7' ),
+			'default' =>
+				__( "The URL is invalid.", 'contact-form-7' ),
 		),
 
 		'invalid_tel' => array(
-			'description' => __( "Telephone number that the sender entered is invalid", 'contact-form-7' ),
-			'default' => __( "The telephone number is invalid.", 'contact-form-7' )
-		) ) );
+			'description' =>
+				__( "Telephone number that the sender entered is invalid", 'contact-form-7' ),
+			'default' =>
+				__( "The telephone number is invalid.", 'contact-form-7' ),
+		),
+	) );
+
+	return $messages;
 }
 
 
@@ -225,7 +230,7 @@ function wpcf7_tag_generator_text( $contact_form, $args = '' ) {
 		$description = __( "Generate a form-tag for a single-line telephone number input field. For more details, see %s.", 'contact-form-7' );
 	}
 
-	$desc_link = wpcf7_link( __( 'http://contactform7.com/text-fields/', 'contact-form-7' ), __( 'Text Fields', 'contact-form-7' ) );
+	$desc_link = wpcf7_link( __( 'https://contactform7.com/text-fields/', 'contact-form-7' ), __( 'Text Fields', 'contact-form-7' ) );
 
 ?>
 <div class="control-box">

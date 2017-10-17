@@ -1,5 +1,5 @@
 <?php
-DUP_Util::CheckPermissions('read');
+DUP_Util::hasCapability('read');
 
 require_once(DUPLICATOR_PLUGIN_PATH . '/assets/js/javascript.php');
 require_once(DUPLICATOR_PLUGIN_PATH . '/views/inc.header.php');
@@ -49,7 +49,7 @@ require_once(DUPLICATOR_PLUGIN_PATH . '/views/inc.header.php');
 			<td class="check-column"><i class="fa fa-check"></i></td>
 		</tr>
 		<tr>
-			<td class="feature-column"><?php _e('Directory Filters', 'duplicator') ?></td>
+			<td class="feature-column"><?php _e('File Filters', 'duplicator') ?></td>
 			<td class="check-column"><i class="fa fa-check"></i></td>
 			<td class="check-column"><i class="fa fa-check"></i></td>
 		</tr>
@@ -109,7 +109,7 @@ require_once(DUPLICATOR_PLUGIN_PATH . '/views/inc.header.php');
 			<td class="check-column"><i class="fa fa-check"></i></td>
 		</tr>			
 		<tr>
-			<td class="feature-column"><?php _e('Larger Package Support', 'duplicator') ?></td>
+			<td class="feature-column"><?php _e('Large Package Support', 'duplicator') ?></td>
 			<td class="check-column"></td>
 			<td class="check-column"><i class="fa fa-check"></i></td>
 		</tr>
@@ -121,11 +121,6 @@ require_once(DUPLICATOR_PLUGIN_PATH . '/views/inc.header.php');
 	
 		<tr>
 			<td class="feature-column"><?php _e('Email Alerts', 'duplicator') ?></td>
-			<td class="check-column"></td>
-			<td class="check-column"><i class="fa fa-check"></i></td>
-		</tr>
-		<tr>
-			<td class="feature-column"><?php _e('File Filters', 'duplicator') ?></td>
 			<td class="check-column"></td>
 			<td class="check-column"><i class="fa fa-check"></i></td>
 		</tr>

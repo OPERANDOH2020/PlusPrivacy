@@ -40,8 +40,8 @@ jQuery(document).ready(function($){
 	var vidlinks =  $('a[href]').filter('[href*="//vimeo.com"], [href*="//youtu"]');
 
 	 if(venoboxVars.ng_venobox.ng_all_videos) {
-	    vidlinks.addClass('venobox').filter('[href*="//vimeo.com"]').attr( 'data-type', 'vimeo');
-		vidlinks.filter('[href*="//youtu"]').attr( 'data-type', 'youtube');
+	    vidlinks.addClass('venobox').filter('[href*="//vimeo.com"]').attr( 'data-vbtype', 'video');
+		vidlinks.filter('[href*="//youtu"]').attr( 'data-vbtype', 'video');
 	}
 	// Dont replace the data-gall if already set
 	if(!$(this).attr('data-gall')) {
@@ -54,11 +54,24 @@ jQuery(document).ready(function($){
   // default settings
   $('.venobox').venobox({
    // border: venoboxVars.ng_venobox.ng_border_width, doing this in CSS
-    // framewidth: '1600px',        // default: ''
-    // frameheight: '1000px',       // default: ''
+   // framewidth: '1600px',   // default: ''
+   // frameheight: '1000px',  // default: ''
    // bgcolor: venoboxVars.ng_venobox.ng_border_color, doing this in CSS
-    numeratio: venoboxVars.ng_venobox.ng_numeratio,            // default: false
-    infinigall: venoboxVars.ng_venobox.ng_infinigall            // default: false
+    numeratio: venoboxVars.ng_venobox.ng_numeratio,	// default: false
+    numerationPosition: venoboxVars.ng_venobox.ng_numeratio_position,
+    infinigall: venoboxVars.ng_venobox.ng_infinigall,	// default: false
+    autoplay: venoboxVars.ng_venobox.ng_autoplay,	// default: false
+    overlayColor: venoboxVars.ng_venobox.ng_overlay,
+    closeBackground: 'transparent',
+    numerationBackground: 'transparent',
+    titleBackground:  venoboxVars.ng_venobox.ng_overlay,
+    spinner: venoboxVars.ng_venobox.ng_preloader,
+    titlePosition: venoboxVars.ng_venobox.ng_title_position,
+    arrowsColor: venoboxVars.ng_venobox.ng_nav_elements,
+    closeColor: venoboxVars.ng_venobox.ng_nav_elements,
+    numerationColor: venoboxVars.ng_venobox.ng_nav_elements,
+    titleColor: venoboxVars.ng_venobox.ng_nav_elements,
+    spinColor: venoboxVars.ng_venobox.ng_nav_elements,
   });
 
     /* auto-open #firstlink on page load */
