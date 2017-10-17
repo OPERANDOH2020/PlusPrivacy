@@ -23,8 +23,9 @@ controller("headerController", ["$scope", "$state", "ospService","connectionServ
         });
     });
 
-    var notificationsHandler = function(notifications){
-        $scope.notifications = notifications;
+    var notificationsHandler = function(data){
+        $scope.notifications = data.notifications;
+        $scope.notificationsCount = data.count;
         $scope.$apply();
     };
 
@@ -53,5 +54,9 @@ controller("headerController", ["$scope", "$state", "ospService","connectionServ
     connectionService.getNotifications(0,notificationsHandler);
 
     connectionService.onNotificationReceived(handlePushedNotifications);
+
+    $scope.seeAllNotifications = function(){
+        $state.go("dashboard.notifications");
+    }
 
 }]);

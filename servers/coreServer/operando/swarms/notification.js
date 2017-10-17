@@ -57,6 +57,7 @@ var notificationSwarming = {
                         self.home('failed');
                     }
                     else {
+                        self.totalNotificationsCount = notifications.length;
                         if(notifications.length>self.currentIndex){
                             if(notifications.length>self.currentIndex+10){
                                 notifications = notifications.splice(self.currentIndex,10);

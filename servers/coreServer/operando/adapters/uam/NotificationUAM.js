@@ -330,7 +330,6 @@ getAllUserNotifications = function (userId,userZones, callback){
                 persistence.filter("ZoneNotificationMapping",{zoneName:zone},self.continue("gotNotifications"));
             })
         },
-
         gotNotifications:function(err,notificationsMappings){
             if(err){
                 this.errs.push(err);
@@ -343,7 +342,6 @@ getAllUserNotifications = function (userId,userZones, callback){
                 })
             }
         },
-
         loadNotifications:function(err,lazyNotification){
             if (err) {
                 console.error(err);
@@ -354,7 +352,6 @@ getAllUserNotifications = function (userId,userZones, callback){
                 this.notifications.push(notification);
             }
         },
-
         deliverNotifications: {
             join:"loadNotifications",
             code:function () {
@@ -366,7 +363,7 @@ getAllUserNotifications = function (userId,userZones, callback){
                     if(b.creationDate == null){
                         b.creationDate = new Date(0);
                     }
-                   return a.creationDate.getTime() - b.creationDate.getTime();
+                   return b.creationDate.getTime() - a.creationDate.getTime();
                 });
                 if(this.errs.length>0){
                     callback(this.errs, this.notifications);
