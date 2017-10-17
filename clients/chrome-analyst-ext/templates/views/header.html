@@ -79,14 +79,14 @@
                    data-close-others="true">
                     <div class="menu_item_content">
                         <span class="notifications_item"></span>
-                        <span class="notifications_count"><span>{{notifications.length}}</span></span>
+                        <span class="notifications_count"><span>{{notificationsCount}}</span></span>
                     </div>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-default">
                     <li class="notifications_header">Notifications</li>
                     <notification-item ng-repeat="notification in notifications" notification="notification"></notification-item>
-
+                    <li><span class="see_all_notifications" ng-click="seeAllNotifications()">See all notifications</span></li>
                 </ul>
             </li>
         </ul>

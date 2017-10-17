@@ -4,7 +4,8 @@ controller("notificationController", ["$scope", "connectionService", function ($
     $scope.notifications = [];
 
     $scope.loadMore = function(){
-        connectionService.getNotifications($scope.notifications.length, function(notifications){
+        connectionService.getNotifications($scope.notifications.length, function(data){
+            var notifications = data.notifications;
             notifications.forEach(function(notification){
                 $scope.notifications.push(notification);
             });
