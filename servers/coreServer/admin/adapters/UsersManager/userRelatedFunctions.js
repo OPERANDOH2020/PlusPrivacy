@@ -66,17 +66,19 @@ exports.createUser = function (userData, callback) {
 };
 
 exports.filterUsers = function(conditions,callback){
-    persistence.filter("DefaultUser",conditions,function(err,result){
-        /*
+    persistence.filterJson("DefaultUser",conditions,function(err,result){
          if(result.length>0){
-         result = result.map(function(user){
-         delete user.password;
-         delete user.salt;
-         delete user.__meta.savedValues.password;
-         delete user.__meta.savedValues.salt;
-         return user;
-         })
-         }*/
+             result = result.map(function (user) {
+                 if(user.password) {
+                     delete user.password;
+                 }
+                 if(user.sale) {
+                     delete user.salt;
+                 }
+                 return user;
+             })
+         }
+
         callback(err,result)
     });
 };
