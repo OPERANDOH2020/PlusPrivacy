@@ -1,0 +1,6 @@
+.preloader{
+    background:url(images/loader.gif) no-repeat left center;
+    height:24px;
+    display: inline-block;
+    padding-left: 28px;
+}
