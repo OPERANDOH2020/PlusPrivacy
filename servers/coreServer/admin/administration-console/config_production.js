@@ -4,7 +4,7 @@ function Config(){
         brand: "{+P} Admin Console",
         mobileDebug: true,
         swarmClient: {
-            host: "localhost",
+            host: "plusprivacy.com",
             port: 8080,
             tenant: "admin"
         },
