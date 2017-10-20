@@ -12,10 +12,10 @@ Building the extension
 - [The PIL module](http://www.pythonware.com/products/pil/)
 
 ### Building the extension for development environment
-    ./op-clients-chrome-ext/build/build_operando.py
+    ./chrome-ext/build/build_operando.py
 	
 ### Building the extension for release/testing environment
-    ./op-clients-chrome-ext/build/build_operando.py	release
+    ./chrome-ext/build/build_operando.py	release
 After the build process the parent directory should contain the following directories:
     - adblockpluschrome
     - op-clients-chrome-ext
