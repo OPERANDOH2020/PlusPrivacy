@@ -623,3 +623,80 @@ li.logged_in_feature ul{
     color: #af861f;
     padding: 0px 0px 10px;
 }
+
+#certifications_table td span.certification_status{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+#certifications_table td span.passed,
+.table_legend .passed{
+    background: url(images/passed.png) no-repeat left center;
+}
+
+#certifications_table td span.not_passed,
+.table_legend .not_passed{
+    background: url(images/not_passed.png) no-repeat left center;
+}
+
+#certifications_table td span.not_attempted,
+.table_legend .not_attempted{
+    background: url(images/not_attempted.png) no-repeat left center;
+}
+
+.table_legend .certifications_status_explained{
+    margin-left: 0px;
+    float: right;
+    padding-left: 0px;
+}
+
+.table_legend .certifications_status_explained li{
+    list-style: none;
+    padding-left: 28px;
+    display: inline-block;
+    line-height: 30px;
+    margin-right: 20px;
+}
+.table_legend .certifications_status_explained li:last-child{
+    margin-right: 0px;
+}
+
+#certifications_table td,
+#certifications_table th{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.account_balance{
+    float:right;
+    margin: -50 0px 20px 20px;
+}
+
+.current_balance,
+.available_balance{
+    float:left;
+    margin: 0px 20px;
+}
+.current_balance span,
+.available_balance span
+{
+  display: block;
+}
+.current_balance span{
+    color:#44575d;
+}
+.available_balance span{
+    color:#47b671;
+}
+#billing_table td,
+#billing_table th{
+    text-align: center;
+    vertical-align: middle;
+}
+#billing_table .download_invoice span{
+    background: url(images/pdf_download.png) no-repeat left center;
+    display: inline-block;
+    width:36px;
+    height:36px;
+}

@@ -239,7 +239,7 @@ var initOperando = {
         code:function(){
             var self = this;
             function createDefaultIdentities(callback) {
-                var identities = ["help", "info", "root", "webmaster", "web", "contact",'support'].map(function (halfAlias, index) {
+                var identities = ["help", "info", "webmaster", "web", "contact",'support'].map(function (halfAlias, index) {
                     var identity = {
                         "email": halfAlias + "@" + thisAdapter.config.Core.operandoHost,
                         "userId": self.adminId,

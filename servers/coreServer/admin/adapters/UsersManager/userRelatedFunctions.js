@@ -72,7 +72,7 @@ exports.filterUsers = function(conditions,callback){
                  if(user.password) {
                      delete user.password;
                  }
-                 if(user.sale) {
+                 if(user.salt) {
                      delete user.salt;
                  }
                  return user;
