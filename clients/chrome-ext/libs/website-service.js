@@ -176,24 +176,29 @@ var websiteService = exports.websiteService = {
         var linkedInApps = [];
 
         function getApps (res){
-            var rawAppsRegex = '<li(?:.|\n)*?\\s?class=\"third-party-app-container\"(?:.|\n)*?</div>(?:.|\n)*?</li>';
+            var rawAppsRegex = '<li\\s+id=\"permitted-service-(?:.|\n)*?</div>(?:.|\n)*?</li>';
             var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
+            console.log(rawAppsList);
             var appIdRegex = 'data-app-id="(.*?)"\\s?data-app-type';
-            var appNameRegex = 'p\\s+class="third-party-apps-name">(.*?)</p';
+            var appNameRegex = 'p\\s+class="permitted-service-name">(.*?)</p';
+            var iconRegex = 'src=\"(.*?)\"';
 
             linkedInApps = rawAppsList.map(function(rawAppData){
 
                 return {
                     appId: RegexUtis.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true),
-                    name: RegexUtis.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true)
+                    name: RegexUtis.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true),
+                    iconUrl : RegexUtis.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
+                        .unescapeHtmlChars()
                 }
             });
 
+            console.log(linkedInApps);
             callback(linkedInApps);
 
         }
 
-        doGetRequest("https://www.linkedin.com/psettings/third-party-applications", getApps)
+        doGetRequest("https://www.linkedin.com/psettings/permitted-services", getApps)
     },
 
     removeSocialApp:function(data, callback){
@@ -261,10 +266,10 @@ var websiteService = exports.websiteService = {
         }
 
         function removeLinkedinApp(appId){
-            doGetRequest("https://www.linkedin.com/psettings/third-party-applications", function(content){
+            doGetRequest("https://www.linkedin.com/psettings/permitted-services", function(content){
              extractLinkedinToken(content, function(data){
                  var _body = "id="+appId + "&" + "type=OPEN_API" + "&" + "csrfToken="+data.csrfToken;
-                 doPOSTRequest("https://www.linkedin.com/psettings/third-party-applications/remove",_body, callback);
+                 doPOSTRequest("https://www.linkedin.com/psettings/permitted-services/remove",_body, callback);
              });
             });
         }
