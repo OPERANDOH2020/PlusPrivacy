@@ -51,17 +51,18 @@
 
                     </a>
 
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu multi-level">
 
-                        <li class="dropdown" ng-repeat="osp in osps">
+                        <li class="dropdown-submenu" ng-repeat="(osp, pages) in eulas">
 
-                            <a ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown" ui-sref="dashboard.eula({sn:osp.key})">
-
+                            <a ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-
-                                <span class="menu-description">{{osp.title}}</span>
-
+                            <span class="menu-description">{{osp}}</span>
                             </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a tabindex="-1" ui-sref="dashboard.eula({osp:osp,eula:page.name})" ng-repeat="page in pages">{{page.name}}</a></li>
+                                </ul>
 
                         </li>
 

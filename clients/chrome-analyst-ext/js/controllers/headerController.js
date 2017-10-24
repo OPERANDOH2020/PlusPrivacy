@@ -23,6 +23,11 @@ controller("headerController", ["$scope", "$state", "ospService","connectionServ
         });
     });
 
+    connectionService.getEulas(function(pages){
+       $scope.eulas = pages;
+        $scope.$apply();
+    });
+
     var notificationsHandler = function(data){
         $scope.notifications = data.notifications;
         $scope.notificationsCount = data.count;
