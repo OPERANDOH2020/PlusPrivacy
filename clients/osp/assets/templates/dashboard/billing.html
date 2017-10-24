@@ -1,5 +1,47 @@
-<div>
-    <h2 align="center">
-        No invoices generated yet!
-    </h2>
+<div ng-controller="billingController">
+    <h2>Billing</h2>
+
+    <div class="account_balance">
+        <div class="current_balance">
+            <span>Current balance</span>
+            <span><b>€87.50</b></span>
+        </div>
+
+        <div class="available_balance">
+            <span>Available balance</span>
+            <span><b>€48.50</b></span>
+        </div>
+        <button class="btn btn-primary">Add credit</button>
+    </div>
+    <table class="table table-bordered" id="billing_table" datatable="ng"
+           dt-column-defs="billingDefs"
+           dt-options="billingOptions" dt-instance="billingInstance">
+        <thead>
+        <tr>
+            <th>Service name</th>
+            <th>Contracts</th>
+            <th>Price per Contract</th>
+            <th>VAT percent</th>
+            <th>VAT amount</th>
+            <th>Total</th>
+            <th style="width:120px">Invoice</th>
+            <th style="width:110px">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="billing in billings" ng-cloak>
+            <td style="width:20%">{{billing.name}}</td>
+            <td >{{billing.contracts}}</td>
+            <td>{{billing.price_per_contract}}</td>
+            <td>{{billing.vat}}%</td>
+            <td>{{billing.vat/100*billing.contracts*billing.price_per_contract}}</td>
+            <td>{{(billing.vat/100*billing.contracts*billing.price_per_contract)+billing.contracts*billing.price_per_contract}}</td>
+            <td class="download_invoice"><span></span></td>
+            <td>
+                <button class="btn btn-primary">PAY</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>

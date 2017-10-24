@@ -1,3 +1,47 @@
-<div>
-    <h2 align="center">No certifications available yet</h2>
+<div ng-controller="certificationsController">
+    <h2>Certifications</h2>
+
+
+    <table class="table table-bordered" id="certifications_table" datatable="ng"
+           dt-column-defs="certificationsDefs"
+           dt-options="certificationsOptions" dt-instance="certificationsInstance">
+        <thead>
+        <tr>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Attempts</th>
+            <th style="width:140px">Passing score</th>
+            <th style="width:120px">Your score</th>
+            <th style="width:110px">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="certification in certifications" ng-cloak>
+            <td class="certification_status_container"><span class="certification_status" ng-class="certification.passed == true?'passed':certification.attempts>0?'not_passed':'not_attempted'"></span></td>
+            <td style="width:30%">{{certification.name}}</td>
+            <td >{{certification.attempts}}</td>
+            <td>{{certification.minimumScore}}</td>
+            <td>{{certification.attempts == 0?"-":certification.score}}</td>
+            <td>
+                <button class="btn btn-primary">{{certification.passed == true?'View Results':certification.attempts>0?'Retake':'Take certification'}}</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="table_legend">
+        <ul class="certifications_status_explained">
+            <li class="passed">
+                Passed
+            </li>
+
+            <li class="not_attempted">
+                Not attempted
+            </li>
+
+            <li class="not_passed">
+                Not passed
+            </li>
+        </ul>
+    </div>
+
 </div>
