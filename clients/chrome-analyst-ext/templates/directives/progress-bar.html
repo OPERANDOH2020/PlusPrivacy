@@ -1,0 +1,18 @@
+<div class="custom-progress-bar progresss">
+
+    <div class="progress-bar active" role="progressbar"
+         aria-valuenow="{{}}" aria-valuemin="0" aria-valuemax="100" style="width:{{percentCompleted}}%">
+        <div ng-repeat="eula in eulas track by $index">
+
+            <div class="spinner" ng-if="eula.name=='start'" ng-class="{completed:percentCompleted >= 100}">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+
+            <span  ng-if="eula.name!='start'"  href="#" style="left:{{$index*100/(eulas.length-1)}}%" class="bs-wizard-dot" ng-class="{completed:eula.completed == true}">
+                <span class="bullet_name">{{eula.name}}</span>
+                <span class="eula_status {{eula.status}}">
+            </span>
+        </div>
+    </div>
+</div>

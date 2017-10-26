@@ -95,7 +95,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
         .state("dashboard.eula",{
-            url:"/eula/:sn?",
+            url:"/eula/:osp/:eula",
             views: {
                 'container@': {
                     templateUrl: "../templates/views/eula.html",

@@ -1,0 +1,30 @@
+<div class="modal fade">
+    <div class="modal-dialog modal-lg modal-crawler">
+        <div class="modal-content settings_history">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Crawler</h3>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row social_network" ng-repeat="(socialNetwork, eulas) in eulas">
+                    <div class="social_network_container">
+                        <h4>{{socialNetwork}}</h4>
+                    </div>
+
+                    <progress-bar crawled-eulas="crawledEulas" eulas="eulas"></progress-bar>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" ng-click="runCrawler();">Start crawling</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Close
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

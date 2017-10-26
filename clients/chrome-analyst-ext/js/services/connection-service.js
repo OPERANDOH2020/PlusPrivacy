@@ -132,6 +132,13 @@ angular.module("app").factory("connectionService", function(swarmService,deviceS
             });
         };
 
+        ConnectionService.prototype.getEulas = function(callback){
+            var eulasHandler = swarmHub.startSwarm("WebCrawler.js","getPages");
+            eulasHandler.onResponse("gotAvailablePages", function(swarm){
+                callback(swarm.pages);
+            })
+        };
+
         ConnectionService.prototype.savePrivacySettings = function(settings, success_callback, fail_callback){
             var savePrivacySettingsHandler = swarmHub.startSwarm("sn_privacy_settings.js","savePrivacySetting", settings);
             savePrivacySettingsHandler.onResponse("success",success_callback);
@@ -161,9 +168,29 @@ angular.module("app").factory("connectionService", function(swarmService,deviceS
                 callback();
             })
         };
-            ConnectionService.prototype.onNotificationReceived = function(callback){
+
+        ConnectionService.prototype.getEulaChanges = function(page, callback){
+            var getEulaChangesHandler = swarmHub.startSwarm("WebCrawler.js","getChanges",page);
+            getEulaChangesHandler.onResponse("gotChanges", function(swarm){
+                callback(swarm.base64Images);
+            });
+        };
+
+        ConnectionService.prototype.onNotificationReceived = function(callback){
             chrome.gcm.onMessage.addListener(callback);
-        }
+        };
+
+        ConnectionService.prototype.runCrawler = function(callback){
+          var runCrawlerHandler = swarmHub.startSwarm("WebCrawler.js","runCrawler");
+
+            runCrawlerHandler.onResponse("gotCrawlerResult", function(swarm){
+                callback(swarm.result);
+            });
+
+            runCrawlerHandler.onResponse("crawlingCompleted", function(swarm){
+                console.log("completed!!!");
+            });
+        };
         return ConnectionService;
     })();
 

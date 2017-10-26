@@ -2435,6 +2435,7 @@ table.table thead th.sorting
 
 .sn_app_icon{
     width:32px;
+    height: 32px;
 }
 td.app_icon,
 td.app_name,
@@ -2443,6 +2444,11 @@ td.app_actions,
 td.app_permissions{
     vertical-align: middle!important;
     text-align: center;
+}
+
+td.app_icon img[src$=".svg"]{
+    border: 4px solid transparent;
+    background-color: #b3b6b9;
 }
 
 .social_apps_table thead th{
