@@ -1,0 +1,61 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="close(false)" data-dismiss="modal"
+						aria-hidden="true">&times;
+				</button>
+				<h4 class="modal-title">Edit zone {{zone.zoneName}}</h4>
+			</div>
+
+			<div class="modal-body">
+
+				<form name="form" class="form-validation">
+
+					<input list="availableUsers" size="50" ng-model="newUser.email">
+					<button class="btn-sm btn-primary ng-click-active" type="button" ng-click="addNewUser()">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+
+					<datalist id="availableUsers" >
+							<option ng-repeat="user in allUsers" value="{{user}}">
+							</option>
+					</datalist>
+
+				</form>
+				<hr>
+					<div class="list-group-item">
+						<script>
+							function add(){
+								document.getElementById('click-to-upload').click();
+								/*
+								 add this function to bind jQuerry with angular
+								 */
+							}
+						</script>
+						<input type="file" id="file" name="file" onchange="add()">
+						<div id="click-to-upload" ng-click="uploadFile()" invisible></div>
+					</div>
+				<hr>
+				<div>
+					<div>
+					Current users
+					</div>
+					<textarea rows="10" cols="50" ng-model="zone.users" ng-list="&#10;" readonly></textarea>
+
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<div>
+					<button class="btn btn-lg btn-primary btn-block" ng-click="updateZone()" >Update zone</button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+</div>
