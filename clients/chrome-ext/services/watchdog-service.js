@@ -20,9 +20,32 @@ operandoCore
         var linkedinTabId = null;
         var twitterTabId = null;
 
+
+        function closeTabListener(tabId, callback){
+            var callbacks = {};
+            callbacks[tabId] = callback;
+            messengerService.requestNotification("onTabRemoved", tabId, function(responsedTabId){
+                if(callbacks[responsedTabId]){
+                    callbacks[responsedTabId]();
+                    delete callbacks[responsedTabId]();
+                }
+            });
+        }
+
+
         function increaseFacebookPrivacy(settings, callback, jobFinished) {
+
+            var jobDone = false;
             chrome.tabs.create({url: FACEBOOK_PRIVACY_URL, "selected": false}, function (tab) {
                 facebookTabId = tab.id;
+                closeTabListener(facebookTabId, function(){
+                    if(jobDone == false){
+                        messengerService.off("facebookMessage",handleFacebookMessages);
+                        callback("facebook", -1, settings.length);// -1 means aborted
+                        jobFinished(true);//true means aborted
+                    }
+                });
+
                 chrome.runtime.sendMessage({
                     message: "waitForAPost",
                     template: {
@@ -58,11 +81,11 @@ operandoCore
                         jobFinished();
                         messengerService.off("facebookMessage",handleFacebookMessages);
                         chrome.tabs.remove(facebookTabId);
+                        jobDone = true;
                         facebookTabId = null;
                     }
                     else {
                         if (msg.data.status == "progress") {
-                            //console.log(msg.data.progress);
                             callback("facebook", msg.data.progress, settings.length);
                         }
                     }
@@ -74,8 +97,18 @@ operandoCore
         }
 
         function  increaseLinkedInPrivacy(settings, callback, jobFinished) {
+            var jobDone = false;
             chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "selected": false}, function (tab) {
                 linkedinTabId = tab.id;
+
+                closeTabListener(linkedinTabId, function(){
+                    messengerService.off("linkedinMessage",handleLinkedinMessages);
+                    if(jobDone == false){
+                        callback("linkedin", -1, settings.length);// -1 means aborted
+                        jobFinished(true);//true means aborted
+                    }
+                });
+
                 messengerService.send("insertLinkedinIncreasePrivacyScript", {tabId:linkedinTabId});
             });
             callback("linkedin", 0, settings.length);
@@ -86,6 +119,7 @@ operandoCore
                 } else {
                     if (msg.data.status == "settings_applied") {
                         jobFinished();
+                        jobDone = true;
                         messengerService.off("linkedinMessage",handleLinkedinMessages);
                         chrome.tabs.remove(linkedinTabId);
                         linkedinTabId = null;
@@ -104,9 +138,20 @@ operandoCore
 
         function increaseTwitterPrivacy(settings, callback, jobFinished, passwordWasPromptedCallback) {
 
+            var jobDone = false;
             chrome.tabs.getCurrent(function(currentTab){
                 chrome.tabs.create({url: TWITTER_PRIVACY_URL, "selected": false}, function (tab) {
                     twitterTabId = tab.id;
+                    closeTabListener(twitterTabId, function(){
+                        if(jobDone == false){
+                            messengerService.off("twitterMessage",handleTwitterMessages);
+                            callback("twitter", -1, settings.length);// -1 means aborted
+                            jobFinished(true);//true means aborted
+                            if(passwordWasPromptedCallback){
+                                passwordWasPromptedCallback();
+                            }
+                        }
+                    });
                     messengerService.send("insertTwitterIncreasePrivacyScript", {tabId:twitterTabId});
                 });
 
@@ -122,6 +167,7 @@ operandoCore
                             messengerService.off("twitterMessage",handleTwitterMessages);
                             chrome.tabs.remove(twitterTabId);
                             twitterTabId = null;
+                            jobDone = true;
                         }
                         else {
                             if (msg.data.status == "progress") {
@@ -309,30 +355,41 @@ operandoCore
             });
         };
 
-        var cancelEnforcement = function(){
+        var cancelEnforcement = function(callback){
             messengerService.off("facebookMessage");
             messengerService.off("linkedinMessage");
             messengerService.off("twitterMessage");
 
+            var tabIdsToBeRemoved = [facebookTabId,linkedinTabId,twitterTabId];
+            var sequence = Promise.resolve();
+            tabIdsToBeRemoved.forEach(function (tabId, index) {
+                sequence = sequence.then(function () {
+                    return removeTab(tabId);
+                }).then(function (result) {
+                    if (callback) {
+                        callback();
+                    }
+                })
+            });
+
+
             var removeTab = function(tabId){
-                if(tabId){
-                    chrome.tabs.get(tabId, function(tab){
-                        if (chrome.runtime.lastError) {
-                            console.log("Tab does not exists");
-                        }
-                        else{
-                            chrome.tabs.remove(tab.id);
-                        }
-                    });
-                }
+                return new Promise(function (resolve, reject) {
+                    if(tabId){
+                        chrome.tabs.get(tabId, function(tab){
+                            if (chrome.runtime.lastError) {
+                                console.log("Tab does not exists");
+                                resolve();
+                            }
+                            else{
+                                chrome.tabs.remove(tab.id,resolve);
+                            }
+                        });
+                    }
+
+                });
 
             };
-
-            removeTab(facebookTabId);
-            removeTab(linkedinTabId);
-            removeTab(twitterTabId);
-
-
         };
 
         return {

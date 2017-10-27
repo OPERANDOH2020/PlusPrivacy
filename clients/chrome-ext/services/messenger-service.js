@@ -17,10 +17,22 @@ operandoCore
         var port = chrome.runtime.connect({name: "OPERANDO_MESSAGER"});
         var callbacks = {};
         var events = {};
-
+        var notificationsRequest = {};
 
         var responseHandler = function (response) {
-            if (response.type === "SOLVED_REQUEST") {
+            if (response.type === "NOTIFICATION_REQUESTED") {
+                if (response.message && response.message.data.identifier) {
+                    var identifier = response.message.data.identifier;
+                    if (notificationsRequest[response.action]) {
+                        if (notificationsRequest[response.action][identifier]) {
+                            while (notificationsRequest[response.action][identifier].length > 0) {
+                                var callback = notificationsRequest[response.action][identifier].pop();
+                                callback(identifier);
+                            }
+                        }
+                    }
+                }
+            } else if (response.type === "SOLVED_REQUEST") {
                 if (response.action && callbacks[response.action]) {
                     while (callbacks[response.action].length > 0) {
                         var messageCallback = callbacks[response.action].pop();
@@ -28,17 +40,14 @@ operandoCore
                     }
                 }
             }
-            else {
-                if (response.type === "BACKGROUND_DEMAND") {
-                    console.log(response.action);
-                    if (response.action && events[response.action]) {
-                        events[response.action].forEach(function (callback) {
-                            callback(response.message);
-                        });
-                    }
+            else if (response.type === "BACKGROUND_DEMAND") {
+                console.log(response.message.data.progress);
+                if (response.action && events[response.action]) {
+                    events[response.action].forEach(function (callback) {
+                        callback(response.message);
+                    });
                 }
             }
-
         };
 
         var on = function (event, callback) {
@@ -46,24 +55,24 @@ operandoCore
                 events[event] = [];
             }
             events[event].push(callback);
-            port.postMessage({action: event, message:{messageType:"SUBSCRIBER"}});
+            port.postMessage({action: event, message: {messageType: "SUBSCRIBER"}});
         };
 
         var off = function (event, callback) {
             if (events[event]) {
-                if(callback){
+                if (callback) {
                     var idx = events[event].indexOf(callback);
                     if (idx != -1) {
                         events[event].splice(idx, 1);
                     }
                 }
-                else{
+                else {
                     delete events[event];
                 }
             }
         };
 
-        var send = function (){
+        var send = function () {
             var action = arguments[0];
 
             switch (arguments.length) {
@@ -86,9 +95,21 @@ operandoCore
                 callbacks[action] = [];
             }
 
-            if(typeof arguments[arguments.length-1] === "function"){
-                callbacks[action].push(arguments[arguments.length-1]);
+            if (typeof arguments[arguments.length - 1] === "function") {
+                callbacks[action].push(arguments[arguments.length - 1]);
             }
+        }
+
+        var requestNotification = function (event, identifier, callback) {
+            if (!notificationsRequest[event]) {
+                notificationsRequest[event] = [];
+            }
+
+            if (!notificationsRequest[event][identifier]) {
+                notificationsRequest[event][identifier] = [];
+            }
+            notificationsRequest[event][identifier].push(callback);
+            port.postMessage({action: event, message: {messageType: "NOTIFICATION_REQUEST", identifier: identifier}});
         }
 
         port.onMessage.addListener(responseHandler);
@@ -97,7 +118,8 @@ operandoCore
         return {
             send: send,
             on: on,
-            off:off
+            off: off,
+            requestNotification: requestNotification
         }
 
     });

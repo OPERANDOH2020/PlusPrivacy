@@ -122,13 +122,17 @@ angular.module("singleClickPrivacy",[])
                                         }]
 
                                     }).then(function (modal) {
-                                        modal.element.modal();
+                                        modal.element.modal({
+                                            backdrop: 'static'
+                                        });
                                     });
                             }
                         }
                         ]
                     }).then(function (modal) {
-                        modal.element.modal();
+                        modal.element.modal({
+                            backdrop: 'static'
+                        });
                     });
                 }
 

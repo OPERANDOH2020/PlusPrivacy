@@ -3,17 +3,14 @@
         <div class="modal-content">
             <div class="modal-body">
 
-
                 <div>
                     <h4 style="text-align:center">Updating your privacy settings</h4>
                     <hr/>
-
 
                     <div ng-if="isLoggedIn === false" class="social_network_log_in_container">
                         <ui-loader class="social_network_log_in" ></ui-loader>
                         <span class="sn_not_connected">Please log into {{socialNetwork}}!</span>
                     </div>
-
 
                     <div ng-if="(progresses | isEmpty) && (osps.length > 0)">
                         <ui-loader ></ui-loader>
@@ -29,7 +26,6 @@
                     </div>
                 </div>
 
-
                 <div ng-if="noSocialNetworkAvailable">
                     <div class="row">
                         <div class="col-md-9">
@@ -41,7 +37,6 @@
 
                     </div>
                 </div>
-
 
             </div>
             <div class="modal-footer">

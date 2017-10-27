@@ -57,6 +57,9 @@ chrome.runtime.onConnect.addListener(function (_port) {
                         var messageType = "SOLVED_REQUEST";
                         if(request.message && request.message.messageType === "SUBSCRIBER"){
                             messageType = "BACKGROUND_DEMAND";
+                        } else if (request.message && request.message.messageType === "NOTIFICATION_REQUEST") {
+                            messageType = "NOTIFICATION_REQUESTED";
+                            args.push(request.message);
                         }
 
                         else if(request.message!== undefined && (typeof request.message!=="object" && typeof request.message !== null || Object.keys(request.message).length > 0)){

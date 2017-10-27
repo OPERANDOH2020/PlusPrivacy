@@ -54,7 +54,6 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 break;
                         }
 
-
                         searchCookieInterval = setInterval(function () {
                             chrome.cookies.get({url: url, name: cookieName}, function (cookie) {
                                 if (cookie) {
@@ -82,9 +81,9 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                             $scope.$apply();
                         }, function (aborted) {
                             if(aborted){
-                                $scope.close("Aborted");
                                 $scope.completed = true;
                                 $scope.isAborted = true;
+                                $scope.close("Aborted");
                             }
                             else{
                                 $scope.completedFeedback = socialNetwork + " privacy settings were updated!";
