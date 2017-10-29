@@ -19,15 +19,15 @@ operandoCore
         var facebookTabId = null;
         var linkedinTabId = null;
         var twitterTabId = null;
-
+        var callbacks = {};
 
         function closeTabListener(tabId, callback){
-            var callbacks = {};
+
             callbacks[tabId] = callback;
             messengerService.requestNotification("onTabRemoved", tabId, function(responsedTabId){
                 if(callbacks[responsedTabId]){
                     callbacks[responsedTabId]();
-                    delete callbacks[responsedTabId]();
+                    delete callbacks[responsedTabId];
                 }
             });
         }
@@ -181,16 +181,16 @@ operandoCore
                                     passwordWasPromptedCallback();
                                 }
                             } else if(msg.data.status == "abortTwitter") {
-                                messengerService.off("twitterMessage",handleTwitterMessages);
+                                //messengerService.off("twitterMessage",handleTwitterMessages);
                                 chrome.tabs.remove(twitterTabId);
                                 twitterTabId = null;
-                                chrome.tabs.update(currentTab.id, {active: true});
-                                callback("twitter", -1, settings.length);// -1 means aborted
-                                jobFinished(true);//true means aborted
+                                //chrome.tabs.update(currentTab.id, {active: true});
+                                //callback("twitter", -1, settings.length);// -1 means aborted
+                                //jobFinished(true);//true means aborted
 
-                                if(passwordWasPromptedCallback){
+                                /*if(passwordWasPromptedCallback){
                                     passwordWasPromptedCallback();
-                                }
+                                }*/
                             }
 
                         }
@@ -356,11 +356,12 @@ operandoCore
         };
 
         var cancelEnforcement = function(callback){
+            callbacks = {};
             messengerService.off("facebookMessage");
             messengerService.off("linkedinMessage");
             messengerService.off("twitterMessage");
 
-            var tabIdsToBeRemoved = [facebookTabId,linkedinTabId,twitterTabId];
+            var tabIdsToBeRemoved = [twitterTabId,facebookTabId,linkedinTabId];
             var sequence = Promise.resolve();
             tabIdsToBeRemoved.forEach(function (tabId, index) {
                 sequence = sequence.then(function () {
