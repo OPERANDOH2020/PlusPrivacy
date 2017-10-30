@@ -8,6 +8,7 @@ var BrowserTab = function (tab){
     this.isActive = false;
     this.notificationId = null;
     this.history = [];
+    this.removedCallback = [];
 };
 
 BrowserTab.prototype = {
@@ -15,8 +16,8 @@ BrowserTab.prototype = {
     update: function (tab) {
         this.tab = tab;
     },
-    onRemoved: function () {
-
+    onRemoved: function (callback) {
+        this.removedCallback.push(callback);
     },
 
     activate: function () {
@@ -81,6 +82,13 @@ var TabsManager = function(){
 
     }
     function onRemovedListener(tabId) {
+        var tab = self.browserTabs[tabId];
+
+        while(tab.removedCallback.length>0){
+            var removedCbk = tab.removedCallback.pop();
+            removedCbk({identifier:tabId});
+        }
+
         delete self.browserTabs[tabId];
     }
 
@@ -181,6 +189,11 @@ TabsManager.prototype.getLastVisitedUrl = function(notificationId, callback){
     var visited = tab.getLastVisited();
     console.log(visited);
     callback(visited);
+};
+
+
+TabsManager.prototype.onTabRemoved = function(data,callback){
+    TabsMng.getTab(data.identifier).onRemoved(callback);
 };
 
 function establishPlusPrivacyWebsiteCommunication(tabId){

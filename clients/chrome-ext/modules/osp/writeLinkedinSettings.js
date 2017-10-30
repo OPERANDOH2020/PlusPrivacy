@@ -10,7 +10,6 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-
 var privacySettings = [];
 var port = chrome.runtime.connect({name: "applyLinkedinSettings"});
 var extractedData = {};
@@ -25,13 +24,8 @@ port.onMessage.addListener(function (msg) {
     }
 });
 
-
 function postToLinkedIn(settings, item, total) {
-
-
     return new Promise(function (resolve, reject) {
-
-
         if (settings.page) {
             FeedbackProgress.sendFeedback(settings.name, item, total);
 
@@ -44,9 +38,7 @@ function postToLinkedIn(settings, item, total) {
             else{
                 sendPostRequest(settings,extractedData,resolve,reject);
             }
-
         }
-
     });
 }
 
@@ -61,7 +53,6 @@ function sendPostRequest(settings, headers, resolve, reject){
         for (var i = 0; i < response.length; i++) {
             cookies += response[i].name + "=" + response[i].value + "; ";
         }
-
 
         for (var prop in settings.data) {
             data[prop] = settings.data[prop];

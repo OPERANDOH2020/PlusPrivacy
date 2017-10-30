@@ -5,6 +5,10 @@ $(document).ready(function(){
         + "<div class='pp-twitter-header'>Please enter your password in order to complete the privacy wizard</div><br/>"
         + "</div>";
 
+    var tooltipEnterValidPasswordTemplate = "<div class='pp_twitter_popup'>"
+        + "<div class='pp-twitter-header' style='text-align:center'>Please enter a valid password!</div><br/>"
+        + "</div>";
+
 var privacySettings = [];
 var port = chrome.runtime.connect({name: "applyTwitterSettings"});
 port.postMessage({action: "waitingTwitterCommand", data: {status:"waitingTwitterCommand"}});
@@ -53,9 +57,14 @@ function secureAccount(callback){
             success: function(data){
                 if(data.indexOf("Incorrect password! Please enter your current password to change your settings.")>0){
                     $("#auth_password").val("");
-                    alert("Please enter your valid password!");
+                    $("#password_dialog-dialog").tooltipster(
+                        "content", jQuery(jQuery.parseHTML(tooltipEnterValidPasswordTemplate))
+                    )
+
+                    $("#password_dialog-dialog").tooltipster('open');
                 }
                 else{
+                    port.postMessage({action: "waitingTwitterCommand", data:{status:"takeMeBackInExtension"}});
                     callback();
                 }
 
@@ -63,7 +72,6 @@ function secureAccount(callback){
             dataType: "html"
         });
 
-        port.postMessage({action: "waitingTwitterCommand", data:{status:"takeMeBackInExtension"}});
     };
 
     var abortTwitterSettings = function(event){
@@ -71,44 +79,72 @@ function secureAccount(callback){
         port.postMessage({action: "waitingTwitterCommand", data:{status:"abortTwitter"}});
     }
 
-    setTimeout(function(){
-        $("#settings_save").removeAttr("disabled");
-        $("#settings_save").click();
-        port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(1)}});
-        port.postMessage({action: "waitingTwitterCommand", data:{status:"giveMeCredentials"}});
 
-        $("#password_dialog-dialog").tooltipster({
-            animation: 'fade',
-            delay: 200,
-            theme: ['tooltipster-plus-privacy'],
-            content:jQuery(jQuery.parseHTML(tooltipTemplate)),
-            contentAsHTML: true,
-            triggerClose: {
-                click: true,
-                scroll: true
-            }
-        });
-        $("#password_dialog-dialog").tooltipster('open');
 
-        $("#save_password").attr("type","button");
-        $("#account-form").on("submit", customSubmit);
-        $("#save_password").on("click",customSubmit);
-        $("#auth_password").on("keypress", function(event){
-            if (event.which == 13 || event.keyCode == 13) {
-                customSubmit(event);
-                return false;
-            }
-        });
+    var promptTooltip = function(){
+        setTimeout(function(){
+            $("#settings_save").removeAttr("disabled");
+            $("#settings_save").click();
+            port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(1)}});
+            port.postMessage({action: "waitingTwitterCommand", data:{status:"giveMeCredentials"}});
 
-        $("#auth_password").bind('input propertychange', function(){
-                $("#save_password").removeAttr("disabled");
+            setTimeout(function(){
+                $("#password_dialog-dialog").tooltipster({
+                    animation: 'fade',
+                    delay: 200,
+                    theme: ['tooltipster-plus-privacy'],
+                    content:jQuery(jQuery.parseHTML(tooltipTemplate)),
+                    contentAsHTML: true,
+                    triggerClose: {
+                        click: true,
+                        scroll: true
+                    }
+                });
+                $("#password_dialog-dialog").tooltipster('open');
 
-        });
-        $("#cancel_password_button").attr("type","button");
-        $("#cancel_password_button").on("click", abortTwitterSettings);
+                $("#save_password").attr("type","button");
+                $("#account-form").on("submit", customSubmit);
+                $("#save_password").on("click",customSubmit);
+                $("#auth_password").on("keypress", function(event){
+                    if (event.which == 13 || event.keyCode == 13) {
+                        customSubmit(event);
+                        return false;
+                    }
+                });
 
-    },200);
-    port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(0)}});
+                $("#auth_password").bind('input propertychange', function(){
+                    $("#save_password").removeAttr("disabled");
+
+                });
+                $("#cancel_password_button").attr("type","button");
+                $("#cancel_password_button").on("click", abortTwitterSettings);
+            },100);
+
+        },100);
+        port.postMessage({action: "waitingTwitterCommand", data:{status:"progress", progress:(0)}});
+    }
+
+
+    var personalizationInterval = setInterval(function(){
+        if($(".personalization-status").text().length !== 0){
+
+            clearInterval(personalizationInterval);
+            promptTooltip();
+        }
+        else{
+            console.log("loading");
+        }
+
+    },50);
+
+
+    var checkIfModalIsVisible = setInterval (function(){
+        if($("#password_dialog").is(":visible") == false){
+            $("#password_dialog-dialog").tooltipster('close');
+        }
+    },100);
+
+
 }
 
 function getAuthenticityToken(){

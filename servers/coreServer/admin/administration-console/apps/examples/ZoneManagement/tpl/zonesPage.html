@@ -1,0 +1,54 @@
+<div ng-controller="zoneManagerController">
+
+	<div class="ng-scope" ui-view="">
+		<!--Page titlte-->
+		<div class="bg-light lter b-b wrapper-md ng-scope pageTitle">
+			<h1 class="m-n font-thin h3">Zones Manager</h1>
+		</div>
+
+
+
+		<div class="wrapper-md ng-scope">
+
+			<!--A small title for users section-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Manage zones
+				</div>
+
+				<!--Create new zone button-->
+				<div class="panel-body b-b b-light">
+					<div class="col-lg-6" style="float: right">
+						<input type="text" class="form-control" ng-model="newZone.zoneName" placeholder="Type name for new zone">
+
+						<button style="float: right" class="btn btn-default btn-primary" ng-disabled="newZone.zoneName.length<4" ng-click="createNewZone()" type="button">Create new zone</button>
+					</div>
+				</div>
+
+				<div>
+					<!--USERS TABLE | Generated with footable JS Lib-->
+					<table class="table footable m-b-none default table-striped" data-filter="#filter" data-filtering="true" data-sorting="true" id="zonesTable">
+						<thead>
+						<tr>
+							<th>Zone</th>
+							<th>Nr of users</th>
+							<th>Users</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="zone in zones track by $index" class="footable-even" style="display: table-row;" ng-click="updateZone(zone)">
+							<td>{{zone.zoneName}}</td>
+							<td>{{zone.nrUsers}}</td>
+							<td>{{zone.usersPreview}}</td>
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+

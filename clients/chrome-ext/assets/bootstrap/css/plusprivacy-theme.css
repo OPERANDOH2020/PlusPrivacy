@@ -2202,6 +2202,20 @@ height: 27px;
     font-size: 17px;
 }
 
+.somedone{
+    float: left;
+    margin-top: 6px;
+    color: #ff9d15;
+    font-size: 17px;
+}
+
+.nonedone{
+    float: left;
+    margin-top: 6px;
+    color: #ff3e41;
+    font-size: 17px;
+}
+
 input.ng-invalid:not(.ng-untouched){
     border:1px solid #FF0000;
 }
@@ -2435,6 +2449,7 @@ table.table thead th.sorting
 
 .sn_app_icon{
     width:32px;
+    height: 32px;
 }
 td.app_icon,
 td.app_name,
@@ -2443,6 +2458,11 @@ td.app_actions,
 td.app_permissions{
     vertical-align: middle!important;
     text-align: center;
+}
+
+td.app_icon img[src$=".svg"]{
+    border: 4px solid transparent;
+    background-color: #b3b6b9;
 }
 
 .social_apps_table thead th{

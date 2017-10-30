@@ -1,1 +1,22 @@
-<div>asdas</div>
+<div ng-controller="eulaController">
+    <div>
+        <div class="panel-heading clearfix">
+            <h2 style="float:left">{{eulaName}}</h2>
+            <button style="float:right;" ng-click="runCrawler()" class="btn-primary">Run Crawler</button>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-{{12/images.length}}">Old</div>
+            <div class="col-md-{{12/images.length}}">New</div>
+            <div ng-if="mages.length == 3" class="col-md-{{12/images.length}}">Diffs</div>
+        </div>
+        <div class="row">
+            <div class="image_container col-md-{{12/images.length}}" ng-repeat="image in images track by $index">
+                <img style="width:auto; height:auto" data-ng-src="{{image}}"/>
+            </div>
+        </div>
+
+    </div>
+
+</div>
