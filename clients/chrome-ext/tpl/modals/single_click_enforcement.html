@@ -40,9 +40,13 @@
 
             </div>
             <div class="modal-footer">
-                <span ng-if="completed" class="alldone">
-                    <span ng-if="completedFeedback">{{completedFeedback}}</span>
-                    <span ng-if="!completedFeedback">All settings were updated</span>
+                <span ng-if="completed">
+                    <span ng-if="completedFeedback" class="alldone">{{completedFeedback}}</span>
+                    <span ng-if="!completedFeedback">
+                        <span ng-if="operationPartialSucceed" class="somedone">Some settings were applied</span>
+                        <span ng-if="operationSucceed" class="alldone">All settings were updated</span>
+                        <span ng-if="operationAborted" class="nonedone">All processes were aborted</span>
+                    </span>
                 </span>
                 <button type="button" ng-click="cancel()" ng-if="!completed" class="btn btn-primary-black" data-dismiss="modal">
                     <span>Cancel</span>

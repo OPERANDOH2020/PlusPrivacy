@@ -41,7 +41,6 @@ operandoCore
                 }
             }
             else if (response.type === "BACKGROUND_DEMAND") {
-                console.log(response.message.data.progress);
                 if (response.action && events[response.action]) {
                     events[response.action].forEach(function (callback) {
                         callback(response.message);

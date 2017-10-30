@@ -2202,6 +2202,20 @@ height: 27px;
     font-size: 17px;
 }
 
+.somedone{
+    float: left;
+    margin-top: 6px;
+    color: #ff9d15;
+    font-size: 17px;
+}
+
+.nonedone{
+    float: left;
+    margin-top: 6px;
+    color: #ff3e41;
+    font-size: 17px;
+}
+
 input.ng-invalid:not(.ng-untouched){
     border:1px solid #FF0000;
 }

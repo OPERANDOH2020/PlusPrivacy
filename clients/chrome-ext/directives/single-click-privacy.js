@@ -79,6 +79,17 @@ angular.module("singleClickPrivacy",[])
                                                 $scope.osps = [];
                                                 $scope.noSocialNetworkAvailable = false;
 
+
+                                                $scope.$watch('progresses', function(newValue, oldValue){
+                                                    $scope.ospsAborted = 0;
+                                                    for(var osp in newValue){
+                                                        if(newValue[osp]['isAborted'] === true){
+                                                            $scope.ospsAborted++;
+                                                        }
+                                                    };
+
+                                                },true);
+
                                                 var promise = Promise.resolve();
                                                 for (var ospKey in readCookieConf) {
                                                     (function (ospKey) {
@@ -98,16 +109,29 @@ angular.module("singleClickPrivacy",[])
                                                                 status: current == -1? "aborted" : (current < total ? "pending" : "completed")
                                                             };
                                                             $scope.$apply();
-                                                        }, function () {
-                                                                $scope.completed = true;
-                                                                $scope.osps.forEach(function(osp){
-                                                                    messengerService.send("removePreferences",osp, function(response){
-                                                                        if(response.error){
-                                                                            console.log("Error occured:",response.error);
+                                                        }, function (jobsFinished) {
+
+                                                            $scope.completed = true;
+
+                                                            if (jobsFinished === 0) {
+                                                                $scope.operationAborted = true;
+                                                            }
+                                                            else if (jobsFinished < $scope.osps.length) {
+                                                                $scope.operationPartialSucceed = true;
+                                                            }
+                                                            else {
+                                                                $scope.operationSucceed = true;
+                                                            }
+
+                                                            if (jobsFinished !== 0) {
+                                                                $scope.osps.forEach(function (osp) {
+                                                                    messengerService.send("removePreferences", osp, function (response) {
+                                                                        if (response.error) {
+                                                                            console.log("Error occured:", response.error);
                                                                         }
                                                                     });
                                                                 });
-
+                                                            }
                                                         });
                                                     }
                                                     else{

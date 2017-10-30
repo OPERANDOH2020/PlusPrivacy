@@ -171,7 +171,6 @@ operandoCore
                         }
                         else {
                             if (msg.data.status == "progress") {
-                                console.log(msg.data.progress);
                                 callback("twitter", msg.data.progress, settings.length);
                             } else if(msg.data.status == "giveMeCredentials") {
                                 chrome.tabs.update(twitterTabId, {active: true});
@@ -181,16 +180,8 @@ operandoCore
                                     passwordWasPromptedCallback();
                                 }
                             } else if(msg.data.status == "abortTwitter") {
-                                //messengerService.off("twitterMessage",handleTwitterMessages);
                                 chrome.tabs.remove(twitterTabId);
                                 twitterTabId = null;
-                                //chrome.tabs.update(currentTab.id, {active: true});
-                                //callback("twitter", -1, settings.length);// -1 means aborted
-                                //jobFinished(true);//true means aborted
-
-                                /*if(passwordWasPromptedCallback){
-                                    passwordWasPromptedCallback();
-                                }*/
                             }
 
                         }
@@ -249,15 +240,19 @@ operandoCore
         function startApplyingSettings(settings, callback, completedCallback) {
 
             var jobsNumber = Object.keys(settings).length;
+            var successfullyFinished = 0;
 
             if(jobsNumber === 0){
                 completedCallback();
             }
 
-            var jobFinished = function(){
+            var jobFinished = function(aborted){
+                if(aborted !== true){
+                    successfullyFinished ++;
+                }
                 jobsNumber --;
                 if(jobsNumber === 0){
-                    completedCallback();
+                    completedCallback(successfullyFinished);
                 }
             }
 
