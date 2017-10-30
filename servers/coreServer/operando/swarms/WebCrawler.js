@@ -3,9 +3,11 @@
  */
 
 
-
-
 var webCrawlingSwarming = {
+
+    getPages:function(){
+      this.swarm("getAvailablePages");
+    },
     getChanges:function(page){
         this.page = page;
         this.swarm('get')
@@ -15,12 +17,12 @@ var webCrawlingSwarming = {
         code:function(){
             var self = this;
             getChangeDetails(this.page,S(function(err,result){
-                console.log(arguments);
                 if(err){
                     self.err = err.message;
                     self.home('failed');
                 }else{
-                    self.home("success");
+                    self.base64Images = result;
+                    self.home("gotChanges");
                 }
             }))
         }
@@ -28,6 +30,17 @@ var webCrawlingSwarming = {
     markFalsePositive:function(page){
         this.page = page;
         this.swarm('mark');
+    },
+
+    getAvailablePages:{
+      node:"CrawlerAdapter",
+      code:function(){
+          var self = this;
+          getAvailablePages(S(function(err,pages){
+            self.pages = pages;
+            self.home("gotAvailablePages");
+          }));
+      }
     },
     mark:{
         node:"CrawlerAdapter",
@@ -50,13 +63,22 @@ var webCrawlingSwarming = {
     run:{
         node:"CrawlerAdapter",
         code:function(){
+
             var self = this;
+
             startCrawler(S(function(err,result){
                 if(err){
                     self.err = err.message;
                     self.home('failed');
                 }else{
-                    self.home("success");
+                    if(result.status!=="completed"){
+                        console.log(result.status);
+                        self.swarmToUser(self.meta.userId,"gotCrawlerResult");
+                        self.result = result;
+                    }
+                    else{
+                        self.swarmToUser(self.meta.userId,"crawlingCompleted");
+                    }
                 }
             }))
         }

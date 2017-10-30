@@ -8,7 +8,7 @@ var imageDiff = require('image-diff');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
 var crawlerConfig = getMyConfig("CrawlerAdapter");
-
+var path = require('path');
 thisAdapter = core.createAdapter("CrawlerAdapter");
 process.env.phantomJsPath = thisAdapter.config.Core.phantomJsPath;
 //process.env.phantomJsPath = "/home/ciprian/phantomjs-2.1.1-linux-x86_64/bin/";
@@ -24,8 +24,6 @@ else{
 }
 
 
-
-
 if(!process.env.phantomJsPath){
     console.error("The environment of the crawling adaptor must contain the path towards phantomJs!");
 }else{
@@ -33,17 +31,34 @@ if(!process.env.phantomJsPath){
 }
 
 function periodicallyScan(){
-    startCrawling(compareSscreenshots);
+    startCrawling(false, compareSscreenshots);
     setTimeout(periodicallyScan,1000*3600*24); //run daily
 }
 
-function startCrawling(callback) {
+function startCrawling(progressWanted, callback) {
+
+    function processTargetedData(data){
+       if(progressWanted === true){
+           callback(null, data);
+       }
+    }
+
     console.log("Running the web crawler");
     var crawler = spawn(process.env.phantomJsPath+"phantomjs", ["--web-security=false","--ssl-protocol=tlsv1","--ignore-ssl-errors=true",adapterPath+"phantomCrawler.js"]);  //the args are to avoid "SSL handshake fail" errors
 
     crawler.stdout.on('data',function(data){
-        //console.log("[X|Crawling.stdout:\n",data.toString());
-    })
+        var data = data.toString();
+        try{
+            var targetedData = JSON.parse(data);
+            processTargetedData(targetedData);
+        }
+        catch(e){
+        }
+    });
+
+    crawler.on("message", function(data){
+        console.log(data);
+    });
 
     crawler.stderr.on('data', function (data) {
         console.log("[X]Crawling.stderr:\n", data.toString())
@@ -54,9 +69,9 @@ function startCrawling(callback) {
         callback(err);
     });
 
-    crawler.on("exit", function () {
-        console.log("Crawling done");
-        callback();
+    crawler.on("exit", function (data) {
+        console.log("Crawling done",arguments);
+        callback(null, {status:"completed"});
     });
 }
 
@@ -89,7 +104,7 @@ function compareSscreenshots(){
             });
         }else{
             imageDiff({
-                    actualImage:crawlerPath+"/"+newScreenshot,
+                    actualImage:crawlerPath+newScreenshot,
                     expectedImage:oldScreenShot,
                     diffImage:root+'diff.png'},
                 function(err,areTheSame){
@@ -171,7 +186,7 @@ function checkForFalsePositives(diffImage,callback){
 }
 
 startCrawler = function(callback){
-    startCrawling(callback);
+    startCrawling(true, callback);
 }
 
 markFalsePositive = function(page,callback){
@@ -208,9 +223,34 @@ getChangeDetails = function(page,callback){
                 return crawlerPath+file;
             });
 
-            callback(null,changedFiles);
+
+            var imageFiles = changedFiles.map(function(changedFile){
+                var image = fs.readFileSync(changedFile);
+                var extensionName = path.extname(changedFile).split('.').pop();
+                var base64Image = new Buffer(image, 'binary').toString('base64');
+                var imgSrcString = "data:image/"+extensionName+";base64,"+base64Image;
+                return imgSrcString;
+            });
+
+            callback(null,imageFiles);
         }
     })
 };
+
+getAvailablePages = function(callback){
+    var pages = JSON.parse(fs.readFileSync( crawlerPath+"urls.json"));
+    for(var osp in pages){
+        pages[osp] = pages[osp].filter(function(page){
+            if(page["takeScreenshot"] != false){
+                if(!page['exec']){
+                    if(page['name']){
+                        return true;
+                    }
+                }
+            }
+        })
+    }
+    callback(null,pages);
+}
 
 
