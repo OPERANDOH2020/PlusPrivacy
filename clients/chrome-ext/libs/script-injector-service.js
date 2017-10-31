@@ -2,6 +2,7 @@ var bus = require("bus-service").bus;
 var facebookCallback = null;
 var linkedinCallback = null;
 var twitterCallback = null;
+var googleCallback = null;
 var scriptInjectorService = exports.scriptInjectorService = {
 
     insertFacebookIncreasePrivacyScript: function (data) {
@@ -29,6 +30,12 @@ var scriptInjectorService = exports.scriptInjectorService = {
         });
     },
 
+    insertGoogleIncreasePrivacyScript:function(data){
+        injectScript(data.tabId, "operando/modules/osp/writeGoogleSettings.js", ["FeedbackProgress", "jQuery"], function(){
+            insertCSS(data.tabId, "operando/assets/css/feedback.css");
+        });
+    },
+
     facebookMessage : function (callback){
         facebookCallback = callback;
     },
@@ -39,17 +46,21 @@ var scriptInjectorService = exports.scriptInjectorService = {
     twitterMessage: function(callback){
         twitterCallback = callback;
     },
-
+    googleMessage:function(callback){
+        googleCallback = callback;
+    },
     waitingFacebookCommand:function(instructions){
         facebookCallback (instructions);
     },
-
     waitingLinkedinCommand:function(instructions){
         linkedinCallback (instructions);
     },
     waitingTwitterCommand:function(instructions){
-        console.log(instructions);
         twitterCallback(instructions);
+    },
+    waitingGoogleCommand : function(instructions){
+        console.log("easa");
+        googleCallback(instructions);
     }
 
 };

@@ -16,9 +16,11 @@ operandoCore
         var FACEBOOK_PRIVACY_URL = "https://www.facebook.com/settings?tab=privacy&section=composer&view";
         var LINKEDIN_PRIVACY_URL = "https://www.linkedin.com/psettings/";
         var TWITTER_PRIVACY_URL = "https://twitter.com/settings/safety";
+        var GOOGLE_PRIVACY_URL = "https://myaccount.google.com/";
         var facebookTabId = null;
         var linkedinTabId = null;
         var twitterTabId = null;
+        var googleTabId = null;
         var callbacks = {};
 
         function closeTabListener(tabId, callback){
@@ -30,6 +32,51 @@ operandoCore
                     delete callbacks[responsedTabId];
                 }
             });
+        }
+
+        /**
+         * performing Google privacy settings
+         * @param settings
+         * @param callback
+         * @param jobFinished
+         */
+        function increaseGooglePrivacy(settings, callback, jobFinished){
+            var jobDone = false;
+            chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "selected": false}, function (tab) {
+                googleTabId = tab.id;
+
+                closeTabListener(googleTabId, function(){
+                    messengerService.off("googleMessage",handleGoogleMessages);
+                    if(jobDone == false){
+                        callback("google", -1, settings.length);// -1 means aborted
+                        jobFinished(true);//true means aborted
+                    }
+                });
+
+                messengerService.send("insertGoogleIncreasePrivacyScript", {tabId:googleTabId});
+            });
+            callback("google", 0, settings.length);
+            var handleGoogleMessages = function(msg){
+                if (msg.data.status == "waitingGoogleCommand") {
+                    messengerService.send("sendMessageToGoogle",{sendToPort:"applyGoogleSettings",command: "applySettings", settings: settings});
+
+                } else {
+                    if (msg.data.status == "settings_applied") {
+                        jobFinished();
+                        jobDone = true;
+                        messengerService.off("googleMessage",handleGoogleMessages);
+                        //chrome.tabs.remove(googleTabId);
+                        googleTabId = null;
+                    }
+                    else {
+                        if (msg.data.status == "progress") {
+                            callback("google", msg.data.progress, settings.length);
+                        }
+                    }
+                }
+            };
+
+            messengerService.on("googleMessage", handleGoogleMessages);
         }
 
 
@@ -193,16 +240,16 @@ operandoCore
             });
         }
 
-        var secureAccount = function (desiredSettings, callback, completedCallback) {
+        var secureAccount = function (desiredSettingsArray, callback, completedCallback) {
 
-            var desiredSettings = desiredSettings.sort(function (a, b) {
-                return a - b
+            var desiredSettings = desiredSettingsArray.sort(function (a, b) {
+                return a - b;
             });
 
             ospService.getOSPSettings(function (settings) {
 
                 var settingsToBeApplied = {};
-                for (var i = 0; i < desiredSettings.length; i++) {
+                for(var i = 0; i < desiredSettings.length; i++) {
                     var found = false;
                     for (ospname in settings) {
                         if (found === false) {
@@ -264,6 +311,9 @@ operandoCore
                             break;
                         case "linkedin":
                             increaseLinkedInPrivacy(settings[ospname],callback, jobFinished);
+                            break;
+                        case "google":
+                            increaseGooglePrivacy(settings[ospname],callback, jobFinished);
                             break;
                     }
                 }
@@ -355,6 +405,7 @@ operandoCore
             messengerService.off("facebookMessage");
             messengerService.off("linkedinMessage");
             messengerService.off("twitterMessage");
+            messengerService.off("googleMessage");
 
             var tabIdsToBeRemoved = [twitterTabId,facebookTabId,linkedinTabId];
             var sequence = Promise.resolve();
@@ -365,7 +416,7 @@ operandoCore
                     if (callback) {
                         callback();
                     }
-                })
+                });
             });
 
 
@@ -396,6 +447,7 @@ operandoCore
             applyFacebookSettings:increaseFacebookPrivacy,
             applyLinkedInSettings:increaseLinkedInPrivacy,
             applyTwitterSettings:increaseTwitterPrivacy,
+            applyGoogleSettings:increaseGooglePrivacy,
             cancelEnforcement:cancelEnforcement
 
         }

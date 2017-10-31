@@ -46,6 +46,7 @@ var SN_CONSTANTS ={
         private_mode: 589120893741529
 
     }
+
 };
 
 
@@ -3820,12 +3821,526 @@ var ospSettingsConfigPreferences = {
                 "profiling"
             ]
         }
+    },
+
+    "google":{
+        declare_gender:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender1:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender2:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender3:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender4:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender5:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        declare_gender6:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 1
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 2
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            sid: {
+                                placeholder: "SID",
+                                value: 3
+                            },
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        }
     }
 }
 
 
-var fs = require('fs');
-fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
+//var fs = require('fs');
+//fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
 
 
 
