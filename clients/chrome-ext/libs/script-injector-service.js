@@ -31,8 +31,12 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
 
     insertGoogleIncreasePrivacyScript:function(data){
-        injectScript(data.tabId, "operando/modules/osp/writeGoogleSettings.js", ["FeedbackProgress", "jQuery"], function(){
-            insertCSS(data.tabId, "operando/assets/css/feedback.css");
+        chrome.tabs.executeScript(data.tabId, {
+            code: data.code
+        },function(){
+            injectScript(data.tabId, "operando/modules/osp/writeGoogleSettings.js", ["FeedbackProgress", "jQuery"], function(){
+                insertCSS(data.tabId, "operando/assets/css/feedback.css");
+            });
         });
     },
 
@@ -59,7 +63,6 @@ var scriptInjectorService = exports.scriptInjectorService = {
         twitterCallback(instructions);
     },
     waitingGoogleCommand : function(instructions){
-        console.log("easa");
         googleCallback(instructions);
     }
 

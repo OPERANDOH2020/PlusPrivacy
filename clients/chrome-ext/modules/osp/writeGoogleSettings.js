@@ -9,6 +9,11 @@
  *    RAFAEL MASTALERU (ROMSOFT)
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
+
+console.log(window.GOOGLE_PARAMS);
+
+var googleParams = window.GOOGLE_PARAMS;
+
 var privacySettings = [];
 var port = chrome.runtime.connect({name: "applyGoogleSettings"});
 var extractedData = {};
@@ -17,7 +22,6 @@ port.postMessage({action: "waitingGoogleCommand", data: {status:"waitingGoogleCo
 port.onMessage.addListener(function (msg) {
     if (msg.command == "applySettings") {
         privacySettings = msg.settings;
-        setTimeout(function(){console.log(privacySettings);},5000);
         secureAccount(function () {
             port.postMessage({action: "waitingGoogleCommand", data:{status:"settings_applied"}});
         });
@@ -102,20 +106,27 @@ function sendPostRequest(settings, headers, resolve, reject){
         }
         else {
 
-            var formData = new FormData();
-            for (var p in headers) {
-                formData.append(p, headers[p]);
-            }
+            console.log(settings);
+            var _body ="";
 
-            for (var prop in data) {
-                formData.append(prop, data[prop]);
-            }
+
+
+                Object.keys(settings.data).forEach(function(item, index){
+                    if(index !== 0){
+                        _body+="&";
+                    }
+                    _body+=item+"="+settings.data[item];
+                });
+
+            _body+="&at="+googleParams['at'];
+            console.log(_body);
+
+            settings.url = settings.url.replace("{SID}",googleParams['f_sid']);
+
             $.ajax({
                 type: "POST",
                 url: settings.url,
-                data: formData,
-                contentType: false,
-                processData: false,
+                data: _body,
 
                 beforeSend: function (request) {
 

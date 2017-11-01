@@ -53,7 +53,14 @@ operandoCore
                     }
                 });
 
-                messengerService.send("insertGoogleIncreasePrivacyScript", {tabId:googleTabId});
+                messengerService.send("getGoogleData",function(response){
+                    messengerService.send("insertGoogleIncreasePrivacyScript", {
+                        code: "window.GOOGLE_PARAMS = " + JSON.stringify(response.data),
+                        tabId:googleTabId
+                    });
+                });
+
+
             });
             callback("google", 0, settings.length);
             var handleGoogleMessages = function(msg){

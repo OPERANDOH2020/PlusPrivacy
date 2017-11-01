@@ -6,7 +6,7 @@ function doGetRequest(url,callback){
     var oReq = new XMLHttpRequest();
     oReq.onreadystatechange = function() {
         if (oReq.readyState == XMLHttpRequest.DONE) {
-            callback(oReq.responseText);
+            callback(oReq.responseText,true);
         }
     };
     oReq.open("GET", url);
@@ -281,7 +281,34 @@ var websiteService = exports.websiteService = {
             case "linkedin": removeLinkedinApp(data.appId); break;
         }
 
-    }
+    },
+
+
+    getGoogleData:function(callback){
+
+        doGetRequest("https://myaccount.google.com/permissions?hl=en",getData);
+        function getData(pageData){
+            var match ;
+            var sid ;
+
+            paramsOption1 = "\\\[.*,\\\'([\\\w-]+:[\\\w\\\d]+)\\\',.*\\\]\\\s.*(?=(\\\,\\\s*)+\\\].*window\\\.IJ_valuesCb \\\&\\\&)";
+            match = RegexUtis.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [ 1 ], pageData, true);
+            var sidRegex = 'WIZ_global_data.+{[^}]*?:\\\"([-\\\d]+?)\\\"[^:\\\"]+' ;
+            sid = RegexUtis.findValueByRegex(self.key,'f.sid',sidRegex,1,pageData,true);
+
+            var at = match[0];
+
+
+            var data = {
+                'at' : at,
+                'f_sid' : sid
+            };
+
+            console.log(data);
+            callback(data);
+        }
+
+}
 
 };
 
