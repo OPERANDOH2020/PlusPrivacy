@@ -23,6 +23,10 @@ angular.module('socialApps',['cfp.loadingBar'])
                     twitter:{
                         url:"https://www.twitter.com",
                         cookie_name:"auth_token"
+                    },
+                    google:{
+                        url:"https://myaccount.google.com",
+                        cookie_name:"OSID"
                     }
                 };
 
@@ -94,12 +98,18 @@ angular.module('socialApps',['cfp.loadingBar'])
                                     action = "getTwitterApps";
                                     break;
                                 case "linkedin":
-                                    action = "getLinkedInApps"
+                                    action = "getLinkedInApps";
+                                    break;
+                                case "google":
+                                    action = "getGoogleApps";
+                                    break;
+
                             }
 
                             messengerService.send(action, function (response) {
                                 if (response.status == "success") {
                                     $scope.apps = response.data;
+                                    console.log($scope.apps);
                                     $scope.requestIsMade = true;
                                     $scope.$apply();
                                 }

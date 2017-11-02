@@ -178,7 +178,6 @@ var websiteService = exports.websiteService = {
         function getApps (res){
             var rawAppsRegex = '<li\\s+id=\"permitted-service-(?:.|\n)*?</div>(?:.|\n)*?</li>';
             var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
-            console.log(rawAppsList);
             var appIdRegex = 'data-app-id="(.*?)"\\s?data-app-type';
             var appNameRegex = 'p\\s+class="permitted-service-name">(.*?)</p';
             var iconRegex = 'src=\"(.*?)\"';
@@ -199,6 +198,134 @@ var websiteService = exports.websiteService = {
         }
 
         doGetRequest("https://www.linkedin.com/psettings/permitted-services", getApps)
+    },
+
+    getGoogleApps:function(callback){
+        var googleApps = [];
+        var permissionsRegex = /<div[^>]+role="listitem"[^>]*>([^<]+).*?<\/div>/;
+        var extractPermissionsFromRawGroup = function(rawData) {
+            return RegexUtis.findAllOccurrencesByRegex(self.key, "Permissions in Group", permissionsRegex.source, 1, rawData,
+                function(value) {
+                    return value.trim().unescapeHtmlChars();
+                }
+            );
+        };
+
+        function getApps(page){
+
+            var isLearnMoreRegex = /<div[^>]+role="listitem"[^>]*>[^<]*<a/;
+
+            var permissionGroupRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^<]+<span[^<]+<img[^>]+src="([^"]+)"[^<]+<\/span>[^<]*<\/div>[^<]*<div[^>]+>([^<]+)<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
+            var permissionGroupIconlessRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^<]+<span[^<]+<\/span>[^<]*<\/div>[^<]*<div[^>]+>([^<]+)<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
+            var additionalPermissionGroupRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^>]+>[^<]+<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
+
+            var rawAppsRegex = 'jscontroller[^<]+data-id[^<]+role="listitem".*?role="row".*?role="rowheader".*?role="gridcell".*?<\/div><\/div><\/div><\/div><\/div><\/content>';
+            var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, page);
+            var appIdRegex = '<div class="CMEZce">([^"]+)</div>';
+            var iconUrlRegex = '<div class="ShbWnb" aria-hidden="true"><img src="([^"]+)"';
+
+
+
+            googleApps = rawAppsList
+                .map(function(rawAppData) {
+                    var appId = RegexUtis.findValueByRegex(self.key, 'App Id+Name', appIdRegex, 1, rawAppData, true).trim().unescapeHtmlChars();
+                    var name = appId;
+
+                    var iconUrl = RegexUtis.findValueByRegex(self.key, 'App Icon', iconUrlRegex, 1, rawAppData, true).unescapeHtmlChars();
+
+                    /* TODO: This condition is probably not even relevant anymore */
+                    if ((iconUrl.indexOf("google.com") > -1 && iconUrl.indexOf("android") > -1) ||
+                        (iconUrl.indexOf("gstatic.com") > -1 && iconUrl.indexOf("ios_icon") > -1)) {
+                        /* Skip apps for Android and iOS. They have custom names so we can only know by the icon. */
+                        return false;
+                    }
+
+                    var rawPermissionGroups = RegexUtis.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupRegex.source, 0, rawAppData,
+                        function(value) {
+                            return value.trim().unescapeHtmlChars();
+                        }
+                    );
+                    permissionGroups = [];
+                    var permissionIconGroups = rawPermissionGroups.map(function(rawGroup) {
+                        var groupData = RegexUtis.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupRegex, [ 1, 2, 3 ], rawGroup, true);
+
+                        var group = {
+                            iconUrl: groupData[0].trim().unescapeHtmlChars(),
+                            name: groupData[1].trim().unescapeHtmlChars()
+                        };
+
+                        var rawGroupContent = groupData[2];
+
+                        if (!rawGroupContent.match(isLearnMoreRegex)) {
+                            group.permissions = extractPermissionsFromRawGroup(rawGroupContent);
+                        } else {
+                            group.permissions = [ group.name ];
+                        }
+
+                        return group;
+                    });
+
+                    if (permissionIconGroups){
+                        permissionGroups = permissionGroups.concat(permissionIconGroups);
+                    }
+
+                    var rawPermissionIconlessGroups = RegexUtis.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupIconlessRegex.source, 0, rawAppData,
+                        function(value) {
+                            return value.trim().unescapeHtmlChars();
+                        });
+
+                    var permissionIconlessGroups = rawPermissionIconlessGroups.map(function(rawGroup) {
+                        var groupData = RegexUtis.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupIconlessRegex, [ 1, 2 ], rawGroup, true);
+
+
+                        var group = {
+                            name: groupData[0].trim().unescapeHtmlChars()
+                        };
+
+                        var rawGroupContent = groupData[1];
+
+                        if (!rawGroupContent.match(isLearnMoreRegex)) {
+                            group.permissions = extractPermissionsFromRawGroup(rawGroupContent);
+                        } else {
+                            group.permissions = [ group.name ];
+                        }
+
+                        return group;
+                    });
+
+                    if (permissionIconlessGroups){
+                        permissionGroups = permissionGroups.concat(permissionIconlessGroups);
+                    }
+
+
+
+                    /* Additional permissions that don't have a group. See example #3 above */
+                    var rawAdditionalPermissionsGroup = RegexUtis.findValueByRegex(self.key, "Permission Group", additionalPermissionGroupRegex, 1, rawAppData, false);
+
+                    if (rawAdditionalPermissionsGroup) {
+                        var additionalPermissions = extractPermissionsFromRawGroup(rawAdditionalPermissionsGroup);
+
+                        permissionGroups.push({
+                            permissions: additionalPermissions
+                        });
+                    }
+
+                    return {
+                        appId: appId,
+                        iconUrl: iconUrl,
+                        name: name,
+                        permissionGroups: permissionGroups
+                    };
+                });
+
+            callback(googleApps);
+                //.filter(function(app) {
+                    /* Filter out apps for Android and iOS. This is using the false value we returned in the map. */
+                  //  return !!app;
+                //});
+        }
+
+        doGetRequest("https://myaccount.google.com/permissions",getApps);
     },
 
     removeSocialApp:function(data, callback){
