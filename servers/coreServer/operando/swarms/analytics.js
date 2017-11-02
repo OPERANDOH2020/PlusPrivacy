@@ -5,7 +5,7 @@
 var analyticsSwarming = {
     addRegistration: function (userEmail,userId) {
         this.userEmail = userEmail;
-        this.userId = userId
+        this.userId = userId;
         this.swarm("getIp",this.getEntryAdapter())
     },
 
@@ -27,6 +27,7 @@ var analyticsSwarming = {
     getDownloadUrl:function(){
         this.swarm("getLink");
     },
+
     getLink:{
         node:"AnalyticsAdapter",
         code:function(){
@@ -38,6 +39,107 @@ var analyticsSwarming = {
                 }else{
                     self.link = downloadLink;
                     self.home('gotDownloadUrl');
+                }
+            }))
+        }
+    },
+
+    getUserAnalytics:function(){
+        this.swarm('getAnalytics');
+    },
+    getAnalytics:{
+        node:"AnalyticsAdapter",
+        code:function(){
+            var self = this;
+            getUsersSummary(S(function(err,userData){
+                if(err){
+                    self.err = err.message;
+                    self.swarm('failed');
+                }else{
+                    self.userAnalytics = userData;
+                    self.home('gotUserAnalytics');
+                }
+            }))
+        }
+    },
+
+    getAllFilters:function(){
+        this.swarm('getFilters');
+    },
+    getFilters:{
+        node:'AnalyticsAdapter',
+        code:function(){
+            var self = this;
+            getExistingFilters(S(function (err, filters) {
+                if (err) {
+                    self.err = err.message;
+                    self.home('failed');
+                } else {
+                    self.filters = filters.map(function(filter){
+                        delete filter.__meta;
+                        return filter;
+                    })
+                    self.home('gotFilters');
+                }
+            }))
+        }
+    },
+
+    registerNewFilter:function(newFilter){
+        this.filter = newFilter;
+        this.swarm('registerFilter');
+    },
+    registerFilter:{
+        node:"AnalyticsAdapter",
+        code:function(){
+            var self = this;
+            registerFilter(this.filter,S(function(err,result){
+                if(err){
+                    self.err = err.message;
+                    self.home('failed');
+                }else{
+                    self.home('filterRegistered');
+                }
+            }))
+        }
+    },
+
+    getFilterRecords:function(filterName){
+        this.filterName = filterName;
+        this.swarm("getRecords");
+    },
+    getRecords:{
+        node:"AnalyticsAdapter",
+        code:function(){
+            var self = this;
+            getRecords(self.filterName, S(function (err, records) {
+                if (err) {
+                    self.err = err.message;
+                    self.home('failed');
+                } else {
+                    self.records = records;
+                    self.home('gotRecords');
+                }
+            }))
+                
+        }
+    },
+
+    executeAnalyticsFilter:function(filter){
+        this.filter = filter;
+        this.swarm('executeFilter');
+    },
+    executeFilter:{
+        node:'AnalyticsAdapter',
+        code:function(){
+            var self = this;
+            executeFilter(this.filter,S(function(err,filteredData){
+                if(err){
+                    self.err = err.message;
+                    self.home('failed');
+                }else{
+                    self.filterResult = filteredData[0].value;
+                    self.home('filterExecuted');
                 }
             }))
         }

@@ -1,0 +1,41 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">User {{user.email}}</h4>
+			</div>
+			<div class="modal-body">
+				<div>
+					Devices: {{listOfDevices}}
+				</div>
+				<hr>
+				<div>
+					Social networks: {{listOfSocialNetworks}}
+				</div>
+				<hr>
+				<div>
+					Signup date: {{user.signupDate.split('T')[0]}}
+				</div>
+				<hr>
+				<div>
+					Last use: {{user.lastUse.split('T')[0]}}
+				</div>
+				<hr>
+				<div>
+					Nr of alternative identities: {{user.nrOfAltIdentities}}
+				</div>
+				<hr>
+				<div>
+					Provided feedback: {{user.filledFeedback}}
+				</div>
+			</div>
+
+			<div class="modal-footer" style="text-align: left">
+				<button class="btn btn-lg btn-primary btn-block" ng-click="deleteUser()">
+					Delete user
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

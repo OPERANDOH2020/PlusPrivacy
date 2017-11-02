@@ -70,6 +70,17 @@ var menuCtrl = {
 							name: "Credit Management",
 							url: "apps/examples/CreditManagement/index.html"
 						});
+						self.result.push({
+							icon: "glyphicon glyphicon-transfer",
+							name: "Zones Management",
+							url: "apps/examples/ZoneManagement/index.html"
+						});
+
+						self.result.push({
+							icon: "glyphicon glyphicon-transfer",
+							name: "User Analytics",
+							url: "apps/examples/UserAnalytics/index.html"
+						});
 
 						self.result.push({
 							icon: "glyphicon glyphicon-thumbs-up",

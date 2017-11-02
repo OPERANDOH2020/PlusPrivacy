@@ -3,14 +3,11 @@
  */
 
 
-excludeFromAdapters(["Core","RedisRelay","DefaultLogger","SwarmMonitor","ClientAdapter","GuardianAdapter","RedisRelay","WSServer","EmailAdapter","CrawlerAdapter"]);
+//excludeFromAdapters(["Core","RedisRelay","DefaultLogger","SwarmMonitor","GuardianAdapter","RedisRelay","WSServer","EmailAdapter","CrawlerAdapter"]);
 
 var mysql     = require('mysql');
 var container = require('safebox').container;
 var apersistence = require('apersistence');
-
-
-
 
 var connectionSettings = {
     connectionLimit:10,

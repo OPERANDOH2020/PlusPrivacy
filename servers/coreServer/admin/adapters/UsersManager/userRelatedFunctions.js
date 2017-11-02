@@ -78,7 +78,6 @@ exports.filterUsers = function(conditions,callback){
                  return user;
              })
          }
-
         callback(err,result)
     });
 };
@@ -538,7 +537,7 @@ exports.usersInZone = function(zoneName,callback){
             }));
         }
     })
-}
+};
 function filteredMappings(filter,callback){
     flow.create("filterMappings",{
         begin:function(){
@@ -634,6 +633,5 @@ exports.subscribeUserToNewsletter = function(email){
     }, function (error, response, body){
        //don't care about the response...
     });
-
 }
 
