@@ -1,5 +1,4 @@
 <div ng-controller="userAnalyticsController">
-	<div class="ng-scope" ui-view="">
 		<!--Page titlte-->
 		<div class="bg-light lter b-b wrapper-md ng-scope pageTitle">
 			<h1 class="m-n font-thin h3">User Analytics</h1>
@@ -16,87 +15,82 @@
 			</div>
 		</div>
 
-		<div class="wrapper-md ng-scope" ng-hide="fetchingFilters">
+		<div ng-hide="fetchingFilters">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Examine user stats
 				</div>
 				<div class="col-lg-4">
-					<div >
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<form>
-									Choose filter:
-									<select class="btn btn-xs btn-primary" ng-model="currentFilterName.value" ng-change="filterChanged()">
-										<option ng-repeat="filter in existingFilters" value="{{filter.filterName}}">{{filter.filterName}}</option>
-									</select>
-									<hr>
-
-									<label>Chrome:
-										<input type="checkbox" ng-model="conditions.usesChrome">
-									</label><br/>
-									<label>Android:
-										<input type="checkbox" ng-model="conditions.usesAndroid">
-									</label><br/>
-									<label>iOS:
-										<input type="checkbox" ng-model="conditions.usesiOS">
-									</label><br/>
-									<label>Facebook:
-										<input type="checkbox" ng-model="conditions.Facebook">
-									</label><br/>
-									<label>LinkedIn:
-										<input type="checkbox" ng-model="conditions.LinkedIn">
-									</label><br/>
-									<label>Twitter:
-										<input type="checkbox" ng-model="conditions.Twitter">
-									</label><br/>
-									<label>Google+:
-										<input type="checkbox" ng-model="conditions.GooglePlus">
-									</label><br/>
-									<label>YouTube:
-										<input type="checkbox" ng-model="conditions.YouTube">
-									</label><br/>
-									<label>Feedback:
-										<input type="checkbox" ng-model="conditions.filledFeedback">
-									</label><br/>
-									<label>Substitute identities:
-										<input type="number" ng-model="conditions.minnrOfAltIdentities"> -
-										<input type="number" ng-model="conditions.maxnrOfAltIdentities">
-									</label><br/>
-									<label>PfB deals accepted:
-										<input type="number" ng-model="conditions.minPfbDeals"> -
-										<input type="number" ng-model="conditions.maxPfbDeals">
-									</label><br/>
-									<label>SignupDate:
-										<input type="date" ng-model="conditions.signupDateAfter"> -
-										<input type="date" ng-model="conditions.signupDateBefore">
-									</label><br/>
-								</form>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form>
+								Choose filter:
+								<select class="btn btn-xs btn-primary" ng-model="currentFilterName.value" ng-change="filterChanged()">
+									<option ng-repeat="filter in existingFilters" value="{{filter.filterName}}">{{filter.filterName}}</option>
+								</select>
 								<hr>
-								<button class="btn btn-xs btn-primary" ng-click="executeStatsFilter()" type="button">Execute filter</button>
-								<div ng-show="filterResult!==null">
-									Result: {{filterResult}} users ({{filterResultPercent}}%)
-								</div>
-								<hr>
-								<button class="btn btn-xs btn-primary" ng-click="registerFilter()" type="button">Register filter</button>
 
+								<label>Chrome:
+									<input type="checkbox" ng-model="conditions.usesChrome">
+								</label><br/>
+								<label>Android:
+									<input type="checkbox" ng-model="conditions.usesAndroid">
+								</label><br/>
+								<label>iOS:
+									<input type="checkbox" ng-model="conditions.usesiOS">
+								</label><br/>
+								<label>Facebook:
+									<input type="checkbox" ng-model="conditions.Facebook">
+								</label><br/>
+								<label>LinkedIn:
+									<input type="checkbox" ng-model="conditions.LinkedIn">
+								</label><br/>
+								<label>Twitter:
+									<input type="checkbox" ng-model="conditions.Twitter">
+								</label><br/>
+								<label>Google+:
+									<input type="checkbox" ng-model="conditions.GooglePlus">
+								</label><br/>
+								<label>YouTube:
+									<input type="checkbox" ng-model="conditions.YouTube">
+								</label><br/>
+								<label>Feedback:
+									<input type="checkbox" ng-model="conditions.filledFeedback">
+								</label><br/>
+								<label>Substitute identities:
+									<input type="number" ng-model="conditions.minnrOfAltIdentities"> -
+									<input type="number" ng-model="conditions.maxnrOfAltIdentities">
+								</label><br/>
+								<label>PfB deals accepted:
+									<input type="number" ng-model="conditions.minPfbDeals"> -
+									<input type="number" ng-model="conditions.maxPfbDeals">
+								</label><br/>
+								<label>SignupDate:
+									<input type="date" ng-model="conditions.signupDateAfter"> -
+									<input type="date" ng-model="conditions.signupDateBefore">
+								</label><br/>
+							</form>
+							<hr>
+							<button class="btn btn-xs btn-primary" ng-click="executeStatsFilter()" type="button">Execute filter</button>
+							<div ng-show="filterResult!==null">
+								Result: {{filterResult}} users ({{filterResultPercent}}%)
 							</div>
+							<hr>
+							<button class="btn btn-xs btn-primary" ng-click="registerFilter()" type="button">Register filter</button>
+
 						</div>
 					</div>
 				</div>
 
 				<div class="col-lg-8">
-					<div >
+					<div class="panel-body">
 						<div class="panel-body">
-							<div class="panel-body">
-								<div id="chartdiv"></div>
-							</div>
+							<div id="chartdiv"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<div ng-show="fetchingUsers">
 			<div class="wrapper-md ng-scope">
 				<div class="panel panel-default">
@@ -107,50 +101,45 @@
 			</div>
 		</div>
 
-		<div class="wrapper-md ng-scope" ng-hide="fetchingUsers">
+		<div ng-hide="fetchingUsers">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Examine user analytics
 				</div>
+				<table class="table footable m-b-none default table-striped" data-filter="#filter" data-filtering="true" data-paging="true" data-sorting="true" data-page-size="5" data-limit-navigation="3" id="usersTable">
+					<thead>
+					<tr>
+						<th>Email</th>
+						<th>Uses Chrome</th>
+						<th>Uses iOS</th>
+						<th>Uses Android</th>
+						<th>Signup date</th>
+						<th>Last use</th>
+					</tr>
+					</thead>
 
-				<div>
-					<table class="table footable m-b-none default table-striped" data-filter="#filter" data-filtering="true" data-paging="true" data-sorting="true" data-page-size="5" data-limit-navigation="3" id="usersTable">
-						<thead>
-						<tr>
-							<th>Email</th>
-							<th>Uses Chrome</th>
-							<th>Uses iOS</th>
-							<th>Uses Android</th>
-							<th>Signup date</th>
-							<th>Last use</th>
-						</tr>
-						</thead>
+					<tbody>
+					<tr ng-repeat="user in users track by $index" class="footable-even" style="display: table-row;" ng-click="showDetails(user)"  redraw-table>
+						<td>{{user.email}}</td>
+						<td>{{user.usesChrome}}</td>
+						<td>{{user.usesiOS}}</td>
+						<td>{{user.usesAndroid}}</td>
+						<td>{{user.signupDate.split('T')[0]}}</td>
+						<td>{{user.lastUse.split('T')[0]}}</td>
+					</tr>
+					</tbody>
 
-						<tbody>
-							<tr ng-repeat="user in users track by $index" class="footable-even" style="display: table-row;" ng-click="showDetails(user)"  redraw-table>
-								<td>{{user.email}}</td>
-								<td>{{user.usesChrome}}</td>
-								<td>{{user.usesiOS}}</td>
-								<td>{{user.usesAndroid}}</td>
-								<td>{{user.signupDate.split('T')[0]}}</td>
-								<td>{{user.lastUse.split('T')[0]}}</td>
-							</tr>
-						</tbody>
-
-						<tfoot>
-						<tr class="footable-row-detail">
-							<td colspan="5">
-								<div class="text-center hide-if-no-paging">
-									<ul class="pagination"></ul>
-								</div>
-							</td>
-						</tr>
-						</tfoot>
-					</table>
-				</div>
+					<tfoot>
+					<tr class="footable-row-detail">
+						<td colspan="5">
+							<div class="text-center hide-if-no-paging">
+								<ul class="pagination"></ul>
+							</div>
+						</td>
+					</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
-
-	</div>
 </div>
 

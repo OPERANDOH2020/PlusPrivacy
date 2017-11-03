@@ -4,6 +4,7 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 	$.notifyDefaults(notifyDefaults);
 
 	var hub = swarmHubService.hub;
+	var currentNrOfRegisteredUsers = undefined;
 
 	$scope.fetchingFilters = true;
 	$scope.fetchingUsers = true;
@@ -14,16 +15,17 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 	$scope.filterResult = null;
 	$scope.filterResultPercent = null;
 
-	var currentNrOfRegisteredUsers = undefined;
 
 	hub.startSwarm("analytics.js", "getUserAnalytics");
+	hub.startSwarm("analytics.js","getAllFilters");
+	hub.startSwarm("analytics.js","executeAnalyticsFilter",{"conditions":{},"filterName":"Total number of users"});
+
 	hub.on('analytics.js','gotUserAnalytics',function (swarm) {
 		$scope.users = swarm.userAnalytics;
 		$scope.fetchingUsers = false;
 		$scope.$apply()
 	});
 
-	hub.startSwarm("analytics.js","getAllFilters");
 	hub.on('analytics.js','gotFilters',function(swarm){
 		$scope.existingFilters = swarm.filters;
 		$scope.fetchingFilters = false;
@@ -39,7 +41,6 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 		updateChart(swarm.records);
 	});
 
-	hub.startSwarm("analytics.js","executeAnalyticsFilter",{"conditions":{},"filterName":"Total number of users"});
 	hub.on('analytics.js','filterExecuted',function(swarm){
 		if(swarm.filter.filterName==='Total number of users'){
 			currentNrOfRegisteredUsers = swarm.filterResult;
@@ -54,6 +55,10 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 		$scope.existingFilters.forEach(function(filter){
 			if(filter.filterName===$scope.currentFilterName.value){
 				$scope.conditions = JSON.parse(JSON.stringify(filter.conditions)) //deep copy ...hi hi
+				console.log($scope.conditions);
+				$scope.conditions.signupDateAfter = new Date($scope.conditions.signupDateAfter)
+				$scope.conditions.signupDateBefore = new Date($scope.conditions.signupDateBefore)
+				console.log($scope.conditions);
 			}
 			hub.startSwarm("analytics.js","getFilterRecords",$scope.currentFilterName.value);
 		});
@@ -184,17 +189,13 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 			zoomChart();
 			$scope.chart.addListener("rendered", zoomChart);
 		}else {
-			$scope.chart.dateProvider = newData;
+			$scope.chart.dataProvider = newData;
 			$scope.chart.validateData();
 		}
 	}
 }]);
 
 app.controller('showDetailsController', ['$scope', 'user', '$element', 'close', function ($scope, user, $element, close) {
-	$scope.deleteUser = function(){
-		
-	}
-
 	var devices = {
 		"usesiOS":"iOS",
 		"usesAndroid":"Android",
@@ -210,7 +211,6 @@ app.controller('showDetailsController', ['$scope', 'user', '$element', 'close', 
 		$scope.listOfDevices = $scope.listOfDevices.slice(0,-1);
 	}
 
-
 	$scope.listOfSocialNetworks = "";
 	['Facebook','LinkedIn','GooglePlus','Youtube','Twitter'].forEach(function(current){
 		if(user[current]){
@@ -225,9 +225,6 @@ app.controller('showDetailsController', ['$scope', 'user', '$element', 'close', 
 
 app.controller('registerFilterController', ['$scope', 'filter', '$element', 'close', function ($scope, filter, $element, close) {
 	$scope.filter = filter;
-
-
-
 	$scope.registerFilter = function () {
 		$element.modal('hide');
 		close($scope.filter, 500);

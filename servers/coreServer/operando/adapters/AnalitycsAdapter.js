@@ -177,7 +177,12 @@ registerFilter = function(filter,callback){
         filterToQuery(filter);
         var obj = apersistence.createRawObject('AnalyticsFilter', filter.filterName);
         obj.conditions = filter.conditions;
-        mysqlPersistence.save(obj, callback);
+        mysqlPersistence.save(obj, function(err,result){
+            callback(err,result);
+            if(!err){
+                executeFilter(filter,recordFilterResult(filter.filterName))
+            }
+        })
     }catch(e){
         callback(e);
     }
@@ -249,16 +254,7 @@ executeFilter = function(filter,callback){
     try{
         //throws error if filter is not valid
         var q = filterToQuery(filter);
-        mysqlPool.query(q,function(err,result){
-            if(err){
-                callback(err);
-            }else{
-                if(filter.filterName!=='customFilter') {
-                    onFilterResult(filter.filterName, result[0].value);
-                }
-                callback(err,result);
-            }
-        });
+        mysqlPool.query(q,callback)
     }catch(e){
         console.error("An error occured while executing filter "+filter,e);
         callback(e);
@@ -270,26 +266,31 @@ function runFiltersPeriodically(){
         if(err){
             console.error("Error occured while retrieving filters from database at timestamp "+new Date().toISOString()+"\nError: "+err);
         }else{
-            filters.forEach(function(filter){
-                executeFilter(filter,function(err,result){
-                    if(err){
-                        console.error("Error occured while executing filter "+ filter+" at timestamp "+new Date().toISOString()+"\nError: "+err);
-                    }
-                })
-            })
+            console.log("Running analytics filters "+JSON.stringify(filters,null,4)+" at timestamp "+new Date().toISOString())
+            filters.forEach(function(filter){executeFilter(filter,recordFilterResult(filter.filterName))})
         }
     });
     setTimeout(runFiltersPeriodically,1000*60*60*24); //run daily
 }
 
-function onFilterResult(filterName,value){
-    var record = apersistence.createRawObject('FilterRecord', uuid.v1());
-    mysqlPersistence.externalUpdate(record,{"date":new Date(),"filterName":filterName,"value":value})
-    mysqlPersistence.save(record, function(err,result){
-        if(err){
-            console.error("Error occured while recording result "+result+" for filter "+result,err);
+function recordFilterResult(filterName,callback){
+    return function(err,result) {
+        if (!callback) {
+            callback = function (err, result) {
+                if (err) {
+                    console.error("Error occured while running filter  " + filterName , err);
+                }
+            }
         }
-    });
+
+        if(err){
+            callback(err);
+        }else {
+            var record = apersistence.createRawObject('FilterRecord', uuid.v1());
+            mysqlPersistence.externalUpdate(record, {"date": new Date(), "filterName": filterName, "value": result[0].value})
+            mysqlPersistence.save(record, callback)
+        }
+    }
 }
 
 getRecords = function(filterName,callback){
