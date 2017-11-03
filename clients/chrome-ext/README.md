@@ -1,4 +1,4 @@
-Plus Privacy Chrome Extension
+PlusPrivacy Chrome Extension
 =========================
 This is a Chrome Browser Extension and it's based on ADP (https://github.com/adblockplus/adblockpluschrome).
 The extension connects to your OPERANDO account and protect your privacy data.

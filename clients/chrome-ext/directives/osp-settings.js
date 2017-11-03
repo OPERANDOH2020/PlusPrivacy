@@ -14,7 +14,6 @@ angular.module('osp', ['cfp.loadingBar'])
             });
 
             function completeForm(preferences){
-                console.log(preferences);
 
                 var hasPreferences  = preferences.length > 0;
                 if(hasPreferences){
@@ -23,7 +22,6 @@ angular.module('osp', ['cfp.loadingBar'])
                         preferencesObject[preference.setting_key] = preference.setting_value;
                     });
                 }
-                console.log(preferencesObject);
 
                 var schema = {
                     type: "object"

@@ -54,11 +54,12 @@ page.onConsoleMessage = function(msg, lineNum, sourceId) {
 
 function openUrl(name,url){
     return function() {
+        console.log(JSON.stringify({status:"fetching", name:name,url:url}));
         page.open(url, function (status) {
             if (status === "success") {
-                console.log("Opened " + name + " at url " + url);
+                console.log(JSON.stringify({status:"success", name:name,url:url}));
             } else {
-                console.log("Could not open " + name + " at url " + url, status);
+                console.log(JSON.stringify({status:"error", name:name,url:url}));
             }
         })
     }
@@ -70,10 +71,10 @@ var waiting = false;
 function wait(num_miliseconds){
     return function(){
         waiting = true;
-        console.log("Waiting");
+        //console.log("Waiting");
         window.setTimeout(function(){
             waiting = false;
-            console.log("Done waiting");
+            //console.log("Done waiting");
         },num_miliseconds?num_miliseconds:2000)
     }
 }
@@ -135,12 +136,11 @@ function readPage(name){
     }
 }
 
-
 steps = [];
 
 for(var network in config){
     steps.push(changeCookieJar(network));
-    config[network].forEach(function(crawlStep){
+    config[network].forEach(function(crawlStep,index){
         if(crawlStep.exec){
             steps.push(predefinedFunctions[crawlStep.exec])
         }
@@ -152,7 +152,7 @@ for(var network in config){
             }
         }
         steps.push(wait);
-    })
+    });
 }
 
 setInterval(executeRequestsStepByStep,100);
