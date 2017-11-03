@@ -37,7 +37,7 @@ mysqlConnection.query(getUsersByDate,function(err,usersPerDay){
         totalUsersByDay+=users.nrUsers;
 
         var updateQuery = "REPLACE INTO FilterRecord (filterName,date,id,value) " +
-            "VALUES ('Total nr of users','"+new Date(users.signupDate).toISOString().split('T')[0]+"','"+uuid.v1()+"',"+totalUsersByDay+");";
+            "VALUES ('Total number of users','"+new Date(users.signupDate).toISOString().split('T')[0]+"','"+uuid.v1()+"',"+totalUsersByDay+");";
 
 
         mysqlConnection.query(updateQuery,function(err,result) {
