@@ -103,6 +103,9 @@ angular.module('socialApps',['cfp.loadingBar'])
                                 case "google":
                                     action = "getGoogleApps";
                                     break;
+                                case "dropbox":
+                                    action = "getDropBoxApps";
+                                    break;
 
                             }
 
@@ -128,9 +131,6 @@ angular.module('socialApps',['cfp.loadingBar'])
                 var checkInterval = setInterval(checkIfLoggedIn, 3000);
 
                 checkIfLoggedIn();
-
-
-
 
             },
             templateUrl:"/operando/tpl/apps/sn_apps.html"

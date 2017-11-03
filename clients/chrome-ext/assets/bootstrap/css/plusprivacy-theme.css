@@ -1898,6 +1898,14 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/google_selected.png");
 }
 
+.menu_icon.dropbox_icon{
+    background-image:url("/operando/assets/images/menu_icons/dropbox.png");
+}
+
+.active.menu_icon.dropbox_icon{
+    background-image:url("/operando/assets/images/menu_icons/dropbox_selected.png");
+}
+
 .menu_icon.identity_management_icon{
     background-image:url("/operando/assets/images/menu_icons/identity_management.png");
 }
@@ -2625,4 +2633,29 @@ h4.modal-title.plusprivacy{
     color:#FF4000;
     padding-left: 3px;
 }
+
+.google_group_permissions{
+    text-align: left;
+    width: 30%;
+    float: left;
+    bottom: 11px;
+    display: flex;
+    align-items: center;
+}
+.permissionGroup{
+    display: flex;
+    align-items: center;
+}
+
+.permissionGroup:before{
+    clear:both;
+    display: block;
+    content:"";
+}
+
+.google_app_permissions span{
+    display: block;
+    text-align: left;
+}
+
 

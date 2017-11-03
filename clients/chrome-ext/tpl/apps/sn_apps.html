@@ -28,15 +28,15 @@
             </table>
         </td>
     <td class="app_permissions" ng-if="sn=='google'">
-        <table class="table table-bordered" ng-repeat="permissionGroup in app.permissionGroups">
-            <tr>
-                <td class="permission_icon"><img ng-src="{{permissionGroup.iconUrl}}"/></td>
-                <td>{{permissionGroup.name}}</td>
-                <td>
-                    <span ng-repeat="permission in permissionGroup.permissions">{{permission}}</span>
-                </td>
-            </tr>
-        </table>
+        <div ng-repeat="permissionGroup in app.permissionGroups" class="permissionGroup">
+            <div class="google_group_permissions">
+                <img class="permission_icon" ng-src="{{permissionGroup.iconUrl}}"/>
+                <span>{{permissionGroup.name}}</span>
+            </div>
+            <div class="google_app_permissions">
+                <span ng-repeat="permission in permissionGroup.permissions">{{permission}}</span>
+            </div>
+        </div>
     </td>
         <td class="app_actions">
             <button ng-disabled="app.removing == true" class="trash"  ng-click="removeSocialApp(app.appId)"></button>

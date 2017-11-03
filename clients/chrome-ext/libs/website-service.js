@@ -214,7 +214,6 @@ var websiteService = exports.websiteService = {
         function getApps(page){
 
             var isLearnMoreRegex = /<div[^>]+role="listitem"[^>]*>[^<]*<a/;
-
             var permissionGroupRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^<]+<span[^<]+<img[^>]+src="([^"]+)"[^<]+<\/span>[^<]*<\/div>[^<]*<div[^>]+>([^<]+)<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
             var permissionGroupIconlessRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^<]+<span[^<]+<\/span>[^<]*<\/div>[^<]*<div[^>]+>([^<]+)<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
             var additionalPermissionGroupRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^>]+>[^<]+<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
@@ -223,7 +222,6 @@ var websiteService = exports.websiteService = {
             var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, page);
             var appIdRegex = '<div class="CMEZce">([^"]+)</div>';
             var iconUrlRegex = '<div class="ShbWnb" aria-hidden="true"><img src="([^"]+)"';
-
 
 
             googleApps = rawAppsList
@@ -364,6 +362,29 @@ var websiteService = exports.websiteService = {
             callback({csrfToken:token});
         }
 
+
+        function extractGoogleTokens(content,appId, callback){
+            var now = new Date();
+            var paramsOption1 = "\\\[.*,\\\'([\\\w-]+:[\\\w\\\d]+)\\\',.*\\\]\\\s.*(?=(\\\,\\\s*)+\\\].*window\\\.IJ_valuesCb \\\&\\\&)";
+            var match = RegexUtis.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [ 1 ], content, true);
+            var sidRegex = 'WIZ_global_data.+{[^}]*?:\\\"([-\\\d]+?)\\\"[^:\\\"]+' ;
+            var sid = RegexUtis.findValueByRegex(self.key,'f.sid',sidRegex,1,content,true);
+            var at = match[0];
+
+
+            var req_id =  3600 * now.getHours() + 60 * now.getMinutes() + now.getSeconds() + 1E5;
+            var fReqRegex = 'data-name="' + appId + '".*?data-handle="(.*?)"';
+            var f_req = RegexUtis.findValueByRegex(self.key, 'f_req', fReqRegex, 1, content, true);
+
+
+            callback({
+                req_id: req_id,
+                f_req: f_req,
+                at:at,
+                f_sid:sid
+            });
+        }
+
         function removeFbApp(appId){
 
                     doGetRequest("https://www.facebook.com/settings?tab=applications",function(content){
@@ -401,11 +422,28 @@ var websiteService = exports.websiteService = {
             });
         }
 
+        function removeGoogleApp(appId){
+
+            doGetRequest("https://myaccount.google.com/permissions?hl=en",function(content){
+                extractGoogleTokens(content, appId, function(tokens){
+                    var body = "at=" + tokens['at'];
+                    body+= "&f.req=" + '["af.maf",[["af.add",143439692,[{"143439692":["' + tokens['f_req'] + '"]}]]]]';
+                    var url =  'https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=143439692';
+                    if (tokens['f_sid']){
+                        url += '&f.sid='+tokens['f_sid'];
+                    }
+                    url +='&hl=en&_reqid='+tokens['req_id']+'&rt=c';
+                    doPOSTRequest(url,body, callback);
+                });
+            });
+        }
 
         switch(data.sn){
             case "facebook" : removeFbApp(data.appId); break;
             case "twitter" : removeTwitterApp(data.appId); break;
             case "linkedin": removeLinkedinApp(data.appId); break;
+            case "google": removeGoogleApp(data.appId); break;
+            case "dropbox": removeDropboxApp(data.appId); break;
         }
 
     },
