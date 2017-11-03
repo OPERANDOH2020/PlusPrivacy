@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller('zoneManagerController', ['$scope', 'ModalService', 'swarmHubService', function ($scope, ModalService, swarmHubService) {
+app.controller('zoneManagerController', ['$scope','ModalService','notifyDefaults', 'swarmHubService', function ($scope, ModalService,notifyDefaults, swarmHubService) {
+	$.notifyDefaults(notifyDefaults);
 
 	var hub = swarmHubService.hub;
 
@@ -113,15 +114,14 @@ app.controller('updateZoneController', ['$scope', "$element", 'close', 'zone','a
 
 		$scope.newUser = {"email":""};
 	};
+	var r = new FileReader();
+	r.addEventListener('loadend', function(e) {
+		$scope.zone.users = uniqueElements($scope.zone.users.concat(e.target.result.split(new RegExp("[\",\ ]")).filter(function (user) {return user.length>1;})));
+		$scope.$apply();
+	});
 
 	$scope.uploadFile = function(){
 		var f = document.getElementById('file').files[0];
-		var r = new FileReader();
-
-		r.onloadend = function(e) {
-			$scope.zone.users = uniqueElements($scope.zone.users.concat(e.target.result.split(new RegExp("[\",\ ]")).filter(function (user) {return user.length>1;})));
-			$scope.$apply();
-		};
 		r.readAsText(f);
 	};
 
