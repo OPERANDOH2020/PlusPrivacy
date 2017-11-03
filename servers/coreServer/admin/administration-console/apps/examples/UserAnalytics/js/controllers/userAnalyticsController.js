@@ -55,10 +55,13 @@ app.controller('userAnalyticsController', ['$scope', 'ModalService', 'swarmHubSe
 		$scope.existingFilters.forEach(function(filter){
 			if(filter.filterName===$scope.currentFilterName.value){
 				$scope.conditions = JSON.parse(JSON.stringify(filter.conditions)) //deep copy ...hi hi
-				console.log($scope.conditions);
-				$scope.conditions.signupDateAfter = new Date($scope.conditions.signupDateAfter)
-				$scope.conditions.signupDateBefore = new Date($scope.conditions.signupDateBefore)
-				console.log($scope.conditions);
+
+				if($scope.conditions.signupDateAfter) {
+					$scope.conditions.signupDateAfter = new Date($scope.conditions.signupDateAfter)
+				}
+				if($scope.conditions.signupDateBefore) {
+					$scope.conditions.signupDateBefore = new Date($scope.conditions.signupDateBefore)
+				}
 			}
 			hub.startSwarm("analytics.js","getFilterRecords",$scope.currentFilterName.value);
 		});
