@@ -2,15 +2,14 @@
  * Created by ciprian on 09.03.2017.
  */
 
-
-excludeFromAdapters(["Core","RedisRelay","DefaultLogger","SwarmMonitor","ClientAdapter","GuardianAdapter","RedisRelay","WSServer","EmailAdapter","CrawlerAdapter"]);
+/*
+    Mysql is also needed for some analytics tasks so be careful with the exclusions
+ */
+excludeFromAdapters(["DefaultLogger","SwarmMonitor","GuardianAdapter","EmailAdapter","CrawlerAdapter"]);
 
 var mysql     = require('mysql');
 var container = require('safebox').container;
 var apersistence = require('apersistence');
-
-
-
 
 var connectionSettings = {
     connectionLimit:10,
