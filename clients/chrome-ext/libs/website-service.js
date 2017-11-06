@@ -13,12 +13,25 @@ function doGetRequest(url,callback){
     oReq.send();
 }
 
+
+function doHeaderPOSTRequest(url, _body, headers, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    headers.forEach(function(header){
+        xhr.setRequestHeader(header.name, header.value);
+    });
+    xhr.onload = function () {
+        callback(this.responseText);
+    };
+    xhr.send(_body);
+}
+
 function doPOSTRequest(url, _body, callback){
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onload = function () {
-        callback();
+        callback(this.responseText);
     };
     xhr.send(_body);
 }
@@ -192,7 +205,6 @@ var websiteService = exports.websiteService = {
                 }
             });
 
-            console.log(linkedInApps);
             callback(linkedInApps);
 
         }
@@ -317,13 +329,45 @@ var websiteService = exports.websiteService = {
                 });
 
             callback(googleApps);
-                //.filter(function(app) {
-                    /* Filter out apps for Android and iOS. This is using the false value we returned in the map. */
-                  //  return !!app;
-                //});
+
         }
 
         doGetRequest("https://myaccount.google.com/permissions",getApps);
+    },
+
+    getDropBoxApps:function(callback){
+
+
+     function getApps(content){
+         var matchRes ='(?:"viewerData"\\:)(?=.*"Personal")(?=.*"userId"\\:\\s+(\\w+))(?=.*"personalName"\\:\\s+\\"([^"]+)\\"[,]\\s+)';
+         var userId = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
+
+         chrome.cookies.get({url:"https://www.dropbox.com",name:"t"}, function (cookie){
+             var body="is_xhr=true" + "&" + "t=" + cookie.value + "&" +
+             "_subject_uid=" + userId;
+
+             doPOSTRequest("https://www.dropbox.com/account/get_linked_apps",body, function(response){
+                 var rawApps = JSON.parse(response);
+
+                 var apps = [];
+                 rawApps.user_apps.forEach(function(app){
+                    apps.push({
+                        appId:app.id,
+                        name:app.name,
+                        iconUrl:app.icon_url.replace("size=16x16","size=32x32"),
+                        permission:{
+                            title:app.access_type,
+                            description:app.access_type_desc
+                        }
+                    })
+                 });
+                 callback(apps);
+             })
+         });
+     }
+
+        doGetRequest("https://www.dropbox.com/account/connected_apps",getApps);
+
     },
 
     removeSocialApp:function(data, callback){
@@ -385,6 +429,16 @@ var websiteService = exports.websiteService = {
             });
         }
 
+        function extractDropBoxTokens(content, callback){
+            var tokens = {};
+            var matchRes ='(?:"viewerData"\\:)(?=.*"Personal")(?=.*"userId"\\:\\s+(\\w+))(?=.*"personalName"\\:\\s+\\"([^"]+)\\"[,]\\s+)';
+            tokens.userId = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
+            chrome.cookies.get({url:"https://www.dropbox.com",name:"t"}, function (cookie){
+               tokens['t'] = cookie.value;
+               callback(tokens);
+            });
+        }
+
         function removeFbApp(appId){
 
                     doGetRequest("https://www.facebook.com/settings?tab=applications",function(content){
@@ -438,12 +492,33 @@ var websiteService = exports.websiteService = {
             });
         }
 
+        function removeDropoxApp(appId){
+            doGetRequest("https://www.dropbox.com/account/connected_apps",function(content){
+                extractDropBoxTokens(content, function(tokens){
+                    var body = {app_id: appId, keep_sandbox_files: true};
+                    var url = "https://www.dropbox.com/2/security_settings/uninstall_app";
+                    var headers = [{
+                        name:"x-csrf-token",
+                        value:tokens['t']
+                    },{
+                        name:"x-dropbox-uid",
+                        value:tokens['userId']
+                    },{
+                        name:"Content-Type",
+                        value:"application/json"
+                    }];
+
+                    doHeaderPOSTRequest(url,JSON.stringify(body), headers, callback);
+                });
+            });
+        }
+
         switch(data.sn){
             case "facebook" : removeFbApp(data.appId); break;
             case "twitter" : removeTwitterApp(data.appId); break;
             case "linkedin": removeLinkedinApp(data.appId); break;
             case "google": removeGoogleApp(data.appId); break;
-            case "dropbox": removeDropboxApp(data.appId); break;
+            case "dropbox": removeDropoxApp(data.appId); break;
         }
 
     },
@@ -469,7 +544,6 @@ var websiteService = exports.websiteService = {
                 'f_sid' : sid
             };
 
-            console.log(data);
             callback(data);
         }
 

@@ -20,7 +20,7 @@
         </td>
         <td class="app_name"><h4>{{app.name}}</h4></td>
         <td ng-if="sn=='facebook'" class="app_visibility">{{app.visibility}}</td>
-        <td class="app_permissions" ng-if="sn!='linkedin' && sn!='google'">
+        <td class="app_permissions" ng-if="sn == 'facebook' || sn == 'twitter'">
             <table class="table table-bordered">
             <tr ng-repeat="permission in app.permissions">
                 <td class="{{permission|removeWhiteSpace}}" >{{permission}}</td>
@@ -37,6 +37,12 @@
                 <span ng-repeat="permission in permissionGroup.permissions">{{permission}}</span>
             </div>
         </div>
+    </td>
+
+    <td class="app_permissions" ng-if="sn == 'dropbox'">
+            <div class="dropbox_permissions">
+                <span class="dropbox_permission_title">{{app.permission.title}}</span> <span class="dropbox_permission_description">{{app.permission.description}}</span>
+            </div>
     </td>
         <td class="app_actions">
             <button ng-disabled="app.removing == true" class="trash"  ng-click="removeSocialApp(app.appId)"></button>

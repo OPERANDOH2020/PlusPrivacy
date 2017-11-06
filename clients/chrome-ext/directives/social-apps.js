@@ -27,9 +27,12 @@ angular.module('socialApps',['cfp.loadingBar'])
                     google:{
                         url:"https://myaccount.google.com",
                         cookie_name:"OSID"
+                    },
+                    dropbox:{
+                        url:"https://www.dropbox.com",
+                        cookie_name:"bjar"
                     }
                 };
-
 
 
                 $scope.$on("appRemoved", function(event,appId){

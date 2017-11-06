@@ -2659,3 +2659,12 @@ h4.modal-title.plusprivacy{
 }
 
 
+.dropbox_permissions{
+    text-align: left;
+}
+.dropbox_permissions .dropbox_permission_title{
+    font-weight: bold;
+}
+.dropbox_permissions .dropbox_permission_description{
+    margin-left: 10px;
+}
