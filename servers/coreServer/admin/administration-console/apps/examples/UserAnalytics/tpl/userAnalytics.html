@@ -38,6 +38,9 @@
 								<label>iOS:
 									<input type="checkbox" ng-model="conditions.usesiOS">
 								</label>
+								<label>Website:
+									<input type="checkbox" ng-model="conditions.usesPlusPrivacyWebsite">
+								</label>
 								<hr>
 								<label>Facebook:
 									<input type="checkbox" ng-model="conditions.Facebook">
@@ -110,6 +113,7 @@
 					<thead>
 					<tr>
 						<th>Email</th>
+						<th>Uses Website</th>
 						<th>Uses Chrome</th>
 						<th>Uses iOS</th>
 						<th>Uses Android</th>
@@ -121,6 +125,7 @@
 					<tbody>
 					<tr ng-repeat="user in users track by $index" class="footable-even" style="display: table-row;" ng-click="showDetails(user)"  redraw-table>
 						<td>{{user.email}}</td>
+						<td>{{user.usesPlusPrivacyWebsite}}</td>
 						<td>{{user.usesChrome}}</td>
 						<td>{{user.usesiOS}}</td>
 						<td>{{user.usesAndroid}}</td>

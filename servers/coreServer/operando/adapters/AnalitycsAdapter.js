@@ -155,6 +155,7 @@ packAnalyticsForDownload = function(callback){
 getUsersSummary = function(callback) {
     var requiredFields = [
         'email',
+        'usesPlusPrivacyWebsite',
         'usesChrome',
         'usesiOS',
         'usesAndroid',

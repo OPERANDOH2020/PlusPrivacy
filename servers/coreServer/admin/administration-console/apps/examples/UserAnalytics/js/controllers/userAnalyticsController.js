@@ -202,7 +202,9 @@ app.controller('showDetailsController', ['$scope', 'user', '$element', 'close', 
 	var devices = {
 		"usesiOS":"iOS",
 		"usesAndroid":"Android",
-		"usesChrome":"Chrome"
+		"usesChrome":"Chrome",
+		"usesPlusPrivacyWebsite":"Website"
+
 	}
 	$scope.listOfDevices = "";
 	for(var field in devices){
