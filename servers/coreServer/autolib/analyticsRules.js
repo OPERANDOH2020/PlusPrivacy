@@ -29,6 +29,28 @@ var analyticRules = [
     },
     {
         "swarmName":"login.js",
+        "swarmConstructor":"tokenLogin",
+        "argumentPatterns": function(meta,args){
+            return args[0]!="guest@operando.eu"; //all logins but the logins of guest...
+        },
+        "analytics":onTokenLogin,
+        "toBeLogged":function(meta,args){
+            return "login with "+args[0]; //return email
+        }
+    },
+    {
+        "swarmName":"login.js",
+        "swarmConstructor":"restoreSession",
+        "argumentPatterns": function(meta,args){
+            return args[0]!="guest@operando.eu"; //all logins but the logins of guest...
+        },
+        "analytics":onRecovery,
+        "toBeLogged":function(meta,args){
+            return "login with "+args[0]; //return email
+        }
+    },
+    {
+        "swarmName":"login.js",
         "swarmConstructor":"logout",
         "argumentPatterns":function(meta,args){
             return args[0]!="guest@operando.eu";
@@ -152,7 +174,7 @@ var analyticRules = [
 ];
 
 const tenantPlatformAnalyticsMap = {
-    'chromeBrowserExtension':{
+    "chromeBrowserExtension":{
         name:"ChromeExtension",
         loggedIn:"loggedInChrome",
         uses:"usesChrome",
@@ -175,12 +197,20 @@ const tenantPlatformAnalyticsMap = {
         lastLogin:"lastLoginInAndroid",
         totalLoginLength:"totalLoginLengthInAndroid",
         lastLoginLength:"lastLoginLengthInAndroid"
+    },
+    "PlusPrivacyWebsite":{
+        name:"PlusPrivacyWebsite",
+        loggedIn:"loggedInPlusPrivacyWebsite",
+        uses:"usesPlusPrivacyWebsite",
+        lastLogin:"lastLoginInPlusPrivacyWebsite",
+        totalLoginLength:"totalLoginLengthInPlusPrivacyWebsite",
+        lastLoginLength:"lastLoginLengthInPlusPrivacyWebsite"
     }
 };
 const preferenceKeyToSN = { //    When GooglePlus and Youtube are available you need to add those too!
     "linkedin":"LinkedIn",
-    'facebook':'Facebook',
-    'twitter':"Twitter"
+    "facebook":'Facebook',
+    "twitter":"Twitter"
 }
 
 container.declareDependency("rulesRegistered",['mysqlPersistence','analytics'],function(outOfService,mysqlPersistence){
@@ -272,6 +302,25 @@ function setupTables(callback){
                 type:"datetime"
             },
             lastLoginLengthInChrome:{
+                type:"int",
+                default:0
+            },
+            usesPlusPrivacyWebsite:{
+                type:"boolean",
+                default:false
+            },
+            loggedInPlusPrivacyWebsite:{
+                type:"boolean",
+                default:false
+            },
+            totalLoginLengthInPlusPrivacyWebsite:{
+                type:"int",
+                default:0
+            },
+            lastLoginInPlusPrivacyWebsite:{
+                type:"datetime"
+            },
+            lastLoginLengthInPlusPrivacyWebsite:{
                 type:"int",
                 default:0
             },
@@ -387,6 +436,28 @@ function onLogin(meta,args){
         +platform.uses+"=true "
         +"WHERE email='"+args[0]+"';";
 
+    persistence.query(query,logError)
+}
+
+function onRecovery(meta,args){
+    var platform = tenantPlatformAnalyticsMap[meta.tenantId];
+    var query = "UPDATE UserAnalytics SET "
+        +platform.lastLogin+"='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +"lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +platform.loggedIn+"=true, "
+        +platform.uses+"=true "
+        +"WHERE userId='"+args[0]+"';";
+    persistence.query(query,logError)
+}
+
+function onTokenLogin(meta, args){
+    var platform = tenantPlatformAnalyticsMap[meta.tenantId];
+    var query = "UPDATE UserAnalytics SET "
+        +platform.lastLogin+"='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +"lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +platform.loggedIn+"=true, "
+        +platform.uses+"=true "
+        +"WHERE userId='"+args[0]+"';";
     persistence.query(query,logError)
 }
 
