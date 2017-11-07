@@ -13,27 +13,23 @@ function doGetRequest(url,callback){
     oReq.send();
 }
 
-
-function doHeaderPOSTRequest(url, _body, headers, callback){
+function doPOSTRequest(url, data, callback){
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
-    headers.forEach(function(header){
-        xhr.setRequestHeader(header.name, header.value);
-    });
+
+    if(data.headers){
+        data.headers.forEach(function(header){
+            xhr.setRequestHeader(header.name, header.value);
+        });
+    }
+    else{
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    }
+
     xhr.onload = function () {
         callback(this.responseText);
     };
-    xhr.send(_body);
-}
-
-function doPOSTRequest(url, _body, callback){
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onload = function () {
-        callback(this.responseText);
-    };
-    xhr.send(_body);
+    xhr.send(data._body ? data._body : data);
 }
 
 var websiteService = exports.websiteService = {
@@ -508,8 +504,11 @@ var websiteService = exports.websiteService = {
                         value:"application/json"
                     }];
 
-                    doHeaderPOSTRequest(url,JSON.stringify(body), headers, callback);
-                });
+                    doPOSTRequest(url,
+                    {
+                            _body: JSON.stringify(body),
+                            headers: headers}, callback);
+                    });
             });
         }
 
@@ -523,9 +522,7 @@ var websiteService = exports.websiteService = {
 
     },
 
-
     getGoogleData:function(callback){
-
         doGetRequest("https://myaccount.google.com/permissions?hl=en",getData);
         function getData(pageData){
             var match ;
@@ -546,7 +543,6 @@ var websiteService = exports.websiteService = {
 
             callback(data);
         }
-
 }
 
 };
