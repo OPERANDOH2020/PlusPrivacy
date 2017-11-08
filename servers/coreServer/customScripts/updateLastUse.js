@@ -21,7 +21,7 @@ var connectionSettings = {
 
 var mysqlConnection = mysql.createConnection(connectionSettings);
 
-var getUsersByDate = "SELECT userId,lastLoginIniOS,lastLoginInAndroid,lastLoginInChrome FROM operando.UserAnalytics; ";
+var getUsersByDate = "SELECT userId,lastLoginIniOS,lastLoginInAndroid,lastLoginInChrome,lastLoginInPlusPrivacyWebsite FROM operando.UserAnalytics; ";
 
 mysqlConnection.query(getUsersByDate,function(err,result){
     if(err){
