@@ -3890,7 +3890,7 @@ var ospSettingsConfigPreferences = {
                 "exposure"
             ]
         },
-        show_gender:{
+        /*show_gender:{
             read:{
                 name: "Show your gender to",
                 url: "https://myaccount.google.com/gender",
@@ -3945,9 +3945,300 @@ var ospSettingsConfigPreferences = {
                 data: {},
                 recommended: "private"
             }
+        }*/
+        group_similar_face:{
+            read:{
+                name: "Auto group photos by matching faces to better search, manage, and share?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Auto group photos by matching faces to better search, manage, and share?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",18,true]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",18,false]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "no"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        remove_geo_location:{
+            read:{
+                name: "Remove geo location in items shared by link?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Remove geo location in items shared by link?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",19,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",19,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        liked_videos_private:{
+            read:{
+                name: "Keep private all my liked videos?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my liked videos?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",20,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",20,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        saved_playlist_private:{
+            read:{
+                name: "Keep private all my saved playlists?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my saved playlists?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",21,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",21,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        keep_subscriptions_private:{
+            read:{
+                name: "Keep private all my subscriptions?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my subscriptions?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",6,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",6,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        post_feed_public_playlist:{
+            read:{
+                name: "Post to feed when I add a video to a public playlist?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Post to feed when I add a video to a public playlist?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",10,true]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",10,false]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+
+        shared_endorsements_ads:{
+            read:{
+                name: "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
+                page: "https://myaccount.google.com/shared-endorsements",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
+                page: "https://myaccount.google.com/shared-endorsements",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=130628706&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",130628706,[{"130628706":[true,"RnVjayB5b3UgR09PR0xFIQ=="]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",130628706,[{"130628706":[false,"SSB3YXMga2lkZGluZyE="]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "no"
+            },
+            tags: [
+                "exposure"
+            ]
+
         }
+
     }
 }
+
 
 
 //var fs = require('fs');

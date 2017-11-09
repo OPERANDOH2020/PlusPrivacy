@@ -16,7 +16,7 @@ operandoCore
         var FACEBOOK_PRIVACY_URL = "https://www.facebook.com/settings?tab=privacy&section=composer&view";
         var LINKEDIN_PRIVACY_URL = "https://www.linkedin.com/psettings/";
         var TWITTER_PRIVACY_URL = "https://twitter.com/settings/safety";
-        var GOOGLE_PRIVACY_URL = "https://myaccount.google.com/";
+        var GOOGLE_PRIVACY_URL = "https://myaccount.google.com/activitycontrols";
         var facebookTabId = null;
         var linkedinTabId = null;
         var twitterTabId = null;
