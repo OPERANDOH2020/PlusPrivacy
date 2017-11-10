@@ -40,10 +40,21 @@ function postToGoogle(settings, item, total) {
                 });
             }
             else{
-                sendPostRequest(settings,extractedData,resolve,reject);
+                if(settings.method_type === "GET"){
+                    sendGetRequest(settings,extractedData,resolve,reject);
+                }
+                else{
+                    sendPostRequest(settings,extractedData,resolve,reject);
+                }
+
             }
         }
     });
+}
+
+
+function sendGetRequest(settings, headers, resolve, reject){
+
 }
 
 function sendPostRequest(settings, headers, resolve, reject){
@@ -70,41 +81,6 @@ function sendPostRequest(settings, headers, resolve, reject){
                 }
             }
         }
-        if (settings.type == "application/json") {
-            $.ajax({
-                type: "POST",
-                url: settings.url,
-                data: JSON.stringify(data),
-                contentType: 'application/json; charset=utf-8',
-                dataType: "json",
-                beforeSend: function (request) {
-                    if (settings.headers) {
-                        for (var i = 0; i < settings.headers.length; i++) {
-                            var header = settings.headers[i];
-                            request.setRequestHeader(header.name, header.value);
-                        }
-                    }
-
-                    request.setRequestHeader("accept", "application/json, text/javascript, */*; q=0.01");
-                    request.setRequestHeader("accept-language", "en-US,en;q=0.8");
-                    request.setRequestHeader("X-Alt-Referer", settings.page);
-
-                },
-                success: function (result) {
-                    resolve(result);
-                },
-                error: function (a, b, c) {
-                    console.log(a, b, c);
-                    reject(b);
-                },
-                complete: function (request, status) {
-                    console.log("Request completed...");
-                },
-                timeout:3000
-
-            });
-        }
-        else {
 
             console.log(settings);
             var _body ="";
@@ -164,7 +140,7 @@ function sendPostRequest(settings, headers, resolve, reject){
                 timeout:3000
 
             });
-        }
+
     });
 }
 
@@ -208,7 +184,7 @@ function extractHeaders(content) {
 }
 
 
-function fireEvent(node, eventName) {
+/*function fireEvent(node, eventName) {
     // Make sure we use the ownerDocument from the provided node to avoid cross-window problems
     var doc;
     if (node.ownerDocument) {
@@ -260,3 +236,4 @@ function fireEvent(node, eventName) {
         node.fireEvent("on" + eventName, event);
     }
 };
+*/

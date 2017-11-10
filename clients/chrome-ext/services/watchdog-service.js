@@ -370,7 +370,8 @@ operandoCore
                 url: urlToPost,
                 params: settingToBeApplied.availableSettings[settingKey].params,
                 page: page,
-                data: data
+                data: data,
+                method_type:settingToBeApplied.method_type?settingToBeApplied.method_type:"POST"
             };
             return setting;
 

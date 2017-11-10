@@ -4234,6 +4234,52 @@ var ospSettingsConfigPreferences = {
                 "exposure"
             ]
 
+        },
+        search_private_results:{
+            read:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                url_template: "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson={PSON}&tts=&newwindow=&gl=&region=&q=&prev=",
+                method_type:"GET",
+                availableSettings: {
+                    yes: {
+                        params: {
+                            pson: {
+                                placeholder: "PSON",
+                                value: 0
+                            }
+                        },
+                        name: "Yes"
+                    },
+                    no: {
+                        params: {
+                            pson: {
+                                placeholder: "PSON",
+                                value: 1
+                            }
+                        },
+                        name: "No"
+                    }
+                },
+                data: {},
+                recommended: "no"
+            }
         }
 
     }
