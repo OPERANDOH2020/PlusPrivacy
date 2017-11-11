@@ -7,7 +7,10 @@
     <!--<color name="bright_orange">#F77F00</color>-->
     <!--<color name="dutch_white">#EAE2B7</color>-->
     <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#E88B00</color>
+    <!--<color name="colorPrimaryDark">#E88B00</color>-->
+    <!--<color name="colorPrimaryDark">#FFB400</color>-->
+    <color name="toolbar_color">#FFB400</color>
+    <color name="colorPrimaryDark">#eea82b</color>
     <color name="colorAccent">#FF9800</color>
     <color name="amaranth_red">#d62828</color>
     <color name="primary_text">#212121</color>
@@ -18,6 +21,13 @@
     <color name="green_button">#00a493</color>
     <color name="overlay_background">#bb000000</color>
 
+    <color name="menu_1">#45d0ce</color>
+    <color name="menu_2">#beb9fd</color>
+    <color name="menu_3">#ea70a3</color>
+    <color name="menu_4">#eea82b</color>
+    <color name="menu_5">#a3cb4f</color>
+    <color name="menu_6">#75b8e5</color>
+
     <color name="black">#ff000000</color>
     <color name="gray_dark">#222222</color>
     <color name="gray_medium">#cdcdcd</color>
@@ -27,6 +37,7 @@
     <color name="primary_color">#FFC107</color>
     <color name="secondary_color">#66E88B00</color>
     <color name="accent_color">#FF9800</color>
+    <color name="secondary_color_add_identity">#d5a339</color>
 
     <color name="drawer_background">#FF9800</color>
     <color name="drawer_background_dark">#E88B00</color>
@@ -56,4 +67,7 @@
 
     <color name="colorControlNormal">#000</color>
     <color name="colorControlActivated">#000</color>
+
+
+    <color name="menu_background">#ddffc400</color>
 </resources>

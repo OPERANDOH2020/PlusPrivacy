@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import eu.operando.R;
 import eu.operando.activity.CreateIdentityActivity;
 import eu.operando.models.Domain;
 
@@ -25,7 +26,7 @@ public class DomainAdapter extends ArrayAdapter<Domain> {
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_spinner_item,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.domain_spinner_item,parent,false);
         }
         ((TextView) convertView.findViewById(android.R.id.text1)).setText(getItem(position).getName());
         return convertView;
@@ -35,7 +36,7 @@ public class DomainAdapter extends ArrayAdapter<Domain> {
     public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
 
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_spinner_item,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.domain_spinner_item_drop_down,parent,false);
         }
         ((TextView) convertView.findViewById(android.R.id.text1)).setText(getItem(position).getName());
         return convertView;

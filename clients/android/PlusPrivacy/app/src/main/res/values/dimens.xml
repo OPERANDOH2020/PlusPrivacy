@@ -14,4 +14,8 @@
 
     <dimen name="feedback_padding">10dp</dimen>
 
+    <dimen name="ic_main_menu">32dp</dimen>
+    <dimen name="ic_main_menu_padding_top">25dp</dimen>
+    <dimen name="ic_main_menu_margin_bottom">15dp</dimen>
+
 </resources>

@@ -142,21 +142,6 @@ public class SwarmClient {
         Log.d("swclient EMIT", "startSwarm() called with: swarm = [" + swarm + "], callback = [" + callback + "]");
     }
 
-    public void startSwarm(String swarmingName, String ctor, SwarmCallback callback) {
-        Swarm swarm = new Swarm(swarmingName, ctor);
-        if (callback != null) {
-            callback.setResultEvent(swarm.getMeta().getCtor());
-            listeners.put(callback.getResultEvent(), callback);
-        }
-        try {
-            Log.e("startSwarm", new JSONObject(gson.toJson(swarm)).toString());
-            ioSocket.emit("message", new JSONObject(gson.toJson(swarm)));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.d("swclient EMIT", "startSwarm() called with: swarm = [" + swarm + "], callback = [" + callback + "]");
-    }
-
     public void startSwarm(SwarmCallback callback, String swarmingName, String ctor, Object... args) {
         Swarm swarm = new Swarm(swarmingName, ctor, args);
         if (callback != null) {

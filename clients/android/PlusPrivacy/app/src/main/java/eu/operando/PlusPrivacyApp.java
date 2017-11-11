@@ -21,9 +21,9 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
-import eu.operando.feedback.repository.dagger.DaggerMyComponent;
-import eu.operando.feedback.repository.dagger.MyComponent;
-import eu.operando.feedback.repository.dagger.SharedPreferencesModule;
+import eu.operando.feedback.repository.di.DaggerMyComponent;
+import eu.operando.feedback.repository.di.MyComponent;
+import eu.operando.feedback.repository.di.SharedPreferencesModule;
 import eu.operando.lightning.app.AppComponent;
 import eu.operando.lightning.app.AppModule;
 import eu.operando.lightning.app.DaggerAppComponent;

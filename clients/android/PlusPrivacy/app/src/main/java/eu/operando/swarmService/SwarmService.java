@@ -7,6 +7,9 @@ import org.json.JSONObject;
 
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
+import eu.operando.models.Identity;
+import eu.operando.swarmService.models.GenerateIdentitySwarmEntity;
+import eu.operando.swarmService.models.GetDomainsSwarmEntity;
 import eu.operando.swarmService.models.PfbSwarmEntity;
 import eu.operando.swarmService.models.RegisterInfo;
 import eu.operando.swarmService.models.RegisterSwarmEntity;
@@ -46,7 +49,7 @@ public class SwarmService {
     }
 
     public void logout(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm("login.js", "logout", callback);
+        swarmClient.startSwarm(callback,"login.js", "logout");
     }
 
     public void signUp(final String email, final String password, final SwarmCallback<? extends Swarm> callback) {
@@ -90,11 +93,11 @@ public class SwarmService {
     }
 
     public void getIdentitiesList(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm("identity.js", "getMyIdentities", callback);
+        swarmClient.startSwarm(callback, "identity.js", "getMyIdentities");
     }
 
     public void getFeedbackQuestions(SwarmCallback<FeedbackQuestionListEntity> callback) {
-        swarmClient.startSwarm("feedback.js", "getFeedbackQuestions", callback);
+        swarmClient.startSwarm(callback,"feedback.js", "getFeedbackQuestions");
     }
 
     public void submitFeedback(SwarmCallback<Swarm> callback, Object... args) {
@@ -102,14 +105,26 @@ public class SwarmService {
     }
 
     public void hasUserSubmittedAFeedback(SwarmCallback<FeedbackResultSwarmModel> callback) {
-        swarmClient.startSwarm("feedback.js", "hasUserSubmittedAFeedback", callback);
+        swarmClient.startSwarm(callback,"feedback.js", "hasUserSubmittedAFeedback");
     }
 
     public void getAllDeals(SwarmCallback<PfbSwarmEntity> callback) {
-        swarmClient.startSwarm("pfb.js", "getAllDeals", callback);
+        swarmClient.startSwarm(callback, "pfb.js", "getAllDeals");
     }
 
     public void acceptDeal(SwarmCallback<PfbSwarmEntity> callback, boolean accept, String offerId) {
         swarmClient.startSwarm(callback, "pfb.js", accept ? "acceptDeal" : "unsubscribeDeal", offerId);
+    }
+
+    public void createIdentity(SwarmCallback<Swarm> callback, Identity identity){
+        swarmClient.startSwarm(callback,"identity.js", "createIdentity", identity);
+    }
+
+    public void generateIdentity(SwarmCallback<GenerateIdentitySwarmEntity> callback){
+        swarmClient.startSwarm(callback,"identity.js", "generateIdentity");
+    }
+
+    public void listDomains(SwarmCallback<GetDomainsSwarmEntity> callback){
+        swarmClient.startSwarm(callback,"identity.js", "listDomains");
     }
 }

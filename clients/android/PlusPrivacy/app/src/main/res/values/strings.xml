@@ -264,4 +264,15 @@
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
     <string name="change_response">Change response</string>
     <string name="privacy_for_benefit">Privacy for Benefit</string>
+    <string name="alias">Alias</string>
+    <string name="open">open</string>
+    <string name="close" />
+
+    <string-array name="drawer_items">
+        <item>About</item>
+        <item>Privacy Policy</item>
+        <item>Settings</item>
+        <item>Feedback</item>
+    </string-array>
+
 </resources>

@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import eu.operando.PlusPrivacyApp;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
-import eu.operando.feedback.repository.dagger.MySharedPreferences;
+import eu.operando.feedback.repository.di.MySharedPreferences;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.

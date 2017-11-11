@@ -31,7 +31,7 @@
             android:name=".activity.OSPSettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".activity.PrivacySettingsWebViewActivity"
+            android:name=".activity.PrivacyWizardWebViewActivity"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.ScannerActivity"
@@ -41,7 +41,7 @@
             android:label="Identity Management"/>
         <activity
             android:name=".activity.CreateIdentityActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="stateHidden"
             />
         <activity
             android:name=".activity.PFBActivity"

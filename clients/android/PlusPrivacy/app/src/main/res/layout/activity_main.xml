@@ -1,258 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+    <!-- The main content view -->
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
-    <ScrollView
-
+        layout="@layout/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/main_background"
-        android:fillViewport="true">
+        android:layout_height="match_parent" />
 
-        <LinearLayout
+    <!--android:layout_gravity="start"-->
+
+    <RelativeLayout
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_gravity="start"
+        android:layout_height="match_parent">
+
+        <!-- The navigation drawer -->
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/drawer_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
 
-            <RelativeLayout
-                android:id="@+id/real_identity_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/toolbar"
-                android:layout_margin="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="5dp"
+            android:entries="@array/drawer_items"
+            />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_identities" />
 
-                <TextView
-                    android:id="@+id/tv_identity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="8dp"
-                    android:text="@string/your_real_identity"
-                    android:textSize="18sp" />
+        <RelativeLayout
+            android:background="@drawable/triangle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/real_identity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_identity"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="italic" />
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_right_arrow" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/apps_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/real_identity_rl"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_scan" />
-
-                <TextView
-                    android:id="@+id/tv_installed_apps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="8dp"
-                    android:text="@string/installed_apps"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/unsafe_apps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_installed_apps"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/potentially_unsafe_apps"
-                    android:textColor="@color/amaranth_red"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_right_arrow" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/notifications_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/apps_rl"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="7dp"
-                    android:layout_marginTop="7dp"
-                    android:src="@drawable/ic_notifications" />
-
-                <TextView
-                    android:id="@+id/tv_notifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="8dp"
-                    android:text="You have 3 notifications"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_right_arrow" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/btn_identities"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/notifications_rl"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-                <ImageView
-                    android:id="@+id/identities_iv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_identities" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/identities_iv"
-                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shutdown"
+                    android:id="@+id/logout"
                     android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="Identity Management" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/btn_browser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/btn_identities"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-                <ImageView
-                    android:id="@+id/browser_iv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_private_browsing" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
 
                 <TextView
+                    android:text="Logout"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/browser_iv"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="Private Browsing" />
+                    android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/btn_pfb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/btn_browser"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
+            <ImageView
+                android:src="@drawable/ic_close"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/deals_iv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_deals" />
+    </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/deals_iv"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="Privacy for Benefit" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btn_osp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/btn_pfb"
-                android:layout_marginBottom="60dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-                <ImageView
-                    android:id="@+id/osp_iv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_social_network" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/osp_iv"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="@string/facebook_settings" />
-
-            </RelativeLayout>
-        </LinearLayout>
-
-    </ScrollView>
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>

@@ -2,7 +2,6 @@ package eu.operando.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -14,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import eu.operando.R;
+import eu.operando.feedback.view.FeedbackActivity;
 import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.Notification;
 import eu.operando.swarmService.models.GetNotificationsSwarm;
@@ -95,8 +95,8 @@ public class NotificationsActivity extends BaseActivity {
                 PFBActivity.start(this);
                 break;
             case "feedback":
-                Intent intent = new Intent(NotificationsActivity.this, MainBrowserActivity.class);
-                intent.setData(Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/viewform"));
+                Intent intent = new Intent(NotificationsActivity.this, FeedbackActivity.class);
+//                intent.setData(Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/viewform"));
                 overridePendingTransition(R.anim.slide_up_in, R.anim.fade_out_scale);
                 startActivity(intent);
                 break;

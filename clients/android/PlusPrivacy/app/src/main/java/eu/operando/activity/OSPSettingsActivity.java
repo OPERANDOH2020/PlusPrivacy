@@ -193,7 +193,7 @@ public class OSPSettingsActivity extends BaseActivity {
         sendSaveUserPreferencesSwarm(userAnswers);
         String privacySettings = editOspSettingsJSON(userAnswers);
 
-        Intent intent = new Intent(OSPSettingsActivity.this, PrivacySettingsWebViewActivity.class);
+        Intent intent = new Intent(OSPSettingsActivity.this, PrivacyWizardWebViewActivity.class);
         intent.putExtra(PRIVACY_SETTINGS_TAG, privacySettings);
         startActivity(intent);
     }
