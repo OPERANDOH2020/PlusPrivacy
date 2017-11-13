@@ -10,8 +10,6 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-console.log(window.GOOGLE_PARAMS);
-
 var googleParams = window.GOOGLE_PARAMS;
 
 var privacySettings = [];
@@ -33,27 +31,44 @@ function postToGoogle(settings, item, total) {
         if (settings.page) {
             FeedbackProgress.sendFeedback(settings.name, item, total);
 
-            if(Object.keys(extractedData).length === 0){
-                doGET(settings.page, function (response) {
-                    var additionalData = extractHeaders(response);
-                    sendPostRequest(settings,additionalData,resolve,reject);
-                });
+            if(settings.method_type === "GET"){
+                sendGetRequest(settings, extractedData,resolve,reject);
             }
             else{
-                if(settings.method_type === "GET"){
-                    sendGetRequest(settings,extractedData,resolve,reject);
-                }
-                else{
-                    sendPostRequest(settings,extractedData,resolve,reject);
-                }
-
+                sendPostRequest(settings,extractedData,resolve,reject);
             }
+
         }
     });
 }
 
 
 function sendGetRequest(settings, headers, resolve, reject){
+
+    var getSIGValue = function(callback){
+        doGET(settings.page,function(htmlContent){
+            var sig_regex = /<input value="(.*?)" name="sig" type="hidden">/g;
+            var m;
+            if((m = sig_regex.exec(htmlContent)) !== null) {
+                if (m.index === sig_regex.lastIndex) {
+                    sig_regex.lastIndex++;
+                }
+            }
+            if(m && m[1]){
+                callback(m[1]);
+            }
+            else{
+                reject("no sig found");
+            }
+        })
+    };
+
+    getSIGValue(function(sigValue){
+        var url = settings.url.replace("{SIG}",sigValue);
+        doGET(url, resolve);
+    })
+
+
 
 }
 
@@ -82,7 +97,6 @@ function sendPostRequest(settings, headers, resolve, reject){
             }
         }
 
-            console.log(settings);
             var _body ="";
 
 
@@ -95,7 +109,6 @@ function sendPostRequest(settings, headers, resolve, reject){
                 });
 
             _body+="&at="+googleParams['at'];
-            console.log(_body);
 
             var now = new Date();
             var req_id =  3600 * now.getHours() + 60 * now.getMinutes() + now.getSeconds() + 1E5;
@@ -106,6 +119,7 @@ function sendPostRequest(settings, headers, resolve, reject){
                 type: "POST",
                 url: settings.url,
                 data: _body,
+                dataType:"text",
 
                 beforeSend: function (request) {
 
@@ -120,9 +134,7 @@ function sendPostRequest(settings, headers, resolve, reject){
                     request.setRequestHeader("X-Alt-Referer", settings.page);
                 },
                 success: function (result) {
-                    setTimeout(function(){
                         resolve(result);
-                    },0);
                 },
                 statusCode:{
                     500: function(){
@@ -135,9 +147,8 @@ function sendPostRequest(settings, headers, resolve, reject){
                     reject(b);
                 },
                 complete: function (request, status) {
-                    console.log("Request completed...");
                 },
-                timeout:3000
+                timeout:1000
 
             });
 
@@ -165,7 +176,6 @@ function secureAccount(callback) {
         callback();
     });
 
-
 }
 
 function doGET(page, callback){
@@ -174,13 +184,6 @@ function doGET(page, callback){
         success: callback,
         dataType: 'html'
     });
-}
-
-
-function extractHeaders(content) {
-
-    var data = {};
-    return data;
 }
 
 

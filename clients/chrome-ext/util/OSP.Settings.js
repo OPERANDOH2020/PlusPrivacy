@@ -4262,7 +4262,7 @@ var ospSettingsConfigPreferences = {
                         params: {
                             pson: {
                                 placeholder: "PSON",
-                                value: 0
+                                value: 1
                             }
                         },
                         name: "Yes"
@@ -4271,10 +4271,56 @@ var ospSettingsConfigPreferences = {
                         params: {
                             pson: {
                                 placeholder: "PSON",
-                                value: 1
+                                value: 0
                             }
                         },
                         name: "No"
+                    }
+                },
+                data: {},
+                recommended: "no"
+            }
+        },
+        text_to_speach:{
+            read:{
+                name:"When you search by voice, Google should speak the answers aloud?",
+                page: "https://www.google.com/preferences",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes, speak answers for voice search"
+                    },
+                    no: {
+                        name: "No, just show text"
+                    }
+                }
+            },
+            write:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                url_template: "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson=&tts={TTS}&newwindow=&gl=&region=&q=&prev=",
+                method_type:"GET",
+                availableSettings: {
+                    yes: {
+                        params: {
+                            tts: {
+                                placeholder: "TTS",
+                                value: 1
+                            }
+                        },
+                        name: "Yes, speak answers for voice search"
+                    },
+                    no: {
+                        params: {
+                            tts: {
+                                placeholder: "TTS",
+                                value: 0
+                            }
+                        },
+                        name: "No, just show text"
                     }
                 },
                 data: {},
