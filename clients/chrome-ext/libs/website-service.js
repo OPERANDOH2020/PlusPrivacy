@@ -342,7 +342,46 @@ var websiteService = exports.websiteService = {
              var body="is_xhr=true" + "&" + "t=" + cookie.value + "&" +
              "_subject_uid=" + userId;
 
-             doPOSTRequest("https://www.dropbox.com/account/get_linked_apps",body, function(response){
+
+             var customHeaders = [{
+                 name: "origin",
+                 value: "https://www.dropbox.com"
+             },
+             {
+                 name: "referer",
+                 value: "https://www.dropbox.com/account/connected_apps"
+             },
+                 {
+                     name:"accept",
+                     value:"application/json, text/javascript, */*; q=0.01"
+                 }
+             ];
+
+             var headers = [
+                 {
+                 name: "x-dropbox-uid",
+                 value: userId
+                 },
+                 {
+                     name: "x-requested-with",
+                     value: "XMLHttpRequest"
+                 },
+                 {
+                     name: "content-type",
+                     value: "application/x-www-form-urlencoded; charset=UTF-8"
+                 },
+                 {
+                     name:"PlusPrivacyHeaders",
+                     value:JSON.stringify(customHeaders)
+                 }
+             ];
+
+             var data = {
+                 _body: body,
+                 headers: headers
+             }
+
+             doPOSTRequest("https://www.dropbox.com/account/get_linked_apps",data, function(response){
                  var rawApps = JSON.parse(response);
 
                  var apps = [];

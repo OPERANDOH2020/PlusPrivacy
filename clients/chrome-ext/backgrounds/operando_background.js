@@ -97,6 +97,23 @@ webRequest.onBeforeSendHeaders.addListener(function(details) {
             }
         }
 
+            details.requestHeaders.some(function(header, i){
+                if(header.name === "PlusPrivacyHeaders"){
+                    var customHeaders = JSON.parse(header.value);
+                    if(customHeaders instanceof Array){
+                        customHeaders.forEach(function(header){
+                            details.requestHeaders.push(header);
+                        })
+                    }
+
+                    header.name = "Referrer-Policy",
+                        header.value = "origin"
+                    //details.requestHeaders.splice(i,1);
+                    return true;
+                }
+                return false;
+            });
+
         return {requestHeaders: details.requestHeaders};
 
     },

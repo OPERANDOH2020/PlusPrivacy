@@ -72,7 +72,7 @@ operandoCore
                         jobFinished();
                         jobDone = true;
                         messengerService.off("googleMessage",handleGoogleMessages);
-                        //chrome.tabs.remove(googleTabId);
+                        chrome.tabs.remove(googleTabId);
                         googleTabId = null;
                     }
                     else {
