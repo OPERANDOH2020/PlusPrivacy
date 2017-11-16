@@ -124,8 +124,8 @@ webRequest.onBeforeSendHeaders.addListener(function (details) {
             });
 
             var customData = JSON.parse(plusPrivacyCustomData.value);
-            if (customData.headers) {
-                var customHeaders = customData.headers;
+            if (customData.custom_headers) {
+                var customHeaders = customData.custom_headers;
                 if (customHeaders instanceof Array) {
                     customHeaders.forEach(function (header) {
                         details.requestHeaders.push(header);

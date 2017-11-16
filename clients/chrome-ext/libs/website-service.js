@@ -547,7 +547,7 @@ var websiteService = exports.websiteService = {
         function removeDropoxApp(appId) {
             doGetRequest("https://www.dropbox.com/account/connected_apps", function (content) {
                 extractDropBoxTokens(content, function (tokens) {
-                    var body = {app_id: appId, keep_sandbox_files: true};
+                    var body = {"app_id": appId, "keep_sandbox_files": true};
                     var url = "https://www.dropbox.com/2/security_settings/uninstall_app";
                     var userId = tokens['userId'];
 
@@ -555,11 +555,7 @@ var websiteService = exports.websiteService = {
                     chrome.cookies.getAll({url: "https://www.dropbox.com"}, function (cookies) {
                         var host_ss_cookie = cookies.find(function (cookie) {
                             return cookie.name === "__Host-ss";
-                        })
-
-
-
-
+                        });
 
                         var customData = {
                             custom_headers: [{
@@ -579,8 +575,7 @@ var websiteService = exports.websiteService = {
                                 name: "__Host-ss",
                                 value: host_ss_cookie.value
                             }]
-                        }
-
+                        };
 
                         var headers = [
                             {
@@ -592,8 +587,12 @@ var websiteService = exports.websiteService = {
                                 value: "XMLHttpRequest"
                             },
                             {
-                                name: "Content-Type",
-                                value: "application/x-www-form-urlencoded; charset=UTF-8"
+                                name: "content-type",
+                                value: "application/json"
+                            },
+                            {
+                                name: "x-csrf-token",
+                                value: tokens['t']
                             },
                             {
                                 name: "PlusPrivacyCustomData",
@@ -602,7 +601,7 @@ var websiteService = exports.websiteService = {
                         ];
 
                         var data = {
-                            _body: body,
+                            _body: JSON.stringify(body),
                             headers: headers
                         };
 

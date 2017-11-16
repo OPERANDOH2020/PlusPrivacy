@@ -2414,6 +2414,10 @@ padding-left: 5px;
     background: url("/operando/assets/images/twitter32.png") no-repeat left center;
 }
 
+#sn_preferences h2.google_icon{
+    background: url("/operando/assets/images/google32.png") no-repeat left center;
+}
+
 .filter-settings{
  margin-top: 10px;
  float:right;
