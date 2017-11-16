@@ -13,10 +13,45 @@
     <!--android:layout_gravity="start"-->
 
     <RelativeLayout
-        android:background="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layout_height="match_parent">
+        android:background="@color/menu_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="100dp">
+
+            <TextView
+                android:textColor="@color/menu_title"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/plusprivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/logo_circle_layout"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/circle_layout">
+
+            <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo_background_transparent" />
+
+        </RelativeLayout>
 
         <!-- The navigation drawer -->
         <android.support.v7.widget.RecyclerView
@@ -24,54 +59,28 @@
             android:id="@+id/drawer_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:layout_below="@+id/logo_circle_layout"
             android:choiceMode="singleChoice"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="5dp"
-            android:entries="@array/drawer_items"
-            />
+            android:entries="@array/drawer_items" />
 
 
         <RelativeLayout
-            android:background="@drawable/triangle"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_shutdown"
-                    android:id="@+id/logout"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp" />
-
-                <TextView
-                    android:text="Logout"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-
             <ImageView
-                android:src="@drawable/ic_close"
-                android:layout_alignParentBottom="true"
+                android:id="@+id/logout"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="20dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="20dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_logout" />
+
+
         </RelativeLayout>
 
     </RelativeLayout>

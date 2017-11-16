@@ -10,7 +10,8 @@
     <!--<color name="colorPrimaryDark">#E88B00</color>-->
     <!--<color name="colorPrimaryDark">#FFB400</color>-->
     <color name="toolbar_color">#FFB400</color>
-    <color name="colorPrimaryDark">#eea82b</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="color_primary_backup">#eea82b</color>
     <color name="colorAccent">#FF9800</color>
     <color name="amaranth_red">#d62828</color>
     <color name="primary_text">#212121</color>
@@ -68,6 +69,10 @@
     <color name="colorControlNormal">#000</color>
     <color name="colorControlActivated">#000</color>
 
+    <color name="menu_title">#efaa33</color>
+    <color name="menu_text">#84610f</color>
+    <color name="menu_first_separator">#d99820</color>
+    <color name="menu_second_separator">#84610f</color>
 
-    <color name="menu_background">#ddffc400</color>
+    <color name="menu_background">#eea82c</color>
 </resources>

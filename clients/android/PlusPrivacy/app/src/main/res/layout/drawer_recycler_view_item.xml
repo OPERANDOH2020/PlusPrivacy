@@ -22,15 +22,29 @@
             android:layout_width="match_parent"
             android:gravity="center_vertical"
             android:layout_height="50dp"
-            android:textColor="@color/gray_dark"
+            android:textSize="16sp"
+            android:textColor="@color/menu_text"
             android:paddingLeft="20dp"/>
     </LinearLayout>
 
-
-    <View
+    <LinearLayout
         android:id="@+id/menu_separator"
-        android:background="@color/gray_dark"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+
+            android:background="@color/menu_first_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <View
+            android:background="@color/menu_second_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

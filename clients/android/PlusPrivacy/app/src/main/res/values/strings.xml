@@ -267,6 +267,7 @@
     <string name="alias">Alias</string>
     <string name="open">open</string>
     <string name="close" />
+    <string name="plusprivacy">PlusPrivacy</string>
 
     <string-array name="drawer_items">
         <item>About</item>

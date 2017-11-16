@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +21,8 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setMenu();
-
+        setStatusBarColor();
         autoLogin();
 
         SwarmClient.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
@@ -112,6 +116,14 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             }
         } else {
             initUI();
+        }
+    }
+
+    private void setStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
         }
     }
 
@@ -240,6 +252,13 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logOut();
+            }
+        });
     }
 
     private void setToolbar() {
@@ -445,27 +464,21 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     @Override
     public void selectItem(int position) {
 
-        if (position > 0) {
-            switch (position) {
+        switch (position) {
 
-                case 1: //About
-                    HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
-                    break;
-                case 2: //Privacy Policy
-                    HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
-                    break;
-                case 3: //Settings
-                    SettingsActivity.start(this);
-                    break;
-                case 4: //Feedback
-                    startFeedbackActivity();
-                    break;
-                case 5: //LogOut
-                    logOut();
-                    break;
-            }
-            drawerLayout.closeDrawer(Gravity.LEFT);
-
+            case 0: //About
+                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
+                break;
+            case 1: //Privacy Policy
+                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
+                break;
+            case 2: //Settings
+                SettingsActivity.start(this);
+                break;
+            case 3: //Feedback
+                startFeedbackActivity();
+                break;
         }
+        drawerLayout.closeDrawer(Gravity.START);
     }
 }
