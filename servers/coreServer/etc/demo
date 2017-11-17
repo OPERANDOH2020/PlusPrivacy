@@ -30,10 +30,6 @@
                         {"node":"operando/adapters/IdentityAdapter.js",              "enabled":true  , "step":4},
                         {"node":"admin/adapters/SwarmMonitor.js",                    "enabled":true  , "step":5},
                         {"core":"etc/adapters/ClientAdapter.js",                     "enabled":true  , "step":6},
-                        {"node":"operando/adapters/GuardianAdapter.js",              "enabled":true  , "step":7},
-                        {"node":"operando/adapters/AuthorizationAdapter.js",         "enabled":true  , "step":8},
-                        {"node":"operando/adapters/PAAdapter.js",                    "enabled":true  , "step":9},
-                        {"node":"operando/adapters/RESTAdapter.js",                  "enabled":true  , "step":10},
                         {"core":"etc/adapters/WSServer.js",                          "enabled":true  , "step":10}
 
             ]
@@ -51,10 +47,6 @@
   "WSServer":{
            "host":"0.0.0.0",
            "port":"8080"
-  },
-
-  "RESTAdapter":{
-            "port":7000
   },
   "SessionManager":{
         "sessionTime":"3600000"
