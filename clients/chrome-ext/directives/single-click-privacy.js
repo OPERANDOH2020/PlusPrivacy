@@ -56,6 +56,10 @@ angular.module("singleClickPrivacy",[])
                                                 twitter:{
                                                     url:"https://www.twitter.com",
                                                     cookie_name:"auth_token"
+                                                },
+                                                google:{
+                                                    url : "https://myaccount.google.com",
+                                                    cookie_name : "OSID"
                                                 }
                                             };
 

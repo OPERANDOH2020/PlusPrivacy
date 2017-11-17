@@ -46,6 +46,7 @@ var SN_CONSTANTS ={
         private_mode: 589120893741529
 
     }
+
 };
 
 
@@ -3820,12 +3821,520 @@ var ospSettingsConfigPreferences = {
                 "profiling"
             ]
         }
+    },
+
+    "google":{
+        declare_gender:{
+            read:{
+                name: "Show gender?",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    male:{
+                        name:"Male"
+                    },
+                    female:{
+                        name:"Female"
+                    },
+                    rather_not_say:{
+                        name:"Rather not say"
+                    }
+                },
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                }
+            },
+            write: {
+                name: "Show gender?",
+                page: "https://myaccount.google.com/gender",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    male: {
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 1000000
+                            }
+                        },
+                        data:{"f.req":'["af.maf",[["af.add",107941241,[{"107941241":[[2]]}]]]]'},
+                        name: "Male"
+                    },
+                    female: {
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        data: {
+                            "f.req":'["af.maf",[["af.add",107941241,[{"107941241":[[3]]}]]]]'
+                        },
+                        name: "Female"
+                    },
+                    rather_not_say: {
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 3000000
+                            }
+                        },
+                        data: {"f.req":'["af.maf",[["af.add",107941241,[{"107941241":[[4]]}]]]]'},
+                        name: "Rather not say"
+                    }
+                },
+
+                data: {},
+                recommended: "rather_not_say"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        /*show_gender:{
+            read:{
+                name: "Show your gender to",
+                url: "https://myaccount.google.com/gender",
+                availableSettings:{
+                    private:{
+                        name:"Private"
+                    },
+                    public:{
+                        name:"Public"
+                    },
+                    your_circles:{
+                        name:"Your circles"
+                    }
+                },
+                jquery_selector:{
+
+                }
+            },
+            write:{
+                name: "Show your gender to",
+                page: "https://aboutme.google.com/",
+                url_template: "https://aboutme.google.com/_/ProfilesMeUi/mutate?ds.extension=93593446&f.sid={SID}&hl=en&soc-app=196&soc-platform=1&soc-device=1&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    private:{
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name:"Private"
+                    },
+                    public:{
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name:"Public"
+                    },
+                    your_circles:{
+                        params: {
+                            reqid: {
+                                placeholder: "REQID",
+                                value: 2000000
+                            }
+                        },
+                        name:"Your circles"
+                    }
+                },
+                data: {},
+                recommended: "private"
+            }
+        }*/
+        group_similar_face:{
+            read:{
+                name: "Auto group photos by matching faces to better search, manage, and share?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Auto group photos by matching faces to better search, manage, and share?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",18,true]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",18,false]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "no"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        remove_geo_location:{
+            read:{
+                name: "Remove geo location in items shared by link?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Remove geo location in items shared by link?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",19,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",19,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        liked_videos_private:{
+            read:{
+                name: "Keep private all my liked videos?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my liked videos?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",20,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",20,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        saved_playlist_private:{
+            read:{
+                name: "Keep private all my saved playlists?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my saved playlists?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",21,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",21,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        keep_subscriptions_private:{
+            read:{
+                name: "Keep private all my subscriptions?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Keep private all my subscriptions?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",6,false]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",6,true]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+        post_feed_public_playlist:{
+            read:{
+                name: "Post to feed when I add a video to a public playlist?",
+                page: "https://myaccount.google.com/privacycheckup",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Post to feed when I add a video to a public playlist?",
+                page: "https://myaccount.google.com/privacycheckup",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",10,true]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",123193202,[{"123193202":["ac.pg.pstrq",10,false]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "yes"
+            },
+            tags: [
+                "exposure"
+            ]
+        },
+
+        shared_endorsements_ads:{
+            read:{
+                name: "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
+                page: "https://myaccount.google.com/shared-endorsements",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write: {
+                name: "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
+                page: "https://myaccount.google.com/shared-endorsements",
+                url_template: "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=130628706&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
+                availableSettings: {
+                    yes: {
+                        data:{"f.req":'["af.maf",[["af.add",130628706,[{"130628706":[true,"RnVjayB5b3UgR09PR0xFIQ=="]}]]]]'},
+                        name: "Yes"
+                    },
+                    no: {
+                        data: {
+                            "f.req":'["af.maf",[["af.add",130628706,[{"130628706":[false,"SSB3YXMga2lkZGluZyE="]}]]]]'
+                        },
+                        name: "No"
+                    }
+                },
+
+                data: {},
+                recommended: "no"
+            },
+            tags: [
+                "exposure"
+            ]
+
+        },
+        search_private_results:{
+            read:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+            write:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                url_template: "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson={PSON}&tts=&newwindow=&gl=&region=&q=&prev=",
+                method_type:"GET",
+                availableSettings: {
+                    yes: {
+                        params: {
+                            pson: {
+                                placeholder: "PSON",
+                                value: 1
+                            }
+                        },
+                        name: "Yes"
+                    },
+                    no: {
+                        params: {
+                            pson: {
+                                placeholder: "PSON",
+                                value: 0
+                            }
+                        },
+                        name: "No"
+                    }
+                },
+                data: {},
+                recommended: "no"
+            }
+        },
+        text_to_speach:{
+            read:{
+                name:"When you search by voice, Google should speak the answers aloud?",
+                page: "https://www.google.com/preferences",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes, speak answers for voice search"
+                    },
+                    no: {
+                        name: "No, just show text"
+                    }
+                }
+            },
+            write:{
+                name:"Use private results?",
+                page: "https://www.google.com/preferences",
+                url_template: "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson=&tts={TTS}&newwindow=&gl=&region=&q=&prev=",
+                method_type:"GET",
+                availableSettings: {
+                    yes: {
+                        params: {
+                            tts: {
+                                placeholder: "TTS",
+                                value: 1
+                            }
+                        },
+                        name: "Yes, speak answers for voice search"
+                    },
+                    no: {
+                        params: {
+                            tts: {
+                                placeholder: "TTS",
+                                value: 0
+                            }
+                        },
+                        name: "No, just show text"
+                    }
+                },
+                data: {},
+                recommended: "no"
+            }
+        }
+
     }
 }
 
 
-var fs = require('fs');
-fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
+
+//var fs = require('fs');
+//fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
 
 
 

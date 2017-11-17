@@ -445,37 +445,6 @@ ul.dropdown-menu>li>a:hover{
     background-size: cover;
 }
 
-.intl-tel-input {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.intl-tel-input .selected-flag .iti-flag {
-    top: 40px;
-    left: 15px;
-    cursor: pointer;
-}
-
-.intl-tel-input .country-list {
-    margin-top: 44px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.country-list .country .flag-box{
-    float: left;
-    padding: 7px;
-}
-
-.country-list .country{
-    border:1px solid transparent;
-    cursor: pointer;
-}
-
-.country-list .country.highlight{
-    margin-bottom: 0px;
-}
-
 #newsletter_container span{
     color: #908363;
 }
@@ -502,6 +471,17 @@ a.social_network_link img{
     box-shadow: none;
 }
 
+.custom-query-list.custom-query-pages article{
+    margin: 30px 0px;
+}
+
+.custom-query-list.custom-query-pages article:last-child{
+    margin-bottom:0px;
+}
+
+.custom-query-list.custom-query-pages article:nth-child(3n+1){
+    clear: left;
+}
 
 .navbar-brand > .site-logo {
     max-height: 48px;
@@ -540,30 +520,74 @@ a.social_network_link img{
     }
 }
 
-@media (max-width: 600px) {
-    body{padding-bottom: 245px;}
-}
 
 @media (max-width: 600px) {
+    body{padding-bottom: 290px;}
+
     #sidebar-footer-secondary {
-        bottom: 140px;
+        bottom: 110px;
+    }
+    .free_software{
+        margin-bottom: 30px;
+    }
+
+    p#european_commission{
+        font-size: 12px;
+    }
+    .sidebar-footer-secondary a,
+    .sidebar-footer-secondary span,
+    .sidebar-footer-secondary div{
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width:300px) and (max-width: 450px) {
+    body{padding-bottom: 355px;}
+
+    #sidebar-footer-secondary {
+        bottom: 150px;
+    }
+    .free_software{
+        margin-bottom: 30px;
+    }
+
+    p#european_commission{
+        font-size: 12px;
+    }
+    .sidebar-footer-secondary a,
+    .sidebar-footer-secondary span,
+    .sidebar-footer-secondary div{
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width:992px) and (max-width: 1200px) {
+    #sidebar-footer{
+        bottom:-10px;
     }
 }
 
 @media (min-width:601px) and (max-width: 991px) {
     body{padding-bottom: 195px;}
-}
-
-@media (min-width:601px) and (max-width: 991px) {
     #sidebar-footer-secondary {
-        bottom: 90px;
+        bottom: 50px;
+    }
+
+    #sidebar-footer{
+        bottom:-40px;
     }
 }
+
+
 @media (min-width: 769px) {
     #site-navigation{
         width: 650px;
         float:right;
     }
+
+
 }
 .entry-content a img {
     box-shadow: none;
@@ -573,8 +597,9 @@ p#european_commission{
     text-align: left;
     color:#FFF;
     font-size: 13px;
-    background: url("images/european_commission.png") no-repeat left center;
-    padding-left: 134px;
+    background: url("images/european_commission.png") no-repeat left -3px;
+    text-indent: 134px;
+    line-height: 21px;
     padding-top: 10px;
     margin-bottom: 0px;
 }
@@ -584,3 +609,19 @@ p#european_commission{
     border:1px solid #DDD;
     max-width: 100%;
 }
+
+.free_software{
+    margin-top: 10px;
+    line-height: 32px;
+    display: inline-block;
+    padding-left: 40px;
+    text-align: left;
+    width: auto;
+    vertical-align: middle;
+    background: url(images/github.png) no-repeat left center;
+}
+
+.free_software a{
+    color:#FFB400;
+}
+

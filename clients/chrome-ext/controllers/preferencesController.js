@@ -52,6 +52,10 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 url = "https://www.twitter.com";
                                 cookieName = "auth_token";
                                 break;
+                            case "Google":
+                                url = "https://myaccount.google.com",
+                                cookieName = "OSID";
+                                break;
                         }
 
                         searchCookieInterval = setInterval(function () {
@@ -177,6 +181,9 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                             break;
                         case "twitter" :
                             showModalProgress("Twitter", settings, watchDogService.applyTwitterSettings);
+                            break;
+                        case "google" :
+                            showModalProgress("Google", settings, watchDogService.applyGoogleSettings);
                             break;
 
                     }

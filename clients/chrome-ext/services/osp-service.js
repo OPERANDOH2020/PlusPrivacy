@@ -129,7 +129,8 @@ angular.module('osp')
         function loadOSPSettings (callback){
             if(Object.keys(ospSettingsConfig).length == 0){
                 messengerService.send("getOSPSettings",function(response){
-                    var settings = response.data;
+                    //var settings = response.data;
+                    var settings = ospSettingsConfigPreferences;
                     ospSettingsConfig = settings;
                     callback(settings);
                 });
@@ -155,7 +156,8 @@ angular.module('osp')
                 }
                 else {
                     messengerService.send("getOSPSettings", function (response) {
-                        var settings = response.data;
+                        //var settings = response.data;
+                        var settings = ospSettingsConfigPreferences;
                         ospSettingsConfig = settings;
                         deferred.resolve(settings);
                     });
