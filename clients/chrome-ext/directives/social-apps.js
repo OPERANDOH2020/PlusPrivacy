@@ -23,9 +23,16 @@ angular.module('socialApps',['cfp.loadingBar'])
                     twitter:{
                         url:"https://www.twitter.com",
                         cookie_name:"auth_token"
+                    },
+                    google:{
+                        url:"https://myaccount.google.com",
+                        cookie_name:"OSID"
+                    },
+                    dropbox:{
+                        url:"https://www.dropbox.com",
+                        cookie_name:"bjar"
                     }
                 };
-
 
 
                 $scope.$on("appRemoved", function(event,appId){
@@ -94,12 +101,21 @@ angular.module('socialApps',['cfp.loadingBar'])
                                     action = "getTwitterApps";
                                     break;
                                 case "linkedin":
-                                    action = "getLinkedInApps"
+                                    action = "getLinkedInApps";
+                                    break;
+                                case "google":
+                                    action = "getGoogleApps";
+                                    break;
+                                case "dropbox":
+                                    action = "getDropBoxApps";
+                                    break;
+
                             }
 
                             messengerService.send(action, function (response) {
                                 if (response.status == "success") {
                                     $scope.apps = response.data;
+                                    console.log($scope.apps);
                                     $scope.requestIsMade = true;
                                     $scope.$apply();
                                 }
@@ -118,9 +134,6 @@ angular.module('socialApps',['cfp.loadingBar'])
                 var checkInterval = setInterval(checkIfLoggedIn, 3000);
 
                 checkIfLoggedIn();
-
-
-
 
             },
             templateUrl:"/operando/tpl/apps/sn_apps.html"

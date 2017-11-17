@@ -180,7 +180,8 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         facebook : "Facebook",
                         linkedin: "LinkedIn",
                         twitter: "Twitter",
-                        google: "Google"
+                        google: "Google",
+                        dropbox:"Dropbox"
 
                     };
 

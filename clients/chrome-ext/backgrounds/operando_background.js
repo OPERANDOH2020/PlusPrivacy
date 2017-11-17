@@ -87,6 +87,7 @@ webRequest.onBeforeSendHeaders.addListener(function(details) {
                 break;
             }
         }
+
         if (referer !== "") {
             for (var i = 0; i < details.requestHeaders.length; ++i) {
                 var header = details.requestHeaders[i];
@@ -97,10 +98,59 @@ webRequest.onBeforeSendHeaders.addListener(function(details) {
             }
         }
 
+    },
+    {urls: ["<all_urls>"]},
+    ["blocking", "requestHeaders"]);
+
+
+webRequest.onBeforeSendHeaders.addListener(function (details) {
+
+        var requestedHeaders = details.requestHeaders;
+
+        var plusPrivacyCustomData;
+        var plusPrivacyCustomDataIndex;
+        requestedHeaders.some(function (rHeader, index) {
+            if (rHeader.name === "PlusPrivacyCustomData") {
+                plusPrivacyCustomData = rHeader;
+                plusPrivacyCustomDataIndex = index;
+                return true;
+            }
+            return false;
+        });
+
+        if (plusPrivacyCustomData) {
+            var cookieHeader = requestedHeaders.find(function (rHeader) {
+                return rHeader.name.toLowerCase() === "cookie";
+            });
+
+            var customData = JSON.parse(plusPrivacyCustomData.value);
+            if (customData.custom_headers) {
+                var customHeaders = customData.custom_headers;
+                if (customHeaders instanceof Array) {
+                    customHeaders.forEach(function (header) {
+                        details.requestHeaders.push(header);
+                    })
+                }
+            }
+
+            if (customData.custom_cookies) {
+                var customCookies = customData.custom_cookies;
+                if (customCookies instanceof Array) {
+                    customCookies.forEach(function (cookie) {
+                        cookieHeader.value += "; " + cookie.name + "=" + cookie.value;
+                    })
+                }
+            }
+
+            if (plusPrivacyCustomDataIndex) {
+                details.requestHeaders.splice(plusPrivacyCustomDataIndex, 1);
+            }
+        }
+
         return {requestHeaders: details.requestHeaders};
 
     },
-    {urls: ["<all_urls>"]},
+    {urls: ["*://www.dropbox.com/*"]},
     ["blocking", "requestHeaders"]);
 
 
@@ -124,19 +174,6 @@ webRequest.onBeforeSendHeaders.addListener(
     },
     {urls: ["*://www.facebook.com/*"]},
     ["blocking", "requestHeaders"]);
-
-
-chrome.webRequest.onHeadersReceived.addListener(
-    function(details) {
-        var feedbackFormUrl = CONSTANTS.FEEDBACK_FORM_URL + "/formResponse";
-        if(details.url.indexOf(feedbackFormUrl)>-1){
-            swarmHub.startSwarm("notification.js","registerInZone", "FEEDBACK_SUBMITTED");
-        }
-        return {cancel: false};
-    },
-    {urls: ["*://docs.google.com/*"]},
-    ["blocking"]);
-
 
 var getDeviceIdAction = bus.getAction("getDeviceId");
 getDeviceIdAction(function(deviceId){

@@ -45,7 +45,7 @@
     "apersistence":"git+https://mastaleru@github.com/PrivateSky/apersistence.git#master",
     "double-check" : "git+https://mastaleru@github.com/PrivateSky/double-check.git#master",
     "transrest" :"git+https://mastaleru@github.com/PrivateSky/transrest.git#master",
-    "callflow"  :"git+https://mastaleru@github.com/PrivateSky/callflow.git#master",
+    "callflow"  :"git+https://mastaleru@github.com/PrivateSky/callflow.git#9b7428c4052b373e8b8d3c87c124aca1583e7fa2",
     "whys" :"git+https://mastaleru@github.com/PrivateSky/whys.git#master",
 	"safebox":"git+https://mastaleru@github.com/PrivateSky/safebox.git#master",
     "semantic-firewall" : ">=0.5.1",
