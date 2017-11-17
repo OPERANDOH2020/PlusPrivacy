@@ -110,7 +110,7 @@ var authenticationService = exports.authenticationService = {
 
         var self = this;
         swarmService.initConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, userId, authenticationToken, "chromeBrowserExtension", "tokenLogin", failCallback, failCallback, function(){
-            self.restoreUserSession();
+            self.restoreUserSession(successCallback, failCallback);
         });
 
         var tokenLoginSuccessfully = function(swarm){

@@ -29,6 +29,28 @@ var analyticRules = [
     },
     {
         "swarmName":"login.js",
+        "swarmConstructor":"tokenLogin",
+        "argumentPatterns": function(meta,args){
+            return args[0]!="guest@operando.eu"; //all logins but the logins of guest...
+        },
+        "analytics":onTokenLogin,
+        "toBeLogged":function(meta,args){
+            return "login with "+args[0]; //return email
+        }
+    },
+    {
+        "swarmName":"login.js",
+        "swarmConstructor":"restoreSession",
+        "argumentPatterns": function(meta,args){
+            return args[0]!="guest@operando.eu"; //all logins but the logins of guest...
+        },
+        "analytics":onRecovery,
+        "toBeLogged":function(meta,args){
+            return "login with "+args[0]; //return email
+        }
+    },
+    {
+        "swarmName":"login.js",
         "swarmConstructor":"logout",
         "argumentPatterns":function(meta,args){
             return args[0]!="guest@operando.eu";
@@ -38,14 +60,26 @@ var analyticRules = [
             return "logged out with "+meta.userId; 
         }
     },
+
+
     {
         "swarmName":"identity.js",
         "swarmConstructor":"createIdentity",
-        "analytics":setField('hasAltIdentities'),
+        "analytics":incField('nrOfAltIdentities',1),
         "toBeLogged":function(meta,args){
             return "User "+meta.userId+" created an identity";
         }
     },
+    {
+        "swarmName":"identity.js",
+        "swarmConstructor":"removeIdentity",
+        "analytics":incField('nrOfAltIdentities',-1),
+        "toBeLogged":function(meta,args){
+            return "User "+meta.userId+" removed an identity";
+        }
+    },
+
+
     {
         "swarmName":"UserPreferences.js",
         "swarmConstructor":"removePreferences",
@@ -54,6 +88,15 @@ var analyticRules = [
             return "User "+meta.userId+" removed preferences";
         }
     },
+    {
+        "swarmName":"UserPreferences.js",
+        "swarmConstructor":"removePreferences",
+        "analytics":updateSocialNetworks(),
+        "toBeLogged":function(meta,args){
+            return "User "+meta.userId+" userd PP to update SN "+args[0];
+        }
+    },
+
     {
         "swarmName":"UserPreferences.js",
         "swarmConstructor":"saveOrUpdatePreferences",
@@ -74,6 +117,17 @@ var analyticRules = [
         "analytics": setField('manuallyChangedSNSettings'),
         "toBeLogged":function(meta,args){
             return "User "+meta.userId+" manually changed SN settings";
+        }
+    },
+    {
+        "swarmName":"UserPreferences.js",
+        "swarmConstructor":"saveOrUpdatePreferences",
+        "argumentPatterns":function(meta,args){
+            return args[0] !== 'abp-settings'
+        },
+        "analytics": updateSocialNetworks('reset'),
+        "toBeLogged":function(meta,args){
+            return "User "+meta.userId+" manually changed "+args[0]+" settings";
         }
     },
     {
@@ -120,7 +174,7 @@ var analyticRules = [
 ];
 
 const tenantPlatformAnalyticsMap = {
-    'chromeBrowserExtension':{
+    "chromeBrowserExtension":{
         name:"ChromeExtension",
         loggedIn:"loggedInChrome",
         uses:"usesChrome",
@@ -143,8 +197,21 @@ const tenantPlatformAnalyticsMap = {
         lastLogin:"lastLoginInAndroid",
         totalLoginLength:"totalLoginLengthInAndroid",
         lastLoginLength:"lastLoginLengthInAndroid"
+    },
+    "PlusPrivacyWebsite":{
+        name:"PlusPrivacyWebsite",
+        loggedIn:"loggedInPlusPrivacyWebsite",
+        uses:"usesPlusPrivacyWebsite",
+        lastLogin:"lastLoginInPlusPrivacyWebsite",
+        totalLoginLength:"totalLoginLengthInPlusPrivacyWebsite",
+        lastLoginLength:"lastLoginLengthInPlusPrivacyWebsite"
     }
 };
+const preferenceKeyToSN = { //    When GooglePlus and Youtube are available you need to add those too!
+    "linkedin":"LinkedIn",
+    "facebook":'Facebook',
+    "twitter":"Twitter"
+}
 
 container.declareDependency("rulesRegistered",['mysqlPersistence','analytics'],function(outOfService,mysqlPersistence){
     if(!outOfService && !rulesRegistered){
@@ -238,14 +305,27 @@ function setupTables(callback){
                 type:"int",
                 default:0
             },
-            filledFeedback:{
+            usesPlusPrivacyWebsite:{
                 type:"boolean",
                 default:false
             },
-            hasAltIdentities:{
+            loggedInPlusPrivacyWebsite:{
                 type:"boolean",
                 default:false
             },
+            totalLoginLengthInPlusPrivacyWebsite:{
+                type:"int",
+                default:0
+            },
+            lastLoginInPlusPrivacyWebsite:{
+                type:"datetime"
+            },
+            lastLoginLengthInPlusPrivacyWebsite:{
+                type:"int",
+                default:0
+            },
+
+
             didSingleClickPrivacy:{
                 type:"boolean",
                 default:false
@@ -254,6 +334,35 @@ function setupTables(callback){
                 type:"boolean",
                 default:false
             },
+            Facebook:{
+                type:"boolean",
+                default:false
+            },
+            LinkedIn:{
+                type:"boolean",
+                default:false
+            },
+            Twitter:{
+                type:"boolean",
+                default:false
+            },
+            GooglePlus:{
+                type:"boolean",
+                default:false
+            },
+            Youtube:{
+                type:"boolean",
+                default:false
+            },
+
+            filledFeedback:{
+                type:"boolean",
+                default:false
+            },
+            nrOfAltIdentities:{
+                type:"int",
+                default:0
+            },
             changedABSettings:{
                 type:"boolean",
                 default:false
@@ -261,6 +370,9 @@ function setupTables(callback){
             changedAppsOrExtensions:{
                 type:"boolean",
                 default:false
+            },
+            lastUse:{
+                type:'datetime'
             }
         }
     },{
@@ -319,10 +431,33 @@ function onLogin(meta,args){
     var platform = tenantPlatformAnalyticsMap[meta.tenantId];
     var query = "UPDATE UserAnalytics SET "
         +platform.lastLogin+"='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +"lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
         +platform.loggedIn+"=true, "
         +platform.uses+"=true "
         +"WHERE email='"+args[0]+"';";
 
+    persistence.query(query,logError)
+}
+
+function onRecovery(meta,args){
+    var platform = tenantPlatformAnalyticsMap[meta.tenantId];
+    var query = "UPDATE UserAnalytics SET "
+        +platform.lastLogin+"='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +"lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +platform.loggedIn+"=true, "
+        +platform.uses+"=true "
+        +"WHERE userId='"+args[0]+"';";
+    persistence.query(query,logError)
+}
+
+function onTokenLogin(meta, args){
+    var platform = tenantPlatformAnalyticsMap[meta.tenantId];
+    var query = "UPDATE UserAnalytics SET "
+        +platform.lastLogin+"='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +"lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ')+"', "
+        +platform.loggedIn+"=true, "
+        +platform.uses+"=true "
+        +"WHERE userId='"+args[0]+"';";
     persistence.query(query,logError)
 }
 
@@ -375,9 +510,42 @@ function onUninstall(meta,args){
 }
 
 function setField(field){
+    //might be able to merge setField and incField...
     return function(meta,args) {
-        var query = "UPDATE UserAnalytics SET "+field+"=true WHERE userId='" + meta.userId + "';";
+        var query = "UPDATE UserAnalytics SET "+
+            field+"=true, "+
+            "lastUse='"+ new Date().toISOString().slice(0, 19).replace('T', ' ')+"' "+
+            "WHERE userId='" + meta.userId + "';";
         persistence.query(query, logError)
+    }
+}
+
+function incField(field,quantity){
+    return function(meta,args) {
+        var query = "UPDATE UserAnalytics SET " +
+            field+"="+field+"+"+quantity+
+            ", lastUse='"+ new Date().toISOString().slice(0, 19).replace('T', ' ')+
+            "' WHERE userId='" + meta.userId + "';";
+        
+        persistence.query(query, logError)
+    }
+}
+
+function updateSocialNetworks(reset){
+    /*
+    Either set or reset the field
+     */
+    return function(meta,args){
+        if(!preferenceKeyToSN[args[0]]){
+            throw new Error("You need to register "+args[0]+" in the analytics rules")  //just to make sure somebody sees this problem
+        }else {
+            var query = "UPDATE UserAnalytics SET " +
+            preferenceKeyToSN[args[0]] + "=" + (reset ? "false" : "true" ) +", "+
+                "lastUse='"+new Date().toISOString().slice(0, 19).replace('T', ' ') +
+                "' WHERE userId='" + meta.userId + "';";
+
+            persistence.query(query, logError)
+        }
     }
 }
 
@@ -386,7 +554,3 @@ function logError(err,result){
         console.error("Analytics error: ",err);
     }
 }
-
-
-
-
