@@ -625,3 +625,41 @@ p#european_commission{
     color:#FFB400;
 }
 
+#ajax-load-more h3 a{
+    color:#FFB400;
+}
+
+#ajax-load-more .alm-listing li img{
+    position:relative;
+    height: 130px;
+    width:200px;
+    margin-bottom: 0px;
+}
+
+#ajax-load-more .entry-media{
+    width:200px;
+}
+#ajax-load-more .entry-media{
+    width:200px;
+    float: left;
+    margin-right: 25px;
+}
+#ajax-load-more .alm-listing li{
+    padding-left:0px;
+}
+#ajax-load-more .alm-listing li p{
+    font-size: 15px;
+}
+
+#ajax-load-more .alm-listing li p.entry-meta{
+    font-size: 12px;
+}
+
+#ajax-load-more .alm-listing li h3{
+    font-size: 22px;
+    font-weight: normal;
+}
+
+div.entry-content a{
+    color:#FFB400;
+}
