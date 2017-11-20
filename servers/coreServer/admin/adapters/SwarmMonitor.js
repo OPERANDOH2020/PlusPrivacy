@@ -50,6 +50,8 @@ function memLoad() {
 }
 
 function tick(rts){
+
+
     var cLoad = cpuLoad();
     var mLoad = memLoad();
     rts.record('cpu',cLoad, ['avg','max','min'], ['hm','hq','hy','dm','dq','dy']);
@@ -58,33 +60,30 @@ function tick(rts){
 
 var currentRedisConnection = null;
 
-container.service("osMonitor", ["redisConnection"], function(outOfService,redisConnection){
-    var donotsave = false;
+container.service("osMonitor", ["redisClient"], function(outOfService,redisClient){
     if(outOfService){
-        donotsave = true;
+        save = false;
     } else {
-        currentRedisConnection = redisConnection;
-        if(!redisConnection){
-            throw new Error("Shared Redis connection can't be null!");
-        }
-        donotsave = false;
-        //maybe instantiate rts out of this function ?
-         rts = require('rts')({
+        save = true
+
+        redisConnection = redisClient;
+        rts = require('rts')({
             redis: redisConnection,
             gran: '1m, 5m, 1h, 1d, 1w, 1M, 1y',
             points: 360,
             prefix: ''
         });
-
-        function doTick(){
-            if(!donotsave){
-                tick(rts);
-            }
-            setTimeout(doTick,10*1000);
-        }
-        doTick();
     }
 })
+
+
+function doTick(){
+    if(save){
+        tick(rts);
+        setTimeout(doTick,10*1000);
+    }
+}
+
 
 var activeServers = {};
 var activeServerLastChecked = {};
