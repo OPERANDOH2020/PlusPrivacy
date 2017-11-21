@@ -2,7 +2,13 @@
 
     <div ng-controller="PreferencesController" class="preferences_form" social-network="{{osp.key}}" ng-show="schema">
         <div class="actions_container top">
-            <h2 class="{{osp.key}}_icon sn_icon"><span class="sn-title">{{osp.title}}</span> settings</h2>
+            <h2 class="{{osp.key}}_icon sn_icon"><span class="sn-title">{{osp.title}} settings - </span>
+                <div class="username_spinner" ng-if="!socialNetworkEmail">
+                    <div class="username_bounce1"></div>
+                    <div class="username_bounce2"></div>
+                    <div class="username_bounce3"></div>
+                </div>
+                <span class="logged_in_email" ng-if="socialNetworkEmail">You are logged in {{socialNetworkEmail.type =="username"?"as":"with"}} <b>{{socialNetworkEmail.account}}</b></span></h2>
             <div class="sn_actions">
                 <button class="btn-primary" ng-if="!isFirstOspInList" ng-click="goToPreviousOsp()">Back</button>
                 <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>

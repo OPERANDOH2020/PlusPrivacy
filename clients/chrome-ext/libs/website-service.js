@@ -1,6 +1,7 @@
 var bus = require("bus-service").bus;
 var authenticationService = require("authentication-service").authenticationService;
 var portObserversPool = require("observers-pool").portObserversPool;
+var socialNetworkService = require("social-network-service").socialNetworkService;
 
 function doGetRequest(url, callback) {
     var oReq = new XMLHttpRequest();
@@ -649,9 +650,37 @@ var websiteService = exports.websiteService = {
                 'at': at,
                 'f_sid': sid
             };
-
             callback(data);
         }
+    },
+
+
+    getMyLoggedinEmail: function(socialNetwork, success_callback, error_callback){
+        socialNetworkService.getSocialNetworkEmailHandler(socialNetwork, function(data){
+
+            var getDataPromise = function(url){
+                return new Promise(function(resolve, reject){
+                    doGetRequest(url, resolve);
+                })
+            };
+
+            var sequence = Promise.resolve();
+
+            sequence = sequence.then(function(){
+                return getDataPromise(data.url);
+            }).then(function(content){
+                var regex = new RegExp(data.regex);
+                var match = regex.exec(content);
+                if(match && match[1]){
+                    success_callback({type:data.type, account: match[1]});
+                }
+                else{
+                    error_callback();
+                }
+
+            });
+
+        })
     }
 
 };
