@@ -226,6 +226,7 @@ MAKE_HIDDEN void processNewlyLoadedSymbols(SymbolInfoArray *symbolsArray, char *
 
 
 void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel) {
+    return;
     DetectContext *context = getGlobalDetectContext();
     
     addDetectModelInArray(ownedModel, context->detectModelsArray);

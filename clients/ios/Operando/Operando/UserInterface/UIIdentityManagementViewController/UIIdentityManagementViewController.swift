@@ -41,6 +41,8 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         self.outlets = outlets;
         self.logicCallbacks = logicCallbacks
         super.init()
+        outlets.addNewIdentityButton?.addTarget(self, action: #selector(didPressToAddNewIdentity(_:)), for: .touchUpInside)
+
     }
     
     private var realIdentity: String = ""

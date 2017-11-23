@@ -12,9 +12,6 @@ import PPCommonUI
 import PPCommonTypes
 
 
-
-
-
 class OPConfigObject: NSObject
 {
     static let sharedInstance = OPConfigObject()
@@ -31,7 +28,7 @@ class OPConfigObject: NSObject
         
         self.userRepository = self.swarmClientHelper
         self.notificationsRepository = self.swarmClientHelper
-        self.adBlocker.beginBlocking()
+        //self.adBlocker.beginBlocking()
         
         weak var weakSelf = self
         

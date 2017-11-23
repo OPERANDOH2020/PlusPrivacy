@@ -45,6 +45,7 @@
 + (void)show:(NSString *)status
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
+    return;
     [self shared].interaction = NO;
     [[self shared] hudMake:status image:nil spin:YES hide:NO];
 }
@@ -52,6 +53,7 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 +(void)show:(NSString *)status autoDismissAfter:(NSTimeInterval)time{
+    return;
     [self show:status];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dismiss];

@@ -1,6 +1,0 @@
-framework module PPLocationApiHooks {
-  umbrella header "PPLocationApiHooks.h"
-
-  export *
-  module * { export * }
-}

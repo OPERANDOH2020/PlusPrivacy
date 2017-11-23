@@ -7,4 +7,5 @@ framework module SwarmClient {
 
 module SwarmClient.Swift {
     header "SwarmClient-Swift.h"
+    requires objc
 }

@@ -15,15 +15,13 @@
 +(PPEventDispatcher* _Nonnull) sharedInstance;
 
 -(NSString* _Nonnull)appendNewEventHandler:(EventHandler _Nonnull)eventHandler;
-
 -(void)removeHandlerWithIdentifier:(NSString* _Nonnull)identifier;
 
+
+
 -(void)fireEvent:(PPEvent* _Nonnull)event;
-
 -(void)fireEventWithMaxOneTimeExecution:(PPEventIdentifier)identifier executionBlock:(PPVoidBlock _Nonnull)executionBlock executionBlockKey:(NSString* _Nonnull)executionBlockKey;
-
 -(id _Nullable)resultForEventValue:(id _Nonnull)value ofIdentifier:(PPEventIdentifier)identifier atKey:(NSString* _Nonnull)key;
-
 -(BOOL)resultForBoolEventValue:(BOOL)value ofIdentifier:(PPEventIdentifier)identifier atKey:(NSString* _Nonnull)key;
 
 @end

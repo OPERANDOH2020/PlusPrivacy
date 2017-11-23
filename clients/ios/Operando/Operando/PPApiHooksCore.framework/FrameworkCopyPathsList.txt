@@ -1,2 +1,0 @@
-./../PPCloak/GenericFrameworkProject/
-./../../ios/Operando/Operando/

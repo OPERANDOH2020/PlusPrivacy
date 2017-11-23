@@ -49,6 +49,7 @@ PPEventDispatcher *_urlSessionDispatcher;
 @implementation NSURLSession(PPHOOK)
 
 +(void)load {
+    return;
     [self autoSwizzleMethodsWithThoseBeginningWith:PPHOOKPREFIX];
     PPApiHooks_registerHookedClass(self);
 }
