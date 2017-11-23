@@ -91,7 +91,6 @@ class OPViewUtils
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         
     }
-    
 }
 
 extension UIView{

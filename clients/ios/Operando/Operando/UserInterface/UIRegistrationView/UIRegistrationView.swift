@@ -79,9 +79,9 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
         outlets.passswordTF?.addTarget(outlets.confirmPasswordTF, action: #selector(UITextField.becomeFirstResponder), for: .editingDidEndOnExit)
         
         outlets.signUpButton?.addTarget(self, action: #selector(didPressSignUp(_:)), for: .touchUpInside)
-        outlets.showSecureEntrySwitch?.addTarget(self, action: #selector(didSwitchShowPasswordsOnOrOff(_:)), for: .editingChanged)
+        outlets.showSecureEntrySwitch?.addTarget(self, action: #selector(didSwitchShowPasswordsOnOrOff(_:)), for: .valueChanged)
         
-        outlets.showSecureEntrySwitch?.isOn = true 
+        outlets.showSecureEntrySwitch?.isOn = false
     }
     
     
@@ -111,6 +111,7 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
     }
     
     @IBAction func didSwitchShowPasswordsOnOrOff(_ sender: UISwitch){
+        
         self.setSecureTextEntry(entry: !sender.isOn);
     }
     
