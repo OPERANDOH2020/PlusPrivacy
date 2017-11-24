@@ -2252,7 +2252,15 @@ input.ng-invalid:not(.ng-untouched){
     float:right;
 }
 
-#sn_preferences h2 span.sn-title {
+#network_tab h2{
+    height: 32px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+}
+
+#sn_preferences h2 span.sn-title,
+#network_tab h2 span.sn-title{
     text-transform: capitalize;
     font-weight: bold;
     float:left;
@@ -2400,23 +2408,32 @@ padding-left: 5px;
 
 }
 
-#sn_preferences h2.sn_icon{
+#sn_preferences h2.sn_icon,
+#network_tab h2.sn_icon{
     padding-left: 36px;
 }
 
-#sn_preferences h2.facebook_icon{
+#sn_preferences h2.facebook_icon,
+#network_tab h2.facebook_icon{
     background: url("/operando/assets/images/facebook32.png") no-repeat left center;
 }
-#sn_preferences h2.linkedin_icon{
+#sn_preferences h2.linkedin_icon,
+#network_tab h2.linkedin_icon{
     background: url("/operando/assets/images/linkedin32.png") no-repeat left center;
 }
 
-#sn_preferences h2.twitter_icon{
+#sn_preferences h2.twitter_icon,
+#network_tab h2.twitter_icon{
     background: url("/operando/assets/images/twitter32.png") no-repeat left center;
 }
 
-#sn_preferences h2.google_icon{
+#sn_preferences h2.google_icon,
+#network_tab h2.google_icon{
     background: url("/operando/assets/images/google32.png") no-repeat left center;
+}
+
+#network_tab h2.dropbox_icon{
+    background: url("/operando/assets/images/dropbox32.png") no-repeat left center;
 }
 
 .filter-settings{
@@ -2678,6 +2695,7 @@ h4.modal-title.plusprivacy{
     font-size: 16px;
     float: left;
     padding: 11px 7px 5px;
+    text-transform: initial;
 }
 
 .username_spinner {

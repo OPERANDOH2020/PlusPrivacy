@@ -133,7 +133,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             $scope.done = function () {
                 $state.transitionTo('home');
-            }
+            };
 
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
@@ -228,6 +228,5 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                    $scope.$apply();
                }
             });
-
         }
     }]);

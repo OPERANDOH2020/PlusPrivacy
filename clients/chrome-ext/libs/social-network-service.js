@@ -22,6 +22,11 @@ var socialNetworkEmailAddressMap = {
         url: "https://myaccount.google.com/email",
         regex: '<div class="WAITcd"><h3 class="pYJXie">.*?<\/h3><div class="HrlX8c"><div class="n83bO"><div class="fHYswf"><div class="ia4Bx"><span class="kI49Jc">(.*?)<\/span><\/div><\/div><\/div><div class="Gyrjpb">.*?<\/div><\/div><\/div>',
         group: 1
+    },
+    "dropbox":{
+        type:"email",
+        url:"https://www.dropbox.com/account",
+        regex:'"email": "(.*?)"'
     }
 };
 

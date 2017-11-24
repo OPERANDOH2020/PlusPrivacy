@@ -1,5 +1,5 @@
 angular.module('socialApps',['cfp.loadingBar'])
-    .directive("socialApps", function (messengerService, ModalService, Notification) {
+    .directive("socialApps", function (messengerService, ModalService, Notification,$rootScope) {
         return {
             restrict: "E",
             replace: true,
@@ -90,6 +90,8 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                     chrome.cookies.get({url: conf.url, name: conf.cookie_name}, function (cookie) {
                         if (cookie) {
+
+                            $rootScope.$broadcast("socialNetworkReady",$scope.sn);
                             clearInterval(checkInterval);
                             $scope.isLoggedInSocialNetwork = true;
                             var action = undefined;
