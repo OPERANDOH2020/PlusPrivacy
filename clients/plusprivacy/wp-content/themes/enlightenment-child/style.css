@@ -419,6 +419,11 @@ ul.nav.navbar-nav .dropdown-menu li a{
     display: block;
 }
 
+ul.nav.navbar-nav li.user_email{
+    max-width: 230px;
+    white-space: nowrap;
+}
+
 ul.dropdown-menu>.active>a,
 ul.dropdown-menu>.active>a:focus,
 ul.dropdown-menu>.active>a:hover{
@@ -580,14 +585,11 @@ a.social_network_link img{
     }
 }
 
-
 @media (min-width: 769px) {
     #site-navigation{
-        width: 650px;
+        width: 780px;
         float:right;
     }
-
-
 }
 .entry-content a img {
     box-shadow: none;
