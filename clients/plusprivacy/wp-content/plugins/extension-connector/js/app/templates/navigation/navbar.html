@@ -1,7 +1,7 @@
 <li class="menu-item">
     <ul class="nav navbar-nav navbar-right">
         <menu-item ng-repeat="item in navigationModel" item="item" location="location"></menu-item>
-        <li class="dropdown" ng-if="user.authenticated" ng-cloak>
+        <li class="dropdown user_email" ng-if="user.authenticated" ng-cloak>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false"><span class="glyphicon glyphicon-user"></span>{{user.email}}</a>
             <ul class="dropdown-menu" ng-switch="user.authenticated">
