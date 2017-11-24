@@ -45,7 +45,6 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
    horizontalOrder = (horizontalOrder === 'true') ? true : false;
    
 	if(!filtering){
-
 		// First Run
 		if(almMasonryInit && init){
 			almMasonryInit = false;
@@ -68,7 +67,6 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
 				container.masonry('reloadItems');
 			});
 		}
-
 		// Standard
 		else{
 			container.append( items ); // Append new items
@@ -84,7 +82,6 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
 		almMasonryInit = true; // reset almMasonryInit
 		container.append( items );
 		almMasonry(container, items, selector, animation, horizontalOrder, speed, true, false);
-
 	}
 
 };

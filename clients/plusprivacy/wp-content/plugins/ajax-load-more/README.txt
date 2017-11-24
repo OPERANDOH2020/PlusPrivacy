@@ -3,8 +3,8 @@ Contributors: dcooney, connekthq
 Donate link: https://connekthq.com/donate/
 Tags: infinite scroll, infinite scrolling, scroll, infinite, lazy load, lazy loading, endless scroll, pagination, ajax pagination, ajax, ajax posts, ajax load posts, woocommerce, ajax load more
 Requires at least: 3.6
-Tested up to: 4.8.2
-Stable tag: 3.2.1
+Tested up to: 4.9
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,9 +38,11 @@ Check out the **[demo site](https://connekthq.com/plugins/ajax-load-more/)** for
 
 
 #### What's New 3.0
+* **[User Query](https://connekthq.com/plugins/ajax-load-more/add-ons/users/)** - Query and display a list of WordPress users by role using a `WP_User_Query` and Ajax Load More.
 * **[Advanced Custom Fields](https://connekthq.com/plugins/ajax-load-more/examples/advanced-custom-fields/)** - Compatibility and integration added for infinite scrolling Flexible Content, Gallery, Relationship and Repeater fields for Advanced Custom Fields.
 * **[Masonry](https://connekthq.com/plugins/ajax-load-more/examples/masonry/)** - Built-in support and functionality for Masonry layouts.
 * **[Progress Bars](https://connekthq.com/plugins/ajax-load-more/examples/progress-bar/)** - Display a Progress Bar load indicator with each Ajax request.
+* **[Scroll Container](https://connekthq.com/plugins/ajax-load-more/examples/scroll-container/)** - Constraining infinite scroll to a parent container.
 
 
 
@@ -149,6 +151,7 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 * **[Preloaded Posts](https://connekthq.com/plugins/ajax-load-more/examples/pause-loading/)** - Easily preload an initial set of posts before completing any Ajax requests to the server.
 * **[Progress Bar](https://connekthq.com/plugins/ajax-load-more/examples/progress-bar/)** - Display a progress bar load indicator with each Ajax request.
 * **[Search Results](https://connekthq.com/plugins/ajax-load-more/examples/search-results/)** - Returning results based on search terms.
+* **[Scroll Container](https://connekthq.com/plugins/ajax-load-more/examples/scroll-container/)** - Constrain Ajax Load More to a parent container.
 * **[SEO & Paging](https://connekthq.com/plugins/ajax-load-more/examples/seo-paging-add-ons/)** - Combine these two add-ons to create one powerful navigation system.
 * **[Slideshow Gallery](https://connekthq.com/plugins/ajax-load-more/examples/slideshow-gallery/)** - Create a gallery of posts with Ajax Load More and the Paging add-on.
 * **[Table Layout](https://connekthq.com/plugins/ajax-load-more/examples/table/)** - Ajax Load More will display query results in a table format.
@@ -176,6 +179,7 @@ The [Custom Repeater Add-On](https://connekthq.com/plugins/ajax-load-more/custom
 * **[Previous Post](https://connekthq.com/plugins/ajax-load-more/add-ons/previous-post/)**: Enable infinite scrolling of older(previous) posts on your WordPress single post templates.
 * **[SEO](https://connekthq.com/plugins/ajax-load-more/add-ons/search-engine-optimization/)**: Generate unique paging URLs with each Ajax Load More query.
 * **[Theme Repeaters](https://connekthq.com/plugins/ajax-load-more/add-ons/theme-repeaters/)**: Manage Ajax Load More repeater templates from within your current theme directory.
+* **[Users](https://connekthq.com/plugins/ajax-load-more/add-ons/users/)**: Lazy loading WordPress Users with Ajax Load More.
 
 
 
@@ -364,6 +368,18 @@ How to install Ajax Load More.
 
 
 == Changelog ==
+
+= 3.3.0 - November 20, 2017 =
+
+* NEW - Adding functionality for new for [`WP_User_Query`](https://connekthq.com/plugins/ajax-load-more/add-ons/users/) add-on.
+* NEW - New Admin design, cleaner layout, improved performance.
+* UPDATE - Remove `load-more` ID from loading button.
+* UPDATE - Updated `alm_query_args` filter to accept the current post ID as a parameter within the filter.
+* UPDATE - Code clean up, creating JS modules
+* UPDATE - Improved license activations
+* FIX- Removed 'data-masonry-horizontalorder' being rendered into HTML page if empty.
+* FIX- Fixed issue with jump to link on ALM settings page.
+
 
 = 3.2.1 - October 5, 2017 =
 
