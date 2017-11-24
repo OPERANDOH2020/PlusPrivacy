@@ -47,10 +47,18 @@ MAKE_HIDDEN inline void checkNoSwizzlingForApiHooks(){
     model->numOfObjcSymbols = numOfClasses;
     model->callback = &frameworkDidSwizzleClassesInApiHooks;
     
-    checkObjcSymbolsDefinedBeforeFramework(model);
+    char *libViewDebugger = (char*)malloc(50 * sizeof(char));
+    strcpy(libViewDebugger, "libViewDebugger.dylib");
     
-}
+    char **frameworksToIgnore = (char**)malloc(1 * sizeof(char*));
+    
+    frameworksToIgnore[0] = libViewDebugger;
+    
+    model->frameworksToIgnore = frameworksToIgnore;
+    model->numOfFrameworksToIgnore = 1;
 
+    checkObjcSymbolsDefinedBeforeFramework(model);
+}
 
 MAKE_HIDDEN inline void checkNoSwizzlingForOPMonitor(){
     char **p = (char**)malloc(sizeof(char*));

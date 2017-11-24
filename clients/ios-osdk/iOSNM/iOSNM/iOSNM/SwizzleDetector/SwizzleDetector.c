@@ -226,7 +226,6 @@ MAKE_HIDDEN void processNewlyLoadedSymbols(SymbolInfoArray *symbolsArray, char *
 
 
 void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel) {
-    return;
     DetectContext *context = getGlobalDetectContext();
     
     addDetectModelInArray(ownedModel, context->detectModelsArray);
@@ -238,6 +237,12 @@ void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel) 
         
         if (loadIndexOfCurrentFramework < loadIndexOfModelLibrary) {
             SymbolInfoArray *currentFrameworkSymbols = context->symbolInfoMatrix->arrayList[i];
+            
+            for (int i = 0; i<ownedModel->numOfFrameworksToIgnore; i++) {
+                if (!strcmp(currentFrameworkName, ownedModel->frameworksToIgnore[i])) {
+                    continue;
+                }
+            }
             
             checkAgainstFrameworkSymbols(ownedModel, currentFrameworkSymbols, currentFrameworkName);
         }

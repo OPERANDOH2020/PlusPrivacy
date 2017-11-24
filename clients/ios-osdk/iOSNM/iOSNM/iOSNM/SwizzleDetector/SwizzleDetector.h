@@ -15,11 +15,13 @@ typedef void(*FoundDefinedSymbolInFrameworkCallback)(char *unownedSymbol, char *
 
 typedef struct {
     char **objcSymbolsToCheck;
-    char *frameworkName;
+    char *frameworkName; //PPApiHooks
     
     int numOfObjcSymbols;
     FoundDefinedSymbolInFrameworkCallback callback;
     
+    char **frameworksToIgnore;
+    int numOfFrameworksToIgnore;
 } ObjcSymbolsDetectModel;
 
 void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel);
