@@ -11,6 +11,7 @@ public class Notification {
     private String description;
     private String zone;
     private String action_name;
+    private String creationDate;
 
     public String getNotificationId() {
         return notificationId;
@@ -36,6 +37,10 @@ public class Notification {
         return action_name;
     }
 
+    public String getCreationDate() {
+        return creationDate;
+    }
+
     @Override
     public String toString() {
         return "Notification{" +
@@ -45,6 +50,7 @@ public class Notification {
                 ", description='" + description + '\'' +
                 ", zone='" + zone + '\'' +
                 ", action_name='" + action_name + '\'' +
+                ", creationDate='" + creationDate + '\'' +
                 '}';
     }
 }

@@ -73,6 +73,16 @@
     <color name="menu_text">#84610f</color>
     <color name="menu_first_separator">#d99820</color>
     <color name="menu_second_separator">#84610f</color>
-
     <color name="menu_background">#eea82c</color>
+
+
+    <!-- notification screen colors -->
+    <color name="notification_background">#f0d0de</color>
+    <color name="notification_button">#ea70a3</color>
+    <color name="notification_button_font_color">#f9e8f0</color>
+    <color name="notification_divider_item">#fbcbe1</color>
+    <color name="notification_background_child_item">#fbe5f0</color>
+    <color name="notification_font_color">#661336</color>
+
+
 </resources>
