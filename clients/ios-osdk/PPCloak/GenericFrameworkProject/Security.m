@@ -41,14 +41,13 @@ MAKE_HIDDEN inline void checkNoSwizzlingForApiHooks(){
         assert(1 == 0 && "Did not expect that list of current registered classes is zero");
     }
     
-
     model->frameworkName = "PPApiHooksCore";
     model->objcSymbolsToCheck = classList;
     model->numOfObjcSymbols = numOfClasses;
     model->callback = &frameworkDidSwizzleClassesInApiHooks;
     
     char *libViewDebugger = (char*)malloc(50 * sizeof(char));
-    strcpy(libViewDebugger, "libViewDebugger.dylib");
+    strcpy(libViewDebugger, "libViewDebuggerSupport.dylib");
     
     char **frameworksToIgnore = (char**)malloc(1 * sizeof(char*));
     

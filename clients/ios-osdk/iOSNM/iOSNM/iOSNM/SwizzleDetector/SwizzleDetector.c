@@ -239,12 +239,11 @@ void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel) 
             SymbolInfoArray *currentFrameworkSymbols = context->symbolInfoMatrix->arrayList[i];
             
             for (int i = 0; i<ownedModel->numOfFrameworksToIgnore; i++) {
-                if (!strcmp(currentFrameworkName, ownedModel->frameworksToIgnore[i])) {
-                    continue;
+                if (0!=strcmp(currentFrameworkName, ownedModel->frameworksToIgnore[i])) {
+                    checkAgainstFrameworkSymbols(ownedModel, currentFrameworkSymbols, currentFrameworkName);
+                    
                 }
             }
-            
-            checkAgainstFrameworkSymbols(ownedModel, currentFrameworkSymbols, currentFrameworkName);
         }
     }
     

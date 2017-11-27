@@ -15,7 +15,7 @@ typedef void(*FoundDefinedSymbolInFrameworkCallback)(char *unownedSymbol, char *
 
 typedef struct {
     char **objcSymbolsToCheck;
-    char *frameworkName; //PPApiHooks
+    char *frameworkName;
     
     int numOfObjcSymbols;
     FoundDefinedSymbolInFrameworkCallback callback;

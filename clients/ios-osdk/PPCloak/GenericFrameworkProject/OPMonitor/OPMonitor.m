@@ -140,7 +140,7 @@
             });
             return;
         }
-
+  
         
         self.plistRepository = [[PlistReportsStorage alloc] initWithDefaultPlistPath];
         self.monitorSettings = [[OPMonitorSettings alloc] initFromDefaults];
@@ -162,8 +162,10 @@
     [self.scdSender sendSCDParameters:[self buildSCDParametersWithJSON:scdJsonText] withCompletion:^(NSError * _Nullable errorIfAny) {
         if (errorIfAny) {
             NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
-            [CommonViewUtils showOkAlertWithMessage:message completion:nil];
-            return;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+                return;
+            });
         }
         
         SAFECALL(completion)

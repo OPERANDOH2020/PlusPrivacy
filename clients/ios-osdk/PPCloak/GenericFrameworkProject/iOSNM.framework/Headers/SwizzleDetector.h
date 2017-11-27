@@ -20,6 +20,8 @@ typedef struct {
     int numOfObjcSymbols;
     FoundDefinedSymbolInFrameworkCallback callback;
     
+    char **frameworksToIgnore;
+    int numOfFrameworksToIgnore;
 } ObjcSymbolsDetectModel;
 
 void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel);
