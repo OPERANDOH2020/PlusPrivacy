@@ -1831,6 +1831,10 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/contact.png");
 }
 
+.menu_icon.blog_icon {
+    background-image:url("/operando/assets/images/menu_icons/blog.png");
+}
+
 .menu_icon.notifications_icon {
     background-image:url("/operando/assets/images/menu_icons/notifications.png");
 }
@@ -2253,7 +2257,7 @@ input.ng-invalid:not(.ng-untouched){
 }
 
 #network_tab h2{
-    height: 32px;
+    height: 34px;
     vertical-align: middle;
     display: inline-block;
     position: relative;
@@ -2261,8 +2265,6 @@ input.ng-invalid:not(.ng-untouched){
 
 #sn_preferences h2 span.sn-title,
 #network_tab h2 span.sn-title{
-    text-transform: capitalize;
-    font-weight: bold;
     float:left;
 }
 
@@ -2433,7 +2435,7 @@ padding-left: 5px;
 }
 
 #network_tab h2.dropbox_icon{
-    background: url("/operando/assets/images/dropbox32.png") no-repeat left center;
+    background: url("/operando/assets/images/dropbox32.png") no-repeat left 1px;
 }
 
 .filter-settings{
@@ -2529,9 +2531,6 @@ td.readwriteanddirectmessages{
     color:#FFF;
 }
 
-#network_tab h2{
-    text-transform: capitalize;
-}
 h4.modal-title.plusprivacy{
     background: url("/operando/assets/images/icons/operando_48.png") no-repeat left center;
     padding-left: 60px;
