@@ -180,3 +180,36 @@ getDeviceIdAction(function(deviceId){
     console.log(deviceId);
     chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+deviceId);
 });
+
+var checkWhiteListedDomains = function(reason){
+    if(reason === "install"){
+
+        chrome.storage.local.get("UserPrefs", function (items) {
+            var userPreferences;
+            if (typeof items === "object" && Object.keys(items).length === 0) {
+                userPreferences = {};
+            }
+            else{
+                userPreferences = JSON.parse(items['UserPrefs']);
+            }
+
+            if(userPreferences['whitelisted-domains']){
+                var addFilter = function(domain){
+                    var message = {
+                        text:domain,
+                        type:"filters.add"
+                    };
+                    ext.backgroundPage.sendMessage(message);
+                };
+                var whiteListedDomains = userPreferences['whitelisted-domains'];
+                whiteListedDomains.forEach(function(whiteListedDomain){
+                    addFilter(whiteListedDomain);
+                });
+            }
+
+        });
+
+    }
+};
+
+chrome.runtime.onInstalled.addListener(checkWhiteListedDomains);

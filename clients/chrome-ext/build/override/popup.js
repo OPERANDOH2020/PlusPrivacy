@@ -20,6 +20,9 @@ var require = backgroundPage.require;
 var Filter = require("filterClasses").Filter;
 var FilterStorage = require("filterStorage").FilterStorage;
 var Prefs = require("prefs").Prefs;
+
+//a localStorage persitence
+var userPreferences = UserPreferences.getInstance();
 var checkWhitelisted = require("whitelisting").checkWhitelisted;
 var getDecodedHostname = require("url").getDecodedHostname;
 
@@ -92,6 +95,8 @@ function toggleEnabled()
         {
             filter.disabled = false;
             FilterStorage.addFilter(filter);
+            userPreferences.addPreference("white-listed-domains",filter.text);
+
         }
     }
     else
@@ -101,6 +106,7 @@ function toggleEnabled()
         while (filter)
         {
             FilterStorage.removeFilter(filter);
+            userPreferences.removePreference("white-listed-domains",filter.text);
             if (filter.subscriptions.length)
                 filter.disabled = true;
             filter = checkWhitelisted(page);
