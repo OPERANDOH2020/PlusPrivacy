@@ -1,0 +1,163 @@
+/* ****************************************************************************
+ * NOTIFICATION STYLES
+ *
+ * The styles are identical with the WPMUDEV dashboard CSS (section 22)
+ * Any changes made here should also be made to the dashboard CSS!
+ */
+
+.wrap .iworks-notice.notice {
+	padding: 0;
+	margin: 5px 0 10px;
+	border: 1px solid #E5E5E5;
+	background: #FFF;
+	overflow: hidden;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+	position: relative;
+	z-index: 1;
+	min-height: 80px;
+	display: table; /* The magic ingredient! */
+	font: 13px "Open Sans", sans-serif;
+}
+.wrap .iworks-notice.notice.loading:before {
+	content: attr(data-message);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 5;
+	text-align: center;
+	line-height: 80px;
+	font-size: 22px;
+	font-weight: bold;
+}
+.iworks-notice > div {
+	display: table-cell; /* The magic ingredient! */
+	vertical-align: middle;
+	cursor: default;
+}
+.iworks-notice.notice.loading > div {
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+.iworks-notice-logo {
+	background: #ddd url(iworks-logo.svg) no-repeat 50% 50%;
+    background-size: 80%;
+}
+.iworks-notice-logo span {
+	display: block;
+	width: 80px;
+}
+.iworks-notice-message {
+	width: 100%;
+	padding: 10px 20px;
+	color: #444;
+}
+.iworks-notice-message strong {
+	color: #000;
+}
+.iworks-notice-cta {
+	border-left: 1px solid #E5E5E5;
+	background: #F8F8F8;
+	padding: 0 30px;
+	position: relative;
+	white-space: nowrap;
+}
+.wp-core-ui .iworks-notice-cta button,
+.wp-core-ui .iworks-notice-cta .button-primary:active {
+	vertical-align: middle;
+}
+.wp-core-ui .iworks-notice-cta input[type="email"] {
+	vertical-align: middle;
+	line-height: 20px;
+	margin: 0;
+	min-width: 50px;
+	max-width: 320px;
+	text-align: center;
+	padding-left: 0;
+	padding-right: 0;
+}
+.iworks-notice-dismiss {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	color: #BBB;
+}
+.iworks-notice-dismiss:hover {
+	color: #666;
+}
+
+@media only all and (max-width: 1200px) {
+	.iworks-notice-dismiss {
+		display: block;
+		margin: 0 auto;
+		line-height: 18px;
+		padding-top: 8px;
+		padding-bottom: 2px;
+	}
+}
+
+@media only all and (max-width: 1000px) {
+	.wrap .iworks-notice.notice {
+		display: block;
+		font-size: 13px;
+	}
+	.iworks-notice > .iworks-notice-logo {
+		float: left;
+		display: inline-block;
+		height: 80px;
+		margin: 10px;
+		border-radius: 4px;
+	}
+	.iworks-notice > .iworks-notice-message {
+		width: auto;
+		display: block;
+		padding: 10px;
+		min-height: 80px;
+	}
+	.iworks-notice > .iworks-notice-cta {
+		display: block;
+		border-top: 1px solid #E5E5E5;
+		border-left: 0;
+		text-align: center;
+		white-space: normal;
+		line-height: 30px;
+		padding: 10px 20px;
+	}
+	.wp-core-ui .iworks-notice > .iworks-notice-cta > input[type="email"],
+	.iworks-notice > .iworks-notice-cta > button {
+		font-size: 14px;
+	}
+	.iworks-notice > .iworks-notice-cta > .iworks-notice-dismiss {
+		display: inline-block;
+		float: none;
+		line-height: 26px;
+		padding-top: 0;
+		padding-bottom: 0;
+		font-size: 13px;
+	}
+}
+
+@media only all and (max-width: 500px) {
+	.wp-core-ui .iworks-notice > .iworks-notice-cta > input[type="email"],
+	.iworks-notice > .iworks-notice-cta > button {
+		display: block;
+		width: 100% !important;
+		max-width: none;
+		margin-bottom: 4px;
+		font-size: 16px;
+		height: 34px;
+	}
+	.iworks-notice > .iworks-notice-cta > .iworks-notice-dismiss {
+		margin-top: 5px;
+		font-size: 14px;
+		height: 23px;
+	}
+}
