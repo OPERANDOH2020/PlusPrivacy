@@ -2413,6 +2413,7 @@ padding-left: 5px;
 #sn_preferences h2.sn_icon,
 #network_tab h2.sn_icon{
     padding-left: 36px;
+    white-space: nowrap;
 }
 
 #sn_preferences h2.facebook_icon,
@@ -2688,13 +2689,6 @@ h4.modal-title.plusprivacy{
 }
 .dropbox_permissions .dropbox_permission_description{
     margin-left: 10px;
-}
-
-.logged_in_email{
-    font-size: 16px;
-    float: left;
-    padding: 11px 7px 5px;
-    text-transform: initial;
 }
 
 .username_spinner {
