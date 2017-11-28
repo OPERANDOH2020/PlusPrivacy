@@ -26,8 +26,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.special.ResideMenu.ResideMenu;
-
 import java.util.List;
 
 import eu.operando.R;
@@ -48,7 +46,6 @@ import eu.operando.utils.PermissionUtils;
 public class MainActivity extends AppCompatActivity implements DrawerRecyclerViewAdapter.IDrawerClickCallback {
 
     private AlertDialog disconnectDialog;
-    private ResideMenu resideMenu;
     private ProgressDialog loadingDialog;
 
     private DrawerLayout drawerLayout;
@@ -199,8 +196,8 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             }
         };
         findViewById(R.id.apps_rl).setOnClickListener(scanListener);
-//        findViewById(R.id.btn_identities).setOnClickListener(identitiesListener);
         findViewById(R.id.real_identity_rl).setOnClickListener(identitiesListener);
+
         findViewById(R.id.notifications_rl).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -216,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         findViewById(R.id.btn_browser).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                KotlinBrowserActivityKt.start(MainBrowserActivity.this);
                 startActivity(new Intent(MainActivity.this, MainBrowserActivity.class));
             }
         });
@@ -224,7 +220,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         findViewById(R.id.btn_osp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                KotlinBrowserActivityKt.start(MainBrowserActivity.this);
                 startActivity(new Intent(MainActivity.this, OSPSettingsActivity.class));
             }
         });
@@ -285,13 +280,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerList = (RecyclerView) findViewById(R.id.drawer_rv);
 
-//        int width = getResources().getDisplayMetrics().widthPixels;
-//        DrawerLayout.LayoutParams params = (android.support.v4.widget.DrawerLayout.LayoutParams) drawerLayout.getLayoutParams();
-//        params.width = width;
-//        drawerList.setLayoutParams(params);
-
         DrawerRecyclerViewAdapter recyclerViewAdapter = new DrawerRecyclerViewAdapter(this);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -354,90 +343,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         Storage.saveAppList(installedApps);
     }
 
-//    private void initMenu() {
-//        resideMenu = new ResideMenu(this);
-//        resideMenu.setBackground(R.drawable.bg);
-//        resideMenu.attachToActivity(this);
-//        resideMenu.setScaleValue(0.9f);
-//        resideMenu.setUse3D(true);
-//
-//        View.OnClickListener menuClickListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int index = (int) v.getTag();
-//                onDrawerItemClicked(index);
-//            }
-//        };
-//
-//
-//        String[] titles = new String[]{
-////                "Trusted apps",
-//                "About",
-//                "Privacy Policy",
-//                "Settings",
-//                "Feedback"
-//        };
-//        int[] icons = new int[]{
-////                R.drawable.ic_trusted,
-//                R.drawable.ic_action_about,
-//                R.drawable.ic_privacy_policy,
-//                R.drawable.ic_settings,
-//                R.drawable.ic_feedback
-//        };
-//
-//        for (int i = 0; i < titles.length; i++) {
-//            ResideMenuItem item = new ResideMenuItem(this, icons[i], titles[i]);
-//            item.setOnClickListener(menuClickListener);
-//            item.setTag(i);
-//            resideMenu.addMenuItem(item, ResideMenu.DIRECTION_LEFT);
-//        }
-//
-//        findViewById(R.id.ic_menu).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-//            }
-//        });
-//
-//        findViewById(R.id.ic_profile).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
-//            }
-//        });
-//
-//        ResideMenuItem logoutItem = new ResideMenuItem(this, R.drawable.ic_logout, "Log Out");
-//        logoutItem.setTag(titles.length);
-//        logoutItem.setOnClickListener(menuClickListener);
-//        resideMenu.addMenuItem(logoutItem, ResideMenu.DIRECTION_RIGHT);
-//
-//    }
-
-    private void onDrawerItemClicked(int index) {
-//        Toast.makeText(this, index + "", Toast.LENGTH_SHORT).show();
-        switch (index + 1) {
-//            case 0: //Trusted Apps
-//                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
-////                TrustedAppsActivity.start(this);
-//                break;
-            case 1: //About
-                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
-                break;
-            case 2: //Privacy Policy
-                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
-                break;
-            case 3: //Settings
-                SettingsActivity.start(this);
-                break;
-            case 4: //Feedback
-                startFeedbackActivity();
-                break;
-            case 5: //LogOut
-                logOut();
-                break;
-        }
-    }
-
     private void startFeedbackActivity() {
         startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
     }
@@ -449,11 +354,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         LoginActivity.start(MainActivity.this);
         finish();
     }
-
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        return resideMenu.dispatchTouchEvent(ev);
-//    }
 
     @Override
     protected void onDestroy() {
