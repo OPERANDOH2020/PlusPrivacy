@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/group_indicator"
-            android:text="Privacy Questionaire"
             android:textColor="@color/notification_font_color"
             android:textSize="18sp" />
 
@@ -43,7 +42,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:text="Nov, 12"
             android:textColor="@color/notification_font_color"
             android:textSize="14sp" />
 

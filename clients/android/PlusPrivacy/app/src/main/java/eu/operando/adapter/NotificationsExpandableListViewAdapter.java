@@ -12,7 +12,14 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import eu.operando.R;
 import eu.operando.activity.IdentitiesActivity;
@@ -24,6 +31,10 @@ import eu.operando.models.Notification;
 import eu.operando.models.privacysettings.Question;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
+
+import static eu.operando.utils.DateUtils.convertDateToStringLong;
+import static eu.operando.utils.DateUtils.convertDateToStringShort;
+import static eu.operando.utils.DateUtils.convertStringToDate;
 
 /**
  * Created by Alex on 11/27/2017.
@@ -40,6 +51,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
     }
 
     private class GroupHolder extends RecyclerView.ViewHolder {
+
         TextView titleTv;
         TextView dateTv;
 
@@ -50,13 +62,32 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
             dateTv = (TextView) itemView.findViewById(R.id.tv_date);
         }
 
-        public void setData(Notification notification){
+        public void setData(Notification notification) {
             titleTv.setText(notification.getTitle());
-//            dateTv.setText(notification.getCreationDate());
+            setDateTv(notification.getCreationDate());
+        }
+
+        private void setDateTv(String dateString){
+
+            if (dateString != null) {
+                Date date = convertStringToDate(dateString);
+
+                Calendar calendar = new GregorianCalendar();
+                calendar.setTime(date);
+                int dateYear = calendar.get(Calendar.YEAR);
+                int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+                if (currentYear > dateYear){
+                    dateTv.setText(convertDateToStringLong(date));
+                } else {
+                    dateTv.setText(convertDateToStringShort(date));
+                }
+            }
         }
     }
 
     private class ChildViewHolder extends RecyclerView.ViewHolder {
+
         TextView descriptionTv;
         RelativeLayout takeActionRL;
         RelativeLayout dismissRL;
@@ -69,28 +100,39 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
             dismissRL = (RelativeLayout) itemView.findViewById(R.id.dismiss_rl);
         }
 
-        public void setData(final Notification notification){
+        public void setData(final Notification notification) {
+
             descriptionTv.setText(notification.getDescription());
+
             takeActionRL.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     String action = notification.getAction_name();
                     onNotificationTapped(action);
+
                     notifications.remove(notification);
                     notifyDataSetChanged();
+
                 }
             });
+
             dismissRL.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Object[] args = {notification.getNotificationId(), true};
                     SwarmClient.getInstance().startSwarm(new Swarm("notification.js", "dismissNotification", args), null);
+
+                    notifications.remove(notification);
+                    notifyDataSetChanged();
                 }
             });
         }
     }
 
     private void onNotificationTapped(String action) {
+
         switch (action.toLowerCase()) {
             case "identity":
                 IdentitiesActivity.start(context);
@@ -101,7 +143,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
             case "feedback":
                 Intent intent = new Intent(context, FeedbackActivity.class);
 //                intent.setData(Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/viewform"));
-                ((AppCompatActivity)context).overridePendingTransition(R.anim.slide_up_in, R.anim.fade_out_scale);
+                ((AppCompatActivity) context).overridePendingTransition(R.anim.slide_up_in, R.anim.fade_out_scale);
                 context.startActivity(intent);
                 break;
             case "private_browsing":
@@ -112,6 +154,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
 
     @Override
     public View getGroupView(int groupPosition, boolean b, View convertView, ViewGroup viewGroup) {
+
         Notification groupItem = (Notification) getGroup(groupPosition);
         final GroupHolder holder;
 
@@ -134,6 +177,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
 
     @Override
     public View getChildView(int i, int i1, boolean b, View convertView, ViewGroup viewGroup) {
+
         Notification groupItem = (Notification) getGroup(i);
         final ChildViewHolder holder;
 
