@@ -29,6 +29,13 @@ function remove_web_fonts( $html, $handle, $href, $media ){
 
 add_filter( 'style_loader_tag',  'remove_web_fonts', 10, 4 );
 
+function the_excerpt_more_link( $excerpt ){
+    $post = get_post();
+    $excerpt = substr($excerpt,0, -5);
+    $excerpt .= ' <a href="'. get_permalink($post->ID) . '">(Read more)</a></p>';
+    return $excerpt;
+}
+add_filter( 'the_excerpt', 'the_excerpt_more_link', 21 );
 
 ?>
 
