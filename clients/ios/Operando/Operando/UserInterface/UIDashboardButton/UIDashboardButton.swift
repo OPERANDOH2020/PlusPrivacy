@@ -52,16 +52,13 @@ class UIDashboardButtonLogic: NSObject {
 
     }
     
-    
     func setupWith(model: UIDashboardButtonModel?){
         
         self.model = model
         outlets.contentView?.backgroundColor = model?.style?.backgroundColor
         outlets.titleLabel?.text = model?.style?.title
         outlets.imageView?.image = model?.style?.image
-        
     }
-    
     
     func updateNotificationsCountLabel() {
         model?.notificationsRequestCallbackIfAny? { count in
@@ -69,7 +66,6 @@ class UIDashboardButtonLogic: NSObject {
             self.outlets.numOfNotificationsLabel?.text = "\(count)"
         }
     }
-
 }
 
 class UIDashboardButton: RSNibDesignableView {

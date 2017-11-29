@@ -18,6 +18,8 @@ class UIRootViewController: UIViewController
 {
     
     @IBOutlet weak var mainScreensHostView: UIView!
+    @IBOutlet weak var topBarView: UIView!
+    
     fileprivate var currentlyShownViewController: UIViewController?
     fileprivate var callbacks: UIRootViewControllerCallbacks?
     
@@ -26,7 +28,6 @@ class UIRootViewController: UIViewController
     {
         self.callbacks = callbacks
     }
-    
     
     @IBAction func didPressMenuButton(_ sender: UIButton?)
     {
@@ -38,7 +39,9 @@ class UIRootViewController: UIViewController
         self.callbacks?.whenAccountButtonPressed?()
     }
     
-    
+    func showTopBar(hidden: Bool) {
+        topBarView.isHidden = hidden
+    }
     
     func setMainControllerTo(newController: UIViewController)
     {

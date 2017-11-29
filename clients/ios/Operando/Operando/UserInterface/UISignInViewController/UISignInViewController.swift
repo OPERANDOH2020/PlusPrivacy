@@ -51,9 +51,7 @@ class UISignInViewControllerLogic: NSObject {
     func setupWithCallbacks(_ cbs: UISignInViewControllerCallbacks?) {
         self.signInCallbacks = cbs
         self.outlets.loginViewLogic?.setupWith(callbacks: self.callbacksForLoginView());
-        
     }
-    
     
     @IBAction func didPressRegisterButton(_ sender: UIButton) {
         self.signInCallbacks?.whenUserPressedRegister?()

@@ -78,8 +78,7 @@ class UIFlowController: SSASideMenuDelegate
         weak var weakLoginVC = loginVC
         
         let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
-            self.dependencies.accountCallbacks?.loginCallback,
-                                                                           whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
+            self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
         {
             weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
         }
@@ -93,7 +92,7 @@ class UIFlowController: SSASideMenuDelegate
         
         let navigationController = UINavigationController(rootViewController: loginVC)
         navigationController.isNavigationBarHidden = true
-        
+        self.rootController.showTopBar(hidden: true)
         self.rootController.setMainControllerTo(newController: navigationController)
     }
     
@@ -107,10 +106,9 @@ class UIFlowController: SSASideMenuDelegate
         self.displayDashboard()
     }
     
-    
     func displayDashboard(){
         let dashBoardVC = UIViewControllerFactory.dashboardViewController
-        
+        self.rootController.showTopBar(hidden: false)
         weak var weakSelf = self
         
         let dashboardCallbacks = UIDashBoardViewControllerCallbacks(whenChoosingIdentitiesManagement: { 

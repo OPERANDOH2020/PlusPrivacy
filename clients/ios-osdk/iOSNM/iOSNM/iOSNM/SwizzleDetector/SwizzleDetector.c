@@ -220,10 +220,7 @@ MAKE_HIDDEN void processNewlyLoadedSymbols(SymbolInfoArray *symbolsArray, char *
         
         checkAgainstFrameworkSymbols(currentModel, symbolsArray, frameworkName);
     }
-    
 }
-
-
 
 void checkObjcSymbolsDefinedBeforeFramework(ObjcSymbolsDetectModel *ownedModel) {
     DetectContext *context = getGlobalDetectContext();

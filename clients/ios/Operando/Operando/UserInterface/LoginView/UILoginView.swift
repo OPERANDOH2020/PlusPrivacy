@@ -49,7 +49,6 @@ class UILoginViewLogic: NSObject, UITextFieldDelegate {
         self.callbacks = callbacks;
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         DispatchQueue.main.async {
             textField.endEditing(true)
