@@ -85,4 +85,11 @@
     <color name="notification_font_color">#661336</color>
 
 
+    <!-- identities screen -->
+    <color name="identities_main_color">#46cfca</color>
+    <color name="identities_list_background">#98f5f3</color>
+    <color name="identities_background">#d2fcfc</color>
+    <color name="identities_button_active_background">#128e8d</color>
+    <color name="identities_button_inactive_background">#45d0ce</color>
+
 </resources>

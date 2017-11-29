@@ -88,7 +88,6 @@ public class NotificationsActivity extends BaseActivity {
                         });
                     }
                 });
-
     }
 
     private void handleGetNotificationsSwarmResult(final GetNotificationsSwarm result) {

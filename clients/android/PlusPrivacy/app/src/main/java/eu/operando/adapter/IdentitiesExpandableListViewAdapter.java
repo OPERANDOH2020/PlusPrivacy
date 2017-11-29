@@ -4,17 +4,17 @@ import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import eu.operando.R;
@@ -33,29 +33,14 @@ import eu.operando.swarmclient.models.SwarmCallback;
 public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private HashMap<Identity, List<ExtensibleItemOptions>> listHashMap;
     private List<Identity> identities;
     private static final String DEFAULT_INDENTITY = "Default identity";
     private static final String COPY_TO_CLIPBOARD = "Copy to clipboard";
     private static final String REMOVE_IDENTITY = "Remove identity";
 
-//    public IdentitiesExpandableListViewAdapter(Context context, List<String> listGroup, HashMap<String, List<String>> listHashMap) {
-//        this.context = context;
-//        this.listGroup = listGroup;
-//        this.listHashMap = listHashMap;
-//    }
-
     public IdentitiesExpandableListViewAdapter(Context context, List<Identity> identities) {
         this.context = context;
         this.identities = identities;
-        listHashMap = new HashMap<>();
-        for (int i = 0; i < identities.size(); ++i) {
-            List<ExtensibleItemOptions> options = new ArrayList<>();
-            options.add(new ExtensibleItemOptions(DEFAULT_INDENTITY, R.drawable.ic_unchecked));
-            options.add(new ExtensibleItemOptions(COPY_TO_CLIPBOARD, R.drawable.ic_copy));
-            options.add(new ExtensibleItemOptions(REMOVE_IDENTITY, R.drawable.ic_trash));
-            listHashMap.put(identities.get(i), options);
-        }
     }
 
     @Override
@@ -65,7 +50,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return listHashMap.get(identities.get(groupPosition)).size();
+        return 1;
     }
 
     @Override
@@ -75,7 +60,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listHashMap.get(identities.get(groupPosition)).get(childPosition);
+        return identities.get(groupPosition);
     }
 
     @Override
@@ -95,28 +80,21 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         String headerTitle = ((Identity) getGroup(groupPosition)).getEmail();
-        final Holder holder;
+        final GroupHolder holder;
         if (convertView == null) {
-            holder = new Holder();
+
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.group_identities_elv, null);
-            holder.defaultIV = convertView.findViewById(R.id.default_identity_iv);
-            holder.emailTV = ((TextView) convertView.findViewById(R.id.identity_email_tv));
-            holder.copyToClipboard = (ImageView) convertView.findViewById(R.id.copy_to_clipboard);
+            holder = new GroupHolder(convertView);
             convertView.setTag(holder);
-        } else {
-            holder = ((Holder) convertView.getTag());
-        }
-        holder.emailTV.setText(headerTitle);
-        if (((Identity) getGroup(groupPosition)).isDefault()) {
-            holder.defaultIV.setVisibility(View.VISIBLE);
-            convertView.setBackgroundColor(Color.parseColor("#cb8e00"));
 
         } else {
-            holder.defaultIV.setVisibility(View.INVISIBLE);
-            convertView.setBackgroundColor(Color.parseColor("#fec742"));
+            holder = ((GroupHolder) convertView.getTag());
         }
+
+        holder.setData(headerTitle, groupPosition);
 
         return convertView;
     }
@@ -124,24 +102,19 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        ExtensibleItemOptions option = (ExtensibleItemOptions) getChild(groupPosition, childPosition);
+//        ExtensibleItemOptions option = (ExtensibleItemOptions) getChild(groupPosition, childPosition);
+        final ChildHolder holder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_item_identities_elv, null);
-        }
-        TextView tv = (TextView) convertView.findViewById(R.id.identities_elv_list_item_tv);
-        ImageView iv = (ImageView) convertView.findViewById(R.id.identities_elv_list_item_iv);
-
-        if( ((Identity)getGroup(groupPosition)).isDefault() && option.getText().equals(DEFAULT_INDENTITY)){
-            iv.setImageResource(R.drawable.ic_checked);
+            convertView = inflater.inflate(R.layout.child_identities_elv, null);
+            holder = new ChildHolder(convertView);
+            convertView.setTag(holder);
         } else {
-            iv.setImageResource(option.getDrawable());
+            holder = ((ChildHolder) convertView.getTag());
         }
-        tv.setText(option.getText());
-//        iv.setImageResource(option.getDrawable());
 
+        holder.setData(childPosition, groupPosition);
 
-        convertView.setOnClickListener(new CustomOnClickListener(childPosition, groupPosition, convertView));
         return convertView;
     }
 
@@ -150,12 +123,51 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         return false;
     }
 
-    private class Holder {
+    private class GroupHolder extends RecyclerView.ViewHolder {
+
         View defaultIV;
         TextView emailTV;
         ImageView copyToClipboard;
+
+        public GroupHolder(View itemView) {
+
+            super(itemView);
+            defaultIV = itemView.findViewById(R.id.default_identity_iv);
+            emailTV = ((TextView) itemView.findViewById(R.id.identity_email_tv));
+            copyToClipboard = (ImageView) itemView.findViewById(R.id.copy_to_clipboard);
+
+        }
+
+        public void setData(String headerTitle, int groupPosition) {
+            emailTV.setText(headerTitle);
+            if (((Identity) getGroup(groupPosition)).isDefault()) {
+
+                defaultIV.setBackground(ContextCompat.getDrawable(context, R.drawable.default_enabled));
+            } else {
+                defaultIV.setBackground(ContextCompat.getDrawable(context, R.drawable.default_disabled));
+            }
+        }
     }
 
+    private class ChildHolder extends RecyclerView.ViewHolder {
+
+        LinearLayout makeDefault;
+        LinearLayout copyToClipboard;
+        LinearLayout removeIdentity;
+
+        public ChildHolder(View itemView) {
+
+            super(itemView);
+            makeDefault = (LinearLayout) itemView.findViewById(R.id.make_default);
+            copyToClipboard = (LinearLayout) itemView.findViewById(R.id.copy_to_clipboard);
+            removeIdentity = (LinearLayout) itemView.findViewById(R.id.remove_identity);
+
+        }
+
+        public void setData(int childPosition, int groupPosition) {
+//            convertView.setOnClickListener(new CustomOnClickListener(childPosition, groupPosition, convertView));
+        }
+    }
 
     private class CustomOnClickListener implements View.OnClickListener {
 
@@ -210,7 +222,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         }
     }
 
-    private class ExtensibleItemOptions{
+    private class ExtensibleItemOptions {
         private int drawable;
         private String text;
 

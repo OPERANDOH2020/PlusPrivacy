@@ -129,28 +129,30 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
                 }
             });
         }
-    }
 
-    private void onNotificationTapped(String action) {
+        private void onNotificationTapped(String action) {
 
-        switch (action.toLowerCase()) {
-            case "identity":
-                IdentitiesActivity.start(context);
-                break;
-            case "privacy-for-benefits":
-                PFBActivity.start(context);
-                break;
-            case "feedback":
-                Intent intent = new Intent(context, FeedbackActivity.class);
+            switch (action.toLowerCase()) {
+                case "identity":
+                    IdentitiesActivity.start(context);
+                    break;
+                case "privacy-for-benefits":
+                    PFBActivity.start(context);
+                    break;
+                case "feedback":
+                    Intent intent = new Intent(context, FeedbackActivity.class);
 //                intent.setData(Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/viewform"));
-                ((AppCompatActivity) context).overridePendingTransition(R.anim.slide_up_in, R.anim.fade_out_scale);
-                context.startActivity(intent);
-                break;
-            case "private_browsing":
-                MainBrowserActivity.start(context);
-                break;
+                    ((AppCompatActivity) context).overridePendingTransition(R.anim.slide_up_in, R.anim.fade_out_scale);
+                    context.startActivity(intent);
+                    break;
+                case "private_browsing":
+                    MainBrowserActivity.start(context);
+                    break;
+            }
         }
     }
+
+
 
     @Override
     public View getGroupView(int groupPosition, boolean b, View convertView, ViewGroup viewGroup) {

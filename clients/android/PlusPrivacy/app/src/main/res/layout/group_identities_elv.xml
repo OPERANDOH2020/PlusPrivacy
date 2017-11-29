@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#FFE8CF"
+    android:background="@color/identities_list_background"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/default_identity_iv"
+
         android:layout_margin="8dp"
         android:layout_width="25dp"
-        android:src="@drawable/default_identitiy"
         android:scaleType="centerInside"
         android:layout_centerVertical="true"
         android:layout_height="25dp"/>
+
     <TextView
         android:id="@+id/identity_email_tv"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_toLeftOf="@+id/arrow"
         android:text="whatever.email@whatever.com"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/identities_button_active_background"
         android:layout_toRightOf="@id/default_identity_iv"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
@@ -27,13 +29,27 @@
 
     <ImageView
         android:id="@+id/arrow"
+        android:layout_height="15dp"
+        android:layout_width="15dp"
         android:layout_margin="8dp"
-        android:layout_width="25dp"
-        android:src="@drawable/rightarrow"
+        android:src="@drawable/ic_forward_identities"
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
         android:scaleType="centerInside"
         android:layout_centerVertical="true"
-        android:layout_height="25dp"/>
+        />
+
+    <!--<View-->
+        <!--android:id="@+id/first_divider"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/identities_button_active_background"-->
+        <!--android:layout_height="0.2dp"/>-->
+
+    <!--<View-->
+        <!--android:id="@+id/second_divider"-->
+        <!--android:layout_below="@id/first_divider"-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"/>-->
 
 </RelativeLayout>
