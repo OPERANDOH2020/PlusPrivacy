@@ -113,14 +113,21 @@ createIdentity = function (identityData, callback){
     flow.create("create identity", {
         begin: function () {
             var self = this;
-            checkIfIdentityIsAvailable(identityData.email.toLocaleLowerCase(), function (err, isAvailable) {
-                if(isAvailable){
-                    persistence.lookup.async("Identity", identityData.email, self.continue("createIdentity"));
-                }
-                else{
-                    callback(new Error("Identity is unavailable"));
-                }
-            });
+
+            var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+            if(emailRegex.test(identityData.email.toLocaleLowerCase())){
+                checkIfIdentityIsAvailable(identityData.email.toLocaleLowerCase(), function (err, isAvailable) {
+                    if(isAvailable){
+                        persistence.lookup.async("Identity", identityData.email, self.continue("createIdentity"));
+                    }
+                    else{
+                        callback(new Error("Identity is unavailable"));
+                    }
+                });
+            } else{
+                callback(new Error("Alias is invalid!"))
+            }
+
         },
         createIdentity: function (err, identity) {
             if (err) {
@@ -138,11 +145,16 @@ createIdentity = function (identityData, callback){
             }
         },
         markIdentityAsUnavailable: function(err, identity){
+
             if(err){
                 callback(err);
             }
             else{
-                markIdentityAsUnavailable(identityData.email.toLocaleLowerCase(), callback);
+                function newIdentityCallback(){
+                    callback(null, identity);
+                }
+
+                markIdentityAsUnavailable(identityData.email.toLocaleLowerCase(), newIdentityCallback);
             }
         }
     })();
@@ -421,7 +433,7 @@ deleteUserIdentities = function(userId,callback){
 
 checkIfIdentityIsAvailable = function(identityEmail, callback){
 
-    persistence.findById("UnavailableIdentities", identityEmail, function(err, identity){
+    persistence.lookup("UnavailableIdentities", identityEmail, function(err, identity){
         if(persistence.isFresh(identity)) {
                callback(null, true);
         }
@@ -432,9 +444,8 @@ checkIfIdentityIsAvailable = function(identityEmail, callback){
 };
 
 markIdentityAsUnavailable = function(identityEmail, callback){
-    persistence.findById("UnavailableIdentities", identityEmail, function(err, identity){
+    persistence.lookup("UnavailableIdentities", identityEmail, function(err, identity){
         if(persistence.isFresh(identity)) {
-            console.log(identity);
             persistence.saveObject(identity, callback);
         }
         else{
