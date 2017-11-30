@@ -12,7 +12,7 @@ menuApp.controller("navigationController", function ($scope, SharedService, user
 
         {
             key: "userRegister",
-            title: "Register",
+            title: "Sign up",
             zone: "guestZone",
             glyphicon:"edit",
             path: "/register"

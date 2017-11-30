@@ -78,7 +78,7 @@ var importRawFilters = wrapper({type: "filters.importRaw"},
 var addFilter = wrapper({type: "filters.add"}, "text");
 var getFilters = wrapper({type: "filters.get"}, "subscriptionUrl");
 var removeFilter = wrapper({type: "filters.remove"}, "text");
-
+var userPreferences = UserPreferences.getInstance();
 var i18n = ext.i18n;
 var whitelistedDomainRegexp = /^@@\|\|([^\/:]+)\^\$document$/;
 var delayedSubscriptionSelection = null;
@@ -490,12 +490,13 @@ function appendToListBox(boxId, text)
     btn.onclick = function(){
         if(boxId === "excludedDomainsBoxList"){
             removeFilter("@@||" + text + "^$document");
+            userPreferences.removePreference("white-listed-domains","@@||" + text + "^$document");
         }
         else{
             removeFilter(text);
         }
 
-    }
+    };
     li_element.appendChild(btn);
 
     document.getElementById(boxId).appendChild(li_element);
@@ -525,6 +526,7 @@ function addWhitelistDomain(event)
 
     var filterText = "@@||" + domain + "^$document";
     addFilter(filterText);
+    userPreferences.addPreference("white-listed-domains",filterText);
 }
 
 

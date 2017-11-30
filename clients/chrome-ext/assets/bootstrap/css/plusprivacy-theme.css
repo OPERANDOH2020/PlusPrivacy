@@ -1831,6 +1831,10 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/contact.png");
 }
 
+.menu_icon.blog_icon {
+    background-image:url("/operando/assets/images/menu_icons/blog.png");
+}
+
 .menu_icon.notifications_icon {
     background-image:url("/operando/assets/images/menu_icons/notifications.png");
 }
@@ -2252,9 +2256,16 @@ input.ng-invalid:not(.ng-untouched){
     float:right;
 }
 
-#sn_preferences h2 span.sn-title {
-    text-transform: capitalize;
-    font-weight: bold;
+#network_tab h2{
+    height: 34px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+}
+
+#sn_preferences h2 span.sn-title,
+#network_tab h2 span.sn-title{
+    float:left;
 }
 
 /*Voucher*/
@@ -2399,23 +2410,33 @@ padding-left: 5px;
 
 }
 
-#sn_preferences h2.sn_icon{
+#sn_preferences h2.sn_icon,
+#network_tab h2.sn_icon{
     padding-left: 36px;
+    white-space: nowrap;
 }
 
-#sn_preferences h2.facebook_icon{
+#sn_preferences h2.facebook_icon,
+#network_tab h2.facebook_icon{
     background: url("/operando/assets/images/facebook32.png") no-repeat left center;
 }
-#sn_preferences h2.linkedin_icon{
+#sn_preferences h2.linkedin_icon,
+#network_tab h2.linkedin_icon{
     background: url("/operando/assets/images/linkedin32.png") no-repeat left center;
 }
 
-#sn_preferences h2.twitter_icon{
+#sn_preferences h2.twitter_icon,
+#network_tab h2.twitter_icon{
     background: url("/operando/assets/images/twitter32.png") no-repeat left center;
 }
 
-#sn_preferences h2.google_icon{
+#sn_preferences h2.google_icon,
+#network_tab h2.google_icon{
     background: url("/operando/assets/images/google32.png") no-repeat left center;
+}
+
+#network_tab h2.dropbox_icon{
+    background: url("/operando/assets/images/dropbox32.png") no-repeat left 1px;
 }
 
 .filter-settings{
@@ -2511,9 +2532,6 @@ td.readwriteanddirectmessages{
     color:#FFF;
 }
 
-#network_tab h2{
-    text-transform: capitalize;
-}
 h4.modal-title.plusprivacy{
     background: url("/operando/assets/images/icons/operando_48.png") no-repeat left center;
     padding-left: 60px;
@@ -2671,4 +2689,48 @@ h4.modal-title.plusprivacy{
 }
 .dropbox_permissions .dropbox_permission_description{
     margin-left: 10px;
+}
+
+.username_spinner {
+    margin: 0 0 0 12px;
+    width: 45px;
+    text-align: center;
+    float:left;
+
+}
+
+.username_spinner > div {
+    width: 8px;
+    height: 8px;
+    background-color: #FFB400;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.username_spinner .username_bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.username_spinner .username_bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+      }
 }

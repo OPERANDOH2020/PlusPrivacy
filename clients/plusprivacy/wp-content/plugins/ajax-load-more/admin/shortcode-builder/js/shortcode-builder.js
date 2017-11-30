@@ -470,6 +470,50 @@ jQuery(document).ready(function($) {
 
 
       // ---------------------------
+      // - Users
+      // ---------------------------
+
+      var users = $('#alm-users input[name=users]:checked').val();
+      if(users === undefined){
+         users = false;
+      }
+      if(users !== 'false' && users != undefined){
+			var users_role = $('#alm-users select#users-role').val();
+			var users_include = $('#alm-users input#users-include').val();
+			var users_exclude = $('#alm-users input#users-exclude').val();
+			var users_per_page = $('#alm-users input#users-per-page').val();
+			var users_order = $('#alm-users select#users-order').val();
+			var users_orderby = $('#alm-users select#users-orderby').val();
+         $('#users-extended').slideDown(150, 'alm_easeInOutQuad');
+
+         output += ' users="'+users+'"';
+         
+         if(users_role !== ''){
+	         output += ' users_role="'+ users_role +'"';
+         }
+         if(users_include !== ''){
+	         output += ' users_include="'+ users_include +'"';
+         }
+         if(users_exclude !== ''){
+	         output += ' users_exclude="'+ users_exclude +'"';
+         }
+         if(users_per_page !== '5'){
+	         output += ' users_per_page="'+ users_per_page +'"';
+         }
+         if(users_order !== 'ASC'){
+	         output += ' users_order="'+ users_order +'"';
+         }
+         if(users_orderby !== 'login'){
+	         output += ' users_orderby="'+ users_orderby +'"';
+         }
+         
+         
+      }else{
+         $('#users-extended').slideUp(150, 'alm_easeInOutQuad');
+      }
+
+
+      // ---------------------------
       // - Repeater Templates
       // ---------------------------
 
@@ -489,7 +533,7 @@ jQuery(document).ready(function($) {
       // - Post Types
       // ---------------------------
 
-      if(comments === 'false' || comments === false || comments === undefined){ // Hide post_types if comments is active
+      if((users === 'false' || users === undefined || !users) && (comments === 'false' || !comments || comments === undefined)){ // Hide post_types if comments is active
 
          var post_type_count = 0,
              selected_post_type = '';
@@ -1176,8 +1220,6 @@ jQuery(document).ready(function($) {
    });
 
 
-
-
 	/* Table of Contents */
 
 	if($('.table-of-contents').hasClass('repeaters-toc')){
@@ -1185,7 +1227,7 @@ jQuery(document).ready(function($) {
 	} else {
 	   $('.table-of-contents .toc').append('<option value="#">-- '+ alm_admin_localize.jump_to_option +' --</option>');
 	}
-
+	
 	$('.table-of-contents .toc').append(jumpMenuOptions).select2();
 
 	$('.table-of-contents .toc').change(function() {
@@ -1196,56 +1238,7 @@ jQuery(document).ready(function($) {
 			}, 500, 'alm_easeInOutQuad');
 		}
    });
-
-   /* Table of Contents - onResize */
-
-   function almResizeTOC(){
-      var tocW = $('.cnkt-sidebar').width();
-      $('.table-of-contents').css('width', tocW + 'px');
-   }
-   almResizeTOC();
-
-   $(window).resize(function() {
-      almResizeTOC()
-   });
-
-
-   /* Table of Contents - Sticky Sidebar */
-
-   _alm.attachShare = function(el, anchor, sticky_top){
-
-		var top = sticky_top, // sticky element top
-			 h = el.height() + top, // height of sticky el
-			 scrollTop = $(window).scrollTop(),
-			 window_height = $(window).height(),
-			 offset = anchor.offset().top,
-			 el_height = el.outerHeight(),
-			 container_height = el.outerHeight();
-
-		if(container_height < window_height){
-   		// If container height is larger than window
-			if(scrollTop > top) {
-			   el.addClass('attached');
-			} else {
-				if(scrollTop <= (offset - top)) {
-					el.removeClass('attached').removeClass('hidden');
-				}
-			}
-		}
-   };
-
-   if($('.table-of-contents').length){
-      var sticky_el = $('.table-of-contents'),
-          sticky_anchor = $(".cnkt-sidebar"),
-          sticky_top = 50;
-
-	   $(window).bind('resize scroll', function(){
-   	   _alm.attachShare(sticky_el, sticky_anchor, sticky_top);
-	   });
-
-	   _alm.attachShare(sticky_el, sticky_anchor, sticky_top);
-   }
-
+   
 
 
    /*

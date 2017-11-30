@@ -1204,6 +1204,72 @@ SELECT 2 FORM REPLACEMNT
 }(jQuery);
 'use strict';
 
+var alm = alm || {};
+
+/*
+ *  alm.attachSticky
+*/
+alm.attachSticky = function (el, anchor) {
+	var top = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+	var h = el.offsetHeight + top,
+	    // height of sticky el
+	anchorOffset = anchor.getBoundingClientRect(),
+	    anchor_top = anchorOffset.top,
+	    w_height = window.innerHeight,
+	    // Window height
+	el_height = el.offsetHeight; // element height
+
+	if (w_height > el_height + top) {
+		// If container height > than sticky height
+		if (anchor_top <= top) {
+			el.classList.add('attached');
+		} else {
+			if (anchor_top > top) {
+				el.classList.remove('attached');
+			}
+		}
+	}
+};
+
+/*
+ *  alm.resizeSticky
+*/
+alm.resizeSticky = function () {
+	var sticky = document.getElementById('cnkt-sticky');
+	var el = document.getElementById('cnkt-sticky-wrapper');
+	var atts = window.getComputedStyle(el);
+	sticky.style.width = atts.width;
+};
+
+/*
+ *  initSticky
+*/
+var initSticky = function initSticky() {
+	if (document.getElementById("cnkt-sticky-wrapper")) {
+		var sticky_el = document.getElementById('cnkt-sticky');
+		var sticky_anchor = document.getElementById('cnkt-sticky-wrapper');
+		var sticky_top = 70; // The position the sticky should stick 
+
+		// Scroll    
+		window.addEventListener('scroll', function (e) {
+			alm.attachSticky(sticky_el, sticky_anchor, sticky_top);
+		});
+		// Resize
+		window.addEventListener('resize', function (e) {
+			alm.resizeSticky();
+		});
+		// Init
+		alm.resizeSticky();
+		alm.attachSticky(sticky_el, sticky_anchor, sticky_top);
+	}
+};
+
+window.onload = function () {
+	initSticky();
+};
+'use strict';
+
 var _alm = _alm || {};
 
 jQuery(document).ready(function ($) {
@@ -1278,7 +1344,6 @@ jQuery(document).ready(function ($) {
    // On Change, save the settings
    var settingsTimer = void 0;
    $(document).on('change', '#alm_OptionsForm input, #alm_OptionsForm textarea, #alm_OptionsForm select', function () {
-
       // Set a timer to avoid updating settings to frequently
       if (settingsTimer) clearTimeout(settingsTimer);
       settingsTimer = setTimeout(function () {
@@ -1361,7 +1426,7 @@ jQuery(document).ready(function ($) {
    };
 
    // Copy link on shortcode builder
-   $('.output-wrap .copy').click(function () {
+   $('.shortcode-builder .copy').click(function () {
       var c = $('#shortcode_output').html();
       _alm.copyToClipboard(c);
    });
@@ -1584,9 +1649,9 @@ jQuery(document).ready(function ($) {
    $(document).on('change', '#alm-settings-nav', function (e) {
       e.preventDefault();
       var el = $(this),
-          index = el.val();
-
+          index = $('option:selected', el).index();
       if (index !== '#') {
+         index = index - 1;
          $('html, body').animate({
             scrollTop: $("#alm_OptionsForm h2").eq(index).offset().top - 40
          }, 500);
