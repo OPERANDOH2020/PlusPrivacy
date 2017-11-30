@@ -146,10 +146,21 @@ exports.newUserIsValid = function (newUser, callback) {
         return false;
     }
 
+    function emailDomainIsAllowed(email){
+        var systemDomain = thisAdapter.config.Core.operandoHost;
+        if(email.indexOf(systemDomain) === -1){
+            return false;
+        }
+        return true;
+    }
+
     flow.create("user is valid", {
         begin: function () {
             if(emailIsValid(newUser.email) === false ){
                 callback(new Error("emailIsInvalid"));
+            }
+            else if(emailDomainIsAllowed(newUser.email)){
+                callback(new Error("This email address is not allowed"));
             }
             else if(!newUser.password || newUser.password.length < passwordMinLength){
                 callback(new Error("Password must contain at least "+passwordMinLength+" characters"));
