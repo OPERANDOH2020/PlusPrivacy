@@ -51,6 +51,17 @@ function registerModels(callback){
                     index:true
                 }
             }
+        },
+        {
+            modelName:"UnavailableIdentities",
+            dataModel:{
+                identityEmail:{
+                    type: "string",
+                    index: true,
+                    pk: true,
+                    length:254
+                }
+            }
         }
     ];
 
@@ -101,7 +112,15 @@ createIdentity = function (identityData, callback){
 
     flow.create("create identity", {
         begin: function () {
-            persistence.lookup.async("Identity", identityData.email, this.continue("createIdentity"));
+            var self = this;
+            checkIfIdentityIsAvailable(identityData.email.toLocaleLowerCase(), function (err, isAvailable) {
+                if(isAvailable){
+                    persistence.lookup.async("Identity", identityData.email, self.continue("createIdentity"));
+                }
+                else{
+                    callback(new Error("Identity is unavailable"));
+                }
+            });
         },
         createIdentity: function (err, identity) {
             if (err) {
@@ -113,9 +132,17 @@ createIdentity = function (identityData, callback){
                 }
                 else {
                     persistence.externalUpdate(identity, identityData);
-                    persistence.saveObject(identity, callback);
+                    persistence.saveObject(identity, this.continue("markIdentityAsUnavailable"));
 
                 }
+            }
+        },
+        markIdentityAsUnavailable: function(err, identity){
+            if(err){
+                callback(err);
+            }
+            else{
+                markIdentityAsUnavailable(identityData.email.toLocaleLowerCase(), callback);
             }
         }
     })();
@@ -344,7 +371,7 @@ getUserId = function(proxyEmail,callback){
             callback(new Error("Proxy "+proxyEmail+" is not registered"));
             return;
         }
-        if(result.deleted===true ){
+        if(result.deleted === true ){
             callback(new Error("Proxy "+proxyEmail+" was deleted"));
             return;
         }
@@ -390,7 +417,30 @@ deleteUserIdentities = function(userId,callback){
             }
         }
     })();
+};
 
+checkIfIdentityIsAvailable = function(identityEmail, callback){
+
+    persistence.findById("UnavailableIdentities", identityEmail, function(err, identity){
+        if(persistence.isFresh(identity)) {
+               callback(null, true);
+        }
+        else{
+            callback(null, false)
+        }
+    });
+};
+
+markIdentityAsUnavailable = function(identityEmail, callback){
+    persistence.findById("UnavailableIdentities", identityEmail, function(err, identity){
+        if(persistence.isFresh(identity)) {
+            console.log(identity);
+            persistence.saveObject(identity, callback);
+        }
+        else{
+            callback(new Error("Identity is already marked as unavailable"));
+        }
+    });
 };
 
 
