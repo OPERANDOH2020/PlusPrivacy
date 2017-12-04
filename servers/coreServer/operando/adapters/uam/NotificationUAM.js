@@ -18,6 +18,15 @@ var  container = require("safebox").container;
 var flow = require("callflow");
 var uuid = require('uuid');
 var apersistence = require('apersistence');
+
+
+var zoneTenantMappings = {
+        "ALL_USERS":["ios","androidApp","chromeBrowserExtension","PlusPrivacyWebsite"],
+        "Extension":["chromeBrowserExtension"],
+        "iOS":["ios"],
+        "Android":["androidApp"]
+}
+
 var signupNotifications = {
     privacy_questionnaire: {
         sender: "WatchDog",
@@ -504,6 +513,22 @@ clearNotification = function(userId, action_name){
 
     })();
 };
+
+
+getTenantZones = function(userZones, tenant){
+    var availableZones=[];
+    userZones.forEach(function(zoneName){
+        if(zoneTenantMappings[zoneName]){
+            if(zoneTenantMappings[zoneName].indexOf(tenant)!=-1){
+                availableZones.push(zoneName);
+            }
+        }
+        else{//not in mappings
+            availableZones.push(zoneName);
+        }
+    });
+    return availableZones;
+}
 
 
 var admin = require("firebase-admin");

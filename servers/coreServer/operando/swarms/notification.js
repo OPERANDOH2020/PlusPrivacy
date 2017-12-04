@@ -75,6 +75,9 @@ var notificationSwarming = {
                 }));
             }
             else {
+                console.log(this.meta.tenantId);
+                this.zones = getTenantZones(this.zones,this.meta.tenantId);
+                console.log(this.zones);
                 getNotifications(this.meta.userId, this.zones, S(function (err, notifications) {
                     if (err) {
                         self.err = err.message;
