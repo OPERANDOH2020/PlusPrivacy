@@ -189,6 +189,7 @@ deleteIdentity = function (identityData, callback) {
         },
 
         markAsDeleted: function (err, identity) {
+            console.log(identity);
             if (err) {
                 callback(err, null);
             }
