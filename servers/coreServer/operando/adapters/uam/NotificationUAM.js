@@ -286,6 +286,9 @@ getNotifications = function (userId, userZones, callback) {
         },
 
         loadNotifications:function(err,lazyNotification){
+
+            console.log(lazyNotification);
+
             if (err) {
                 console.error(err);
             }
