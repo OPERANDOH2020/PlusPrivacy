@@ -287,14 +287,14 @@ getNotifications = function (userId, userZones, callback) {
 
         loadNotifications:function(err,lazyNotification){
 
-            console.log(lazyNotification);
-
             if (err) {
                 console.error(err);
             }
             else {
-                var notification = lazyNotification.notification;
 
+                var notification = lazyNotification.notification;
+                console.log("\n\n\n");
+                console.log(notification);
                 if (!this.isDissmissed[notification.notificationId]) {
                     var existingNotificationsIds = this.notifications.map(function(notification){return notification.notificationId});
                     if(existingNotificationsIds.indexOf(notification.notificationId)==-1){
