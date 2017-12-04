@@ -487,6 +487,7 @@ exports.addUserToZone = function(userId,zoneName,callback){
         },
         verifyDuplicates:function(err,zoneMappings){
             console.log("verifyDuplicates");
+            console.log("arguments: ",userId, zoneName);
             if(err){
                 callback(err)
             }else {
