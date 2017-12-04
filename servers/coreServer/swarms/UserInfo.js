@@ -169,7 +169,6 @@ var userInfoSwarming =
         code: function () {
             var self = this;
 
-            console.log("generateResetLink");
             filterUsers({"email": self.email}, S(function (err, users) {
                 if (err) {
                     self.error = err.message;

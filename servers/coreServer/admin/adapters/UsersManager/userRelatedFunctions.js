@@ -482,12 +482,9 @@ exports.updateOrganisation = function (organisationDump, callback) {
 exports.addUserToZone = function(userId,zoneName,callback){
     flow.create("addUserToZone",{
         begin:function(){
-            console.log("begin");
             persistence.filter("UserZoneMapping",{"userId":userId},this.continue("verifyDuplicates"))
         },
         verifyDuplicates:function(err,zoneMappings){
-            console.log("verifyDuplicates");
-            console.log("arguments: ",userId, zoneName);
             if(err){
                 callback(err)
             }else {
@@ -502,7 +499,6 @@ exports.addUserToZone = function(userId,zoneName,callback){
             }
         },
         addToZone:function(){
-            console.log("addToZone");
             var newAssociation = apersistence.modelUtilities.createRaw("UserZoneMapping",uuid.v1().split("-").join(""));
             newAssociation.zoneName = zoneName;
             newAssociation.userId = userId;

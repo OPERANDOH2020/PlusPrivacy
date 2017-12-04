@@ -75,9 +75,7 @@ var notificationSwarming = {
                 }));
             }
             else {
-                console.log(this.meta.tenantId);
                 this.zones = getTenantZones(this.zones,this.meta.tenantId);
-                console.log(this.zones);
                 getNotifications(this.meta.userId, this.zones, S(function (err, notifications) {
                     if (err) {
                         self.err = err.message;
@@ -259,7 +257,6 @@ var notificationSwarming = {
                     self.home('failed');
                 } else {
                     notifyUsers(self.devicesPushNotificationTokens, self.notification, S(function (err) {
-                        console.log(arguments);
                         if (err) {
                             self.err = err.message;
                             self.home('failed')
@@ -299,7 +296,6 @@ var notificationSwarming = {
     success: {
         node: "Core",
         code: function () {
-            console.log("Returning Notifications");
             this.notifications = [{
                 message: "Pellentesque semper augue sed suscipit fringilla. Etiam vitae gravida augue, id tempus enim.",
                 title: "Security error FACEBOOK MESSENGER",
@@ -348,9 +344,6 @@ var notificationSwarming = {
     },
 
     registerInZone: function (zoneName) {
-
-        console.log("\n\n\n\nINREGISTRARE ZONE\n\n\n\n");
-        console.log(arguments);
         var possibleZones = ['iOS', 'Android', 'Extension','FEEDBACK_SUBMITTED'];
         if (possibleZones.indexOf(zoneName) === -1) {
             this.err = "No such zone name";

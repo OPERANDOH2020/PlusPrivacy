@@ -198,7 +198,6 @@ container.declareDependency("NotificationUAMAdapter", ["mysqlPersistence"], func
 });
 
 createNotification = function (rawNotificationData, callback) {
-    console.log(rawNotificationData);
     var notification = apersistence.createRawObject("Notification",uuid.v1());
     rawNotificationData.expirationDate = new Date(rawNotificationData.expirationDate);
     notification['action_name'] = rawNotificationData['actionType'];
@@ -451,7 +450,6 @@ generateSignupNotifications = function (callback) {
                 Object.keys(signupNotifications).forEach(function(key, index){
                     if(notification['action_name'] === signupNotifications[key]['action_name']){
                         var zones = signupNotifications[key]['zones'];
-                        console.log(zones);
                         zones.forEach(function(zoneName){
                             var newAssociation = apersistence.modelUtilities.createRaw("ZoneNotificationMapping",uuid.v1().split("-").join(""));
                             newAssociation.zoneName = zoneName;
