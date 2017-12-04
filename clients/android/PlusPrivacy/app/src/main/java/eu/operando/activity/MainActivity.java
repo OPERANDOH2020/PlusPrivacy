@@ -144,36 +144,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
                         } else {
                             Storage.saveUserID(result.getUserId());
                             initUI();
-                            registerZone();
                         }
-                    }
-                });
-            }
-        });
-    }
-
-    private void registerZone() {
-        SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("Android"), new SwarmCallback<RegisterZoneSwarm>() {
-            @Override
-            public void call(final RegisterZoneSwarm result) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("RegisterZoneSwarm", result.toString());
-                    }
-                });
-            }
-        });
-        final String androidId = Settings.Secure.getString(
-                getContentResolver(), Settings.Secure.ANDROID_ID);
-        Log.w("UUID", androidId);
-        SwarmClient.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
-            @Override
-            public void call(final UDESwarm result) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("UDESwarm", result.toString());
                     }
                 });
             }
@@ -306,12 +277,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         initNotifications();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initNotifications();
-    }
-
     private void initNotifications() {
         SwarmClient.getInstance().startSwarm(new GetNotificationsSwarm(),
                 new SwarmCallback<GetNotificationsSwarm>() {
@@ -349,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
 
     private void logOut() {
         Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-        SwarmService.getInstance().logout(null);
+//        SwarmService.getInstance().logout(null);
         Storage.clearData();
         LoginActivity.start(MainActivity.this);
         finish();

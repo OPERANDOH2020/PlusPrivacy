@@ -39,56 +39,68 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/default_identity"/>
 
-            <TextView
-                android:id="@+id/realIdentityTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/mailIV"
-                android:textColor="@color/identities_button_active_background"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/realIdentityTV"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@id/mailIV"
-                android:text="@string/real_identity"
-                android:textColor="@color/identities_button_active_background"
-                android:textSize="14sp"
-                android:textStyle="italic"/>
-
-
             <LinearLayout
-                android:id="@+id/default_real_identity"
-                android:layout_width="wrap_content"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:textColor="@color/notification_button_font_color"
-                android:background="@color/identities_button_active_background"
-                >
+                android:layout_width="match_parent"
+                android:layout_toEndOf="@id/mailIV"
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:src="@drawable/delete_identity"
-                    android:layout_marginEnd="5dp"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/realIdentityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/identities_button_active_background"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/realIdentityTV"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/real_identity"
+                        android:textColor="@color/identities_button_active_background"
+                        android:textSize="14sp"
+                        android:textStyle="italic"/>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/default_real_identity"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:layout_margin="10dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/notification_button_font_color"
-                    android:textSize="12sp"
-                    android:text="Default"
-                    android:textAllCaps="false"
-                    />
+                    android:background="@color/identities_button_active_background"
+                    >
+
+                    <ImageView
+                        android:src="@drawable/white_bulb"
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="20dp"
+                        android:layout_height="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/notification_button_font_color"
+                        android:textSize="12sp"
+                        android:text="Default"
+                        android:textAllCaps="false"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -134,7 +146,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/addIdentityBtn"
         android:background="@color/identities_button_active_background"
@@ -158,4 +169,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
 </RelativeLayout>

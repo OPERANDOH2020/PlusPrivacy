@@ -8,8 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,9 @@ import eu.operando.customView.SignInFailedDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.LoginSwarmEntity;
+import eu.operando.swarmService.models.RegisterZoneSwarm;
+import eu.operando.swarmService.models.UDESwarm;
+import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
@@ -121,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Storage.saveUserID(result.getUserId());
                                     MainActivity.start(LoginActivity.this, false);
                                     storeCredentials(username, password);
+                                    registerZone();
                                     finish();
                                 } else {
                                     showFailedLoginDialog();
@@ -129,6 +135,35 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                         }, 100);
+                    }
+                });
+            }
+        });
+    }
+
+    private void registerZone() {
+        SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("Android"),
+                new SwarmCallback<RegisterZoneSwarm>() {
+            @Override
+            public void call(final RegisterZoneSwarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("RegisterZoneSwarm", result.toString());
+                    }
+                });
+            }
+        });
+        final String androidId = Settings.Secure.getString(
+                getContentResolver(), Settings.Secure.ANDROID_ID);
+        Log.w("UUID", androidId);
+        SwarmClient.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
+            @Override
+            public void call(final UDESwarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("UDESwarm", result.toString());
                     }
                 });
             }

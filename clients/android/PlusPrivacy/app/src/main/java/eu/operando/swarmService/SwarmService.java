@@ -23,7 +23,8 @@ import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SwarmService {
     private static final String SWARMS_URL = "https://plusprivacy.com:8080";
-    private static final String SWARMS_URL_DEBUG = "http://192.168.103.149:8080";
+    private static final String SWARMS_URL_DEBUG_RAFAEL = "http://192.168.103.149:8080";
+    private static final String SWARMS_URL_DEBUG_RAFAEL_2 = "https://plusprivacy.club:8080";
     private static final String SWARMS_URL_JOS = "http://192.168.100.144:9001";
     private static final String SWARMS_URL_CIPRIAN = "http://192.168.103.133:8080";
 
@@ -32,7 +33,7 @@ public class SwarmService {
     private SwarmClient swarmClient;
 
     private SwarmService() {
-        SwarmClient.init(SWARMS_URL);
+        SwarmClient.init(SWARMS_URL_DEBUG_RAFAEL_2);
         swarmClient = SwarmClient.getInstance();
     }
 

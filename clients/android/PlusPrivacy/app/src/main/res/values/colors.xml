@@ -75,7 +75,6 @@
     <color name="menu_second_separator">#84610f</color>
     <color name="menu_background">#eea82c</color>
 
-
     <!-- notification screen colors -->
     <color name="notification_background">#f0d0de</color>
     <color name="notification_button">#ea70a3</color>
@@ -84,12 +83,18 @@
     <color name="notification_background_child_item">#fbe5f0</color>
     <color name="notification_font_color">#661336</color>
 
-
     <!-- identities screen -->
     <color name="identities_main_color">#46cfca</color>
     <color name="identities_list_background">#98f5f3</color>
     <color name="identities_background">#d2fcfc</color>
     <color name="identities_button_active_background">#128e8d</color>
     <color name="identities_button_inactive_background">#45d0ce</color>
+
+    <!-- app scanner screen -->
+    <color name="scanner_main_color">#beb9fd</color>
+    <color name="scanner_second_color">#dbd9fd</color>
+    <color name="scanner_background">#eae9fc</color>
+    <color name="scanner_button_background">#635cb1</color>
+    <color name="scanner_arrow_background">#766ee0</color>
 
 </resources>

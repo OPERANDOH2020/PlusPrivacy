@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -40,13 +42,10 @@ public class ScannerActivity extends BaseActivity {
     }
 
     private void initUI() {
+
+        setToolbar();
         listView = (ListView) findViewById(R.id.app_list_view);
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
         ScannerListAdapter adapter = new ScannerListAdapter(this, Storage.readAppList());
         unknownPerms = new HashSet<>();
 //        if(/*PreferenceManager.getDefaultSharedPreferences(this).getBoolean("once",true)&&*/ BuildConfig.DEBUG) {
@@ -113,5 +112,20 @@ public class ScannerActivity extends BaseActivity {
 
     public void infoClicked() {
         shouldRefresh = false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setToolbar() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.scanner_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

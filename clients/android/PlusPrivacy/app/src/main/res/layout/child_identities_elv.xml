@@ -6,26 +6,28 @@
     android:gravity="center"
     android:paddingTop="10dp"
     android:paddingBottom="15dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
     android:background="@color/identities_list_background"
     >
 
+
     <LinearLayout
         android:id="@+id/make_default"
-        android:layout_width="wrap_content"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
+        android:layout_width="0dp"
+        android:layout_weight="0.9"
         android:layout_marginEnd="10dp"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/identities_button_active_background"
         >
 
         <ImageView
-            android:src="@drawable/delete_identity"
+            android:src="@drawable/white_bulb"
             android:layout_marginEnd="5dp"
-            android:layout_width="12dp"
-            android:layout_height="12dp" />
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,8 +44,9 @@
     <LinearLayout
         android:id="@+id/copy_to_clipboard"
 
-        android:layout_height="30dp"
-        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_marginEnd="10dp"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
@@ -55,9 +58,9 @@
         <ImageView
             android:src="@drawable/copy_clipboard"
             android:layout_gravity="center"
-            android:layout_width="12dp"
+            android:layout_width="20dp"
             android:layout_marginEnd="5dp"
-            android:layout_height="12dp" />
+            android:layout_height="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,10 +77,11 @@
 
     <LinearLayout
         android:id="@+id/remove_identity"
-        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
-        android:layout_height="30dp"
         android:gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/identities_button_active_background"
@@ -86,8 +90,8 @@
         <ImageView
             android:src="@drawable/delete_identity"
             android:layout_marginEnd="5dp"
-            android:layout_width="12dp"
-            android:layout_height="12dp" />
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,5 +105,6 @@
 
 
     </LinearLayout>
+
 
 </LinearLayout>

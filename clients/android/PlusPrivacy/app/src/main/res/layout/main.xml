@@ -126,7 +126,6 @@
                         android:layout_below="@id/tv_notifications_title"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:text="You have 3 notifications"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 

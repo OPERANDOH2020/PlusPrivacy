@@ -33,6 +33,7 @@ import eu.operando.swarmclient.models.SwarmCallback;
 public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     private Context context;
+    private IdentityListener listener;
     private List<Identity> identities;
     private static final String DEFAULT_INDENTITY = "Default identity";
     private static final String COPY_TO_CLIPBOARD = "Copy to clipboard";
@@ -40,6 +41,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
 
     public IdentitiesExpandableListViewAdapter(Context context, List<Identity> identities) {
         this.context = context;
+        listener = (IdentityListener) context;
         this.identities = identities;
     }
 
@@ -113,7 +115,8 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             holder = ((ChildHolder) convertView.getTag());
         }
 
-        holder.setData(childPosition, groupPosition);
+        Identity identity = identities.get(groupPosition);
+        holder.setData(identity);
 
         return convertView;
     }
@@ -164,87 +167,33 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
 
         }
 
-        public void setData(int childPosition, int groupPosition) {
-//            convertView.setOnClickListener(new CustomOnClickListener(childPosition, groupPosition, convertView));
-        }
-    }
-
-    private class CustomOnClickListener implements View.OnClickListener {
-
-        private int childPosition;
-        private int groupPosition;
-        private View convertView;
-
-        public CustomOnClickListener(int childPosition, int groupPosition, View convertView) {
-            this.childPosition = childPosition;
-            this.groupPosition = groupPosition;
-            this.convertView = convertView;
-        }
-
-        @Override
-        public void onClick(View v) {
-            switch (childPosition) {
-                case 0:
-                    updateIdentity(groupPosition, "updateDefaultSubstituteIdentity");
-                    break;
-                case 1:
-                    setClipboard();
-                    break;
-                case 2:
-                    updateIdentity(groupPosition, "removeIdentity");
-                    break;
-            }
-        }
-
-        private void updateIdentity(int groupPosition, String method) {
-            Identity i = identities.get(groupPosition);
-            final ProgressDialog dialog = new OperandoProgressDialog(context);
-            dialog.setCancelable(false);
-            dialog.setMessage("Please wait...");
-            dialog.show();
-            SwarmClient.getInstance().startSwarm(new Swarm("identity.js", method, new Identity(i.getEmail(), null, null)), new SwarmCallback<Swarm>() {
+        public void setData(final Identity identity) {
+            makeDefault.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void call(Swarm result) {
-                    ((IdentitiesActivity) context).getIdentities();
-                    dialog.dismiss();
+                public void onClick(View view) {
+                    listener.updateIdentity(identity, "updateDefaultSubstituteIdentity");
+                }
+            });
+
+            removeIdentity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.updateIdentity(identity, "removeIdentity");
+                }
+            });
+
+            copyToClipboard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.setClipboard(identity);
                 }
             });
         }
-
-        private void setClipboard() {
-
-            ClipboardManager clipboard = (ClipboardManager)
-                    convertView.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("identity", identities.get(groupPosition).getEmail());
-            clipboard.setPrimaryClip(clip);
-            Toast.makeText(convertView.getContext(), "Identity was copied to clipboard", Toast.LENGTH_SHORT).show();
-
-        }
     }
 
-    private class ExtensibleItemOptions {
-        private int drawable;
-        private String text;
+    public interface IdentityListener {
+        void updateIdentity(Identity identity, String method);
 
-        public ExtensibleItemOptions(String text, int drawable) {
-            this.drawable = drawable;
-            this.text = text;
-        }
-
-        public int getDrawable() {
-            return drawable;
-        }
-
-        public void setDrawable(int drawable) {
-            this.drawable = drawable;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
+        void setClipboard(Identity identity);
     }
 }
