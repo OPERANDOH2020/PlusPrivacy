@@ -345,6 +345,9 @@ var notificationSwarming = {
     },
 
     registerInZone: function (zoneName) {
+
+        console.log("\n\n\n\nINREGISTRARE ZONE\n\n\n\n");
+        console.log(arguments);
         var possibleZones = ['iOS', 'Android', 'Extension','FEEDBACK_SUBMITTED'];
         if (possibleZones.indexOf(zoneName) === -1) {
             this.err = "No such zone name";
