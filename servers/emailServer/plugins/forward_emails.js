@@ -214,12 +214,6 @@ exports.perform_action = function (next, connection) {
         connection.transaction.mail_from.host = newFrom.split('@')[1];
 
         connection.transaction.remove_header('sender');
-
-        plugin.loginfo("\n\n\n\n\n\n");
-        plugin.loginfo(connection.transaction.header);
-        plugin.loginfo("\n\n\n\n\n\n");
-
-
         connection.transaction.remove_header('From');
         if(!displayOriginal || connection.transaction.header.get('to').match('yahoo')) {
             connection.transaction.add_header('From', newFrom);
