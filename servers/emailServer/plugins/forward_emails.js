@@ -214,7 +214,7 @@ exports.perform_action = function (next, connection) {
         connection.transaction.mail_from.host = newFrom.split('@')[1];
 
         plugin.loginfo("\n\n\n\n\n\n");
-        plugin.loginfo(transaction.header);
+        plugin.loginfo(connection.transaction.header);
         plugin.loginfo("\n\n\n\n\n\n");
 
 
