@@ -213,6 +213,8 @@ exports.perform_action = function (next, connection) {
         connection.transaction.mail_from.user = newFrom.split('@')[0];
         connection.transaction.mail_from.host = newFrom.split('@')[1];
 
+        connection.transaction.remove_header('sender');
+
         plugin.loginfo("\n\n\n\n\n\n");
         plugin.loginfo(connection.transaction.header);
         plugin.loginfo("\n\n\n\n\n\n");
