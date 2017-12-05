@@ -22,11 +22,15 @@ var UserPrefs = function () {
 
 UserPrefs.prototype = {
     getPreferences:function(key, filterObj, callback){
+        if(filterObj instanceof Function){
+            callback = filterObj;
+        }
+
         var filteredPreferences = {};
         this.getPrefs(function(prefs){
             if(key){
                 if(prefs[key]){
-                    if(filterObj){
+                    if(!filterObj instanceof Function){
                         if(prefs[key] instanceof Array){
                             filteredPreferences =  prefs[key].filter(function(preference){
                                 for(i in filterObj){
@@ -69,8 +73,27 @@ UserPrefs.prototype = {
             prefs[key].push(object);
             chrome.storage.local.set({UserPrefs: JSON.stringify(prefs)});
         });
+    },
+
+    removePreference:function(key, object){
+        chrome.storage.local.get("UserPrefs", function(o){
+            var prefs = null;
+            if(typeof o === "object" && Object.keys(o).length === 0){
+                prefs = {};
+            }
+            else{
+                prefs = JSON.parse(o['UserPrefs']);
+            }
+
+            if(prefs[key]){
+                if(prefs[key].indexOf(object)>-1){
+                    prefs[key].splice(prefs[key].indexOf(object),1)
+                    chrome.storage.local.set({UserPrefs: JSON.stringify(prefs)});
+                }
+            }
+        });
     }
-}
+};
 
 var UserPreferences = (function(){
     var instance;

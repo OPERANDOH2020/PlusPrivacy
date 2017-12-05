@@ -78,8 +78,7 @@ jQuery(document).ready(function($) {
 	    
    // On Change, save the settings
    let settingsTimer;
-	$(document).on('change', '#alm_OptionsForm input, #alm_OptionsForm textarea, #alm_OptionsForm select', function(){
-   	
+	$(document).on('change', '#alm_OptionsForm input, #alm_OptionsForm textarea, #alm_OptionsForm select', function(){   	
    	// Set a timer to avoid updating settings to frequently
    	if(settingsTimer) clearTimeout(settingsTimer);
    	settingsTimer = setTimeout(function(){
@@ -175,7 +174,7 @@ jQuery(document).ready(function($) {
 	};
 
 	// Copy link on shortcode builder
-	$('.output-wrap .copy').click(function(){
+	$('.shortcode-builder .copy').click(function(){
 		var c = $('#shortcode_output').html();
 		_alm.copyToClipboard(c);
 	});
@@ -414,14 +413,13 @@ jQuery(document).ready(function($) {
 	$(document).on('change', '#alm-settings-nav', function(e){
 		e.preventDefault();
 		var el = $(this),
-			 index = el.val();
-
+			 index = $('option:selected', el).index();			 
 		if(index !== '#'){
+			index = index - 1;
 			$('html, body').animate({
 				scrollTop: $("#alm_OptionsForm h2").eq(index).offset().top - 40
 			}, 500);
 		}
-
 	});
 
 

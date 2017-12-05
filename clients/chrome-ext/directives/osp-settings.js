@@ -157,8 +157,7 @@ angular.module('osp', ['cfp.loadingBar'])
                 }
 
 
-                chrome.storage.local.set({sn_privacy_settings: settings}, function () {
-                });
+                chrome.storage.local.set({sn_privacy_settings: settings});
 
                 messengerService.send("saveSocialNetworkSetting", {sn_privacy_settings: settings}, function(){
 

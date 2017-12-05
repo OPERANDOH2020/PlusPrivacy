@@ -1,12 +1,12 @@
 <li class="menu-item">
     <ul class="nav navbar-nav navbar-right">
         <menu-item ng-repeat="item in navigationModel" item="item" location="location"></menu-item>
-        <li class="dropdown" ng-if="user.authenticated" ng-cloak>
+        <li class="dropdown user_email" ng-if="user.authenticated" ng-cloak>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-               aria-expanded="false"><span class="glyphicon glyphicon-user"></span>{{user.email}}</a>
+               aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="user_email">{{user.email}}</span></a>
             <ul class="dropdown-menu" ng-switch="user.authenticated">
-                <!--<li class="current_user_email" class="dropdown"><span class="glyphicon glyphicon-envelope"></span><span class="user_email">{{user.email}}</span></li>-->
-                <!--<li role="separator" class="divider"></li>-->
+                <li class="current_user_email small_resolution" class="dropdown"><span class="glyphicon glyphicon-envelope"></span><span class="user_email">{{user.email}}</span></li>
+                <li role="separator" class="divider small_resolution"></li>
                 <li ng-switch-when="true"><a class="user_logout" href="#" ng-click="logout()"><span
                         class="glyphicon glyphicon-log-out"></span>Log out</a></li>
             </ul>

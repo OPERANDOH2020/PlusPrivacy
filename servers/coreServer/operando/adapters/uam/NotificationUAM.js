@@ -18,6 +18,15 @@ var  container = require("safebox").container;
 var flow = require("callflow");
 var uuid = require('uuid');
 var apersistence = require('apersistence');
+
+
+var zoneTenantMappings = {
+        "ALL_USERS":["ios","androidApp","chromeBrowserExtension","PlusPrivacyWebsite"],
+        "Extension":["chromeBrowserExtension"],
+        "iOS":["ios"],
+        "Android":["androidApp"]
+}
+
 var signupNotifications = {
     privacy_questionnaire: {
         sender: "WatchDog",
@@ -189,7 +198,6 @@ container.declareDependency("NotificationUAMAdapter", ["mysqlPersistence"], func
 });
 
 createNotification = function (rawNotificationData, callback) {
-    console.log(rawNotificationData);
     var notification = apersistence.createRawObject("Notification",uuid.v1());
     rawNotificationData.expirationDate = new Date(rawNotificationData.expirationDate);
     notification['action_name'] = rawNotificationData['actionType'];
@@ -277,13 +285,14 @@ getNotifications = function (userId, userZones, callback) {
         },
 
         loadNotifications:function(err,lazyNotification){
+
             if (err) {
                 console.error(err);
             }
             else {
-                var notification = lazyNotification.notification;
 
-                if (!this.isDissmissed[notification.notificationId]) {
+                var notification = lazyNotification.notification;
+                if (notification && !this.isDissmissed[notification.notificationId]) {
                     var existingNotificationsIds = this.notifications.map(function(notification){return notification.notificationId});
                     if(existingNotificationsIds.indexOf(notification.notificationId)==-1){
                         this.notifications.push(notification);
@@ -441,7 +450,6 @@ generateSignupNotifications = function (callback) {
                 Object.keys(signupNotifications).forEach(function(key, index){
                     if(notification['action_name'] === signupNotifications[key]['action_name']){
                         var zones = signupNotifications[key]['zones'];
-                        console.log(zones);
                         zones.forEach(function(zoneName){
                             var newAssociation = apersistence.modelUtilities.createRaw("ZoneNotificationMapping",uuid.v1().split("-").join(""));
                             newAssociation.zoneName = zoneName;
@@ -504,6 +512,22 @@ clearNotification = function(userId, action_name){
 
     })();
 };
+
+
+getTenantZones = function(userZones, tenant){
+    var availableZones=[];
+    userZones.forEach(function(zoneName){
+        if(zoneTenantMappings[zoneName]){
+            if(zoneTenantMappings[zoneName].indexOf(tenant)!=-1){
+                availableZones.push(zoneName);
+            }
+        }
+        else{//not in mappings
+            availableZones.push(zoneName);
+        }
+    });
+    return availableZones;
+}
 
 
 var admin = require("firebase-admin");

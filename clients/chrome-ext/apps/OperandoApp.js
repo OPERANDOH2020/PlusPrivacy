@@ -171,38 +171,12 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     }],
                     settings:['ospService', function (ospService) {
                         return ospService.loadOSPs();
+                    }],
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/operando/controllers/socialAppController.js');
                     }]
                 },
-                templateUrl:"views/apps/social_apps.html",
-                controller:["$scope","$stateParams","settings", function($scope, $stateParams, settings) {
-
-                    var socialNetworks = {
-                        facebook : "Facebook",
-                        linkedin: "LinkedIn",
-                        twitter: "Twitter",
-                        google: "Google",
-                        dropbox:"Dropbox"
-
-                    };
-
-                    if (!$stateParams.sn) {
-                        $scope.osp = {
-                            key: 'facebook',
-                            title: socialNetworks['facebook'],
-                            settings: settings['facebook']
-                        }
-
-                    }
-                    else {
-                        $scope.osp = {
-                            key: $stateParams.sn,
-                            title: socialNetworks[$stateParams.sn.toLowerCase()],
-                            settings: settings[$stateParams.sn]
-                        }
-                    }
-
-                    $scope.sn = $stateParams.sn;
-                }]
+                templateUrl:"views/apps/social_apps.html"
             })
             .state('abp', {
                 url: "/ad-blocking",
@@ -224,7 +198,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 url: "/options",
                 templateUrl: "views/preferences/abp-options.html"
             })
-
             .state('preferences.mobile', {
                 url: "/mobile",
                 templateUrl: "views/preferences/mobile.html"

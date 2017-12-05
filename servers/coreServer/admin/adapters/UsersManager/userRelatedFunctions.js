@@ -146,10 +146,21 @@ exports.newUserIsValid = function (newUser, callback) {
         return false;
     }
 
+    function emailDomainIsAllowed(email){
+        var systemDomain = thisAdapter.config.Core.operandoHost;
+        if(email.indexOf(systemDomain) === -1){
+            return false;
+        }
+        return true;
+    }
+
     flow.create("user is valid", {
         begin: function () {
             if(emailIsValid(newUser.email) === false ){
                 callback(new Error("emailIsInvalid"));
+            }
+            else if(emailDomainIsAllowed(newUser.email)){
+                callback(new Error("This email address is not allowed"));
             }
             else if(!newUser.password || newUser.password.length < passwordMinLength){
                 callback(new Error("Password must contain at least "+passwordMinLength+" characters"));
@@ -471,7 +482,6 @@ exports.updateOrganisation = function (organisationDump, callback) {
 exports.addUserToZone = function(userId,zoneName,callback){
     flow.create("addUserToZone",{
         begin:function(){
-            var self = this;
             persistence.filter("UserZoneMapping",{"userId":userId},this.continue("verifyDuplicates"))
         },
         verifyDuplicates:function(err,zoneMappings){
@@ -480,7 +490,7 @@ exports.addUserToZone = function(userId,zoneName,callback){
             }else {
                 var userAlreadyBelongs = zoneMappings.some(function (zoneMapping) {
                     return zoneMapping.zoneName === zoneName;
-                })
+                });
                 if (userAlreadyBelongs) {
                     callback();
                 } else {
@@ -489,7 +499,6 @@ exports.addUserToZone = function(userId,zoneName,callback){
             }
         },
         addToZone:function(){
-
             var newAssociation = apersistence.modelUtilities.createRaw("UserZoneMapping",uuid.v1().split("-").join(""));
             newAssociation.zoneName = zoneName;
             newAssociation.userId = userId;

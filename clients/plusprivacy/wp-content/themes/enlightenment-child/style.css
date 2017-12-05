@@ -419,6 +419,11 @@ ul.nav.navbar-nav .dropdown-menu li a{
     display: block;
 }
 
+ul.nav.navbar-nav li.user_email{
+    max-width: 230px;
+    white-space: nowrap;
+}
+
 ul.dropdown-menu>.active>a,
 ul.dropdown-menu>.active>a:focus,
 ul.dropdown-menu>.active>a:hover{
@@ -481,6 +486,11 @@ a.social_network_link img{
 
 .custom-query-list.custom-query-pages article:nth-child(3n+1){
     clear: left;
+}
+
+.current_user_email.small_resolution,
+.divider.small_resolution{
+    display: none;
 }
 
 .navbar-brand > .site-logo {
@@ -562,6 +572,11 @@ a.social_network_link img{
     }
 }
 
+@media (max-width: 1200px) {
+    .navbar-large .nav > li > a {
+        padding: 30px 13px;
+    }
+}
 
 @media (min-width:992px) and (max-width: 1200px) {
     #sidebar-footer{
@@ -570,7 +585,22 @@ a.social_network_link img{
 }
 
 @media (min-width:601px) and (max-width: 991px) {
+    ul.nav.navbar-nav li.user_email{
+        width:40px;
+        margin-right: 15px;
+    }
+
+    ul.nav.navbar-nav li.user_email a>span.user_email{
+        display: none;
+    }
+
+    #site-navigation{
+        max-width: 680px;
+        float:left!important;
+    }
+
     body{padding-bottom: 195px;}
+
     #sidebar-footer-secondary {
         bottom: 50px;
     }
@@ -578,17 +608,44 @@ a.social_network_link img{
     #sidebar-footer{
         bottom:-40px;
     }
-}
 
+    .current_user_email.small_resolution,
+    .divider.small_resolution{
+        display: block;
+    }
+    .current_user_email span.user_email{
+        display: block;
+    }
+}
 
 @media (min-width: 769px) {
     #site-navigation{
-        width: 650px;
+        max-width: 780px;
         float:right;
     }
-
-
 }
+
+
+@media (min-width: 800px) and (max-width: 991px){
+    .container {
+        width: 800px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #page .navbar-toggle {
+        display: none!important;
+    }
+}
+
+@media (max-width: 767px) {
+    #page .navbar-toggle {
+        display: block;
+    }
+}
+
+
+
 .entry-content a img {
     box-shadow: none;
 }
@@ -625,3 +682,41 @@ p#european_commission{
     color:#FFB400;
 }
 
+#ajax-load-more h3 a{
+    color:#FFB400;
+}
+
+#ajax-load-more .alm-listing li img{
+    position:relative;
+    height: 130px;
+    width:200px;
+    margin-bottom: 0px;
+}
+
+#ajax-load-more .entry-media{
+    width:200px;
+}
+#ajax-load-more .entry-media{
+    width:200px;
+    float: left;
+    margin-right: 25px;
+}
+#ajax-load-more .alm-listing li{
+    padding-left:0px;
+}
+#ajax-load-more .alm-listing li p{
+    font-size: 15px;
+}
+
+#ajax-load-more .alm-listing li p.entry-meta{
+    font-size: 12px;
+}
+
+#ajax-load-more .alm-listing li h3{
+    font-size: 22px;
+    font-weight: normal;
+}
+
+div.entry-content a{
+    color:#FFB400;
+}

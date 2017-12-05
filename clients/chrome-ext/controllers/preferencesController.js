@@ -110,6 +110,8 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
         $attrs.$observe('socialNetwork', function (value) {
 
+
+            retrieveUserLoggedInAccount(value);
             $scope.socialNetwork = value;
             $scope.isLastOspInList = false;
             $scope.isFirstOspInList = false;
@@ -131,7 +133,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             $scope.done = function () {
                 $state.transitionTo('home');
-            }
+            };
 
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
@@ -204,7 +206,27 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                 }, $scope.socialNetwork);
 
             }
-
-
         });
+
+
+        function retrieveUserLoggedInAccount (socialNetwork){
+            messengerService.send("getMyLoggedinEmail",socialNetwork, function(response){
+               if(response.status === "success"){
+
+                   var encodedStr = response.data.account;
+                   var parser = new DOMParser();
+                   var dom = parser.parseFromString(
+                       '<!doctype html><body>' + encodedStr,
+                       'text/html');
+                   var decodedString = dom.body.textContent;
+
+                   $scope.socialNetworkEmail = {
+                       account:decodedString,
+                       type:response.data.type
+                   };
+
+                   $scope.$apply();
+               }
+            });
+        }
     }]);

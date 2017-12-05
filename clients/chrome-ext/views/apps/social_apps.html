@@ -1,4 +1,14 @@
-<div class="tab-pane active" id="appsTab">
-     <h2>{{sn}} apps</h2>
-    <social-apps sn = "sn"></social-apps>
+<div ng-controller="socialAppController">
+    <div class="tab-pane active" id="appsTab">
+        <h2 class="{{sn}}_icon sn_icon"><span class="sn-title">Apps connected to your <span class="social_network_name">{{sn}}</span> account &nbsp;</span>
+
+            <div class="username_spinner" ng-if="!socialNetworkEmail">
+                <div class="username_bounce1"></div>
+                <div class="username_bounce2"></div>
+                <div class="username_bounce3"></div>
+            </div>
+            <span ng-if="socialNetworkEmail">({{socialNetworkEmail.account}})</span>
+        </h2>
+        <social-apps sn="sn"></social-apps>
+    </div>
 </div>

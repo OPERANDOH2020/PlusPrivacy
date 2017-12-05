@@ -35,6 +35,7 @@ gulp.task('lint', () => {
 // JS [Concatenate JS]
 gulp.task('scripts', () => {
 	return gulp.src([
+		'./core/src/js/helpers/*.js',
 		'./core/src/js/modules/*.js',
 		'./core/src/js/'+ appname +'.js',
 		'./core/src/js/libs/*.js',
@@ -80,6 +81,7 @@ gulp.task('admin_lint', () => {
 gulp.task('admin_scripts', () => {
 	return gulp.src([
 		'./admin/src/js/libs/*.js',
+		'./admin/src/js/modules/*.js',
 		'./admin/src/js/admin.js',
 	])
 	.pipe(babel())

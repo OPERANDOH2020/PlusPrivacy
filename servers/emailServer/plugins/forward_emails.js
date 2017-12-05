@@ -213,6 +213,7 @@ exports.perform_action = function (next, connection) {
         connection.transaction.mail_from.user = newFrom.split('@')[0];
         connection.transaction.mail_from.host = newFrom.split('@')[1];
 
+        connection.transaction.remove_header('sender');
         connection.transaction.remove_header('From');
         if(!displayOriginal || connection.transaction.header.get('to').match('yahoo')) {
             connection.transaction.add_header('From', newFrom);

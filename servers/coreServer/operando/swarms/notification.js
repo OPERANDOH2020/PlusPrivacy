@@ -75,6 +75,7 @@ var notificationSwarming = {
                 }));
             }
             else {
+                this.zones = getTenantZones(this.zones,this.meta.tenantId);
                 getNotifications(this.meta.userId, this.zones, S(function (err, notifications) {
                     if (err) {
                         self.err = err.message;
@@ -256,7 +257,6 @@ var notificationSwarming = {
                     self.home('failed');
                 } else {
                     notifyUsers(self.devicesPushNotificationTokens, self.notification, S(function (err) {
-                        console.log(arguments);
                         if (err) {
                             self.err = err.message;
                             self.home('failed')
@@ -296,7 +296,6 @@ var notificationSwarming = {
     success: {
         node: "Core",
         code: function () {
-            console.log("Returning Notifications");
             this.notifications = [{
                 message: "Pellentesque semper augue sed suscipit fringilla. Etiam vitae gravida augue, id tempus enim.",
                 title: "Security error FACEBOOK MESSENGER",

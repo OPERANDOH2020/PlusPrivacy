@@ -5,7 +5,7 @@
 /*
     Mysql is also needed for some analytics tasks so be careful with the exclusions
  */
-excludeFromAdapters(["DefaultLogger","SwarmMonitor","GuardianAdapter","EmailAdapter","CrawlerAdapter"]);
+excludeFromAdapters(["DefaultLogger","SwarmMonitor","EmailAdapter","CrawlerAdapter"]);
 
 var mysql     = require('mysql');
 var container = require('safebox').container;
