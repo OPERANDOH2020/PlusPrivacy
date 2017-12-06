@@ -74,39 +74,7 @@ class OPConfigObject: NSObject
         self.initPropertiesOnAppStart()
         self.eraseCredentialsIfFreshAppReinstall()
         self.flowController?.setupBaseHierarchyInWindow(window)
-        self.flowController?.setSideMenu(enabled: false)
-        weak var weakSelf = self
-        
-        
-        if let (email, password) = CredentialsStore.retrieveLastSavedCredentialsIfAny()
-        {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
-            weakSelf?.userRepository?.loginWith(email: email, password: password, withCompletion: { (error, data) in
-                ProgressHUD.dismiss()
-                
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                if let error = error {
-                    OPErrorContainer.displayError(error: error)
-                    weakSelf?.flowController?.displayLoginHierarchy()
-                    return
-                }
-                
-                self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
-                    print(scds)
-                    print(error)
-                }
-                
-                weakSelf?.currentUserIdentity = data
-                weakSelf?.flowController?.setupHierarchyStartingWithDashboardIn(window)
-                weakSelf?.flowController?.setSideMenu(enabled: true)
-            })
-        }
-        else {
-            weakSelf?.flowController?.displayLoginHierarchy()
-        }
-        
-
+        self.flowController?.displayLoginHierarchy()
     }
     
     func open(url: URL) -> Bool {
@@ -185,7 +153,6 @@ class OPConfigObject: NSObject
     private func afterLoggingInWith(identity: UserIdentityModel){
         self.currentUserIdentity = identity
         self.flowController?.displayDashboard()
-        self.flowController?.setSideMenu(enabled: true)
     }
     
     
@@ -201,12 +168,9 @@ class OPConfigObject: NSObject
                 return
             }
             
-            
             if let error = CredentialsStore.deleteCredentials() {
                 OPErrorContainer.displayError(error: error)
             }
-            
-            self.flowController?.setSideMenu(enabled: false)
             self.flowController?.displayLoginHierarchy()
         }
     }
@@ -274,7 +238,7 @@ class OPConfigObject: NSObject
 
         return AccountCallbacks(loginCallback: { info in
             weakSelf?.logiWithInfoAndUpdateUI(info)
-            }, logoutCallback: { 
+            }, logoutCallback: {
                 weakSelf?.logoutUserAndUpdateUI()
             },
                registerCallback: { info in

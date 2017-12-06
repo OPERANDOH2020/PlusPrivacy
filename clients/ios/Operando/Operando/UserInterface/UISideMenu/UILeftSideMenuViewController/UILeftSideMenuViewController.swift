@@ -17,10 +17,11 @@ struct UILeftSideMenuViewControllerCallbacks {
     let whenChoosingSettings: VoidBlock?
     let whenChoosingPrivacyPolicy: VoidBlock?
     let whenChoosingAbout: VoidBlock?
+    let logoutCallback: VoidBlock?
 }
 
 class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     // MARK: - Properties
     var callbacks: UILeftSideMenuViewControllerCallbacks?
     var dataSource: [UILeftSideMenuVCObject]? {
@@ -34,6 +35,7 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var logoView: UIImageView!
     
     // MARK: - @IBActions
     @IBAction func didTapProfileButton(_ sender: AnyObject) {
@@ -41,6 +43,9 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         self.sideMenuViewController?.hideMenuViewController()
     }
     
+    @IBAction func didTapLogoutButton(_ sender: Any) {
+        self.callbacks?.logoutCallback?()
+    }
     // MARK: - Private Methods
     private func setupControls() {
         tableView.dataSource = self
@@ -52,12 +57,14 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
+        dataSource = getMenuDataSource()
     }
     
     
-    func prepareToAppear() {
-     // SASideMenu completely screws up viewDidAppear, viewWillAppear
-        dataSource = getMenuDataSource()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        logoView.layer.borderColor = UIColor.white.cgColor
     }
     
     // MARK: - Table View Data Source

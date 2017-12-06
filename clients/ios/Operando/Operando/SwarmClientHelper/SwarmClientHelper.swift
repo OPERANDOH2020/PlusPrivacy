@@ -126,7 +126,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                 return
             }
             
-            
             self.handlersPerSwarmingName[.login] = { dataArray in
                 guard let dataDict = dataArray.first as? [String: Any] else {
                     completion?(OPErrorContainer.errorInvalidServerResponse)

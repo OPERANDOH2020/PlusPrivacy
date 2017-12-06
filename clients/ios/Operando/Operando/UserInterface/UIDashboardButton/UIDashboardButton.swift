@@ -64,6 +64,9 @@ class UIDashboardButtonLogic: NSObject {
         model?.notificationsRequestCallbackIfAny? { count in
             self.outlets.numOfNotificationsLabel?.isHidden = false
             self.outlets.numOfNotificationsLabel?.text = "\(count)"
+            self.outlets.numOfNotificationsLabel?.layer.borderColor = self.model?.style?.backgroundColor?.cgColor
+            self.outlets.numOfNotificationsLabel?.layer.borderWidth = 1
+            self.outlets.numOfNotificationsLabel?.textColor = self.model?.style?.backgroundColor
         }
     }
 }

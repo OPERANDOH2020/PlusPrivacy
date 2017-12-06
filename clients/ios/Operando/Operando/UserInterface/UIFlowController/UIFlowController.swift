@@ -27,7 +27,6 @@ struct Dependencies{
     let feedbackFormRepo: OPFeedbackFormProtocol?
 }
 
-
 struct AccountCallbacks {
     let loginCallback: LoginCallback?
     let logoutCallback: VoidBlock?
@@ -36,13 +35,13 @@ struct AccountCallbacks {
     let passwordChangeCallback: PasswordChangeCallback?
 }
 
-class UIFlowController: SSASideMenuDelegate
+class UIFlowController
 {
     let dependencies: Dependencies
     let rootController: UIRootViewController
     
     let sharedBrowserController: UIPrivateBrowsingViewController = UIViewControllerFactory.privateBrowsingViewController
-    private var sideMenu: SSASideMenu?
+    private var sideMenu: ENSideMenuNavigationController?
     
     init(dependencies: Dependencies)
     {
@@ -50,60 +49,42 @@ class UIFlowController: SSASideMenuDelegate
         self.rootController = UIViewControllerFactory.rootViewController
         
         weak var weakSelf = self
-        let rootControllerCallbacks = UIRootViewControllerCallbacks(whenMenuButtonPressed: {
-            weakSelf?.sideMenu?._presentLeftMenuViewController()
-            }, whenAccountButtonPressed: {
-                weakSelf?.sideMenu?._presentRightMenuViewController()
-        })
+        let rootControllerCallbacks = UIRootViewControllerCallbacks(
+            whenMenuButtonPressed: {
+                weakSelf?.sideMenu?.toggleSideMenuView()
+            })
         
         self.rootController.setupWithCallbacks(rootControllerCallbacks)
     }
     
-    func setSideMenu(enabled: Bool) {
-        if enabled {
-            sideMenu?.leftMenuViewController = createLeftSideMenuViewController()
-            sideMenu?.rightMenuViewController = createRightMenuViewController()
-        } else {
-            sideMenu?.leftMenuViewController = nil
-            sideMenu?.rightMenuViewController = nil
-        }
-    }
-    
     func displayLoginHierarchy()
     {
-        self.sideMenu?.hideMenuViewController()
-        
         let loginVC = UIViewControllerFactory.loginViewController
         let registrationViewController = UIViewControllerFactory.registerViewController
         weak var weakLoginVC = loginVC
-        
+
         let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
             self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
         {
             weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
         }
-        
+
         let registerViewControllerCallbacks = UIRegistrationViewControllerCallbacks(whenUserRegisters: self.dependencies.accountCallbacks?.registerCallback) {
             weakLoginVC?.navigationController?.popViewController(animated: true)
         }
-        
+
         loginVC.logic.setupWithCallbacks(loginViewControllerCallbacks)
         registrationViewController.setupWith(callbacks: registerViewControllerCallbacks)
         
         let navigationController = UINavigationController(rootViewController: loginVC)
         navigationController.isNavigationBarHidden = true
-        self.rootController.showTopBar(hidden: true)
         self.rootController.setMainControllerTo(newController: navigationController)
+        self.rootController.showTopBar(hidden: true)
+        self.sideMenu?.sideMenu?.hideSideMenu()
     }
     
     private func createRegisterViewController() -> UIRegistrationViewController {
         return UIViewControllerFactory.registerViewController
-    }
-    
-    func setupHierarchyStartingWithDashboardIn(_ window: UIWindow)
-    {
-        self.setupBaseHierarchyInWindow(window)
-        self.displayDashboard()
     }
     
     func displayDashboard(){
@@ -193,33 +174,33 @@ class UIFlowController: SSASideMenuDelegate
     }
     
     func setupBaseHierarchyInWindow(_ window: UIWindow){
-        let sideMenu = SSASideMenu(contentViewController: self.rootController, leftMenuViewController: createLeftSideMenuViewController())
-        sideMenu.configure(configuration: SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false, parallaxEnabled: true, bouncesHorizontally: false, statusBarStyle: SSASideMenu.SSAStatusBarStyle.Black))
-        window.rootViewController = sideMenu
-        self.sideMenu = sideMenu
-        sideMenu.delegate = self
+        
+//        let sideMenuEN = ENSideMenuNavigationController(menuViewController: createLeftSideMenuViewController(), contentViewController: self.rootController)
+//        sideMenu.configure(configuration: SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false, parallaxEnabled: true, bouncesHorizontally: false, statusBarStyle: SSASideMenu.SSAStatusBarStyle.Black))
+        
+        self.sideMenu = ENSideMenuNavigationController(menuViewController: createLeftSideMenuViewController(), contentViewController: self.rootController)
+        self.sideMenu?.navigationBar.isHidden = true
+        window.rootViewController = self.sideMenu
+//        self.sideMenu = sideMenu
+//        sideMenu.delegate = self
     }
     
-    
-    
-    
-    private func createRightMenuViewController() -> UIAccountViewController {
-        
-        let accountController = UIViewControllerFactory.accountViewController
-        accountController.logic.setupWith(callbacks:UIAccountViewControllerCallbacks(
-        whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
-        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback,
-        whenFeedbackFormAccessed: {
-            let feedbackFormVC = UIViewControllerFactory.feedbackFormViewController
-            feedbackFormVC.setup(with: OPFeedbackFormVCInteractor(feedbackForm: OPFeedbackForm(delegate: self.dependencies.feedbackFormRepo),
-                                                                  uiDelegate: feedbackFormVC as? OPFeedbackFormVCProtocol))
-            self.rootController.setMainControllerTo(newController: feedbackFormVC)
-            self.sideMenu?.hideMenuViewController()
-        }))
-        
-        return accountController
-    }
-    
+//    private func createRightMenuViewController() -> UIAccountViewController {
+//
+//        let accountController = UIViewControllerFactory.accountViewController
+//        accountController.logic.setupWith(callbacks:UIAccountViewControllerCallbacks(
+//        whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
+//        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback,
+//        whenFeedbackFormAccessed: {
+//            let feedbackFormVC = UIViewControllerFactory.feedbackFormViewController
+//            feedbackFormVC.setup(with: OPFeedbackFormVCInteractor(feedbackForm: OPFeedbackForm(delegate: self.dependencies.feedbackFormRepo),
+//                                                                  uiDelegate: feedbackFormVC as? OPFeedbackFormVCProtocol))
+//            self.rootController.setMainControllerTo(newController: feedbackFormVC)
+//            self.sideMenu?.sideMenu?.hideSideMenu()
+//        }))
+//
+//        return accountController
+//    }
     
     private func createLeftSideMenuViewController() -> UILeftSideMenuViewController {
         let leftSideMenu = UIViewControllerFactory.leftMenuViewController
@@ -227,52 +208,50 @@ class UIFlowController: SSASideMenuDelegate
         return leftSideMenu
     }
     
-
-    
     private func getLeftSideMenuCallbacks() -> UILeftSideMenuViewControllerCallbacks?
     {
         weak var weakSelf = self
         let dashboardCallbacks = UIDashBoardViewControllerCallbacks(whenChoosingIdentitiesManagement: {
                 weakSelf?.displayIdentitiesManagement()
-                weakSelf?.sideMenu?.hideMenuViewController()
+                weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             },whenChoosingPrivacyForBenefits: {
                 weakSelf?.displayPfbDeals()
-                weakSelf?.sideMenu?.hideMenuViewController()
+                weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             },whenChoosingPrivateBrowsing: {
                 weakSelf?.displayPrivateBrowsing()
-                weakSelf?.sideMenu?.hideMenuViewController()
+                weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             },
               whenChoosingNotifications: {
                 weakSelf?.displayNotifications()
-                weakSelf?.sideMenu?.hideMenuViewController()
+                weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             },
               numOfNotificationsRequestCallback: self.dependencies.whenRequestingNumOfNotifications)
         
         return UILeftSideMenuViewControllerCallbacks(dashboardCallbacks: dashboardCallbacks, whenChoosingHome: { 
             weakSelf?.displayDashboard()
-            weakSelf?.sideMenu?.hideMenuViewController()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
         }, whenChoosingMonitor: {
             PPCloak.OPMonitor.displayFlow()
         }, whenChoosingSettings: {
             weakSelf?.displaySettingsViewController()
-            weakSelf?.sideMenu?.hideMenuViewController()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
         },
            whenChoosingPrivacyPolicy: {
             weakSelf?.displayPrivacyPolicyViewController()
-            weakSelf?.sideMenu?.hideMenuViewController()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
         }, whenChoosingAbout: {
             weakSelf?.displayAboutViewController()
-            weakSelf?.sideMenu?.hideMenuViewController()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+        }, logoutCallback: {
+            self.dependencies.accountCallbacks?.logoutCallback?()
         })
     }
-    
-    
 
-    func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-        if let leftMenuVC = menuViewController as? UILeftSideMenuViewController {
-            leftMenuVC.prepareToAppear()
-        }
-    }
+//    func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
+//        if let leftMenuVC = menuViewController as? UILeftSideMenuViewController {
+//            leftMenuVC.prepareToAppear()
+//        }
+//    }
 }
 
 

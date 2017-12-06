@@ -73,8 +73,6 @@ class UISignInViewControllerLogic: NSObject {
             }
         })
     }
-
-    
 }
 
 class UISignInViewController: UIViewController {

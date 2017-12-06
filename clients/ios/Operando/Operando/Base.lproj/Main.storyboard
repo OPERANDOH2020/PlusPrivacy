@@ -106,26 +106,13 @@
                                             <action selector="didPressMenuButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="kNm-mw-5pD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-b3-33V">
-                                        <rect key="frame" x="318" y="18" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="UP1-Ri-bIU"/>
-                                            <constraint firstAttribute="width" constant="44" id="edL-3k-h7s"/>
-                                        </constraints>
-                                        <state key="normal" image="user-brown"/>
-                                        <connections>
-                                            <action selector="didPressAccountButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="8kl-zh-YE8"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="wS9-JU-77R" firstAttribute="leading" secondItem="i4E-lu-E6P" secondAttribute="leading" constant="15" id="1cF-gC-CLC"/>
                                     <constraint firstItem="wS9-JU-77R" firstAttribute="centerY" secondItem="Vnh-qI-uII" secondAttribute="centerY" id="BGM-lv-vkf"/>
-                                    <constraint firstItem="dQP-b3-33V" firstAttribute="centerY" secondItem="Vnh-qI-uII" secondAttribute="centerY" id="Ddj-VH-CUn"/>
                                     <constraint firstAttribute="height" constant="64" id="fmn-jB-JOK"/>
                                     <constraint firstItem="Vnh-qI-uII" firstAttribute="centerX" secondItem="i4E-lu-E6P" secondAttribute="centerX" id="i8V-y3-aAu"/>
-                                    <constraint firstAttribute="trailing" secondItem="dQP-b3-33V" secondAttribute="trailing" constant="13" id="iYy-J9-wXz"/>
                                     <constraint firstItem="Vnh-qI-uII" firstAttribute="centerY" secondItem="i4E-lu-E6P" secondAttribute="centerY" constant="8" id="t6z-mh-d6Q"/>
                                 </constraints>
                             </view>
@@ -581,6 +568,5 @@
     <resources>
         <image name="alternateIdentitiesIcon" width="64" height="64"/>
         <image name="hamburger_Icon" width="26" height="15"/>
-        <image name="user-brown" width="32" height="32"/>
     </resources>
 </document>

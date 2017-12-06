@@ -193,6 +193,8 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */; };
+		C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */; };
 		C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */; };
 		C7908A311FC6E33400C93A82 /* PKHUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A211FC6E32F00C93A82 /* PKHUDAssets.swift */; };
 		C7908A321FC6E33400C93A82 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A221FC6E32F00C93A82 /* Window.swift */; };
@@ -455,6 +457,8 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		C7908A201FC6E32F00C93A82 /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
 		C7908A211FC6E32F00C93A82 /* PKHUDAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDAssets.swift; sourceTree = "<group>"; };
@@ -1231,6 +1235,7 @@
 		98EAF6931CCF88D400C77649 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C77B8E171FD6B6D100B16F6E /* ENSideMenu */,
 				C7908A1F1FC6E31200C93A82 /* PKHUD */,
 				987E717B1E8BB90C0006B240 /* SwarmClient.framework */,
 				982D317A1E842A9B00FE2FB7 /* AFNetworking */,
@@ -1472,6 +1477,16 @@
 			path = UILeftSideMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		C77B8E171FD6B6D100B16F6E /* ENSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */,
+				C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */,
+			);
+			name = ENSideMenu;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		C7908A1F1FC6E31200C93A82 /* PKHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1656,6 +1671,7 @@
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
 				982D31881E842A9B00FE2FB7 /* AFHTTPSessionManager.m in Sources */,
+				C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */,
 				989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */,
 				987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */,
@@ -1687,6 +1703,7 @@
 				98EAF6911CCF884000C77649 /* OPUtils.swift in Sources */,
 				988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */,
 				ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */,
+				C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
 				9870840E1E8E938E00D9F8E9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				986A58F21DB39C7300B622F5 /* SwarmClientHelperTypes.swift in Sources */,

@@ -11,7 +11,6 @@ import UIKit
 struct UIRootViewControllerCallbacks
 {
     let whenMenuButtonPressed: VoidBlock?
-    let whenAccountButtonPressed: VoidBlock?
 }
 
 class UIRootViewController: UIViewController
@@ -34,13 +33,8 @@ class UIRootViewController: UIViewController
         self.callbacks?.whenMenuButtonPressed?()
     }
     
-    @IBAction func didPressAccountButton(_ sender: UIButton?)
-    {
-        self.callbacks?.whenAccountButtonPressed?()
-    }
-    
     func showTopBar(hidden: Bool) {
-        topBarView.isHidden = hidden
+        topBarView?.isHidden = hidden
     }
     
     func setMainControllerTo(newController: UIViewController)
