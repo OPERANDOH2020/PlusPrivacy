@@ -8,27 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.RadioGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
 
 import eu.operando.R;
 import eu.operando.activity.IdentitiesActivity;
-import eu.operando.activity.NotificationsActivity;
 import eu.operando.activity.PFBActivity;
 import eu.operando.feedback.view.FeedbackActivity;
 import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.Notification;
-import eu.operando.models.privacysettings.Question;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 
@@ -54,15 +48,18 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
 
         TextView titleTv;
         TextView dateTv;
+        ImageView groupIndicator;
 
         public GroupHolder(View itemView) {
             super(itemView);
 
             titleTv = (TextView) itemView.findViewById(R.id.tv_title);
             dateTv = (TextView) itemView.findViewById(R.id.tv_date);
+            groupIndicator = (ImageView) itemView.findViewById(R.id.group_indicator);
         }
 
-        public void setData(Notification notification) {
+        public void setData(Notification notification, boolean isExpandable) {
+            groupIndicator.setSelected(isExpandable);
             titleTv.setText(notification.getTitle());
             setDateTv(notification.getCreationDate());
         }
@@ -163,7 +160,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
         if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.notification_groupt_item, null);
+            convertView = inflater.inflate(R.layout.notification_group_item, null);
 
             holder = new GroupHolder(convertView);
 
@@ -172,7 +169,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
             holder = ((GroupHolder) convertView.getTag());
         }
 
-        holder.setData(groupItem);
+        holder.setData(groupItem, b);
 
         return convertView;
     }

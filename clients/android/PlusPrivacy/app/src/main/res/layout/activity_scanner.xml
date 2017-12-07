@@ -10,54 +10,19 @@
     android:background="@color/scanner_background"
     tools:context="eu.operando.activity.ScannerActivity">
 
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/scanner_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/scanner_main_color"
         app:theme="@style/ToolbarStyle"
-        app:title="Identity Management"
-        app:titleTextColor="@color/white"></android.support.v7.widget.Toolbar>
+        app:title="Installed Apps"
+        app:titleTextColor="@color/white" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+    <ExpandableListView
         android:background="@color/scanner_main_color"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/circle_layout">
-
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Confidentiality level: medium" />
-
-
-        <TextView
-            android:background="@color/scanner_second_color"
-            android:text="Device privacy score: "
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <ListView
-        android:layout_margin="10dp"
-        android:background="@color/scanner_main_color"
-        android:divider="@color/scanner_background"
-        android:dividerHeight="5dp"
+        android:divider="@null"
+        android:groupIndicator="@null"
         android:id="@+id/app_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

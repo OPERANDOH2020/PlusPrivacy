@@ -27,15 +27,15 @@ public class PermissionUtils {
     static {
         colors = new int[]{
                 Color.parseColor("#FFFFFF"),
-                Color.parseColor("#4D3366FF"),
-                Color.parseColor("#4D33FF66"),
-                Color.parseColor("#4DCCFF66"),
-                Color.parseColor("#4DFFFF66"),
-                Color.parseColor("#4DFFFF00"),
-                Color.parseColor("#4DFFCC00"),
-                Color.parseColor("#4DFF9900"),
-                Color.parseColor("#4DFF6600"),
-                Color.parseColor("#4DFF0000")};
+                Color.parseColor("#3366FF"),
+                Color.parseColor("#33FF66"),
+                Color.parseColor("#CCFF66"),
+                Color.parseColor("#FFFF66"),
+                Color.parseColor("#FFFF00"),
+                Color.parseColor("#FFCC00"),
+                Color.parseColor("#FF9900"),
+                Color.parseColor("#FF6600"),
+                Color.parseColor("#FF0000")};
         permissionRisks = new HashMap<>();
         permissionRisks.put("android.permission.ACCESS_ALL_EXTERNAL_STORAGE", 5);
         permissionRisks.put("android.permission.ACCESS_COARSE_LOCATION", 8);

@@ -138,8 +138,8 @@
         <ExpandableListView
 
             android:background="@color/identities_list_background"
-            android:groupIndicator="@null"
             android:id="@+id/identities_elv"
+            android:groupIndicator="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </ExpandableListView>

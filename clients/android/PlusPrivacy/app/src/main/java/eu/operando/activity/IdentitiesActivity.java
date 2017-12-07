@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import eu.operando.R;
 import eu.operando.adapter.IdentitiesExpandableListViewAdapter;
+import eu.operando.customView.AccordionOnGroupExpandListener;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.models.Identity;
 import eu.operando.swarmService.SwarmService;
@@ -33,7 +35,7 @@ import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
-public class IdentitiesActivity extends BaseActivity implements IdentitiesExpandableListViewAdapter.IdentityListener{
+public class IdentitiesActivity extends BaseActivity implements IdentitiesExpandableListViewAdapter.IdentityListener {
 
     private ExpandableListView identitiesELV;
     private LinearLayout defaultRealIdentity;
@@ -87,37 +89,14 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
         defaultRealIdentity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (realIdentity != null && !realIdentity.equals(defaultIdentity)){
+                if (realIdentity != null && !realIdentity.equals(defaultIdentity)) {
                     updateIdentity(realIdentity, "updateDefaultSubstituteIdentity");
                 }
             }
         });
 
-        identitiesELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int previousGroup = -1;
+        identitiesELV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(identitiesELV));
 
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if (groupPosition != previousGroup)
-                    identitiesELV.collapseGroup(previousGroup);
-                previousGroup = groupPosition;
-            }
-        });
-
-        identitiesELV.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View clickedView, int groupPosition, long rowId) {
-                ImageView groupIndicator = (ImageView) clickedView.findViewById(R.id.arrow);
-                if (parent.isGroupExpanded(groupPosition)) {
-                    parent.collapseGroup(groupPosition);
-                    groupIndicator.setImageResource(R.drawable.ic_forward_identities);
-                } else {
-                    parent.expandGroup(groupPosition);
-                    groupIndicator.setImageResource(R.drawable.ic_bottom_arrow_identities);
-                }
-                return true;
-            }
-        });
     }
 
     @Override
@@ -148,7 +127,8 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
         identities = result.getIdentities();
 
         setRealIdentity(identities);
-        identitiesELV.setAdapter(new IdentitiesExpandableListViewAdapter(IdentitiesActivity.this, identities));
+        identitiesELV.setAdapter(new IdentitiesExpandableListViewAdapter(IdentitiesActivity.this,
+                identities));
     }
 
     private void setRealIdentity(ArrayList<Identity> identities) {
@@ -161,9 +141,9 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
                     --index;
                     ((TextView) findViewById(R.id.realIdentityTV)).setText(i.getEmail());
                 }
-                if (i.isDefault()){
+                if (i.isDefault()) {
                     defaultIdentity = i;
-                    if (defaultIdentity.equals(realIdentity)){
+                    if (defaultIdentity.equals(realIdentity)) {
                         defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
                                 R.color.identities_button_inactive_background));
                     } else {

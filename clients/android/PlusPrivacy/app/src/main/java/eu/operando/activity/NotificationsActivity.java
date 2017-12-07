@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import eu.operando.R;
 import eu.operando.adapter.NotificationsExpandableListViewAdapter;
+import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.customView.CustomOnGroupClickListener;
 import eu.operando.feedback.view.FeedbackActivity;
 import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.Notification;
@@ -56,20 +58,7 @@ public class NotificationsActivity extends BaseActivity {
 
         notificationsLV = (ExpandableListView) findViewById(R.id.notifications_elv);
 
-        notificationsLV.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View clickedView, int groupPosition, long rowId) {
-                ImageView groupIndicator = (ImageView) clickedView.findViewById(R.id.group_indicator);
-                if (parent.isGroupExpanded(groupPosition)) {
-                    parent.collapseGroup(groupPosition);
-                    groupIndicator.setImageResource(R.drawable.notifications_arrow_right);
-                } else {
-                    parent.expandGroup(groupPosition);
-                    groupIndicator.setImageResource(R.drawable.notifications_arrow_bottom);
-                }
-                return true;
-            }
-        });
+        notificationsLV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(notificationsLV));
     }
 
     private void setData() {

@@ -33,7 +33,7 @@ public class SwarmService {
     private SwarmClient swarmClient;
 
     private SwarmService() {
-        SwarmClient.init(SWARMS_URL_DEBUG_RAFAEL_2);
+        SwarmClient.init(SWARMS_URL);
         swarmClient = SwarmClient.getInstance();
     }
 

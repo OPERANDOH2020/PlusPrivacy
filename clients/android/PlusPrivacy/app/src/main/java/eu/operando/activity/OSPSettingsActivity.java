@@ -21,6 +21,7 @@ import java.util.TreeMap;
 
 import eu.operando.R;
 import eu.operando.adapter.PrivacyWizardQuestionsExpandableListViewAdapter;
+import eu.operando.customView.AccordionOnGroupExpandListener;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.models.privacysettings.AvailableSettings;
 import eu.operando.models.privacysettings.AvailableSettingsWrite;
@@ -58,16 +59,7 @@ public class OSPSettingsActivity extends BaseActivity {
         initProgressDialog();
         questionsELV = (ExpandableListView) findViewById(R.id.osp_settings_elv);
 
-        questionsELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int previousGroup = -1;
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if (groupPosition != previousGroup)
-                    questionsELV.collapseGroup(previousGroup);
-                previousGroup = groupPosition;
-            }
-        });
+        questionsELV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(questionsELV));
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle("Privacy Wizard");

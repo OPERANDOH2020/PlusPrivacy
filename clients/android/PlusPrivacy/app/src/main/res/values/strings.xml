@@ -277,4 +277,8 @@
         <item>Feedback</item>
     </string-array>
 
+    <string name="low">low</string>
+    <string name="medium">medium</string>
+    <string name="high">high</string>
+
 </resources>

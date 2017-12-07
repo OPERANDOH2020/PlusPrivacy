@@ -32,7 +32,7 @@
         android:layout_height="15dp"
         android:layout_width="15dp"
         android:layout_margin="8dp"
-        android:src="@drawable/ic_forward_identities"
+        android:background="@drawable/group_indicator_identities"
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
         android:scaleType="centerInside"

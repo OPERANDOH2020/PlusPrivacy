@@ -96,7 +96,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             holder = ((GroupHolder) convertView.getTag());
         }
 
-        holder.setData(headerTitle, groupPosition);
+        holder.setData(headerTitle, groupPosition, isExpanded);
 
         return convertView;
     }
@@ -131,6 +131,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         View defaultIV;
         TextView emailTV;
         ImageView copyToClipboard;
+        ImageView groupIndicator;
 
         public GroupHolder(View itemView) {
 
@@ -138,10 +139,11 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             defaultIV = itemView.findViewById(R.id.default_identity_iv);
             emailTV = ((TextView) itemView.findViewById(R.id.identity_email_tv));
             copyToClipboard = (ImageView) itemView.findViewById(R.id.copy_to_clipboard);
-
+            groupIndicator = (ImageView) itemView.findViewById(R.id.arrow);
         }
 
-        public void setData(String headerTitle, int groupPosition) {
+        public void setData(String headerTitle, int groupPosition, boolean isExpanded) {
+            groupIndicator.setSelected(isExpanded);
             emailTV.setText(headerTitle);
             if (((Identity) getGroup(groupPosition)).isDefault()) {
 
