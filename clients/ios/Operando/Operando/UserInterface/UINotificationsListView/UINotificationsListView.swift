@@ -30,6 +30,8 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
     private var notifications: [OPNotification] = []
     private var callbacks: UINotificationsListViewCallbacks?
     
+    private var selectedIndexPath: IndexPath?
+    
     let outlets: UINotificationsListViewOutlets
     init(outlets: UINotificationsListViewOutlets) {
         self.outlets = outlets;
@@ -53,9 +55,10 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: UINotificationCell.identifierNibName, bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: UINotificationCell.identifierNibName)
         
+        let nib2 = UINib(nibName: UINotificationExpandedCell.identifierNibName, bundle: nil)
+        tableView?.register(nib2, forCellReuseIdentifier: UINotificationExpandedCell.identifierNibName)
+        
     }
-    
-    
     
     func setupWith(initialListOfNotifications: [OPNotification], callbacks: UINotificationsListViewCallbacks?){
         self.notifications = initialListOfNotifications
@@ -88,63 +91,81 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UINotificationCell.identifierNibName, for: indexPath) as! UINotificationCell
         
         let notification = self.notifications[indexPath.row]
         
-        cell.setupWith(notification: notification, andCallback: self.callbacks?.whenActingUponNotification)
-        
-        weak var weakSelf = self
-        
-        
-        let button = MGSwipeButton(title: "", icon: UIImage(named: "dismiss"), backgroundColor: .operandoRedDismiss, insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)) { swipeCell -> Bool in
-            swipeCell?.hideSwipe(animated: true, completion: { _ in
-                guard let maybeChangedIndexPath = weakSelf?.outlets.tableView?.indexPath(for: swipeCell!) else {
-                    return
-                }
-                weakSelf?.callbacks?.whenDismissingNotificationAtIndex?(notification, maybeChangedIndexPath.row)
-            })
+        if let selectedIndex = self.selectedIndexPath,
+            selectedIndexPath == indexPath {
             
-            return true
+            let cell = tableView.dequeueReusableCell(withIdentifier: UINotificationExpandedCell.identifierNibName, for: indexPath) as! UINotificationExpandedCell
             
+            cell.setupWithTitle(notification: notification)
+            
+            return cell
+        }
+        else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: UINotificationCell.identifierNibName, for: indexPath) as! UINotificationCell
+            
+            cell.setupWithTitle(title: notification.title, date: notification.date)
+            
+            return cell
         }
         
-        cell.rightButtons = [button!]
         
-        return cell
+        
+//        let notification = self.notifications[indexPath.row]
+        
+//        weak var weakSelf = self
+//
+//
+//        let button = MGSwipeButton(title: "", icon: UIImage(named: "dismiss"), backgroundColor: .operandoRedDismiss, insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)) { swipeCell -> Bool in
+//            swipeCell?.hideSwipe(animated: true, completion: { _ in
+//                guard let maybeChangedIndexPath = weakSelf?.outlets.tableView?.indexPath(for: swipeCell!) else {
+//                    return
+//                }
+//                weakSelf?.callbacks?.whenDismissingNotificationAtIndex?(notification, maybeChangedIndexPath.row)
+//            })
+//
+//            return true
+//
+//        }
+        
+//        cell.rightButtons = [button!]
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRow(at: indexPath) as? UINotificationCell {
-            cell.showSwipe(.rightToLeft, animated: true)
+        if self.selectedIndexPath == indexPath {
+            return
         }
         
-        return false
+        
+        self.selectedIndexPath = indexPath
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        let notification = self.notifications[indexPath.row]
-        var height: CGFloat = 44
-        if notification.actions.count > 0 {
-            height += 44
+        
+        if selectedIndexPath == indexPath {
+            return 185 + calculateHeightOfText(indexPath: indexPath)
         }
         
+        return 70
+    }
+    
+    private func calculateHeightOfText(indexPath: IndexPath) -> CGFloat {
+        
+        let notification = self.notifications[indexPath.row]
         let apprxCharsPerLine: CGFloat = 48
         let textHeight: CGFloat = (CGFloat(notification.description.characters.count) / apprxCharsPerLine) * 12
         
-        return height + textHeight
+        return textHeight
     }
 }
 
 class UINotificationsListView: RSNibDesignableView {
 
-    
     @IBOutlet weak var noNotificationsLabel: UILabel?
     @IBOutlet weak var tableView: UITableView!
     private(set) lazy var logic: UINotificationsListViewLogic = {

@@ -101,7 +101,7 @@ struct OPNotification{
     let id: String
     let title: String
     let description: String
-    
+    var date: Date?
     let actions: [Action]
     
     
@@ -117,6 +117,16 @@ struct OPNotification{
         self.id = id
         self.title = title
         self.description = description
+        
+        if let dateString = notificationsSwarmReplyDict["creationDate"] as? String {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//            dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+            if let newDate = dateFormatter.date(from: dateString) {
+                self.date = newDate
+            }
+        }
         
         if let actionName = notificationsSwarmReplyDict["action_name"] as? String,
             let validActionName = NotificationAction(rawValue: actionName) {

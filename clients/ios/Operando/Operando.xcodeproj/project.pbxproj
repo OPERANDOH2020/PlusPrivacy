@@ -193,6 +193,8 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */; };
+		C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */; };
 		C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */; };
 		C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */; };
 		C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */; };
@@ -457,6 +459,8 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationExpandedCell.swift; sourceTree = "<group>"; };
+		C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotificationExpandedCell.xib; sourceTree = "<group>"; };
 		C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -916,6 +920,8 @@
 			children = (
 				9866A7C81DBF861300907D05 /* UINotificationCell.swift */,
 				9866A7C91DBF861300907D05 /* UINotificationCell.xib */,
+				C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */,
+				C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */,
 			);
 			name = UINotificationCell;
 			sourceTree = "<group>";
@@ -1632,6 +1638,7 @@
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
 				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
+				C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */,
 				989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */,
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
@@ -1716,6 +1723,7 @@
 				C7908A321FC6E33400C93A82 /* Window.swift in Sources */,
 				98EAF6A11CCF8A1800C77649 /* UILoginView.swift in Sources */,
 				9827501D1D0849E200C73411 /* CredentialsStore.swift in Sources */,
+				C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */,
 				9852C7031CD1191B00AF2BE5 /* UIRootViewController.swift in Sources */,
 				985A0D481DCCB0E40010C799 /* LocksmithAccessibleOption.swift in Sources */,
 				982D318A1E842A9B00FE2FB7 /* AFSecurityPolicy.m in Sources */,

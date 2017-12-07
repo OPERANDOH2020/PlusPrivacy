@@ -277,40 +277,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXT-Xr-A4s">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eJ-L4-cjO" customClass="UILocalizableLabel" customModule="Operando" customModuleProvider="target">
-                                        <rect key="frame" x="119.5" y="5" width="136.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizingKey" value="kNotificationsLocalizableKey"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1843137255" green="0.12941176469999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="0eJ-L4-cjO" firstAttribute="centerY" secondItem="YXT-Xr-A4s" secondAttribute="centerY" id="FZK-HP-WOK"/>
-                                    <constraint firstItem="0eJ-L4-cjO" firstAttribute="centerX" secondItem="YXT-Xr-A4s" secondAttribute="centerX" id="OGU-OK-EW2"/>
-                                    <constraint firstAttribute="height" constant="40" id="WbE-55-viy"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VF3-gb-yXg" customClass="UINotificationsListView" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                                <rect key="frame" x="10" y="30" width="355" height="637"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.93996471166610718" green="0.81413227319717407" blue="0.8712049126625061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YXT-Xr-A4s" firstAttribute="top" secondItem="Toh-a3-9WV" secondAttribute="top" id="4Co-mQ-HxO"/>
-                            <constraint firstItem="VF3-gb-yXg" firstAttribute="leading" secondItem="Toh-a3-9WV" secondAttribute="leading" id="C68-Kt-B5F"/>
-                            <constraint firstAttribute="trailing" secondItem="YXT-Xr-A4s" secondAttribute="trailing" id="JoA-N5-r9x"/>
-                            <constraint firstItem="YXT-Xr-A4s" firstAttribute="leading" secondItem="Toh-a3-9WV" secondAttribute="leading" id="haq-cd-1Y9"/>
-                            <constraint firstItem="VF3-gb-yXg" firstAttribute="top" secondItem="YXT-Xr-A4s" secondAttribute="bottom" id="ire-oN-CiK"/>
+                            <constraint firstItem="VF3-gb-yXg" firstAttribute="leading" secondItem="Toh-a3-9WV" secondAttribute="leading" constant="10" id="C68-Kt-B5F"/>
+                            <constraint firstItem="VF3-gb-yXg" firstAttribute="top" secondItem="zLX-5C-SBo" secondAttribute="bottom" constant="10" id="et3-bc-mdA"/>
                             <constraint firstAttribute="bottom" secondItem="VF3-gb-yXg" secondAttribute="bottom" id="uGh-hh-gxS"/>
-                            <constraint firstAttribute="trailing" secondItem="VF3-gb-yXg" secondAttribute="trailing" id="xoX-W9-oKX"/>
+                            <constraint firstAttribute="trailing" secondItem="VF3-gb-yXg" secondAttribute="trailing" constant="10" id="xoX-W9-oKX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="2dR-9P-kFQ">
@@ -322,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISu-wM-ANc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12063" y="-1931"/>
+            <point key="canvasLocation" x="-12063.5" y="-1931.5"/>
         </scene>
         <!--IDENTITY MANAGEMENT-->
         <scene sceneID="oSJ-t5-tZA">
