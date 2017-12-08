@@ -1,8 +1,5 @@
 package eu.operando.adapter;
 
-import android.app.ProgressDialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -13,17 +10,11 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import eu.operando.R;
-import eu.operando.activity.IdentitiesActivity;
-import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.models.Identity;
-import eu.operando.swarmclient.SwarmClient;
-import eu.operando.swarmclient.models.Swarm;
-import eu.operando.swarmclient.models.SwarmCallback;
 
 /**
  * Created by Matei_Alexandru on 29.08.2017.
@@ -88,7 +79,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.group_identities_elv, null);
+            convertView = inflater.inflate(R.layout.identities_group_item, null);
             holder = new GroupHolder(convertView);
             convertView.setTag(holder);
 
@@ -108,7 +99,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         final ChildHolder holder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_identities_elv, null);
+            convertView = inflater.inflate(R.layout.identities_child_item, null);
             holder = new ChildHolder(convertView);
             convertView.setTag(holder);
         } else {

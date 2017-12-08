@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -24,18 +25,29 @@ public class PermissionsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permissions);
-        Toolbar toolbar = ((Toolbar) findViewById(R.id.toolbar));
+
+        setToolbar();
+
         ListView listView = (ListView) findViewById(R.id.lv);
         if (listView != null) {
             if (getIntent().getStringArrayListExtra("perms") != null && getIntent().getStringArrayListExtra("perms").size() != 0) {
                 listView.setAdapter(new PermissionsListAdapter(this, getIntent().getStringArrayListExtra("perms")));
             }
         }
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setToolbar() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

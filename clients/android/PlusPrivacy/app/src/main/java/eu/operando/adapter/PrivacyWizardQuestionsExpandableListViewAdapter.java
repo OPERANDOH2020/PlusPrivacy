@@ -76,6 +76,7 @@ public class PrivacyWizardQuestionsExpandableListViewAdapter extends BaseExpanda
     }
 
     public void initCheckedStateFromRecommendedValues() {
+
         for (int i = 0; i < questions.size(); ++i) {
             List<AvailableSettings> options = questions.get(i).getRead().getAvailableSettings();
             for (int j = 0; j < options.size(); ++j) {

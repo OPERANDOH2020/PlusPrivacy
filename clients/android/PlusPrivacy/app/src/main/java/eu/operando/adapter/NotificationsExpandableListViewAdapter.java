@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -86,15 +87,15 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
     private class ChildViewHolder extends RecyclerView.ViewHolder {
 
         TextView descriptionTv;
-        RelativeLayout takeActionRL;
-        RelativeLayout dismissRL;
+        LinearLayout takeActionRL;
+        LinearLayout dismissRL;
 
         public ChildViewHolder(View itemView) {
             super(itemView);
 
             descriptionTv = (TextView) itemView.findViewById(R.id.tv_description);
-            takeActionRL = (RelativeLayout) itemView.findViewById(R.id.take_action_rl);
-            dismissRL = (RelativeLayout) itemView.findViewById(R.id.dismiss_rl);
+            takeActionRL = (LinearLayout) itemView.findViewById(R.id.take_action_rl);
+            dismissRL = (LinearLayout) itemView.findViewById(R.id.dismiss_rl);
         }
 
         public void setData(final Notification notification) {

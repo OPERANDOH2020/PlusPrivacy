@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class ScannerActivity extends BaseActivity {
     private TextView confidentialityLevel;
     private ImageView indicatorIv;
     private int privacyScore;
+    private Handler handler = new Handler();
 
     public static void start(Context context) {
 
@@ -120,31 +122,21 @@ public class ScannerActivity extends BaseActivity {
     private void rotateIndicator() {
 
         final int rotationAngle = (privacyScore * 140) / 100;
-        RotateAnimation rotate = new RotateAnimation(0, rotationAngle,
+        final RotateAnimation rotate = new RotateAnimation(0, rotationAngle,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
                 0.5f);
         rotate.setDuration(1500);
-//        rotate.setFillAfter(true);
+        rotate.setFillAfter(true);
         rotate.setFillBefore(true);
         rotate.setInterpolator(new FastOutLinearInInterpolator());
 
-        indicatorIv.startAnimation(rotate);
-        rotate.setAnimationListener(new Animation.AnimationListener() {
+        handler.post(new Runnable() {
             @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                indicatorIv.setRotation(290 + rotationAngle);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
+            public void run() {
+                indicatorIv.startAnimation(rotate);
             }
         });
+
     }
 
     private void setConfidentialityLevel() {
@@ -154,7 +146,7 @@ public class ScannerActivity extends BaseActivity {
         } else if (privacyScore <= 75 && privacyScore > 25) {
             confidentialityLevel.setText(getString(R.string.medium));
         } else {
-            confidentialityLevel.setText(getString(R.string.medium));
+            confidentialityLevel.setText(getString(R.string.low));
         }
     }
 

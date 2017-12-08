@@ -67,18 +67,28 @@
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/logout"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/logout"
+                android:id="@+id/logout_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_logout" />
+
+            <TextView
+                android:text="@string/logout"
+
+                android:layout_below="@id/logout_iv"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
         </RelativeLayout>

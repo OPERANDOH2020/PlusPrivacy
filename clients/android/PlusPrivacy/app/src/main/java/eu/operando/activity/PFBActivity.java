@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
@@ -57,14 +59,9 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
 
     private void initUi() {
 
+        setToolbar();
         initProgressDialog();
         listView = (ListView) findViewById(R.id.pfb_lv);
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 
     private void initProgressDialog() {
@@ -171,4 +168,18 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
         }
     }
 
+    private void setToolbar() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

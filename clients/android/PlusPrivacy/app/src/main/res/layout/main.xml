@@ -34,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:padding="10dp"
                 android:background="@color/menu_1"
                 android:gravity="center">
 
@@ -60,19 +61,13 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/real_identity_image"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/your_real_identity"
+                    android:text="@string/identity_management"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/main_screen_text_size" />
 
-                <TextView
-                    android:id="@+id/real_identity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_identity"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+
 
             </RelativeLayout>
 
@@ -116,8 +111,9 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:text="Notifications"
+                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                     <TextView
                         android:id="@+id/tv_notifications"
@@ -127,7 +123,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                 </RelativeLayout>
 
@@ -173,9 +169,10 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="5dp"
                         android:gravity="center"
+                        android:textStyle="bold"
                         android:text="Private Browsing"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                 </RelativeLayout>
 
@@ -238,7 +235,7 @@
                         android:layout_centerHorizontal="true"
                         android:text="@string/installed_apps"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                     <TextView
                         android:id="@+id/unsafe_apps"
@@ -248,7 +245,7 @@
                         android:layout_centerHorizontal="true"
                         android:text="@string/potentially_unsafe_apps"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                 </RelativeLayout>
 
@@ -295,9 +292,10 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="5dp"
                         android:gravity="center"
+                        android:textStyle="bold"
                         android:text="Privacy for Benefit"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -342,8 +340,9 @@
                         android:layout_marginBottom="5dp"
                         android:gravity="center"
                         android:text="@string/facebook_settings"
+                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/main_screen_text_size" />
 
                 </RelativeLayout>
 

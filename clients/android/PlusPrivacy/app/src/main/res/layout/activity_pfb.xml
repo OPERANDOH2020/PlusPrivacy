@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background"
-                android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_background"
+    android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolb"
-        layout="@layout/secondary_toolbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/menu_4"
+        app:theme="@style/ToolbarStyle"
+        app:title="Privacy for Benefit"
+        app:titleTextColor="@color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,4 +34,4 @@
             android:divider="@android:color/background_dark"
             android:dividerHeight="1dp"/>
     </RelativeLayout>
-</RelativeLayout>
+</LinearLayout>

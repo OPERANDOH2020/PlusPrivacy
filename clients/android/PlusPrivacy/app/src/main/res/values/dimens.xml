@@ -18,4 +18,15 @@
     <dimen name="ic_main_menu_padding_top">25dp</dimen>
     <dimen name="ic_main_menu_margin_bottom">15dp</dimen>
 
+
+    <dimen name="button_padding">9dp</dimen>
+    <dimen name="button_font_size">14sp</dimen>
+    <dimen name="button_icon_size">16dp</dimen>
+    <dimen name="button_icon_margin_right">5dp</dimen>
+
+
+    <dimen name="main_screen_text_size">15sp</dimen>
+
+
+
 </resources>

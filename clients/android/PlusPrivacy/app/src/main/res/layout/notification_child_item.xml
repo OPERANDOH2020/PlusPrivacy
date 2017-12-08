@@ -19,75 +19,69 @@
         android:textSize="12sp"/>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/take_action_rl"
         android:layout_below="@id/tv_description"
-        android:layout_width="90dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/button_padding"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/notification_button"
         >
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/notification_button_font_color"
-            android:background="@color/notification_button"
-            android:layout_centerInParent="true"
-            android:layout_alignParentEnd="true"
-            android:textSize="12sp"
-            android:text="Take Action"
-            android:textAllCaps="false"
-            />
 
         <ImageView
             android:src="@drawable/notifications_thick"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_width="12dp"
-            android:layout_height="12dp" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/dismiss_rl"
-        android:layout_below="@id/tv_description"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        android:layout_width="80dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:textColor="@color/notification_button_font_color"
-        android:background="@color/notification_button"
-        >
-
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/notification_button_font_color"
             android:background="@color/notification_button"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:textSize="12sp"
-            android:text="Dismiss"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/take_action"
             android:textAllCaps="false"
             />
 
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dismiss_rl"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:padding="@dimen/button_padding"
+        android:layout_gravity="center"
+        android:textColor="@color/notification_button_font_color"
+        android:background="@color/notification_button"
+        >
+
         <ImageView
             android:src="@drawable/notifications_dismiss"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_width="12dp"
-            android:layout_height="12dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/notification_button_font_color"
+            android:background="@color/notification_button"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/dismiss"
+            android:textAllCaps="false"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

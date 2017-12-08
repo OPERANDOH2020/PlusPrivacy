@@ -241,7 +241,7 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         mSwapBookmarksAndTabs = mPreferences.getBookmarksAndTabsSwapped();
 
         // initialize background ColorDrawable
-        int primaryColor = ThemeUtils.getPrimaryColor(this);
+        int primaryColor = ContextCompat.getColor(this, R.color.menu_5);//ThemeUtils.getPrimaryColor(this);
         mBackground.setColor(primaryColor);
 
         // Drawer stutters otherwise

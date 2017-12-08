@@ -11,13 +11,13 @@
     android:background="@color/identities_list_background"
     >
 
-
     <LinearLayout
         android:id="@+id/make_default"
         android:layout_width="0dp"
-        android:layout_weight="0.9"
+        android:layout_weight="1.5  "
         android:layout_marginEnd="10dp"
-        android:layout_height="35dp"
+        android:padding="@dimen/button_padding"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/identities_button_active_background"
@@ -25,31 +25,31 @@
 
         <ImageView
             android:src="@drawable/white_bulb"
-            android:layout_marginEnd="5dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/notification_button_font_color"
-            android:textSize="12sp"
+            android:gravity="center"
+            android:textSize="@dimen/button_font_size"
             android:text="@string/make_default"
-            android:textAllCaps="false"
             />
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/copy_to_clipboard"
-
-        android:layout_height="35dp"
+        android:padding="@dimen/button_padding"
+        android:layout_height="wrap_content"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:layout_marginEnd="10dp"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
+        android:gravity="center"
         android:layout_gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/identities_button_active_background"
@@ -58,30 +58,27 @@
         <ImageView
             android:src="@drawable/copy_clipboard"
             android:layout_gravity="center"
-            android:layout_width="20dp"
-            android:layout_marginEnd="5dp"
-            android:layout_height="20dp" />
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:textColor="@color/notification_button_font_color"
-            android:layout_gravity="center"
-            android:textSize="12sp"
-            android:text="Copy to clipboard"
-            android:textAllCaps="false"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/copy"
             />
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/remove_identity"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
+        android:layout_weight="1.15"
+        android:padding="@dimen/button_padding"
         android:gravity="center"
         android:textColor="@color/notification_button_font_color"
         android:background="@color/identities_button_active_background"
@@ -89,22 +86,20 @@
 
         <ImageView
             android:src="@drawable/delete_identity"
-            android:layout_marginEnd="5dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:textColor="@color/notification_button_font_color"
-            android:textSize="12sp"
-            android:text="Remove identity"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/remove"
             android:textAllCaps="false"
             />
 
-
-
     </LinearLayout>
-
 
 </LinearLayout>
