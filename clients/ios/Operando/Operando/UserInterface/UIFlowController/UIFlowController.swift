@@ -51,7 +51,10 @@ class UIFlowController
         weak var weakSelf = self
         let rootControllerCallbacks = UIRootViewControllerCallbacks(
             whenMenuButtonPressed: {
-                weakSelf?.sideMenu?.toggleSideMenuView()
+                weakSelf?.sideMenu?.toggleSideMenuView()},
+            whenBackButtonPressed: {
+                weakSelf?.displayDashboard()
+                self.rootController.reset()
             })
         
         self.rootController.setupWithCallbacks(rootControllerCallbacks)
@@ -92,17 +95,25 @@ class UIFlowController
         self.rootController.showTopBar(hidden: false)
         weak var weakSelf = self
         
-        let dashboardCallbacks = UIDashBoardViewControllerCallbacks(whenChoosingIdentitiesManagement: { 
+        let dashboardCallbacks = UIDashBoardViewControllerCallbacks(
+            
+            whenChoosingIdentitiesManagement: {
+             self.rootController.setupLeftButton(buttonType: .back)
              weakSelf?.displayIdentitiesManagement()
             },whenChoosingPrivacyForBenefits: {
-              weakSelf?.displayPfbDeals()
+              
+                 self.rootController.setupLeftButton(buttonType: .back)
+                weakSelf?.displayPfbDeals()
             },whenChoosingPrivateBrowsing: {
+                 self.rootController.setupLeftButton(buttonType: .back)
               weakSelf?.displayPrivateBrowsing()
             },
               whenChoosingNotifications: {
+                 self.rootController.setupLeftButton(buttonType: .back)
               weakSelf?.displayNotifications()
             },
-              numOfNotificationsRequestCallback: self.dependencies.whenRequestingNumOfNotifications)
+              numOfNotificationsRequestCallback:
+            self.dependencies.whenRequestingNumOfNotifications)
         
         dashBoardVC.setupWith(callbacks: dashboardCallbacks)
         self.rootController.setMainControllerTo(newController: dashBoardVC)
@@ -150,12 +161,14 @@ class UIFlowController
         let vc = UIViewControllerFactory.notificationsViewController
         
         vc.setup(with: self.dependencies.notificationsRepository, notificationCallback: self.dependencies.whenTakingActionForNotification)
+        self.rootController.setupTabViewForNotification()
         self.rootController.setMainControllerTo(newController: vc)
     }
     
     func displayPrivacyPolicyViewController(){
         let vc = UIViewControllerFactory.privacyPolicyController
         self.rootController.setMainControllerTo(newController: vc);
+       
     }
     
     func displayAboutViewController(){
@@ -214,16 +227,20 @@ class UIFlowController
         let dashboardCallbacks = UIDashBoardViewControllerCallbacks(whenChoosingIdentitiesManagement: {
                 weakSelf?.displayIdentitiesManagement()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+                self.rootController.reset()
             },whenChoosingPrivacyForBenefits: {
                 weakSelf?.displayPfbDeals()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+                self.rootController.reset()
             },whenChoosingPrivateBrowsing: {
                 weakSelf?.displayPrivateBrowsing()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+                self.rootController.reset()
             },
               whenChoosingNotifications: {
                 weakSelf?.displayNotifications()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+                self.rootController.reset()
             },
               numOfNotificationsRequestCallback: self.dependencies.whenRequestingNumOfNotifications)
         

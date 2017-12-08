@@ -11,6 +11,12 @@ import UIKit
 struct UIRootViewControllerCallbacks
 {
     let whenMenuButtonPressed: VoidBlock?
+    let whenBackButtonPressed: VoidBlock?
+}
+
+enum UIRootLeftButtonType {
+    case hamburger
+    case back
 }
 
 class UIRootViewController: UIViewController
@@ -18,10 +24,16 @@ class UIRootViewController: UIViewController
     
     @IBOutlet weak var mainScreensHostView: UIView!
     @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     fileprivate var currentlyShownViewController: UIViewController?
     fileprivate var callbacks: UIRootViewControllerCallbacks?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        reset()
+    }
     
     func setupWithCallbacks(_ callbacks: UIRootViewControllerCallbacks?)
     {
@@ -32,9 +44,34 @@ class UIRootViewController: UIViewController
     {
         self.callbacks?.whenMenuButtonPressed?()
     }
+    @IBAction func didPressBackButton(_ sender: Any)
+    {
+        self.callbacks?.whenBackButtonPressed?()
+    }
     
     func showTopBar(hidden: Bool) {
         topBarView?.isHidden = hidden
+    }
+    
+    func reset() {
+        self.topBarView.backgroundColor = UIColor.operandoOrange
+        setupLeftButton(buttonType: .hamburger)
+    }
+    
+    func setupLeftButton(buttonType: UIRootLeftButtonType) {
+        
+        if buttonType == .back {
+            menuButton.isHidden = true
+            backButton.isHidden = false
+        }
+        else {
+            menuButton.isHidden = false
+            backButton.isHidden = true
+        }
+    }
+    
+    func setupTabViewForNotification() {
+        self.topBarView.backgroundColor = UIColor.notificationPink()
     }
     
     func setMainControllerTo(newController: UIViewController)

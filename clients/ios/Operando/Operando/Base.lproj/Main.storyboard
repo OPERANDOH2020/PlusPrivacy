@@ -106,11 +106,24 @@
                                             <action selector="didPressMenuButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="kNm-mw-5pD"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47V-M4-dvN">
+                                        <rect key="frame" x="15" y="22.5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Ppn-8P-JTI"/>
+                                            <constraint firstAttribute="width" constant="35" id="RJK-wF-heR"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_left"/>
+                                        <connections>
+                                            <action selector="didPressBackButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="jSI-67-SOd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="wS9-JU-77R" firstAttribute="leading" secondItem="i4E-lu-E6P" secondAttribute="leading" constant="15" id="1cF-gC-CLC"/>
+                                    <constraint firstItem="47V-M4-dvN" firstAttribute="leading" secondItem="i4E-lu-E6P" secondAttribute="leading" constant="15" id="4bV-gz-IP8"/>
                                     <constraint firstItem="wS9-JU-77R" firstAttribute="centerY" secondItem="Vnh-qI-uII" secondAttribute="centerY" id="BGM-lv-vkf"/>
+                                    <constraint firstItem="47V-M4-dvN" firstAttribute="centerY" secondItem="Vnh-qI-uII" secondAttribute="centerY" id="db0-pV-VOn"/>
                                     <constraint firstAttribute="height" constant="64" id="fmn-jB-JOK"/>
                                     <constraint firstItem="Vnh-qI-uII" firstAttribute="centerX" secondItem="i4E-lu-E6P" secondAttribute="centerX" id="i8V-y3-aAu"/>
                                     <constraint firstItem="Vnh-qI-uII" firstAttribute="centerY" secondItem="i4E-lu-E6P" secondAttribute="centerY" constant="8" id="t6z-mh-d6Q"/>
@@ -133,7 +146,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="47V-M4-dvN" id="C4g-Wd-bPW"/>
                         <outlet property="mainScreensHostView" destination="MgE-xk-10M" id="Nbj-KA-VXe"/>
+                        <outlet property="menuButton" destination="wS9-JU-77R" id="ly2-aV-Fhc"/>
                         <outlet property="topBarView" destination="i4E-lu-E6P" id="Q7W-Hx-PiI"/>
                     </connections>
                 </viewController>
@@ -544,6 +559,7 @@
     </scenes>
     <resources>
         <image name="alternateIdentitiesIcon" width="64" height="64"/>
+        <image name="arrow_left" width="64" height="64"/>
         <image name="hamburger_Icon" width="26" height="15"/>
     </resources>
 </document>
