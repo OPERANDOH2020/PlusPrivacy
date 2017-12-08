@@ -247,6 +247,7 @@ class UIFlowController
         })
     }
 
+
 //    func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
 //        if let leftMenuVC = menuViewController as? UILeftSideMenuViewController {
 //            leftMenuVC.prepareToAppear()

@@ -27,7 +27,7 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
         }
 
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuViewController, menuPosition:.left)
-        sideMenu?.menuWidth = 250
+        sideMenu?.menuWidth = UIScreen.main.bounds.width + 5
         view.bringSubview(toFront: navigationBar)
     }
 

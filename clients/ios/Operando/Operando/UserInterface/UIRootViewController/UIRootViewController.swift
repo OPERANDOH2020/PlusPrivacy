@@ -50,6 +50,4 @@ class UIRootViewController: UIViewController
         
         self.currentlyShownViewController = newController
     }
-    
-    
 }
