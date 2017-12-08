@@ -25,7 +25,7 @@ struct UINotificationsListViewOutlets {
     static let allNil: UINotificationsListViewOutlets = UINotificationsListViewOutlets(noNotificationsLabel: nil, tableView: nil)
 }
 
-class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDataSource {
+class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDataSource, UINotificationExpandedCellProtocol {
     
     private var notifications: [OPNotification] = []
     private var callbacks: UINotificationsListViewCallbacks?
@@ -99,6 +99,7 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
             
             let cell = tableView.dequeueReusableCell(withIdentifier: UINotificationExpandedCell.identifierNibName, for: indexPath) as! UINotificationExpandedCell
             
+            cell.delegate = self
             cell.setupWithTitle(notification: notification)
             
             return cell
@@ -145,14 +146,14 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if selectedIndexPath == indexPath {
-            return 185 + calculateHeightOfText(indexPath: indexPath)
-        }
-        
-        return 70
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        if selectedIndexPath == indexPath {
+//            return 185 + calculateHeightOfText(indexPath: indexPath)
+//        }
+//
+//        return 70
+//    }
     
     private func calculateHeightOfText(indexPath: IndexPath) -> CGFloat {
         
@@ -162,6 +163,27 @@ class UINotificationsListViewLogic: NSObject, UITableViewDelegate, UITableViewDa
         
         return textHeight
     }
+    
+    // MARK: - UINotificationExpandedCellProtocol
+    
+    func takeAction(notification: OPNotification, cell: UINotificationExpandedCell) {
+         weak var weakSelf = self
+        
+        if let action = notification.actions.first?.actionKey {
+            weakSelf?.callbacks?.whenActingUponNotification?(action,notification)
+        }
+    }
+    
+    func dismissAction(notification: OPNotification, cell: UINotificationExpandedCell) {
+        
+        weak var weakSelf = self
+        
+        guard let maybeChangedIndexPath = weakSelf?.outlets.tableView?.indexPath(for: cell) else {
+            return
+        }
+      weakSelf?.callbacks?.whenDismissingNotificationAtIndex?(notification, maybeChangedIndexPath.row)
+    }
+    
 }
 
 class UINotificationsListView: RSNibDesignableView {

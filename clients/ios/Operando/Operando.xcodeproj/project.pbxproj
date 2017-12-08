@@ -195,6 +195,7 @@
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
 		C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */; };
 		C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */; };
+		C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DED1FDA83C700AC0F4F /* StringUtils.swift */; };
 		C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */; };
 		C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */; };
 		C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */; };
@@ -461,6 +462,7 @@
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
 		C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationExpandedCell.swift; sourceTree = "<group>"; };
 		C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotificationExpandedCell.xib; sourceTree = "<group>"; };
+		C7761DED1FDA83C700AC0F4F /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		C77B8E181FD6B6F200B16F6E /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		C77B8E191FD6B6F200B16F6E /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -1225,6 +1227,7 @@
 				9852C6F91CD0FEA000AF2BE5 /* OPViewUtils.swift */,
 				9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */,
 				C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */,
+				C7761DED1FDA83C700AC0F4F /* StringUtils.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1688,6 +1691,7 @@
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
 				989C8A7C1DD3467E003BF341 /* UIRealIdentityView.swift in Sources */,
 				987E71881E8BC8D40006B240 /* UIWebViewTabHelperModels.swift in Sources */,
+				C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */,
 				C7908A371FC6E33400C93A82 /* PKHUDErrorView.swift in Sources */,
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,

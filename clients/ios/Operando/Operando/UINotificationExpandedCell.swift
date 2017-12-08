@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol UINotificationExpandedCellProtocol {
+    func takeAction(notification: OPNotification, cell: UINotificationExpandedCell)
+    func dismissAction(notification: OPNotification, cell: UINotificationExpandedCell)
+}
+
 class UINotificationExpandedCell: UITableViewCell {
 
     @IBOutlet weak var cellNotificationTitle: UILabel!
@@ -17,13 +22,29 @@ class UINotificationExpandedCell: UITableViewCell {
     static let identifierNibName = "UINotificationExpandedCell"
 
     var notification: OPNotification?
+    var delegate:UINotificationExpandedCellProtocol?
+    
+    // MARK: - IBActions
     
     @IBAction func pressedTakeAction(_ sender: Any) {
+        
+        guard let notification = notification else {
+            return
+        }
+        
+        delegate?.takeAction(notification: notification, cell: self)
     
     }
     @IBAction func pressedDismissAction(_ sender: Any) {
         
+        guard let notification = notification else {
+            return
+        }
+        
+        delegate?.dismissAction(notification: notification, cell: self)
     }
+    
+    // MARK: - Utility Functions
     
     func setupWithTitle(notification: OPNotification) {
         

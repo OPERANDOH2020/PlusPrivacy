@@ -28,7 +28,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-Rc-0qE">
                             <rect key="frame" x="0.0" y="0.0" width="282" height="36.5"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mastaleru.rafael@gmail.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-eY-EeK" userLabel="emailTF">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cristi@mailinator.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-eY-EeK" userLabel="emailTF">
                                     <rect key="frame" x="0.0" y="0.0" width="282" height="35.5"/>
                                     <color key="backgroundColor" red="0.99974828959999995" green="0.86162966490000004" blue="0.62938243149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

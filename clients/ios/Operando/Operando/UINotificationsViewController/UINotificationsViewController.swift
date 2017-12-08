@@ -10,11 +10,16 @@ import UIKit
 
 class UINotificationsViewController: UIViewController {
 
-    
     private var notificationsRepository: NotificationsRepository?
     
-    @IBOutlet weak var notificationsListView: UINotificationsListView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.notificationsListView.tableView.estimatedRowHeight = 70
+        self.notificationsListView.tableView.rowHeight = UITableViewAutomaticDimension
+    }
     
+    @IBOutlet weak var notificationsListView: UINotificationsListView!
     
     
     func setup(with notificationsRepository: NotificationsRepository?, notificationCallback: NotificationActionCallback?){
@@ -30,10 +35,7 @@ class UINotificationsViewController: UIViewController {
             self.notificationsListView.logic.setupWith(initialListOfNotifications: notifications, callbacks: self.callbacksFor(notificationsView: self.notificationsListView, including: notificationCallback))
             
         })
-        
     }
-    
-    
     
     private func callbacksFor(notificationsView: UINotificationsListView?, including notificationCallback: NotificationActionCallback?) -> UINotificationsListViewCallbacks? {
         
