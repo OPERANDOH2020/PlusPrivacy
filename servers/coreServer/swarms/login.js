@@ -110,6 +110,8 @@ var loginSwarming = {
             deleteSession(this.getSessionId(), S(function (err, result) {
                 if (err && err.message !== "session_not_found") {
                     console.log(err);
+                    self.home("logoutSucceed");
+                    sessionsRegistry.disableOutlet(self.meta.outletId);
                 }
                 else {
                     self.home("logoutSucceed");
