@@ -18,7 +18,7 @@
 "kDeleteLocalizableKey" = "Delete";
 "kNewSIDGeneratedLocalizableKey" = "The new alias has been generated";
 "kDoYouWantToDeleteSIDLocalizableKey" = "Are you sure you want to delete this identity?";
-"kAddNewIdentityLocalizableKey" = "Add a new identity";
+"kAddNewIdentityLocalizableKey" = "Add Identity";
 "kNoIncompleteFieldsLocalizableKey" = "Some fields are incomplete. Please try again";
 "kNoIdentitiesAtTheMomentLocalizableKey" = "You have no identities at the moment.";
 "kPleaseConfirmEmailLocalizableKey" = "Thank you for your registration. Please confirm your e-mail and then login with the provided e-mail and password";

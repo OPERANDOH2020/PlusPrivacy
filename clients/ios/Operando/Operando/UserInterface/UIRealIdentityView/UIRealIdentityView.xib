@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIRealIdentityView" customModule="Operando" customModuleProvider="target">
             <connections>
-                <outlet property="defaultIdentityImageView" destination="k1P-xp-Zkm" id="dLd-iE-KEJ"/>
                 <outlet property="realIdentityLabel" destination="MO3-JJ-3Gg" id="uTu-jH-pP1"/>
                 <outlet property="yourRealIdentityLabel" destination="xak-tG-9OA" id="iSL-78-xYQ"/>
             </connections>
@@ -20,7 +19,7 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-Ea-R51" userLabel="realIdentityView">
             <rect key="frame" x="0.0" y="0.0" width="484" height="87"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="realIdentityIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-RN-uR1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_identity" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-RN-uR1">
                     <rect key="frame" x="14" y="29" width="38" height="39"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="4S4-BN-IfU"/>
@@ -28,39 +27,39 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO3-JJ-3Gg" userLabel="realIdentityLabel">
-                    <rect key="frame" x="66" y="29" width="379" height="24"/>
+                    <rect key="frame" x="66" y="29" width="116.5" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" red="0.1647058824" green="0.1215686275" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.074756406247615814" green="0.66264647245407104" blue="0.62733370065689087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your real identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xak-tG-9OA" userLabel="yourRealIdentityLabel" customClass="UILocalizableLabel" customModule="Operando" customModuleProvider="target">
-                    <rect key="frame" x="66" y="53" width="379" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your real identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xak-tG-9OA" userLabel="yourRealIdentityLabel" customClass="UILocalizableLabel" customModule="Operando" customModuleProvider="target">
+                    <rect key="frame" x="66" y="53" width="116.5" height="18"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                    <color key="textColor" red="0.56470588239999997" green="0.37254901959999998" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.050690203905105591" green="0.59990304708480835" blue="0.57243561744689941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="localizingKey" value="kThisIsYourRealIdentityLocalizableKey"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultIdentityIcon" translatesAutoresizingMaskIntoConstraints="NO" id="k1P-xp-Zkm" userLabel="imageView">
-                    <rect key="frame" x="450" y="-27" width="25" height="141"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="TmA-CI-iaY">
+                    <rect key="frame" x="460" y="33.5" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="qAV-iL-nTP"/>
+                        <constraint firstAttribute="width" constant="20" id="MqZ-UE-R5P"/>
+                        <constraint firstAttribute="height" constant="20" id="lTY-t9-0yG"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.99215686270000003" green="0.74117647060000003" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.594166100025177" green="0.96457642316818237" blue="0.96451157331466675" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="top" secondItem="MO3-JJ-3Gg" secondAttribute="bottom" id="2zL-fv-Lyr"/>
-                <constraint firstAttribute="trailing" secondItem="k1P-xp-Zkm" secondAttribute="trailing" constant="9" id="GsT-Qz-Df0"/>
                 <constraint firstItem="MO3-JJ-3Gg" firstAttribute="leading" secondItem="4vp-RN-uR1" secondAttribute="trailing" constant="14" id="WJN-ak-BUb"/>
                 <constraint firstItem="4vp-RN-uR1" firstAttribute="leading" secondItem="Kb2-Ea-R51" secondAttribute="leading" constant="14" id="YNU-a5-c4k"/>
                 <constraint firstItem="4vp-RN-uR1" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" constant="5" id="Yvu-1R-4Jz"/>
                 <constraint firstItem="MO3-JJ-3Gg" firstAttribute="top" secondItem="4vp-RN-uR1" secondAttribute="top" id="aTF-cX-4A6"/>
+                <constraint firstAttribute="trailing" secondItem="TmA-CI-iaY" secondAttribute="trailing" constant="4" id="cnd-ic-pd9"/>
+                <constraint firstItem="TmA-CI-iaY" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" id="gCs-70-835"/>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="leading" secondItem="MO3-JJ-3Gg" secondAttribute="leading" id="giA-jL-CNs"/>
-                <constraint firstItem="k1P-xp-Zkm" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" id="mfb-Hi-A3l"/>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="trailing" secondItem="MO3-JJ-3Gg" secondAttribute="trailing" id="qBA-fY-CrQ"/>
-                <constraint firstItem="k1P-xp-Zkm" firstAttribute="leading" secondItem="MO3-JJ-3Gg" secondAttribute="trailing" constant="5" id="zjm-Ih-qxp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -68,7 +67,7 @@
         </view>
     </objects>
     <resources>
-        <image name="defaultIdentityIcon" width="111" height="141"/>
-        <image name="realIdentityIcon" width="64" height="64"/>
+        <image name="default_identity" width="85" height="85"/>
+        <image name="disclosure_Icon" width="10" height="17"/>
     </resources>
 </document>

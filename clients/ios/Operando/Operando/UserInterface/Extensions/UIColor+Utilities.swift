@@ -33,6 +33,11 @@ extension UIColor{
         return UIColor(hexString: "#E872A3")
     }
     
+    static func identitiesBlue () -> UIColor {
+        
+        return UIColor(hexString: "#46cfcf")
+    }
+    
     static var operandoDarkGreen: UIColor {
       return UIColor(colorLiteralRed: 0, green: 164.0/255, blue: 147.0/255, alpha: 1.0)
     }

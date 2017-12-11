@@ -36,11 +36,19 @@ class UIIdentityCell: MGSwipeTableCell {
     @IBOutlet weak var disclosureImageView: UIImageView!
         
     func setupWithIdentity(identity: String?, style: UIIdentityCellStyle) {
-        self.checkmarkImageView.isHidden = !style.displaysDefaultIdentityIcon
-        self.disclosureImageView.isHidden = !style.displaysDisclosureIcon
         
-        self.contentView.backgroundColor = style.backgroundColor
-        self.textLabel?.textColor = style.textColor
+        if style.displaysDefaultIdentityIcon == true {
+            self.checkmarkImageView.image = #imageLiteral(resourceName: "default_enabled")
+        }
+        else {
+            self.checkmarkImageView.image = #imageLiteral(resourceName: "default_disabled")
+        }
+        
+//        self.checkmarkImageView.isHidden = !style.displaysDefaultIdentityIcon
+//        self.disclosureImageView.isHidden = !style.displaysDisclosureIcon
+        
+//        self.contentView.backgroundColor = style.backgroundColor
+//        self.textLabel?.textColor = style.textColor
         
         self.identityLabel.text = identity
         

@@ -22,6 +22,7 @@ enum UIRootLeftButtonType {
 class UIRootViewController: UIViewController
 {
     
+    @IBOutlet weak var topBarLabel: UILabel!
     @IBOutlet weak var mainScreensHostView: UIView!
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var menuButton: UIButton!
@@ -55,6 +56,7 @@ class UIRootViewController: UIViewController
     
     func reset() {
         self.topBarView.backgroundColor = UIColor.operandoOrange
+        self.topBarLabel.text = "PlusPrivacy"
         setupLeftButton(buttonType: .hamburger)
     }
     
@@ -72,6 +74,12 @@ class UIRootViewController: UIViewController
     
     func setupTabViewForNotification() {
         self.topBarView.backgroundColor = UIColor.notificationPink()
+        self.topBarLabel.text = "Notifications"
+    }
+    
+    func setupTabViewForIdentities() {
+        self.topBarView.backgroundColor = UIColor.identitiesBlue()
+        self.topBarLabel.text = "Identity Management"
     }
     
     func setMainControllerTo(newController: UIViewController)

@@ -152,6 +152,7 @@ class OPConfigObject: NSObject
     
     private func afterLoggingInWith(identity: UserIdentityModel){
         self.currentUserIdentity = identity
+        
         self.flowController?.displayDashboard()
     }
     

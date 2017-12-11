@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 let kMaxNumOfIdentities: Int = 20
 
 struct UIIdentityManagementCallbacks {
@@ -51,7 +48,7 @@ class UIIdentityManagementViewControllerLogic: NSObject {
     
     private var currentNumOfIdentities: Int = 0 {
         didSet{
-            self.updateUIBasedOnNumOfIdentities(self.currentNumOfIdentities)
+//            self.updateUIBasedOnNumOfIdentities(self.currentNumOfIdentities)
         }
     }
     

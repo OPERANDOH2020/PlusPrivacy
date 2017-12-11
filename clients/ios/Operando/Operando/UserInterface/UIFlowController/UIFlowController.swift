@@ -127,6 +127,7 @@ class UIFlowController
             weakSelf?.displayAddIdentityControllerWith(identityGeneratedCallback: completion)
         }))
         
+        self.rootController.setupTabViewForIdentities()
         self.rootController.setMainControllerTo(newController: vc)
     }
     
@@ -228,6 +229,7 @@ class UIFlowController
                 weakSelf?.displayIdentitiesManagement()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
                 self.rootController.reset()
+                self.rootController.setupTabViewForIdentities()
             },whenChoosingPrivacyForBenefits: {
                 weakSelf?.displayPfbDeals()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
@@ -241,26 +243,33 @@ class UIFlowController
                 weakSelf?.displayNotifications()
                 weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
                 self.rootController.reset()
+                self.rootController.setupTabViewForNotification()
             },
               numOfNotificationsRequestCallback: self.dependencies.whenRequestingNumOfNotifications)
         
         return UILeftSideMenuViewControllerCallbacks(dashboardCallbacks: dashboardCallbacks, whenChoosingHome: { 
             weakSelf?.displayDashboard()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+             self.rootController.reset()
         }, whenChoosingMonitor: {
             PPCloak.OPMonitor.displayFlow()
+             self.rootController.reset()
         }, whenChoosingSettings: {
             weakSelf?.displaySettingsViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+             self.rootController.reset()
         },
            whenChoosingPrivacyPolicy: {
             weakSelf?.displayPrivacyPolicyViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+             self.rootController.reset()
         }, whenChoosingAbout: {
             weakSelf?.displayAboutViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+             self.rootController.reset()
         }, logoutCallback: {
             self.dependencies.accountCallbacks?.logoutCallback?()
+             self.rootController.reset()
         })
     }
 

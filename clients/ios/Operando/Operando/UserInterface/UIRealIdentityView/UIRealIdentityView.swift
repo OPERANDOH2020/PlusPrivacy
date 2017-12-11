@@ -38,9 +38,7 @@ class UIRealIdentityView: RSNibDesignableView {
     
     func changeDisplay(to state: UIRealIdentityViewDisplayState, animated: Bool = false) {
         let change = {
-            self.defaultIdentityImageView.alpha = state.defaultIdentityAlpha
-            self.contentView?.backgroundColor = state.backgroundColor
-            self.yourRealIdentityLabel.textColor = state.yourRealIdentityTextColor
+
         }
         
         if animated {
