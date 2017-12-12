@@ -187,11 +187,16 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                 failCallback();
             }
             else {
+                var serverReconnected = false;
                 swarmService.restoreConnection(SERVER_HOST, SERVER_PORT, failCallbackPlaceholder, failCallbackPlaceholder, function () {
-                    //console.log("connectionIsDown");
-                    //self.restoreUserSession(successCallback, failCallback);
 
-                });
+                }, function () {
+                }, function () {
+                    serverReconnected = true;
+                }), function () {
+                };
+
+
                 swarmHub.on('login.js', "restoreSucceed", function restoredSuccessfully(swarm) {
                     self.getUser(successCallback);
                     swarmHub.off("login.js", "restoreSucceed", restoredSuccessfully);
@@ -202,11 +207,13 @@ angular.module('sharedService').factory("connectionService",function(swarmServic
                     var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
                     Cookies.set("sessionId", swarm.meta.sessionId,{expires: cookieValidityDays});
                     Cookies.set("userId", swarm.userId,{expires: cookieValidityDays});
+
+                    if(serverReconnected === true){
+                        location.reload();
+                    }
                 });
 
                 swarmHub.on('login.js', "restoreFailed", function restoredSuccessfully(swarm) {
-                    //Cookies.remove("userId");
-                    //Cookies.remove("sessionId");
 
                     failCallback();
                     swarmHub.off("login.js", "restoreSucceed", restoredSuccessfully);
