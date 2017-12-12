@@ -31,6 +31,9 @@
             android:name=".activity.OSPSettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity
+            android:name=".activity.SocialNetworkPrivacySettingsActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".activity.PrivacyWizardWebViewActivity"
             android:theme="@style/AppTheme"/>
         <activity

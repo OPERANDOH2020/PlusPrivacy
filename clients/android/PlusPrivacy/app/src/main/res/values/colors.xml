@@ -6,7 +6,7 @@
     <!--<color name="amaranth_red">#d62828</color>-->
     <!--<color name="bright_orange">#F77F00</color>-->
     <!--<color name="dutch_white">#EAE2B7</color>-->
-    <color name="colorPrimary">#a3cb4f</color>
+    <color name="colorPrimary">#FFC107</color>
     <!--<color name="colorPrimaryDark">#E88B00</color>-->
     <!--<color name="colorPrimaryDark">#FFB400</color>-->
     <color name="toolbar_color">#FFB400</color>
@@ -37,7 +37,7 @@
 
     <color name="primary_color">#FFC107</color>
     <color name="secondary_color">#66E88B00</color>
-    <color name="accent_color">#FF9800</color>
+    <color name="accent_color">#82a33f</color>
     <color name="secondary_color_add_identity">#d5a339</color>
 
     <color name="drawer_background">#FF9800</color>
@@ -96,5 +96,14 @@
     <color name="scanner_background">#eae9fc</color>
     <color name="scanner_button_background">#635cb1</color>
     <color name="scanner_arrow_background">#766ee0</color>
+
+    <!-- social network settings screen -->
+    <color name="social_network_settings_main_background">#dff3ff</color>
+    <color name="social_network_settings_header_background">#75b8e5</color>
+    <color name="social_network_settings_facebook">#40599a</color>
+    <color name="social_network_settings_facebook_alpha">#8040599a</color>
+    <color name="social_network_settings_linkedin">#2878b7</color>
+    <color name="social_network_settings_twitter">#53a3f8</color>
+    <color name="social_network_settings_google">#5086f7</color>
 
 </resources>

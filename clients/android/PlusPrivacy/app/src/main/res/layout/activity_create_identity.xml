@@ -2,20 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/identities_background"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolb"
-        layout="@layout/secondary_toolbar"
-        android:layout_alignParentTop="true"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:title="Add Identity"
+        app:titleTextColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/identities_button_active_background"
+        app:theme="@style/ToolbarStyle"
+        >
+
+    </android.support.v7.widget.Toolbar>
 
     <ScrollView
         android:paddingBottom="?attr/actionBarSize"
-        android:layout_below="@+id/toolb"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -29,13 +35,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/alias"
-                android:textColor="@color/secondary_color_add_identity"
-                android:textSize="25sp" />
+                android:textColor="@color/identities_button_active_background"
+                android:textSize="20sp" />
 
 
             <RelativeLayout
                 android:focusable="false"
                 android:focusableInTouchMode="false"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -43,24 +50,26 @@
                 <EditText
                     android:id="@+id/aliasET"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/identity_edit_text_background"
                     android:drawablePadding="10dp"
-                    android:hint="Alias"
+                    android:hint="@string/alias"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/secondary_color_add_identity"
-                    android:textColorHighlight="@color/secondary_color_add_identity"
-                    android:textColorHint="@color/secondary_color_add_identity"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/identities_button_active_background"
+                    android:textColor="@color/identities_button_active_background"
+                    android:textColorHighlight="@color/identities_button_active_background"
+                    android:textColorHint="@color/identities_button_active_background"
                     android:textSize="18sp" />
 
                 <ImageView
                     android:id="@+id/refreshBtn"
-                    android:layout_width="60dp"
-                    android:layout_height="51dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:background="@color/secondary_color_add_identity"
-                    android:padding="5dp"
+                    android:background="@color/identities_button_active_background"
+                    android:padding="10dp"
                     android:src="@drawable/ic_refresh" />
 
             </RelativeLayout>
@@ -72,13 +81,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/domain"
-                android:textColor="@color/secondary_color_add_identity"
-                android:textSize="25sp" />
+                android:textColor="@color/identities_button_active_background"
+                android:textSize="20sp" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/identity_edit_text_background">
 
                 <Spinner
@@ -90,12 +100,13 @@
                     android:spinnerMode="dropdown" />
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentRight="true"
+                    android:padding="10dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
-                    android:background="@color/secondary_color_add_identity"
+                    android:background="@color/identities_button_active_background"
                     android:src="@drawable/ic_dropdown" />
 
 
@@ -107,7 +118,7 @@
                 android:layout_height="1dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="40dp"
-                android:background="@color/black">
+                android:background="@color/identities_button_active_background">
 
             </View>
 
@@ -116,12 +127,14 @@
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:padding="15dp"
-                android:src="@drawable/add_identity_man" />
+                android:src="@drawable/user" />
 
             <TextView
                 android:id="@+id/identity_alias_and_domain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/identities_button_active_background"
+                android:textSize="16sp"
                 android:layout_gravity="center"
                 android:text="aisgsgiudfsdfnvxvcb@plusprivacy.com" />
 
@@ -135,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/green_button"
+        android:background="@color/identities_button_active_background"
         android:gravity="center"
         android:padding="10dp"
         android:text="Save"

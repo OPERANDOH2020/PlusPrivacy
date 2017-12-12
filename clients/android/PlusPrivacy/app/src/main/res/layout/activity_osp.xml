@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         app:title="Facebook Settings"
         android:background="@color/menu_6"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+        app:theme="@style/ToolbarStyle">
 
     </android.support.v7.widget.Toolbar>
 

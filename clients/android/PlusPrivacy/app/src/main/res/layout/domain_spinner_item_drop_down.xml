@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:ellipsize="marquee"
-    android:textColor="@color/secondary_color_add_identity"
-    android:background="@color/secondary_color"
+    android:textColor="@color/identities_button_active_background"
+    android:background="@color/identities_main_color"
     android:layout_centerVertical="true"
     android:textSize="20sp"
     android:textAlignment="inherit"/>

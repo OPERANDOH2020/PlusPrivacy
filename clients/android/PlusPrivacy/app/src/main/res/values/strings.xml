@@ -286,5 +286,7 @@
     <string name="remove">Remove</string>
     <string name="identity_management">Identity Management</string>
     <string name="logout">Logout</string>
+    <string name="social_networks_header">Maximize privacy on social networks</string>
+    <string name="coming_soon">Coming soon</string>
 
 </resources>

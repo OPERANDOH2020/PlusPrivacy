@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         findViewById(R.id.btn_osp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, OSPSettingsActivity.class));
+                startActivity(new Intent(MainActivity.this, SocialNetworkPrivacySettingsActivity.class));
             }
         });
     }

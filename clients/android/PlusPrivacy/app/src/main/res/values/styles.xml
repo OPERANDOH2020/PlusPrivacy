@@ -15,7 +15,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/menu_5</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
@@ -57,7 +57,7 @@
         <item name="toolbarSettingsBackground">@color/menu_5</item>
 
         <!-- Dark settings has a special primary dark -->
-        <item name="colorPrimaryDark">@color/secondary_color_settings_dark</item>
+        <item name="colorPrimaryDark">@color/accent_color</item>
     </style>
 
     <style name="Theme.SettingsTheme.Black" parent="Theme.BlackTheme">
@@ -90,7 +90,7 @@
         <!-- Theme Colors -->
         <item name="colorPrimary">@color/menu_5</item>
         <item name="colorPrimaryDark">@color/transparent</item>
-        <item name="colorAccent">@color/menu_5</item>
+        <item name="colorAccent">@color/accent_color</item>
         <item name="drawerBackground">@color/menu_5</item>
         <item name="dividerColor">@color/divider_light</item>
 
@@ -113,7 +113,7 @@
         <!-- Theme colors -->
         <item name="colorPrimary">@color/menu_5</item>
         <item name="colorPrimaryDark">@color/transparent</item>
-        <item name="colorAccent">@color/menu_5</item>
+        <item name="colorAccent">@color/accent_color</item>
         <item name="drawerBackground">@color/menu_5</item>
         <item name="dividerColor">@color/divider_dark</item>
 

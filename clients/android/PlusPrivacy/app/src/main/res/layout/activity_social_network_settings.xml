@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/social_network_settings_main_background"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/menu_6"
+        app:title="Social Network Settings"
+        app:theme="@style/ToolbarStyle"
+        app:titleTextColor="@color/white">
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/social_network_settings_header_background"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/header_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/secured" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/header_iv"
+                android:paddingLeft="15dp"
+                android:text="@string/social_networks_header"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <RelativeLayout
+                android:id="@+id/facebook_settings"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="1"
+                android:background="@color/social_network_settings_facebook">
+
+                <ImageView
+                    android:alpha="0.6"
+                    android:id="@+id/rotation_dot"
+                    android:src="@drawable/white_dot"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignTop="@+id/someid"
+                    android:layout_marginTop="-9dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <RelativeLayout
+                    android:id="@+id/someid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/circle_border_social_network_settings"
+                        android:padding="10dp"
+                        android:src="@drawable/facebook_logo" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/linkedin_settings"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:alpha="0.5"
+                    android:background="@color/social_network_settings_linkedin"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/circle_border_social_network_settings"
+                        android:padding="10dp"
+                        android:src="@drawable/linkedin_logo" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:alpha="0.8"
+                    android:background="@color/social_network_settings_linkedin"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/coming_soon"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <RelativeLayout
+                android:id="@+id/google_settings"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:alpha="0.5"
+                    android:background="@color/social_network_settings_google"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/circle_border_social_network_settings"
+                        android:padding="10dp"
+                        android:src="@drawable/google_logo" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:alpha="0.9"
+                    android:background="@color/social_network_settings_google"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/coming_soon"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/twitter_settings"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:alpha="0.5"
+                    android:background="@color/social_network_settings_twitter"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/circle_border_social_network_settings"
+                        android:padding="10dp"
+                        android:src="@drawable/twitter_logo" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:alpha="0.9"
+                    android:background="@color/social_network_settings_twitter"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/coming_soon"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

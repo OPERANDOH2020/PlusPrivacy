@@ -18,7 +18,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolb">
+        android:layout_below="@id/toolbar">
         <!--<TextView-->
             <!--android:gravity="center"-->
             <!--android:layout_marginTop="30dp"-->
