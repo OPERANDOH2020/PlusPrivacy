@@ -49,9 +49,13 @@ MAKE_HIDDEN inline void checkNoSwizzlingForApiHooks(){
     char *libViewDebugger = (char*)malloc(50 * sizeof(char));
     strcpy(libViewDebugger, "libViewDebuggerSupport.dylib");
     
-    char **frameworksToIgnore = (char**)malloc(1 * sizeof(char*));
+    char *libBacktraceRecording = (char*)malloc(50 * sizeof(char));
+    strcpy(libBacktraceRecording, "libBacktraceRecording.dylib");
+    
+    char **frameworksToIgnore = (char**)malloc(2 * sizeof(char*));
     
     frameworksToIgnore[0] = libViewDebugger;
+    frameworksToIgnore[1] = libBacktraceRecording;
     
     model->frameworksToIgnore = frameworksToIgnore;
     model->numOfFrameworksToIgnore = 1;
