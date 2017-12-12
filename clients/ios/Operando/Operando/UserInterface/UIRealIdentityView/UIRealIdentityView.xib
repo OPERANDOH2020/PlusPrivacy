@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIRealIdentityView" customModule="Operando" customModuleProvider="target">
             <connections>
+                <outlet property="defaultEnabledImageView" destination="xCp-1v-5DV" id="AHV-Dn-8mu"/>
+                <outlet property="defaultIdentityImageView" destination="4vp-RN-uR1" id="UTx-nc-iQL"/>
                 <outlet property="realIdentityLabel" destination="MO3-JJ-3Gg" id="uTu-jH-pP1"/>
                 <outlet property="yourRealIdentityLabel" destination="xak-tG-9OA" id="iSL-78-xYQ"/>
             </connections>
@@ -41,25 +43,45 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="localizingKey" value="kThisIsYourRealIdentityLocalizableKey"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="TmA-CI-iaY">
-                    <rect key="frame" x="460" y="33.5" width="20" height="20"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqY-3C-tTC">
+                    <rect key="frame" x="429" y="15" width="50" height="57"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_enabled" translatesAutoresizingMaskIntoConstraints="NO" id="xCp-1v-5DV">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="57"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFN-oN-4Kx">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="57"/>
+                            <connections>
+                                <action selector="pressedDefaultIdentityButton:" destination="-1" eventType="touchUpInside" id="HdE-kX-PdN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="MqZ-UE-R5P"/>
-                        <constraint firstAttribute="height" constant="20" id="lTY-t9-0yG"/>
+                        <constraint firstItem="xCp-1v-5DV" firstAttribute="top" secondItem="jqY-3C-tTC" secondAttribute="top" id="5WV-ZG-ngF"/>
+                        <constraint firstAttribute="trailing" secondItem="xCp-1v-5DV" secondAttribute="trailing" id="GP4-qM-sis"/>
+                        <constraint firstAttribute="bottom" secondItem="xCp-1v-5DV" secondAttribute="bottom" id="L7w-06-SRT"/>
+                        <constraint firstItem="xCp-1v-5DV" firstAttribute="leading" secondItem="jqY-3C-tTC" secondAttribute="leading" id="PKu-6b-6uh"/>
+                        <constraint firstAttribute="width" constant="50" id="Qgy-HD-Q1C"/>
+                        <constraint firstAttribute="height" constant="57" id="SJD-qk-Soy"/>
+                        <constraint firstAttribute="bottom" secondItem="gFN-oN-4Kx" secondAttribute="bottom" id="ZLD-rM-AUV"/>
+                        <constraint firstItem="gFN-oN-4Kx" firstAttribute="leading" secondItem="jqY-3C-tTC" secondAttribute="leading" id="p4h-aJ-mmC"/>
+                        <constraint firstAttribute="trailing" secondItem="gFN-oN-4Kx" secondAttribute="trailing" id="wlb-CA-KZy"/>
+                        <constraint firstItem="gFN-oN-4Kx" firstAttribute="top" secondItem="jqY-3C-tTC" secondAttribute="top" id="xbR-KV-5Be"/>
                     </constraints>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.594166100025177" green="0.96457642316818237" blue="0.96451157331466675" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="top" secondItem="MO3-JJ-3Gg" secondAttribute="bottom" id="2zL-fv-Lyr"/>
+                <constraint firstItem="jqY-3C-tTC" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" id="KuE-Yw-qd8"/>
                 <constraint firstItem="MO3-JJ-3Gg" firstAttribute="leading" secondItem="4vp-RN-uR1" secondAttribute="trailing" constant="14" id="WJN-ak-BUb"/>
                 <constraint firstItem="4vp-RN-uR1" firstAttribute="leading" secondItem="Kb2-Ea-R51" secondAttribute="leading" constant="14" id="YNU-a5-c4k"/>
                 <constraint firstItem="4vp-RN-uR1" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" constant="5" id="Yvu-1R-4Jz"/>
                 <constraint firstItem="MO3-JJ-3Gg" firstAttribute="top" secondItem="4vp-RN-uR1" secondAttribute="top" id="aTF-cX-4A6"/>
-                <constraint firstAttribute="trailing" secondItem="TmA-CI-iaY" secondAttribute="trailing" constant="4" id="cnd-ic-pd9"/>
-                <constraint firstItem="TmA-CI-iaY" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" id="gCs-70-835"/>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="leading" secondItem="MO3-JJ-3Gg" secondAttribute="leading" id="giA-jL-CNs"/>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="trailing" secondItem="MO3-JJ-3Gg" secondAttribute="trailing" id="qBA-fY-CrQ"/>
+                <constraint firstAttribute="trailing" secondItem="jqY-3C-tTC" secondAttribute="trailing" constant="5" id="uJJ-1C-tS6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -67,7 +89,7 @@
         </view>
     </objects>
     <resources>
+        <image name="default_enabled" width="42" height="42"/>
         <image name="default_identity" width="85" height="85"/>
-        <image name="disclosure_Icon" width="10" height="17"/>
     </resources>
 </document>

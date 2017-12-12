@@ -52,9 +52,6 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         }
     }
     
-    
-    
-    
     func setupWith(identitiesRepository: IdentitiesManagementRepository?, callbacks: UIIdentityManagementCallbacks?) {
         self.identitiesRepository = identitiesRepository
         self.loadCurrentIdentitiesWith(repository: identitiesRepository)
@@ -86,7 +83,11 @@ class UIIdentityManagementViewControllerLogic: NSObject {
     {
         repository?.getRealIdentityWith(completion: { realIdentity, _ in
             self.realIdentity = realIdentity
-            self.outlets.realIdentityView?.setupWith(identity: realIdentity)
+            self.outlets.realIdentityView?.setupWith(identity: realIdentity, logicCallback: UIRealIdentityCallbacks(setRealIdentityAsDefault: {
+                //set real identity Callback
+                print("BUN TARE")
+                self.setAsDefault(identity: realIdentity)
+            }))
         })
         
         self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
@@ -109,8 +110,6 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         })
     }
     
-    
-    
     private func callbacksForIdentitiesListLogic() -> UIIdentitiesListCallbacks{
         weak var weakSelf = self
         
@@ -119,7 +118,6 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         }, whenActivatedItem: { item in
             weakSelf?.setAsDefault(identity: item)
         })
-        
     }
     
     private func delete(identity: String, atIndex index: Int){
@@ -166,8 +164,13 @@ class UIIdentityManagementViewControllerLogic: NSObject {
             
             let state: UIRealIdentityViewDisplayState = identity != self.realIdentity ? .nonDefault : .defaultIdentity
             self.outlets.realIdentityView?.changeDisplay(to: state, animated: true)
-            self.outlets.identitiesListViewLogic?.displayAsDefault(identity: identity)
             
+            if identity == self.realIdentity {
+                self.outlets.identitiesListViewLogic?.displayAsDefault(identity: "")
+            }
+            else {
+                self.outlets.identitiesListViewLogic?.displayAsDefault(identity: identity)
+            }
         })
     }
     

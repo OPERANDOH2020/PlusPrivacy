@@ -92,9 +92,9 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
     }
     
     func displayAsDefault(identity: String) {
-        guard self.identitiesList.contains(identity) else {
-            return
-        }
+//        guard self.identitiesList.contains(identity) else {
+//            return
+//        }
         self.currentDefaultIdentity = identity
         outlets.tableView?.reloadData()
         

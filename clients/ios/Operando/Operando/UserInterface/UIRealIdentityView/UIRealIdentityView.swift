@@ -8,14 +8,20 @@
 
 import UIKit
 
+struct UIRealIdentityCallbacks {
+    
+    let setRealIdentityAsDefault: VoidBlock?
+}
+
 struct UIRealIdentityViewDisplayState {
     let backgroundColor: UIColor?
     let defaultIdentityAlpha: CGFloat
     let yourRealIdentityTextColor: UIColor?
+    let defaultIdentity: Bool?
     
-    static let nonDefault: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState(backgroundColor: UIColor.operandoYellow, defaultIdentityAlpha: 0.0, yourRealIdentityTextColor: .operandoLightBrown)
+    static let nonDefault: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState(backgroundColor: UIColor.operandoYellow, defaultIdentityAlpha: 0.5, yourRealIdentityTextColor: .operandoLightBrown, defaultIdentity: false)
     
-    static let defaultIdentity: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState(backgroundColor: UIColor.operandoLightBrown, defaultIdentityAlpha: 1.0, yourRealIdentityTextColor: .operandoYellow)
+    static let defaultIdentity: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState(backgroundColor: UIColor.operandoLightBrown, defaultIdentityAlpha: 1.0, yourRealIdentityTextColor: .operandoYellow, defaultIdentity: true)
 }
 
 class UIRealIdentityView: RSNibDesignableView {
@@ -23,7 +29,9 @@ class UIRealIdentityView: RSNibDesignableView {
     @IBOutlet weak var defaultIdentityImageView: UIImageView!
     @IBOutlet weak var realIdentityLabel: UILabel!
     @IBOutlet weak var yourRealIdentityLabel: UILocalizableLabel!
+    @IBOutlet weak var defaultEnabledImageView: UIImageView!
     
+    var logicCallbacks: UIRealIdentityCallbacks?
     
     override func commonInit() {
         super.commonInit()
@@ -31,14 +39,21 @@ class UIRealIdentityView: RSNibDesignableView {
     }
     
     
-    func setupWith(identity: String, state: UIRealIdentityViewDisplayState = .nonDefault) {
+    func setupWith(identity: String, state: UIRealIdentityViewDisplayState = .nonDefault,logicCallback: UIRealIdentityCallbacks) {
         self.realIdentityLabel.text = identity
         self.changeDisplay(to: state)
+        self.logicCallbacks = logicCallback
     }
     
     func changeDisplay(to state: UIRealIdentityViewDisplayState, animated: Bool = false) {
         let change = {
-
+            
+            if state.defaultIdentity == true {
+                self.defaultEnabledImageView.image = #imageLiteral(resourceName: "default_enabled")
+            }
+            else {
+                self.defaultEnabledImageView.image = #imageLiteral(resourceName: "default_disabled")
+            }
         }
         
         if animated {
@@ -46,5 +61,8 @@ class UIRealIdentityView: RSNibDesignableView {
         } else {
             change()
         }
+    }
+    @IBAction func pressedDefaultIdentityButton(_ sender: Any) {
+        logicCallbacks?.setRealIdentityAsDefault?()
     }
 }
