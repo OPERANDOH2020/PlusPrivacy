@@ -16,6 +16,15 @@ extension UILeftSideMenuViewController {
         var categoryName: String
         var action: (() -> Void)?
     }
+    
+    func getRealIdentity(completion: ((String, NSError?) -> Void)?) {
+        let swarm = SwarmClientHelper()
+        swarm.getRealIdentityWith { (identity, error) in
+
+            print(identity)
+//            completion((identity,error))
+        }
+    }
 
     func getMenuDataSource() -> [UILeftSideMenuVCObject] {
         
@@ -37,7 +46,7 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kFeedBackFormKey), action: self.callbacks?.whenChoosingFeedbackForm))
         
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))

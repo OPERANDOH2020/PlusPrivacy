@@ -85,7 +85,6 @@ class UIIdentityManagementViewControllerLogic: NSObject {
             self.realIdentity = realIdentity
             self.outlets.realIdentityView?.setupWith(identity: realIdentity, logicCallback: UIRealIdentityCallbacks(setRealIdentityAsDefault: {
                 //set real identity Callback
-                print("BUN TARE")
                 self.setAsDefault(identity: realIdentity)
             }))
         })

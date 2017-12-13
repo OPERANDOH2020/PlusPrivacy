@@ -187,7 +187,6 @@
 		AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */; };
 		AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */; };
 		AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */; };
-		ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */; };
 		ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */; };
 		ADF3CA651DB892F900BD2B7A /* SideMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */; };
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
@@ -454,7 +453,6 @@
 		AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormVCCellBuilder.swift; sourceTree = "<group>"; };
 		AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTableViewCell.swift; sourceTree = "<group>"; };
 		AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
-		ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenu.storyboard; sourceTree = "<group>"; };
 		ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SideMenu.xcassets; sourceTree = "<group>"; };
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
@@ -1428,7 +1426,6 @@
 		ADB2AD4C1DB7FC85003E3AC1 /* SSASideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				ADB2AD4D1DB7FC85003E3AC1 /* SSASideMenu.swift */,
 			);
 			path = SSASideMenu;
 			sourceTree = "<group>";
@@ -1750,7 +1747,6 @@
 				982750201D0849EB00C73411 /* SwarmClientHelper.swift in Sources */,
 				9827502D1D084A4B00C73411 /* WKWebViewUtilities.swift in Sources */,
 				98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */,
-				ADB2AD4E1DB7FC85003E3AC1 /* SSASideMenu.swift in Sources */,
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,

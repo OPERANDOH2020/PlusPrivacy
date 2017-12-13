@@ -53,7 +53,6 @@ class CredentialsStore: NSObject
         defaults.synchronize()
     }
     
-    
     class func updatePassword(to newPassword: String) -> NSError? {
         
         guard let data = Locksmith.loadDataForUserAccount(userAccount: VLgftobwHe()),

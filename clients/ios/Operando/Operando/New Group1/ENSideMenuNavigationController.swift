@@ -13,10 +13,11 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
     open var sideMenu : ENSideMenu?
     open var sideMenuAnimationType : ENSideMenuAnimation = .default
 
-
+    
     // MARK: - Life cycle
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     public init( menuViewController: UIViewController, contentViewController: UIViewController?) {
@@ -29,6 +30,10 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuViewController, menuPosition:.left)
         sideMenu?.menuWidth = UIScreen.main.bounds.width + 5
         view.bringSubview(toFront: navigationBar)
+        
+        if let vc = self.sideMenu?.menuViewController as? UILeftSideMenuViewController {
+            sideMenu?.delegate = vc
+        }
     }
 
     required public init?(coder aDecoder: NSCoder) {

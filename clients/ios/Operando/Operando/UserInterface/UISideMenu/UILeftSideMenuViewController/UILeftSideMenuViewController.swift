@@ -17,10 +17,11 @@ struct UILeftSideMenuViewControllerCallbacks {
     let whenChoosingSettings: VoidBlock?
     let whenChoosingPrivacyPolicy: VoidBlock?
     let whenChoosingAbout: VoidBlock?
+    let whenChoosingFeedbackForm: VoidBlock?
     let logoutCallback: VoidBlock?
 }
 
-class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ENSideMenuDelegate {
     
     // MARK: - Properties
     var callbacks: UILeftSideMenuViewControllerCallbacks?
@@ -31,6 +32,8 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
+    var userInfoRepo: UserInfoRepository?
+    
     // MARK: - @IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,7 +43,7 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - @IBActions
     @IBAction func didTapProfileButton(_ sender: AnyObject) {
 //        self.sideMenuViewController?.contentViewController = UIViewControllerFactory.profileNavigationViewController
-        self.sideMenuViewController?.hideMenuViewController()
+//        self.sideMenuViewController?.hideMenuViewController()
     }
     
     @IBAction func didTapLogoutButton(_ sender: Any) {
@@ -53,17 +56,24 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         tableView.rowHeight = 60
     }
     
+    func setupWith(userInfoRepo: UserInfoRepository?) {
+        self.userInfoRepo = userInfoRepo
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
         dataSource = getMenuDataSource()
+        
+       let data = CredentialsStore.retrieveLastSavedCredentialsIfAny()
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.sideMenuController()?.sideMenu?.delegate = self
         logoView.layer.borderColor = UIColor.white.cgColor
     }
     
@@ -90,5 +100,27 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
         guard let dataSource = dataSource else { return }
         dataSource[indexPath.row].action?()
+    }
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+
+        self.nameLabel.text = CredentialsStore.retrieveLastSavedCredentialsIfAny()?.username
+    }
+    
+    func sideMenuWillClose() {
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        
+        return true
+    }
+    
+    func sideMenuDidClose() {
+
+    }
+    
+    func sideMenuDidOpen() {
+
     }
 }

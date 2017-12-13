@@ -128,6 +128,10 @@ class OPConfigObject: NSObject
             }
             
             weakSelf?.afterLoggingInWith(identity: data)
+            
+            if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
+                OPErrorContainer.displayError(error: error)
+            }
         }
     }
     

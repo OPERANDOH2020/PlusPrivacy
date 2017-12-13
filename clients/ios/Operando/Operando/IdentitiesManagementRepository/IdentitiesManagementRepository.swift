@@ -18,7 +18,6 @@ protocol IdentitiesManagementRepository: class {
     func remove(identity: String, withCompletion completion: ((_ nextDefaultIdentity: String, _ error: NSError?) -> Void)?)
     func updateDefaultIdentity(to newIdentity: String, withCompletion completion: CallbackWithError?)
     func getRealIdentityWith(completion: ((_ identity: String, _ error: NSError?) -> Void)?)
-    
 }
 
 

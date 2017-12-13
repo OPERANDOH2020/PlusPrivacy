@@ -62,7 +62,7 @@ enum PFBConstructor: String
 
 enum UserConstructor: String {
     
-    case info = "info"
+    case info = "getUserInfo"
     case updateUserInfo = "updateUserInfo"
     case changePassword = "changePassword"
     
