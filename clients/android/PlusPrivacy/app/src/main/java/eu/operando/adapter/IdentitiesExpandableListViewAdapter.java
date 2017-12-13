@@ -1,5 +1,6 @@
 package eu.operando.adapter;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import eu.operando.R;
+import eu.operando.activity.BaseActivity;
+import eu.operando.customView.RemoveIdentityDialog;
+import eu.operando.customView.SignInFailedDialog;
 import eu.operando.models.Identity;
 
 /**
@@ -26,9 +30,6 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
     private Context context;
     private IdentityListener listener;
     private List<Identity> identities;
-    private static final String DEFAULT_INDENTITY = "Default identity";
-    private static final String COPY_TO_CLIPBOARD = "Copy to clipboard";
-    private static final String REMOVE_IDENTITY = "Remove identity";
 
     public IdentitiesExpandableListViewAdapter(Context context, List<Identity> identities) {
         this.context = context;
@@ -95,7 +96,6 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-//        ExtensibleItemOptions option = (ExtensibleItemOptions) getChild(groupPosition, childPosition);
         final ChildHolder holder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -124,7 +124,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         ImageView copyToClipboard;
         ImageView groupIndicator;
 
-        public GroupHolder(View itemView) {
+        GroupHolder(View itemView) {
 
             super(itemView);
             defaultIV = itemView.findViewById(R.id.default_identity_iv);
@@ -151,7 +151,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         LinearLayout copyToClipboard;
         LinearLayout removeIdentity;
 
-        public ChildHolder(View itemView) {
+        ChildHolder(View itemView) {
 
             super(itemView);
             makeDefault = (LinearLayout) itemView.findViewById(R.id.make_default);
@@ -171,7 +171,8 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             removeIdentity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.updateIdentity(identity, "removeIdentity");
+//                    listener.updateIdentity(identity, "removeIdentity");
+                    showRemoveIdentityDialog(identity);
                 }
             });
 
@@ -182,9 +183,15 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
                 }
             });
         }
+
+        private void showRemoveIdentityDialog(Identity identity){
+            DialogFragment newFragment = RemoveIdentityDialog.newInstance(identity);
+            newFragment.show( ((BaseActivity)context).getFragmentManager(), "RemoveIdentityDialog");
+        }
     }
 
     public interface IdentityListener {
+
         void updateIdentity(Identity identity, String method);
 
         void setClipboard(Identity identity);

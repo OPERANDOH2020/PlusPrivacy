@@ -55,7 +55,6 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         fitHeightForWidth(googleLayout);
         fitHeightForWidth(twitterLayout);
 
-        rotateIndicator();
     }
 
     private void fitHeightForWidth(final RelativeLayout googleLayout) {
@@ -88,12 +87,6 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
                 rotationDot.startAnimation(rotate);
             }
         });
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                rotationDot.setVisibility(View.GONE);
-//            }
-//        }, 10000);
     }
 
     @Override

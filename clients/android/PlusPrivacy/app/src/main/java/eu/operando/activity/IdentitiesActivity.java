@@ -94,9 +94,7 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
                 }
             }
         });
-
         identitiesELV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(identitiesELV));
-
     }
 
     @Override

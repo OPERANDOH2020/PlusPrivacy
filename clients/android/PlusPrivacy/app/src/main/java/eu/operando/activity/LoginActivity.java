@@ -130,8 +130,8 @@ public class LoginActivity extends AppCompatActivity {
                                     finish();
                                 } else {
                                     showFailedLoginDialog();
-                                    emailText.setText("");
-                                    passwordText.setText("");
+//                                    emailText.setText("");
+//                                    passwordText.setText("");
                                 }
                             }
                         }, 100);
@@ -144,16 +144,16 @@ public class LoginActivity extends AppCompatActivity {
     private void registerZone() {
         SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("Android"),
                 new SwarmCallback<RegisterZoneSwarm>() {
-            @Override
-            public void call(final RegisterZoneSwarm result) {
-                runOnUiThread(new Runnable() {
                     @Override
-                    public void run() {
-                        Log.e("RegisterZoneSwarm", result.toString());
+                    public void call(final RegisterZoneSwarm result) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.e("RegisterZoneSwarm", result.toString());
+                            }
+                        });
                     }
                 });
-            }
-        });
         final String androidId = Settings.Secure.getString(
                 getContentResolver(), Settings.Secure.ANDROID_ID);
         Log.w("UUID", androidId);
@@ -170,9 +170,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void showFailedLoginDialog(){
-        DialogFragment newFragment = new SignInFailedDialog();
-        newFragment.show(getFragmentManager(), "SignInFailedDialog");
+    public void showFailedLoginDialog() {
+        if (!isFinishing()) {
+            DialogFragment newFragment = new SignInFailedDialog();
+            if (!newFragment.isAdded()) {
+                newFragment.show(getFragmentManager(), "SignInFailedDialog");
+            }
+        }
     }
 
     public void showResetPasswordDialog() {

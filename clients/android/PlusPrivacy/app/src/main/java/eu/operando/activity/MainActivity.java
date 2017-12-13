@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     }
 
     private void setInfo() {
-//        ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
+        ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
         showUnsafeApps();
         initNotifications();
     }
