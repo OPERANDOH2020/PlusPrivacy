@@ -99,6 +99,7 @@ public class AdblockWebClient extends WebViewClient {
 
         return (engine.matches(url, contentType, EMPTY_ARRAY));
     }
+
     private static final String TAG = "AdblockWebClient";
 
     @NonNull private final Activity mActivity;

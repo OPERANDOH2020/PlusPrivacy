@@ -343,7 +343,11 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             case 3: //Feedback
                 startFeedbackActivity();
                 break;
+            case 4: //Account
+                UserAccountActivity.start(this);
+                break;
         }
         drawerLayout.closeDrawer(Gravity.START);
     }
+
 }

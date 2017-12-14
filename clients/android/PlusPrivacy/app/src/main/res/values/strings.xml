@@ -275,6 +275,7 @@
         <item>Privacy Policy</item>
         <item>Settings</item>
         <item>Feedback</item>
+        <item>Account</item>
     </string-array>
 
     <string name="low">low</string>
@@ -292,5 +293,15 @@
     <string name="remove_identity">Remove identity ?</string>
     <string name="remove_identity_dialog_message">Do you really want to remove this identity ?</string>
     <string name="this_is_your_real_identity">This is your real identity</string>
+    <string name="update_your_account_settings">Update your account settings</string>
+    <string name="change">Change</string>
+    <string name="account_deletion">Account deletion</string>
+    <string name="delete_account">Delete account</string>
+    <string name="account_deletion_description">Your alternative email identities and account data will be wiped. This action is irreversible</string>
+    <string name="current_password">Current password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="new_password">New password</string>
+    <string name="update_password">Update password</string>
+    <string name="weak">Weak</string>
 
 </resources>

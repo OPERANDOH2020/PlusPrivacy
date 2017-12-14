@@ -78,9 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:paddingEnd="5dp"
-                    android:paddingStart="5dp"
-                    android:layout_margin="10dp"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/notification_button_font_color"
@@ -89,15 +87,15 @@
 
                     <ImageView
                         android:src="@drawable/white_bulb"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="3dp"
                         android:layout_width="20dp"
-                        android:layout_height="12dp" />
+                        android:layout_height="14dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/notification_button_font_color"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Default"
                         android:textAllCaps="false"
                         />

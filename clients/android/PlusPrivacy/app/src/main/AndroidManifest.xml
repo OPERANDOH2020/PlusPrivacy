@@ -43,6 +43,9 @@
             android:name=".activity.IdentitiesActivity"
             android:label="Identity Management"/>
         <activity
+            android:name=".activity.UserAccountActivity"
+            android:label="User account"/>
+        <activity
             android:name=".activity.CreateIdentityActivity"
             android:windowSoftInputMode="stateHidden"
             />

@@ -27,7 +27,8 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
             R.drawable.ic_info,
             R.drawable.ic_privacy,
             R.drawable.ic_settings,
-            R.drawable.ic_feedback
+            R.drawable.ic_feedback,
+            R.drawable.ic_account
     };
 
     public DrawerRecyclerViewAdapter(Context context) {

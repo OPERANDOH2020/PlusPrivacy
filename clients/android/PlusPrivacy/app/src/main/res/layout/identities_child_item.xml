@@ -21,10 +21,10 @@
         android:background="@color/identities_list_background"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
-        android:paddingTop="10dp">
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:id="@+id/make_default"
@@ -34,7 +34,8 @@
             android:layout_weight="1.5  "
             android:background="@color/identities_button_active_background"
             android:gravity="center"
-            android:padding="@dimen/button_padding"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
             android:textColor="@color/notification_button_font_color">
 
             <ImageView
@@ -62,7 +63,8 @@
             android:layout_weight="0.8"
             android:background="@color/identities_button_active_background"
             android:gravity="center"
-            android:padding="@dimen/button_padding"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
             android:paddingEnd="5dp"
             android:paddingStart="5dp"
             android:textColor="@color/notification_button_font_color">
@@ -91,7 +93,8 @@
             android:layout_weight="1.15"
             android:background="@color/identities_button_active_background"
             android:gravity="center"
-            android:padding="@dimen/button_padding"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
             android:textColor="@color/notification_button_font_color">
 
             <ImageView

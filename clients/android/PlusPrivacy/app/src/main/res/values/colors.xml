@@ -75,6 +75,9 @@
     <color name="menu_second_separator">#84610f</color>
     <color name="menu_background">#eea82c</color>
 
+    <color name="account_background">#fcf2d7</color>
+    <color name="account_empty_indicator">#dbdad8</color>
+
     <!-- notification screen colors -->
     <color name="notification_background">#f0d0de</color>
     <color name="notification_button">#ea70a3</color>
@@ -105,5 +108,7 @@
     <color name="social_network_settings_linkedin">#2878b7</color>
     <color name="social_network_settings_twitter">#53a3f8</color>
     <color name="social_network_settings_google">#5086f7</color>
+
+
 
 </resources>
