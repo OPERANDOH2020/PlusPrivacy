@@ -172,8 +172,15 @@ class UIFlowController
     }
     
     func displayFeedbackFormViewController(){
-        let vc = UIViewControllerFactory.feedbackFormViewController
-        self.rootController.setMainControllerTo(newController: vc);
+        
+        let feedbackFormVC = UIViewControllerFactory.feedbackFormViewController
+        feedbackFormVC.setup(with: OPFeedbackFormVCInteractor(feedbackForm: OPFeedbackForm(delegate: self.dependencies.feedbackFormRepo),
+                                                              uiDelegate: feedbackFormVC, feedbackCallback: OPFeedbackFormVCCallbacks(whenSubmitEndedWithSuccess: {
+                                                                
+                                                                self.displayDashboard()
+                                                                
+                                                              })))
+        self.rootController.setMainControllerTo(newController: feedbackFormVC);
     }
     
     func displayAboutViewController(){

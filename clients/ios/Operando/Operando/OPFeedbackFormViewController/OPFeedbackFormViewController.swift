@@ -27,7 +27,6 @@ class OPFeedbackFormViewController: UIViewController {
         interactor?.didSubmitForm()
     }
     
-    
     func dismissKeyboard() {
         tableView.endEditing(true)
     }

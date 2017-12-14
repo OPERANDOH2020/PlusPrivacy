@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct OPFeedbackFormVCCallbacks
+{
+    let whenSubmitEndedWithSuccess: VoidBlock?
+}
+
 protocol OPFeedbackFormVCInteractorProtocol {
     func didSubmitForm()
     func viewDidLoad()
@@ -22,10 +27,13 @@ class OPFeedbackFormVCInteractor: NSObject {
     fileprivate let uiDelegate: OPFeedbackFormVCProtocol?
     fileprivate var dataSource: [OPFeedbackFormVCCellViewModel]
 
-    init(feedbackForm: OPFeedbackForm, uiDelegate: OPFeedbackFormVCProtocol?) {
+    fileprivate var callbacks: OPFeedbackFormVCCallbacks?
+    
+    init(feedbackForm: OPFeedbackForm, uiDelegate: OPFeedbackFormVCProtocol?,feedbackCallback: OPFeedbackFormVCCallbacks) {
         self.feedbackForm = feedbackForm
         self.uiDelegate = uiDelegate
         self.dataSource = [OPFeedbackFormVCCellViewModel]()
+        self.callbacks = feedbackCallback
         super.init()
     }
     
@@ -172,6 +180,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
                 strongSelf.uiDelegate?.refreshUI()
                 if success {
                     strongSelf.uiDelegate?.showMessage(title: "Success", message: "Thank you for your feedback!")
+                    self?.callbacks?.whenSubmitEndedWithSuccess?()
                 } else {
                     strongSelf.uiDelegate?.showMessage(title: "Sorry", message: "Something wrong happened!")
                 }
