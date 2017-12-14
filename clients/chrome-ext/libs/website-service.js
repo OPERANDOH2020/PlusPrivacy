@@ -38,20 +38,19 @@ var websiteService = exports.websiteService = {
     authenticateUserInExtension: function (data) {
         var maxAuthenticationsAllowed = 1;
         authenticationService.authenticateWithToken(data.userId, data.authenticationToken, function (res) {
-            console.log("successCallbackFromTokenAuthentication");
+            console.log("authenticated here");
             if(maxAuthenticationsAllowed >0){
                 chrome.runtime.openOptionsPage();
             }
             maxAuthenticationsAllowed--;
 
         }, function () {
-            console.log("securityFail");
+
 
         }, function () {
-            console.log("networkFail");
+
 
         }, function () {
-            //status.reconnect = "reconnect";
 
         });
     },
