@@ -57,6 +57,7 @@ enum PFBConstructor: String
     case acceptPfbDeal = "acceptDeal"
     case unsubscribeDeal = "unsubscribeDeal"
     case getFeedbackQuestions = "getFeedbackQuestions"
+    case hasUserSubmittedAFeedBack = "hasUserSubmittedAFeedback"
     case submitFeedback = "submitFeedback"
 }
 

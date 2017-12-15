@@ -10,6 +10,7 @@ import UIKit
 
 protocol OPFeedbackFormProtocol {
     func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
+    func getLastAnswers(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
     func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?)
 }
 
@@ -18,6 +19,12 @@ enum OPFeedBackQuestionType: String {
     case multipleSelection = "multipleSelection"
     case textInput = "textInput"
     case radio = "radio"
+}
+
+struct OPFeedbackAnswer {
+    let questionKey: String
+    let itemName: String?
+    let answer: Any
 }
 
 struct OPFeedbackQuestion {
@@ -36,11 +43,24 @@ class OPFeedbackForm: NSObject {
     var questions: [OPFeedbackQuestion]
     var questionsTitlesById: Dictionary<Int, String>
     
+    var answers: [OPFeedbackAnswer] = []
+    
     init(delegate: OPFeedbackFormProtocol?) {
         self.delegate = delegate
         questions = [OPFeedbackQuestion]()
         questionsTitlesById = Dictionary<Int, String>()
         super.init()
+    }
+    
+    func requestLastAnswerIfAny(completion: @escaping ((_ success: Bool) -> Void)) {
+        
+        delegate?.getLastAnswers(completion: { [weak self] (data, error) in
+            guard let strongSelf = self, error == nil, let data = data else { completion(false); return }
+            
+            let answers = strongSelf.parseAnswers(dictionary: data)
+            strongSelf.answers = answers
+            completion(true)
+        })
     }
     
     func requestFeedbackForm(completion: @escaping ((_ success: Bool) -> Void)) {
@@ -57,6 +77,35 @@ class OPFeedbackForm: NSObject {
         delegate?.submitFeedbackForm(feedbackDictionary: feedbackDictionary, completion: { (success) in
             completion?(success)
         })
+    }
+    
+    private func parseAnswers(dictionary: Dictionary<String,Any>) -> [OPFeedbackAnswer] {
+        
+        var answers: [OPFeedbackAnswer] = []
+        
+        if let dict = dictionary["feedback"] as? NSDictionary {
+            
+            for (key,value) in dict {
+                
+                if let key = key as? String {
+                    
+                    if let slice = key.slice(from: "[", to: "]"){
+                        
+                        let newKey = key.replace(target: "[\(slice)]", withString: "")
+                        
+                        answers.append(OPFeedbackAnswer(questionKey: newKey, itemName: slice, answer: value))
+                        
+                    }else {
+                        answers.append(OPFeedbackAnswer(questionKey: key, itemName: nil, answer: value))
+                    }
+                }
+            }
+        }
+        else {
+            
+        }
+        
+        return answers
     }
     
     private func parseFeedbackQuestions(dictionary: Dictionary<String,Any>) -> (questions: [OPFeedbackQuestion], questionsById: Dictionary<Int, String>) {
@@ -80,7 +129,7 @@ class OPFeedbackForm: NSObject {
                 }
             }
         }
-    
+        
         return (result, questionsById)
     }
 }

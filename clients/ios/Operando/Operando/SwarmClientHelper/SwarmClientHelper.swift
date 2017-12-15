@@ -21,19 +21,19 @@ typealias ServerResponseHandler = (_ data: [Any]) -> Void
 //}
 
 class SwarmClientHelper: NSObject, SwarmClientProtocol,
-                        IdentitiesManagementRepository,
-                        PrivacyForBenefitsRepository,
-                        UsersRepository,
-                        UserInfoRepository,
-                        NotificationsRepository,
-                        AppSCDsRepository,
-                        OPFeedbackFormProtocol
+    IdentitiesManagementRepository,
+    PrivacyForBenefitsRepository,
+    UsersRepository,
+    UserInfoRepository,
+    NotificationsRepository,
+    AppSCDsRepository,
+    OPFeedbackFormProtocol
 {
-
-
-    static let ServerURL = "https://plusprivacy.club:8080";
-//    static let ServerURL = "https://plusprivacy.com:8080";
-//    static let ServerURL = "https://plusprivacy.com:8080";
+    
+    
+//    static let ServerURL = "https://plusprivacy.club:8080";
+    //    static let ServerURL = "https://plusprivacy.com:8080";
+        static let ServerURL = "https://plusprivacy.com:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
     var whenThereWasAnError: ((_ error: NSError?) -> Void)?
@@ -85,7 +85,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     func loginWith(email: String, password: String, withCompletion completion: UserOperationCallback?)
     {
-
+        
         workingQueue.async {
             self.whenThereWasAnError = { error in
                 completion?(error, .empty)
@@ -135,11 +135,11 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                 }
                 
                 guard let successStatus = SwarmClientResponseParsers.parseLogoutSucceedSuccessStatus(from: dataDict),
-                          successStatus == true else {
-                          let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.unknownError
-                          completion?(error)
-                          return
-                            
+                    successStatus == true else {
+                        let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.unknownError
+                        completion?(error)
+                        return
+                        
                 }
                 
                 completion?(nil)
@@ -209,28 +209,28 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
             let registrationInfo = RegistrationInfo(email: email, password: password)
             
             self.guestGuestLoginWith(callbackInCaseOfError: completion) {
-            self.registerUserWith(registrationInfo: registrationInfo, callbackInCaseOfError: completion) {
-            self.logoutUserWith(completion: { error in
-                if let error = error {
-                    completion?(error)
-                    return
+                self.registerUserWith(registrationInfo: registrationInfo, callbackInCaseOfError: completion) {
+                    self.logoutUserWith(completion: { error in
+                        if let error = error {
+                            completion?(error)
+                            return
+                        }
+                        
+                        self.swarmClient.disconnectAndReconnectWith(completion: { failReason in
+                            
+                            if let failReason = failReason {
+                                let error = NSError(domain: SwarmClientErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: failReason]);
+                                completion?(error)
+                                return
+                            }
+                            
+                            completion?(nil)
+                            
+                        })
+                    })
                 }
-                
-                self.swarmClient.disconnectAndReconnectWith(completion: { failReason in
-                    
-                    if let failReason = failReason {
-                        let error = NSError(domain: SwarmClientErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: failReason]);
-                        completion?(error)
-                        return
-                    }
-                    
-                    completion?(nil)
-                    
-              })
-            })
-          }
+            }
         }
-      }
     }
     
     private func guestGuestLoginWith(callbackInCaseOfError: CallbackWithError?, whenAllIsOk: VoidBlock?){
@@ -250,32 +250,32 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     private func registerUserWith(registrationInfo: RegistrationInfo, callbackInCaseOfError: CallbackWithError?, whenAllIsOk: VoidBlock?){
         workingQueue.async {
-          
-                self.whenThereWasAnError = { error in
-                    callbackInCaseOfError?(error)
-                }
             
-                self.handlersPerSwarmingName[.register] = { dataArray in
-                    guard let dict = dataArray.first as? [String: Any] else {
-                        callbackInCaseOfError?(OPErrorContainer.errorInvalidServerResponse)
-                        return
-                    }
-                    
-                    
-                    if let error = SwarmClientResponseParsers.parseErrorIfAny(from: dict) {
-                        callbackInCaseOfError?(error)
-                        return
-                    }
-                    
-                    
-                    whenAllIsOk?()
-                    
-                }
+            self.whenThereWasAnError = { error in
+                callbackInCaseOfError?(error)
             }
             
-            let params: [String: Any] = ["email": registrationInfo.email, "password": registrationInfo.password, "repeat_password": registrationInfo.password]
-            self.swarmClient.startSwarm(SwarmName.register.rawValue, phase: SwarmPhase.start.rawValue, ctor: RegisterConstructor.registerNewUser.rawValue, arguments: [params as AnyObject])
-    
+            self.handlersPerSwarmingName[.register] = { dataArray in
+                guard let dict = dataArray.first as? [String: Any] else {
+                    callbackInCaseOfError?(OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                
+                if let error = SwarmClientResponseParsers.parseErrorIfAny(from: dict) {
+                    callbackInCaseOfError?(error)
+                    return
+                }
+                
+                
+                whenAllIsOk?()
+                
+            }
+        }
+        
+        let params: [String: Any] = ["email": registrationInfo.email, "password": registrationInfo.password, "repeat_password": registrationInfo.password]
+        self.swarmClient.startSwarm(SwarmName.register.rawValue, phase: SwarmPhase.start.rawValue, ctor: RegisterConstructor.registerNewUser.rawValue, arguments: [params as AnyObject])
+        
     }
     
     private func killSocketAndReconnect(with callback: CallbackWithError?){
@@ -335,7 +335,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     completion?(error)
                     return
                 }
-
+                
                 completion?(nil)
             }
             
@@ -511,7 +511,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
             }
             
         }
-    
+        
         
         self.swarmClient.startSwarm(SwarmName.identity.rawValue, phase: SwarmPhase.start.rawValue, ctor: IdentityConstructor.updateDefaultSubstituteIdentity.rawValue, arguments: [ ["email": newIdentity] as AnyObject ])
     }
@@ -542,7 +542,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         }
         
         self.swarmClient.startSwarm(SwarmName.pfb.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.getAllDeals.rawValue, arguments: [])
-
+        
     }
     
     func subscribeFor(serviceId: Int, withCompletion completion: ((_ update: PfbDealUpdate, _ error: NSError?) -> Void)?)
@@ -589,10 +589,10 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     return
                 }
                 guard let successStatus = SwarmClientResponseParsers.parseDealUnsubscribedSuccessStatus(from: dataDict)
-                else {
-                    let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.errorInvalidServerResponse
-                    completion?(PfbDealUpdate.emptyUnsubscribed, error)
-                    return
+                    else {
+                        let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.errorInvalidServerResponse
+                        completion?(PfbDealUpdate.emptyUnsubscribed, error)
+                        return
                 }
                 
                 guard successStatus == true else {
@@ -653,7 +653,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                 }
                 
                 guard let successStatus = SwarmClientResponseParsers.parseNotificationDismissedSuccessStatus(from: dataDict),
-                          successStatus == true
+                    successStatus == true
                     else {
                         let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.errorInvalidServerResponse
                         completion?(error)
@@ -669,6 +669,28 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     }
     
     // MARK: - Feedback Form
+    
+    func getLastAnswers(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
+    {
+        workingQueue.async {
+            self.whenThereWasAnError = { error in
+                completion?(nil, error)
+            }
+            
+            self.handlersPerSwarmingName[.feedback] = { dataArray in
+                
+                guard let dataDict = dataArray.first as? [String: Any] else {
+                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                completion?(dataDict, nil)
+            }
+        }
+        
+        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.hasUserSubmittedAFeedBack.rawValue, arguments: [])
+    }
+    
     func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
     {
         workingQueue.async {
@@ -741,10 +763,10 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     private static func swarmingNameIfAny(from data: [Any]) -> SwarmName? {
         guard let first = data.first as? [String: Any],
-        let metaDict = first["meta"] as? [String: Any],
-        let swarmingName = metaDict["swarmingName"] as? String,
-        let swarmNameResult = SwarmName(rawValue: swarmingName) else {
-            return nil
+            let metaDict = first["meta"] as? [String: Any],
+            let swarmingName = metaDict["swarmingName"] as? String,
+            let swarmNameResult = SwarmName(rawValue: swarmingName) else {
+                return nil
         }
         
         return swarmNameResult

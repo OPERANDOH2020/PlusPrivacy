@@ -19,6 +19,7 @@ protocol OPFeedbackFormVCInteractorProtocol {
     func numberOfRows() -> Int
     func cell(forRowAt indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell
     func height(forRowAt indexPath: IndexPath) -> CGFloat
+    func changeResponse()
 }
 
 class OPFeedbackFormVCInteractor: NSObject {
@@ -26,7 +27,7 @@ class OPFeedbackFormVCInteractor: NSObject {
     fileprivate let feedbackForm: OPFeedbackForm
     fileprivate let uiDelegate: OPFeedbackFormVCProtocol?
     fileprivate var dataSource: [OPFeedbackFormVCCellViewModel]
-
+    
     fileprivate var callbacks: OPFeedbackFormVCCallbacks?
     
     init(feedbackForm: OPFeedbackForm, uiDelegate: OPFeedbackFormVCProtocol?,feedbackCallback: OPFeedbackFormVCCallbacks) {
@@ -37,7 +38,7 @@ class OPFeedbackFormVCInteractor: NSObject {
         super.init()
     }
     
-    fileprivate func buildDataSource() {
+    fileprivate func buildDataSource(withAnswers:Bool = false) {
         for question in feedbackForm.questions {
             dataSource.append(OPFeedbackFormVCCellViewModel(type: .title, parentId: question.id, title: question.title, detail: question.description, option: -1, textContent: nil, required: question.required))
             
@@ -58,6 +59,12 @@ class OPFeedbackFormVCInteractor: NSObject {
                 for item in question.items ?? [] {
                     dataSource.append(OPFeedbackFormVCCellViewModel(type: type, parentId: question.id, title: item, detail: nil, option: -1, textContent: nil, required: question.required))
                 }
+            }
+            
+            if withAnswers == true {
+                
+                
+                
             }
         }
     }
@@ -89,11 +96,14 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCCellDelegate {
 extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
     
     func viewDidLoad() {
-        uiDelegate?.showLoadingMessage(message: nil)
-        feedbackForm.requestFeedbackForm { [weak self] (succes) in
-            guard let strongSelf = self else { return }
-            strongSelf.buildDataSource()
-            strongSelf.uiDelegate?.refreshUI()
+        
+        feedbackForm.requestLastAnswerIfAny { (success) in
+            if self.feedbackForm.answers.count == 0 {
+                self.showQuestionList()
+            }
+            else {
+                self.uiDelegate?.showThankYouSubView()
+            }
         }
     }
     
@@ -116,6 +126,20 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
         default:
             return 75.0
         }
+    }
+    
+    func showQuestionList(withAnswers:Bool = false) {
+        uiDelegate?.hideThankYouParrentView()
+        uiDelegate?.showLoadingMessage(message: nil)
+        feedbackForm.requestFeedbackForm { [weak self] (succes) in
+            guard let strongSelf = self else { return }
+            strongSelf.buildDataSource(withAnswers: true)
+            strongSelf.uiDelegate?.refreshUI()
+        }
+    }
+    
+    func changeResponse() {
+        showQuestionList(withAnswers: true)
     }
     
     func didSubmitForm() {

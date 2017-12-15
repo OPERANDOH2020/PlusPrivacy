@@ -12,6 +12,8 @@ protocol OPFeedbackFormVCProtocol {
     func refreshUI()
     func showMessage(title: String, message: String)
     func showLoadingMessage(message: String?)
+    func hideThankYouParrentView()
+    func showThankYouSubView()
 }
 
 class OPFeedbackFormViewController: UIViewController {
@@ -23,6 +25,13 @@ class OPFeedbackFormViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBOutlet weak var feedbackView: UIView!
+    @IBOutlet weak var feedbackSubView: UIView!
+    
+    
+    @IBAction func didTapChangeResponse(_ sender: Any) {
+        interactor?.changeResponse()
+    }
     @IBAction func didTapSubmitButton(_ sender: Any) {
         interactor?.didSubmitForm()
     }
@@ -33,7 +42,6 @@ class OPFeedbackFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupControls()
         interactor?.viewDidLoad()
     }
@@ -103,5 +111,13 @@ extension OPFeedbackFormViewController: OPFeedbackFormVCProtocol {
     
     func showMessage(title: String, message: String) {
         OPViewUtils.showOkAlertWithTitle(title: title, andMessage: message)
+    }
+    
+    func hideThankYouParrentView(){
+        self.feedbackView.isHidden = true
+    }
+    
+    func showThankYouSubView(){
+        self.feedbackSubView.isHidden = false
     }
 }
