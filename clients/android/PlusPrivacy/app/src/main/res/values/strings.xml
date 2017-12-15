@@ -302,6 +302,13 @@
     <string name="confirm_password">Confirm password</string>
     <string name="new_password">New password</string>
     <string name="update_password">Update password</string>
+
+
     <string name="weak">Weak</string>
+    <string name="acceptable">Acceptable</string>
+    <string name="strong">Strong</string>
+    <string name="very_strong">Very Strong</string>
+    <string name="doesnt_match">Doesn\'t match</string>
+    <string name="match">Match</string>
 
 </resources>
