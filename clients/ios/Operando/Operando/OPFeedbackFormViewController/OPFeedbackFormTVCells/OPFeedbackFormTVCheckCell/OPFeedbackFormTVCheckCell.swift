@@ -57,6 +57,7 @@ class OPFeedbackFormTVCheckCell: OPFeedbackFormTableViewCell {
     
     override func setup(with viewModel: OPFeedbackFormVCCellViewModel, delegate: OPFeedbackFormVCCellDelegate) {
         super.setup(with: viewModel, delegate: delegate)
+        
         titleLabel.text = viewModel.title
         setupRating(withSelectedValue: viewModel.option)
         

@@ -54,17 +54,66 @@ class OPFeedbackFormVCInteractor: NSObject {
             }
             
             if type == .textInput {
-                dataSource.append(OPFeedbackFormVCCellViewModel(type: type, parentId: question.id, title: "", detail: nil, option: -1, textContent: "", required: question.required))
-            } else {
-                for item in question.items ?? [] {
-                    dataSource.append(OPFeedbackFormVCCellViewModel(type: type, parentId: question.id, title: item, detail: nil, option: -1, textContent: nil, required: question.required))
+                
+                let cellModel = OPFeedbackFormVCCellViewModel(type: type, parentId: question.id, title: "", detail: nil, option: -1, textContent: "", required: question.required)
+                
+                if withAnswers == true {
+                    
+                    if let questionAnswer =  feedbackForm.answers.first(where: { (localAnswer) -> Bool in
+                        
+                        if localAnswer.questionKey == question.title {
+                            return true
+                        }
+                        return false
+                    }) {
+                        cellModel.textContent = questionAnswer.answer as? String
+                    }
                 }
+                
+                dataSource.append(cellModel)
             }
-            
-            if withAnswers == true {
-                
-                
-                
+            else {
+                for item in question.items ?? [] {
+                    
+                    let cellModel = OPFeedbackFormVCCellViewModel(type: type, parentId: question.id, title: item, detail: nil, option: -1, textContent: nil, required: question.required)
+                    
+                    if withAnswers == true {
+                        
+                        if let questionAnswer =  feedbackForm.answers.first(where: { (localAnswer) -> Bool in
+                            
+                            if localAnswer.itemName == item {
+                                return true
+                            }
+                            return false
+                        }) {
+                            
+                            if let optionString = questionAnswer.answer as? String{
+                                
+                                if let option = Int(optionString){
+                                    cellModel.option = option-1
+                                }
+                                else if let option = Bool(optionString){
+                                    cellModel.option = 1
+                                }
+                            }
+                        }
+                        else if let questionAnswer =  feedbackForm.answers.first(where: { (localAnswer) -> Bool in
+                            
+                            if localAnswer.questionKey == question.title{
+                                return true
+                            }
+                            return false
+                        }) {
+                            
+                            if let questionAnswerString = questionAnswer.answer as? String,
+                                item == questionAnswerString {
+                                cellModel.option = 1
+                            }
+                        }
+                    }
+                    
+                    dataSource.append(cellModel)
+                }
             }
         }
     }
@@ -77,7 +126,13 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCCellDelegate {
     }
     
     func didSelectQuestion(for viewModel: OPFeedbackFormVCCellViewModel?) {
-        viewModel?.option = 1
+    
+        if viewModel?.option == 1 {
+            viewModel?.option = -1
+        }
+        else {
+             viewModel?.option = 1
+        }
         if viewModel?.type == .radioWithExclusivity {
             for item in dataSource {
                 if item.parentId == viewModel?.parentId && item.title != viewModel?.title {
