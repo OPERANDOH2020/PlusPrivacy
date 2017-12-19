@@ -92,6 +92,7 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
         outlets.aliasTF?.delegate = self
         outlets.domainTF?.delegate = self
         self.editingTextField = outlets.domainTF
+        outlets.domainTF?.isUserInteractionEnabled = false
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillAppear(_:)), name: .UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillDisappear(_:)), name: .UIKeyboardWillHide, object: nil)

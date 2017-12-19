@@ -32,13 +32,13 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "dashboard", categoryName: Bundle.localizedStringFor(key: kDashboardLocalizableKey), action: self.callbacks?.whenChoosingHome))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "identities-green", categoryName: Bundle.localizedStringFor(key: kIdentitiesManagementLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingIdentitiesManagement))
+//        result.append(UILeftSideMenuVCObject(categoryImageName: "identities-green", categoryName: Bundle.localizedStringFor(key: kIdentitiesManagementLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingIdentitiesManagement))
+//
+//        result.append(UILeftSideMenuVCObject(categoryImageName: "deals-red", categoryName: Bundle.localizedStringFor(key: kPrivacyForBenefitsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingPrivacyForBenefits))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "deals-red", categoryName: Bundle.localizedStringFor(key: kPrivacyForBenefitsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingPrivacyForBenefits))
-        
-        result.append(UILeftSideMenuVCObject(categoryImageName: "private_browsing-orange", categoryName: Bundle.localizedStringFor(key: kPrivateBrowsingLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingPrivateBrowsing))
-        
-        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: Bundle.localizedStringFor(key: kNotificationsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingNotifications))
+//        result.append(UILeftSideMenuVCObject(categoryImageName: "private_browsing-orange", categoryName: Bundle.localizedStringFor(key: kPrivateBrowsingLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingPrivateBrowsing))
+//        
+//        result.append(UILeftSideMenuVCObject(categoryImageName: "notifications-light-green", categoryName: Bundle.localizedStringFor(key: kNotificationsLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingNotifications))
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "settings", categoryName: Bundle.localizedStringFor(key: kSettingsLocalizableKey), action: self.callbacks?.whenChoosingSettings))
         
