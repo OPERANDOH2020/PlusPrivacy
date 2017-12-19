@@ -63,6 +63,8 @@ class UIAddIdentityViewControllerLogic: NSObject {
             }
             
             weakSelf?.identityViewLogic.changeAlias(to: alias)
+            weakSelf?.identityViewLogic.updateProfileLabel()
+            
         })
     }
     
