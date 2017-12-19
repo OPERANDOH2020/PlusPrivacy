@@ -30,7 +30,7 @@ extension UILeftSideMenuViewController {
         
         var result = [UILeftSideMenuVCObject]()
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "home-blue", categoryName: Bundle.localizedStringFor(key: kDashboardLocalizableKey), action: self.callbacks?.whenChoosingHome))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "dashboard", categoryName: Bundle.localizedStringFor(key: kDashboardLocalizableKey), action: self.callbacks?.whenChoosingHome))
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "identities-green", categoryName: Bundle.localizedStringFor(key: kIdentitiesManagementLocalizableKey), action: self.callbacks?.dashboardCallbacks?.whenChoosingIdentitiesManagement))
         
@@ -42,11 +42,11 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "settings", categoryName: Bundle.localizedStringFor(key: kSettingsLocalizableKey), action: self.callbacks?.whenChoosingSettings))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "research_osdk", categoryName: Bundle.localizedStringFor(key: kResearchOSDKLocalizableKey), action: self.callbacks?.whenChoosingMonitor))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "osdk", categoryName: Bundle.localizedStringFor(key: kResearchOSDKLocalizableKey), action: self.callbacks?.whenChoosingMonitor))
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kFeedBackFormKey), action: self.callbacks?.whenChoosingFeedbackForm))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "ic_feedback", categoryName: Bundle.localizedStringFor(key: kFeedBackFormKey), action: self.callbacks?.whenChoosingFeedbackForm))
         
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))

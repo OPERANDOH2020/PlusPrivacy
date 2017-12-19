@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "osdk.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "about.png",
+      "filename" : "osdk@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "osdk@3x.png",
       "scale" : "3x"
     }
   ],

@@ -98,7 +98,7 @@
                                         <constraint firstAttribute="height" constant="44" id="pCr-hI-hSZ"/>
                                         <constraint firstAttribute="width" constant="44" id="r1E-Wt-CyU"/>
                                     </constraints>
-                                    <state key="normal" image="close"/>
+                                    <state key="normal" image="back-white"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTC-7W-4Hl">
                                     <rect key="frame" x="60" y="0.0" width="315" height="60"/>
@@ -238,7 +238,7 @@
         </view>
     </objects>
     <resources>
-        <image name="close" width="32" height="32"/>
+        <image name="back-white" width="42" height="42"/>
         <image name="ic_facebook_settings_right_arrow" width="33" height="33"/>
         <image name="ic_refresh" width="34" height="34"/>
         <image name="user" width="134" height="134"/>
