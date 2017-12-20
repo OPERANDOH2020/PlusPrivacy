@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#dff3ff"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/facebook_privacy_settings"
+        app:titleTextColor="@color/white"
+        android:background="@color/social_network_settings_facebook"
+        app:theme="@style/ToolbarStyle">
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/questionnaire_recommended"
+            android:text="@string/recommended"
+            android:onClick="onClickRecommended"
+            android:background="@color/background_facebook_recommended_button"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/facebook_recommended"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginStart="5dp"
+                android:text="@string/recommended"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/questionnaire_submit"
+            android:onClick="onClickSubmit"
+            android:background="@color/background_facebook_submit_button"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/facebok_settings_upload"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginStart="5dp"
+                android:text="@string/submit"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/osp_settings_elv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@id/my_toolbar"
+        android:layout_alignParentBottom="true"
+        android:divider="@null"
+        android:background="@color/background_facebook_settings"
+        android:groupIndicator="@null">
+
+    </ExpandableListView>
+
+
+</RelativeLayout>

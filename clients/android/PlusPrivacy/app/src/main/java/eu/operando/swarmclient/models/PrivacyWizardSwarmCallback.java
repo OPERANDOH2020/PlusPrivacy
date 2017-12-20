@@ -30,9 +30,8 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
     }
 
     private JSONObject modifyResult(JSONObject result) {
-//        Log.e("questionsJsonArray res", result.toString());
+
         JSONArray questionsJsonArray = null;
-//        List<Question> questionList = new ArrayList<>();
 
         try {
 
@@ -50,7 +49,6 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
             e.printStackTrace();
         }
 
-//        Log.e("questionsJsonArray", questionsJsonArray.toString());
         Log.e("questionsJsonArray res", result.toString());
         return result;
     }
@@ -64,12 +62,10 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
 
                 writeJsonObj = questionsJsonArray.getJSONObject(i).getJSONObject("write");
 
-//                    Log.e("modifyResult", writeJsonObj.toString());
                 if (writeJsonObj.has("recommended") && writeJsonObj.has("availableSettings")
                         && writeJsonObj.getJSONObject("availableSettings")
                         .has((String) writeJsonObj.get("recommended"))) {
 
-//                        Log.e("modifyResult", "true condition");
                     questionsJsonArray.getJSONObject(i).getJSONObject("read")
                             .put("availableSettings", convertJSONObjectToJSONArray(
                                     questionsJsonArray.getJSONObject(i).getJSONObject("read")
@@ -81,7 +77,7 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
                                     questionsJsonArray.getJSONObject(i).getJSONObject("write")
                                             .getJSONObject("availableSettings"), true)
                             );
-////
+
                     JSONArray availableSettinsJSONArray = writeJsonObj
                             .getJSONArray("availableSettings");
 
@@ -98,7 +94,7 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
                         }
                     }
                     Log.e("availableSettings2", availableSettinsJSONArray.toString());
-////
+
                     availableQuestionsJsonArray.put(questionsJsonArray.getJSONObject(i));
                 }
             }

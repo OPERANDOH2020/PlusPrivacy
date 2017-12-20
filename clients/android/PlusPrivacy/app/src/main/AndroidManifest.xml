@@ -28,13 +28,16 @@
             android:name=".feedback.view.FeedbackActivity"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".activity.OSPSettingsActivity"
+            android:name=".activity.AboutActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activity.FacebookSettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.SocialNetworkPrivacySettingsActivity"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".activity.PrivacyWizardWebViewActivity"
+            android:name=".activity.FacebookWebViewActivity"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.ScannerActivity"

@@ -258,7 +258,7 @@
     <string name="start">Start</string>
     <string name="dialog_sign_in_failed">Sign In Failed</string>
     <string name="check_your_email_and_password">Check your email and password</string>
-    <string name="facebook_settings">Facebook Settings</string>
+    <string name="social_network_settings">Social Network Settings</string>
     <string name="feedback">Feedback</string>
     <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
@@ -310,5 +310,29 @@
     <string name="very_strong">Very Strong</string>
     <string name="doesnt_match">Doesn\'t match</string>
     <string name="match">Match</string>
+    <string name="password_rules">Password rules:</string>
+    <string name="password_changed">Password changed</string>
+    <string name="update_password_err">Password doesn\'t match or the field is empty</string>
+    <string name="password_restriction">Contains at least 6 characters.</string>
+    <string name="delete_account_question">Are you sure to delete this account ? All the account data will pe wiped.</string>
+    <string name="delete_account_confirmation">Your account has been deleted.</string>
+    <string name="password_changed_confirmation">Your password has been changed.</string>
+    <string name="facebook_privacy_settings">Facebook privacy settings</string>
+
+    <string name="about_first_paragraph">PlusPrivacy provides you with a unified dashboard for
+        protecting yourself from a variety of threats to your privacy. It will enable you to
+        control the privacy settings in your social network accounts, hide your email identity,
+        block ads,trackers and malware and prevent unwanted apps and browser extensions from
+        tracking you and collecting your private data.</string>
+    <string name="about_second_paragraph">If you explicitly choose to do so, PlusPrivacy will
+        help you to exchange some of your data for rewards and benefits offered by participating
+        service providers.</string>
+    <string name="about_third_paragraph">PlusPrivacy uses the following open source libraries:</string>
+    <string name="about_version">Version\ </string>
+    <string name="about_plusprivacy">About PlusPrivacy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="settings_activity">Settings Activity</string>
+    <string name="uninstall">Uninstall</string>
+
 
 </resources>

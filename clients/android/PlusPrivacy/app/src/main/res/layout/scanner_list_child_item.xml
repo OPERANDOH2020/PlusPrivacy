@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/notification_button_font_color"
                 android:textSize="@dimen/button_font_size"
-                android:text="Uninstall app"
+                android:text="@string/uninstall"
                 android:textAllCaps="false"
                 />
 

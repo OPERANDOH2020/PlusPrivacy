@@ -3,7 +3,6 @@ package eu.operando.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
@@ -46,7 +45,7 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
-                        OSPSettingsActivity.class));
+                        FacebookSettingsActivity.class));
             }
         });
 

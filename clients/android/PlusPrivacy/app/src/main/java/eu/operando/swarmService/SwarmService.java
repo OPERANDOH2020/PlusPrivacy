@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.models.Identity;
+import eu.operando.swarmService.models.ChangePasswordEntity;
 import eu.operando.swarmService.models.GenerateIdentitySwarmEntity;
 import eu.operando.swarmService.models.GetDomainsSwarmEntity;
 import eu.operando.swarmService.models.PfbSwarmEntity;
@@ -128,4 +129,14 @@ public class SwarmService {
     public void listDomains(SwarmCallback<GetDomainsSwarmEntity> callback){
         swarmClient.startSwarm(callback,"identity.js", "listDomains");
     }
+
+    public void deleteAccount(SwarmCallback<Swarm> callback){
+        swarmClient.startSwarm(callback,"UserInfo.js", "deleteAccount");
+    }
+
+    public void changePassword(String currentPassword, String newPassword, SwarmCallback<Swarm> callback){
+        swarmClient.startSwarm(callback,"UserInfo.js", "changePassword",
+                currentPassword, newPassword);
+    }
+
 }

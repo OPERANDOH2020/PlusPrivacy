@@ -339,7 +339,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="5dp"
                         android:gravity="center"
-                        android:text="@string/facebook_settings"
+                        android:text="@string/social_network_settings"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="@dimen/main_screen_text_size" />

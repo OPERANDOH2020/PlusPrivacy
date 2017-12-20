@@ -35,7 +35,7 @@
 
         <RelativeLayout
             android:id="@+id/change_password_rl"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
@@ -95,7 +95,7 @@
 
         <LinearLayout
             android:id="@+id/change_password_expanded"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -123,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/account_background"
                     android:inputType="textPassword"
+                    android:drawablePadding="0dp"
                     android:textColor="@color/toolbar_color"
                     android:textColorHint="@color/toolbar_color" />
 
@@ -147,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_height"
                     android:backgroundTint="@color/account_background"
+                    android:drawablePadding="0dp"
                     android:inputType="textPassword"
                     android:textColor="@color/toolbar_color" />
 
@@ -227,6 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/account_background"
+                    android:drawablePadding="0dp"
                     android:inputType="textPassword"
                     android:textColor="@color/toolbar_color"
                     android:textColorHint="@color/toolbar_color" />
@@ -250,6 +253,7 @@
                 android:layout_marginTop="15dp">
 
                 <TextView
+                    android:id="@+id/update_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/toolbar_color"

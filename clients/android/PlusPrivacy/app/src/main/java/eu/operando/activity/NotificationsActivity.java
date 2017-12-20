@@ -57,7 +57,6 @@ public class NotificationsActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         notificationsLV = (ExpandableListView) findViewById(R.id.notifications_elv);
-
         notificationsLV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(notificationsLV));
     }
 

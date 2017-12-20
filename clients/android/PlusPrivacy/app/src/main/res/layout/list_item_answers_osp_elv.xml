@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bottom_gray_border"
-    android:paddingLeft="?android:expandableListPreferredChildPaddingLeft"
-    android:id="@+id/layout_list_item_answer"
-    >
+    android:layout_height="match_parent">
 
-    <!--<RadioButton-->
-        <!--android:id="@+id/list_item_answers_radio_button"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_list_item_answer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:paddingStart="10dp"
+        android:background="@color/background_facebook_child_item"
+        android:orientation="vertical">
 
+    </RadioGroup>
 
-</RadioGroup>
+    <ImageView
+        android:layout_marginTop="-8dp"
+        android:src="@drawable/facebook_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

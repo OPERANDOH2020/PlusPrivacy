@@ -1,9 +1,13 @@
 package eu.operando.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
@@ -12,17 +16,26 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import eu.operando.R;
+import eu.operando.storage.Storage;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmclient.models.Swarm;
+import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PasswordStrength;
 
 import static eu.operando.utils.PasswordStrength.ACCEPTABLE;
@@ -38,6 +51,10 @@ import static eu.operando.utils.PasswordStrength.WHITE_SPACES;
 public class UserAccountActivity extends BaseActivity {
 
     private final int ANIMATION_DURATION = 500;
+    private final int SUCCES_DRAWABLE = R.drawable.succes_match;
+    private final int ERROR_DRAWABLE = R.drawable.error_match;
+    private final int COLOR_EMPTY_INDICATOR = R.color.account_empty_indicator;
+
     private LinearLayout changeBtn;
     private LinearLayout deleteAccountBtn;
     private TextView deleteTv;
@@ -47,14 +64,17 @@ public class UserAccountActivity extends BaseActivity {
     private EditText currentPassword;
     private EditText newPassword;
     private EditText confirmPassword;
-    private RelativeLayout passwordStatesRl;
+    private TextView updatePassword;
 
-    private View firstStrengthIndicator;
-    private View secondStrengthIndicator;
-    private View thirdStrengthIndicator;
-    private View fourthStrengthIndicator;
+    private RelativeLayout passwordStatesRl;
+    private LinearLayout indicatorsLayout;
     private TextView strengthTv;
     private TextView passwordMatchTv;
+
+    private PopupWindow popupWindow;
+    private View customPopupView;
+
+    private ProgressDialog pd;
 
     public static void start(Context context) {
 
@@ -85,12 +105,10 @@ public class UserAccountActivity extends BaseActivity {
         currentPassword = (EditText) findViewById(R.id.current_password_et);
         newPassword = (EditText) findViewById(R.id.new_password_et);
         confirmPassword = (EditText) findViewById(R.id.confirm_new_password_et);
+        updatePassword = (TextView) findViewById(R.id.update_password);
 
         passwordStatesRl = (RelativeLayout) findViewById(R.id.password_states);
-        firstStrengthIndicator = findViewById(R.id.first_strength_indicator);
-        secondStrengthIndicator = findViewById(R.id.second_strength_indicator);
-        thirdStrengthIndicator = findViewById(R.id.third_strength_indicator);
-        fourthStrengthIndicator = findViewById(R.id.fourth_strength_indicator);
+        indicatorsLayout = (LinearLayout) findViewById(R.id.password_strength);
         strengthTv = (TextView) findViewById(R.id.password_strength_tv);
         passwordMatchTv = (TextView) findViewById(R.id.match_validation_tv);
 
@@ -98,8 +116,180 @@ public class UserAccountActivity extends BaseActivity {
 
     private void setData() {
 
+        pd = new ProgressDialog(UserAccountActivity.this);
         setSpannableString(deleteTv);
         setOnChangeClickListener();
+        setCurrentPasswordListener();
+        initPopupPasswordRules();
+        setNewPasswordListener();
+        setConfirmPasswordListener();
+        setOnUpdatePasswordClickListener();
+        setOnDeleteAccountClickListener();
+    }
+
+    private void setOnDeleteAccountClickListener() {
+        deleteAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserAccountActivity.this);
+                builder.setTitle(R.string.delete_account)
+                        .setMessage(R.string.delete_account_question)
+                        .setPositiveButton(R.string.action_yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+
+                                pd.show();
+                                SwarmService.getInstance().deleteAccount(new SwarmCallback<Swarm>() {
+                                    @Override
+                                    public void call(Swarm result) {
+                                        onDeleteAccount();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton(R.string.action_no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                ;
+                // Create the AlertDialog object and return it
+                builder.create().show();
+            }
+        });
+    }
+
+    private void onDeleteAccount() {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                pd.hide();
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserAccountActivity.this);
+                builder.setTitle(R.string.delete_account)
+                        .setMessage(R.string.delete_account_confirmation)
+                        .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Storage.clearData();
+                                startActivity(new Intent(UserAccountActivity.this, LoginActivity.class));
+                            }
+                        })
+                        .setCancelable(false);
+                ;
+                builder.create().show();
+            }
+        });
+    }
+
+    private void setOnUpdatePasswordClickListener() {
+
+        updatePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String currPass = currentPassword.getText().toString();
+                String newPass = newPassword.getText().toString();
+                if (currPass.equals(Storage.readCredentials().second) && newPass.length() >= 6) {
+                    pd.show();
+                    SwarmService.getInstance().changePassword(currPass, newPass, new SwarmCallback<Swarm>() {
+                        @Override
+                        public void call(Swarm result) {
+                            Log.e("passwordChanged", result.toString());
+
+                            onPasswordChangedListener();
+                        }
+                    });
+                } else {
+                    Toast.makeText(UserAccountActivity.this, R.string.update_password_err, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void onPasswordChangedListener() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                pd.hide();
+                showOnPasswordChangedDialog();
+                removeAllInputFromEditText();
+                Storage.saveCredentials(Storage.readCredentials().first, newPassword.getText().toString());
+            }
+        });
+    }
+
+    private void showOnPasswordChangedDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(UserAccountActivity.this);
+        builder.setTitle(R.string.password_changed)
+                .setMessage(R.string.password_changed_confirmation)
+                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+        ;
+        builder.create().show();
+    }
+
+    private void setCurrentPasswordListener() {
+        currentPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    if (currentPassword.getText().toString().length() == 0) {
+                        currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+                    } else {
+                        if (Storage.readCredentials().second.equals(currentPassword.getText().toString())) {
+                            currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, SUCCES_DRAWABLE, 0);
+                        } else {
+                            currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, ERROR_DRAWABLE, 0);
+                        }
+                    }
+                } else {
+                    currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+                }
+            }
+        });
+    }
+
+    private void setConfirmPasswordListener() {
+
+        confirmPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.toString().length() == 0) {
+                    passwordMatchTv.setVisibility(View.INVISIBLE);
+                    confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+                } else {
+                    passwordMatchTv.setVisibility(View.VISIBLE);
+                    if (newPassword.getText().toString().length() >= 6
+                            && newPassword.getText().toString().equals(charSequence.toString())) {
+                        passwordMatchTv.setText(R.string.match);
+                        confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, SUCCES_DRAWABLE, 0);
+                    } else {
+                        passwordMatchTv.setText(R.string.doesnt_match);
+                        confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, ERROR_DRAWABLE, 0);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    private void setNewPasswordListener() {
+
         newPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -113,46 +303,70 @@ public class UserAccountActivity extends BaseActivity {
                 if (length == 0) {
                     passwordStatesRl.setVisibility(View.INVISIBLE);
                 } else {
+
+
                     passwordStatesRl.setVisibility(View.VISIBLE);
                     int result = checkForStrength(charSequence);
                     updateStrengthUI(result);
+                    newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-            }
-        });
-        confirmPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().length() == 0){
-                    passwordMatchTv.setVisibility(View.INVISIBLE);
-                    confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
-                } else {
-                    passwordMatchTv.setVisibility(View.VISIBLE);
-                }
-                if (newPassword.getText().toString().length() >= 6
-                        && newPassword.getText().toString().equals(charSequence.toString())){
-                    passwordMatchTv.setText(R.string.match);
-                    confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.succes_match, 0);
-                    confirmPassword.setCompoundDrawablePadding(10);
-                } else {
-                    passwordMatchTv.setText(R.string.doesnt_match);
-                    confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.error_match, 0);
+                int length = newPassword.getText().length();
+                if (length < 6 && length > 0 && !popupWindow.isShowing()) {
+                    showPopup();
+                } else if (length >= 6 && popupWindow.isShowing()) {
+                    hidePopup();
+                    newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, SUCCES_DRAWABLE, 0);
+                } else if (length == 0) {
+                    hidePopup();
                 }
             }
-
+        });
+        newPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus && newPassword.getText().length() > 0 && newPassword.getText().length() < 6) {
+                    newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, ERROR_DRAWABLE, 0);
+                } else if (newPassword.getText().length() >= 6) {
+                    newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, SUCCES_DRAWABLE, 0);
+                } else if (newPassword.getText().length() == 0) {
+                    newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+                }
             }
         });
+    }
+
+    public void initPopupPasswordRules() {
+        // Initialize a new instance of LayoutInflater service
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        // Inflate the custom layout/view
+        customPopupView = inflater.inflate(R.layout.custom_popup_window, null);
+
+        popupWindow = new PopupWindow(
+                customPopupView,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+
+        // Set an elevation value for popup window
+        // Call requires API level 21
+        if (Build.VERSION.SDK_INT >= 21) {
+            popupWindow.setElevation(5.0f);
+        }
+    }
+
+    public void showPopup() {
+        customPopupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int height = customPopupView.getMeasuredHeight();
+        popupWindow.showAtLocation(newPassword, Gravity.CENTER_HORIZONTAL, 0, -newPassword.getHeight() - height);
+    }
+
+    public void hidePopup() {
+        popupWindow.dismiss();
     }
 
     private void updateStrengthUI(int result) {
@@ -160,37 +374,36 @@ public class UserAccountActivity extends BaseActivity {
         switch (result) {
 
             case WEAK:
-                firstStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.weak_password));
-                secondStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
-                thirdStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
-                fourthStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
-
+                updateIndicators(R.color.weak_password, WEAK);
                 break;
 
             case ACCEPTABLE:
-                firstStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.acceptable_password));
-                secondStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.acceptable_password));
-                thirdStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
-                fourthStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
+                updateIndicators(R.color.acceptable_password, ACCEPTABLE);
                 break;
 
             case STRONG:
-                firstStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.strong_password));
-                secondStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.strong_password));
-                thirdStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.strong_password));
-                fourthStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.account_empty_indicator));
+                updateIndicators(R.color.strong_password, STRONG);
                 break;
 
             case VERY_STRONG:
-                firstStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.very_strong_password));
-                secondStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.very_strong_password));
-                thirdStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.very_strong_password));
-                fourthStrengthIndicator.setBackgroundColor(ContextCompat.getColor(this, R.color.very_strong_password));
+                updateIndicators(R.color.very_strong_password, VERY_STRONG);
                 break;
 
             case WHITE_SPACES:
 
                 break;
+        }
+    }
+
+    private void updateIndicators(int color, int state) {
+
+        for (int i = 0; i < indicatorsLayout.getChildCount(); ++i) {
+            View child = indicatorsLayout.getChildAt(i);
+            if (i < state) {
+                child.setBackgroundColor(ContextCompat.getColor(this, color));
+            } else {
+                child.setBackgroundColor(ContextCompat.getColor(this, COLOR_EMPTY_INDICATOR));
+            }
         }
     }
 
@@ -204,8 +417,8 @@ public class UserAccountActivity extends BaseActivity {
         return state;
     }
 
-
     private void setOnChangeClickListener() {
+
         changeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,16 +436,30 @@ public class UserAccountActivity extends BaseActivity {
         cancelChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                popupWindow.dismiss();
                 collapse(changePasswordExpanded);
                 changePasswordExpanded.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         expand(changePasswordCollapsed);
                         changePasswordExpanded.setVisibility(View.GONE);
+                        removeAllInputFromEditText();
                     }
                 }, ANIMATION_DURATION + 200);
             }
         });
+    }
+
+    private void removeAllInputFromEditText() {
+
+        currentPassword.setText("");
+        newPassword.setText("");
+        confirmPassword.setText("");
+
+        currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+        newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+        confirmPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
     }
 
     public void collapse(final View v) {

@@ -332,7 +332,8 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         switch (position) {
 
             case 0: //About
-                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
+//                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 break;
             case 1: //Privacy Policy
                 HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
