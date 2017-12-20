@@ -163,7 +163,7 @@
         if (errorIfAny) {
             NSString *message = [NSString stringWithFormat:@"Could not synchronize the SCD with the PlusPrivacy server, reason: %@", errorIfAny.localizedDescription];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [CommonViewUtils showOkAlertWithMessage:message completion:nil];
+//                [CommonViewUtils showOkAlertWithMessage:message completion:nil];
                 return;
             });
         }
