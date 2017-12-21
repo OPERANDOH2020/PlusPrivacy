@@ -192,6 +192,13 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */; };
+		C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */; };
+		C76ABAF11FEBFC9900104239 /* PasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */; };
+		C76ABAF41FEBFF8200104239 /* PasswordExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAF21FEBFF8200104239 /* PasswordExpandedCell.swift */; };
+		C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAF31FEBFF8200104239 /* PasswordExpandedCell.xib */; };
+		C76ABAF81FEC0AD600104239 /* AccountDeletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAF61FEC0AD600104239 /* AccountDeletionCell.swift */; };
+		C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAF71FEC0AD600104239 /* AccountDeletionCell.xib */; };
 		C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */; };
 		C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */; };
 		C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DED1FDA83C700AC0F4F /* StringUtils.swift */; };
@@ -458,6 +465,13 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMyAccountViewController.swift; sourceTree = "<group>"; };
+		C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
+		C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordCell.xib; sourceTree = "<group>"; };
+		C76ABAF21FEBFF8200104239 /* PasswordExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordExpandedCell.swift; sourceTree = "<group>"; };
+		C76ABAF31FEBFF8200104239 /* PasswordExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordExpandedCell.xib; sourceTree = "<group>"; };
+		C76ABAF61FEC0AD600104239 /* AccountDeletionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionCell.swift; sourceTree = "<group>"; };
+		C76ABAF71FEC0AD600104239 /* AccountDeletionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDeletionCell.xib; sourceTree = "<group>"; };
 		C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationExpandedCell.swift; sourceTree = "<group>"; };
 		C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotificationExpandedCell.xib; sourceTree = "<group>"; };
 		C7761DED1FDA83C700AC0F4F /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -1179,6 +1193,7 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				C76ABAEA1FEBD8DE00104239 /* UIMyAccountViewController */,
 				AD48A8E51F628E97003E5A88 /* OPFeedbackFormViewController */,
 				9843340A1F06362B0016564E /* LocalizedStringKeys */,
 				98BE1FB11F02990E00223926 /* UserSettingsViewController */,
@@ -1483,6 +1498,28 @@
 			path = UILeftSideMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		C76ABAEA1FEBD8DE00104239 /* UIMyAccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C76ABAED1FEBE74400104239 /* UIMyAccountCellViews */,
+				C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */,
+			);
+			name = UIMyAccountViewController;
+			sourceTree = "<group>";
+		};
+		C76ABAED1FEBE74400104239 /* UIMyAccountCellViews */ = {
+			isa = PBXGroup;
+			children = (
+				C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */,
+				C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */,
+				C76ABAF21FEBFF8200104239 /* PasswordExpandedCell.swift */,
+				C76ABAF31FEBFF8200104239 /* PasswordExpandedCell.xib */,
+				C76ABAF61FEC0AD600104239 /* AccountDeletionCell.swift */,
+				C76ABAF71FEC0AD600104239 /* AccountDeletionCell.xib */,
+			);
+			name = UIMyAccountCellViews;
+			sourceTree = "<group>";
+		};
 		C77B8E171FD6B6D100B16F6E /* ENSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1612,6 +1649,7 @@
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
 				AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
+				C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */,
 				9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */,
 				988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */,
 				982DF0261DB638B900231BBD /* UIPfbDetailsView.xib in Resources */,
@@ -1629,12 +1667,14 @@
 				98F6475A1ED30662008EB91E /* PPCloakBundle.bundle in Resources */,
 				986DB8A61E1CE99900F9BE39 /* schema.json in Resources */,
 				98B89E601EC1DF22009570EC /* LongPress.js in Resources */,
+				C76ABAF11FEBFC9900104239 /* PasswordCell.xib in Resources */,
 				9866A7C01DBF779100907D05 /* UIChangePasswordView.xib in Resources */,
 				989C41861DBE18E800951AE5 /* Info.plist in Resources */,
 				9866A7CB1DBF861300907D05 /* UINotificationCell.xib in Resources */,
 				982DF0601DB660CD00231BBD /* UIPfbDealsListView.xib in Resources */,
 				98EAF6A31CCF8A3400C77649 /* UILoginView.xib in Resources */,
 				98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */,
+				C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
 				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
@@ -1690,6 +1730,8 @@
 				987E71881E8BC8D40006B240 /* UIWebViewTabHelperModels.swift in Sources */,
 				C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */,
 				C7908A371FC6E33400C93A82 /* PKHUDErrorView.swift in Sources */,
+				C76ABAF81FEC0AD600104239 /* AccountDeletionCell.swift in Sources */,
+				C76ABAF41FEBFF8200104239 /* PasswordExpandedCell.swift in Sources */,
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */,
@@ -1697,6 +1739,7 @@
 				AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */,
 				9866A7BE1DBF778100907D05 /* UIChangePasswordView.swift in Sources */,
 				9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */,
+				C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */,
 				98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */,
 				C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */,
 				C7908A361FC6E33400C93A82 /* HUD.swift in Sources */,
@@ -1742,6 +1785,7 @@
 				9866A7BB1DBF701400907D05 /* UIAccountViewController.swift in Sources */,
 				98516FCF1E040C51007428F3 /* OPCloak.swift in Sources */,
 				C7908A391FC6E33400C93A82 /* PKHUDTextView.swift in Sources */,
+				C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */,
 				986F1A5E1E81331900107F23 /* WebTabsControllerLogic.swift in Sources */,
 				982DF05E1DB660B600231BBD /* UIPfbDealsListView.swift in Sources */,
 				982750201D0849EB00C73411 /* SwarmClientHelper.swift in Sources */,
