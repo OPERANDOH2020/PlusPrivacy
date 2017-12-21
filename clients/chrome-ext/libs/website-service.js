@@ -36,16 +36,21 @@ function doPOSTRequest(url, data, callback) {
 var websiteService = exports.websiteService = {
 
     authenticateUserInExtension: function (data) {
-        authenticationService.authenticateWithToken(data.userId, data.authenticationToken, function () {
-            chrome.runtime.openOptionsPage();
-        }, function () {
-            //status.fail = "fail";
+        var maxAuthenticationsAllowed = 1;
+        authenticationService.authenticateWithToken(data.userId, data.authenticationToken, function (res) {
+            console.log("authenticated here");
+            if(maxAuthenticationsAllowed >0){
+                chrome.runtime.openOptionsPage();
+            }
+            maxAuthenticationsAllowed--;
 
         }, function () {
-            //status.error = "error";
+
 
         }, function () {
-            //status.reconnect = "reconnect";
+
+
+        }, function () {
 
         });
     },

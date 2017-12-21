@@ -52,7 +52,6 @@ var authenticationService = exports.authenticationService = {
         };
 
         swarmHub.on('login.js', "success", loginSuccessfully);
-
         swarmHub.on('login.js', "failed", function loginFailed(swarm) {
             securityFn(swarm.error);
             swarmHub.off("login.js", "success",loginSuccessfully);
@@ -106,37 +105,52 @@ var authenticationService = exports.authenticationService = {
         });
     },
 
-    authenticateWithToken: function(userId, authenticationToken, successCallback, failCallback){
+    authenticateWithToken: function(userId, authenticationToken, successCallback, failCallback, networkErrorCallback){
 
         var self = this;
-        swarmService.initConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, userId, authenticationToken, "chromeBrowserExtension", "tokenLogin", failCallback, failCallback, function(){
-            self.restoreUserSession(successCallback, failCallback);
-        });
 
-        var tokenLoginSuccessfully = function(swarm){
 
-            if(loggedIn === false){
-                self.setUser(successCallback);
-            }
+        var authenticateWithTokenHandler = function () {
+            swarmService.initConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, userId, authenticationToken, "chromeBrowserExtension", "tokenLogin", failCallback, networkErrorCallback, function () {
+            });
 
-            loggedIn = swarm.authenticated;
+            var tokenLoginSuccessfully = function (swarm) {
 
-            var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
-            Cookies.set("sessionId", swarm.meta.sessionId,{expires:cookieValidityDays});
-            Cookies.set("userId", swarm.userId,{expires:cookieValidityDays});
+                if (loggedIn === false) {
+                    self.setUser(successCallback);
+                }
 
-            swarmHub.off("login.js", "tokenLoginSuccessfully",tokenLoginSuccessfully);
+                loggedIn = swarm.authenticated;
+
+                var cookieValidityDays = parseInt(Cookies.get("daysUntilCookieExpire"));
+                Cookies.set("sessionId", swarm.meta.sessionId, {expires: cookieValidityDays});
+                Cookies.set("userId", swarm.userId, {expires: cookieValidityDays});
+
+                swarmHub.off("login.js", "tokenLoginSuccessfully", tokenLoginSuccessfully);
+            };
+
+            var tokenLoginFailed = function () {
+
+                loggedIn = false;
+                self.restoreUserSession(successCallback, function () {
+                    Cookies.remove("userId");
+                    Cookies.remove("sessionId");
+                });
+
+                swarmHub.off("login.js", "tokenLoginFailed", tokenLoginFailed);
+            };
+
+            swarmHub.on('login.js', "tokenLoginSuccessfully", tokenLoginSuccessfully);
+            swarmHub.on('login.js', "tokenLoginFailed", tokenLoginFailed);
+
         };
 
-        var tokenLoginFailed = function(){
-            loggedIn = false;
-            Cookies.remove("userId");
-            Cookies.remove("sessionId");
-            swarmHub.off("login.js", "tokenLoginFailed",tokenLoginFailed);
-        };
-
-        swarmHub.on('login.js', "tokenLoginSuccessfully", tokenLoginSuccessfully);
-        swarmHub.on('login.js', "tokenLoginFailed", tokenLoginFailed);
+        if(self.isLoggedIn() === true){
+            self.logoutCurrentUser(authenticateWithTokenHandler);
+        }
+        else{
+            authenticateWithTokenHandler();
+        }
 
     },
 
@@ -168,7 +182,6 @@ var authenticationService = exports.authenticationService = {
     },
 
     restoreUserSession: function (successCallback, failCallback, errorCallback, reconnectCallback) {
-
         if(!errorCallback){
             errorCallback = function(){}
         }
