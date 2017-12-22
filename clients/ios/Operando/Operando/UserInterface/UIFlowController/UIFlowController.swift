@@ -183,6 +183,12 @@ class UIFlowController
         self.rootController.setMainControllerTo(newController: feedbackFormVC);
     }
     
+    func displayMyAccountController(){
+        
+        let myAccountVC = UIViewControllerFactory.myAccountViewController
+        self.rootController.setMainControllerTo(newController: myAccountVC);
+    }
+    
     func displayAboutViewController(){
         let vc = UIViewControllerFactory.aboutViewController
         self.rootController.setMainControllerTo(newController: vc)
@@ -287,7 +293,12 @@ class UIFlowController
         }, logoutCallback: {
             self.dependencies.accountCallbacks?.logoutCallback?()
             self.rootController.reset()
+        }, whenChoosingMyAccount: {
+            weakSelf?.displayMyAccountController()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+            self.rootController.reset()
         })
+        
     }
     
     

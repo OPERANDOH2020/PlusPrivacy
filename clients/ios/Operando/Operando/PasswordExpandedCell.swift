@@ -9,6 +9,8 @@
 import UIKit
 
 class PasswordExpandedCell: UITableViewCell {
+    
+    static let identifierNibName = "PasswordExpandedCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,6 +10,8 @@ import UIKit
 
 class AccountDeletionCell: UITableViewCell {
 
+    static let identifierNibName = "AccountDeletionCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

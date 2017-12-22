@@ -69,6 +69,10 @@ class UIViewControllerFactory
         return leftMenu.instantiateViewController(withIdentifier: "UILeftSideMenuViewControllerStoryboardId") as! UILeftSideMenuViewController
     }
     
+    static var myAccountViewController: UIMyAccountViewController {
+        return main.instantiateViewController(withIdentifier: "UIMyAccountViewController") as! UIMyAccountViewController
+    }
+    
     static var accountViewController: UIAccountViewController {
         return leftMenu.instantiateViewController(withIdentifier: "UIAccountViewController") as! UIAccountViewController
     }

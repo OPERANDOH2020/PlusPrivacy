@@ -7,8 +7,15 @@
 //
 
 import UIKit
+protocol PasswordCellDelegate {
+    func pressedChangeButton()
+}
 
 class PasswordCell: UITableViewCell {
+    
+    static let identifierNibName = "PasswordCell"
+    
+    var delegate: PasswordCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +28,7 @@ class PasswordCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func pressedChangeButton(_ sender: Any) {
+        delegate?.pressedChangeButton()
+    }
 }

@@ -19,6 +19,7 @@ struct UILeftSideMenuViewControllerCallbacks {
     let whenChoosingAbout: VoidBlock?
     let whenChoosingFeedbackForm: VoidBlock?
     let logoutCallback: VoidBlock?
+    let whenChoosingMyAccount: VoidBlock?
 }
 
 class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ENSideMenuDelegate {
