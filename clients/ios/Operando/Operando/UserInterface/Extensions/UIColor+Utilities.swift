@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum LevelColor: Int{
+    case noLevel
+    case level1
+    case level2
+    case level3
+    case level4
+}
+
 extension UIColor{
     
     convenience init(hexString: String) {
@@ -26,6 +34,23 @@ extension UIColor{
             (a, r, g, b) = (255, 0, 0, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+    
+    static func levelColor(lvl: LevelColor) -> UIColor {
+        
+        switch lvl {
+        case .noLevel:
+            return UIColor.operandoLightGray
+        case .level1:
+            return UIColor.operandoRed
+        case .level2:
+            return UIColor.operandoYellow
+        case .level3:
+            return UIColor.init(hexString: "#D9E021")
+        case .level4:
+            return UIColor.operandoDarkGreen
+        }
+        
     }
     
     static func notificationPink () -> UIColor {
@@ -84,6 +109,9 @@ extension UIColor{
         return UIColor(colorLiteralRed: 198.0/255.0, green: 65.0/255.0, blue: 6.0/255.0, alpha: 1.0)
     }
     
+    static var operandoLightGray: UIColor {
+        return UIColor(colorLiteralRed: 219.0/255.0, green: 218.0/255.0, blue: 216.0/255.0, alpha: 1.0)
+    }
     
     static func colorWith(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> UIColor {
         return UIColor(colorLiteralRed: Float(red)/255.0, green: Float(green)/255.0, blue: Float(blue)/255.0, alpha: alpha);

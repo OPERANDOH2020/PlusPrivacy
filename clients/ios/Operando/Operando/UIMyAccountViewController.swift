@@ -15,12 +15,11 @@ struct UIMyAccountViewControllerOutlets {
 }
 
 struct UIMyAccountViewControllerLogicCallbacks {
-
+    
 }
 
-class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableViewDataSource,PasswordCellDelegate {
+class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableViewDataSource,PasswordCellDelegate,PasswordExpandedCellDelegate {
     
-   
     let outlets: UIMyAccountViewControllerOutlets
     let logicCallbacks: UIMyAccountViewControllerLogicCallbacks?
     private var changePassword = false
@@ -29,7 +28,7 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         self.outlets = outlets;
         self.logicCallbacks = logicCallbacks
         super.init()
-//        self.setupTableView()
+        //        self.setupTableView()
     }
     
     func setupTableView(){
@@ -46,8 +45,8 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         let passwordExpanedNib = UINib(nibName: PasswordExpandedCell.identifierNibName, bundle: nil)
         self.outlets.tableView?.register(passwordExpanedNib, forCellReuseIdentifier: PasswordExpandedCell.identifierNibName)
         
-//        self.outlets.tableView?.estimatedRowHeight = 70
-//        self.outlets.tableView?.rowHeight = UITableViewAutomaticDimension
+        //        self.outlets.tableView?.estimatedRowHeight = 70
+        //        self.outlets.tableView?.rowHeight = UITableViewAutomaticDimension
     }
     // MARK: - TableView DataSource
     
@@ -61,6 +60,7 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
             
             if changePassword == true {
                 let cell = tableView.dequeueReusableCell(withIdentifier: PasswordExpandedCell.identifierNibName) as! PasswordExpandedCell
+                cell.delegate = self
                 return cell
             }
             else {
@@ -68,8 +68,6 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
                 cell.delegate = self
                 return cell
             }
-            
-            
         }
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AccountDeletionCell.identifierNibName) as! AccountDeletionCell
@@ -80,9 +78,8 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         if indexPath.row == 0 {
-            
             
             if changePassword == true {
                 return 429
@@ -93,23 +90,89 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
             }
             
         }
-
+        
         return 230
-
+        
     }
+    
+    // MARK: - ExpandedPasswordCellDelegate
+    
+    func pressedUpdatePassword() {
+        self.changePassword = false
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.outlets.tableView?.reloadData()
+    }
+    
+    func pressedCancel() {
+        self.changePassword = false
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.outlets.tableView?.reloadData()
+    }
+    
+    func newPasswordTFWereEdited(newPassword: String?, confirmPassword: String?, cell: PasswordExpandedCell) {
+        
+        var passwordStrenght = 0
+        
+        if newPassword != nil{
+            
+            if (newPassword?.count.toIntMax())! >= 6 {
+                //                (numberOfStrenghtTypesIn(password: newPassword!) >= 1 && (newPassword?.count.toIntMax())! >= 8 ){
+                
+                passwordStrenght += 1
+            }
+            
+            if passwordStrenght == 1 {
+                
+                passwordStrenght = numberOfStrenghtTypesIn(password: newPassword!)
+                
+                var multiples = (newPassword?.count)!/6 - 1
+                
+                if multiples == -1 {
+                    multiples = 0
+                }
+                
+                passwordStrenght = passwordStrenght + multiples
+            }
+            
+            if passwordStrenght > 4 {
+                passwordStrenght = 4
+            }
+        }
+        
+        cell.resetLevels(passwordStrenght: passwordStrenght)
+    }
+    
+    // MARK: - Utilities
+    
+    private func numberOfStrenghtTypesIn(password: String) -> Int {
+        
+        var strenght = 0
+        
+        let sets = [CharacterSet.decimalDigits, CharacterSet.lowercaseLetters, CharacterSet.uppercaseLetters,CharacterSet.alphanumerics.inverted]
+        
+        for set in sets {
+            
+            if password.rangeOfCharacter(from: set) != nil {
+                strenght = strenght+1
+            }
+        }
+        
+        return strenght
+    }
+    
+    // MARK: - PasswordCellDelegate
     
     func pressedChangeButton() {
         
         self.changePassword = true
         let indexPath = IndexPath(row: 0, section: 0)
-//        self.outlets.tableView?.reloadRows(at: [indexPath], with: .automatic)
         self.outlets.tableView?.reloadData()
     }
-
+    
 }
 
 class UIMyAccountViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     private(set) lazy var logic: UIMyAccountViewControllerLogic = {
