@@ -25,7 +25,9 @@ import java.util.TreeMap;
 import eu.operando.R;
 import eu.operando.adapter.FacebookSettingsListAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.customView.FacebookSettingsInfoDialog;
 import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.customView.PfbCustomDialog;
 import eu.operando.models.privacysettings.AvailableSettings;
 import eu.operando.models.privacysettings.AvailableSettingsWrite;
 import eu.operando.models.privacysettings.Preference;
@@ -300,10 +302,16 @@ public class FacebookSettingsActivity extends BaseActivity {
 
         switch (item.getItemId()) {
             case R.id.facebook_settings_recommended:
-
+                showInfoDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showInfoDialog() {
+
+        FacebookSettingsInfoDialog dialog = new FacebookSettingsInfoDialog();
+        dialog.show(getFragmentManager(), "FacebookSettingsInfoDialog");
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.customView.PasswordConfirmationView;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.RegisterSwarmEntity;
@@ -21,7 +22,7 @@ import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText inputEmail;
-    private EditText inputPassword;
+    private PasswordConfirmationView inputPassword;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, SignUpActivity.class);
@@ -39,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void initUI() {
         inputEmail = (EditText) findViewById(R.id.input_email);
-        inputPassword = (EditText) findViewById(R.id.input_password);
+        inputPassword = (PasswordConfirmationView) findViewById(R.id.input_password);
 
         findViewById(R.id.link_login).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
-                String password = inputPassword.getText().toString();
+                String password = inputPassword.getConfirmedPassword();
 
                 signUp(email, password);
             }

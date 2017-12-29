@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
@@ -41,6 +42,7 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
     private ListView listView;
     public static final String PFB_OBJECT = "PfbObject";
     private DialogFragment pfbCustomDialog;
+    private TextView noDealsTv;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, PFBActivity.class);
@@ -62,6 +64,7 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
         setToolbar();
         initProgressDialog();
         listView = (ListView) findViewById(R.id.pfb_lv);
+        noDealsTv = (TextView) findViewById(R.id.no_deals_tv);
     }
 
     private void initProgressDialog() {
@@ -79,49 +82,45 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
                     public void run() {
 
                         pfbs = result.getDeals();
+                        if (pfbs.size() == 0) {
+                            noDealsTv.setVisibility(View.VISIBLE);
+                            listView.setVisibility(View.GONE);
+                        } else {
+                            adapter = new QuickAdapter<PFBObject>(PFBActivity.this, R.layout.pfb_item, pfbs) {
+                                @Override
+                                protected void convert(BaseAdapterHelper helper, final PFBObject item) {
 
-//                        for ( PFBObject pfbObject : pfbs){
-//                            Log.e("PFB", pfbObject.toString());
-//                        }
-//                        adapter = new PfbAdapter(pfbs, getApplicationContext());
-//                        listView.setAdapter(adapter);
-//                        listView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                                    Log.e("PFB", item.toString());
+                                    helper.setText(R.id.pfb_item_tv, item.getWebsite());
 
-
-                        adapter = new QuickAdapter<PFBObject>(PFBActivity.this, R.layout.pfb_item, pfbs) {
-                            @Override
-                            protected void convert(BaseAdapterHelper helper, final PFBObject item) {
-
-                                Log.e("PFB", item.toString());
-                                helper.setText(R.id.pfb_item_tv, item.getWebsite());
-
-                                ImageView image = helper.getView(R.id.pfb_item_iv);
-                                byte[] decodedString = Base64.decode(item.getLogo(), Base64.DEFAULT);
-                                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                                helper.setImageBitmap(R.id.pfb_item_iv, Bitmap.createScaledBitmap(decodedByte, 200, 200, false));
+                                    ImageView image = helper.getView(R.id.pfb_item_iv);
+                                    byte[] decodedString = Base64.decode(item.getLogo(), Base64.DEFAULT);
+                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                                    helper.setImageBitmap(R.id.pfb_item_iv, Bitmap.createScaledBitmap(decodedByte, 200, 200, false));
 
 
-                                final CheckBox cb = helper.getView(R.id.pfb_item_cb);
-                                cb.setOnCheckedChangeListener(null);
-                                helper.setChecked(R.id.pfb_item_cb, item.isSubscribed());
+                                    final CheckBox cb = helper.getView(R.id.pfb_item_cb);
+                                    cb.setOnCheckedChangeListener(null);
+                                    helper.setChecked(R.id.pfb_item_cb, item.isSubscribed());
 
-                                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                    @Override
-                                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                        switchPFB(isChecked, item);
-                                        item.setSubscribed(isChecked);
-                                    }
-                                });
-                                helper.getView().setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
+                                    cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                        @Override
+                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                            switchPFB(isChecked, item);
+                                            item.setSubscribed(isChecked);
+                                        }
+                                    });
+                                    helper.getView().setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
 //                                        showDetails(item);
-                                        showDialog(item);
-                                    }
-                                });
-                            }
-                        };
-                        listView.setAdapter(adapter);
+                                            showDialog(item);
+                                        }
+                                    });
+                                }
+                            };
+                            listView.setAdapter(adapter);
+                        }
                     }
                 });
             }

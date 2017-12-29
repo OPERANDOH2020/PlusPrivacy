@@ -78,27 +78,25 @@ public class FacebookWebViewActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
-        myWebView.loadUrl("http://facebook.com");
+        myWebView.loadUrl("http://m.facebook.com");
     }
 
-    public void startInjectingOnClick(View view) {
-        injectScriptFile("test_jquery.js");
-        if (webAppInterface.isJQueryLoaded == 0) {
-            injectScriptFile("jquery214min.js");
-        }
-//        injectScriptFile("test_jquery.js");
-//        Log.e("loading jquery", String.valueOf(webAppInterface.isJQueryLoaded));
+    private boolean shouldInject = false;
 
-        injectScriptFile("script.js");
-        initProgressDialog();
+    public void startInjectingOnClick(View view) {
+        myWebView.loadUrl("http://facebook.com");
+
+        shouldInject = true;
     }
 
     private void initProgressDialog() {
-        OperandoProgressDialog progressDialog = new OperandoProgressDialog(this);
-        progressDialog.setTitle("Applying settings...");
-        progressDialog.setMessage("This may take some time");
-        progressDialog.setCancelable(true);
-        progressDialog.show();
+        if (!isFinishing()) {
+            OperandoProgressDialog progressDialog = new OperandoProgressDialog(this);
+            progressDialog.setTitle("Applying settings...");
+            progressDialog.setMessage("This may take some time");
+            progressDialog.setCancelable(true);
+            progressDialog.show();
+        }
     }
 
     public void setOverlay() {
@@ -137,6 +135,7 @@ public class FacebookWebViewActivity extends BaseActivity {
 
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 Log.e("InterceptReqv2", request.getMethod() + " " + request.getUrl().toString());
 
@@ -180,6 +179,15 @@ public class FacebookWebViewActivity extends BaseActivity {
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
 //            injectScriptForPrivacySettings();
+            if (shouldInject) {
+                injectScriptFile("test_jquery.js");
+                if (webAppInterface.isJQueryLoaded == 0) {
+                    injectScriptFile("jquery214min.js");
+                }
+
+                injectScriptFile("script.js");
+                initProgressDialog();
+            }
         }
     }
 

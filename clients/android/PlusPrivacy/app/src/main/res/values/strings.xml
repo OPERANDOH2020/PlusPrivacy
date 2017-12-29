@@ -40,6 +40,7 @@
     <string name="importbookmarks">Import bookmarks from browser</string>
     <string name="size">Text size</string>
     <string name="recommended">Recommended</string>
+    <string name="recommended_settings">Recommended settings</string>
     <string name="search">Search Engine</string>
     <string name="search_hint">Search</string>
     <string name="wideViewPort">Use wide viewport</string>
@@ -273,7 +274,7 @@
     <string-array name="drawer_items">
         <item>About</item>
         <item>Privacy Policy</item>
-        <item>Settings</item>
+        <!--<item>Settings</item>-->
         <item>Feedback</item>
         <item>Account</item>
     </string-array>
@@ -313,7 +314,7 @@
     <string name="password_rules">Password rules:</string>
     <string name="password_changed">Password changed</string>
     <string name="update_password_err">Password doesn\'t match or the field is empty</string>
-    <string name="password_restriction">Contains at least 6 characters.</string>
+    <string name="password_restriction">Contains at least 6 characters.\nContains 2 different types of characters.</string>
     <string name="delete_account_question">Are you sure to delete this account ? All the account data will pe wiped.</string>
     <string name="delete_account_confirmation">Your account has been deleted.</string>
     <string name="password_changed_confirmation">Your password has been changed.</string>
@@ -333,6 +334,19 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="settings_activity">Settings Activity</string>
     <string name="uninstall">Uninstall</string>
+    <string name="no_deals_available">No deals available</string>
+    <string name="privacy_settings_info">Privacy settings info</string>
+    <string name="fb_dialog_info">How to select the right settings for you</string>
+    <string name="fb_question_example">Who can contact you/send you friend requests?</string>
+    <string name="friends">Friends</string>
+    <string name="everyone">Everyone</string>
+    <string name="privacy_friendly">Privacy friendly</string>
+    <string name="your_choice">Your choice</string>
+    <string name="default_identity_toast">This activity is already set as default</string>
+    <string name="save">Save</string>
+    <string name="don_t_show_again">Don\'t show again</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet</string>
+    <string name="private_browsing">Private Browsing</string>
 
 
 </resources>

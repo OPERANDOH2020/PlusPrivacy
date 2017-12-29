@@ -338,13 +338,13 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             case 1: //Privacy Policy
                 HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
                 break;
-            case 2: //Settings
-                SettingsActivity.start(this);
-                break;
-            case 3: //Feedback
+//            case 2: //Settings
+//                SettingsActivity.start(this);
+//                break;
+            case 2: //Feedback
                 startFeedbackActivity();
                 break;
-            case 4: //Account
+            case 3: //Account
                 UserAccountActivity.start(this);
                 break;
         }

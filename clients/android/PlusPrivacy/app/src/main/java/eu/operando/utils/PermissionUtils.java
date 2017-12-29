@@ -26,7 +26,7 @@ public class PermissionUtils {
 
     static {
         colors = new int[]{
-                Color.parseColor("#FFFFFF"),
+                Color.parseColor("#2dc113"),
                 Color.parseColor("#3366FF"),
                 Color.parseColor("#33FF66"),
                 Color.parseColor("#CCFF66"),

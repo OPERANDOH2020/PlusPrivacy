@@ -27,9 +27,6 @@ public class PasswordStrength {
 
     public PasswordStrength(Context context, String password) {
         this.password = password;
-    }
-
-    public PasswordStrength(Context context) {
         stringStates = new HashMap();;
         stringStates.put(WEAK, context.getResources().getString(R.string.weak));
         stringStates.put(ACCEPTABLE, context.getResources().getString(R.string.acceptable));
@@ -81,20 +78,24 @@ public class PasswordStrength {
         boolean hasDigits = hasDigits();
         boolean hasSpecialCharacters = hasSpecialCharacters();
 
-        if (length > 31 && (hasLowerCaseLetters || hasUpperCaseLetters) && hasDigits)
-            return VERY_STRONG;
-        if (length < 8) {
-            if (hasLowerCaseLetters && hasUpperCaseLetters && hasDigits && hasSpecialCharacters) {
-                return STRONG;
-            } else if (hasLowerCaseLetters && hasUpperCaseLetters && hasDigits) {
-                return ACCEPTABLE;
-            } else return WEAK;
-        } else {
-            if (hasLowerCaseLetters && hasUpperCaseLetters && hasDigits && hasSpecialCharacters) {
-                return VERY_STRONG;
-            } else if (hasLowerCaseLetters && hasUpperCaseLetters && hasDigits) {
-                return ACCEPTABLE;
-            } else return WEAK;
+        int score = -1;
+        score += length/6;
+
+        if (hasLowerCaseLetters){
+            score++;
         }
+        if (hasUpperCaseLetters){
+            score++;
+        }
+        if (hasDigits){
+            score++;
+        }
+        if (hasSpecialCharacters){
+            score++;
+        }
+
+        if (score > 4)
+            return VERY_STRONG;
+        return score;
     }
 }

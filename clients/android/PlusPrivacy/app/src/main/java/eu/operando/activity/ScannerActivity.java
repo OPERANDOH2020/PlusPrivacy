@@ -9,15 +9,14 @@ import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.AbsListView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.HashSet;
@@ -26,7 +25,7 @@ import java.util.List;
 import eu.operando.R;
 import eu.operando.adapter.ScannerListAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
-import eu.operando.customView.CustomOnGroupClickListener;
+import eu.operando.customView.FacebookSettingsInfoDialog;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.utils.PermissionUtils;
@@ -127,7 +126,6 @@ public class ScannerActivity extends BaseActivity {
                 0.5f);
         rotate.setDuration(1500);
         rotate.setFillAfter(true);
-        rotate.setFillBefore(true);
         rotate.setInterpolator(new FastOutLinearInInterpolator());
 
         handler.post(new Runnable() {
@@ -199,18 +197,33 @@ public class ScannerActivity extends BaseActivity {
         shouldRefresh = false;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void setToolbar() {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.scanner_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.scanner, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        switch (item.getItemId()) {
+            case R.id.facebook_settings_recommended:
+                FacebookSettingsInfoDialog dialog = new FacebookSettingsInfoDialog();
+                dialog.show(getFragmentManager(), "FacebookSettingsInfoDialog");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

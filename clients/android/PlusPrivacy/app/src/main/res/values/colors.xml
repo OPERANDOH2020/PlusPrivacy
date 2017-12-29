@@ -119,6 +119,11 @@
     <color name="background_facebook_recommended_button">#81ce73</color>
     <color name="background_facebook_submit_button">#ffb400</color>
     <color name="background_facebook_child_item">#667db9</color>
+    <color name="fb_info_dialog_header">#c2d5ee</color>
+    <color name="fb_info_dialog_body">#dff3ff</color>
+    <color name="fb_info_dialog_arrow_text">#3a4e8c</color>
+
+
 
     <color name="background_popup">#d1a53e</color>
     <color name="background_about">#fdf2d8</color>

@@ -91,6 +91,8 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
             public void onClick(View view) {
                 if (realIdentity != null && !realIdentity.equals(defaultIdentity)) {
                     updateIdentity(realIdentity, "updateDefaultSubstituteIdentity");
+                } else {
+                    Toast.makeText(IdentitiesActivity.this, R.string.default_identity_toast, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -169,6 +171,10 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
 
     public void updateIdentity(Identity identity, String method) {
 
+        if (identity.isDefault()){
+            Toast.makeText(this, R.string.default_identity_toast, Toast.LENGTH_SHORT).show();
+            return;
+        }
         final ProgressDialog dialog = new OperandoProgressDialog(this);
         dialog.setCancelable(false);
         dialog.setMessage("Please wait...");

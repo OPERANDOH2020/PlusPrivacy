@@ -28,14 +28,15 @@
 
         <LinearLayout
             android:id="@+id/questionnaire_recommended"
-            android:text="@string/recommended"
+            android:text="@string/recommended_settings"
             android:onClick="onClickRecommended"
             android:background="@color/background_facebook_recommended_button"
             android:gravity="center"
-            android:padding="15dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:src="@drawable/facebook_recommended"
@@ -47,8 +48,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:layout_marginStart="5dp"
-                android:text="@string/recommended"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/recommended_settings"
                 />
 
         </LinearLayout>
@@ -58,10 +60,10 @@
             android:onClick="onClickSubmit"
             android:background="@color/background_facebook_submit_button"
             android:gravity="center"
-            android:padding="15dp"
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:src="@drawable/facebok_settings_upload"
@@ -74,7 +76,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:layout_marginStart="5dp"
-                android:text="@string/submit"
+                android:text="@string/save"
                 />
 
         </LinearLayout>
@@ -88,7 +90,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="65dp"
         android:layout_below="@id/my_toolbar"
         android:layout_alignParentBottom="true"
         android:divider="@null"

@@ -26,7 +26,7 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
     int[] icons = new int[]{
             R.drawable.ic_info,
             R.drawable.ic_privacy,
-            R.drawable.ic_settings,
+//            R.drawable.ic_settings,
             R.drawable.ic_feedback,
             R.drawable.ic_account
     };
