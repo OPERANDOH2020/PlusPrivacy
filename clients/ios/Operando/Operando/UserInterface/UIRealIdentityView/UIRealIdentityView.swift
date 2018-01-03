@@ -31,6 +31,8 @@ class UIRealIdentityView: RSNibDesignableView {
     @IBOutlet weak var yourRealIdentityLabel: UILocalizableLabel!
     @IBOutlet weak var defaultEnabledImageView: UIImageView!
     
+    var state: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState.nonDefault
+    
     var logicCallbacks: UIRealIdentityCallbacks?
     
     override func commonInit() {
@@ -46,6 +48,9 @@ class UIRealIdentityView: RSNibDesignableView {
     }
     
     func changeDisplay(to state: UIRealIdentityViewDisplayState, animated: Bool = false) {
+        
+        self.state = state
+        
         let change = {
             
             if state.defaultIdentity == true {

@@ -35,13 +35,27 @@ class UIIdentityCell: MGSwipeTableCell {
     @IBOutlet weak var identityLabel: UILabel!
     @IBOutlet weak var disclosureImageView: UIImageView!
         
+    @IBOutlet weak var bottomSeparator: UIView!
+    @IBOutlet weak var topSeparator: UIView!
+    
+    @IBOutlet weak var rightSeparator: UIView!
+    @IBOutlet weak var leftSeparator: UIView!
+    
     func setupWithIdentity(identity: String?, style: UIIdentityCellStyle) {
         
         if style.displaysDefaultIdentityIcon == true {
             self.checkmarkImageView.image = #imageLiteral(resourceName: "default_enabled")
+            topSeparator.isHidden = false
+            bottomSeparator.isHidden = false
+            rightSeparator.isHidden = false
+            leftSeparator.isHidden = false
         }
         else {
             self.checkmarkImageView.image = #imageLiteral(resourceName: "default_disabled")
+            topSeparator.isHidden = true
+            bottomSeparator.isHidden = true
+            rightSeparator.isHidden = true
+            leftSeparator.isHidden = true
         }
         
 //        self.checkmarkImageView.isHidden = !style.displaysDefaultIdentityIcon

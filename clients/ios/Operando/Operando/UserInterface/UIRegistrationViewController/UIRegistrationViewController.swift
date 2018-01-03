@@ -24,7 +24,9 @@ class UIRegistrationViewController: UIViewController {
         self.callbacks = callbacks
         
         self.registrationView.logic.setupWith(callbacks: UIRegistrationViewLogicCallbacks(presentOkAlert: { alertMessage in
+    
             OPViewUtils.showOkAlertWithTitle(title: "", andMessage: alertMessage)
+            
         }, registrationCallback: callbacks?.whenUserRegisters))
         
     }

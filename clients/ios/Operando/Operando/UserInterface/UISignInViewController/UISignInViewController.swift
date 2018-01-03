@@ -77,7 +77,6 @@ class UISignInViewControllerLogic: NSObject {
 
 class UISignInViewController: UIViewController {
     
-
     @IBOutlet weak var loginView: UILoginView!
     @IBOutlet weak var registerButton: UIButton?
     

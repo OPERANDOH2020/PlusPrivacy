@@ -145,6 +145,7 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
             let password = outlets.passswordTF?.text,
             !(email.isEmpty || password.isEmpty) else {
                 self.callbacks?.presentOkAlert?(Bundle.localizedStringFor(key: kNoIncompleteFieldsLocalizableKey))
+                
                 return nil
         }
         

@@ -43,6 +43,12 @@ class UILoginViewLogic: NSObject, UITextFieldDelegate {
         
         outlets.signInButton?.addTarget(self, action: #selector(didPressSignInButton(_:)), for: .touchUpInside)
         outlets.forgotPasswordButton?.addTarget(self, action: #selector(didPressForgotPassword(_:)), for: .touchUpInside)
+        
+        if let credentials = CredentialsStore.retrieveLastSavedCredentialsIfAny() {
+            outlets.emailTF?.text = credentials.username
+            outlets.passwordTF?.text = credentials.password
+        }
+        
     }
     
     func setupWith(callbacks: UILoginViewCallbacks?){

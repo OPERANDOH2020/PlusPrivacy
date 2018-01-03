@@ -31,10 +31,20 @@ class OPViewUtils
         }
     }
     
-    class func showOkAlertWithTitle(title: String, andMessage message: String)
+    class func showOkAlertWithTitle(title: String, andMessage message: String, handler: VoidBlock? = nil)
     {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "Ok");
-        alert.show();
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        
+        alertVC.addAction(UIAlertAction(title: "Ok",
+                                      style: UIAlertActionStyle.default,
+                                      handler: {(alert: UIAlertAction!) in
+                                       
+                                        handler?()
+                                        
+        }))
+        
     }
     
     
