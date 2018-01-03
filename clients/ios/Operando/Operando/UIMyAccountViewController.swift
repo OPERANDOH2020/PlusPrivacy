@@ -99,17 +99,19 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
     
     func pressedUpdatePassword() {
         self.changePassword = false
-        let indexPath = IndexPath(row: 0, section: 0)
         self.outlets.tableView?.reloadData()
     }
     
     func pressedCancel() {
         self.changePassword = false
-        let indexPath = IndexPath(row: 0, section: 0)
         self.outlets.tableView?.reloadData()
     }
     
     func newPasswordTFWereEdited(newPassword: String?, confirmPassword: String?, cell: PasswordExpandedCell) {
+        
+        
+        // set current pass status
+        cell.setMatchTypeImgView(withType: .match, imageView: cell.currentPassImageView)
         
         var passwordStrenght = 0
         
@@ -137,6 +139,22 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
             if passwordStrenght > 4 {
                 passwordStrenght = 4
             }
+        }
+        
+        if passwordStrenght == 0 {
+            cell.setMatchTypeImgView(withType: .none, imageView: cell.newPassImageView)
+            cell.setMatchLabelWithType(matchType: .none)
+            cell.setMatchTypeImgView(withType: .none, imageView: cell.confirmPassImageView)
+        }
+        else if passwordStrenght == 1{
+            cell.setMatchTypeImgView(withType: .doesntMatch, imageView: cell.newPassImageView)
+        }
+        else {
+            
+            if newPassword == confirmPassword {
+                cell.setMatchTypeImgView(withType: .match, imageView: cell.confirmPassImageView)
+            }
+            cell.setMatchTypeImgView(withType: .match, imageView: cell.newPassImageView)
         }
         
         cell.resetLevels(passwordStrenght: passwordStrenght)
