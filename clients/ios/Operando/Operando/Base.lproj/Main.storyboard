@@ -137,7 +137,7 @@
                                                     <constraint firstAttribute="width" constant="35" id="6vy-2W-NMD"/>
                                                     <constraint firstAttribute="height" constant="35" id="f4u-6x-rHA"/>
                                                 </constraints>
-                                                <state key="normal" image="hamburger"/>
+                                                <state key="normal" image="hamburger_v2"/>
                                                 <connections>
                                                     <action selector="didPressMenuButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="kNm-mw-5pD"/>
                                                 </connections>
@@ -648,7 +648,7 @@
         <image name="add_identity" width="85" height="85"/>
         <image name="alternative_identities" width="85" height="85"/>
         <image name="back-white" width="42" height="42"/>
-        <image name="hamburger" width="42" height="42"/>
+        <image name="hamburger_v2" width="170" height="170"/>
         <image name="settings_white" width="42" height="42"/>
     </resources>
 </document>
