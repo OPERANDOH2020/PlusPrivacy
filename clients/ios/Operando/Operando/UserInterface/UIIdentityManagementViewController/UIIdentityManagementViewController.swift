@@ -85,7 +85,16 @@ class UIIdentityManagementViewControllerLogic: NSObject {
             self.realIdentity = realIdentity
             self.outlets.realIdentityView?.setupWith(identity: realIdentity, logicCallback: UIRealIdentityCallbacks(setRealIdentityAsDefault: {
                 //set real identity Callback
-                self.setAsDefault(identity: realIdentity)
+                
+                if let currentState = self.outlets.realIdentityView?.state,
+                    currentState.defaultIdentityAlpha == 1 {
+                    
+                    OPViewUtils.displayAlertWithMessage(message: "", withTitle: "Is already default", addCancelAction: false, withConfirmation: nil)
+                }
+                else {
+                    self.setAsDefault(identity: realIdentity)
+                }
+                
             }))
         })
         
