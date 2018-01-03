@@ -148,8 +148,13 @@ class OPConfigObject: NSObject
                 OPErrorContainer.displayError(error: error);
                 return
             }
+            OPViewUtils.displayAlertWithMessage(message: Bundle.localizedStringFor(key: kPleaseConfirmEmailLocalizableKey), withTitle: "", addCancelAction: false, withConfirmation: {
+                
+                CredentialsStore.saveCredentials(username: info.email, password: info.password)
+                
+                self.flowController?.displayLoginHierarchy()
+            })
             
-            OPViewUtils.displayAlertWithMessage(message: Bundle.localizedStringFor(key: kPleaseConfirmEmailLocalizableKey), withTitle: "", addCancelAction: false, withConfirmation: nil)
         }
         
     }
