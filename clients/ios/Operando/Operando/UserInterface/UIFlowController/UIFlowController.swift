@@ -279,8 +279,15 @@ class UIFlowController
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             self.rootController.reset()
         }, whenChoosingMonitor: {
-            PPCloak.OPMonitor.displayFlow()
-            self.rootController.reset()
+            
+            UIView.transition(with: self.rootController.view, duration: 0.5, options: .transitionFlipFromTop, animations: {
+                PPCloak.OPMonitor.displayFlow()
+                self.rootController.reset()
+            }, completion: { completed in
+                // maybe do something here
+            })
+            
+            
         }, whenChoosingSettings: {
             weakSelf?.displaySettingsViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
