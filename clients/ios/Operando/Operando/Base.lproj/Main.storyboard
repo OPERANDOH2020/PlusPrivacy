@@ -143,7 +143,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47V-M4-dvN">
-                                                <rect key="frame" x="0.0" y="-0.5" width="45" height="45"/>
+                                                <rect key="frame" x="0.0" y="-1" width="45" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Ppn-8P-JTI"/>
                                                     <constraint firstAttribute="width" constant="45" id="RJK-wF-heR"/>
@@ -153,6 +153,18 @@
                                                     <action selector="didPressBackButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="jSI-67-SOd"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHK-8u-vCT">
+                                                <rect key="frame" x="333" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="NS9-4C-Hj2"/>
+                                                    <constraint firstAttribute="width" constant="35" id="r6y-ts-jEP"/>
+                                                </constraints>
+                                                <state key="normal" image="settings_white"/>
+                                                <connections>
+                                                    <action selector="didPressBackButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="3A1-Tk-Qzh"/>
+                                                    <action selector="didPressSettingsButton:" destination="oat-2S-Wno" eventType="touchUpInside" id="rvK-cO-0Db"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -160,6 +172,8 @@
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Vnh-qI-uII" secondAttribute="trailing" constant="60" id="8m3-rk-PoM"/>
                                             <constraint firstItem="47V-M4-dvN" firstAttribute="centerY" secondItem="U9Q-k4-RTi" secondAttribute="centerY" id="Dyg-1D-9WN"/>
                                             <constraint firstItem="wS9-JU-77R" firstAttribute="leading" secondItem="U9Q-k4-RTi" secondAttribute="leading" constant="5" id="LW1-x0-Ab6"/>
+                                            <constraint firstItem="UHK-8u-vCT" firstAttribute="top" secondItem="Vnh-qI-uII" secondAttribute="top" id="RdL-E7-PUB"/>
+                                            <constraint firstAttribute="trailing" secondItem="UHK-8u-vCT" secondAttribute="trailing" constant="7" id="aBm-Ih-IBH"/>
                                             <constraint firstItem="47V-M4-dvN" firstAttribute="leading" secondItem="U9Q-k4-RTi" secondAttribute="leading" id="fx9-Zl-iOC"/>
                                             <constraint firstAttribute="bottom" secondItem="Vnh-qI-uII" secondAttribute="bottom" id="lzS-HW-XC5"/>
                                             <constraint firstItem="Vnh-qI-uII" firstAttribute="top" secondItem="U9Q-k4-RTi" secondAttribute="top" id="rRH-hU-BK1"/>
@@ -196,6 +210,7 @@
                         <outlet property="backButton" destination="47V-M4-dvN" id="C4g-Wd-bPW"/>
                         <outlet property="mainScreensHostView" destination="MgE-xk-10M" id="Nbj-KA-VXe"/>
                         <outlet property="menuButton" destination="wS9-JU-77R" id="ly2-aV-Fhc"/>
+                        <outlet property="settingsButton" destination="UHK-8u-vCT" id="jEa-Rc-472"/>
                         <outlet property="topBarLabel" destination="Vnh-qI-uII" id="Yji-WK-p0l"/>
                         <outlet property="topBarView" destination="i4E-lu-E6P" id="Q7W-Hx-PiI"/>
                     </connections>
@@ -634,5 +649,6 @@
         <image name="alternative_identities" width="85" height="85"/>
         <image name="back-white" width="42" height="42"/>
         <image name="hamburger" width="42" height="42"/>
+        <image name="settings_white" width="42" height="42"/>
     </resources>
 </document>

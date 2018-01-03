@@ -55,6 +55,13 @@ class UIFlowController
             whenBackButtonPressed: {
                 weakSelf?.displayDashboard()
                 self.rootController.reset()
+        }, WhenBackPressOnSettingsView: {
+            weakSelf?.displayPrivateBrowsing()
+            self.rootController.reset()
+            self.rootController.setupTabViewForPrivateBrowsing()
+        }, whenSettingsButtonPressed: {
+            weakSelf?.displaySettingsViewController()
+//            self.rootController.reset()
         })
         
         self.rootController.setupWithCallbacks(rootControllerCallbacks)
@@ -155,6 +162,7 @@ class UIFlowController
     
     func displayPrivateBrowsing() {
         self.rootController.setMainControllerTo(newController: self.sharedBrowserController)
+        self.rootController.setupTabViewForPrivateBrowsing()
     }
     
     
@@ -200,7 +208,7 @@ class UIFlowController
         }
         let settingsVC = UIViewControllerFactory.settingsViewController
         settingsVC.setupWith(settingsModel: currentSettings, callback: self.dependencies.userSettingsCallbacks?.updateCallback)
-        
+        self.rootController.setupTabViewForSettings()
         self.rootController.setMainControllerTo(newController: settingsVC)
     }
     
@@ -256,6 +264,7 @@ class UIFlowController
             weakSelf?.displayPrivateBrowsing()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             self.rootController.reset()
+            self.rootController.setupTabViewForPrivateBrowsing()
         },
           whenChoosingNotifications: {
             weakSelf?.displayNotifications()
@@ -281,6 +290,7 @@ class UIFlowController
             weakSelf?.displayPrivacyPolicyViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             self.rootController.reset()
+            self.rootController.setupTabViewForPrivateBrowsing()
         }, whenChoosingAbout: {
             weakSelf?.displayAboutViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()

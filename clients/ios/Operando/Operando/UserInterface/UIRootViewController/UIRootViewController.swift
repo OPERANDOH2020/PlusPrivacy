@@ -12,6 +12,8 @@ struct UIRootViewControllerCallbacks
 {
     let whenMenuButtonPressed: VoidBlock?
     let whenBackButtonPressed: VoidBlock?
+    let WhenBackPressOnSettingsView: VoidBlock?
+    let whenSettingsButtonPressed: VoidBlock?
 }
 
 enum UIRootLeftButtonType {
@@ -27,6 +29,7 @@ class UIRootViewController: UIViewController
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     fileprivate var currentlyShownViewController: UIViewController?
     fileprivate var callbacks: UIRootViewControllerCallbacks?
@@ -47,7 +50,13 @@ class UIRootViewController: UIViewController
     }
     @IBAction func didPressBackButton(_ sender: Any)
     {
-        self.callbacks?.whenBackButtonPressed?()
+        
+        if self.topBarLabel.text == "Settings" {
+            self.callbacks?.WhenBackPressOnSettingsView?()
+        }
+        else {
+            self.callbacks?.whenBackButtonPressed?()
+        }
     }
     
     func showTopBar(hidden: Bool) {
@@ -58,8 +67,12 @@ class UIRootViewController: UIViewController
         self.topBarView.backgroundColor = UIColor.operandoOrange
         self.topBarLabel.text = "PlusPrivacy"
         setupLeftButton(buttonType: .hamburger)
+        self.settingsButton.isHidden = true
     }
     
+    @IBAction func didPressSettingsButton(_ sender: Any) {
+        self.callbacks?.whenSettingsButtonPressed?()
+    }
     func setupLeftButton(buttonType: UIRootLeftButtonType) {
         
         if buttonType == .back {
@@ -72,6 +85,12 @@ class UIRootViewController: UIViewController
         }
     }
     
+    func setupTabViewForSettings(){
+        self.topBarLabel.text = "Settings"
+        self.setupLeftButton(buttonType: .back)
+        self.settingsButton.isHidden = true
+    }
+    
     func setupTabViewForNotification() {
         self.topBarView.backgroundColor = UIColor.notificationPink()
         self.topBarLabel.text = "Notifications"
@@ -80,6 +99,11 @@ class UIRootViewController: UIViewController
     func setupTabViewForIdentities() {
         self.topBarView.backgroundColor = UIColor.identitiesBlue()
         self.topBarLabel.text = "Identity Management"
+    }
+    
+    func setupTabViewForPrivateBrowsing() {
+        self.topBarLabel.text = "Private browsing"
+        self.settingsButton.isHidden = false
     }
     
     func setMainControllerTo(newController: UIViewController)
