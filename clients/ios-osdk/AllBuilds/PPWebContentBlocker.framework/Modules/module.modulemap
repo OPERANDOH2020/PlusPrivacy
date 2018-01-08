@@ -1,6 +1,0 @@
-framework module PPWebContentBlocker {
-  umbrella header "PPWebContentBlocker.h"
-
-  export *
-  module * { export * }
-}
