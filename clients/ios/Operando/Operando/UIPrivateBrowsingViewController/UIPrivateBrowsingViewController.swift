@@ -61,7 +61,50 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
                                                 maxNumberOfReusableWebViews: 6)
         
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
+        
+        showAlertController()
     }
+    
+    // MARK: - Alert Box
+    
+    func showAlertController()
+    {
+        //simple alert dialog
+        let alertController = UIAlertController(title: "Don't show this message again!", message: "PlusPrivacy's Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.", preferredStyle: UIAlertControllerStyle.alert);
+        // Add Action
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil));
+        //show it
+        let btnImage    = UIImage(named: "checkmarkDefault")!
+        let imageButton : UIButton = UIButton(frame: CGRect(x: 20, y: 15, width: 50, height: 50))
+        imageButton.setBackgroundImage(btnImage, for: UIControlState())
+        imageButton.addTarget(self, action: #selector(UIPrivateBrowsingViewController.checkBoxAction(_:)), for: .touchUpInside)
+        
+        imageButton.backgroundColor = .clear
+        imageButton.layer.cornerRadius = 5
+        imageButton.layer.borderWidth = 1
+        imageButton.layer.borderColor = UIColor.black.cgColor
+        
+        alertController.view.addSubview(imageButton)
+        self.present(alertController, animated: false, completion: { () -> Void in
+            
+        })
+    }
+    
+    
+    func checkBoxAction(_ sender: UIButton)
+    {
+        if sender.isSelected
+        {
+            sender.isSelected = false
+            let btnImage    = UIImage(named: "checkmarkDefault")!
+            sender.setBackgroundImage(btnImage, for: UIControlState())
+        }else {
+            sender.isSelected = true
+//            let btnImage    = nil
+            sender.setBackgroundImage(nil, for: UIControlState())
+        }
+    }
+    
     
     //MARK:
 
