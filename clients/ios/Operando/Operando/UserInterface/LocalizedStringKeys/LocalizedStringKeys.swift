@@ -32,6 +32,7 @@ let kResearchOSDKLocalizableKey = "kResearchOSDKLocalizableKey"
 let kPrivacyPolicyLocalizableKey = "kPrivacyPolicyLocalizableKey"
 let kAboutLocalizableKey = "kAboutLocalizableKey"
 let kFeedBackFormKey = "kFeedBackFormKey"
+let kMyAccountLocalizableKey = "kMyAccountLocalizableKey"
 
 let kMakeDefaultLocalizableKey = "kMakeDefaultLocalizableKey"
 let kDeleteLocalizableKey = "kDeleteLocalizableKey"

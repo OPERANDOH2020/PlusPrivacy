@@ -74,7 +74,7 @@ class UILoginViewLogic: NSObject, UITextFieldDelegate {
     
     @IBAction func didPressSignInButton(_ sender: AnyObject?) {
         
-        let loginInfo = LoginInfo(email: self.outlets.emailTF?.text ?? "", password: self.outlets.passwordTF?.text ?? "", wishesToBeRemembered: self.outlets.rememberMeSwitch?.isOn ?? false);
+        let loginInfo = LoginInfo(email: self.outlets.emailTF?.text ?? "", password: self.outlets.passwordTF?.text ?? "", wishesToBeRemembered: true);
         self.callbacks?.whenUserWantsToLogin?(loginInfo);
     }
 }

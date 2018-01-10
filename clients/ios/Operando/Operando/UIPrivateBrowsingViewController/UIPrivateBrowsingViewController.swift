@@ -69,22 +69,25 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
     
     func showAlertController()
     {
+        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
+            messageStatus == true {
+            
+            return
+        }
+        
         //simple alert dialog
-        let alertController = UIAlertController(title: "Don't show this message again!", message: "PlusPrivacy's Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.", preferredStyle: UIAlertControllerStyle.alert);
+        let alertController = UIAlertController(title: "Private Browsing!", message: "PlusPrivacy's Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.", preferredStyle: UIAlertControllerStyle.alert);
         // Add Action
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil));
-        //show it
-        let btnImage    = UIImage(named: "checkmarkDefault")!
-        let imageButton : UIButton = UIButton(frame: CGRect(x: 20, y: 15, width: 50, height: 50))
-        imageButton.setBackgroundImage(btnImage, for: UIControlState())
-        imageButton.addTarget(self, action: #selector(UIPrivateBrowsingViewController.checkBoxAction(_:)), for: .touchUpInside)
         
-        imageButton.backgroundColor = .clear
-        imageButton.layer.cornerRadius = 5
-        imageButton.layer.borderWidth = 1
-        imageButton.layer.borderColor = UIColor.black.cgColor
+        alertController.addAction(UIAlertAction(title: "Don't show this message again",
+                                                    style: UIAlertActionStyle.cancel,
+                                                    handler: {(alert: UIAlertAction!) in
+                                                       
+                                                        CredentialsStore.dontShowPrivateBrowsingMessage()
+                                                        
+        }))
         
-        alertController.view.addSubview(imageButton)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: false, completion: { () -> Void in
             
         })
@@ -100,14 +103,14 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
             sender.setBackgroundImage(btnImage, for: UIControlState())
         }else {
             sender.isSelected = true
-//            let btnImage    = nil
+            //            let btnImage    = nil
             sender.setBackgroundImage(nil, for: UIControlState())
         }
     }
     
     
     //MARK:
-
+    
     private func setTabsViewTopConstraint(to value: CGFloat, animated: Bool = false) {
         self.webTabsViewTopCn.constant = value;
         self.view.setNeedsLayout()

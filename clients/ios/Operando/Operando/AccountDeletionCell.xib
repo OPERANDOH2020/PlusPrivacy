@@ -30,26 +30,30 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your alternative email identities and account data will be wiped. This action is irreversible" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0v-kd-7sh">
-                        <rect key="frame" x="49" y="33" width="241" height="63"/>
+                        <rect key="frame" x="41" y="33" width="249" height="49"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="63" id="IgY-YS-B35"/>
+                            <constraint firstAttribute="height" constant="49" id="IgY-YS-B35"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.93573313950000003" green="0.65839177370000002" blue="0.16874501110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_info_account" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-tZ-B17">
-                        <rect key="frame" x="16" y="37" width="25" height="15"/>
+                        <rect key="frame" x="16" y="44" width="25" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="G3a-Ug-u48"/>
                             <constraint firstAttribute="height" constant="15" id="ecr-RJ-4eM"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-Lz-rTw">
-                        <rect key="frame" x="16" y="104" width="120" height="35"/>
+                        <rect key="frame" x="16" y="90" width="120" height="35"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_edit" translatesAutoresizingMaskIntoConstraints="NO" id="YOS-H9-azI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash-can" translatesAutoresizingMaskIntoConstraints="NO" id="YOS-H9-azI">
                                 <rect key="frame" x="5" y="5" width="11" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="960-X7-gPc"/>
+                                    <constraint firstAttribute="width" constant="11" id="Vni-YY-fWs"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Delete account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78y-Ou-xdi">
                                 <rect key="frame" x="21" y="0.0" width="99" height="35"/>
@@ -59,6 +63,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-Va-Gu7">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
+                                <connections>
+                                    <action selector="pressedDeleteAccountButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gsL-F1-N3J"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93573313950000003" green="0.65839177370000002" blue="0.16874501110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,13 +74,11 @@
                             <constraint firstAttribute="height" constant="35" id="Vte-li-rvM"/>
                             <constraint firstAttribute="bottom" secondItem="X9g-Va-Gu7" secondAttribute="bottom" id="WRU-cc-qD1"/>
                             <constraint firstAttribute="trailing" secondItem="78y-Ou-xdi" secondAttribute="trailing" id="Wsa-OB-Pnm"/>
-                            <constraint firstItem="78y-Ou-xdi" firstAttribute="leading" secondItem="YOS-H9-azI" secondAttribute="trailing" constant="5" id="amC-XX-qhW"/>
                             <constraint firstAttribute="bottom" secondItem="78y-Ou-xdi" secondAttribute="bottom" id="biu-W5-Qo1"/>
                             <constraint firstItem="YOS-H9-azI" firstAttribute="leading" secondItem="eAE-Lz-rTw" secondAttribute="leading" constant="5" id="gJP-o2-TFN"/>
                             <constraint firstItem="YOS-H9-azI" firstAttribute="top" secondItem="eAE-Lz-rTw" secondAttribute="top" constant="5" id="hDZ-iW-qu3"/>
                             <constraint firstAttribute="trailing" secondItem="X9g-Va-Gu7" secondAttribute="trailing" id="i7o-Lu-kfq"/>
                             <constraint firstItem="X9g-Va-Gu7" firstAttribute="top" secondItem="eAE-Lz-rTw" secondAttribute="top" id="jh8-pd-dcc"/>
-                            <constraint firstItem="78y-Ou-xdi" firstAttribute="leading" secondItem="YOS-H9-azI" secondAttribute="trailing" constant="5" id="kDO-Xm-Tt2"/>
                             <constraint firstAttribute="bottom" secondItem="YOS-H9-azI" secondAttribute="bottom" constant="5" id="nGE-ea-BYE"/>
                             <constraint firstItem="78y-Ou-xdi" firstAttribute="top" secondItem="eAE-Lz-rTw" secondAttribute="top" id="v02-mb-Tj1"/>
                             <constraint firstAttribute="width" constant="120" id="wty-PD-miG"/>
@@ -83,11 +88,11 @@
                 </subviews>
                 <color key="backgroundColor" red="0.99343019720000003" green="0.95059829949999997" blue="0.84590715169999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="eu1-tZ-B17" firstAttribute="top" secondItem="eKt-Ry-Pff" secondAttribute="bottom" constant="8" id="3au-ie-8bU"/>
+                    <constraint firstItem="eu1-tZ-B17" firstAttribute="top" secondItem="eKt-Ry-Pff" secondAttribute="bottom" constant="15" id="3au-ie-8bU"/>
                     <constraint firstItem="eu1-tZ-B17" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="CBd-wt-Xrt"/>
                     <constraint firstItem="eKt-Ry-Pff" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Rbp-JT-Z08"/>
                     <constraint firstItem="eKt-Ry-Pff" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="euE-wE-3GS"/>
-                    <constraint firstItem="L0v-kd-7sh" firstAttribute="leading" secondItem="eu1-tZ-B17" secondAttribute="trailing" constant="8" symbolic="YES" id="ewz-bp-Ssw"/>
+                    <constraint firstItem="L0v-kd-7sh" firstAttribute="leading" secondItem="eu1-tZ-B17" secondAttribute="trailing" id="ewz-bp-Ssw"/>
                     <constraint firstItem="eAE-Lz-rTw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="iA3-uH-uvq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="L0v-kd-7sh" secondAttribute="trailing" constant="22" id="rr8-he-0Uh"/>
                     <constraint firstItem="L0v-kd-7sh" firstAttribute="top" secondItem="eKt-Ry-Pff" secondAttribute="bottom" constant="4" id="sYR-Jb-9g2"/>
@@ -95,11 +100,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="infoImageView" destination="eu1-tZ-B17" id="Eoa-Du-QYs"/>
+                <outlet property="infoLabel" destination="L0v-kd-7sh" id="dxx-Mi-Kyg"/>
+            </connections>
             <point key="canvasLocation" x="29" y="145"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_edit" width="11" height="11"/>
         <image name="ic_info_account" width="12" height="12"/>
+        <image name="trash-can" width="31" height="42"/>
     </resources>
 </document>

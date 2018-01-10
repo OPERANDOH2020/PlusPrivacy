@@ -86,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4bQ-L3-ZkO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4bQ-L3-ZkO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.99343019720000003" green="0.95059829949999997" blue="0.84590715169999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
@@ -126,16 +126,16 @@
                                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlusPrivacy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnh-qI-uII">
-                                                <rect key="frame" x="45" y="0.0" width="270" height="44"/>
+                                                <rect key="frame" x="40" y="0.0" width="275" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-JU-77R" userLabel="menuButton">
-                                                <rect key="frame" x="5" y="5" width="35" height="35"/>
+                                                <rect key="frame" x="5" y="7.5" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="35" id="6vy-2W-NMD"/>
-                                                    <constraint firstAttribute="height" constant="35" id="f4u-6x-rHA"/>
+                                                    <constraint firstAttribute="width" constant="30" id="6vy-2W-NMD"/>
+                                                    <constraint firstAttribute="height" constant="30" id="f4u-6x-rHA"/>
                                                 </constraints>
                                                 <state key="normal" image="hamburger_v2"/>
                                                 <connections>
@@ -154,10 +154,10 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHK-8u-vCT">
-                                                <rect key="frame" x="333" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="338" y="7" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="NS9-4C-Hj2"/>
-                                                    <constraint firstAttribute="width" constant="35" id="r6y-ts-jEP"/>
+                                                    <constraint firstAttribute="height" constant="30" id="NS9-4C-Hj2"/>
+                                                    <constraint firstAttribute="width" constant="30" id="r6y-ts-jEP"/>
                                                 </constraints>
                                                 <state key="normal" image="settings_white"/>
                                                 <connections>
@@ -172,9 +172,9 @@
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Vnh-qI-uII" secondAttribute="trailing" constant="60" id="8m3-rk-PoM"/>
                                             <constraint firstItem="47V-M4-dvN" firstAttribute="centerY" secondItem="U9Q-k4-RTi" secondAttribute="centerY" id="Dyg-1D-9WN"/>
                                             <constraint firstItem="wS9-JU-77R" firstAttribute="leading" secondItem="U9Q-k4-RTi" secondAttribute="leading" constant="5" id="LW1-x0-Ab6"/>
-                                            <constraint firstItem="UHK-8u-vCT" firstAttribute="top" secondItem="Vnh-qI-uII" secondAttribute="top" id="RdL-E7-PUB"/>
                                             <constraint firstAttribute="trailing" secondItem="UHK-8u-vCT" secondAttribute="trailing" constant="7" id="aBm-Ih-IBH"/>
                                             <constraint firstItem="47V-M4-dvN" firstAttribute="leading" secondItem="U9Q-k4-RTi" secondAttribute="leading" id="fx9-Zl-iOC"/>
+                                            <constraint firstItem="UHK-8u-vCT" firstAttribute="centerY" secondItem="U9Q-k4-RTi" secondAttribute="centerY" id="fxT-Xd-Cfo"/>
                                             <constraint firstAttribute="bottom" secondItem="Vnh-qI-uII" secondAttribute="bottom" id="lzS-HW-XC5"/>
                                             <constraint firstItem="Vnh-qI-uII" firstAttribute="top" secondItem="U9Q-k4-RTi" secondAttribute="top" id="rRH-hU-BK1"/>
                                             <constraint firstItem="Vnh-qI-uII" firstAttribute="leading" secondItem="wS9-JU-77R" secondAttribute="trailing" constant="5" id="x0e-8c-Kf8"/>

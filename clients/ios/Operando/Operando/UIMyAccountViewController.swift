@@ -16,19 +16,23 @@ struct UIMyAccountViewControllerOutlets {
 
 struct UIMyAccountViewControllerLogicCallbacks {
     
+    let userUpdatedPassword:VoidBlock?
+    let userDeletedAccount:VoidBlock?
 }
 
-class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableViewDataSource,PasswordCellDelegate,PasswordExpandedCellDelegate {
+class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableViewDataSource,PasswordCellDelegate,PasswordExpandedCellDelegate,AccountDeletionCellDelegate {
+    
+    var infoRepository: UsersRepository?
     
     let outlets: UIMyAccountViewControllerOutlets
-    let logicCallbacks: UIMyAccountViewControllerLogicCallbacks?
+    var logicCallbacks: UIMyAccountViewControllerLogicCallbacks?
     private var changePassword = false
     
     init(outlets: UIMyAccountViewControllerOutlets, logicCallbacks: UIMyAccountViewControllerLogicCallbacks?) {
         self.outlets = outlets;
         self.logicCallbacks = logicCallbacks
         super.init()
-        //        self.setupTableView()
+        self.setupTableView()
     }
     
     func setupTableView(){
@@ -71,6 +75,7 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         }
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AccountDeletionCell.identifierNibName) as! AccountDeletionCell
+            cell.delegate = self
             return cell
         }
         
@@ -95,11 +100,58 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         
     }
     
+    // MARK: -  AccountDeletionCellDelegate
+    
+    func pressedDeleteAccountButton() {
+        
+        OPViewUtils.displayAlertWithMessage(message: "Are you sure you want to delete your account?", withTitle: "My Account", addCancelAction: true) {
+            
+            self.logicCallbacks?.userDeletedAccount?()
+            
+            self.infoRepository?.deleteAccount(withCompletion: { (error) in
+                if let error = error {
+                    OPErrorContainer.displayError(error: error)
+                }
+                else {
+                    CredentialsStore.deleteCredentials()
+                }
+            })
+        }
+    }
+    
     // MARK: - ExpandedPasswordCellDelegate
     
-    func pressedUpdatePassword() {
-        self.changePassword = false
-        self.outlets.tableView?.reloadData()
+    func pressedUpdatePassword(cell:PasswordExpandedCell) {
+        
+        if let (_,password) = CredentialsStore.retrieveLastSavedCredentialsIfAny() {
+            
+            if password == cell.currentPassTF.text {
+                
+                if cell.passwordStrenghtLevel > 1 && cell.newPassTF.text == cell.confirmPassTF.text {
+                    
+                    infoRepository?.changeCurrent(password: cell.currentPassTF.text!, to: cell.newPassTF.text!, withCompletion: { (error) in
+                        
+                        if let error = error {
+                            OPErrorContainer.displayError(error: error)
+                        }
+                        else {
+                            if let error = CredentialsStore.updatePassword(to: cell.newPassTF.text!) {
+                                OPErrorContainer.displayError(error: error)
+                            }
+                            self.logicCallbacks?.userUpdatedPassword?()
+                        }
+                        
+                    })
+                    
+                }
+                
+                cell.setMatchTypeImgView(withType: .match, imageView: cell.currentPassImageView)
+                
+            }
+            else {
+                cell.setMatchTypeImgView(withType: .doesntMatch, imageView: cell.currentPassImageView)
+            }
+        }
     }
     
     func pressedCancel() {
@@ -108,10 +160,6 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
     }
     
     func newPasswordTFWereEdited(newPassword: String?, confirmPassword: String?, cell: PasswordExpandedCell) {
-        
-        
-        // set current pass status
-        cell.setMatchTypeImgView(withType: .match, imageView: cell.currentPassImageView)
         
         var passwordStrenght = 0
         
@@ -186,25 +234,36 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         let indexPath = IndexPath(row: 0, section: 0)
         self.outlets.tableView?.reloadData()
     }
-    
 }
 
 class UIMyAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var callbacks: UIMyAccountViewControllerLogicCallbacks?
+    var infoRepo: UsersRepository?
     
     private(set) lazy var logic: UIMyAccountViewControllerLogic = {
         
         let outlets: UIMyAccountViewControllerOutlets = UIMyAccountViewControllerOutlets(tableView: self.tableView)
-        let callBacks: UIMyAccountViewControllerLogicCallbacks = UIMyAccountViewControllerLogicCallbacks()
+        let callBacks: UIMyAccountViewControllerLogicCallbacks = UIMyAccountViewControllerLogicCallbacks(userUpdatedPassword: {
+            
+        }, userDeletedAccount: {
+            
+        })
         
         return UIMyAccountViewControllerLogic(outlets: outlets, logicCallbacks: callBacks)
         
     }()
     
+    func setup(with infoRepository: UsersRepository?, callbacks: UIMyAccountViewControllerLogicCallbacks){
+        self.infoRepo = infoRepository
+        self.callbacks = callbacks
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        logic.infoRepository = self.infoRepo
+        logic.logicCallbacks = self.callbacks
         logic.setupTableView()
     }
     

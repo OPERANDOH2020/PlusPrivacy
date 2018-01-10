@@ -15,14 +15,30 @@ class CredentialsStore: NSObject
     
     static let DefaultsUsernameKey = "DefaultsUsernameKey"
     static let DefaultsPasswordKey = "DefaultsPasswordKey"
+    static let privateMessageKey = "privateMessageKey"
+    
+    class func getPrivateMessageStatus() -> Bool? {
+        
+        let defaults = UserDefaults.standard;
+        
+        return defaults.value(forKey: privateMessageKey) as? Bool
+    }
+    
+    class func dontShowPrivateBrowsingMessage() {
+        let defaults = UserDefaults.standard;
+        
+        defaults.set(true, forKey: privateMessageKey);
+        
+        defaults.synchronize()
+    }
     
     class func retrieveLastSavedCredentialsIfAny() -> (username: String, password: String)?
     {
         
         guard let data = Locksmith.loadDataForUserAccount(userAccount: VLgftobwHe()),
-              let username = data[AfwyAXyaaH()] as? String,
-              let password = data[TkYoCJcGWc()] as? String else {
-            return nil
+            let username = data[AfwyAXyaaH()] as? String,
+            let password = data[TkYoCJcGWc()] as? String else {
+                return nil
         }
         
         return (username, password)

@@ -31,9 +31,9 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
 {
     
     
-//    static let ServerURL = "https://plusprivacy.club:8080";
+    //    static let ServerURL = "https://plusprivacy.club:8080";
     //    static let ServerURL = "https://plusprivacy.com:8080";
-        static let ServerURL = "https://plusprivacy.com:8080";
+    static let ServerURL = "https://plusprivacy.com:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
     var whenThereWasAnError: ((_ error: NSError?) -> Void)?
@@ -304,7 +304,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     return
                 }
                 
-                
                 guard let userInfo = SwarmClientResponseParsers.parseUserInfo(from: dataDict) else {
                     let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.unknownError
                     completion?(.defaultEmpty, error)
@@ -346,6 +345,34 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         
         
         self.swarmClient.startSwarm(SwarmName.user.rawValue, phase: SwarmPhase.start.rawValue, ctor: UserConstructor.changePassword.rawValue, arguments: [password as AnyObject, newPassword as AnyObject])
+    }
+    
+    func deleteAccount(withCompletion completion: ((NSError?) -> Void)?) {
+        
+        workingQueue.async {
+            
+            self.handlersPerSwarmingName[.email] = { dataArray in
+                guard let dataDict = dataArray.first as? [String: Any] else {
+                    completion?(OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+                if let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) {
+                    completion?(error)
+                    return
+                }
+                
+                completion?(nil)
+            }
+            
+            self.whenThereWasAnError = { error in
+                completion?(error)
+            }
+        }
+        
+        
+        self.swarmClient.startSwarm(SwarmName.user.rawValue, phase: SwarmPhase.start.rawValue, ctor: UserConstructor.deleteAccount.rawValue, arguments: [])
+        
     }
     
     //MARK: IdentitiesManagementRepository

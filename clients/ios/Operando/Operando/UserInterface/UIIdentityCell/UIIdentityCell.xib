@@ -46,18 +46,17 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STb-ay-vHc">
-                        <rect key="frame" x="0.0" y="38.5" width="320" height="5"/>
+                        <rect key="frame" x="0.0" y="33.5" width="320" height="10"/>
                         <color key="backgroundColor" red="0.81887036560000004" green="0.99209731820000002" blue="0.99590855840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="5" id="UFc-WC-k7C"/>
+                            <constraint firstAttribute="height" constant="10" id="UFc-WC-k7C"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dU0-RU-srO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
                         <color key="backgroundColor" red="0.81887036560000004" green="0.99209731820000002" blue="0.99590855840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="Q40-GB-zob"/>
-                            <constraint firstAttribute="height" constant="5" id="X7I-Xv-GI8"/>
+                            <constraint firstAttribute="height" constant="10" id="bLx-rL-geL"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-iG-S3v">

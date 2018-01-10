@@ -50,7 +50,8 @@ class OPConfigObject: NSObject
                     callback?(notifications.count)
                 })
             },
-            feedbackFormRepo: self.swarmClientHelper
+            feedbackFormRepo: self.swarmClientHelper,
+            myAccountRepo: self.swarmClientHelper
         )
         
         self.flowController = UIFlowController(dependencies: dependencies)
@@ -121,17 +122,19 @@ class OPConfigObject: NSObject
                 print(error)
             }
             
-            if loginInfo.wishesToBeRemembered {
-                if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
-                    OPErrorContainer.displayError(error: error)
-                }
-            }
+//            if loginInfo.wishesToBeRemembered {
+//                if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
+//                    OPErrorContainer.displayError(error: error)
+//                }
+//            }
             
-            weakSelf?.afterLoggingInWith(identity: data)
+            
             
             if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
                 OPErrorContainer.displayError(error: error)
             }
+            
+            weakSelf?.afterLoggingInWith(identity: data)
         }
     }
     
@@ -178,9 +181,9 @@ class OPConfigObject: NSObject
                 return
             }
             
-            if let error = CredentialsStore.deleteCredentials() {
-                OPErrorContainer.displayError(error: error)
-            }
+//            if let error = CredentialsStore.deleteCredentials() {
+//                OPErrorContainer.displayError(error: error)
+//            }
             self.flowController?.displayLoginHierarchy()
         }
     }

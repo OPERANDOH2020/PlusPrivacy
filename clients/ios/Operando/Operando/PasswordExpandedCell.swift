@@ -9,14 +9,14 @@
 import UIKit
 
 protocol PasswordExpandedCellDelegate {
-    func pressedUpdatePassword()
+    func pressedUpdatePassword(cell:PasswordExpandedCell)
     func pressedCancel()
     func newPasswordTFWereEdited(newPassword:String?, confirmPassword: String?,cell:PasswordExpandedCell)
 }
 
 enum MatchType: String{
     
-    case none = "none"
+    case none = ""
     case match = "Match"
     case doesntMatch = "Doesn't match"
 }
@@ -166,7 +166,7 @@ class PasswordExpandedCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     @IBAction func pressedUpdatePasswordButton(_ sender: Any) {
-        delegate?.pressedUpdatePassword()
+        delegate?.pressedUpdatePassword(cell: self)
     }
     
     @IBAction func pressedCancelButton(_ sender: Any) {

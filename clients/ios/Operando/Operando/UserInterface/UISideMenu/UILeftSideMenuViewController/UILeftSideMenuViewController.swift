@@ -66,8 +66,6 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         setupControls()
         dataSource = getMenuDataSource()
-        
-       let data = CredentialsStore.retrieveLastSavedCredentialsIfAny()
     }
 
     
@@ -105,7 +103,7 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
-
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         self.nameLabel.text = CredentialsStore.retrieveLastSavedCredentialsIfAny()?.username
     }
     

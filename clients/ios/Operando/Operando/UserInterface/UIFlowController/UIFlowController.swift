@@ -25,6 +25,7 @@ struct Dependencies{
     let whenTakingActionForNotification: NotificationActionCallback?
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
     let feedbackFormRepo: OPFeedbackFormProtocol?
+    let myAccountRepo: UsersRepository?
 }
 
 struct AccountCallbacks {
@@ -194,6 +195,16 @@ class UIFlowController
     func displayMyAccountController(){
         
         let myAccountVC = UIViewControllerFactory.myAccountViewController
+        myAccountVC.setup(with: self.dependencies.myAccountRepo, callbacks: UIMyAccountViewControllerLogicCallbacks(userUpdatedPassword: {
+            
+            print("userUpdatedPassword")
+            OPViewUtils.displayAlertWithMessage(message: "The password was successfully changed.", withTitle: "My Account", addCancelAction: false, withConfirmation: nil)
+            
+            
+        }, userDeletedAccount: {
+            print("userDeletedAccount")
+            self.displayLoginHierarchy()
+        }))
         self.rootController.setMainControllerTo(newController: myAccountVC);
     }
     

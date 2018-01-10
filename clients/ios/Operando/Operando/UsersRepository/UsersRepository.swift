@@ -18,6 +18,6 @@ protocol UsersRepository {
     func logoutUserWith(completion: CallbackWithError?)
     func resetPasswordFor(email: String, completion: CallbackWithError?)
     func changeCurrent(password: String, to newPassword: String, withCompletion completion: ((_ error: NSError?) -> Void)?)
-
+    func deleteAccount(withCompletion completion: ((_ error: NSError?) -> Void)?)
 }
 

@@ -107,6 +107,17 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.row == self.currentDefaultIdentityIndex {
+            
+            return 70
+        }
+        
+        return 50
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.identitiesList.count;
     }

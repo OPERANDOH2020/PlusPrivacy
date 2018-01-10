@@ -66,7 +66,7 @@ enum UserConstructor: String {
     case info = "getUserInfo"
     case updateUserInfo = "updateUserInfo"
     case changePassword = "changePassword"
-    
+    case deleteAccount = "deleteAccount"
 }
 
 

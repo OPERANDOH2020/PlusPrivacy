@@ -29,11 +29,19 @@ typealias UserInfoCallback = (_ userInfo: UserInfo, _ error: NSError?) -> Void
 
 
 protocol UserInfoRepository {
-    func getCurrentUserInfo(in completion: UserInfoCallback?)
+    func getCurrentUserInfo(in completion: UserInfoCallback?)    
 }
 
 
 class DummyInfoRepository: UserInfoRepository {
+    func updatePassword(currentPassword: String, newPassword: String, completion: ((Bool, NSError?) -> Void)?) {
+        
+    }
+    
+    func deleteAccount(completion: ((Bool, NSError?) -> Void)?) {
+        
+    }
+    
     func getCurrentUserInfo(in completion: UserInfoCallback?) {
         
         completion?(UserInfo(dict: ["email": "call@me.later", "userName": "Blanos pufos"])!, nil)
