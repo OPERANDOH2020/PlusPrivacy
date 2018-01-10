@@ -64,6 +64,16 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
             
             if changePassword == true {
                 let cell = tableView.dequeueReusableCell(withIdentifier: PasswordExpandedCell.identifierNibName) as! PasswordExpandedCell
+                cell.currentPassTF.text = nil
+                cell.passwordStrenghtLabel.text = ""
+                cell.matchLabel.text = ""
+                cell.newPassTF.text = ""
+                cell.confirmPassTF.text = ""
+                cell.confirmPassImageView.image = nil
+                cell.currentPassImageView.image = nil
+                cell.newPassImageView.image = nil
+                cell.passwordStrenghtLevel = 0
+                cell.resetLevels(passwordStrenght: 0)
                 cell.delegate = self
                 return cell
             }
@@ -107,13 +117,14 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
         OPViewUtils.displayAlertWithMessage(message: "Are you sure you want to delete your account?", withTitle: "My Account", addCancelAction: true) {
             
             self.logicCallbacks?.userDeletedAccount?()
+            CredentialsStore.deleteCredentials()
             
             self.infoRepository?.deleteAccount(withCompletion: { (error) in
                 if let error = error {
                     OPErrorContainer.displayError(error: error)
                 }
                 else {
-                    CredentialsStore.deleteCredentials()
+                    
                 }
             })
         }
@@ -127,10 +138,12 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
             
             if password == cell.currentPassTF.text {
                 
-                if cell.passwordStrenghtLevel > 1 && cell.newPassTF.text == cell.confirmPassTF.text {
+                if cell.passwordStrenghtLevel > 0 && cell.newPassTF.text == cell.confirmPassTF.text {
                     
+                    
+                    ProgressHUD.show()
                     infoRepository?.changeCurrent(password: cell.currentPassTF.text!, to: cell.newPassTF.text!, withCompletion: { (error) in
-                        
+                    ProgressHUD.dismiss()
                         if let error = error {
                             OPErrorContainer.displayError(error: error)
                         }
@@ -139,6 +152,8 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
                                 OPErrorContainer.displayError(error: error)
                             }
                             self.logicCallbacks?.userUpdatedPassword?()
+                            self.changePassword = false
+                            self.outlets.tableView?.reloadData()
                         }
                         
                     })

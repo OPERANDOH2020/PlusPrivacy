@@ -101,6 +101,32 @@ class OPConfigObject: NSObject
         UserDefaults.standard.set(true, forKey: key)
     }
     
+    private func showAlertControllerWithResendEmail(block:VoidBlock?)
+    {
+        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
+            messageStatus == true {
+            
+            return
+        }
+        
+        //simple alert dialog
+        let alertController = UIAlertController(title: "", message: "Email is invalid!", preferredStyle: UIAlertControllerStyle.alert);
+        // Add Action
+        
+        alertController.addAction(UIAlertAction(title: "Resend activation code",
+                                                style: UIAlertActionStyle.cancel,
+                                                handler: {(alert: UIAlertAction!) in
+                                            
+                                                block?()
+                                                    
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        
+        let hostController = UIApplication.shared.delegate?.window??.rootViewController?.topMostPresentedControllerOrSelf
+        hostController?.present(alertController, animated: true, completion: nil)
+    }
+    
     private func logiWithInfoAndUpdateUI(_ loginInfo: LoginInfo){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         weak var weakSelf = self
@@ -109,10 +135,26 @@ class OPConfigObject: NSObject
         self.userRepository?.loginWith(email: loginInfo.email, password: loginInfo.password) { (error, data) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
-            ProgressHUD.dismiss()
-            
+            DispatchQueue.main.async {
+                ProgressHUD.dismiss()
+            }
+           
             if let error = error {
-                OPErrorContainer.displayError(error: error);
+                
+                if error.localizedDescription == "accountNotActivated" {
+                    self.showAlertControllerWithResendEmail(block: {
+                    
+                        self.userRepository?.resendActionEmail(email: loginInfo.email, completion: { (error) in
+                                print(error)
+                        })
+                        
+                    })
+                }
+                else {
+                    DispatchQueue.main.async {
+                        OPErrorContainer.displayError(error: error);
+                    }
+                }
                 return
             }
             
@@ -133,6 +175,7 @@ class OPConfigObject: NSObject
             if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
                 OPErrorContainer.displayError(error: error)
             }
+            
             
             weakSelf?.afterLoggingInWith(identity: data)
         }

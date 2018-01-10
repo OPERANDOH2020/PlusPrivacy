@@ -19,5 +19,6 @@ protocol UsersRepository {
     func resetPasswordFor(email: String, completion: CallbackWithError?)
     func changeCurrent(password: String, to newPassword: String, withCompletion completion: ((_ error: NSError?) -> Void)?)
     func deleteAccount(withCompletion completion: ((_ error: NSError?) -> Void)?)
+    func resendActionEmail(email:String, completion: ((NSError?) -> Void)?) 
 }
 

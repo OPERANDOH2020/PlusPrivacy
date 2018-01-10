@@ -50,7 +50,7 @@ extension UILeftSideMenuViewController {
         
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))
-        result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kMyAccountLocalizableKey), action: self.callbacks?.whenChoosingMyAccount))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "ic_account", categoryName: Bundle.localizedStringFor(key: kMyAccountLocalizableKey), action: self.callbacks?.whenChoosingMyAccount))
         
         return result
     }

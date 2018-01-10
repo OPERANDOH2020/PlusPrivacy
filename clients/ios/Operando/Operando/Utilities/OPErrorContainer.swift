@@ -81,11 +81,11 @@ class OPErrorContainer
         {
             let key = localizableKeysPerErrorCode[error.code] ?? ""
             let message = Bundle.localizedStringFor(key: key)
-            OPViewUtils.showOkAlertWithTitle(title: "", andMessage: message)
+            
+            OPViewUtils.displayAlertWithMessage(message: message, withTitle: "", addCancelAction: false, withConfirmation: nil)
             return
         }
         
-        
-        OPViewUtils.showOkAlertWithTitle(title: "", andMessage: error.localizedDescription)
+        OPViewUtils.displayAlertWithMessage(message: error.localizedDescription, withTitle: "", addCancelAction: false, withConfirmation: nil)
     }
 }

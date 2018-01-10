@@ -83,6 +83,36 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     //MARK: UsersRepository
     
+    func resendActionEmail(email:String, completion: ((NSError?) -> Void)?) {
+        
+        guestGuestLoginWith(callbackInCaseOfError: nil) {
+            
+            self.workingQueue.async {
+                
+                self.handlersPerSwarmingName[.email] = { dataArray in
+                    guard let dataDict = dataArray.first as? [String: Any] else {
+                        completion?(OPErrorContainer.errorInvalidServerResponse)
+                        return
+                    }
+                    
+                    if let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) {
+                        completion?(error)
+                        return
+                    }
+                    
+                    completion?(nil)
+                }
+                
+                self.whenThereWasAnError = { error in
+                    completion?(error)
+                }
+            }
+            
+            self.swarmClient.startSwarm(SwarmName.register.rawValue, phase: SwarmPhase.start.rawValue, ctor: UserConstructor.sendActivationCode.rawValue, arguments: [email as AnyObject])
+            
+        }
+    }
+    
     func loginWith(email: String, password: String, withCompletion completion: UserOperationCallback?)
     {
         
@@ -372,7 +402,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         
         
         self.swarmClient.startSwarm(SwarmName.user.rawValue, phase: SwarmPhase.start.rawValue, ctor: UserConstructor.deleteAccount.rawValue, arguments: [])
-        
     }
     
     //MARK: IdentitiesManagementRepository

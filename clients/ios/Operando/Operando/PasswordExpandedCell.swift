@@ -61,6 +61,7 @@ class PasswordExpandedCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet var passwordStrenghtLabel: UILabel!
     
+    @IBOutlet weak var updatePasswordView: UIView!
     @IBOutlet var confirmPassImageView: UIImageView!
     @IBOutlet var currentPassImageView: UIImageView!
     @IBOutlet var newPassImageView: UIImageView!
@@ -120,7 +121,20 @@ class PasswordExpandedCell: UITableViewCell, UITextFieldDelegate {
             }
         }
         
+        setupUpdatePasswordState(passwordStrenghtLevel: passwordStrenght)
+        
         self.setupPasswordStrenghtLabel()
+    }
+    
+    func setupUpdatePasswordState(passwordStrenghtLevel: Int) {
+        if passwordStrenghtLevel > 0 && confirmPassImageView.image == #imageLiteral(resourceName: "ic_succes"){
+            updatePasswordView.isUserInteractionEnabled = true
+            updatePasswordView.backgroundColor = UIColor.operandoOrange
+        }
+        else {
+            updatePasswordView.isUserInteractionEnabled = false
+            updatePasswordView.backgroundColor = UIColor.operandoLightGray
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -133,7 +147,6 @@ class PasswordExpandedCell: UITableViewCell, UITextFieldDelegate {
         
         if textField == newPassTF {
             let string = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
-            delegate?.newPasswordTFWereEdited(newPassword: string, confirmPassword: self.confirmPassTF.text, cell: self)
             
             if self.confirmPassTF.text == string {
                 setMatchTypeImgView(withType: .match, imageView: confirmPassImageView)
@@ -149,6 +162,7 @@ class PasswordExpandedCell: UITableViewCell, UITextFieldDelegate {
                     setMatchTypeImgView(withType: .doesntMatch, imageView: confirmPassImageView)
                 }
             }
+            delegate?.newPasswordTFWereEdited(newPassword: string, confirmPassword: self.confirmPassTF.text, cell: self)
         }
         else if textField == confirmPassTF {
             let string = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
