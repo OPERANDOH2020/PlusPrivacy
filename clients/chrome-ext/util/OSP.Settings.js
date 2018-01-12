@@ -483,18 +483,32 @@ var ospSettingsConfigPreferences = {
             write:{
                 name:"Who can add things to your timeline?",
                 page:"https://www.facebook.com/settings?tab=timeline&section=posting&view",
-                url_template:"https://www.facebook.com/ajax/settings/timeline/posting.php?dpr=1",
+                url_template:"https://www.facebook.com/privacy/selector/update/?privacy_fbid={OPERANDO_PRIVACY_FBID}&post_param={OPERANDO_POST_PARAM}&render_location_enum=settings&is_saved_on_select=true&should_return_tooltip=false&prefix_tooltip_with_app_privacy=false&replace_on_select=false&ent_id=0&dpr=1",
                 availableSettings:{
                     only_me:{
-                        data:{
-                            audience:10
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 10153940308610734
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.only_me
+                            }
                         },
-                        name:"Only Me"
+                        name: "Only Me"
                     },
 
                     friends:{
-                        data:{
-                            audience:40
+                        params: {
+                            privacy_fbid: {
+                                placeholder: "OPERANDO_PRIVACY_FBID",
+                                value: 10153940308610734
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.FACEBOOK.friends
+                            }
                         },
                         name:"Friends"
                     }

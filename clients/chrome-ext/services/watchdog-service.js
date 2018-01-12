@@ -108,7 +108,6 @@ operandoCore
                         "__a": null,
                         "fb_dtsg": null,
                         "__user": null,
-                        "__af": null,
                         "__rev": null,
                         "jazoest":null,
                         "__spin_r":null,

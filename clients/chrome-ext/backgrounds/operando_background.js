@@ -47,24 +47,38 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         if (message.template) {
 
             webRequest.onBeforeRequest.addListener(function waitForPost(request) {
-                    if (request.method == "POST") {
+                    if (request.method == "POST" && request.url.indexOf("facebook.com/ajax/bz") != -1) {
                         var requestBody = request.requestBody;
                         if (requestBody.formData) {
                             var formData = requestBody.formData;
                             for (var prop in message.template) {
                                 if (formData[prop]) {
-                                    if(formData[prop] instanceof Array){
+                                    if (formData[prop] instanceof Array) {
                                         message.template[prop] = formData[prop][0];
                                     }
-                                    else{
+                                    else {
                                         message.template[prop] = formData[prop];
                                     }
                                 }
                             }
-
-                            webRequest.onBeforeRequest.removeListener(waitForPost);
-                            sendResponse ({template:message.template});
                         }
+                        else if (requestBody.raw) {
+                            var rawRequest = String.fromCharCode.apply(null, new Uint8Array(requestBody.raw[0].bytes));
+                            var requestArray = rawRequest.split("&");
+                            var formDataObjects = {};
+                            requestArray.forEach(function (pair) {
+                                var splitedPair = pair.split("=");
+                                formDataObjects[splitedPair[0]] = splitedPair[1];
+                            });
+                            for (var prop in message.template) {
+                                if (formDataObjects[prop]) {
+                                    message.template[prop] = decodeURIComponent(formDataObjects[prop]);
+                                }
+                            }
+                        }
+
+                        webRequest.onBeforeRequest.removeListener(waitForPost);
+                        sendResponse({template: message.template});
                     }
 
                 },
