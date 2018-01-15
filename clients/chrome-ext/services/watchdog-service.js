@@ -63,22 +63,28 @@ operandoCore
 
             });
             callback("google", 0, settings.length);
-            var handleGoogleMessages = function(msg){
+            var handleGoogleMessages = function (msg) {
                 if (msg.data.status == "waitingGoogleCommand") {
-                    messengerService.send("sendMessageToGoogle",{sendToPort:"applyGoogleSettings",command: "applySettings", settings: settings});
+                    chrome.tabs.create({url: 'https://myaccount.google.com/activitycontrols'}, function (tab) {
+                        messengerService.send("insertActivityControlsWizardFiles", {tabId:tab.id});
+                    });
+
+                    messengerService.send("sendMessageToGoogle", {
+                        sendToPort: "applyGoogleSettings",
+                        command: "applySettings",
+                        settings: settings
+                    });
 
                 } else {
                     if (msg.data.status == "settings_applied") {
                         jobFinished();
                         jobDone = true;
-                        messengerService.off("googleMessage",handleGoogleMessages);
+                        messengerService.off("googleMessage", handleGoogleMessages);
                         chrome.tabs.remove(googleTabId);
                         googleTabId = null;
                     }
-                    else {
-                        if (msg.data.status == "progress") {
-                            callback("google", msg.data.progress, settings.length);
-                        }
+                    else if (msg.data.status == "progress") {
+                        callback("google", msg.data.progress, settings.length);
                     }
                 }
             };

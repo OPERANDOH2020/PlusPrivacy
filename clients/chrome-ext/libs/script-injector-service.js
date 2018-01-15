@@ -40,6 +40,12 @@ var scriptInjectorService = exports.scriptInjectorService = {
         });
     },
 
+    insertActivityControlsWizardFiles:function(data){
+      injectScript(data.tabId,"operando/modules/osp/activityControlsWizard.js",["jQuery"],function(){
+          insertCSS(data.tabId, "operando/assets/css/activityControlsWizard.css");
+      });
+    },
+
     facebookMessage : function (callback){
         facebookCallback = callback;
     },

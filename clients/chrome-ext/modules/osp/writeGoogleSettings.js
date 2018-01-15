@@ -16,7 +16,6 @@ var privacySettings = [];
 var port = chrome.runtime.connect({name: "applyGoogleSettings"});
 var extractedData = {};
 port.postMessage({action: "waitingGoogleCommand", data: {status:"waitingGoogleCommand"}});
-
 port.onMessage.addListener(function (msg) {
     if (msg.command == "applySettings") {
         privacySettings = msg.settings;
