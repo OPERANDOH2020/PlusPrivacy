@@ -118,6 +118,32 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
     
     //MARK: textfield delegate
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let stringFromTF = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        
+        if textField == outlets.passswordTF {
+            
+            if stringFromTF == outlets.confirmPasswordTF?.text {
+                self.enableSignupButton();
+            }
+            else{
+                self.disableSignupButton();
+            }
+            
+        }
+        else if textField == outlets.confirmPasswordTF {
+            if stringFromTF == outlets.passswordTF?.text {
+                self.enableSignupButton();
+            }
+            else{
+                self.disableSignupButton();
+            }
+        }
+        
+        return true
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField){
         if let emailTF = outlets.emailTF, emailTF == textField {
             self.handleEmailDidEndEditing();
@@ -159,13 +185,6 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
         }
         else {
             outlets.invalidEmailLabel?.isHidden = true;
-            
-            if self.doPasswordsMatch(){
-                self.enableSignupButton();
-            }
-            else{
-                self.disableSignupButton();
-            }
         }
     }
     
@@ -221,7 +240,7 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     @IBOutlet weak var confirmPasswordTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
- 
+    
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
