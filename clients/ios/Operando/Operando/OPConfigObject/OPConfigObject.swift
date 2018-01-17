@@ -110,7 +110,7 @@ class OPConfigObject: NSObject
         }
         
         //simple alert dialog
-        let alertController = UIAlertController(title: "", message: "Email is invalid!", preferredStyle: UIAlertControllerStyle.alert);
+        let alertController = UIAlertController(title: "", message: "Account is not activated", preferredStyle: UIAlertControllerStyle.alert);
         // Add Action
         
         alertController.addAction(UIAlertAction(title: "Resend activation code",
