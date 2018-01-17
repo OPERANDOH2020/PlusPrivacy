@@ -85,7 +85,19 @@ exports.filterUsers = function(conditions,callback){
 exports.deleteUser = function (userData,callback) {
     flow.create("delete user", {
         begin: function () {
-            persistence.deleteById("DefaultUser", userData.userId, this.continue("deleteReport"));
+            persistence.findById("DefaultUser", userData.userId, this.continue("info"))
+        },
+        info: function (err, user) {
+            console.log(user['email']);
+            if(err){
+                callback(err);
+            }
+            else if(user['email'] === "guest@operando.eu"){
+                callback(new Error("Guest cannot be deleted! Aborting..."));
+            }
+            else{
+                persistence.deleteById("DefaultUser", userData.userId, this.continue("deleteReport"));
+            }
         },
         deleteReport: function (err, obj) {
             callback(err, obj);

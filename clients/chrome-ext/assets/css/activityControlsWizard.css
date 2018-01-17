@@ -1,0 +1,21 @@
+.pp_global_overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+.pp_item_overlay{
+    position: relative;
+    opacity: 0.4;
+}
+
+.activity_controls_steps{
+    top: 50%;
+    z-index: 100;
+    position: fixed;
+}
+
+.activity_controls_steps button{
+    display: block;
+    margin:20px 0px;
+}
