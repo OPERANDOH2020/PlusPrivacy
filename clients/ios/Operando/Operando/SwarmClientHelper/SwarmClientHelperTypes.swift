@@ -39,6 +39,7 @@ enum LoginConstructor: String
 enum RegisterConstructor: String
 {
     case registerNewUser = "registerNewUser"
+    case registerInZone = "registerInZone"
 }
 
 enum IdentityConstructor: String

@@ -33,6 +33,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     //    static let ServerURL = "https://plusprivacy.club:8080";
     //    static let ServerURL = "https://plusprivacy.com:8080";
+//    static let ServerURL = "http://192.168.103.149:8080";
     static let ServerURL = "https://plusprivacy.com:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);
     
@@ -148,6 +149,28 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     func getRealIdentityWith(completion: ((String, NSError?) -> Void)?) {
         self.whenAskedForRealIdentityWithCompletion?(completion)
+    }
+    
+    func registerInZone(withCompletion completion: CallbackWithError?) {
+        
+        workingQueue.async {
+            self.whenThereWasAnError = { error in
+                completion?(error)
+            }
+            
+            
+            self.handlersPerSwarmingName[.login] = { dataArray in
+                guard let dict = dataArray.first as? [String: Any] else {
+                    completion?(OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                completion?(nil)
+                
+            }
+        }
+        
+        swarmClient.startSwarm(SwarmName.notification.rawValue, phase: SwarmPhase.start.rawValue, ctor: RegisterConstructor.registerInZone.rawValue, arguments: ["iOS" as AnyObject])
+        
     }
     
     func logoutUserWith(completion: ((NSError?) -> Void)?) {
@@ -685,7 +708,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                 }
                 
                 guard let notifications = SwarmClientResponseParsers.parseNonDismissedNotificationsArray(from: dataDict) else {
-                    let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict) ?? OPErrorContainer.unknownError
+                    let error = SwarmClientResponseParsers.parseErrorIfAny(from: dataDict)
                     completion?([], error)
                     return
                 }

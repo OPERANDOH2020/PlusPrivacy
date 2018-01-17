@@ -158,6 +158,16 @@ class OPConfigObject: NSObject
                 return
             }
             
+            self.userRepository?.registerInZone(withCompletion: { (error) in
+                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        OPErrorContainer.displayError(error: error);
+                    }
+                }
+                
+            })
+            
             
             self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
                 print(scds)
