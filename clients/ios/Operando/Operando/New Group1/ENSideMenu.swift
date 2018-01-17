@@ -133,7 +133,7 @@ open class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate var menuPosition:ENSideMenuPosition = .left
     fileprivate var blurStyle: UIBlurEffectStyle = .light
     ///  A Boolean value indicating whether the bouncing effect is enabled. The default value is TRUE.
-    open var bouncingEnabled :Bool = true
+    open var bouncingEnabled :Bool = false
     /// The duration of the slide animation. Used only when `bouncingEnabled` is FALSE.
     open var animationDuration = 0.4
     fileprivate let sideMenuContainerView =  UIView()
