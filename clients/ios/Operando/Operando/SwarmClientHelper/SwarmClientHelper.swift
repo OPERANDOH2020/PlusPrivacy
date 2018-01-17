@@ -188,6 +188,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     self.logoutUserWith(completion: { error in
                         if let error = error {
                             completion?(error)
+                            
                             return
                         }
                         

@@ -45,6 +45,8 @@ class OPViewUtils
                                         
         }))
         
+        let hostController = UIApplication.shared.delegate?.window??.rootViewController?.topMostPresentedControllerOrSelf
+        hostController?.present(alertVC, animated: true, completion: nil)
     }
     
     
