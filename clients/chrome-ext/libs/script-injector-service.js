@@ -3,6 +3,7 @@ var facebookCallback = null;
 var linkedinCallback = null;
 var twitterCallback = null;
 var googleCallback = null;
+var googleActivityCallback = null;
 var scriptInjectorService = exports.scriptInjectorService = {
 
     insertFacebookIncreasePrivacyScript: function (data) {
@@ -59,6 +60,9 @@ var scriptInjectorService = exports.scriptInjectorService = {
     googleMessage:function(callback){
         googleCallback = callback;
     },
+    googleActivityMessage:function(callback){
+        googleActivityCallback = callback;
+    },
     waitingFacebookCommand:function(instructions){
         facebookCallback (instructions);
     },
@@ -70,6 +74,9 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
     waitingGoogleCommand : function(instructions){
         googleCallback(instructions);
+    },
+    waitingGoogleActivityCommand : function(instructions){
+        googleActivityCallback(instructions);
     }
 
 };

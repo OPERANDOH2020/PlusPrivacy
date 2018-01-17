@@ -59,21 +59,34 @@ operandoCore
                         tabId:googleTabId
                     });
                 });
-
-
             });
             callback("google", 0, settings.length);
+
+            var activityControlsSettings =  [];
+            var usualSettings = [];
+
+            settings.forEach(function(setting){
+                if(setting.method_type == "user-action"){
+                    activityControlsSettings.push(setting);
+                }
+                else{
+                    usualSettings.push(setting);
+                }
+            });
+
             var handleGoogleMessages = function (msg) {
                 if (msg.data.status == "waitingGoogleCommand") {
+
+
                     chrome.tabs.create({url: 'https://myaccount.google.com/activitycontrols'}, function (tab) {
                         messengerService.send("insertActivityControlsWizardFiles", {tabId:tab.id});
                     });
 
-                    messengerService.send("sendMessageToGoogle", {
+                    /*messengerService.send("sendMessageToGoogle", {
                         sendToPort: "applyGoogleSettings",
                         command: "applySettings",
-                        settings: settings
-                    });
+                        settings: usualSettings
+                    });*/
 
                 } else {
                     if (msg.data.status == "settings_applied") {
@@ -89,7 +102,20 @@ operandoCore
                 }
             };
 
+            var handleActivityMessages = function(msg){
+
+                switch (msg.data.status){
+                    case "waitingGoogleActivityCommand" :
+                        messengerService.send("sendMessageToGoogleActivity", {
+                            sendToPort: "googleActivityControls",
+                            command: "applySettings",
+                            settings: activityControlsSettings
+                        });
+                }
+            };
+
             messengerService.on("googleMessage", handleGoogleMessages);
+            messengerService.on("googleActivityMessage", handleActivityMessages);
         }
 
 
@@ -190,9 +216,7 @@ operandoCore
                     }
                 }
             };
-
             messengerService.on("linkedinMessage", handleLinkedinMessages);
-
         }
 
         function increaseTwitterPrivacy(settings, callback, jobFinished, passwordWasPromptedCallback) {
@@ -341,7 +365,6 @@ operandoCore
         }
 
         function prepareSettings(settingToBeApplied, settingKey) {
-
             var name = settingToBeApplied.name;
             var urlToPost = settingToBeApplied.url_template;
             var page = settingToBeApplied.page;

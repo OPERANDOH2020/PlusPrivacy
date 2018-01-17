@@ -4340,6 +4340,266 @@ var ospSettingsConfigPreferences = {
                 data: {},
                 recommended: "no"
             }
+        },
+        web_app_activity:{
+            read: {
+                name: "Web & app activity",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe"
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb"
+                    }
+                }
+            },
+            write:{
+                name: "Web and app activity",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+        },
+
+        location_history:{
+            read: {
+                name: "Location History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe"
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb"
+                    }
+                }
+            },
+            write:{
+                name: "Location History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+        },
+
+        device_information:{
+            read: {
+                name: "Device Information",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                }
+            },
+            write:{
+                name: "Device Information",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+
+        },
+
+        voice_audio_activity:{
+            read: {
+                name: "Voice & Audio Activity",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe"
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb"
+                    }
+                }
+            },
+            write:{
+                name: "Voice & Audio Activity",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+        },
+
+        youtube_search_history:{
+            read: {
+                name: "Youtube Search History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe"
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb"
+                    }
+                }
+            },
+            write:{
+                name: "Youtube Search History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+        },
+
+        youtube_watch_history:{
+            read: {
+                name: "Youtube Watch History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe"
+
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                    }
+                }
+            },
+            write:{
+                name: "Youtube Watch History",
+                page: "https://myaccount.google.com/activitycontrols",
+                method_type: "user-action",
+                jquery_selector:{
+                    element:".N2RpBe:parent + .XZs2ib .N2RpBe",
+                    valueType: "inner"
+                },
+                availableSettings:{
+                    on:{
+                        name:"On",
+                        cssClasses:"LsSwGf PciPcd N2RpBe",
+                        data:{setting:"on"}
+                    },
+                    off:{
+                        name:"Off",
+                        cssClasses:"LsSwGf PciPcd i9xfbb",
+                        data:{setting:"off"}
+                    }
+                },
+                recommended: "off"
+            }
+
         }
 
     }

@@ -15,7 +15,7 @@ angular.module('osp')
                 var availableSettings = conf["read"].availableSettings;
                 var jquerySelector = conf["read"].jquery_selector;
 
-                if (Object.keys(jquerySelector).length !== 0 && availableSettings) {
+                if (jquerySelector && Object.keys(jquerySelector).length !== 0 && availableSettings) {
                     var settingEnum = [];
                     for (var key in availableSettings) {
                         settingEnum.push({

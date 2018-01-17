@@ -53,7 +53,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 cookieName = "auth_token";
                                 break;
                             case "Google":
-                                url = "https://myaccount.google.com",
+                                url = "https://myaccount.google.com";
                                 cookieName = "OSID";
                                 break;
                         }
