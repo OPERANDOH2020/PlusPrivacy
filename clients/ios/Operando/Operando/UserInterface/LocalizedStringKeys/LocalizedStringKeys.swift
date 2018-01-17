@@ -35,6 +35,7 @@ let kFeedBackFormKey = "kFeedBackFormKey"
 let kMyAccountLocalizableKey = "kMyAccountLocalizableKey"
 
 let kMakeDefaultLocalizableKey = "kMakeDefaultLocalizableKey"
+let kMakeLocalizableKey = "kMakeLocalizableKey"
 let kDeleteLocalizableKey = "kDeleteLocalizableKey"
 
 let kNewSIDGeneratedLocalizableKey = "kNewSIDGeneratedLocalizableKey"

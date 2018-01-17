@@ -125,7 +125,15 @@ class UIIdentityManagementViewControllerLogic: NSObject {
             weakSelf?.delete(identity: item, atIndex: index)
         }, whenActivatedItem: { item in
             weakSelf?.setAsDefault(identity: item)
+        }, copyToClickBoard: { item in
+            self.copyToClickBoard(identity: item)
         })
+    }
+    
+    private func copyToClickBoard(identity: String) {
+        UIPasteboard.general.string = identity
+        
+        ProgressHUD.show("Identity was copied to clickboard", autoDismissAfter: 1.0)
     }
     
     private func delete(identity: String, atIndex index: Int){

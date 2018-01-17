@@ -15,6 +15,7 @@
 "kUserIdIsRequiredLocalizableKey" = "The user id is required. Please try again";
 "kIdentityEmailShouldBeUnique" = "The identity is already taken. Please try again";
 "kMakeDefaultLocalizableKey" = "Make default";
+"kMakeLocalizableKey" = "Copy";
 "kDeleteLocalizableKey" = "Delete";
 "kNewSIDGeneratedLocalizableKey" = "The new alias has been generated";
 "kDoYouWantToDeleteSIDLocalizableKey" = "Are you sure you want to delete this identity?";

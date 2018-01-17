@@ -15,7 +15,7 @@ typealias IdentityIndexCallback = ((_ item: String, _ index: Int ) -> Void)
 struct UIIdentitiesListCallbacks {
     let whenPressedToDeleteItemAtIndex: IdentityIndexCallback?
     let whenActivatedItem: ((_ item: String) -> Void)?
-    
+    let copyToClickBoard: ((_ item: String) -> Void)?
 }
 
 struct UIIdentitiesListViewOutlets {
@@ -163,12 +163,19 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
             return true
         }
         
+        let copyToClickBoard = MGSwipeButton(title: Bundle.localizedStringFor(key: kMakeLocalizableKey), backgroundColor: UIColor.identitiesBlue()) { swipeCell -> Bool in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                weakSelf?.callbacks?.copyToClickBoard?(identity)
+            })
+            return true
+        }
+        
         let defaultButton = MGSwipeButton(title: Bundle.localizedStringFor(key: kMakeDefaultLocalizableKey), backgroundColor: UIColor.operandoCyan) { swipeCell -> Bool in
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 weakSelf?.callbacks?.whenActivatedItem?(identity)
             })
-            
             
             return true
         }
@@ -177,7 +184,7 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
             return [deleteButton!]
         }
         
-        return [defaultButton!, deleteButton!]
+        return [defaultButton!, deleteButton!, copyToClickBoard]
     }
     
 }
