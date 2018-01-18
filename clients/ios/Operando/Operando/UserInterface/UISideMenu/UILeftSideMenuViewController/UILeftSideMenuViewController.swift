@@ -86,10 +86,8 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: UILeftSideMenuTableViewCellIdentifier, for: indexPath) as! UILeftSideMenuTableViewCell
         
         guard let dataSource = dataSource else { return cell }
-        
-        let indexOfNotificationsCell = 4
-        let numOfNotificationsRequest: NumOfNotificationsRequestCallback? = indexPath.row ==  indexOfNotificationsCell ? self.callbacks?.dashboardCallbacks?.numOfNotificationsRequestCallback : nil
-        cell.setup(withObject: UILeftSideMenuTVCellObject(categoryImageName: dataSource[indexPath.row].categoryImageName, title: dataSource[indexPath.row].categoryName, numOfNotificationsRequestCallbackIfAny: numOfNotificationsRequest))
+       
+        cell.setup(withObject: UILeftSideMenuTVCellObject(categoryImageName: dataSource[indexPath.row].categoryImageName, title: dataSource[indexPath.row].categoryName, numOfNotificationsRequestCallbackIfAny: nil))
         
         return cell
     }
