@@ -184,7 +184,7 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
             return [deleteButton!]
         }
         
-        return [defaultButton!, deleteButton!, copyToClickBoard]
+        return [defaultButton!,copyToClickBoard,deleteButton!]
     }
     
 }
