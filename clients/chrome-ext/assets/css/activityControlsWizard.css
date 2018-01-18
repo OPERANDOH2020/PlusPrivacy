@@ -1,3 +1,9 @@
+.pp_logo{
+    background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/logo-light-big.png') no-repeat center center transparent;
+    width:300px;
+    height:140px;
+}
+
 .pp_global_overlay {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
@@ -6,19 +12,92 @@
 }
 .pp_item_overlay{
     position: relative;
-    opacity: 0.4;
+    opacity: 0.2;
+}
+
+.pp_wizard_container{
+    top: 56px;
+    z-index: 100;
+    position: fixed;
+    height:calc(100% - 56px);
+    width:300px;
+    background: #4B4B4B;
 }
 
 .activity_controls_steps{
-    top: 50%;
-    z-index: 100;
-    position: fixed;
+    margin-top: -24px;
 }
 
-.activity_controls_steps button{
-    display: block;
-    margin:20px 0px;
-    padding: 20px;
-    font-size: 13px;
+.pp_controller{
+    text-align: center;
+    bottom: 0;
+    padding: 10px;
+    position: absolute;
+}
+
+.pp_controller button{
+    display: inline-block;
+    margin:0px 10px;
     background: #FFB400;
+    border: 0 none;
+    padding: 15px 15px;
+    color: #735307;
+    font-weight: bold;
+    font-size: 12px;
+}
+.pp_controller button:disabled{
+    opacity: 0.3;
+}
+
+.pp_wizard_item *{
+    /*clear: both;*/
+    cursor:pointer;
+}
+
+.pp_wizard_item.active{
+    font-weight: bold;
+}
+
+.pp_wizard_item.active .step_name{
+    color:#FF9900;
+}
+
+.pp_wizard_item.active .step_index{
+    background:#FF9900;
+}
+
+.pp_wizard_item:after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+
+.step_index{
+    margin: 25px;
+    background:#FEFEFE;
+    border-radius:50%;
+    text-align: center;
+    height: 32px;
+    width: 32px;
+    float:left;
+    padding: 5px;
+    line-height: 32px;
+    font-size: 18px;
+    color: #999;
+}
+.step_name{
+    margin-left: 50px;
+    padding-top: 32px;
+    font-size: 18px;
+    color: #FEFEFE;
+
+}
+.step_index.checked{
+    background:#FFB400 ;
+    color:#967118;
+}
+
+.step_name.checked{
+    color:#967118;
 }
