@@ -26,6 +26,7 @@
 
 .activity_controls_steps{
     margin-top: -24px;
+    position: relative;
 }
 
 .pp_controller{
@@ -44,9 +45,11 @@
     color: #735307;
     font-weight: bold;
     font-size: 12px;
+    cursor: pointer;
 }
 .pp_controller button:disabled{
     opacity: 0.3;
+    cursor: default;
 }
 
 .pp_wizard_item *{
@@ -54,16 +57,16 @@
     cursor:pointer;
 }
 
-.pp_wizard_item.active{
-    font-weight: bold;
+.pp_wizard_item.active .step_name{
+    color: #ffb400;;
 }
 
-.pp_wizard_item.active .step_name{
-    color:#FF9900;
+.pp_wizard_item.item_checked .step_index{
+    background:#FFB400;
 }
 
 .pp_wizard_item.active .step_index{
-    background:#FF9900;
+    background:#FFB400;
 }
 
 .pp_wizard_item:after{
@@ -84,8 +87,39 @@
     padding: 5px;
     line-height: 32px;
     font-size: 18px;
-    color: #999;
+    color: #967118;
+    position: relative;
+    z-index: auto;
 }
+
+.pp_wizard_item.active .step_index:before{
+
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    content:"";
+    background: #4B4B4B;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    z-index: -2;
+}
+
+.pp_wizard_item.active .step_index:after{
+    border-radius:50%;
+    content:"";
+    display: inline-block;
+    position: relative;
+    top: -45px;
+    left: -13px;
+    width: 58px;
+    height: 58px;
+    z-index: -3;
+    background: #FFB400;
+}
+
 .step_name{
     margin-left: 50px;
     padding-top: 32px;
@@ -100,4 +134,14 @@
 
 .step_name.checked{
     color:#967118;
+}
+
+.progress_bar{
+    left: 43px;
+    position: absolute;
+    width: 4px;
+    z-index: -5;
+    background: #FFB400;
+    min-height: 46px;
+    margin-top: 46px;
 }
