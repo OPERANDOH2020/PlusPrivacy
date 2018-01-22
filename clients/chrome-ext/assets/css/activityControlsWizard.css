@@ -1,3 +1,19 @@
+/*
+overwritten google css
+*/
+/*top blue bar*/
+.y4VOmd{
+    height: 56px!important;
+}
+body{
+    overflow: hidden;
+}
+
+/*related settings*/
+.YwhQ0 > .hyMrOd{
+    display:none
+}
+
 .pp_logo{
     background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/logo-light-big.png') no-repeat center center transparent;
     width:300px;
@@ -57,7 +73,8 @@
     cursor:pointer;
 }
 
-.pp_wizard_item.active .step_name{
+.pp_wizard_item.active .step_name,
+.pp_wizard_item.item_checked .step_name{
     color: #ffb400;;
 }
 
@@ -86,8 +103,8 @@
     float:left;
     padding: 5px;
     line-height: 32px;
-    font-size: 18px;
-    color: #967118;
+    font-size: 17px;
+    color: #4B4B4B;
     position: relative;
     z-index: auto;
 }
@@ -122,8 +139,8 @@
 
 .step_name{
     margin-left: 50px;
-    padding-top: 32px;
-    font-size: 18px;
+    padding-top: 35px;
+    font-size: 17px;
     color: #FEFEFE;
 
 }
@@ -137,11 +154,25 @@
 }
 
 .progress_bar{
-    left: 43px;
+    left: 44px;
     position: absolute;
     width: 4px;
     z-index: -5;
     background: #FFB400;
-    min-height: 46px;
     margin-top: 46px;
 }
+
+.activity_controls_steps::after {
+    height: 100%;
+    width: 4px;
+    display: block;
+    content: "";
+    background: #FEFEFE;
+    position: absolute;
+    top: 0;
+    left: 44px;
+    z-index: -10;
+    margin-top: 45px;
+    max-height: 470px;
+}
+

@@ -19,10 +19,25 @@
 })(jQuery);
 
 
+$("body").scroll(function(){
+    console.log( $(this).scrollTop());
+});
+
+
 var containerClassName = ".HICA4c";
 var wizardContainer = jQuery("<div class='pp_wizard_container'><div class='pp_logo'></div></div>");
 var stepsContainer = jQuery("<div class='activity_controls_steps'><div class='progress_bar'></div></div>");
 var stepsItems = jQuery("<div class='pp_wizard_items'></div>");
+
+var nextBtn = jQuery("<button>Next</button>");
+var prevBtn = jQuery("<button disabled='disabled'>Previous</button>");
+var finishBtn = jQuery("<button disabled='disabled'>Finish</button>");
+var controllers = jQuery("<div class='pp_controller'></div>");
+controllers.append(prevBtn);
+controllers.append(nextBtn);
+controllers.append(finishBtn);
+wizardContainer.append(controllers);
+
 var steps = [];
 var currentIndex = 0;
 var port = chrome.runtime.connect({name: "googleActivityControls"});
@@ -47,6 +62,9 @@ function renderWizard(){
 }
 
 function changeIndex(index){
+
+
+
     jQuery(".pp_wizard_item.active").removeClass("active");
     jQuery(".pp_wizard_item_"+index).addClass("active");
     jQuery(containerClassName).addClass("pp_item_overlay");
@@ -59,6 +77,36 @@ function changeIndex(index){
     jQuery(".progress_bar").height(((index/steps.length)*100).toString()+"%");
     jQuery(jQuery(containerClassName)[index]).removeClass("pp_item_overlay");
     jQuery(jQuery(containerClassName)[index]).goTo();
+
+
+    if (currentIndex !== index) {
+        currentIndex = index;
+
+        if (index == 0) {
+            $(prevBtn).attr("disabled", "disabled");
+            if($(nextBtn).hasAttr("disabled")){
+                $(nextBtn).removeAttr("disabled");
+            }
+        }
+        else if (index == steps.length - 1) {
+            $(nextBtn).attr("disabled", "disabled");
+            if($(prevBtn).hasAttr("disabled")){
+                $(prevBtn).removeAttr("disabled");
+            }
+        }
+        else {
+            $(prevBtn).removeAttr("disabled");
+            $(nextBtn).removeAttr("disabled");
+        }
+
+    }
+
+    if(index < steps.length-1){
+        finishBtn.attr("disabled","disabled");
+    }
+    else{
+        finishBtn.removeAttr("disabled");
+    }
 }
 
 function prepareWizard(){
@@ -70,10 +118,6 @@ function prepareWizard(){
         stepsItems.append(stepContainer);
     });
 
-    var nextBtn = jQuery("<button>Next</button>");
-    var prevBtn = jQuery("<button disabled='disabled'>Previous</button>");
-    var finishBtn = jQuery("<button>Finish</button>");
-    var controllers = jQuery("<div class='pp_controller'></div>");
 
     prevBtn.click(function(){
         currentIndex --;
@@ -99,10 +143,11 @@ function prepareWizard(){
         }
     });
 
-    controllers.append(prevBtn);
-    controllers.append(nextBtn);
-    controllers.append(finishBtn);
-    wizardContainer.append(controllers);
+    finishBtn.click(function(){
+        //todo
+    })
+
+
 }
 stepsContainer.append(stepsItems);
 wizardContainer.append(stepsContainer);
