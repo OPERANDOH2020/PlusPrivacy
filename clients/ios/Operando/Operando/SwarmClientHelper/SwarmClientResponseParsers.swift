@@ -83,7 +83,7 @@ class PfbDeal
 enum NotificationAction: String {
     case identitiesMangament = "identity"
     case privacyForBenefits = "privacy-for-benefits"
-    case privateBrowsing = "privateBrowsing"
+    case privateBrowsing = "private_browsing"
     case socialNetworkPrivacy = "social-network-privacy"
 }
 
