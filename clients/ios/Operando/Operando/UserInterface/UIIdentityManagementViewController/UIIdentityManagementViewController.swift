@@ -98,7 +98,7 @@ class UIIdentityManagementViewControllerLogic: NSObject {
             }))
         })
         
-        self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+        self.logicCallbacks?.displayStatusPopupWithMessage?("")
         
         repository?.getCurrentIdentitiesListWith(completion: { (identities, error) in
             self.logicCallbacks?.dismissStatusPopup?()
@@ -140,7 +140,7 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         
         self.logicCallbacks?.displayConfirmationPanel?(identity, Bundle.localizedStringFor(key: kDoYouWantToDeleteSIDLocalizableKey)) {
             
-            self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+            self.logicCallbacks?.displayStatusPopupWithMessage?("")
             
             self.identitiesRepository?.remove(identity: identity, withCompletion: { nextDefaultIdentity, error  in
                 
@@ -169,7 +169,7 @@ class UIIdentityManagementViewControllerLogic: NSObject {
     }
     
     private func setAsDefault(identity: String) {
-        self.logicCallbacks?.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+        self.logicCallbacks?.displayStatusPopupWithMessage?("")
         
         self.identitiesRepository?.updateDefaultIdentity(to: identity, withCompletion: { error  in
             self.logicCallbacks?.dismissStatusPopup?()
@@ -214,7 +214,7 @@ class UIIdentityManagementViewController: UIViewController {
         UIIdentityManagementViewControllerOutlets(identitiesListViewLogic: self.identitiesListView?.logic, addNewIdentityButton: self.addNewIdentityButton, numberOfIdentitiesLeftLabel: self.numOfIdentitiesLeftLabel, realIdentityView: self.realIdentityView)
         
         return UIIdentityManagementViewControllerLogic(outlets: outlets, logicCallbacks: UIIdentityManagementViewControllerLogicCallbacks(displayStatusPopupWithMessage: { status in
-            ProgressHUD.show(status)
+            ProgressHUD.show()
         }, dismissStatusPopup: {
             ProgressHUD.dismiss()
         }, displayConfirmationPanel: { (title: String, message: String, callback: VoidBlock?) in

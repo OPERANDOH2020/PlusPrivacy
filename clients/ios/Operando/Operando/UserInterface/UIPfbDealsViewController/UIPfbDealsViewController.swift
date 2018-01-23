@@ -24,7 +24,7 @@ class UIPfbDealsViewController: UIViewController {
     }
     
     private func loadCurrentDeals(){
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+        ProgressHUD.show()
         self.dealsRepository?.getCurrentPfbDealsWith(completion: { deals, error in
             ProgressHUD.dismiss()
             if let error = error {
@@ -70,7 +70,7 @@ class UIPfbDealsViewController: UIViewController {
     
     
     private func tryActivate(deal: PfbDeal, fromCell cell: UIPfbDisplayingView?, whenDone: VoidBlock?){
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+        ProgressHUD.show()
         self.dealsRepository?.subscribeFor(serviceId: deal.serviceId, withCompletion: { dealUpdate, error in
             defer {
                 whenDone?()
@@ -88,7 +88,7 @@ class UIPfbDealsViewController: UIViewController {
     }
     
     private func tryDeactivate(deal: PfbDeal, fromCell cell: UIPfbDisplayingView?, whenDone: VoidBlock?){
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+        ProgressHUD.show()
         self.dealsRepository?.unSubscribeFrom(serviceId: deal.serviceId, withCompletion: { dealUpdate, error  in
             defer{
                 whenDone?()

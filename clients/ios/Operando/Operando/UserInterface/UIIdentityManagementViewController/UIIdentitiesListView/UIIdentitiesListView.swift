@@ -77,8 +77,6 @@ class UIIdentitiesListViewLogic: NSObject, UITableViewDataSource, UITableViewDel
             }
             self.currentDefaultIdentity = defaultIdentity
         }
-
-
     }
     
     func appendAndDisplayNew(item: String) {

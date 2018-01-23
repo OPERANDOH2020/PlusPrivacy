@@ -78,7 +78,7 @@ class UIAddIdentityViewControllerLogic: NSObject {
         },
                                           whenPressedSave: { result in
             
-            weakSelf?.logicCallbacks.displayStatusPopupWithMessage?(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+            weakSelf?.logicCallbacks.displayStatusPopupWithMessage?("")
             
             weakRepository?.add(identity: result.asFinalIdentity, withCompletion: { (error) in
                 weakSelf?.logicCallbacks.dismissStatusPopup?()
