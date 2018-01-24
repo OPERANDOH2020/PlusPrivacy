@@ -131,7 +131,7 @@ class OPConfigObject: NSObject
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         weak var weakSelf = self
         
-        ProgressHUD.show("Connecting")
+        ProgressHUD.show()
         self.userRepository?.loginWith(email: loginInfo.email, password: loginInfo.password) { (error, data) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
@@ -195,7 +195,7 @@ class OPConfigObject: NSObject
     private func registerWithInfoAndUpdateUI(_ info: RegistrationInfo){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey))
+        ProgressHUD.show()
         self.userRepository?.registerNewUserWith(email: info.email, password: info.password) { error in
             ProgressHUD.dismiss()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -260,7 +260,7 @@ class OPConfigObject: NSObject
     }
     
     private func resetPasswordAndUpdateUIFor(email: String) {
-        ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+        ProgressHUD.show()
         self.userRepository?.resetPasswordFor(email: email) { error in
             ProgressHUD.dismiss()
             
@@ -278,7 +278,7 @@ class OPConfigObject: NSObject
         
         return { oldPassword, newPassword, successCallback in
             
-            ProgressHUD.show(Bundle.localizedStringFor(key: kConnectingLocalizableKey), autoDismissAfter: 5.0)
+            ProgressHUD.show()
             weakSelf?.userRepository?.changeCurrent(password: oldPassword, to: newPassword, withCompletion: { error in
                 ProgressHUD.dismiss()
                 if let error = error {

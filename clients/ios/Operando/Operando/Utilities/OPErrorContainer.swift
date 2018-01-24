@@ -86,6 +86,6 @@ class OPErrorContainer
             return
         }
         
-        OPViewUtils.displayAlertWithMessage(message: error.localizedDescription, withTitle: "", addCancelAction: false, withConfirmation: nil)
+        OPViewUtils.displayAlertWithMessage(message: error.localizedDescription.camelCaseToWords().capitalizingFirstLetter(), withTitle: "", addCancelAction: false, withConfirmation: nil)
     }
 }

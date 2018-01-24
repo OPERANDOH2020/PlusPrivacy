@@ -215,16 +215,16 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                             return
                         }
                         
-//                        self.swarmClient.disconnectAndReconnectWith(completion: { failReason in
-//
-//                            if let failReason = failReason {
-//                                let error = NSError(domain: SwarmClientErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: failReason]);
-//                                completion?(error)
-//                                return
-//                            }
-                        
+                        self.swarmClient.disconnectAndReconnectWith(completion: { failReason in
+                            
+                            if let failReason = failReason {
+                                let error = NSError(domain: SwarmClientErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: failReason]);
+                                completion?(error)
+                                return
+                            }
+                            
                             completion?(nil)
-//                        })
+                        })
                     })
                 }
             }

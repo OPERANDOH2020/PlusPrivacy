@@ -8,6 +8,32 @@
 
 import Foundation
 extension String {
+    
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+
+    func camelCaseToWords() -> String {
+        
+        return unicodeScalars.reduce("") {
+            
+            if CharacterSet.uppercaseLetters.contains($1) == true {
+                
+                return ($0 + " " + String($1))
+            }
+            else {
+                
+                return $0 + String($1)
+            }
+        }
+    }
+    
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)

@@ -39,6 +39,9 @@ class UIIdentityManagementViewControllerLogic: NSObject {
         self.logicCallbacks = logicCallbacks
         super.init()
         outlets.addNewIdentityButton?.addTarget(self, action: #selector(didPressToAddNewIdentity(_:)), for: .touchUpInside)
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(labelTicked(withSender:)))
+        outlets.realIdentityView?.addGestureRecognizer(longGesture)
 
     }
     
@@ -63,6 +66,16 @@ class UIIdentityManagementViewControllerLogic: NSObject {
     
     @IBAction func didPressToAddNewIdentity(_ sender: AnyObject) {
         self.addNewIdentity()
+    }
+    
+@objc func labelTicked(withSender sender: AnyObject) {
+
+        if sender.state == .ended {
+            copyToClickBoard(identity: realIdentity)
+        }
+        else if sender.state == .began {
+
+        }
     }
     
     

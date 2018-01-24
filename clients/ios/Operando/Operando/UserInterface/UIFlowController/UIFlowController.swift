@@ -201,6 +201,7 @@ class UIFlowController
             OPViewUtils.displayAlertWithMessage(message: "The password was successfully changed.", withTitle: "My Account", addCancelAction: false, withConfirmation: nil)
         }, userDeletedAccount: {
             print("userDeletedAccount")
+            CredentialsStore.deleteCredentials()
             self.displayLoginHierarchy()
         }))
         self.rootController.setMainControllerTo(newController: myAccountVC);

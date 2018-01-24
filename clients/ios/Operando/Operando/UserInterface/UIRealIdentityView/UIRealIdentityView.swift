@@ -30,7 +30,7 @@ class UIRealIdentityView: RSNibDesignableView {
     @IBOutlet weak var realIdentityLabel: UILabel!
     @IBOutlet weak var yourRealIdentityLabel: UILocalizableLabel!
     @IBOutlet weak var defaultEnabledImageView: UIImageView!
-    
+
     var state: UIRealIdentityViewDisplayState = UIRealIdentityViewDisplayState.nonDefault
     
     var logicCallbacks: UIRealIdentityCallbacks?

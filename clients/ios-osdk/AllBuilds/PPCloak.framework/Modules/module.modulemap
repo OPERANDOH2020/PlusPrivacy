@@ -1,0 +1,6 @@
+framework module PPCloak {
+  umbrella header "PPCloak.h"
+
+  export *
+  module * { export * }
+}

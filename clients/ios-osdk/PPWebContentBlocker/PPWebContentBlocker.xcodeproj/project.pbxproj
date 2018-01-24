@@ -38,9 +38,7 @@
 		98F10E031E8A795E00AA5A74 /* disconnect-simple-malware.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEA1E8A795E00AA5A74 /* disconnect-simple-malware.txt */; };
 		98F10E041E8A795E00AA5A74 /* easylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEB1E8A795E00AA5A74 /* easylist.txt */; };
 		98F10E051E8A795E00AA5A74 /* short-sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEC1E8A795E00AA5A74 /* short-sitelist.txt */; };
-		98F10E061E8A795E00AA5A74 /* sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DED1E8A795E00AA5A74 /* sitelist.txt */; };
 		98F10E071E8A795E00AA5A74 /* spam404-main-blacklist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEE1E8A795E00AA5A74 /* spam404-main-blacklist.txt */; };
-		98F10E081E8A795E00AA5A74 /* top500-sitelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DEF1E8A795E00AA5A74 /* top500-sitelist.txt */; };
 		98F10E091E8A795E00AA5A74 /* ublock-unbreak.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F10DF01E8A795E00AA5A74 /* ublock-unbreak.txt */; };
 		98F10E0A1E8A795E00AA5A74 /* filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 98F10DF11E8A795E00AA5A74 /* filter.cc */; };
 		98F10E0B1E8A795E00AA5A74 /* filter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F10DF21E8A795E00AA5A74 /* filter.h */; };
@@ -301,14 +299,12 @@
 			files = (
 				98F10E031E8A795E00AA5A74 /* disconnect-simple-malware.txt in Resources */,
 				98F10E071E8A795E00AA5A74 /* spam404-main-blacklist.txt in Resources */,
-				98F10E081E8A795E00AA5A74 /* top500-sitelist.txt in Resources */,
 				98F10E021E8A795E00AA5A74 /* brave-unbreak.txt in Resources */,
 				98F10E051E8A795E00AA5A74 /* short-sitelist.txt in Resources */,
 				98F10E091E8A795E00AA5A74 /* ublock-unbreak.txt in Resources */,
 				98F10E201E8A84F000AA5A74 /* ABPFilterParserData.dat in Resources */,
 				98F10E111E8A795E00AA5A74 /* LICENSE in Resources */,
 				98F10E041E8A795E00AA5A74 /* easylist.txt in Resources */,
-				98F10E061E8A795E00AA5A74 /* sitelist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

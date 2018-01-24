@@ -115,9 +115,8 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
     func pressedDeleteAccountButton() {
         
         OPViewUtils.displayAlertWithMessage(message: "Are you sure you want to delete your account?", withTitle: "My Account", addCancelAction: true) {
-            
+        
             self.logicCallbacks?.userDeletedAccount?()
-            CredentialsStore.deleteCredentials()
             
             self.infoRepository?.deleteAccount(withCompletion: { (error) in
                 if let error = error {

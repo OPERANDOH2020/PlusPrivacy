@@ -1,0 +1,5 @@
+./../PlusPrivacyCommonUI/GenericFrameworkProject/
+./../PPCloak/GenericFrameworkProject/
+./../../ios/Operando/Operando/
+./../AllBuilds/
+/Users/Costin/Desktop/Projects/Internal/OSDKTw/OSDKTw
