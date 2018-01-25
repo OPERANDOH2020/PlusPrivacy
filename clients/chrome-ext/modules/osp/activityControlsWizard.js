@@ -18,7 +18,6 @@
 
 })(jQuery);
 
-
 var containerClassName = ".HICA4c";
 var wizardContainer = jQuery("<div class='pp_wizard_container'><div class='pp_logo'></div></div>");
 var stepsContainer = jQuery("<div class='activity_controls_steps'><div class='progress_bar'></div></div>");
@@ -131,6 +130,8 @@ function changeIndex(index){
     else{
         finishBtn.removeAttr("disabled");
     }
+
+    port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"currentIndex", index:index}});
 }
 
 
@@ -175,7 +176,7 @@ function prepareWizard(){
     });
 
     finishBtn.click(function(){
-        //todo
+        port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"wizardFinished"}});
     })
 
 

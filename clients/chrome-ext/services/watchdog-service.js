@@ -23,11 +23,11 @@ operandoCore
         var googleTabId = null;
         var callbacks = {};
 
-        function closeTabListener(tabId, callback){
+        function closeTabListener(tabId, callback) {
 
             callbacks[tabId] = callback;
-            messengerService.requestNotification("onTabRemoved", tabId, function(responsedTabId){
-                if(callbacks[responsedTabId]){
+            messengerService.requestNotification("onTabRemoved", tabId, function (responsedTabId) {
+                if (callbacks[responsedTabId]) {
                     callbacks[responsedTabId]();
                     delete callbacks[responsedTabId];
                 }
@@ -40,36 +40,37 @@ operandoCore
          * @param callback
          * @param jobFinished
          */
-        function increaseGooglePrivacy(settings, callback, jobFinished){
+        function increaseGooglePrivacy(settings, callback, jobFinished) {
             var jobDone = false;
             chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "selected": false}, function (tab) {
                 googleTabId = tab.id;
 
-                closeTabListener(googleTabId, function(){
-                    messengerService.off("googleMessage",handleGoogleMessages);
-                    if(jobDone == false){
+                closeTabListener(googleTabId, function () {
+                    messengerService.off("googleMessage", handleGoogleMessages);
+                    messengerService.off("googleActivityMessage", handleActivityMessages);
+                    if (jobDone == false) {
                         callback("google", -1, settings.length);// -1 means aborted
                         jobFinished(true);//true means aborted
                     }
                 });
 
-                messengerService.send("getGoogleData",function(response){
+                messengerService.send("getGoogleData", function (response) {
                     messengerService.send("insertGoogleIncreasePrivacyScript", {
                         code: "window.GOOGLE_PARAMS = " + JSON.stringify(response.data),
-                        tabId:googleTabId
+                        tabId: googleTabId
                     });
                 });
             });
             callback("google", 0, settings.length);
 
-            var activityControlsSettings =  [];
+            var activityControlsSettings = [];
             var usualSettings = [];
 
-            settings.forEach(function(setting){
-                if(setting.method_type == "user-action"){
+            settings.forEach(function (setting) {
+                if (setting.method_type == "user-action") {
                     activityControlsSettings.push(setting);
                 }
-                else{
+                else {
                     usualSettings.push(setting);
                 }
             });
@@ -78,23 +79,18 @@ operandoCore
                 if (msg.data.status == "waitingGoogleCommand") {
 
 
-                    chrome.tabs.create({url: 'https://myaccount.google.com/activitycontrols'}, function (tab) {
-                        messengerService.send("insertActivityControlsWizardFiles", {tabId:tab.id});
-                    });
-
-                    /*messengerService.send("sendMessageToGoogle", {
+                    messengerService.send("sendMessageToGoogle", {
                         sendToPort: "applyGoogleSettings",
                         command: "applySettings",
                         settings: usualSettings
-                    });*/
+                    });
 
                 } else {
                     if (msg.data.status == "settings_applied") {
-                        jobFinished();
-                        jobDone = true;
                         messengerService.off("googleMessage", handleGoogleMessages);
-                        chrome.tabs.remove(googleTabId);
-                        googleTabId = null;
+                        messengerService.on("googleActivityMessage", handleActivityMessages);
+                        messengerService.send("insertActivityControlsWizardFiles", {tabId: googleTabId});
+
                     }
                     else if (msg.data.status == "progress") {
                         callback("google", msg.data.progress, settings.length);
@@ -102,20 +98,31 @@ operandoCore
                 }
             };
 
-            var handleActivityMessages = function(msg){
-
-                switch (msg.data.status){
+            var handleActivityMessages = function (msg) {
+                switch (msg.data.status) {
                     case "waitingGoogleActivityCommand" :
                         messengerService.send("sendMessageToGoogleActivity", {
                             sendToPort: "googleActivityControls",
                             command: "applySettings",
                             settings: activityControlsSettings
                         });
+                        chrome.tabs.update(googleTabId, {active: true});
+
+                        break;
+                    case "wizardFinished":
+                        messengerService.off("googleActivityMessage", handleGoogleMessages);
+                        jobFinished();
+                        jobDone = true;
+                        chrome.tabs.remove(googleTabId);
+                        googleTabId = null;
+                        break;
+                    case "currentIndex":
+                        callback("google", usualSettings.length + msg.data.index+1, settings.length);
+                        break;
                 }
             };
 
             messengerService.on("googleMessage", handleGoogleMessages);
-            messengerService.on("googleActivityMessage", handleActivityMessages);
         }
 
 
@@ -124,9 +131,9 @@ operandoCore
             var jobDone = false;
             chrome.tabs.create({url: FACEBOOK_PRIVACY_URL, "selected": false}, function (tab) {
                 facebookTabId = tab.id;
-                closeTabListener(facebookTabId, function(){
-                    if(jobDone == false){
-                        messengerService.off("facebookMessage",handleFacebookMessages);
+                closeTabListener(facebookTabId, function () {
+                    if (jobDone == false) {
+                        messengerService.off("facebookMessage", handleFacebookMessages);
                         callback("facebook", -1, settings.length);// -1 means aborted
                         jobFinished(true);//true means aborted
                     }
@@ -141,12 +148,12 @@ operandoCore
                         "fb_dtsg": null,
                         "__user": null,
                         "__rev": null,
-                        "jazoest":null,
-                        "__spin_r":null,
-                        "__spin_b":null,
-                        "__spin_t":null,
-                        "__be":null,
-                        "__pc":null
+                        "jazoest": null,
+                        "__spin_r": null,
+                        "__spin_b": null,
+                        "__spin_t": null,
+                        "__be": null,
+                        "__pc": null
                     }
                 }, function (response) {
                     messengerService.send("insertFacebookIncreasePrivacyScript", {
@@ -157,16 +164,20 @@ operandoCore
             });
 
             callback("facebook", 0, settings.length);
-            var handleFacebookMessages = function(msg){
+            var handleFacebookMessages = function (msg) {
                 if (msg.data.status == "waitingFacebookCommand") {
-                    messengerService.send("sendMessageToFacebook",{sendToPort:"applyFacebookSettings",command: "applySettings", settings: settings});
+                    messengerService.send("sendMessageToFacebook", {
+                        sendToPort: "applyFacebookSettings",
+                        command: "applySettings",
+                        settings: settings
+                    });
 
                 } else {
                     if (msg.data.status == "settings_applied") {
                         jobFinished();
-                        messengerService.off("facebookMessage",handleFacebookMessages);
-                        chrome.tabs.remove(facebookTabId);
                         jobDone = true;
+                        messengerService.off("facebookMessage", handleFacebookMessages);
+                        chrome.tabs.remove(facebookTabId);
                         facebookTabId = null;
                     }
                     else {
@@ -181,31 +192,35 @@ operandoCore
 
         }
 
-        function  increaseLinkedInPrivacy(settings, callback, jobFinished) {
+        function increaseLinkedInPrivacy(settings, callback, jobFinished) {
             var jobDone = false;
             chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "selected": false}, function (tab) {
                 linkedinTabId = tab.id;
 
-                closeTabListener(linkedinTabId, function(){
-                    messengerService.off("linkedinMessage",handleLinkedinMessages);
-                    if(jobDone == false){
+                closeTabListener(linkedinTabId, function () {
+                    messengerService.off("linkedinMessage", handleLinkedinMessages);
+                    if (jobDone == false) {
                         callback("linkedin", -1, settings.length);// -1 means aborted
                         jobFinished(true);//true means aborted
                     }
                 });
 
-                messengerService.send("insertLinkedinIncreasePrivacyScript", {tabId:linkedinTabId});
+                messengerService.send("insertLinkedinIncreasePrivacyScript", {tabId: linkedinTabId});
             });
             callback("linkedin", 0, settings.length);
-            var handleLinkedinMessages = function(msg){
+            var handleLinkedinMessages = function (msg) {
                 if (msg.data.status == "waitingLinkedinCommand") {
-                    messengerService.send("sendMessageToLinkedin",{sendToPort:"applyLinkedinSettings",command: "applySettings", settings: settings});
+                    messengerService.send("sendMessageToLinkedin", {
+                        sendToPort: "applyLinkedinSettings",
+                        command: "applySettings",
+                        settings: settings
+                    });
 
                 } else {
                     if (msg.data.status == "settings_applied") {
                         jobFinished();
                         jobDone = true;
-                        messengerService.off("linkedinMessage",handleLinkedinMessages);
+                        messengerService.off("linkedinMessage", handleLinkedinMessages);
                         chrome.tabs.remove(linkedinTabId);
                         linkedinTabId = null;
                     }
@@ -222,32 +237,36 @@ operandoCore
         function increaseTwitterPrivacy(settings, callback, jobFinished, passwordWasPromptedCallback) {
 
             var jobDone = false;
-            chrome.tabs.getCurrent(function(currentTab){
+            chrome.tabs.getCurrent(function (currentTab) {
                 chrome.tabs.create({url: TWITTER_PRIVACY_URL, "selected": false}, function (tab) {
                     twitterTabId = tab.id;
-                    closeTabListener(twitterTabId, function(){
-                        if(jobDone == false){
-                            messengerService.off("twitterMessage",handleTwitterMessages);
+                    closeTabListener(twitterTabId, function () {
+                        if (jobDone == false) {
+                            messengerService.off("twitterMessage", handleTwitterMessages);
                             callback("twitter", -1, settings.length);// -1 means aborted
                             jobFinished(true);//true means aborted
-                            if(passwordWasPromptedCallback){
+                            if (passwordWasPromptedCallback) {
                                 passwordWasPromptedCallback();
                             }
                         }
                     });
-                    messengerService.send("insertTwitterIncreasePrivacyScript", {tabId:twitterTabId});
+                    messengerService.send("insertTwitterIncreasePrivacyScript", {tabId: twitterTabId});
                 });
 
                 callback("twitter", 0, settings.length);
 
-                var handleTwitterMessages = function(msg){
+                var handleTwitterMessages = function (msg) {
                     if (msg.data.status == "waitingTwitterCommand") {
-                        messengerService.send("sendMessageToTwitter",{sendToPort:"applyTwitterSettings",command: "applySettings", settings: settings});
+                        messengerService.send("sendMessageToTwitter", {
+                            sendToPort: "applyTwitterSettings",
+                            command: "applySettings",
+                            settings: settings
+                        });
 
                     } else {
                         if (msg.data.status == "settings_applied") {
                             jobFinished();
-                            messengerService.off("twitterMessage",handleTwitterMessages);
+                            messengerService.off("twitterMessage", handleTwitterMessages);
                             chrome.tabs.remove(twitterTabId);
                             twitterTabId = null;
                             jobDone = true;
@@ -255,14 +274,14 @@ operandoCore
                         else {
                             if (msg.data.status == "progress") {
                                 callback("twitter", msg.data.progress, settings.length);
-                            } else if(msg.data.status == "giveMeCredentials") {
+                            } else if (msg.data.status == "giveMeCredentials") {
                                 chrome.tabs.update(twitterTabId, {active: true});
-                            } else if(msg.data.status=="takeMeBackInExtension"){
+                            } else if (msg.data.status == "takeMeBackInExtension") {
                                 chrome.tabs.update(currentTab.id, {active: true});
-                                if(passwordWasPromptedCallback){
+                                if (passwordWasPromptedCallback) {
                                     passwordWasPromptedCallback();
                                 }
-                            } else if(msg.data.status == "abortTwitter") {
+                            } else if (msg.data.status == "abortTwitter") {
                                 chrome.tabs.remove(twitterTabId);
                                 twitterTabId = null;
                             }
@@ -285,7 +304,7 @@ operandoCore
             ospService.getOSPSettings(function (settings) {
 
                 var settingsToBeApplied = {};
-                for(var i = 0; i < desiredSettings.length; i++) {
+                for (var i = 0; i < desiredSettings.length; i++) {
                     var found = false;
                     for (ospname in settings) {
                         if (found === false) {
@@ -325,40 +344,40 @@ operandoCore
             var jobsNumber = Object.keys(settings).length;
             var successfullyFinished = 0;
 
-            if(jobsNumber === 0){
+            if (jobsNumber === 0) {
                 completedCallback();
             }
 
-            var jobFinished = function(aborted){
-                if(aborted !== true){
-                    successfullyFinished ++;
+            var jobFinished = function (aborted) {
+                if (aborted !== true) {
+                    successfullyFinished++;
                 }
-                jobsNumber --;
-                if(jobsNumber === 0){
+                jobsNumber--;
+                if (jobsNumber === 0) {
                     completedCallback(successfullyFinished);
                 }
             }
 
-            function checkSettings(){
+            function checkSettings() {
                 for (ospname in settings) {
                     switch (ospname) {
                         case "facebook":
-                            increaseFacebookPrivacy(settings[ospname],callback, jobFinished);
+                            increaseFacebookPrivacy(settings[ospname], callback, jobFinished);
                             break;
                         case "linkedin":
-                            increaseLinkedInPrivacy(settings[ospname],callback, jobFinished);
+                            increaseLinkedInPrivacy(settings[ospname], callback, jobFinished);
                             break;
                         case "google":
-                            increaseGooglePrivacy(settings[ospname],callback, jobFinished);
+                            increaseGooglePrivacy(settings[ospname], callback, jobFinished);
                             break;
                     }
                 }
             }
 
-            if(Object.keys(settings).indexOf("twitter")>-1){
-                increaseTwitterPrivacy(settings["twitter"],callback, jobFinished, checkSettings);
+            if (Object.keys(settings).indexOf("twitter") > -1) {
+                increaseTwitterPrivacy(settings["twitter"], callback, jobFinished, checkSettings);
             }
-            else{
+            else {
                 checkSettings();
             }
 
@@ -399,20 +418,20 @@ operandoCore
                 params: settingToBeApplied.availableSettings[settingKey].params,
                 page: page,
                 data: data,
-                method_type:settingToBeApplied.method_type?settingToBeApplied.method_type:"POST"
+                method_type: settingToBeApplied.method_type ? settingToBeApplied.method_type : "POST"
             };
             return setting;
 
         }
 
-        var maximizeEnforcement = function(availableOSPs, callback, completedCallback){
+        var maximizeEnforcement = function (availableOSPs, callback, completedCallback) {
 
             ospService.getOSPSettings(function (settings) {
 
                 var settingsToBeApplied = {};
 
                 for (ospname in settings) {
-                    if (availableOSPs.indexOf(ospname)>-1) {
+                    if (availableOSPs.indexOf(ospname) > -1) {
 
                         for (setting in settings[ospname]) {
 
@@ -436,14 +455,14 @@ operandoCore
             });
         };
 
-        var cancelEnforcement = function(callback){
+        var cancelEnforcement = function (callback) {
             callbacks = {};
             messengerService.off("facebookMessage");
             messengerService.off("linkedinMessage");
             messengerService.off("twitterMessage");
             messengerService.off("googleMessage");
 
-            var tabIdsToBeRemoved = [twitterTabId,facebookTabId,linkedinTabId];
+            var tabIdsToBeRemoved = [twitterTabId, facebookTabId, linkedinTabId];
             var sequence = Promise.resolve();
             tabIdsToBeRemoved.forEach(function (tabId, index) {
                 sequence = sequence.then(function () {
@@ -456,16 +475,16 @@ operandoCore
             });
 
 
-            var removeTab = function(tabId){
+            var removeTab = function (tabId) {
                 return new Promise(function (resolve, reject) {
-                    if(tabId){
-                        chrome.tabs.get(tabId, function(tab){
+                    if (tabId) {
+                        chrome.tabs.get(tabId, function (tab) {
                             if (chrome.runtime.lastError) {
                                 console.log("Tab does not exists");
                                 resolve();
                             }
-                            else{
-                                chrome.tabs.remove(tab.id,resolve);
+                            else {
+                                chrome.tabs.remove(tab.id, resolve);
                             }
                         });
                     }
@@ -476,15 +495,15 @@ operandoCore
         };
 
         return {
-            prepareSettings:prepareSettings,
+            prepareSettings: prepareSettings,
             secureAccount: secureAccount,
-            maximizeEnforcement:maximizeEnforcement,
-            applySettings:startApplyingSettings,
-            applyFacebookSettings:increaseFacebookPrivacy,
-            applyLinkedInSettings:increaseLinkedInPrivacy,
-            applyTwitterSettings:increaseTwitterPrivacy,
-            applyGoogleSettings:increaseGooglePrivacy,
-            cancelEnforcement:cancelEnforcement
+            maximizeEnforcement: maximizeEnforcement,
+            applySettings: startApplyingSettings,
+            applyFacebookSettings: increaseFacebookPrivacy,
+            applyLinkedInSettings: increaseLinkedInPrivacy,
+            applyTwitterSettings: increaseTwitterPrivacy,
+            applyGoogleSettings: increaseGooglePrivacy,
+            cancelEnforcement: cancelEnforcement
 
         }
 

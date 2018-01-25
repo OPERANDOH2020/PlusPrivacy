@@ -92,6 +92,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                             else{
                                 $scope.completedFeedback = socialNetwork + " privacy settings were updated!";
                                 $scope.completed = true;
+                                $scope.$apply();
                             }
                         });
                     });
