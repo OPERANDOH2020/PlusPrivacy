@@ -53,7 +53,7 @@ struct UIAddIdentityViewOutlets {
 
 
 class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
- 
+    
     let cellIdentitifer = "domainCellIdentifier"
     private var domains: [Domain] = []
     private var currentlyShownDomains: [Domain] = []
@@ -79,26 +79,26 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
         self.commonInit()
     }
     
-//    private func setupTableView(tv: UITableView?){
-//        tv?.delegate = self
-//        tv?.dataSource = self
-//        tv?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentitifer)
-//    }
+    //    private func setupTableView(tv: UITableView?){
+    //        tv?.delegate = self
+    //        tv?.dataSource = self
+    //        tv?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentitifer)
+    //    }
     
     func commonInit() {
-//        self.setupTableView(tv: outlets.domainsTableView)
-//        outlets.scrollView?.isScrollEnabled = false
+        //        self.setupTableView(tv: outlets.domainsTableView)
+        //        outlets.scrollView?.isScrollEnabled = false
         
         outlets.aliasTF?.delegate = self
         outlets.domainTF?.delegate = self
         self.editingTextField = outlets.domainTF
         outlets.domainTF?.isUserInteractionEnabled = false
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillAppear(_:)), name: .UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillDisappear(_:)), name: .UIKeyboardWillHide, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillAppear(_:)), name: .UIKeyboardWillShow, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(UIAddIdentityViewLogic.keyboardWillDisappear(_:)), name: .UIKeyboardWillHide, object: nil)
         
         outlets.closeButton?.addTarget(self, action: #selector(didPressclose(_:)), for: .touchUpInside)
-//        outlets.closeButtons?.forEach{$0.addTarget(self, action: #selector(didPressclose(_:)), for: .touchUpInside)}
+        //        outlets.closeButtons?.forEach{$0.addTarget(self, action: #selector(didPressclose(_:)), for: .touchUpInside)}
         
         outlets.refreshBtn?.addTarget(self, action: #selector(didPressRefresh(_:)), for: .touchUpInside)
         outlets.saveBtn?.addTarget(self, action: #selector(didPressSave(_:)), for: .touchUpInside)
@@ -111,7 +111,7 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
     func setupWith(domains: [Domain], andCallbacks callbacks: UIAddIdentityViewCallbacks?){
         self.domains = domains
         self.callbacks = callbacks
-//        outlets.domainsTableView?.isHidden = true
+        //        outlets.domainsTableView?.isHidden = true
         
         
         outlets.aliasTF?.text = ""
@@ -132,7 +132,7 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
     func updateProfileLabel() {
         
         if let aliastText = outlets.aliasTF?.text,
-           let domainText = outlets.domainTF?.text {
+            let domainText = outlets.domainTF?.text {
             outlets.profileLbl?.text = aliastText + "@" + domainText
         }
     }
@@ -148,7 +148,7 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
     @IBAction func didPressRefresh(_ sender: UIButton) {
         self.callbacks?.whenPressedRefresh?()
     }
-
+    
     @IBAction func didPressSave(_ sender: UIButton) {
         
         guard let domain = self.currentSelectedDomainIfAny,
@@ -176,6 +176,8 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         guard textField != outlets.aliasTF else {
+            
+            self.outlets.profileLbl?.text = NSString(string: textField.text!).replacingCharacters(in: range, with: string) + "@" + (self.outlets.domainTF?.text)!
             return true
         }
         
@@ -201,33 +203,33 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
         return true
     }
     
-//    //MARK: tableView delegate and datasource
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.currentlyShownDomains.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentitifer) ?? UITableViewCell(style: .default, reuseIdentifier: cellIdentitifer)
-//
-//        cell.textLabel?.text = self.currentlyShownDomains[indexPath.row].name
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.applySelectionLogicForDomainAt(index: indexPath.row)
-//    }
+    //    //MARK: tableView delegate and datasource
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return 1
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        return self.currentlyShownDomains.count
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentitifer) ?? UITableViewCell(style: .default, reuseIdentifier: cellIdentitifer)
+    //
+    //        cell.textLabel?.text = self.currentlyShownDomains[indexPath.row].name
+    //
+    //        return cell
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        self.applySelectionLogicForDomainAt(index: indexPath.row)
+    //    }
     
     //MARK: internal utils
     
     private func displayAllDomains(){
         self.currentlyShownDomains = self.domains
-//        outlets.domainsTableView?.isHidden = false
-//        outlets.domainsTableView?.reloadData()
+        //        outlets.domainsTableView?.isHidden = false
+        //        outlets.domainsTableView?.reloadData()
     }
     
     private func displayDomains(containing domPart: String){
@@ -235,14 +237,14 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
             return domain.name.lowercased().contains(domPart.lowercased())
         })
         
-//        if self.currentlyShownDomains.count > 0 {
-//            outlets.domainsTableView?.isHidden = false
-//            outlets.domainsTableView?.reloadData()
-//        } else {
-//            outlets.domainsTableView?.isHidden = true
-        }
+        //        if self.currentlyShownDomains.count > 0 {
+        //            outlets.domainsTableView?.isHidden = false
+        //            outlets.domainsTableView?.reloadData()
+        //        } else {
+        //            outlets.domainsTableView?.isHidden = true
     }
-    
+}
+
 //    private func applySelectionLogicForDomainAt(index: Int){
 //        self.selectedDomainIndex = index
 //        let domain = self.currentlyShownDomains[index]
@@ -250,45 +252,45 @@ class UIAddIdentityViewLogic: NSObject, UITextFieldDelegate {
 //        self.logicCallbacks.dismissKeyboard?()
 //    }
 
-    //MARK: keyboard
-    func keyboardWillAppear(_ notification: NSNotification){
-        
-//        guard self.editingTextField == outlets.domainTF else {
-//            return
-//        }
-//
-//        guard let value = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else{
-//            return
-//        }
-//
-//        let rect = value.cgRectValue
-//        outlets.containerViewBottomSpaceToScrollView?.constant = rect.size.height
-//        UIView.animate(withDuration: 0.5) {
-//            self.outlets.scrollView?.layoutIfNeeded()
-//            let offset = CGPoint(x: 0, y: self.outlets.domainTF?.frame.origin.y ?? 0)
-//            self.outlets.scrollView?.setContentOffset(offset, animated: false)
-//        }
-    }
+//MARK: keyboard
+func keyboardWillAppear(_ notification: NSNotification){
     
-    func keyboardWillDisappear(_ notification: NSNotification){
-//        outlets.containerViewBottomSpaceToScrollView?.constant = 0
-//        outlets.domainsTableView?.isHidden = true
-//        UIView.animate(withDuration: 0.5) {
-//            self.outlets.scrollView?.layoutIfNeeded()
-//        }
-//    }
+    //        guard self.editingTextField == outlets.domainTF else {
+    //            return
+    //        }
+    //
+    //        guard let value = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else{
+    //            return
+    //        }
+    //
+    //        let rect = value.cgRectValue
+    //        outlets.containerViewBottomSpaceToScrollView?.constant = rect.size.height
+    //        UIView.animate(withDuration: 0.5) {
+    //            self.outlets.scrollView?.layoutIfNeeded()
+    //            let offset = CGPoint(x: 0, y: self.outlets.domainTF?.frame.origin.y ?? 0)
+    //            self.outlets.scrollView?.setContentOffset(offset, animated: false)
+    //        }
+}
+
+func keyboardWillDisappear(_ notification: NSNotification){
+    //        outlets.containerViewBottomSpaceToScrollView?.constant = 0
+    //        outlets.domainsTableView?.isHidden = true
+    //        UIView.animate(withDuration: 0.5) {
+    //            self.outlets.scrollView?.layoutIfNeeded()
+    //        }
+    //    }
     
 }
 
-class UIAddIdentityView: RSNibDesignableView
+class UIAddIdentityView: RSNibDesignableView, UITextFieldDelegate
 {
-
+    
     private var callbacks: UIAddIdentityViewCallbacks?
     
     @IBOutlet weak var aliasTF: UITextField!
     @IBOutlet weak var domainTF: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
-//    @IBOutlet weak var domainsTableView: UITableView!
+    //    @IBOutlet weak var domainsTableView: UITableView!
     @IBOutlet weak var closeXButton: UIButton!
     @IBOutlet weak var profileLbl: UILabel!
     @IBOutlet weak var refreshBtn: UIButton!
@@ -297,24 +299,26 @@ class UIAddIdentityView: RSNibDesignableView
         
         let outlets: UIAddIdentityViewOutlets = UIAddIdentityViewOutlets( aliasTF: self.aliasTF, domainTF: self.domainTF, closeButton: self.closeXButton, saveBtn: self.saveBtn,profileLbl: self.profileLbl,refreshBtn: self.refreshBtn)
         
+        self.aliasTF.delegate = self
+        
         weak var weakSelf = self
         return UIAddIdentityViewLogic(outlets: outlets, logicCallbacks: UIAddIdentityViewLogicCallbacks(dismissKeyboard: {
-//            weakSelf?.endEditing(true);
+            //            weakSelf?.endEditing(true);
         }, presentAlertWithMessage: { message in
             OPViewUtils.showOkAlertWithTitle(title: "", andMessage: message)
         })); 
         
     }()
-
     
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesEnded(touches, with: event)
-//        self.endEditing(true)
-//    }
     
-//    override func endEditing(_ force: Bool) -> Bool {
-//        self.domainsTableView.isHidden = true
-//        return super.endEditing(force)
-//    }
+    //    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //        super.touchesEnded(touches, with: event)
+    //        self.endEditing(true)
+    //    }
+    
+    //    override func endEditing(_ force: Bool) -> Bool {
+    //        self.domainsTableView.isHidden = true
+    //        return super.endEditing(force)
+    //    }
     
 }
