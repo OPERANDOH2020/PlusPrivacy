@@ -373,11 +373,18 @@ body{
 .modal-header h2{
     color: #FFF;
     margin: 0px;
+    background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/pp-42-logo.png') no-repeat left center;
+    font-weight: 300;
+    padding-left: 50px;
+
 }
 
 /* Modal Body */
 .modal-body {
     padding: 20px 10px;
+    background:url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/google-logo.png') no-repeat 10px center;
+    font-size: 17px;
+    padding-left: 50px;
 }
 
 /* Modal Footer */

@@ -180,8 +180,8 @@ function secureAccount(callback) {
         var closeModal = function(){
             $(modal_content).animate({
                 opacity: 0, // animate slideUp
-                marginTop: '1000px'
-            }, 'slow', 'linear', function() {
+                marginTop: '600px'
+            }, 'fast', 'linear', function() {
                 $(modal).remove();
             });
         };
@@ -190,7 +190,7 @@ function secureAccount(callback) {
         header.append(close);
         modal_content.append(header);
 
-        var modal_body = $('<div class="modal-body"><p>Please follow the wizard instructions in order to maximize your privacy</p></div>');
+        var modal_body = $('<div class="modal-body"><p>PlusPrivacy will now guide you through Google privacy settings</p></div>');
         modal_content.append(modal_body);
         var modal_footer = $('<div class="modal-footer"></div>');
         modal_content.append(modal_footer);
