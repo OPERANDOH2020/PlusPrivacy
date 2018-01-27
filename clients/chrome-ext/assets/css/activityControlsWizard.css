@@ -220,8 +220,13 @@ body{
 
 .downArrow span{
     vertical-align: super;
-    font-size: 16px;
+    font-size: 18px;
     color:#ffb400;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/pp-42-logo-orange.png');
+    background-repeat:no-repeat;
+    background-position: left center;
+    padding-left: 42px;
+    background-size: 36px 36px;
 }
 .bounce {
     -moz-animation: bounce 3s infinite;

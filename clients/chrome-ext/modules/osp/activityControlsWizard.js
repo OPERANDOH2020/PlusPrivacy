@@ -52,8 +52,30 @@ port.onMessage.addListener(function (msg) {
             data:setting.data.setting
         });
     });
+
+    detectCurrentSettings();
+    console.log(steps);
     renderWizard();
+
+               
+
+
+
 });
+
+
+function detectCurrentSettings(){
+    jQuery(containerClassName).each(function(index, element){
+
+        if($(element).find(".N2RpBe").length>0){
+            steps[index]['current_settings']="off";
+        }
+        else{
+            steps[index]['current_settings']="on";
+
+        }
+    })
+}
 
 function renderWizard(){
 
