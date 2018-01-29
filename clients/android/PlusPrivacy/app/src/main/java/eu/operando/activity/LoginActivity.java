@@ -53,8 +53,9 @@ public class LoginActivity extends AppCompatActivity {
         Pair<String, String> credentials = Storage.readCredentials();
         if (credentials.first != null && credentials.second != null) {
 //            login(credentials.first,credentials.second);
-            MainActivity.start(this, true);
-            finish();
+//            MainActivity.start(this, true);
+//            finish();
+            login(credentials.first, credentials.second);
             return;
         }
         credentials = Storage.readRegisterCredentials();

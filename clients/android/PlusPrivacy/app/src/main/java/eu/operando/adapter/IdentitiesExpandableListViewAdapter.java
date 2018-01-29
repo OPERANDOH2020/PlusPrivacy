@@ -123,6 +123,7 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
         TextView emailTV;
         ImageView copyToClipboard;
         ImageView groupIndicator;
+        View firstDivider;
 
         GroupHolder(View itemView) {
 
@@ -131,9 +132,15 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             emailTV = ((TextView) itemView.findViewById(R.id.identity_email_tv));
             copyToClipboard = (ImageView) itemView.findViewById(R.id.copy_to_clipboard);
             groupIndicator = (ImageView) itemView.findViewById(R.id.arrow);
+            firstDivider = itemView.findViewById(R.id.first_divider);
         }
 
         public void setData(String headerTitle, int groupPosition, boolean isExpanded) {
+            if (groupPosition == 0) {
+                firstDivider.setVisibility(View.GONE);
+            } else {
+                firstDivider.setVisibility(View.VISIBLE);
+            }
             groupIndicator.setSelected(isExpanded);
             emailTV.setText(headerTitle);
             if (((Identity) getGroup(groupPosition)).isDefault()) {
@@ -184,9 +191,9 @@ public class IdentitiesExpandableListViewAdapter extends BaseExpandableListAdapt
             });
         }
 
-        private void showRemoveIdentityDialog(Identity identity){
+        private void showRemoveIdentityDialog(Identity identity) {
             DialogFragment newFragment = RemoveIdentityDialog.newInstance(identity);
-            newFragment.show( ((BaseActivity)context).getFragmentManager(), "RemoveIdentityDialog");
+            newFragment.show(((BaseActivity) context).getFragmentManager(), "RemoveIdentityDialog");
         }
     }
 

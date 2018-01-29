@@ -3,21 +3,18 @@ package eu.operando.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.os.Build;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 
 import eu.operando.R;
+import eu.operando.activity.LinkedinSettingsActivity;
+import eu.operando.models.SocialNetworkEnum;
 import eu.operando.models.privacysettings.AvailableSettings;
 import eu.operando.models.privacysettings.Question;
 
@@ -43,13 +42,15 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
     private Map<Integer, Integer> checkedState;
     private Map<Integer, Integer> recommended;
     private final String FACEBOOK_PREFS = "FACEBOOK_PREFS";
+    private SocialNetworkEnum socialNetworkEnum;
 
-    public FacebookSettingsListAdapter(Context context, List<Question> questions, Map<Integer, Integer> checkedList) {
+    public FacebookSettingsListAdapter(Context context, List<Question> linkedinQuestions, Map<Integer, Integer> checkedList, SocialNetworkEnum socialNetworkEnum) {
         this.context = context;
-        this.questions = questions;
+        this.questions = linkedinQuestions;
         this.checkedState = checkedList;
+        this.socialNetworkEnum = socialNetworkEnum;
         getRecommendedValues();
-//        initCheckedState();
+
     }
 
     public List<Question> getQuestions() {
@@ -212,12 +213,14 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
 
         ImageView recommendedIcon;
         TextView questionTV;
+        RelativeLayout socialNetworkMainLayout;
 
         GroupHolder(View itemView) {
             super(itemView);
 
             questionTV = ((TextView) itemView.findViewById(R.id.question_tv));
             recommendedIcon = (ImageView) itemView.findViewById(R.id.recommended_icon);
+            socialNetworkMainLayout = (RelativeLayout) itemView.findViewById(R.id.social_network_main_layout);
         }
 
         public void setData(int groupPosition){
@@ -229,6 +232,7 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
             } else {
                 recommendedIcon.setVisibility(View.INVISIBLE);
             }
+            socialNetworkMainLayout.setBackgroundColor(ContextCompat.getColor(context, socialNetworkEnum.getColor()));
         }
     }
 
@@ -244,6 +248,7 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
         @SuppressLint("RestrictedApi")
         public void setData(final int groupPosition, List<AvailableSettings> answerList){
 
+            questionsRG.setBackgroundColor(ContextCompat.getColor(context, socialNetworkEnum.getChildColor()));
             for (int i = 0; i < answerList.size(); i++) {
                 int answerIndex = checkedState.get(groupPosition);
                 Log.e("answerIndex", String.valueOf(answerIndex));

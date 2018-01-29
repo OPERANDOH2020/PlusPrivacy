@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
 
 android {
     compileSdkVersion 25
@@ -8,8 +13,8 @@ android {
         applicationId "eu.operando"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 20
-        versionName "1.4.8"
+        versionCode 23
+        versionName "1.5.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -77,5 +82,9 @@ dependencies {
 //    compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.squareup.mimecraft:mimecraft:1.1.0'
     compile 'com.github.amlcurran.showcaseview:library:5.4.3'
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+        transitive = true;
+    }
 
 }

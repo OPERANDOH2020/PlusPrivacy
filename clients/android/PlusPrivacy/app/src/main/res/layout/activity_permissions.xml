@@ -16,6 +16,17 @@
         app:title="Permissions"
         app:titleTextColor="@color/white" />
 
+    <TextView
+        android:id="@+id/no_permissions"
+        android:layout_below="@id/toolbar"
+        android:textColor="@color/scanner_button_background"
+        android:textSize="14sp"
+        android:text="@string/the_app_doesn_t_need_permissions"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <ListView
         android:id="@+id/lv"
         android:paddingTop="20dp"

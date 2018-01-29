@@ -69,6 +69,7 @@ public class PermissionUtils {
         permissionRisks.put("android.permission.GOOGLE_AUTH", 4);
         permissionRisks.put("android.permission.INSTALL_DRM", 3);
         permissionRisks.put("android.permission.INSTALL_SHORTCUT", 5);
+        permissionRisks.put("android.permission.INTERNET", 5);
         permissionRisks.put("android.permission.KILL_BACKGROUND_PROCESSES", 4);
         permissionRisks.put("android.permission.MANAGE_ACCOUNTS", 3);
         permissionRisks.put("android.permission.MODIFY_AUDIO_SETTINGS", 4);
@@ -118,7 +119,7 @@ public class PermissionUtils {
         permissionRisks.put("android.permission.WRITE_USER_DICTIONARY", 4);
 
         permissionDescriptions = new HashMap<>();
-        permissionDescriptions .put("ACCESS_CHECKIN_PROPERTIES", "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.");
+        permissionDescriptions.put("ACCESS_CHECKIN_PROPERTIES", "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.");
         permissionDescriptions.put("ACCESS_COARSE_LOCATION", "Allows an app to access approximate location.");
         permissionDescriptions.put("ACCESS_FINE_LOCATION", "Allows an app to access precise location.");
         permissionDescriptions.put("ACCESS_LOCATION_EXTRA_COMMANDS", "Allows an application to access extra location provider commands.");
@@ -303,6 +304,14 @@ public class PermissionUtils {
             return colors[3];
         }
         return colors[score - 1];
+    }
+
+    public static Integer getPermissionRiskScore(String permission) {
+
+        Integer score = permissionRisks.get(permission);
+        if (score == null)
+            return 0;
+        return score;
     }
 
     public static String getPermissionDescription(String permission) {

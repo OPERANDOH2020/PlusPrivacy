@@ -8,52 +8,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@color/scanner_main_color"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/privacy_meter_with_background">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/privacy_indicator"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+            <RelativeLayout
+                android:id="@+id/dial"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:rotation="290"
-                android:src="@drawable/level_mark" />
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/privacy_meter_with_background">
+
+                <ImageView
+                    android:id="@+id/privacy_indicator"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:rotation="290"
+                    android:src="@drawable/level_mark" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_toLeftOf="@id/dial"
+                android:text="@string/High"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/dial"
+                android:text="@string/Low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Confidentiality level: "
-                android:textColor="@color/scanner_button_background"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/confidentiality_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="medium"
-                android:textColor="@color/scanner_button_background"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
 
 
         <LinearLayout
@@ -68,18 +68,18 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Device privacy score: "
+                android:text="Privacy level"
                 android:textColor="@color/scanner_button_background"
                 android:textSize="22sp" />
 
-            <TextView
-                android:id="@+id/privacy_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="85"
-                android:textColor="@color/scanner_button_background"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/privacy_score"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="85"-->
+                <!--android:textColor="@color/scanner_button_background"-->
+                <!--android:textSize="22sp"-->
+                <!--android:textStyle="bold" />-->
         </LinearLayout>
 
 

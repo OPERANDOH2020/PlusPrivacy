@@ -5,7 +5,9 @@ import android.app.Application;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +39,8 @@ import eu.operando.lightning.utils.MemoryLeakUtils;
 import eu.operando.lightning.utils.Preconditions;
 import io.paperdb.Paper;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class PlusPrivacyApp extends Application {
 
@@ -59,7 +63,9 @@ public class PlusPrivacyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         Paper.init(this);
+//        Fabric.with(this, new Crashlytics());
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                     .detectAll()

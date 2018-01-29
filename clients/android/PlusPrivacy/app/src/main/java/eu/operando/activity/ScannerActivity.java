@@ -1,7 +1,9 @@
 package eu.operando.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,13 +21,14 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
 import eu.operando.R;
 import eu.operando.adapter.ScannerListAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
-import eu.operando.customView.FacebookSettingsInfoDialog;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.utils.PermissionUtils;
@@ -35,8 +38,6 @@ public class ScannerActivity extends BaseActivity {
     private ExpandableListView listView;
     private boolean shouldRefresh = true;
     private HashSet<String> unknownPerms;
-    private TextView privacyScoreTv;
-    private TextView confidentialityLevel;
     private ImageView indicatorIv;
     private int privacyScore;
     private Handler handler = new Handler();
@@ -65,9 +66,6 @@ public class ScannerActivity extends BaseActivity {
                 .inflate(R.layout.scanner_list_header, null, false);
 
         listView.addHeaderView(myHeader);
-
-        privacyScoreTv = (TextView) myHeader.findViewById(R.id.privacy_score);
-        confidentialityLevel = (TextView) myHeader.findViewById(R.id.confidentiality_level);
         indicatorIv = (ImageView) myHeader.findViewById(R.id.privacy_indicator);
 
         unknownPerms = new HashSet<>();
@@ -92,8 +90,18 @@ public class ScannerActivity extends BaseActivity {
     private void setData() {
 
         List<InstalledApp> list = Storage.readAppList();
+        Collections.sort(list, new Comparator<InstalledApp>() {
+            @Override
+            public int compare(InstalledApp app1, InstalledApp app2) {
+                if (app1.getPollutionScore() > app2.getPollutionScore())
+                    return -1;
+                else if (app1.getPollutionScore() < app2.getPollutionScore())
+                    return 1;
+                else
+                    return 0;
+            }
+        });
         setPrivacyScoreTv(list);
-        setConfidentialityLevel();
         rotateIndicator();
         setDataListView(list);
 
@@ -114,7 +122,6 @@ public class ScannerActivity extends BaseActivity {
             sum += app.getPollutionScore();
         }
         privacyScore = 10 * sum / list.size();
-        privacyScoreTv.setText(String.valueOf(privacyScore));
 
     }
 
@@ -135,17 +142,14 @@ public class ScannerActivity extends BaseActivity {
             }
         });
 
-    }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                indicatorIv.clearAnimation();
+                indicatorIv.setRotation(290 + rotationAngle);
+            }
+        }, 1700);
 
-    private void setConfidentialityLevel() {
-
-        if (privacyScore <= 25) {
-            confidentialityLevel.setText(getString(R.string.high));
-        } else if (privacyScore <= 75 && privacyScore > 25) {
-            confidentialityLevel.setText(getString(R.string.medium));
-        } else {
-            confidentialityLevel.setText(getString(R.string.low));
-        }
     }
 
     protected void sendEmail() {
@@ -218,12 +222,30 @@ public class ScannerActivity extends BaseActivity {
             onBackPressed();
         }
         switch (item.getItemId()) {
-            case R.id.facebook_settings_recommended:
-                FacebookSettingsInfoDialog dialog = new FacebookSettingsInfoDialog();
-                dialog.show(getFragmentManager(), "FacebookSettingsInfoDialog");
+            case R.id.scanner_info:
+                createInfoDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void createInfoDialog() {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = inflater.inflate(R.layout.scanner_info_dialog, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(convertView);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        View closeIv = convertView.findViewById(R.id.fb_dialog_close_iv);
+        closeIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 }

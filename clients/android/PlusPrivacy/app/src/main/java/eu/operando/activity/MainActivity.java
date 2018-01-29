@@ -60,12 +60,19 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        initNotifications();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setMenu();
         setStatusBarColor();
-        autoLogin();
+//        autoLogin();
+        initUI();
 
         SwarmClient.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
             @Override
@@ -274,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     private void setInfo() {
         ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
         showUnsafeApps();
-        initNotifications();
+//        initNotifications();
     }
 
     private void initNotifications() {

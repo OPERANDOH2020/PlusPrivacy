@@ -71,7 +71,6 @@ public class NotificationsActivity extends BaseActivity {
                             public void run() {
 
                                 handleGetNotificationsSwarmResult(result);
-
                             }
                         });
                     }

@@ -280,8 +280,10 @@
     </string-array>
 
     <string name="low">low</string>
+    <string name="Low">Low</string>
     <string name="medium">medium</string>
     <string name="high">high</string>
+    <string name="High">High</string>
     <string name="take_action">Take Action</string>
     <string name="dismiss">Dismiss</string>
     <string name="copy">Copy</string>
@@ -319,6 +321,9 @@
     <string name="delete_account_confirmation">Your account has been deleted.</string>
     <string name="password_changed_confirmation">Your password has been changed.</string>
     <string name="facebook_privacy_settings">Facebook privacy settings</string>
+    <string name="linkedin_privacy_settings">Linkedin privacy settings</string>
+    <string name="twitter_privacy_settings">Twitter privacy settings</string>
+    <string name="google_privacy_settings">Google privacy settings</string>
 
     <string name="about_first_paragraph">PlusPrivacy provides you with a unified dashboard for
         protecting yourself from a variety of threats to your privacy. It will enable you to
@@ -346,7 +351,16 @@
     <string name="save">Save</string>
     <string name="don_t_show_again">Don\'t show again</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet</string>
+    <string name="private_browser_popup">PlusPrivacy\'s Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.</string>
     <string name="private_browsing">Private Browsing</string>
 
+    <string name="installed_apps_info">Installed apps info</string>
+    <string name="installed_apps_info_txt">Each application has a privacy rating also called privacy score.
+        When the score is lower, the application is privacy friendly.
+        The score is visually represented by a palette of colors from dark green to bright red.\n
+        \nFor more information about the data that can be leaked, tap on the "View permissions" button and see the list of app permissions.
+        Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
+    </string>
+    <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
 
 </resources>

@@ -49,6 +49,22 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
             }
         });
 
+        linkedinLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        LinkedinSettingsActivity.class));
+            }
+        });
+
+        twitterLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        TwitterSettingsActivity.class));
+            }
+        });
+
         fitHeightForWidth(facebookLayout);
         fitHeightForWidth(linkedinLayout);
         fitHeightForWidth(googleLayout);

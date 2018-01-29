@@ -26,6 +26,9 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import eu.operando.R;
@@ -153,6 +156,11 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, PermissionsActivity.class);
+                    ArrayList<String> permissions = item.getPermissions();
+                    if (permissions != null){
+                        sortPermissionList(permissions);
+                    }
+
                     i.putExtra("perms", item.getPermissions());
                     ((ScannerActivity) context).infoClicked();
                     context.startActivity(i);
@@ -168,6 +176,19 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
                 }
             });
         }
+    }
+
+    private void sortPermissionList(ArrayList<String> permissions) {
+        Collections.sort(permissions, new Comparator<String>() {
+            @Override
+            public int compare(String permission1, String permission2) {
+                if (PermissionUtils.getPermissionRiskScore(permission1) > PermissionUtils.getPermissionRiskScore(permission2))
+                    return -1;
+                else if (PermissionUtils.getPermissionRiskScore(permission1) < PermissionUtils.getPermissionRiskScore(permission2))
+                    return 1;
+                return 0;
+            }
+        });
     }
 
     private class GroupHolder extends RecyclerView.ViewHolder {

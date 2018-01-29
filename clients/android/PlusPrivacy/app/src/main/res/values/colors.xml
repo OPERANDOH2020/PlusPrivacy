@@ -102,17 +102,15 @@
     <color name="social_network_settings_header_background">#75b8e5</color>
     <color name="social_network_settings_facebook">#40599a</color>
     <color name="social_network_settings_facebook_alpha">#8040599a</color>
-    <color name="social_network_settings_linkedin">#2878b7</color>
-    <color name="social_network_settings_twitter">#53a3f8</color>
-    <color name="social_network_settings_google">#5086f7</color>
 
-    <!-- User account -->
-    <color name="account_background">#fcf2d7</color>
-    <color name="account_empty_indicator">#dbdad8</color>
-    <color name="weak_password">#FF0000</color>
-    <color name="acceptable_password">#FBB03B</color>
-    <color name="strong_password">#D9E021</color>
-    <color name="very_strong_password">#39B54A</color>
+    <color name="social_network_settings_linkedin">#2878b7</color>
+    <color name="social_network_settings_linkedin_child">#68a0ce</color>
+
+    <color name="social_network_settings_twitter">#53a3f8</color>
+    <color name="social_network_settings_twitter_child">#89baef</color>
+
+    <color name="social_network_settings_google">#5086f7</color>
+    <color name="social_network_settings_google_child">#8aacf2</color>
 
     <!--Facebook privacy settings-->
     <color name="background_facebook_settings">#dff3ff</color>
@@ -123,9 +121,21 @@
     <color name="fb_info_dialog_body">#dff3ff</color>
     <color name="fb_info_dialog_arrow_text">#3a4e8c</color>
 
-
+    <!-- User account -->
+    <color name="account_background">#fcf2d7</color>
+    <color name="account_empty_indicator">#dbdad8</color>
+    <color name="weak_password">#FF0000</color>
+    <color name="acceptable_password">#FBB03B</color>
+    <color name="strong_password">#D9E021</color>
+    <color name="very_strong_password">#39B54A</color>
 
     <color name="background_popup">#d1a53e</color>
     <color name="background_about">#fdf2d8</color>
     <color name="text_color_about">#824d00</color>
+
+
+    <color name="header_dialog_installed_apps">#563fbc</color>
+    <color name="body_dialog_installed_apps">#644dcb</color>
+
+
 </resources>

@@ -31,7 +31,7 @@ public class MainBrowserActivity extends BrowserActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Storage.savePrivateBrowsingDialogOption(false);
+//        Storage.savePrivateBrowsingDialogOption(false);
         if (!Storage.getPrivateBrowsingDialogOption()) {
             showPrivateBrowsingDialog();
         }
@@ -47,7 +47,7 @@ public class MainBrowserActivity extends BrowserActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(convertView);
         builder.setTitle(R.string.private_browsing)
-                .setMessage(R.string.lorem_ipsum)
+                .setMessage(R.string.private_browser_popup)
                 .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Storage.savePrivateBrowsingDialogOption(checkBox.isChecked());
