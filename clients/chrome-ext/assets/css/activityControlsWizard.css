@@ -14,10 +14,13 @@ body{
     display:none
 }
 
-.pp_logo{
-    background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/logo-light-big.png') no-repeat center center transparent;
-    width:300px;
-    height:140px;
+
+div[jsaction='JIbuQc:r9DEDb']{
+    display: none;
+}
+
+div[jsaction='JIbuQc:Wh8OAb']{
+    position: relative;
 }
 
 .pp_global_overlay {
@@ -31,184 +34,6 @@ body{
     opacity: 0.2;
 }
 
-.pp_wizard_container{
-    top: 64px;
-    z-index: 100;
-    position: fixed;
-    height:calc(100% - 56px);
-    width:300px;
-    background: #4B4B4B;
-}
-
-.activity_controls_steps{
-    margin-top: -24px;
-    position: relative;
-}
-
-.pp_controller{
-    text-align: center;
-    bottom: 0;
-    margin-bottom: 10px;
-    padding: 10px;
-    position: absolute;
-}
-
-.pp_controller button{
-    display: inline-block;
-    margin:0px 10px;
-    background: #FFB400;
-    border: 0 none;
-    padding: 15px 15px;
-    color: #735307;
-    font-weight: bold;
-    font-size: 12px;
-    cursor: pointer;
-}
-.pp_controller button:disabled{
-    opacity: 0.3;
-    cursor: default;
-}
-
-.pp_wizard_item *{
-    /*clear: both;*/
-    cursor:pointer;
-}
-
-.pp_wizard_item.unsafe .step_index{
-    background-image: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/privacy_unsafe.png');
-    background-repeat:no-repeat;
-    background-position: center center;
-    width:32px;
-    height:32px;
-}
-.pp_wizard_item.safe .step_index{
-    background-image: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/privacy_safe.png');
-    background-repeat:no-repeat;
-    background-position: center center;
-    width:32px;
-    height:32px;
-}
-
-.pp_wizard_item.active .step_name,
-.pp_wizard_item.item_checked .step_name{
-    color: #ffb400;;
-}
-
-.pp_wizard_item.item_checked .step_index{
-    background-color:#FFB400;
-}
-
-.pp_wizard_item.active .step_index{
-    background-color:#FFB400;
-}
-
-.pp_wizard_item:after{
-    clear: both;
-    content: "";
-    display: block;
-}
-
-
-.step_index{
-    margin: 25px;
-    background:#FEFEFE;
-    border-radius:50%;
-    text-align: center;
-    height: 32px;
-    width: 32px;
-    float:left;
-    padding: 5px;
-    line-height: 32px;
-    font-size: 17px;
-    color: #4B4B4B;
-    position: relative;
-    z-index: auto;
-}
-
-.pp_wizard_item.active .step_index:before{
-
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    content:"";
-    background: #4B4B4B;
-    display: inline-block;
-    padding: 3px;
-    position: absolute;
-    left: -5px;
-    top: -5px;
-    z-index: -2;
-}
-
-.pp_wizard_item.active .step_index:after{
-    border-radius:50%;
-    content:"";
-    display: inline-block;
-    position: relative;
-    top: -45px;
-    left: -13px;
-    width: 58px;
-    height: 58px;
-    z-index: -3;
-    background: #FFB400;
-}
-
-.step_name{
-    margin-left: 50px;
-    padding-top: 35px;
-    font-size: 17px;
-    color: #FEFEFE;
-
-}
-.step_index.checked{
-    background:#FFB400 ;
-    color:#967118;
-}
-
-.step_name.checked{
-    color:#967118;
-}
-
-.progress_bar{
-    left: 44px;
-    position: absolute;
-    width: 4px;
-    z-index: -5;
-    background: #FFB400;
-    margin-top: 46px;
-}
-
-.activity_controls_steps::after {
-    height: 100%;
-    width: 4px;
-    display: block;
-    content: "";
-    background: #FEFEFE;
-    position: absolute;
-    top: 0;
-    left: 44px;
-    z-index: -10;
-    margin-top: 45px;
-    max-height: 470px;
-}
-
-.pp_safe_setting{
-    position: absolute;
-    left: -225px;
-    top: -1px;
-    width: 215px;
-}
-
-.pp_safe_setting svg{
-    float:left;
-}
-
-.pp_safe_setting span{
-    float:right;
-    color:#8ec343;
-    line-height: 27px;
-}
-
 .downArrow{
     position: absolute;
     width:300px;
@@ -216,6 +41,25 @@ body{
     color: #FFB400;
     top: -1px;
     font-size: 16px;
+}
+
+div[jsaction='JIbuQc:Wh8OAb'] .downArrow{
+    width: 170px;
+    top: 9px;
+    left: -160px;
+}
+div[jsaction='JIbuQc:Wh8OAb'] .downArrow span{
+    font-size: 16px;
+    background-size: 30px 30px;
+    padding-left: 36px;
+    line-height: 16px;
+    float:left;
+}
+
+div[jsaction='JIbuQc:Wh8OAb'] .downArrow img{
+    width:16px;
+    height: 16px;
+    float: left;
 }
 
 .downArrow span{
@@ -282,27 +126,6 @@ body{
     }
 }
 
-.svg-success {
-    stroke-width: 2px;
-    stroke: #8ec343;
-    fill: none;
-}
-.svg-success path {
-    stroke-dasharray: 17px, 17px;
-    stroke-dashoffset: 0px;
-    -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
-    animation: checkmark 0.25s ease-in-out 0.7s backwards;
-}
-.svg-success circle {
-    stroke-dasharray: 76px, 76px;
-    stroke-dashoffset: 0px;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    -webkit-animation: checkmark-circle 0.6s ease-in-out forwards;
-    animation: checkmark-circle 0.6s ease-in-out forwards;
-}
-
-
 @keyframes checkmark {
     0% {
         stroke-dashoffset: 17px;
@@ -322,8 +145,6 @@ body{
         stroke-dashoffset: 0px;
     }
 }
-
-
 
 /* The Modal (background) */
 .modal {
@@ -417,4 +238,3 @@ body{
     from {top: -300px; opacity: 0}
     to {top: 30%; opacity: 1}
 }
-

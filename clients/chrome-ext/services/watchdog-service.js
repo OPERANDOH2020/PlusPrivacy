@@ -110,6 +110,7 @@ operandoCore
 
                         break;
                     case "wizardFinished":
+                        callback("google", settings.length, settings.length);
                         messengerService.off("googleActivityMessage", handleGoogleMessages);
                         jobFinished();
                         jobDone = true;

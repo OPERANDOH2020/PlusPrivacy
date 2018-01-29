@@ -42,7 +42,6 @@ permissions = http://*/* https://*/*
 webAccessible = operando/assets/images/icons/operando_24.png
   operando/assets/images/icons/abp-19.png
   operando/assets/images/icons/operando/operando.png
-  operando/assets/images/icons/logo-light-big.png
   operando/assets/images/close_popup.png
   operando/assets/images/privacy_safe.png
   operando/assets/images/privacy_unsafe.png
