@@ -44,53 +44,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
 
     if (message.message === "waitForAPost") {
-        if (message.template) {
-
-            webRequest.onBeforeRequest.addListener(function waitForPost(request) {
-                    if (request.method == "POST" && request.url.indexOf("facebook.com/ajax/bz") != -1) {
-                        var requestBody = request.requestBody;
-                        if (requestBody.formData) {
-                            var formData = requestBody.formData;
-                            for (var prop in message.template) {
-                                if (formData[prop]) {
-                                    if (formData[prop] instanceof Array) {
-                                        message.template[prop] = formData[prop][0];
-                                    }
-                                    else {
-                                        message.template[prop] = formData[prop];
-                                    }
-                                }
-                            }
-                        }
-                        else if (requestBody.raw) {
-                            var rawRequest = String.fromCharCode.apply(null, new Uint8Array(requestBody.raw[0].bytes));
-                            var requestArray = rawRequest.split("&");
-                            var formDataObjects = {};
-                            requestArray.forEach(function (pair) {
-                                var splitedPair = pair.split("=");
-                                formDataObjects[splitedPair[0]] = splitedPair[1];
-                            });
-                            for (var prop in message.template) {
-                                if (formDataObjects[prop]) {
-                                    message.template[prop] = decodeURIComponent(formDataObjects[prop]);
-                                }
-                            }
-                        }
-
-                        webRequest.onBeforeRequest.removeListener(waitForPost);
-                        sendResponse({template: message.template});
-                    }
-
-                },
-                {urls: ["*://www.facebook.com/*"]},
-                ["blocking", "requestBody"]);
-        }
-        return true;
+       bus.getAction("interceptSingleRequest")(message.osp,message, sendResponse);
+       return true;
     }
 
+    if(message.message ==="waitForHeadersRequest"){
+        bus.getAction("interceptHeadersBeforeRequest")(message.osp,message, sendResponse);
+        return true;
+    }
 });
 
-webRequest.onBeforeSendHeaders.addListener(function(details) {
+webRequest.onBeforeSendHeaders.addListener(function (details) {
 
         var referer = "";
         for (var i = 0; i < details.requestHeaders.length; ++i) {
@@ -116,8 +80,9 @@ webRequest.onBeforeSendHeaders.addListener(function(details) {
     {urls: ["<all_urls>"]},
     ["blocking", "requestHeaders"]);
 
+bus.getAction("interceptHeadersBeforeRequest")("dropbox");
 
-webRequest.onBeforeSendHeaders.addListener(function (details) {
+/*webRequest.onBeforeSendHeaders.addListener(function (details) {
 
         var requestedHeaders = details.requestHeaders;
 
@@ -166,11 +131,11 @@ webRequest.onBeforeSendHeaders.addListener(function (details) {
     },
     {urls: ["*://www.dropbox.com/*"]},
     ["blocking", "requestHeaders"]);
-
+*/
 
 webRequest.onBeforeSendHeaders.addListener(
-    function(details) {
-        if(details['url'].indexOf("https://www.facebook.com/ajax/settings/apps/delete_app.php")>=0){
+    function (details) {
+        if (details['url'].indexOf("https://www.facebook.com/ajax/settings/apps/delete_app.php") >= 0) {
 
             for (var i = 0; i < details.requestHeaders.length; ++i) {
                 if (details.requestHeaders[i].name === "Origin") {
@@ -179,8 +144,8 @@ webRequest.onBeforeSendHeaders.addListener(
                 }
             }
             details.requestHeaders.push({
-                name:"referer",
-                value:"https://www.facebook.com/settings?tab=applications"
+                name: "referer",
+                value: "https://www.facebook.com/settings?tab=applications"
             });
         }
 
@@ -190,33 +155,33 @@ webRequest.onBeforeSendHeaders.addListener(
     ["blocking", "requestHeaders"]);
 
 var getDeviceIdAction = bus.getAction("getDeviceId");
-getDeviceIdAction(function(deviceId){
+getDeviceIdAction(function (deviceId) {
     console.log(deviceId);
-    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL+deviceId);
+    chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL + deviceId);
 });
 
-var checkWhiteListedDomains = function(reason){
-    if(reason === "install"){
+var checkWhiteListedDomains = function (reason) {
+    if (reason === "install") {
 
         chrome.storage.local.get("UserPrefs", function (items) {
             var userPreferences;
             if (typeof items === "object" && Object.keys(items).length === 0) {
                 userPreferences = {};
             }
-            else{
+            else {
                 userPreferences = JSON.parse(items['UserPrefs']);
             }
 
-            if(userPreferences['whitelisted-domains']){
-                var addFilter = function(domain){
+            if (userPreferences['whitelisted-domains']) {
+                var addFilter = function (domain) {
                     var message = {
-                        text:domain,
-                        type:"filters.add"
+                        text: domain,
+                        type: "filters.add"
                     };
                     ext.backgroundPage.sendMessage(message);
                 };
                 var whiteListedDomains = userPreferences['whitelisted-domains'];
-                whiteListedDomains.forEach(function(whiteListedDomain){
+                whiteListedDomains.forEach(function (whiteListedDomain) {
                     addFilter(whiteListedDomain);
                 });
             }

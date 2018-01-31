@@ -15,7 +15,7 @@ operandoCore
 
         var FACEBOOK_PRIVACY_URL = "https://www.facebook.com/settings?tab=privacy&section=composer&view";
         var LINKEDIN_PRIVACY_URL = "https://www.linkedin.com/psettings/";
-        var TWITTER_PRIVACY_URL = "https://twitter.com/settings/safety";
+        var TWITTER_PRIVACY_URL = "https://mobile.twitter.com/settings/safety";
         var GOOGLE_PRIVACY_URL = "https://myaccount.google.com/activitycontrols";
         var facebookTabId = null;
         var linkedinTabId = null;
@@ -142,6 +142,7 @@ operandoCore
 
                 chrome.runtime.sendMessage({
                     message: "waitForAPost",
+                    osp:"facebook",
                     template: {
                         "__req": null,
                         "__dyn": null,
@@ -251,7 +252,16 @@ operandoCore
                             }
                         }
                     });
-                    messengerService.send("insertTwitterIncreasePrivacyScript", {tabId: twitterTabId});
+
+                    chrome.runtime.sendMessage({
+                        message: "waitForHeadersRequest",
+                        osp:"twitter",
+                        headers:["x-twitter-client-language","x-csrf-token","authorization","x-twitter-auth-type","x-twitter-active-user"]
+                    }, function (response) {
+                        messengerService.send("insertTwitterIncreasePrivacyScript", {
+                            tabId: twitterTabId,
+                            code: "window.TWITTER_HEADERS = " + JSON.stringify(response.headers)});
+                    });
                 });
 
                 callback("twitter", 0, settings.length);
