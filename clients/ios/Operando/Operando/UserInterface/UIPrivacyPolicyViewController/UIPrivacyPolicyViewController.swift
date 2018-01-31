@@ -34,7 +34,7 @@ class UIPrivacyPolicyViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
-        ProgressHUD.show("")
+        ProgressHUD.show()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

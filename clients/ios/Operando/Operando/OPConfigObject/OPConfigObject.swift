@@ -68,6 +68,16 @@ class OPConfigObject: NSObject
         self.applyAndSaveUserSettings(self.currentUserSettings)
     }
     
+    func reconnect() {
+        self.swarmClientHelper.killSocketAndReconnect { (error) in
+            
+            if let error = error {
+//                OPErrorContainer.displayError(error: error)
+            }
+            
+        }
+    }
+    
     
     func applicationDidStartInWindow(window: UIWindow)
     {

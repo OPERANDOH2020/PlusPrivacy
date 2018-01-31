@@ -53,6 +53,8 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.swarmClient.delegate = self
     }
     
+    
+    
     //MARK: AppSCDsRepository
     
     func retrieveAllSCDsFor(deviceId: String, completion: (([[String : Any]]?, NSError?) -> Void)?) {
@@ -332,7 +334,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         
     }
     
-    private func killSocketAndReconnect(with callback: CallbackWithError?){
+    func killSocketAndReconnect(with callback: CallbackWithError?){
         
         workingQueue.async {
             self.swarmClient.disconnectAndReconnectWith(completion: { reason in

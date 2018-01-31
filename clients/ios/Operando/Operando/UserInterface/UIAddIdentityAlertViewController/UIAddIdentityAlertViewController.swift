@@ -107,6 +107,7 @@ class UIAddIdentityAlertViewController: UIViewController {
         let callbacks: UIAddIdentityViewControllerLogicCallbacks = UIAddIdentityViewControllerLogicCallbacks(displayStatusPopupWithMessage: { status in
             ProgressHUD.show(status)
         }, displayAlertWithMessage: { message in
+            
             OPViewUtils.showOkAlertWithTitle(title: "", andMessage: message)
             
         }, dismissStatusPopup: ProgressHUD.dismiss, presentError: OPErrorContainer.displayError)

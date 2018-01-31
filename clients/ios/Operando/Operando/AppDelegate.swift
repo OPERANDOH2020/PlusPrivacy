@@ -36,5 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         OPConfigObject.sharedInstance.applicationWillTerminate(app: application)
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        
+        OPConfigObject.sharedInstance.reconnect()
+    }
 }
 
