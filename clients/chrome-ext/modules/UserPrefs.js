@@ -18,7 +18,7 @@ var UserPrefs = function () {
             });
         }
     }
-}
+};
 
 UserPrefs.prototype = {
     getPreferences:function(key, filterObj, callback){

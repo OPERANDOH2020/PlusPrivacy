@@ -101,7 +101,6 @@ function changeIndex(index){
     detectCurrentSetting(jQuery(containerClassName)[index]);
     jQuery(containerClassName).addClass("pp_item_overlay");
 
-
     jQuery(jQuery(containerClassName)[index]).removeClass("pp_item_overlay");
     jQuery(jQuery(containerClassName)[index]).goTo();
     port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"currentIndex", index:index}});
