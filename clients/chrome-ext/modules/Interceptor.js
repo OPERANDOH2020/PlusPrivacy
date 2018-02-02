@@ -60,7 +60,7 @@ var InterceptorPools = (function(){
         return {
             addBodyRequestInterceptor:self.addBodyRequestInterceptor,
             addHeadersRequestsPoolInterceptor:self.addHeadersRequestsPoolInterceptor,
-            headersResponsesPoolInterceptor:self.addHeadersResponsesPoolInterceptor,
+            addHeadersResponsesPoolInterceptor:self.addHeadersResponsesPoolInterceptor,
             getBodyRequestInterceptor:self.getBodyRequestInterceptor,
             getHeadersRequestInterceptor:self.getHeadersRequestInterceptor,
             getHeadersResponseInterceptor:self.getHeadersResponseInterceptor
