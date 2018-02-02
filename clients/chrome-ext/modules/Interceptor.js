@@ -1,5 +1,3 @@
-var bus = require("bus-service").bus;
-
 var acceptedTypes = ["body-request","headers-request", "headers-response"];
 
 var Interceptor = function(type, osp, pattern, callback){
@@ -39,12 +37,33 @@ var InterceptorPools = (function(){
         self.headersResponsesPoolInterceptor.push(headerResponsesInterceptor);
     };
 
+    this.getBodyRequestInterceptor = function(osp){
+        return self.bodyRequestsPoolInterceptor.filter(function(interceptor){
+            return interceptor.osp === osp;
+        });
+    };
+
+    this.getHeadersRequestInterceptor = function(osp){
+        return self.headersRequestsPoolInterceptor.filter(function(interceptor){
+            return interceptor.osp === osp;
+        });
+    };
+
+    this.getHeadersResponseInterceptor = function(osp){
+        return self.headersResponsesPoolInterceptor.filter(function(interceptor){
+            return interceptor.osp === osp;
+        });
+    };
+
     function init(){
 
         return {
             addBodyRequestInterceptor:self.addBodyRequestInterceptor,
             addHeadersRequestsPoolInterceptor:self.addHeadersRequestsPoolInterceptor,
-            headersResponsesPoolInterceptor:self.addHeadersResponsesPoolInterceptor
+            headersResponsesPoolInterceptor:self.addHeadersResponsesPoolInterceptor,
+            getBodyRequestInterceptor:self.getBodyRequestInterceptor,
+            getHeadersRequestInterceptor:self.getHeadersRequestInterceptor,
+            getHeadersResponseInterceptor:self.getHeadersResponseInterceptor
         }
     }
 
@@ -62,3 +81,5 @@ var InterceptorPools = (function(){
     };
 
 })();
+
+exports.InterceptorPools = InterceptorPools.getInstance();
