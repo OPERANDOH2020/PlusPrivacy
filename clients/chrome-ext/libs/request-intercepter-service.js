@@ -135,9 +135,71 @@ var dropboxHeadersRequestInterceptor = function (message, callback) {
     return interceptorCallback;
 };
 
+var removeXFrameOptionsHeaders = function(message, callback){
+    var HEADERS_TO_STRIP_LOWERCASE = [
+        'content-security-policy',
+        'x-frame-options'
+    ];
+    return function(details){
+        return {
+            responseHeaders: details.responseHeaders.filter(function (header) {
+                return HEADERS_TO_STRIP_LOWERCASE.indexOf(header.name.toLowerCase()) < 0;
+            })
+        };
+    }
+};
+
+var changeReferer = function(message, callback){
+    return function (details) {
+        var referer = "";
+        for (var i = 0; i < details.requestHeaders.length; ++i) {
+            var header = details.requestHeaders[i];
+            if (header.name === "X-Alt-Referer") {
+                referer = header.value;
+                details.requestHeaders.splice(i, 1);
+                break;
+            }
+        }
+
+        if (referer !== "") {
+            for (var i = 0; i < details.requestHeaders.length; ++i) {
+                var header = details.requestHeaders[i];
+                if (header.name === "Referer") {
+                    details.requestHeaders[i].value = referer;
+                    break;
+                }
+            }
+        }
+
+    }
+};
+
+var facebookOriginHeader = function(message, callback){
+    return function (details) {
+        if (details['url'].indexOf("https://www.facebook.com/ajax/settings/apps/delete_app.php") >= 0) {
+
+            for (var i = 0; i < details.requestHeaders.length; ++i) {
+                if (details.requestHeaders[i].name === "Origin") {
+                    details.requestHeaders[i].value = "https://www.facebook.com";
+                    break;
+                }
+            }
+            details.requestHeaders.push({
+                name: "referer",
+                value: "https://www.facebook.com/settings?tab=applications"
+            });
+        }
+
+        return {requestHeaders: details.requestHeaders};
+    }
+};
+
 interceptorPools.addBodyRequestInterceptor("facebook", ["*://www.facebook.com/*"],facebookFirstPOSTInterceptor);
 interceptorPools.addHeadersRequestsPoolInterceptor("twitter",["*://api.twitter.com/*"],twitterHeadersRequestInterceptor);
-interceptorPools.addHeadersRequestsPoolInterceptor("dropbox",["*://api.twitter.com/*"],dropboxHeadersRequestInterceptor);
+interceptorPools.addHeadersRequestsPoolInterceptor("dropbox",["*://www.dropbox.com/*"],dropboxHeadersRequestInterceptor);
+interceptorPools.addHeadersRequestsPoolInterceptor("change-referer",["<all_urls>"], changeReferer);
+interceptorPools.addHeadersRequestsPoolInterceptor("delete-fb-app",["<all_urls>"], facebookOriginHeader);
+interceptorPools.addHeadersResponsesPoolInterceptor("all-header-responses",["<all_urls>"], removeXFrameOptionsHeaders);
 
 
 var requestInterceptorService = exports.requestInterceptor = {
@@ -162,6 +224,6 @@ var requestInterceptorService = exports.requestInterceptor = {
             webRequest.onHeadersReceived.addListener(interceptor.callback(message,callback), {urls: interceptor.pattern}, ["blocking", "responseHeaders"]);
         });
     }
-}
+};
 
 bus.registerService(requestInterceptorService);

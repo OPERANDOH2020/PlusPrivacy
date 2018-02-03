@@ -66,18 +66,13 @@ var InterceptorPools = (function(){
             getHeadersResponseInterceptor:self.getHeadersResponseInterceptor
         }
     }
-
     return {
-
         getInstance: function () {
-
             if ( !instance ) {
                 instance = init();
             }
-
             return instance;
         }
-
     };
 
 })();
