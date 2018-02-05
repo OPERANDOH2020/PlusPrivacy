@@ -46,7 +46,7 @@ $(document).ready(function(){
             });
         };
 
-        setTimeout(customSubmit,2000);
+        setTimeout(customSubmit,100);
 
     }
 

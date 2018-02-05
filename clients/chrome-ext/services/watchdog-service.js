@@ -42,25 +42,27 @@ operandoCore
          */
         function increaseGooglePrivacy(settings, callback, jobFinished) {
             var jobDone = false;
-            chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "selected": false}, function (tab) {
-                googleTabId = tab.id;
+            chrome.tabs.getCurrent(function (currentTab) {
+                chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "selected": false}, function (tab) {
+                    googleTabId = tab.id;
 
-                closeTabListener(googleTabId, function () {
-                    messengerService.off("googleMessage", handleGoogleMessages);
-                    messengerService.off("googleActivityMessage", handleActivityMessages);
-                    if (jobDone == false) {
-                        callback("google", -1, settings.length);// -1 means aborted
-                        jobFinished(true);//true means aborted
-                    }
-                });
+                    closeTabListener(googleTabId, function () {
+                        messengerService.off("googleMessage", handleGoogleMessages);
+                        messengerService.off("googleActivityMessage", handleActivityMessages);
+                        if (jobDone == false) {
+                            callback("google", -1, settings.length);// -1 means aborted
+                            jobFinished(true);//true means aborted
+                        }
+                    });
 
-                messengerService.send("getGoogleData", function (response) {
-                    messengerService.send("insertGoogleIncreasePrivacyScript", {
-                        code: "window.GOOGLE_PARAMS = " + JSON.stringify(response.data),
-                        tabId: googleTabId
+                    messengerService.send("getGoogleData", function (response) {
+                        messengerService.send("insertGoogleIncreasePrivacyScript", {
+                            code: "window.GOOGLE_PARAMS = " + JSON.stringify(response.data),
+                            tabId: googleTabId
+                        });
                     });
                 });
-            });
+
             callback("google", 0, settings.length);
 
             var activityControlsSettings = [];
@@ -100,20 +102,20 @@ operandoCore
 
             var handleActivityMessages = function (msg) {
                 switch (msg.data.status) {
-                    case "waitingGoogleActivityCommand" :
+                    case "waitingGoogleActivityCommand":
                         messengerService.send("sendMessageToGoogleActivity", {
                             sendToPort: "googleActivityControls",
                             command: "applySettings",
                             settings: activityControlsSettings
                         });
                         chrome.tabs.update(googleTabId, {active: true});
-
                         break;
                     case "wizardFinished":
                         callback("google", settings.length, settings.length);
                         messengerService.off("googleActivityMessage", handleGoogleMessages);
                         jobFinished();
                         jobDone = true;
+                        chrome.tabs.update(currentTab.id, {active: true});
                         chrome.tabs.remove(googleTabId);
                         googleTabId = null;
                         break;
@@ -124,8 +126,8 @@ operandoCore
             };
 
             messengerService.on("googleMessage", handleGoogleMessages);
+            });
         }
-
 
         function increaseFacebookPrivacy(settings, callback, jobFinished) {
 
@@ -236,7 +238,7 @@ operandoCore
             messengerService.on("linkedinMessage", handleLinkedinMessages);
         }
 
-        function increaseTwitterPrivacy(settings, callback, jobFinished, passwordWasPromptedCallback) {
+        function increaseTwitterPrivacy(settings, callback, jobFinished) {
 
             var jobDone = false;
             chrome.tabs.getCurrent(function (currentTab) {
@@ -247,9 +249,6 @@ operandoCore
                             messengerService.off("twitterMessage", handleTwitterMessages);
                             callback("twitter", -1, settings.length);// -1 means aborted
                             jobFinished(true);//true means aborted
-                            if (passwordWasPromptedCallback) {
-                                passwordWasPromptedCallback();
-                            }
                         }
                     });
 
@@ -285,18 +284,12 @@ operandoCore
                         else {
                             if (msg.data.status == "progress") {
                                 callback("twitter", msg.data.progress, settings.length);
-                            } else if (msg.data.status == "giveMeCredentials") {
-                                chrome.tabs.update(twitterTabId, {active: true});
                             } else if (msg.data.status == "takeMeBackInExtension") {
                                 chrome.tabs.update(currentTab.id, {active: true});
-                                if (passwordWasPromptedCallback) {
-                                    passwordWasPromptedCallback();
-                                }
                             } else if (msg.data.status == "abortTwitter") {
                                 chrome.tabs.remove(twitterTabId);
                                 twitterTabId = null;
                             }
-
                         }
                     }
                 };
@@ -367,9 +360,9 @@ operandoCore
                 if (jobsNumber === 0) {
                     completedCallback(successfullyFinished);
                 }
-            }
+            };
 
-            function checkSettings() {
+
                 for (ospname in settings) {
                     switch (ospname) {
                         case "facebook":
@@ -381,17 +374,11 @@ operandoCore
                         case "google":
                             increaseGooglePrivacy(settings[ospname], callback, jobFinished);
                             break;
+                        case "twitter":
+                            increaseTwitterPrivacy(settings[ospname], callback, jobFinished);
+                            break;
                     }
                 }
-            }
-
-            if (Object.keys(settings).indexOf("twitter") > -1) {
-                increaseTwitterPrivacy(settings["twitter"], callback, jobFinished, checkSettings);
-            }
-            else {
-                checkSettings();
-            }
-
         }
 
         function prepareSettings(settingToBeApplied, settingKey) {
@@ -515,7 +502,6 @@ operandoCore
             applyTwitterSettings: increaseTwitterPrivacy,
             applyGoogleSettings: increaseGooglePrivacy,
             cancelEnforcement: cancelEnforcement
-
         }
 
     }]);
