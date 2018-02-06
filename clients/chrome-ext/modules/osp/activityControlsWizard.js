@@ -116,6 +116,7 @@ setInterval(function(){
 
 
 function enableDisablePopupCheckIntervalFn(){
+    var checkItOnce = false;
     enableDisablePopupCheckInterval = setInterval(function(){
         if($("div[jsaction='JIbuQc:Wh8OAb']").length>0){
             if(steps[currentIndex]['current_setting']=="on"){
@@ -127,7 +128,13 @@ function enableDisablePopupCheckIntervalFn(){
             clearInterval(enableDisablePopupCheckInterval);
             checkForPopupFn();
         }
-    },300);
+        else{
+            if (checkItOnce == false){
+                watchCurrentSettings();
+            }
+            checkItOnce = true;
+        }
+    },200);
 }
 
 function checkForPopupFn(){
