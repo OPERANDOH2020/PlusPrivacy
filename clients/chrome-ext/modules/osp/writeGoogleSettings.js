@@ -175,7 +175,7 @@ function secureAccount(callback) {
         var modal_content = $('<div class="modal-content"></div>');
 
         var header = $('<div class="modal-header"><h2>PlusPrivacy Wizard</h2></header>');
-        var close = $('<span class="close">&times;</span>');
+
 
         var closeModal = function(){
             $(modal_content).animate({
@@ -186,12 +186,15 @@ function secureAccount(callback) {
             });
         };
 
-        close.click (closeModal);
-        header.append(close);
         modal_content.append(header);
 
-        var modal_body = $('<div class="modal-body"><p>PlusPrivacy will now guide you through Google privacy settings</p></div>');
+        var modal_body = $('<div class="modal-body"><p>PlusPrivacy needs you to do some clicks to optimize your Google privacy settings</p></div>');
+        var letsDoItBtn = $("<button class='orange'>OK, let's do it</button>");
+        letsDoItBtn.click(closeModal);
+        modal_body.append(letsDoItBtn);
         modal_content.append(modal_body);
+
+
         var modal_footer = $('<div class="modal-footer"></div>');
         modal_content.append(modal_footer);
 
