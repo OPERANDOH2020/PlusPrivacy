@@ -459,17 +459,23 @@ operandoCore
             messengerService.off("linkedinMessage");
             messengerService.off("twitterMessage");
             messengerService.off("googleMessage");
+            messengerService.off("googleActivityMessage");
 
-            var tabIdsToBeRemoved = [twitterTabId, facebookTabId, linkedinTabId];
+            var tabIdsToBeRemoved = [twitterTabId, facebookTabId, linkedinTabId, googleTabId];
             var sequence = Promise.resolve();
             tabIdsToBeRemoved.forEach(function (tabId, index) {
-                sequence = sequence.then(function () {
-                    return removeTab(tabId);
-                }).then(function (result) {
-                    if (callback) {
-                        callback();
+
+                (function (tabId) {
+                    if (tabId) {
+                        sequence = sequence.then(function () {
+                            return removeTab(tabId);
+                        }).then(function (result) {
+                            if (callback) {
+                                callback();
+                            }
+                        });
                     }
-                });
+                })(tabId);
             });
 
 
@@ -485,6 +491,8 @@ operandoCore
                                 chrome.tabs.remove(tab.id, resolve);
                             }
                         });
+                    } else{
+                        resolve();
                     }
 
                 });
