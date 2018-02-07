@@ -410,6 +410,7 @@ padding-left: 0px;
 #privacy_policy_tab
 {
  padding: 20px;
+ position: relative;
 }
 
 #identities_container .identity{
@@ -2254,6 +2255,31 @@ input.ng-invalid:not(.ng-untouched){
 
 .sn_actions{
     float:right;
+    position: relative;
+}
+
+.how_it_works{
+    position: absolute;
+    cursor:pointer;
+}
+
+.sn_actions .how_it_works{
+    bottom: -45px;
+    right: 0px;
+}
+
+.single_click_privacy_button_ctn .how_it_works{
+    right: 0px;
+    top: 40px;
+}
+
+#identity_management_tab .how_it_works{
+    top: 32px;
+    right: 32px;
+}
+#abp_preferences_tab .how_it_works{
+    top: 32px;
+    right: 32px;
 }
 
 #network_tab h2{
