@@ -3592,63 +3592,7 @@ var ospSettingsConfigPreferences = {
                 "personal data",
                 "control"
             ]
-        },/*
-        allow_tweetdeck: {
-            read: {
-                name: "Allow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck?",
-                url: "https://twitter.com/settings/safety",
-                jquery_selector: {
-                    element: "input[name='user[allow_contributor_request]']",
-                    valueType: "radio"
-                },
-                availableSettings: {
-                    all: {
-                        name: "Allow anyone to add me to their team"
-                    },
-                    following: {
-                        name: "Only allow people I follow to add me to their team"
-                    },
-                    none: {
-                        name: "Do not allow anyone to add me to their team"
-                    }
-                }
-            },
-            write: {
-                name: "Allow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck?",
-                page: "https://mobile.twitter.com/settings/safety",
-                url_template: "https://api.twitter.com/1.1/account/settings.json",
-                availableSettings: {
-                    all: {
-                        data: {
-                            allow_contributor_request: "all"
-                        },
-                        name: "All"
-                    },
-                    following: {
-                        data: {
-                            allow_contributor_request: "following"
-                        },
-                        name: "Following"
-                    },
-                    none: {
-                        data: {
-                            allow_contributor_request: "none"
-                        },
-                        name: "None"
-                    }
-                },
-                data: {},
-                recommended: "none"
-            },
-            tags: [
-                "advertising",
-                "profiling",
-                "personal data",
-                "control"
-            ]
-        },*/
+        },
         allow_direct_message: {
             read: {
                 name: "Allow any Twitter user to send you a direct message even if you do not follow them?",
@@ -3781,49 +3725,155 @@ var ospSettingsConfigPreferences = {
                 "control"
             ]
         },
-
-        mark_tweeted_media_sensitive_content: {
-            read: {
-                name: "Mark media I tweet as containing material that may be sensitive?",
-                page: "https://twitter.com/settings/safety",
+        personalize_ads:{
+            read:{
+                name:"Do you want to see interest-based ads?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
                 jquery_selector: {
-                    element: "input[name='user[nsfw_user]']",
+                    element: "input[type='checkbox']:nth-child(0)",
                     valueType: "checkbox"
                 },
                 availableSettings: {
-                    Yes: {
+                    yes: {
                         name: "Yes"
                     },
-                    No: {
+                    no: {
                         name: "No"
                     }
                 }
             },
-            write: {
-                name: "Mark media I tweet as containing material that may be sensitive?",
-                page: "https://mobile.twitter.com/settings/safety",
-                url_template: "https://api.twitter.com/1.1/account/settings.json",
+            write:{
+                name:"Do you want to see interest-based ads?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/settings.json",
+                recommended:"no",
                 availableSettings: {
-                    Yes: {
-                        data: {
-                            nsfw_user: true
-                        },
+                    yes: {
+                        data:{
+                            allow_ads_personalization:true
+                        }
+                    },
+                    no: {
+                        data:{
+                            allow_ads_personalization:false
+                        }
+                    }
+                }
+            }
+        },
+        personalize_ads_apps:{
+            read:{
+                name:"Do you want to see ads based on your apps?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                jquery_selector: {
+                    element: "input[type='checkbox']:nth-child(1)",
+                    valueType: "checkbox"
+                },
+                availableSettings: {
+                    yes: {
                         name: "Yes"
                     },
-                    No: {
-                        data: {
-                            nsfw_user: false
-                        },
+                    no: {
                         name: "No"
                     }
-                },
-                recommended: "No"
+                }
             },
-            tags: [
-                "exposure",
-                "profiling"
-            ]
+
+            write:{
+                name:"Do you want to see ads based on your apps?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/personalization/p13n_preferences.json",
+                recommended:"no",
+                type: "application/json",
+                availableSettings: {
+                    yes: {
+                        data:{
+                            preferences:{app_graph_preferences:{use_app_graph_for_personalization:true}}
+                        }
+                    },
+                    no: {
+                        data:{
+                            preferences:{app_graph_preferences:{use_app_graph_for_personalization:false}}
+                        }
+                    }
+                }
+            }
+        },
+        personalize_ads_devices:{
+            read:{
+                name:"Do you want to see ads based on your devices?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                jquery_selector: {
+                    element: "input[type='checkbox']:nth-child(2)",
+                    valueType: "checkbox"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+
+            write:{
+                name:"Do you want to see ads based on your devices?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/settings.json",
+                recommended:"no",
+                availableSettings: {
+                    yes: {
+                        data:{
+                            allow_logged_out_device_personalization:true
+                        }
+                    },
+                    no: {
+                        data:{
+                            allow_logged_out_device_personalization:false
+                        }
+                    }
+                }
+            }
+        },
+        personalize_ads_location:{
+            read:{
+                name:"Do you want to see ads based on places you've been?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                jquery_selector: {
+                    element: "input[type='checkbox']:nth-child(2)",
+                    valueType: "checkbox"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+
+            write:{
+                name:"Do you want to see ads based on places you've been?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/settings.json",
+                recommended:"no",
+                availableSettings: {
+                    yes: {
+                        data:{
+                            allow_location_history_personalization:true
+                        }
+                    },
+                    no: {
+                        data:{
+                            allow_location_history_personalization:false
+                        }
+                    }
+                }
+            }
         }
+
     },
 
     "google": {
