@@ -21,10 +21,7 @@ var privacyWizardSwarm = {
         node: "WatchDogAdapter",
 
         code: function () {
-               // x = x.indexOf("\\uE2809C",0);
-               //x = x.replace("\uE2809D","");
                this.ospSettings = getOspSettings();
-               //console.log(x);
                this.home("gotOSPSettings");
         }
     },
