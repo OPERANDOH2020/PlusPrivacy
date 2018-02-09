@@ -267,6 +267,13 @@ operandoCore
 
                 var handleTwitterMessages = function (msg) {
                     if (msg.data.status == "waitingTwitterCommand") {
+
+                        if(msg.data.is_eu == true){
+                            settings = settings.filter(function(setting){
+                                return Object.keys(setting.data).indexOf("use_cookie_personalization") === -1;
+                            });
+                        }
+
                         messengerService.send("sendMessageToTwitter", {
                             sendToPort: "applyTwitterSettings",
                             command: "applySettings",

@@ -3841,7 +3841,7 @@ var ospSettingsConfigPreferences = {
                 name:"Do you want to see ads based on places you've been?",
                 page:"https://mobile.twitter.com/settings/account/personalization",
                 jquery_selector: {
-                    element: "input[type='checkbox']:nth-child(2)",
+                    element: "input[type='checkbox']:nth-child(3)",
                     valueType: "checkbox"
                 },
                 availableSettings: {
@@ -3872,7 +3872,83 @@ var ospSettingsConfigPreferences = {
                     }
                 }
             }
-        }
+        },
+
+        track_across_web:{
+            read:{
+                name:"Do you want to be tracked by twitter content around the web?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                jquery_selector: {
+                    element: "input[type='checkbox']:nth-child(4)",
+                    valueType: "checkbox"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+
+            write:{
+                name:"Do you want to be tracked by twitter content around the web?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/settings.json",
+                recommended:"no",
+                availableSettings: {
+                    yes: {
+                        data:{
+                            use_cookie_personalization:true
+                        }
+                    },
+                    no: {
+                        data:{
+                            use_cookie_personalization:false
+                        }
+                    }
+                }
+            }
+        },
+
+        share_data_partnership:{
+            read:{
+                name:"Share certain private data (which will never include your name, email, or phone number) through select partnerships?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                jquery_selector: {
+                    element: "input[type='checkbox']:nth-child(5)",
+                    valueType: "checkbox"
+                },
+                availableSettings: {
+                    yes: {
+                        name: "Yes"
+                    },
+                    no: {
+                        name: "No"
+                    }
+                }
+            },
+
+            write:{
+                name:"Share certain private data (which will never include your name, email, or phone number) through select partnerships?",
+                page:"https://mobile.twitter.com/settings/account/personalization",
+                url_template:"https://api.twitter.com/1.1/account/settings.json",
+                recommended:"no",
+                availableSettings: {
+                    yes: {
+                        data:{
+                            allow_sharing_data_for_third_party_personalization:true
+                        }
+                    },
+                    no: {
+                        data:{
+                            allow_sharing_data_for_third_party_personalization:false
+                        }
+                    }
+                }
+            }
+        },
 
     },
 
