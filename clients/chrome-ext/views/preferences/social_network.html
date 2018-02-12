@@ -15,7 +15,7 @@
                 <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>
                 <button class="btn-primary" ng-if="!isLastOspInList" ng-click="goToNextOsp()">Next</button>
                 <button class="btn-primary" ng-click="done()">Done</button>
-                <how-it-works popup-target="social-network-settings"></how-it-works>
+                <how-it-works popup-target="social-network-settings-{{osp.key}}"></how-it-works>
             </div>
         </div>
 

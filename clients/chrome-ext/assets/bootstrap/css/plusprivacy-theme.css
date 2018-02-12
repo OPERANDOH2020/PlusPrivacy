@@ -2263,6 +2263,10 @@ input.ng-invalid:not(.ng-untouched){
     cursor:pointer;
 }
 
+.modal.how-it-works-modal p{
+    font-size: 16px;
+}
+
 .sn_actions .how_it_works{
     bottom: -45px;
     right: 0px;

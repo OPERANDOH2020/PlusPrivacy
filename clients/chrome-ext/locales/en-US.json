@@ -18,5 +18,11 @@
     "privacyDashboard":"Privacy Dashboard",
     "adblockerOptions":"AdBlocker Options",
     "privacyPolicy":"Privacy Policy",
-    "emailIsInvalid":"Email is invalid"
+    "emailIsInvalid":"Email is invalid",
+    "single-click-privacy-popup-text":"If you click \"Single click privacy\", a wizard will set all your privacy settings on Google, Facebook, Twitter and LinkedIn to their most privacy-friendly values.<br/>Most of it will be done automatically but your input may be required for part of the settings, so please watch the wizard and make the clicks as requested.",
+    "social-network-settings-facebook-popup-text":"If you just click \"Update Facebook settings\", a wizard will set all your privacy settings on Facebook to their most privacy-friendly values, as shown.<br/> You can manually modify some of the settings before clicking \"Update Facebook settings\".",
+    "social-network-settings-linkedin-popup-text":"If you just click \"Update LinkedIn settings\", a wizard will set all your privacy settings on LinkedIn to their most privacy-friendly values, as shown.<br/> You can manually modify some of the settings before clicking \"Update Linkedin settings\".",
+    "social-network-settings-twitter-popup-text":"If you just click \"Update Twitter settings\", a wizard will set all your privacy settings on Twitter to their most privacy-friendly values, as shown.<br/> You can manually modify some of the settings before clicking \"Update Twitter settings\".",
+    "social-network-settings-google-popup-text":"If you just click \"Update Google settings\", a wizard will set all your privacy settings on Google to their most privacy-friendly values, as shown. You can manually modify some of the settings before clicking \"Update Google settings\". <br/>For changing some of the settings, the wizard may ask you to do some clicks.",
+    "identities-popup-text":"You can provide an alternative identity to websites and people instead of your real email address. Emails sent to your alternative identity will be relayed to the email address with which you are registered to PlusPrivacy. When you reply to these emails, they will be relayed to the original sender, with your alternative identity placed in the From field of the email message. This allows you to communicate without disclosing your real email address.<br/>You can delete an alternative identity any time, in which case emails sent to it will bounce."
   }

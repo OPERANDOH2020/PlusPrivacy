@@ -1,4 +1,4 @@
-angular.module("UIComponent").directive("howItWorks",function(){
+angular.module("UIComponent").directive("howItWorks",["i18nService",function(i18nService){
 
     return {
         restrict: 'E',
@@ -10,7 +10,7 @@ angular.module("UIComponent").directive("howItWorks",function(){
 
             $scope.howItWorks = function(){
 
-                var explanation = "Hang on! The \"how it works\" explanation will be provided in the next release.";
+                var explanation = i18nService._($scope.popupTarget+"-popup-text");
 
                 ModalService.showModal({
 
@@ -28,4 +28,4 @@ angular.module("UIComponent").directive("howItWorks",function(){
         }],
         template: '<a class="how_it_works" ng-click="howItWorks();">How does it work?</a>'
     }
-});
+}]);
