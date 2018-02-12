@@ -17,11 +17,10 @@ var container = require("safebox").container;
 var myCfg = getMyConfig("SessionManager");
 var jwt = require('jsonwebtoken');
 var sessionMaxIdleTime = 94608000;//one year
-var sessionMinIdleTime = 8640;//one day
 var persistence = undefined;
 var flow = require("callflow");
 
-var secretKey = crypto.randomBytes("128");
+var secretKey = crypto.randomBytes(128);
 if (myCfg.sessionTime != undefined) {
     sessionMaxIdleTime = myCfg.sessionTime;
 }
