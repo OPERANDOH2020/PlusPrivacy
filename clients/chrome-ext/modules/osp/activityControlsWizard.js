@@ -25,7 +25,7 @@ var checkForPopup;
 var enableDisablePopupCheckInterval;
 var arrowElementEnable = jQuery('<div class="downArrow bounce off"></div>');
 
-arrowElementDisable.append(jQuery("<span>Click to turn off (recommended) </span>"));
+arrowElementDisable.append(jQuery("<span>Click to pause (recommended) </span>"));
 arrowElementDisable.append(arrowImage);
 arrowElementEnable.append(jQuery("<span>Click to turn on</span>"));
 $(arrowImage).clone().appendTo(arrowElementEnable);
