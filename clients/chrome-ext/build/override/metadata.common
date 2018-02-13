@@ -156,6 +156,7 @@ operando/directives.js = operando/directives/deals.js
                   operando/directives/progress-bar.js
                   operando/directives/setting-editor.js
                   operando/directives/loader.js
+                  operando/directives/change-state-if.js
                   operando/directives/how-it-works.js
                   operando/directives/login.js
 

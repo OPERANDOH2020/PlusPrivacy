@@ -43,6 +43,12 @@ controller("appCtrl", ["$scope", "messengerService","$window","$state", function
         });
     }
 
+
+    $scope.checkCondition = function() {
+        console.log($state.includes('extensions') || $state.includes('network'));
+        return ($state.includes('extensions') || $state.includes('network'))?"home":"extensions";
+    }
+
 }]);
 
 

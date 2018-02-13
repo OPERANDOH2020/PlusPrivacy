@@ -1082,10 +1082,14 @@ div.popover{
     padding: 20px;
 }
 
-.nav>li>a:focus, .nav>li>a:hover,
+.nav>li>a:hover,
 .nav>li.has_children:not(.active):hover{
     text-decoration: none;
     background-color: #000;
+}
+
+.nav>li>a:focus{
+    background-color:inherit;
 }
 
 

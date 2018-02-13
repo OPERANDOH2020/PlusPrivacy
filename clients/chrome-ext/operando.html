@@ -164,7 +164,7 @@
                     </li>
 
                     <li  class="no-sub-menu">
-                        <a class="menu_icon extensions_icon" ui-sref="extensions">Extensions & Apps</a>
+                        <a class="menu_icon extensions_icon" ui-sref="extensions" change-state-if="{condition:$state.includes('extensions') || $state.includes('network'),state:'home'}" >Extensions & Apps</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
                             ng-controller="socialAppsController">
                             <li>
