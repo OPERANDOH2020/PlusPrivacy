@@ -453,31 +453,17 @@
             "write": {
                 "name": "Who can add things to your timeline?",
                 "page": "https://www.facebook.com/settings?tab=timeline&section=posting&view",
-                "url_template": "https://www.facebook.com/privacy/selector/update/?privacy_fbid={OPERANDO_PRIVACY_FBID}&post_param={OPERANDO_POST_PARAM}&render_location_enum=settings&is_saved_on_select=true&should_return_tooltip=false&prefix_tooltip_with_app_privacy=false&replace_on_select=false&ent_id=0&dpr=1",
+                "url_template": "https://www.facebook.com/ajax/settings/timeline/posting.php?dpr=1",
                 "availableSettings": {
                     "only_me": {
-                        "params": {
-                            "privacy_fbid": {
-                                "placeholder": "OPERANDO_PRIVACY_FBID",
-                                "value": 10153940308610734
-                            },
-                            "post_param": {
-                                "placeholder": "OPERANDO_POST_PARAM",
-                                "value": 286958161406148
-                            }
+                        "data": {
+                            "audience": 10
                         },
                         "name": "Only Me"
                     },
                     "friends": {
-                        "params": {
-                            "privacy_fbid": {
-                                "placeholder": "OPERANDO_PRIVACY_FBID",
-                                "value": 10153940308610734
-                            },
-                            "post_param": {
-                                "placeholder": "OPERANDO_POST_PARAM",
-                                "value": 291667064279714
-                            }
+                        "data": {
+                            "audience": 40
                         },
                         "name": "Friends"
                     }
@@ -1114,7 +1100,7 @@
                 "recommended": "no_one"
             },
             "tags": [
-                "personal data",
+                "personal_data",
                 "profiling",
                 "advertising",
                 "control",
@@ -2963,18 +2949,18 @@
             },
             "write": {
                 "name": "Protect my Tweets?",
-                "page": "https://mobile.twitter.com/settings/safety",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "Yes": {
                         "data": {
-                            "protected": true
+                            "user[protected]": 1
                         },
                         "name": "Yes"
                     },
                     "No": {
                         "data": {
-                            "protected": false
+                            "user[protected]": 0
                         },
                         "name": "No"
                     }
@@ -3009,18 +2995,18 @@
             },
             "write": {
                 "name": "Add a location to my tweets?",
-                "page": "https://mobile.twitter.com/settings/location",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "Yes": {
                         "data": {
-                            "geo_enabled": true
+                            "user[geo_enabled]": 1
                         },
                         "name": "Yes"
                     },
                     "No": {
                         "data": {
-                            "geo_enabled": false
+                            "user[geo_enabled]": 0
                         },
                         "name": "No"
                     }
@@ -3059,24 +3045,24 @@
             },
             "write": {
                 "name": "Allow anyone to tag you in photos?",
-                "page": "https://mobile.twitter.com/settings/tagging",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "all": {
                         "data": {
-                            "allow_media_tagging": "all"
+                            "user[allow_media_tagging]": "all"
                         },
                         "name": "All"
                     },
                     "following": {
                         "data": {
-                            "allow_media_tagging": "following"
+                            "user[allow_media_tagging]": "following"
                         },
                         "name": "Following"
                     },
                     "none": {
                         "data": {
-                            "allow_media_tagging": "none"
+                            "user[allow_media_tagging]": "none"
                         },
                         "name": "None"
                     }
@@ -3111,18 +3097,18 @@
             },
             "write": {
                 "name": "Allow others find you by your email address?",
-                "page": "https://mobile.twitter.com/settings/contacts",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "discoverable_by_email": true
+                            "user[discoverable_by_email]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "discoverable_by_email": false
+                            "user[discoverable_by_email]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3156,18 +3142,18 @@
             },
             "write": {
                 "name": "Allow others find you by your mobile phone number?",
-                "page": "https://mobile.twitter.com/settings/contacts",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "discoverable_by_mobile_phone": true
+                            "user[discoverable_by_mobile_phone]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "discoverable_by_mobile_phone": false
+                            "user[discoverable_by_mobile_phone]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3202,18 +3188,18 @@
             },
             "write": {
                 "name": "Allow Twitter to display ads about things you've already shown interest in (aka \"promoted content\")?",
-                "page": "https://mobile.twitter.com/settings/safety",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "allow_ads_personalization": true
+                            "user[allow_ads_personalization]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "allow_ads_personalization": false
+                            "user[allow_ads_personalization]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3228,6 +3214,64 @@
             ],
             "id": 49
         },
+        "allow_tweetdeck": {
+            "read": {
+                "name": "Allow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck?",
+                "url": "https://twitter.com/settings/safety",
+                "jquery_selector": {
+                    "element": "input[name='user[allow_contributor_request]']",
+                    "valueType": "radio"
+                },
+                "availableSettings": {
+                    "all": {
+                        "name": "Allow anyone to add me to their team",
+                        "index": 118
+                    },
+                    "following": {
+                        "name": "Only allow people I follow to add me to their team",
+                        "index": 119
+                    },
+                    "none": {
+                        "name": "Do not allow anyone to add me to their team",
+                        "index": 120
+                    }
+                }
+            },
+            "write": {
+                "name": "Allow organizations to invite anyone to tweet from their account using the teams feature in TweetDeck?",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
+                "availableSettings": {
+                    "all": {
+                        "data": {
+                            "user[allow_contributor_request]": "all"
+                        },
+                        "name": "All"
+                    },
+                    "following": {
+                        "data": {
+                            "user[allow_contributor_request]": "following"
+                        },
+                        "name": "Following"
+                    },
+                    "none": {
+                        "data": {
+                            "user[allow_contributor_request]": "none"
+                        },
+                        "name": "None"
+                    }
+                },
+                "data": {},
+                "recommended": "none"
+            },
+            "tags": [
+                "advertising",
+                "profiling",
+                "personal data",
+                "control"
+            ],
+            "id": 50
+        },
         "allow_direct_message": {
             "read": {
                 "name": "Allow any Twitter user to send you a direct message even if you do not follow them?",
@@ -3239,28 +3283,28 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 118
+                        "index": 121
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 119
+                        "index": 122
                     }
                 }
             },
             "write": {
                 "name": "Allow any Twitter user to send you a direct message even if you do not follow them?",
-                "page": "https://mobile.twitter.com/settings/safety",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "allow_dms_from": "all"
+                            "user[allow_dms_from_anyone]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "allow_dms_from": "following"
+                            "user[allow_dms_from_anyone]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3272,7 +3316,7 @@
                 "personal data",
                 "control"
             ],
-            "id": 50
+            "id": 51
         },
         "send_read_receipts": {
             "read": {
@@ -3285,28 +3329,28 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 120
+                        "index": 123
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 121
+                        "index": 124
                     }
                 }
             },
             "write": {
                 "name": "Allow that when someone sends you a message, people in the conversation will know when you have seen it?",
-                "page": "https://mobile.twitter.com/settings/safety",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "dm_receipt_setting": "all_enabled"
+                            "user[allow_dm_receipts]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "dm_receipt_setting": "all_disabled"
+                            "user[allow_dm_receipts]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3319,7 +3363,7 @@
                 "personal data",
                 "control"
             ],
-            "id": 51
+            "id": 52
         },
         "display_sensitive_content": {
             "read": {
@@ -3332,28 +3376,28 @@
                 "availableSettings": {
                     "allow": {
                         "name": "Allow",
-                        "index": 122
+                        "index": 125
                     },
                     "disallow": {
                         "name": "Disallow",
-                        "index": 123
+                        "index": 126
                     }
                 }
             },
             "write": {
                 "name": "Allow to display media that may contain sensitive content?",
-                "page": "https://mobile.twitter.com/settings/safety",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
                     "allow": {
                         "data": {
-                            "display_sensitive_media": true
+                            "user[nsfw_view]": 1
                         },
                         "name": "Allow"
                     },
                     "disallow": {
                         "data": {
-                            "display_sensitive_media": false
+                            "user[nsfw_view]": 0
                         },
                         "name": "Disallow"
                     }
@@ -3365,1036 +3409,52 @@
                 "profiling",
                 "control"
             ],
-            "id": 52
-        },
-        "personalize_ads": {
-            "read": {
-                "name": "Do you want to see interest-based ads?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(0)",
-                    "valueType": "checkbox"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 124
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 125
-                    }
-                }
-            },
-            "write": {
-                "name": "Do you want to see interest-based ads?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
-                "recommended": "no",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "allow_ads_personalization": true
-                        }
-                    },
-                    "no": {
-                        "data": {
-                            "allow_ads_personalization": false
-                        }
-                    }
-                }
-            },
             "id": 53
         },
-        "personalize_ads_apps": {
+        "mark_tweeted_media_sensitive_content": {
             "read": {
-                "name": "Do you want to see ads based on your apps?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
+                "name": "Mark media I tweet as containing material that may be sensitive?",
+                "page": "https://twitter.com/settings/safety",
                 "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(1)",
+                    "element": "input[name='user[nsfw_user]']",
                     "valueType": "checkbox"
                 },
                 "availableSettings": {
-                    "yes": {
+                    "Yes": {
                         "name": "Yes",
-                        "index": 126
-                    },
-                    "no": {
-                        "name": "No",
                         "index": 127
-                    }
-                }
-            },
-            "write": {
-                "name": "Do you want to see ads based on your apps?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/personalization/p13n_preferences.json",
-                "recommended": "no",
-                "type": "application/json",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "preferences": {
-                                "app_graph_preferences": {
-                                    "use_app_graph_for_personalization": true
-                                }
-                            }
-                        }
                     },
-                    "no": {
-                        "data": {
-                            "preferences": {
-                                "app_graph_preferences": {
-                                    "use_app_graph_for_personalization": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "id": 54
-        },
-        "personalize_ads_devices": {
-            "read": {
-                "name": "Do you want to see ads based on your devices?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(2)",
-                    "valueType": "checkbox"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
+                    "No": {
+                        "name": "No",
                         "index": 128
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 129
                     }
                 }
             },
             "write": {
-                "name": "Do you want to see ads based on your devices?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
-                "recommended": "no",
+                "name": "Mark media I tweet as containing material that may be sensitive?",
+                "page": "https://twitter.com/settings/safety",
+                "url_template": "https://twitter.com/settings/safety/update",
                 "availableSettings": {
-                    "yes": {
+                    "Yes": {
                         "data": {
-                            "allow_logged_out_device_personalization": true
-                        }
-                    },
-                    "no": {
-                        "data": {
-                            "allow_logged_out_device_personalization": false
-                        }
-                    }
-                }
-            },
-            "id": 55
-        },
-        "personalize_ads_location": {
-            "read": {
-                "name": "Do you want to see ads based on places you've been?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(3)",
-                    "valueType": "checkbox"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 130
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 131
-                    }
-                }
-            },
-            "write": {
-                "name": "Do you want to see ads based on places you've been?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
-                "recommended": "no",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "allow_location_history_personalization": true
-                        }
-                    },
-                    "no": {
-                        "data": {
-                            "allow_location_history_personalization": false
-                        }
-                    }
-                }
-            },
-            "id": 56
-        },
-        "track_across_web": {
-            "read": {
-                "name": "Do you want to be tracked by twitter content around the web?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(4)",
-                    "valueType": "checkbox"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 132
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 133
-                    }
-                }
-            },
-            "write": {
-                "name": "Do you want to be tracked by twitter content around the web?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
-                "recommended": "no",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "use_cookie_personalization": true
-                        }
-                    },
-                    "no": {
-                        "data": {
-                            "use_cookie_personalization": false
-                        }
-                    }
-                }
-            },
-            "id": 57
-        },
-        "share_data_partnership": {
-            "read": {
-                "name": "Share certain private data (which will never include your name, email, or phone number) through select partnerships?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "jquery_selector": {
-                    "element": "input[type='checkbox']:nth-child(5)",
-                    "valueType": "checkbox"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 134
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 135
-                    }
-                }
-            },
-            "write": {
-                "name": "Share certain private data (which will never include your name, email, or phone number) through select partnerships?",
-                "page": "https://mobile.twitter.com/settings/account/personalization",
-                "url_template": "https://api.twitter.com/1.1/account/settings.json",
-                "recommended": "no",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "allow_sharing_data_for_third_party_personalization": true
-                        }
-                    },
-                    "no": {
-                        "data": {
-                            "allow_sharing_data_for_third_party_personalization": false
-                        }
-                    }
-                }
-            },
-            "id": 58
-        }
-    },
-    "google": {
-        "declare_gender": {
-            "read": {
-                "name": "Show gender?",
-                "url": "https://myaccount.google.com/gender",
-                "availableSettings": {
-                    "male": {
-                        "name": "Male",
-                        "index": 136
-                    },
-                    "female": {
-                        "name": "Female",
-                        "index": 137
-                    },
-                    "rather_not_say": {
-                        "name": "Rather not say",
-                        "index": 138
-                    }
-                },
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                }
-            },
-            "write": {
-                "name": "Show gender?",
-                "page": "https://myaccount.google.com/gender",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=107941241&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "male": {
-                        "params": {
-                            "reqid": {
-                                "placeholder": "REQID",
-                                "value": 1000000
-                            }
-                        },
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",107941241,[{\"107941241\":[[2]]}]]]]"
-                        },
-                        "name": "Male"
-                    },
-                    "female": {
-                        "params": {
-                            "reqid": {
-                                "placeholder": "REQID",
-                                "value": 2000000
-                            }
-                        },
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",107941241,[{\"107941241\":[[3]]}]]]]"
-                        },
-                        "name": "Female"
-                    },
-                    "rather_not_say": {
-                        "params": {
-                            "reqid": {
-                                "placeholder": "REQID",
-                                "value": 3000000
-                            }
-                        },
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",107941241,[{\"107941241\":[[4]]}]]]]"
-                        },
-                        "name": "Rather not say"
-                    }
-                },
-                "data": {},
-                "recommended": "rather_not_say"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 59
-        },
-        "group_similar_face": {
-            "read": {
-                "name": "Auto group photos by matching faces to better search, manage, and share?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 139
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 140
-                    }
-                }
-            },
-            "write": {
-                "name": "Auto group photos by matching faces to better search, manage, and share?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",18,true]}]]]]"
+                            "user[nsfw_user]": 1
                         },
                         "name": "Yes"
                     },
-                    "no": {
+                    "No": {
                         "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",18,false]}]]]]"
+                            "user[nsfw_user]": 0
                         },
                         "name": "No"
                     }
                 },
-                "data": {},
-                "recommended": "no"
+                "recommended": "No"
             },
             "tags": [
-                "exposure"
+                "exposure",
+                "profiling"
             ],
-            "id": 60
-        },
-        "remove_geo_location": {
-            "read": {
-                "name": "Remove geo location in items shared by link?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 141
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 142
-                    }
-                }
-            },
-            "write": {
-                "name": "Remove geo location in items shared by link?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",19,false]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",19,true]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "yes"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 61
-        },
-        "liked_videos_private": {
-            "read": {
-                "name": "Keep private all my liked videos?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 143
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 144
-                    }
-                }
-            },
-            "write": {
-                "name": "Keep private all my liked videos?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",20,false]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",20,true]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "yes"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 62
-        },
-        "saved_playlist_private": {
-            "read": {
-                "name": "Keep private all my saved playlists?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 145
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 146
-                    }
-                }
-            },
-            "write": {
-                "name": "Keep private all my saved playlists?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",21,false]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",21,true]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "yes"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 63
-        },
-        "keep_subscriptions_private": {
-            "read": {
-                "name": "Keep private all my subscriptions?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 147
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 148
-                    }
-                }
-            },
-            "write": {
-                "name": "Keep private all my subscriptions?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",6,false]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",6,true]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "yes"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 64
-        },
-        "post_feed_public_playlist": {
-            "read": {
-                "name": "Post to feed when I add a video to a public playlist?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 149
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 150
-                    }
-                }
-            },
-            "write": {
-                "name": "Post to feed when I add a video to a public playlist?",
-                "page": "https://myaccount.google.com/privacycheckup",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=123193202&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",10,true]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",123193202,[{\"123193202\":[\"ac.pg.pstrq\",10,false]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "yes"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 65
-        },
-        "shared_endorsements_ads": {
-            "read": {
-                "name": "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
-                "page": "https://myaccount.google.com/shared-endorsements",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 151
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 152
-                    }
-                }
-            },
-            "write": {
-                "name": "Based upon my activity, Google may show my profile name, profile photo, and activity in shared endorsements in ads?",
-                "page": "https://myaccount.google.com/shared-endorsements",
-                "url_template": "https://myaccount.google.com/_/AccountSettingsUi/mutate?ds.extension=130628706&f.sid={SID}&hl=en&_reqid={REQID}&rt=c",
-                "availableSettings": {
-                    "yes": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",130628706,[{\"130628706\":[true,\"RnVjayB5b3UgR09PR0xFIQ==\"]}]]]]"
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "data": {
-                            "f.req": "[\"af.maf\",[[\"af.add\",130628706,[{\"130628706\":[false,\"SSB3YXMga2lkZGluZyE=\"]}]]]]"
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "no"
-            },
-            "tags": [
-                "exposure"
-            ],
-            "id": 66
-        },
-        "search_private_results": {
-            "read": {
-                "name": "Use private results?",
-                "page": "https://www.google.com/preferences",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes",
-                        "index": 153
-                    },
-                    "no": {
-                        "name": "No",
-                        "index": 154
-                    }
-                }
-            },
-            "write": {
-                "name": "Use private results?",
-                "page": "https://www.google.com/preferences",
-                "url_template": "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson={PSON}&tts=&newwindow=&gl=&region=&q=&prev=",
-                "method_type": "GET",
-                "availableSettings": {
-                    "yes": {
-                        "params": {
-                            "pson": {
-                                "placeholder": "PSON",
-                                "value": 1
-                            }
-                        },
-                        "name": "Yes"
-                    },
-                    "no": {
-                        "params": {
-                            "pson": {
-                                "placeholder": "PSON",
-                                "value": 0
-                            }
-                        },
-                        "name": "No"
-                    }
-                },
-                "data": {},
-                "recommended": "no"
-            },
-            "id": 67
-        },
-        "text_to_speach": {
-            "read": {
-                "name": "When you search by voice, Google should speak the answers aloud?",
-                "page": "https://www.google.com/preferences",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "yes": {
-                        "name": "Yes, speak answers for voice search",
-                        "index": 155
-                    },
-                    "no": {
-                        "name": "No, just show text",
-                        "index": 156
-                    }
-                }
-            },
-            "write": {
-                "name": "Use private results?",
-                "page": "https://www.google.com/preferences",
-                "url_template": "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson=&tts={TTS}&newwindow=&gl=&region=&q=&prev=",
-                "method_type": "GET",
-                "availableSettings": {
-                    "yes": {
-                        "params": {
-                            "tts": {
-                                "placeholder": "TTS",
-                                "value": 1
-                            }
-                        },
-                        "name": "Yes, speak answers for voice search"
-                    },
-                    "no": {
-                        "params": {
-                            "tts": {
-                                "placeholder": "TTS",
-                                "value": 0
-                            }
-                        },
-                        "name": "No, just show text"
-                    }
-                },
-                "data": {},
-                "recommended": "no"
-            },
-            "id": 68
-        },
-        "web_app_activity": {
-            "read": {
-                "name": "Web & app activity",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "index": 157
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "index": 158
-                    }
-                }
-            },
-            "write": {
-                "name": "Web and app activity",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 69
-        },
-        "location_history": {
-            "read": {
-                "name": "Location History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "index": 159
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "index": 160
-                    }
-                }
-            },
-            "write": {
-                "name": "Location History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 70
-        },
-        "device_information": {
-            "read": {
-                "name": "Device Information",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        },
-                        "index": 161
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        },
-                        "index": 162
-                    }
-                }
-            },
-            "write": {
-                "name": "Device Information",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 71
-        },
-        "voice_audio_activity": {
-            "read": {
-                "name": "Voice & Audio Activity",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "index": 163
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "index": 164
-                    }
-                }
-            },
-            "write": {
-                "name": "Voice & Audio Activity",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 72
-        },
-        "youtube_search_history": {
-            "read": {
-                "name": "Youtube Search History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "index": 165
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "index": 166
-                    }
-                }
-            },
-            "write": {
-                "name": "Youtube Search History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 73
-        },
-        "youtube_watch_history": {
-            "read": {
-                "name": "Youtube Watch History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "index": 167
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "index": 168
-                    }
-                }
-            },
-            "write": {
-                "name": "Youtube Watch History",
-                "page": "https://myaccount.google.com/activitycontrols",
-                "method_type": "user-action",
-                "jquery_selector": {
-                    "element": ".N2RpBe:parent + .XZs2ib .N2RpBe",
-                    "valueType": "inner"
-                },
-                "availableSettings": {
-                    "on": {
-                        "name": "On",
-                        "cssClasses": "LsSwGf PciPcd N2RpBe",
-                        "data": {
-                            "setting": "on"
-                        }
-                    },
-                    "off": {
-                        "name": "Off",
-                        "cssClasses": "LsSwGf PciPcd i9xfbb",
-                        "data": {
-                            "setting": "off"
-                        }
-                    }
-                },
-                "recommended": "off"
-            },
-            "id": 74
+            "id": 54
         }
     }
 }
