@@ -4667,7 +4667,7 @@ var ospSettingsConfigPreferences = {
 
 
 //var fs = require('fs');
-//fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings_new.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
+//fs.writeFileSync(process.env.SWARM_PATH+"/operando/adapters/PSW/resources/OSP.settings.json",JSON.stringify(ospSettingsConfigPreferences,null,4));
 
 
 

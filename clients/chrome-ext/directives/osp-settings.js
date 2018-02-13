@@ -170,8 +170,8 @@ angular.module('osp', ['cfp.loadingBar'])
         function loadOSPSettings (callback){
             if(Object.keys(ospSettingsConfig).length == 0){
                 messengerService.send("getOSPSettings", function(response){
-                    //var settings = response.data;
-                    var settings = ospSettingsConfigPreferences;
+                    var settings = response.data;
+                    //var settings = ospSettingsConfigPreferences;
                     ospSettingsConfig = settings;
                         callback(settings);
                     });
@@ -197,8 +197,8 @@ angular.module('osp', ['cfp.loadingBar'])
                 }
                 else {
                     messengerService.send("getOSPSettings", function (response) {
-                        //var settings = response.data;
-                        var settings = ospSettingsConfigPreferences;
+                        var settings = response.data;
+                        //var settings = ospSettingsConfigPreferences;
                         ospSettingsConfig = settings;
                         deferred.resolve(settings);
                     });
