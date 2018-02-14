@@ -23,7 +23,7 @@ angular.module("abp", [])
                 homepage: "https://easylist.adblockplus.org/",
                 title: "EasyPrivacy",
                 feature_title: "Protect against tracking",
-                feature_description: "Prevent web sites and and advertisers from tracking you.",
+                feature_description: "Prevent web sites and advertisers from tracking you.",
                 url: "https://easylist-downloads.adblockplus.org/easyprivacy.txt"
             },
             {

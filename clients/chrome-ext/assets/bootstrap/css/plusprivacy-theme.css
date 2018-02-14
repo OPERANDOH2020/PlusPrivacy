@@ -410,6 +410,7 @@ padding-left: 0px;
 #privacy_policy_tab
 {
  padding: 20px;
+ position: relative;
 }
 
 #identities_container .identity{
@@ -1081,10 +1082,14 @@ div.popover{
     padding: 20px;
 }
 
-.nav>li>a:focus, .nav>li>a:hover,
+.nav>li>a:hover,
 .nav>li.has_children:not(.active):hover{
     text-decoration: none;
     background-color: #000;
+}
+
+.nav>li>a:focus{
+    background-color:inherit;
 }
 
 
@@ -2254,6 +2259,35 @@ input.ng-invalid:not(.ng-untouched){
 
 .sn_actions{
     float:right;
+    position: relative;
+}
+
+.how_it_works{
+    position: absolute;
+    cursor:pointer;
+}
+
+.modal.how-it-works-modal p{
+    font-size: 16px;
+}
+
+.sn_actions .how_it_works{
+    bottom: -45px;
+    right: 0px;
+}
+
+.single_click_privacy_button_ctn .how_it_works{
+    right: 0px;
+    top: 40px;
+}
+
+#identity_management_tab .how_it_works{
+    top: 32px;
+    right: 32px;
+}
+#abp_preferences_tab .how_it_works{
+    top: 32px;
+    right: 32px;
 }
 
 #network_tab h2{

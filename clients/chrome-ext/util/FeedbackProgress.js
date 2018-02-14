@@ -60,16 +60,19 @@ var FeedbackProgress = {
     clearFeedback: function (message) {
         var self = this;
 
-        if (this.feedbackContainer != null) {
-            if (this.feedbackMessage != null) {
-                this.feedbackMessage.innerHTML = message;
-            }
 
-            self.removeAnimation();
-            setTimeout(function () {
-                document.body.removeChild(self.feedbackContainer);
-                this.isVisible = false;
-            }, 2000);
+        if (this.feedbackContainer != null) {
+            if (message) {
+                if (this.feedbackMessage != null) {
+                    this.feedbackMessage.innerHTML = message;
+                }
+
+                self.removeAnimation();
+                setTimeout(this.removeUI, 2000);
+            }
+            else{
+                this.removeUI();
+            }
         }
     },
 
@@ -81,7 +84,12 @@ var FeedbackProgress = {
     },
     removeAnimation:function(){
         this.innerContainer.removeChild(this.animation);
+    },
+    removeUI:function(){
+        document.body.removeChild(this.feedbackContainer);
+        this.isVisible = false;
     }
+
 }
 
 

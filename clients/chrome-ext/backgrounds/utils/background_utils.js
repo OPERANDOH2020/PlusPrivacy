@@ -14,7 +14,7 @@
 function insertJavascriptFile(id, file, callback){
     chrome.tabs.executeScript(id, {
         file: file,
-        allFrames:true
+        allFrames:false
     }, function () {
         if (chrome.runtime.lastError) {
             console.error(chrome.runtime.lastError.message);

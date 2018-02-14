@@ -1,5 +1,5 @@
 [general]
-version = 0.6.6
+version = 0.7.1
 backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js
@@ -43,6 +43,12 @@ webAccessible = operando/assets/images/icons/operando_24.png
   operando/assets/images/icons/abp-19.png
   operando/assets/images/icons/operando/operando.png
   operando/assets/images/close_popup.png
+  operando/assets/images/privacy_safe.png
+  operando/assets/images/privacy_unsafe.png
+  operando/assets/images/icons/pp-42-logo.png
+  operando/assets/images/icons/operando_24.png
+  operando/assets/images/icons/pp-42-logo-orange.png
+  operando/assets/images/google-logo.png
   operando/modules/pfb/modal/allow_social_network_modal.html
 
 [contentScripts]
@@ -122,6 +128,8 @@ lib/adblockplus.js = adblockpluscore/lib/events.js
   operando/libs/pfb-service.js
   operando/libs/social-network-privacy-settings.js
   operando/libs/osp-service.js
+  operando/modules/Interceptor.js
+  operando/libs/request-intercepter-service.js
   operando/libs/user-service.js
   operando/libs/social-network-service.js
   operando/libs/website-service.js
@@ -148,6 +156,8 @@ operando/directives.js = operando/directives/deals.js
                   operando/directives/progress-bar.js
                   operando/directives/setting-editor.js
                   operando/directives/loader.js
+                  operando/directives/change-state-if.js
+                  operando/directives/how-it-works.js
                   operando/directives/login.js
 
 operando/schema-form.js =operando/utils/angular-sanitize/angular-sanitize.min.js

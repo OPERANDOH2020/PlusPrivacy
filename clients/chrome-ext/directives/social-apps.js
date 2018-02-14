@@ -117,7 +117,6 @@ angular.module('socialApps',['cfp.loadingBar'])
                             messengerService.send(action, function (response) {
                                 if (response.status == "success") {
                                     $scope.apps = response.data;
-                                    console.log($scope.apps);
                                     $scope.requestIsMade = true;
                                     $scope.$apply();
                                 }

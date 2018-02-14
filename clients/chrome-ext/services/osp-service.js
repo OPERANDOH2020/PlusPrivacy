@@ -15,7 +15,7 @@ angular.module('osp')
                 var availableSettings = conf["read"].availableSettings;
                 var jquerySelector = conf["read"].jquery_selector;
 
-                if (Object.keys(jquerySelector).length !== 0 && availableSettings) {
+                if (jquerySelector && Object.keys(jquerySelector).length !== 0 && availableSettings) {
                     var settingEnum = [];
                     for (var key in availableSettings) {
                         settingEnum.push({
@@ -129,8 +129,8 @@ angular.module('osp')
         function loadOSPSettings (callback){
             if(Object.keys(ospSettingsConfig).length == 0){
                 messengerService.send("getOSPSettings",function(response){
-                    //var settings = response.data;
-                    var settings = ospSettingsConfigPreferences;
+                    var settings = response.data;
+                    //var settings = ospSettingsConfigPreferences;
                     ospSettingsConfig = settings;
                     callback(settings);
                 });
@@ -156,8 +156,8 @@ angular.module('osp')
                 }
                 else {
                     messengerService.send("getOSPSettings", function (response) {
-                        //var settings = response.data;
-                        var settings = ospSettingsConfigPreferences;
+                        var settings = response.data;
+                        //var settings = ospSettingsConfigPreferences;
                         ospSettingsConfig = settings;
                         deferred.resolve(settings);
                     });

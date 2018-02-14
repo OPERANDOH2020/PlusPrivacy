@@ -361,6 +361,10 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             });
 
     })
+    .run(["i18nService",function(i18nService){
+        i18nService.load();
+    }])
+
     .run(["firstRunService","subscriptionsService", "$ocLazyLoad", function(firstRunService, subscriptionsService, $ocLazyLoad){
 
         $ocLazyLoad.load(

@@ -3,6 +3,7 @@ var facebookCallback = null;
 var linkedinCallback = null;
 var twitterCallback = null;
 var googleCallback = null;
+var googleActivityCallback = null;
 var scriptInjectorService = exports.scriptInjectorService = {
 
     insertFacebookIncreasePrivacyScript: function (data) {
@@ -21,12 +22,19 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
 
     insertTwitterIncreasePrivacyScript:function(data){
-        injectScript(data.tabId,  "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery", "Tooltipster"], function(){
+        /*injectScript(data.tabId,  "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery", "Tooltipster"], function(){
             insertCSS(data.tabId, "operando/assets/css/feedback.css");
             insertCSS(data.tabId, "operando/assets/css/change-identity.css");
             insertCSS(data.tabId, "operando/utils/tooltipster/tooltipster.bundle.min.css");
             insertCSS(data.tabId, "operando/utils/tooltipster/tooltipster-plus-privacy.css");
 
+        });*/
+
+        chrome.tabs.executeScript(data.tabId, {
+            code: data.code
+        }, function () {
+            insertCSS(data.tabId, "operando/assets/css/feedback.css");
+            injectScript(data.tabId, "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery","Tooltipster"]);
         });
     },
 
@@ -59,6 +67,9 @@ var scriptInjectorService = exports.scriptInjectorService = {
     googleMessage:function(callback){
         googleCallback = callback;
     },
+    googleActivityMessage:function(callback){
+        googleActivityCallback = callback;
+    },
     waitingFacebookCommand:function(instructions){
         facebookCallback (instructions);
     },
@@ -70,6 +81,9 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
     waitingGoogleCommand : function(instructions){
         googleCallback(instructions);
+    },
+    waitingGoogleActivityCommand : function(instructions){
+        googleActivityCallback(instructions);
     }
 
 };

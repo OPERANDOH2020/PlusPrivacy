@@ -12,15 +12,15 @@
 
 var core = require("swarmcore");
 core.createAdapter("SessionManager");
-
+const crypto = require('crypto');
 var container = require("safebox").container;
 var myCfg = getMyConfig("SessionManager");
 var jwt = require('jsonwebtoken');
 var sessionMaxIdleTime = 94608000;//one year
-var sessionMinIdleTime = 8640;//one day
 var persistence = undefined;
 var flow = require("callflow");
 
+var secretKey = crypto.randomBytes(128);
 if (myCfg.sessionTime != undefined) {
     sessionMaxIdleTime = myCfg.sessionTime;
 }
@@ -127,7 +127,7 @@ createOrUpdateSession = function(sessionData, callback){
                         {
                             sessionId: session.sessionId,
                             userId: session.userId
-                        }, 'pulsatileTinnitus',{expiresIn:60});
+                        }, secretKey,{expiresIn:60});
                     session['authenticationToken'] = token;
                 }
 
@@ -142,7 +142,7 @@ generateAuthenticationToken = function(userId, sessionId, callback){
         {
             sessionId: sessionId,
             userId: userId
-        }, 'pulsatileTinnitus', {expiresIn: 60});
+        }, secretKey, {expiresIn: 60});
     if (token) {
         callback(null, token);
     }
@@ -155,7 +155,7 @@ validateAuthenticationToken = function(userId, currentSession, authenticationTok
     flow.create("validateAuthenticationToken",{
         begin:function(){
             var self = this;
-            jwt.verify(authenticationToken, 'pulsatileTinnitus', function(err, decoded) {
+            jwt.verify(authenticationToken, secretKey, function(err, decoded) {
                 if(err){
                     callback(err);
                 }

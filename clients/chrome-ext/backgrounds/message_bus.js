@@ -132,9 +132,11 @@ chrome.runtime.onConnect.addListener(function (_port) {
                 }
 
             });
-        }
+        }//TODO
+        /*refactor this
+         */
         else if(clientPort.name === "applyFacebookSettings" || clientPort.name === "applyLinkedinSettings"
-            || clientPort.name === "applyTwitterSettings" || clientPort.name === "applyGoogleSettings"){
+            || clientPort.name === "applyTwitterSettings" || clientPort.name === "applyGoogleSettings"|| clientPort.name === "googleActivityControls"){
             clientPort.onMessage.addListener(function(request){
 
                 if (bus.hasAction(request.action)) {
