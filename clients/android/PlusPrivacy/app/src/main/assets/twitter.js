@@ -694,89 +694,143 @@
 
 
 
+//Android.showToast("works");
+var headers = {};
+var sequence = Promise.resolve();
 
+var mainFunction = function(privacySettingsJsonString) {
 
-Android.showToast("works");
-(function(privacySettings) {
-
-    var SafetyForm = {
-        "include_mention_filter": true,
-        "include_ranked_timeline": true,
-        "protected": false
-        /*
-        "user[allow_media_tagging]": "following",
-        "user[discoverable_by_email]": 0,
-        "user[discoverable_by_mobile_phone]": 0,
-        "user[allow_contributor_request]": "none",
-        "user[allow_dms_from_anyone]": 0,
-        "user[allow_dm_receipts]": 0
-        */
-    };
-
-    /*
-        for (var setting in privacySettings){
-                for (var key in setting["data"]) {
-                    SafetyForm[key] = setting["data"][key];
-                }
-        }
-    */
-
-    /*
-	SafetyForm["auth_password"] = $("#auth_password").val();
-	*/
-
-    var mainHeaders = {};
-    var run = false;
+    var run = true;
     xhook.before(function(request) {
 
-        mainHeaders = request.headers;
-//        delete mainHeaders['content-type'];
+        headers = request.headers;
 
+        if (run) {
 
-        if (!run) {
-            run = true;
+            run = false;
 
             xhook.disable();
 
-            mainHeaders["accept"] = "*/*";
-            mainHeaders["Content-type"] = "text/plain";
-//            mainHeaders["accept-language"] = "en-US,en;q=0.9,ro;q=0.8";
+            headers["accept"] = "*/*";
 
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "https://api.twitter.com/1.1/account/settings.json",
-                contentType: 'application/x-www-form-urlencoded',
-                data: JSON.stringify(SafetyForm),
-//                headers: mainHeaders,
-                beforeSend: function(request) {
+                xhrFields: {
+                    withCredentials: true
+                },
+                beforeSend: function(xhr) {
 
-                    for (var key in mainHeaders) {
-                        if (mainHeaders.hasOwnProperty(key)) {
-                            Android.showToast("[Header JS] " + key + " -> " + mainHeaders[key]);
-                            request.setRequestHeader(key, mainHeaders[key]);
+                    console.log(headers);
+
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    for (var key in headers) {
+                        if (headers.hasOwnProperty(key)) {
+//                            Android.showToast("[Header JS] " + key + " -> " + headers[key]);
+                            xhr.setRequestHeader(key, headers[key]);
                         }
                     }
-
                 },
-
                 success: function(data) {
 
-                    Android.showToast("success");
-                    Android.showToast("data" + data);
-                    Android.onFinishedLoadingCallback();
+                    var isEUCountry = false;
+                    if (data.settings_metadata && data.settings_metadata.is_eu == "true") {
+                        isEUCountry = true;
+                    }
+
+                    secureAccount(isEUCountry, privacySettingsJsonString);
                 },
                 error: function(request, textStatus, errorThrown) {
-
                     Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
                 }
             });
         }
+    });
+};
 
+mainFunction(Android.getPrivacySettings());
+
+
+function secureAccount(isEUCountry, privacySettingsJsonString) {
+
+    privacySettings = JSON.parse(privacySettingsJsonString);
+
+    if (isEUCountry == true) {
+        privacySettings = privacySettings.filter(function(setting) {
+            return Object.keys(setting.data).indexOf("use_cookie_personalization") === -1;
+        });
+    }
+
+    var endPoints = privacySettings.reduce(function(pv, cv) {
+        if (pv.indexOf(cv.url) === -1) {
+            pv.push(cv.url);
+        }
+        return pv;
+    }, []);
+
+    endPoints.forEach(function(endpoint) {
+
+        var formData = {};
+        var dataType = "multipart/form-data";
+        if (endpoint === "https://api.twitter.com/1.1/account/personalization/p13n_preferences.json") {
+            dataType = "application/json";
+        } else {
+            formData = {
+                include_mention_filter: true,
+                include_ranked_timeline: true
+            };
+        }
+
+        var formSettings = privacySettings.filter(function(setting) {
+            return setting.url === endpoint;
+        });
+
+
+        formSettings.forEach(function(setting) {
+            for (var key in setting["data"]) {
+                formData[key] = setting["data"][key];
+            }
+        });
+        sequence = sequence.then(function() {
+            return customSubmit(endpoint, formData, dataType);
+        });
     });
 
-    /*
-    function getAuthenticityToken(){
-    	return $("#authenticity_token").val();
-    }
-    */
-})(Android.getPrivacySettings());
+    var customSubmit = function(url, data, dataType) {
+        return new Promise(function(resolve) {
+
+            var requestOptions = {
+                type: "POST",
+                url: url,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: data,
+                beforeSend: function(xhr) {
+
+                    for (var key in headers) {
+                        if (headers.hasOwnProperty(key)) {
+                            xhr.setRequestHeader(key, headers[key]);
+                        }
+                    }
+
+                },
+                success: function(data) {
+                    resolve();
+                    Android.onFinishedLoadingCallback();
+                },
+                error: function(request, textStatus, errorThrown) {
+                    Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
+                }
+            };
+
+            if (dataType === "application/json") {
+                requestOptions['contentType'] = 'application/json; charset=utf-8';
+                requestOptions['dataType'] = 'json';
+                requestOptions['data'] = JSON.stringify(data);
+            }
+
+            $.ajax(requestOptions);
+        });
+    };
+}

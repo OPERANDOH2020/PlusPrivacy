@@ -4,11 +4,14 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.net.HttpURLConnection;
 import java.util.Map;
 
 /**
@@ -37,6 +40,7 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+
             Log.e("requestHTTP", request.getMethod() + " " + request.getUrl());
             Map<String, String> headers = request.getRequestHeaders();
             for (Map.Entry<String, String> entry : headers.entrySet()){
@@ -44,6 +48,16 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
                 String value = entry.getValue();
                 Log.e("{HEADER Aos}" + key, value);
             }
+            try {
+                Log.e("cookie ", String.valueOf(cookieManager.hasCookies()));
+
+                Log.e("cookie ", "cookie: " + cookieManager.getCookie("cookie"));
+            } catch (Exception e){
+                Log.e("exception", e.getMessage());
+            }
+
+//            WebResourceResponse response = super.shouldInterceptRequest(view, request);
+//            Log.e("{statusCode Aos}", String.valueOf(response.getStatusCode()));
 
             return super.shouldInterceptRequest(view, request);
         }

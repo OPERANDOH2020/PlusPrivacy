@@ -111,8 +111,6 @@
 
                  beforeSend: function(request) {
 
-
-
                      request.setRequestHeader("accept", "*/*");
                      request.setRequestHeader("accept-language", "en-US,en;q=0.8");
                      request.setRequestHeader("X-Alt-Referer", settings.page);
