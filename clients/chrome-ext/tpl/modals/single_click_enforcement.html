@@ -26,13 +26,13 @@
                     </div>
                 </div>
 
-                <div ng-if="noSocialNetworkAvailable">
+                <div ng-if="noSocialNetworkAvailable" class="noSocialNetworkAvailable">
                     <div class="row">
-                        <div class="col-md-9">
-                            <h4>{{"please-login-with-social-networks"|i18n:"socialNetworks":"Facebook,Twitter"}}</h4>
+                        <div class="col-md-10">
+                            <p>{{"please-login-with-social-networks"|i18n:"socialNetworks":"Facebook, LinkedIn, Twitter, Google"}}</p>
                         </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-primary" ng-click="enforce()">Try again now!</button>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary try-again" ng-click="enforce()">{{"try-again"|i18n}}</button>
                         </div>
 
                     </div>

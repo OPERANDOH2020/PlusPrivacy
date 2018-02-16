@@ -211,23 +211,25 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
 
         function retrieveUserLoggedInAccount (socialNetwork){
-            messengerService.send("getMyLoggedinEmail",socialNetwork, function(response){
-               if(response.status === "success"){
+            messengerService.send("getMyLoggedinEmail", socialNetwork, function (response) {
+                if (response.status === "success") {
 
-                   var encodedStr = response.data.account;
-                   var parser = new DOMParser();
-                   var dom = parser.parseFromString(
-                       '<!doctype html><body>' + encodedStr,
-                       'text/html');
-                   var decodedString = dom.body.textContent;
+                    var encodedStr = response.data.account;
+                    var parser = new DOMParser();
+                    var dom = parser.parseFromString(
+                        '<!doctype html><body>' + encodedStr,
+                        'text/html');
+                    var decodedString = dom.body.textContent;
 
-                   $scope.socialNetworkEmail = {
-                       account:decodedString,
-                       type:response.data.type
-                   };
-
-                   $scope.$apply();
-               }
+                    $scope.socialNetworkEmail = {
+                        account: decodedString,
+                        type: response.data.type
+                    };
+                    $scope.authenticated = true;
+                } else {
+                    $scope.authenticated = false;
+                }
+                $scope.$apply();
             });
         }
     }]);

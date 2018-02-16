@@ -2725,6 +2725,15 @@ h4.modal-title.plusprivacy{
     margin-left: 10px;
 }
 
+.noSocialNetworkAvailable p{
+    font-size: 16px;
+}
+
+.noSocialNetworkAvailable .try-again{
+    margin-left:-15px;
+    margin-top: 6px;
+}
+
 .username_spinner {
     margin: 0 0 0 12px;
     width: 45px;
