@@ -23,10 +23,20 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
 
     }
 
-    var translate = function (key) {
+    var translate = function (key, params) {
 
+        var translationArgs = [];
+        translationArgs.push(key);
         if (polyglot !== null) {
-            return polyglot.t(key);
+            if(params){
+                if(params.length == 2 ){
+                    var obj = {};
+                    obj[params[0]] = params[1];
+                    translationArgs.push(obj);
+                }
+            }
+            return polyglot.t.apply(polyglot,translationArgs);
+
         }
         else{
             console.error("i18nService not initialized");
@@ -41,6 +51,8 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
 
 }]).filter("i18n", function (i18nService) {
     return function (object) {
-        return i18nService._(object);
+        var params = Array.prototype.slice.call(arguments);
+        params = params.splice(1);
+        return i18nService._(object, params);
     }
 });
