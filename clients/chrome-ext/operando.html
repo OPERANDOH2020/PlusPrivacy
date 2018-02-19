@@ -151,7 +151,7 @@
                     </li>
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks">Social Networks</a>
+                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks" data-toggle="collapse" change-state-if="{condition:$state.includes('socialNetworks') || $state.includes('preferences'),state:'home'}">Social Networks</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="sn_content" ng-if="$state.includes('socialNetworks') || $state.includes('preferences')"
                             ng-controller="readSocialNetworkPrivacySettings">
                             <li ng-repeat="osp in osps">

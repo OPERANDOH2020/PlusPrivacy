@@ -862,6 +862,7 @@ color:#FFF;
     font-weight:500;
     font-family: 'Dosis', sans-serif;
     text-transform: uppercase;
+    cursor: pointer!important;
 }
 
 .col-xs-2 ul li a:hover{
@@ -1090,6 +1091,9 @@ div.popover{
 
 .nav>li>a:focus{
     background-color:inherit;
+}
+.nav>li:not(.active)>a:not(.active):focus:hover{
+    background-color: #000;
 }
 
 
