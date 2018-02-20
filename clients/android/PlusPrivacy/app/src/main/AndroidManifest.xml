@@ -56,6 +56,9 @@
             android:name=".activity.TwitterSettingsActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".activity.GoogleSettingsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:screenOrientation="portrait"
             android:name=".activity.FacebookWebViewActivity"
             android:theme="@style/AppTheme" />
@@ -66,6 +69,10 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".activity.TwitterWebViewActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activity.GoogleWebViewActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:screenOrientation="portrait"

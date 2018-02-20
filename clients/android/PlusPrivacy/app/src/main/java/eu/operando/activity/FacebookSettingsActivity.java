@@ -50,11 +50,6 @@ import eu.operando.swarmclient.models.SwarmCallback;
 public class FacebookSettingsActivity extends SocialNetworkFormBaseActivity {
 
     @Override
-    public int getContentViewID() {
-        return R.layout.activity_facebook_settings;
-    }
-
-    @Override
     protected List<Question> getQuestionsBySN(OspSettings ospSettings) {
         return ospSettings.getFacebook();
     }

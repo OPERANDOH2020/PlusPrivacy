@@ -54,22 +54,11 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     public static final String PRIVACY_SETTINGS_TAG = "OSP_PRIVACY_SETTINGS";
     private OperandoProgressDialog progressDialog;
     private List<Question> questions;
-    private String socialNetwork;
-
-    public String getSocialNetwork() {
-        return socialNetwork;
-    }
-
-    public void setSocialNetwork(String socialNetwork) {
-        this.socialNetwork = socialNetwork;
-    }
-
-    public abstract int getContentViewID();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getContentViewID());
+        setContentView(R.layout.activity_facebook_settings);
         initUI();
     }
 
@@ -145,7 +134,8 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        elvAdapter = new FacebookSettingsListAdapter(getContext(), questions, checkedList, getSocialNetworkEnum());
+                        elvAdapter = new FacebookSettingsListAdapter(getContext(), questions,
+                                checkedList, getSocialNetworkEnum());
                         questionsELV.setAdapter(elvAdapter);
                     }
                 });
@@ -216,7 +206,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.e("justURL: ", question.getWrite().getUrl());
+            Log.e("justURL: ", " " + question.getWrite().getUrl());
         }
         Log.e("Privacy OSP Settings", privacySettings.toString());
         return privacySettings.toString();

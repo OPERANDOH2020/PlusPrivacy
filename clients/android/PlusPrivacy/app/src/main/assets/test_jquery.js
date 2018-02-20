@@ -1,4 +1,5 @@
 (function() {
+
     if ('undefined' == typeof window.jQuery) {
         // jQuery is not loaded
         Android.isLoaded(0);

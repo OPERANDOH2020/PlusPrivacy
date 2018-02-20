@@ -35,10 +35,10 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RelativeLayout googleLayout = (RelativeLayout) findViewById(R.id.google_settings);
         RelativeLayout facebookLayout = (RelativeLayout) findViewById(R.id.facebook_settings);
         RelativeLayout linkedinLayout = (RelativeLayout) findViewById(R.id.linkedin_settings);
         RelativeLayout twitterLayout = (RelativeLayout) findViewById(R.id.twitter_settings);
+        RelativeLayout googleLayout = (RelativeLayout) findViewById(R.id.google_settings);
         rotationDot = (ImageView) findViewById(R.id.rotation_dot);
 
         facebookLayout.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +62,14 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
             public void onClick(View view) {
                 startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
                         TwitterSettingsActivity.class));
+            }
+        });
+
+        googleLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        GoogleSettingsActivity.class));
             }
         });
 

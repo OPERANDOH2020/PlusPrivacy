@@ -251,9 +251,9 @@
             filledData.__req = parseInt(filledData.__req, 36);
             window.fbdata = filledData;
             var total = privacySettings.length;
+            var sequence = Promise.resolve();
             privacySettings.forEach(function(settings, index) {
-				var sequence = Promise.resolve();
-                sequence = sequence.then(function() {
+			    sequence = sequence.then(function() {
                     return postToFacebook(settings, index, total);
                 }).then(function(result) {
                     console.log(result);
@@ -262,9 +262,10 @@
                 });
             });
 
-            Android.onFinishedLoadingCallback();
+
 
             sequence = sequence.then(function(result) {
+                Android.onFinishedLoadingCallback();
                 callback();
             });
 

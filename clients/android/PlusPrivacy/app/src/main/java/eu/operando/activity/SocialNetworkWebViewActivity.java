@@ -93,7 +93,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 
-        //Clear old cookies
+
         cookieManager = CookieManager.getInstance();
 //        cookieManager.removeAllCookie();
         CookieSyncManager.getInstance().sync();
@@ -208,8 +208,16 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             input.read(buffer);
             input.close();
 
-            String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
-            myWebView.loadUrl("javascript:(function() {" +
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+                String jsString = new String(buffer);
+//                Log.e("PRIVACY", jsString);
+                myWebView.evaluateJavascript(jsString, null);
+
+            } else {
+
+                String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
+                myWebView.loadUrl("(function() {" +
                     "" +
                     "var parent = document.getElementsByTagName('head').item(0);" +
                     "var script = document.createElement('script');" +
@@ -219,6 +227,8 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 //                    "script.src = \"" + SCRIPT_URL + "\";" +
                     "parent.appendChild(script)" +
                     "})()");
+
+            }
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -253,7 +263,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         public void showToast(String message) {
             Log.e("msg from the dark side", message);
 //            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-        }
+    }
 
         @JavascriptInterface
         public void onFinishedLoadingCallback() {

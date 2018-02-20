@@ -12,11 +12,14 @@ public class OspSettings {
     private List<Question> facebook;
     private List<Question> linkedin;
     private List<Question> twitter;
+    private List<Question> google;
 
-    public OspSettings(List<Question> facebook, List<Question> linkedin, List<Question> twitter) {
+    public OspSettings(List<Question> facebook, List<Question> linkedin, List<Question> twitter,
+                       List<Question> google) {
         this.facebook = facebook;
         this.linkedin = linkedin;
         this.twitter = twitter;
+        this.google = google;
     }
 
     public List<Question> getFacebook() {
@@ -41,5 +44,13 @@ public class OspSettings {
 
     public void setTwitter(List<Question> twitter) {
         this.twitter = twitter;
+    }
+
+    public List<Question> getGoogle() {
+        return google;
+    }
+
+    public void setGoogle(List<Question> google) {
+        this.google = google;
     }
 }

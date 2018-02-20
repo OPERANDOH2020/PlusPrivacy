@@ -10,28 +10,28 @@ import eu.operando.models.privacysettings.OspSettings;
 import eu.operando.models.privacysettings.Question;
 
 /**
- * Created by Alex on 1/18/2018.
+ * Created by Alex on 2/16/2018.
  */
 
-public class TwitterSettingsActivity extends SocialNetworkFormBaseActivity{
+public class GoogleSettingsActivity extends SocialNetworkFormBaseActivity{
 
     @Override
     protected List<Question> getQuestionsBySN(OspSettings ospSettings) {
-        return ospSettings.getTwitter();
+        return ospSettings.getGoogle();
     }
 
     @Override
     protected Context getContext() {
-        return TwitterSettingsActivity.this;
+        return GoogleSettingsActivity.this;
     }
 
     @Override
     public SocialNetworkEnum getSocialNetworkEnum() {
-        return SocialNetworkEnum.TWITTER;
+        return SocialNetworkEnum.GOOGLE;
     }
 
     @Override
     protected Class getWebViewClass() {
-        return TwitterWebViewActivity.class;
+        return GoogleWebViewActivity.class;
     }
 }
