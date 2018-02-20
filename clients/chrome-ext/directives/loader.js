@@ -12,6 +12,8 @@ angular.module('UIComponent').
                             break;
                         case "completed":
                             break;
+                        case "notLoggedIn":
+                            break;
                         default:
                             $scope.status = "pending";
                     }

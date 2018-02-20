@@ -2781,3 +2781,15 @@ h4.modal-title.plusprivacy{
           transform: scale(1.0);
       }
 }
+
+.notLoggedIn{
+    font-size:16px;
+    font-family: 'Dosis', sans-serif;
+}
+.scpNotLoggedIn{
+    float:left;
+}
+div.scpNotLoggedIn{
+    line-height: 40px;
+    margin-left: 4px;
+}

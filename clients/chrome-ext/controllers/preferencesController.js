@@ -34,6 +34,8 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                         watchDogService.cancelEnforcement();
                     };
 
+                    $scope.singleOsp = true;
+
                     function checkIfIsLoggedIn(socialNetwork, callback) {
                         $scope.socialNetwork = socialNetwork;
                         var url;

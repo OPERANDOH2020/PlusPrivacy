@@ -112,7 +112,7 @@ operandoCore
                         break;
                     case "wizardFinished":
                         callback("google", settings.length, settings.length);
-                        messengerService.off("googleActivityMessage", handleGoogleMessages);
+                        messengerService.off("googleActivityMessage", handleActivityMessages);
                         jobFinished();
                         jobDone = true;
                         chrome.tabs.update(currentTab.id, {active: true});

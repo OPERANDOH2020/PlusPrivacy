@@ -34,14 +34,37 @@ angular.module("singleClickPrivacy",[])
                                         templateUrl: '/operando/tpl/modals/single_click_enforcement.html',
                                         controller: ["$scope", "close", "watchDogService", function ($scope, close, watchDogService) {
 
+                                            $scope.progresses = {};
+                                            $scope.osps = [];
+                                            $scope.noSocialNetworkAvailable = false;
+                                            var checkingInterval = null;
+
                                             $scope.close = function (result) {
                                                 $element.modal('hide');
                                                 close(result, 500);
+                                                if(checkingInterval){
+                                                    clearInterval(checkingInterval);
+                                                    checkingInterval = null;
+                                                }
                                             };
 
                                             $scope.cancel = function(){
                                                 watchDogService.cancelEnforcement();
+                                                if(checkingInterval){
+                                                    clearInterval(checkingInterval);
+                                                    checkingInterval = null;
+                                                }
                                             };
+
+                                            $scope.$watch('progresses', function(newValue, oldValue){
+                                                $scope.ospsAborted = 0;
+                                                for(var osp in newValue){
+                                                    if(newValue[osp]['isAborted'] === true){
+                                                        $scope.ospsAborted++;
+                                                    }
+                                                };
+
+                                            },true);
 
 
                                             var readCookieConf = {
@@ -63,36 +86,34 @@ angular.module("singleClickPrivacy",[])
                                                 }
                                             };
 
+                                            $scope.loginUrls = {};
+                                            for(var ospName in readCookieConf){
+                                                $scope.loginUrls[ospName] = readCookieConf[ospName].url;
+                                                $scope.osps.push({name:ospName});
+                                            }
+
+
+
+
                                             var readCookie  = function(ospKey,conf){
                                                 return new Promise(function(resolve, reject){
                                                     chrome.cookies.get({url: conf.url, name: conf.cookie_name}, function (cookie) {
-                                                        if (cookie) {
-                                                            $scope.osps.push(ospKey);
-                                                            resolve();
+                                                        var loggedIn = cookie?true:false;
+                                                        for(var i = 0; i<$scope.osps.length; i++){
+                                                            if($scope.osps[i].name == ospKey){
+                                                                $scope.osps[i].loggedIn = loggedIn;
+                                                                break;
+                                                            }
                                                         }
-                                                        else {
-                                                            resolve("Not logged in "+ospKey);
-                                                        }
+                                                        resolve();
                                                     });
                                                 });
                                             };
 
+
                                             var enforce = function () {
-
-                                                $scope.progresses = {};
-                                                $scope.osps = [];
-                                                $scope.noSocialNetworkAvailable = false;
-
-
-                                                $scope.$watch('progresses', function(newValue, oldValue){
-                                                    $scope.ospsAborted = 0;
-                                                    for(var osp in newValue){
-                                                        if(newValue[osp]['isAborted'] === true){
-                                                            $scope.ospsAborted++;
-                                                        }
-                                                    };
-
-                                                },true);
+                                                console.log("enforce");
+                                                $scope.securedOSPs = [];
 
                                                 var promise = Promise.resolve();
                                                 for (var ospKey in readCookieConf) {
@@ -105,47 +126,111 @@ angular.module("singleClickPrivacy",[])
 
                                                 promise.then(function () {
                                                     if ($scope.osps.length > 0) {
-                                                        watchDogService.maximizeEnforcement($scope.osps, function (ospname, current, total) {
-                                                            $scope.progresses[ospname] = {
-                                                                ospName: ospname,
-                                                                current: current,
-                                                                total: total,
-                                                                status: current == -1? "aborted" : (current < total ? "pending" : "completed")
-                                                            };
-                                                            $scope.$apply();
-                                                        }, function (jobsFinished) {
 
-                                                            $scope.completed = true;
-
-                                                            if (jobsFinished === 0) {
-                                                                $scope.operationAborted = true;
-                                                            }
-                                                            else if (jobsFinished < $scope.osps.length) {
-                                                                $scope.operationPartialSucceed = true;
-                                                            }
-                                                            else {
-                                                                $scope.operationSucceed = true;
-                                                            }
-
-                                                            if (jobsFinished !== 0) {
-                                                                $scope.osps.forEach(function (osp) {
-                                                                    messengerService.send("removePreferences", osp, function (response) {
-                                                                        if (response.error) {
-                                                                            console.log("Error occured:", response.error);
-                                                                        }
-                                                                    });
-                                                                });
-                                                            }
+                                                        var loggedinOSPs = $scope.osps.filter(function(osp){
+                                                            return osp.loggedIn == true;
                                                         });
+
+                                                        var notLoggedinOSPs = $scope.osps.filter(function(osp){
+                                                            return osp.loggedIn == false;
+                                                        });
+
+                                                        if (notLoggedinOSPs.length === Object.keys(readCookieConf).length) {
+
+                                                            if (checkingInterval) {
+                                                                clearInterval(checkingInterval);
+                                                                checkingInterval = null;
+                                                            }
+
+                                                            $scope.noSocialNetworkAvailable = true;
+                                                        } else {
+                                                            $scope.noSocialNetworkAvailable = false;
+                                                            if(!checkingInterval){
+                                                                checkingInterval = setInterval(enforce, 2000);
+                                                            }
+
+                                                        }
+                                                        $scope.$apply();
+
+                                                        var newLoggedInOSPs = loggedinOSPs.map(function(loggedinOSP){
+                                                            return loggedinOSP.name;
+                                                        });
+
+                                                        notLoggedinOSPs.forEach(function(notLoggedInOsp){
+                                                            $scope.progresses[notLoggedInOsp.name] = {
+                                                                ospName: notLoggedInOsp.name,
+                                                                status: "notLoggedIn"
+                                                            };
+                                                        });
+
+                                                        $scope.osps = angular.copy(notLoggedinOSPs);
+                                                        $scope.$apply();
+                                                        if(newLoggedInOSPs.length>0) {
+
+                                                            (function(newLoggedInOSPs){
+                                                                watchDogService.maximizeEnforcement(newLoggedInOSPs, function (ospname, current, total) {
+                                                                    console.log(ospname);
+                                                                    $scope.progresses[ospname] = {
+                                                                        ospName: ospname,
+                                                                        current: current,
+                                                                        total: total,
+                                                                        status: current == -1 ? "aborted" : (current < total ? "pending" : "completed")
+                                                                    };
+                                                                    $scope.$apply();
+                                                                }, function (jobsFinished) {
+
+                                                                    $scope.completed = true;
+
+                                                                    if (jobsFinished === 0) {
+                                                                        if ($scope.operationSucceed == true) {
+                                                                            delete $scope.operationSucceed;
+                                                                            $scope.operationPartialSucceed = true;
+                                                                        } else if($scope.operationPartialSucceed != true){
+                                                                            $scope.operationAborted = true;
+                                                                        }
+                                                                    }
+                                                                    else if (jobsFinished < newLoggedInOSPs.length) {
+                                                                        $scope.operationPartialSucceed = true;
+                                                                    }
+                                                                    else {
+                                                                        if ($scope.operationPartialSucceed == true) {
+                                                                            delete $scope.operationSucceed;
+                                                                        }
+                                                                        else if ($scope.operationAborted == true) {
+                                                                            delete $scope.operationAborted;
+                                                                            $scope.operationPartialSucceed = true;
+                                                                        } else {
+                                                                            $scope.operationSucceed = true;
+                                                                        }
+                                                                    }
+                                                                    $scope.$apply();
+                                                                    if (jobsFinished !== 0) {
+                                                                        newLoggedInOSPs.forEach(function (osp) {
+                                                                            messengerService.send("removePreferences", osp, function (response) {
+                                                                                if (response.error) {
+                                                                                    console.log("Error occured:", response.error);
+                                                                                }
+                                                                            });
+                                                                        });
+                                                                    }
+                                                                });
+
+                                                            })(newLoggedInOSPs);
+                                                        }
                                                     }
                                                     else{
-                                                        $scope.noSocialNetworkAvailable = true;
-                                                        $scope.$apply();
+                                                        if(checkingInterval){
+                                                            clearInterval(checkingInterval);
+                                                            checkingInterval = null;
+                                                        }
                                                     }
                                                 });
-                                            }
+                                            };
                                             enforce();
-                                            $scope.enforce = enforce;
+                                            $scope.enforce = function(){
+                                                enforce();
+                                            };
+                                            checkingInterval = setInterval(enforce,2000);
 
                                         }]
 
