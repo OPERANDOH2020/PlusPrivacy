@@ -81,8 +81,8 @@ angular.module("singleClickPrivacy",[])
                                                     cookie_name:"auth_token"
                                                 },
                                                 google:{
-                                                    url : "https://myaccount.google.com",
-                                                    cookie_name : "OSID"
+                                                    url : "https://www.google.com",
+                                                    cookie_name : "SID"
                                                 }
                                             };
 
