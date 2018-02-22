@@ -117,6 +117,7 @@ public class PlusPrivacyApp extends Application {
         if (mPreferenceManager.getUseLeakCanary() && !isRelease()) {
             LeakCanary.install(this);
         }
+
         if (!isRelease() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }

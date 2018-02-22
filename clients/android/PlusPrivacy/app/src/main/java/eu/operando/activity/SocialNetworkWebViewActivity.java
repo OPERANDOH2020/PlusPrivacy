@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.webkit.ConsoleMessage;
@@ -29,8 +28,18 @@ import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 import eu.operando.R;
 import eu.operando.customView.ButtonTargetShowCaseView;
@@ -49,6 +58,10 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
     protected ProgressDialog progressDialog;
     protected CookieManager cookieManager;
     protected ImageView paperAirplane;
+    protected JSONArray privacySettingsJSONArray;
+    protected JSONArray usualSettings = new JSONArray();
+    protected JSONArray preferencesSettings = new JSONArray();
+    protected JSONArray activityControlsSettings = new JSONArray();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +74,24 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
     private void initData() {
         privacySettingsString = getIntent().getStringExtra(
                 SocialNetworkFormBaseActivity.PRIVACY_SETTINGS_TAG);
+        try {
+            privacySettingsJSONArray = new JSONArray(privacySettingsString);
+            for (int j = 0; j < privacySettingsJSONArray.length(); ++j) {
+
+                JSONObject setting = privacySettingsJSONArray.getJSONObject(j);
+                if (setting.has("method_type")) {
+                    if (setting.get("method_type").equals("GET")){
+                        preferencesSettings.put(setting);
+                    } else {
+                        usualSettings.put(setting);
+                    }
+                } else {
+                    activityControlsSettings.put(setting);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Log.e(SocialNetworkFormBaseActivity.PRIVACY_SETTINGS_TAG, privacySettingsString);
     }
 
@@ -260,6 +291,11 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         }
 
         @JavascriptInterface
+        public String getPreferencePrivacySettings() {
+            return preferencesSettings.toString();
+        }
+
+        @JavascriptInterface
         public void showToast(String message) {
             Log.e("msg from the dark side", message);
 //            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
@@ -274,6 +310,50 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
                     finish();
                 }
             });
+        }
+
+        @JavascriptInterface
+        public String doGetRequest(String url) {
+            URL obj = null;
+            try {
+                obj = new URL(url);
+
+                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+                // optional default is GET
+                con.setRequestMethod("GET");
+
+                //add request header
+                con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+                int responseCode = con.getResponseCode();
+                Log.e("'GET' URL: ", url);
+                Log.e("Response Code : ", String.valueOf(responseCode));
+
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                //print result
+                Log.e("GET response: ", response.toString());
+
+                return response.toString();
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
         }
 
         @JavascriptInterface

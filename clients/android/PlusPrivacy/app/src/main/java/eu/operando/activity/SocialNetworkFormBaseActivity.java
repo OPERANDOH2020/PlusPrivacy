@@ -188,6 +188,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
         JSONArray privacySettings = new JSONArray();
         for (Preference preference : userAnswers) {
             Question question = getQuestionByTag(questions, preference.getSettingKey());
+
             AvailableSettingsWrite setting = getAvailableSettingsWriteByTag(
                     question, preference.getSettingValue());
             if (setting.getData() != null) {

@@ -24,8 +24,10 @@ public class Write {
     private JsonElement data;
     private String url;
 
-    public Write(String name, List<AvailableSettingsWrite> availableSettings, String page,
-                 String urlTemplate, String recommended, JsonElement data, String url) {
+    @SerializedName("method_type")
+    private String methodType;
+
+    public Write(String name, List<AvailableSettingsWrite> availableSettings, String page, String urlTemplate, String recommended, JsonElement data, String url, String method_type) {
         this.name = name;
         this.availableSettings = availableSettings;
         this.page = page;
@@ -33,6 +35,15 @@ public class Write {
         this.recommended = recommended;
         this.data = data;
         this.url = url;
+        this.methodType = method_type;
+    }
+
+    public String getMethodType() {
+        return methodType;
+    }
+
+    public void setMethodType(String methodType) {
+        this.methodType = methodType;
     }
 
     public String getName() {
