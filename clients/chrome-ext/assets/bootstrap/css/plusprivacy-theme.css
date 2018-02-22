@@ -1,7 +1,37 @@
 body{
     background: #C9BEA1;
-
 }
+
+@media screen and (max-width: 1024px) and (max-height: 768px) {
+    html {
+        zoom:70%;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1152px) and (max-height: 864px) {
+    html {
+        zoom:80%;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1200px) and (max-height: 720px) {
+    html {
+        zoom:70%;
+    }
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1360px) and (max-height: 768px) {
+    html {
+        zoom:76%;
+    }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1400px) and (max-height: 900px) {
+    html {
+        zoom:90%;
+    }
+}
+
 
 p, span{
     font-family: 'Dosis', sans-serif;
@@ -2792,4 +2822,11 @@ h4.modal-title.plusprivacy{
 div.scpNotLoggedIn{
     line-height: 40px;
     margin-left: 4px;
+}
+.scpNotLoggedIn a{
+    margin-left: 5px;
+}
+
+.home_single_click {
+    float:right;
 }
