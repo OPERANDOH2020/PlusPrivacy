@@ -80,13 +80,13 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
                 JSONObject setting = privacySettingsJSONArray.getJSONObject(j);
                 if (setting.has("method_type")) {
-                    if (setting.get("method_type").equals("GET")){
+                    if (setting.get("method_type").equals("GET")) {
                         preferencesSettings.put(setting);
                     } else {
-                        usualSettings.put(setting);
+                        activityControlsSettings.put(setting);
                     }
                 } else {
-                    activityControlsSettings.put(setting);
+                    usualSettings.put(setting);
                 }
             }
         } catch (JSONException e) {
@@ -212,7 +212,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
     private Animation buildAnimationForPaperAirplane() {
 
-        Animation animation = new TranslateAnimation(0, 15, 0 ,-15);
+        Animation animation = new TranslateAnimation(0, 15, 0, -15);
         animation.setDuration(500);
         animation.setFillAfter(true);
         animation.setRepeatCount(Animation.INFINITE);
@@ -249,17 +249,41 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
                 String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
                 myWebView.loadUrl("(function() {" +
-                    "" +
-                    "var parent = document.getElementsByTagName('head').item(0);" +
-                    "var script = document.createElement('script');" +
-                    "script.type = 'text/javascript';" +
-                    // Tell the browser to BASE64-decode the string into your script !!!
-                    "script.innerHTML = window.atob('" + encoded + "');" +
+                        "" +
+                        "var parent = document.getElementsByTagName('head').item(0);" +
+                        "var script = document.createElement('script');" +
+                        "script.type = 'text/javascript';" +
+                        // Tell the browser to BASE64-decode the string into your script !!!
+                        "script.innerHTML = window.atob('" + encoded + "');" +
 //                    "script.src = \"" + SCRIPT_URL + "\";" +
-                    "parent.appendChild(script)" +
-                    "})()");
+                        "parent.appendChild(script)" +
+                        "})()");
 
             }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void injectCssFile(String scriptFile) {
+        InputStream input;
+        try {
+            input = getAssets().open(scriptFile);
+            byte[] buffer = new byte[input.available()];
+            input.read(buffer);
+            input.close();
+
+            String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
+            myWebView.loadUrl("javascript:(function() {" +
+                    "var parent = document.getElementsByTagName('head').item(0);" +
+                    "var style = document.createElement('style');" +
+                    "style.type = 'text/css';" +
+                    // Tell the browser to BASE64-decode the string into your script !!!
+                    "style.innerHTML = window.atob('" + encoded + "');" +
+                    "parent.appendChild(style)" +
+                    "})()");
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -296,10 +320,43 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         }
 
         @JavascriptInterface
+        public String getUsualPrivacySettings() {
+            return usualSettings.toString();
+        }
+
+        @JavascriptInterface
+        public String getActivityControlsSettings() {
+            return activityControlsSettings.toString();
+        }
+
+        @JavascriptInterface
         public void showToast(String message) {
             Log.e("msg from the dark side", message);
 //            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-    }
+        }
+
+        @JavascriptInterface
+        public void onFinishedLoadingPreferenceSettings() {
+            myWebView.post(new Runnable() {
+                @Override
+                public void run() {
+                    myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void onFinishedLoadingUsualSettings() {
+            myWebView.post(new Runnable() {
+                @Override
+                public void run() {
+
+                    injectCssFile("activityControls.css");
+//                    myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
+                    injectScriptFile("google_activity_controls.js");
+                }
+            });
+        }
 
         @JavascriptInterface
         public void onFinishedLoadingCallback() {
@@ -310,6 +367,11 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
                     finish();
                 }
             });
+        }
+
+        @JavascriptInterface
+        public void dismissDialog() {
+            progressDialog.dismiss();
         }
 
         @JavascriptInterface

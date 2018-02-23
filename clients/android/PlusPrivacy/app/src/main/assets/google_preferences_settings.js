@@ -1,4 +1,3 @@
-var extractedData = {};
 
 secureAccount(Android.getPreferencePrivacySettings());
 
@@ -19,19 +18,23 @@ function secureAccount(privacySettingsJsonString) {
             console.log("err", err)
         });
     });
+
+    sequence = sequence.then(function (result) {
+        Android.onFinishedLoadingPreferenceSettings();
+
+    });
 }
 
 function postToGoogle(settings, item, total) {
 
-
     return new Promise(function (resolve, reject) {
         if (settings.page) {
-            sendGetRequest(settings, extractedData, resolve, reject);
+            sendGetRequest(settings, resolve, reject);
         }
     });
 }
 
-function sendGetRequest(settings, headers, resolve, reject) {
+function sendGetRequest(settings, resolve, reject) {
 
     var getSIGValue = function (callback) {
 //        htmlContent = Android.doGetRequest(settings.page);

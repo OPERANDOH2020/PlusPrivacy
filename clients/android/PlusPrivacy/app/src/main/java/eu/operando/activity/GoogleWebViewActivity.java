@@ -21,12 +21,13 @@ import java.util.Map;
 
 public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
 
+    private boolean shouldInjectUsualSettings = false;
     public class MyWebViewClient extends WebViewClient {
 
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-
+//https://myaccount.google.com/intro/activitycontrols
             if (shouldInject) {
                 injectScriptFile("test_jquery.js");
                 if (webAppInterface.getIsJQueryLoaded() == 0) {
@@ -34,9 +35,20 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
                 }
 
                 injectScriptFile("google_preferences_settings.js");
-//                injectCssFile("activityControls.css");
                 shouldInject = false;
                 initProgressDialog();
+            }
+            if (url.equals("https://myaccount.google.com/activitycontrols") &&
+                    shouldInjectUsualSettings){
+
+                injectScriptFile("test_jquery.js");
+                if (webAppInterface.getIsJQueryLoaded() == 0) {
+                    injectScriptFile("jquery214min.js");
+                }
+
+                injectScriptFile("google_usual_settings.js");
+//                injectCssFile("activityControls.css");
+                shouldInjectUsualSettings = false;
             }
         }
 
@@ -77,30 +89,6 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         return new GoogleWebViewActivity.MyWebViewClient();
     }
 
-    public void injectCssFile(String scriptFile) {
-        InputStream input;
-        try {
-            input = getAssets().open(scriptFile);
-            byte[] buffer = new byte[input.available()];
-            input.read(buffer);
-            input.close();
-
-            String encoded = Base64.encodeToString(buffer, Base64.NO_WRAP);
-            myWebView.loadUrl("javascript:(function() {" +
-                    "var parent = document.getElementsByTagName('head').item(0);" +
-                    "var style = document.createElement('style');" +
-                    "style.type = 'text/css';" +
-                    // Tell the browser to BASE64-decode the string into your script !!!
-                    "style.innerHTML = window.atob('" + encoded + "');" +
-                    "parent.appendChild(style)" +
-                    "})()");
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void startInjectingOnClick(View view) {
         if (!shouldInject) {
@@ -117,6 +105,7 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
             }
 
             shouldInject = true;
+            shouldInjectUsualSettings = true;
         }
     }
 

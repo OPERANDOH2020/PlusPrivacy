@@ -568,3 +568,5 @@ clients/android/PlusPrivacy/ResideMenu/build/intermediates/incremental/packageRe
 *.len
 *.properties
 *.iml
+clients/android/PlusPrivacy/libadblockplus-android/libadblockplus-android.iml
+clients/android/PlusPrivacy/build/kotlin-build/caches/artifact-difference.tab.len
