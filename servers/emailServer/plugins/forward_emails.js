@@ -101,7 +101,7 @@ exports.decide_action = function (next,connection) {
                         "sender": sender
                     };
 
-                    if(alias.toLowerCase().match('support@'+host)||alias.toLowerCase().match('contact@'+host)){
+                    if(alias.toLowerCase().match('support@'+host)||alias.toLowerCase().match('contact@'+host)||alias.toLowerCase().match('pressrelease@'+host)){
                         plugin.loginfo('Forward email');
                         connection.results.add(plugin, {
                             "action":"forwardEmail",
@@ -137,13 +137,13 @@ exports.clean_body = function (next, connection) {
     if (decision.action==="relayOutside") {
         plugin.loginfo("Filtering the body");
         connection.transaction.add_body_filter('text/html',function(content_type,encoding,body_buffer){
-	        var body = body_buffer.toString()
+	        var body = body_buffer.toString();
 	        var originalFrom = connection.transaction.mail_from.user+"@"+connection.transaction.mail_from.host
             var filteredBody = body.split(originalFrom).join(decision.from);
             return Buffer.from(filteredBody,"utf8");
         })
 	    connection.transaction.add_body_filter('text/plain',function(content_type,encoding,body_buffer){
-            var body = body_buffer.toString()
+            var body = body_buffer.toString();
             var originalFrom = connection.transaction.mail_from.user+"@"+connection.transaction.mail_from.host
             var filteredBody = body.split(originalFrom).join(decision.from);
             return Buffer.from(filteredBody,"utf8");
