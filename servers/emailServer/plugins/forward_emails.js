@@ -156,19 +156,20 @@ exports.perform_action = function (next, connection) {
     var plugin = this;
     var decision = connection.results.get('forward_emails');
 
+    console.log(decision);
     switch(decision.action){
         case "relayOutside":
             changeTo(decision.to);
             changeFrom(decision.from);
             removeHeaders();
             addReplyTo(decision.replyTo);
-            break
+            break;
         case "relayToUser":
             changeTo(decision.to);
             changeFrom(decision.from,true);
             removeHeaders();
             addReplyTo(decision.replyTo);
-            break
+            break;
         case "forwardEmail":
             changeTo(decision.to,true);
             var conversation = decision.conversation;
