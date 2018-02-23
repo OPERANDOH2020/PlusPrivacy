@@ -108,6 +108,14 @@ exports.decide_action = function (next,connection) {
                             "to": realEmail,
                             "conversation":conversation
                         });
+                    }else if(conversation.sender.toLocaleLowerCase().match('apache@'+host)){
+                        plugin.loginfo('wordpress email');
+                        connection.results.add(plugin,{
+                            "action":"forwardEmail",
+                            "to":realEmail,
+                            "from":"pressrelease@"+host,
+                            "replyTo": "contact@"+host
+                        })
                     }else{
                         plugin.loginfo("Delivering to user");
                         var token = jwt.sign(JSON.stringify(conversation), encriptionKey, {algorithm: "HS256"});
