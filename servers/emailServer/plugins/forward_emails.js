@@ -190,6 +190,7 @@ exports.perform_action = function (next, connection) {
             break;
         case "sendWordpressEmail":
             changeTo(decision.to,true);
+            addReplyTo(decision.replyTo);
             break;
 
     }
