@@ -111,7 +111,7 @@ exports.decide_action = function (next,connection) {
                     }else if(conversation.sender.toLocaleLowerCase().match('apache@'+host)){
                         plugin.loginfo('wordpress email');
                         connection.results.add(plugin,{
-                            "action":"forwardEmail",
+                            "action":"sendWordpressEmail",
                             "to":realEmail,
                             "from":"pressrelease@"+host,
                             "replyTo": "contact@"+host
@@ -186,8 +186,11 @@ exports.perform_action = function (next, connection) {
                 conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("")
             }
             var reply_to_token = jwt.sign(JSON.stringify(conversation),encriptionKey,{algorithm:"HS256"});
-
             addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@"+host)
+            break;
+        case "sendWordpressEmail":
+            changeTo(decision.to,true);
+            break;
 
     }
 
