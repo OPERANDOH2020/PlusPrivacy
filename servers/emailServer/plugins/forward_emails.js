@@ -156,6 +156,8 @@ exports.perform_action = function (next, connection) {
     var plugin = this;
     var decision = connection.results.get('forward_emails');
 
+    plugin.loginfo("Decision:",decision.action);
+
     switch(decision.action){
         case "relayOutside":
             changeTo(decision.to);
