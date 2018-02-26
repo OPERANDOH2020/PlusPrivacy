@@ -116,28 +116,6 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             retrieveUserLoggedInAccount(value);
             $scope.socialNetwork = value;
-            $scope.isLastOspInList = false;
-            $scope.isFirstOspInList = false;
-            ospService.getOSPs(function (osps) {
-                if (osps.indexOf($scope.socialNetwork) === osps.length - 1) {
-                    $scope.isLastOspInList = true;
-                }
-                else if (osps.indexOf($scope.socialNetwork) === 0) {
-                    $scope.isFirstOspInList = true;
-                }
-
-                $scope.goToNextOsp = function () {
-                    $state.go('preferences.sn', {sn: osps[osps.indexOf($scope.socialNetwork) + 1]});
-                }
-                $scope.goToPreviousOsp = function () {
-                    $state.go('preferences.sn', {sn: osps[osps.indexOf($scope.socialNetwork) - 1]});
-                }
-            });
-
-            $scope.done = function () {
-                $state.transitionTo('home');
-            };
-
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
                 $scope.schema = _schema;

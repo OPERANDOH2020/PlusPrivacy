@@ -12,10 +12,7 @@
                 <span ng-if="authenticated === false"> - You are not authenticated</span>
             </h2>
             <div class="sn_actions">
-                <button class="btn-primary" ng-if="!isFirstOspInList" ng-click="goToPreviousOsp()">Back</button>
                 <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>
-                <button class="btn-primary" ng-if="!isLastOspInList" ng-click="goToNextOsp()">Next</button>
-                <button class="btn-primary" ng-click="done()">Done</button>
                 <how-it-works popup-target="social-network-settings-{{osp.key}}"></how-it-works>
             </div>
         </div>

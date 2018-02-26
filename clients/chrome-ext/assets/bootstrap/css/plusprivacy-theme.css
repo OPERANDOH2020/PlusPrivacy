@@ -879,7 +879,7 @@ color:#FFF;
 }
 
 .col-xs-2 ul.primary-menu{
-    height: 100%;
+    height: calc(100% - 30px);
 }
 
 .col-xs-2 ul.tabs-left li a{
@@ -1792,7 +1792,11 @@ visibility: visible;
 
 .sidebar_expandable_menu .tabs-left.sub-menu li a{
     padding-left:80px;
-    text-transform: capitalize;
+    text-transform:initial;
+}
+
+.sidebar_expandable_menu .tabs-left.sub-menu li a::first-letter{
+    text-transform: uppercase;
 }
 
 .sidebar_expandable_menu .tabs-left.sub-menu{
@@ -2829,4 +2833,18 @@ div.scpNotLoggedIn{
 
 .home_single_click {
     float:right;
+}
+
+.app_version{
+    z-index: 200;
+    font-size: 13px;
+    text-align: center;
+    color: #999;
+    bottom: 111px;
+    position: fixed;
+    left: 22px;
+    width: 300px;
+    height: 32px;
+    line-height: 32px;
+    background: #3B3B3B;
 }
