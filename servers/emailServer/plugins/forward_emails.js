@@ -11,6 +11,7 @@
  * Initially developed in the context of OPERANDO EU project
  www.operando.eu
  */
+
 function SwarmConnector(){
     var gotConnection  = false;
     var adapterPort    = 3000;
@@ -20,10 +21,11 @@ function SwarmConnector(){
     var uuid           = require('node-uuid');
 
     this.getRealEmail=function(userAlias,callback){
+
         var swarmHandler = client.startSwarm("identity.js","getRealEmail",userAlias);
         swarmHandler.onResponse(function(swarm){
             if(swarm.realEmail){
-                plugin.loginfo("\n\n\n\n"+swarm.realEmail+"\n\n\n");
+                plugin.loginfo("\n\n\n\n"+userAlias+" --- "+swarm.realEmail+"\n\n\n");
                 callback(undefined,swarm.realEmail);
             }else{
                 callback(swarm.error);
@@ -58,7 +60,7 @@ var plugin = undefined;
 function readConfig(){
     cfg = plugin.config.get('operando.ini',readConfig);
     encriptionKey = fs.readFileSync(cfg.main.encriptionKey);
-    host = cfg.main.host
+    host = cfg.main.host;
     plugin.loginfo("Operando configuration: ",cfg);
 
 }
@@ -198,6 +200,7 @@ exports.perform_action = function (next, connection) {
     next();
 
     function changeTo(newTo,keepHeader) {
+        plugin.loginfo(newTo);
         connection.transaction.rcpt_to.pop();
         if (Array.isArray(newTo)){
             newTo.forEach(function(t){
