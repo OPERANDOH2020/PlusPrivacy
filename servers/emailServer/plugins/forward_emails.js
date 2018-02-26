@@ -167,8 +167,6 @@ exports.perform_action = function (next, connection) {
     var plugin = this;
     var decision = connection.results.get('forward_emails');
 
-    plugin.loginfo("Decision:",JSON.stringify(decision));
-
     switch(decision.action){
         case "relayOutside":
             changeTo(decision.to);
@@ -185,7 +183,6 @@ exports.perform_action = function (next, connection) {
         case "forwardEmail":
             changeTo(decision.to,true);
             var conversation = decision.conversation;
-            plugin.loginfo("\n\n\n\nSender1:"+conversation.sender);
             if(connection.transaction.header.get_all("Reply-To").length>0){
                 //conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("");
                 var emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
@@ -194,7 +191,6 @@ exports.perform_action = function (next, connection) {
                     conversation.sender = conversationSender.match(emailRegex).join("\n");
                 }
             }
-            plugin.loginfo("\n\n\n\nSender2:"+conversation.sender);
             var reply_to_token = jwt.sign(JSON.stringify(conversation),encriptionKey,{algorithm:"HS256"});
             addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@"+host);
             break;
@@ -207,7 +203,6 @@ exports.perform_action = function (next, connection) {
     next();
 
     function changeTo(newTo,keepHeader) {
-        plugin.loginfo("NewTo"+newTo);
         connection.transaction.rcpt_to.pop();
         if (Array.isArray(newTo)){
             newTo.forEach(function(t){
