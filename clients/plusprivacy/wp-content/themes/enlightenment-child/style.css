@@ -720,3 +720,23 @@ p#european_commission{
 div.entry-content a{
     color:#FFB400;
 }
+
+li.news_item .news_date {
+    width: 180px;
+    float: left;
+    font-size: 17px;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    margin-top: 39px;
+}
+
+li.news_item .entry-summary {
+    float: left;
+    width: calc(100% - 180px);
+}
+
+.date-year, .date-day-month{
+    clear: both;
+    display:block;
+}

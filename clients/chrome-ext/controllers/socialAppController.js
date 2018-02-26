@@ -1,7 +1,6 @@
 angular.module("operando").
 controller("socialAppController",["$scope", "$stateParams", "messengerService","ospService", function ($scope, $stateParams, messengerService,ospService) {
 
-
     var socialNetworks = {
         facebook: "Facebook",
         linkedin: "LinkedIn",
@@ -46,14 +45,19 @@ controller("socialAppController",["$scope", "$stateParams", "messengerService","
                     account: decodedString,
                     type: response.data.type
                 };
-
-                $scope.$apply();
+                $scope.authenticated = true;
+            } else{
+                $scope.authenticated = false;
             }
+            $scope.$apply();
         });
     }
 
-    $scope.$on("socialNetworkReady", function (event, socialNetwork) {
+    var socialNetworkReadyHandler  =  function (event, socialNetwork) {
         retrieveUserLoggedInAccount(socialNetwork);
-    });
+    };
+
+    $scope.$on("socialNetworkReady", socialNetworkReadyHandler);
+
 
 }]);

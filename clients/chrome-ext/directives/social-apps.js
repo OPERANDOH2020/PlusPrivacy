@@ -90,11 +90,10 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                     chrome.cookies.get({url: conf.url, name: conf.cookie_name}, function (cookie) {
                         if (cookie) {
-
                             $rootScope.$broadcast("socialNetworkReady",$scope.sn);
                             clearInterval(checkInterval);
                             $scope.isLoggedInSocialNetwork = true;
-                            var action = undefined;
+                            var action = null;
                             switch ($scope.sn) {
                                 case "facebook":
                                     action = "getFacebookApps";

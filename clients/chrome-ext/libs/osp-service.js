@@ -10,6 +10,7 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
+var desiredOrder = ["google", "facebook","linkedin","twitter"];
 
 var bus = require("bus-service").bus;
 
@@ -17,7 +18,15 @@ var ospService = exports.ospService = {
     getOSPSettings: function (success_callback) {
         var getOSPSettingsHandler = swarmHub.startSwarm('PrivacyWizardSwarm.js', 'getOSPSettings');
         getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
-            success_callback(swarm.ospSettings);
+            var ospSettings = swarm.ospSettings;
+            var orderedOspSettings = {};
+            desiredOrder.forEach(function(ospName){
+                if(ospSettings[ospName]){
+                    orderedOspSettings[ospName] = ospSettings[ospName];
+                }
+            });
+
+            success_callback(orderedOspSettings);
         });
     }
 }

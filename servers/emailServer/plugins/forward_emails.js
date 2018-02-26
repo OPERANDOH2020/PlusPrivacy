@@ -11,6 +11,7 @@
  * Initially developed in the context of OPERANDO EU project
  www.operando.eu
  */
+
 function SwarmConnector(){
     var gotConnection  = false;
     var adapterPort    = 3000;
@@ -20,9 +21,11 @@ function SwarmConnector(){
     var uuid           = require('node-uuid');
 
     this.getRealEmail=function(userAlias,callback){
+
         var swarmHandler = client.startSwarm("identity.js","getRealEmail",userAlias);
         swarmHandler.onResponse(function(swarm){
             if(swarm.realEmail){
+                plugin.loginfo("\n\n\n\n"+userAlias+" --- "+swarm.realEmail+"\n\n\n");
                 callback(undefined,swarm.realEmail);
             }else{
                 callback(swarm.error);
@@ -57,7 +60,7 @@ var plugin = undefined;
 function readConfig(){
     cfg = plugin.config.get('operando.ini',readConfig);
     encriptionKey = fs.readFileSync(cfg.main.encriptionKey);
-    host = cfg.main.host
+    host = cfg.main.host;
     plugin.loginfo("Operando configuration: ",cfg);
 
 }
@@ -101,13 +104,21 @@ exports.decide_action = function (next,connection) {
                         "sender": sender
                     };
 
-                    if(alias.toLowerCase().match('support@'+host)||alias.toLowerCase().match('contact@'+host)){
+                    if(alias.toLowerCase().match('support@'+host)||alias.toLowerCase().match('contact@'+host)||alias.toLowerCase().match('pressrelease@'+host)){
                         plugin.loginfo('Forward email');
                         connection.results.add(plugin, {
                             "action":"forwardEmail",
                             "to": realEmail,
                             "conversation":conversation
                         });
+                    }else if(conversation.sender.toLocaleLowerCase().match('apache@'+host)){
+                        plugin.loginfo('wordpress email');
+                        connection.results.add(plugin,{
+                            "action":"sendWordpressEmail",
+                            "to":realEmail,
+                            "from":"pressrelease@"+host,
+                            "replyTo": "contact@"+host
+                        })
                     }else{
                         plugin.loginfo("Delivering to user");
                         var token = jwt.sign(JSON.stringify(conversation), encriptionKey, {algorithm: "HS256"});
@@ -137,13 +148,13 @@ exports.clean_body = function (next, connection) {
     if (decision.action==="relayOutside") {
         plugin.loginfo("Filtering the body");
         connection.transaction.add_body_filter('text/html',function(content_type,encoding,body_buffer){
-	        var body = body_buffer.toString()
+	        var body = body_buffer.toString();
 	        var originalFrom = connection.transaction.mail_from.user+"@"+connection.transaction.mail_from.host
             var filteredBody = body.split(originalFrom).join(decision.from);
             return Buffer.from(filteredBody,"utf8");
         })
 	    connection.transaction.add_body_filter('text/plain',function(content_type,encoding,body_buffer){
-            var body = body_buffer.toString()
+            var body = body_buffer.toString();
             var originalFrom = connection.transaction.mail_from.user+"@"+connection.transaction.mail_from.host
             var filteredBody = body.split(originalFrom).join(decision.from);
             return Buffer.from(filteredBody,"utf8");
@@ -162,27 +173,34 @@ exports.perform_action = function (next, connection) {
             changeFrom(decision.from);
             removeHeaders();
             addReplyTo(decision.replyTo);
-            break
+            break;
         case "relayToUser":
             changeTo(decision.to);
             changeFrom(decision.from,true);
             removeHeaders();
             addReplyTo(decision.replyTo);
-            break
+            break;
         case "forwardEmail":
             changeTo(decision.to,true);
             var conversation = decision.conversation;
             if(connection.transaction.header.get_all("Reply-To").length>0){
-                conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("")
+                //conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("");
+                var emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+                var conversationSender = connection.transaction.header.get_all("Reply-To")[0];
+                if(conversationSender.match(emailRegex)){
+                    conversation.sender = conversationSender.match(emailRegex).join("\n");
+                }
             }
             var reply_to_token = jwt.sign(JSON.stringify(conversation),encriptionKey,{algorithm:"HS256"});
-
-            addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@"+host)
-
+            addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@"+host);
+            break;
+        case "sendWordpressEmail":
+            changeTo(decision.to,true);
+            addReplyTo(decision.replyTo);
+            break;
     }
 
     next();
-
 
     function changeTo(newTo,keepHeader) {
         connection.transaction.rcpt_to.pop();

@@ -34,6 +34,8 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                         watchDogService.cancelEnforcement();
                     };
 
+                    $scope.singleOsp = true;
+
                     function checkIfIsLoggedIn(socialNetwork, callback) {
                         $scope.socialNetwork = socialNetwork;
                         var url;
@@ -53,8 +55,8 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 cookieName = "auth_token";
                                 break;
                             case "Google":
-                                url = "https://myaccount.google.com";
-                                cookieName = "OSID";
+                                url = "https://www.google.com";
+                                cookieName = "SID";
                                 break;
                         }
 
@@ -114,28 +116,6 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             retrieveUserLoggedInAccount(value);
             $scope.socialNetwork = value;
-            $scope.isLastOspInList = false;
-            $scope.isFirstOspInList = false;
-            ospService.getOSPs(function (osps) {
-                if (osps.indexOf($scope.socialNetwork) === osps.length - 1) {
-                    $scope.isLastOspInList = true;
-                }
-                else if (osps.indexOf($scope.socialNetwork) === 0) {
-                    $scope.isFirstOspInList = true;
-                }
-
-                $scope.goToNextOsp = function () {
-                    $state.go('preferences.sn', {sn: osps[osps.indexOf($scope.socialNetwork) + 1]});
-                }
-                $scope.goToPreviousOsp = function () {
-                    $state.go('preferences.sn', {sn: osps[osps.indexOf($scope.socialNetwork) - 1]});
-                }
-            });
-
-            $scope.done = function () {
-                $state.transitionTo('home');
-            };
-
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
                 $scope.schema = _schema;
@@ -211,23 +191,25 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
 
         function retrieveUserLoggedInAccount (socialNetwork){
-            messengerService.send("getMyLoggedinEmail",socialNetwork, function(response){
-               if(response.status === "success"){
+            messengerService.send("getMyLoggedinEmail", socialNetwork, function (response) {
+                if (response.status === "success") {
 
-                   var encodedStr = response.data.account;
-                   var parser = new DOMParser();
-                   var dom = parser.parseFromString(
-                       '<!doctype html><body>' + encodedStr,
-                       'text/html');
-                   var decodedString = dom.body.textContent;
+                    var encodedStr = response.data.account;
+                    var parser = new DOMParser();
+                    var dom = parser.parseFromString(
+                        '<!doctype html><body>' + encodedStr,
+                        'text/html');
+                    var decodedString = dom.body.textContent;
 
-                   $scope.socialNetworkEmail = {
-                       account:decodedString,
-                       type:response.data.type
-                   };
-
-                   $scope.$apply();
-               }
+                    $scope.socialNetworkEmail = {
+                        account: decodedString,
+                        type: response.data.type
+                    };
+                    $scope.authenticated = true;
+                } else {
+                    $scope.authenticated = false;
+                }
+                $scope.$apply();
             });
         }
     }]);

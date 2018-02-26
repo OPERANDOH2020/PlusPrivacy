@@ -151,7 +151,7 @@
                     </li>
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks">Social Networks</a>
+                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks"  change-state-if="{condition:$state.includes('socialNetworks') || $state.includes('preferences'),state:'home'}">Social Networks</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="sn_content" ng-if="$state.includes('socialNetworks') || $state.includes('preferences')"
                             ng-controller="readSocialNetworkPrivacySettings">
                             <li ng-repeat="osp in osps">
@@ -169,13 +169,13 @@
                             ng-controller="socialAppsController">
                             <li>
                                 <a ui-sref="extensions" ui-sref-active="active" class="menu_icon plugin_icon">
-                                    Chrome Extensions</a>
+                                    Chrome extensions</a>
                             </li>
                             <li ng-repeat="sn in sns">
                                 <a
                                         class="menu_icon" ng-class="sn+'_icon'"
                                         ui-sref-active="active"
-                                        ui-sref="network.apps({sn:sn})">{{sn}} Apps</a>
+                                        ui-sref="network.apps({sn:sn})">{{sn}} connected apps</a>
                             </li>
                         </ul>
                     </li>
@@ -255,6 +255,7 @@
                     </li>
 
                 </ul>
+                <div class="app_version">Version: {{appVersion}}</div>
             </div>
         </div>
 

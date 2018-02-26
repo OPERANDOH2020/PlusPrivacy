@@ -1,4 +1,4 @@
 angular.module("operando").
 controller("socialAppsController", ["$scope", function ($scope) {
-    $scope.sns = ['facebook', 'linkedin', 'twitter','google','dropbox'];
+    $scope.sns = ['google','facebook', 'linkedin', 'twitter','dropbox'];
 }]);
