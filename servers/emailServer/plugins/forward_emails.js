@@ -187,6 +187,7 @@ exports.perform_action = function (next, connection) {
             var conversation = decision.conversation;
             plugin.loginfo("\n\n\n\nSender1:"+conversation.sender);
             if(connection.transaction.header.get_all("Reply-To").length>0){
+                plugin.loginfo("HEADDERR\n\n\n\n"+connection.transaction.header.get_all("Reply-To")[0]);
                 conversation.sender = connection.transaction.header.get_all("Reply-To")[0].split("<").join("").split("\n").join("")
             }
             plugin.loginfo("\n\n\n\nSender2:"+conversation.sender);
