@@ -2,7 +2,6 @@ Android.showToast("usual settings");
 console.log("usual settings");
 
 
-
 var extractedData = {};
 var googleParams = {};
 
@@ -169,6 +168,7 @@ function secureAccount(privacySettingsJsonString) {
             return postToGoogle(settings, index, total);
         }).then(function (result) {
             console.log("result", result);
+            Android.setProgressBar();
             //             port.postMessage({action: "waitingGoogleCommand", data:{status:"progress", progress:(index+1)}});
         }).catch(function (err) {
             console.log("err", err)

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,6 +23,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
@@ -52,7 +52,7 @@ import eu.operando.customView.OperandoProgressDialog;
 public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
     protected WebView myWebView;
-    private String privacySettingsString;
+    protected String privacySettingsString;
     protected SocialNetworkWebViewActivity.WebAppInterface webAppInterface;
     protected boolean shouldInject = false;
     protected ProgressDialog progressDialog;
@@ -62,6 +62,9 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
     protected JSONArray usualSettings = new JSONArray();
     protected JSONArray preferencesSettings = new JSONArray();
     protected JSONArray activityControlsSettings = new JSONArray();
+
+    protected ProgressBar progressBar;
+    protected Button startButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,8 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
         setOverlay();
 
+        startButton = (Button) findViewById(R.id.start_injecting_button);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         myWebView = (WebView) findViewById(R.id.webview);
 
         WebSettings webSettings = myWebView.getSettings();
@@ -108,16 +113,16 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 //        setAgent();
 
         myWebView.setWebViewClient(getWebViewClient());
-        myWebView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.e("My JS Console", consoleMessage.message() + " -- From line "
-                        + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());
-                return super.onConsoleMessage(consoleMessage);
-            }
-        });
-        webAppInterface = new WebAppInterface(this, privacySettingsString);
+//        myWebView.setWebChromeClient(new WebChromeClient() {
+//            @Override
+//            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+//                Log.e("My JS Console", consoleMessage.message() + " -- From line "
+//                        + consoleMessage.lineNumber() + " of "
+//                        + consoleMessage.sourceId());
+//                return super.onConsoleMessage(consoleMessage);
+//            }
+//        });
+        webAppInterface = getWebAppInterface();// new WebAppInterface(this, privacySettingsString);
         myWebView.addJavascriptInterface(webAppInterface, "Android");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -145,10 +150,12 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
     public abstract WebViewClient getWebViewClient();
 
+    public abstract WebAppInterface getWebAppInterface();
+
     public void startInjectingOnClick(View view) {
         if (!shouldInject) {
 
-//            setAgent();
+            setAgent();
 
             myWebView.loadUrl(getURL());
 
@@ -182,7 +189,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         final ShowcaseView showcaseView = new ShowcaseView.Builder(this)
                 .withMaterialShowcase()
                 .setTarget(new ButtonTargetShowCaseView(
-                        (Button) findViewById(R.id.privacy_wizard_activity_start_injecting_button)))
+                        (Button) findViewById(R.id.start_injecting_button)))
                 .setContentTitle("Privacy Wizard")
                 .setContentText("Press START button after you are logged")
                 .setStyle(R.style.InjectingButtonShowCaseView)
@@ -360,11 +367,14 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
         @JavascriptInterface
         public void onFinishedLoadingCallback() {
-            Toast.makeText(getApplicationContext(), "Settings Loaded", Toast.LENGTH_SHORT).show();
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    finish();
+                    if (!isFinishing()) {
+                        finish();
+                        Toast.makeText(getApplicationContext(), "Settings Loaded", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
@@ -432,6 +442,16 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             int percent = index * 100 / total;
             progressDialog.setMax(100);
             progressDialog.setProgress(percent);
+        }
+
+        @JavascriptInterface
+        public void setProgressBar(int index, int total) {
+            Log.e("index", String.valueOf(index));
+            Log.e("total", String.valueOf(total));
+            Log.e("percent", String.valueOf(index * 100 / total));
+            int percent = index * 100 / total;
+            progressBar.setMax(100);
+            progressBar.setProgress(percent);
         }
 
         public int getIsJQueryLoaded() {

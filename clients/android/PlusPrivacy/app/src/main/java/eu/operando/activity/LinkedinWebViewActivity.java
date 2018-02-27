@@ -84,4 +84,9 @@ public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity{
     public WebViewClient getWebViewClient() {
         return new MyWebViewClient();
     }
+
+    @Override
+    public WebAppInterface getWebAppInterface() {
+        return new WebAppInterface(this, privacySettingsString);
+    }
 }

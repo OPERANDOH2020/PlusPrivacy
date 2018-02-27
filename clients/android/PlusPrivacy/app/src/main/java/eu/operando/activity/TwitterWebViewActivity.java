@@ -76,4 +76,9 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
     public WebViewClient getWebViewClient() {
         return new TwitterWebViewActivity.MyWebViewClient();
     }
+
+    @Override
+    public WebAppInterface getWebAppInterface() {
+        return new WebAppInterface(this, privacySettingsString);
+    }
 }

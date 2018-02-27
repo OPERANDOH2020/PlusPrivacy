@@ -13,9 +13,11 @@ function secureAccount(privacySettingsJsonString) {
             return postToGoogle(settings, index, total);
         }).then(function (result) {
             console.log("result", result);
-            //             port.postMessage({action: "waitingGoogleCommand", data:{status:"progress", progress:(index+1)}});
+            Android.setProgressBar();
+
         }).catch(function (err) {
-            console.log("err", err)
+            console.log("err", err);
+            Android.setProgressBar();
         });
     });
 
