@@ -27,9 +27,9 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     UserInfoRepository,
     NotificationsRepository,
     AppSCDsRepository,
-    OPFeedbackFormProtocol
+    OPFeedbackFormProtocol,
+    PrivacyWizardRepository
 {
-    
     
     //    static let ServerURL = "https://plusprivacy.club:8080";
     //    static let ServerURL = "https://plusprivacy.com:8080";
@@ -53,8 +53,28 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
         self.swarmClient.delegate = self
     }
     
-    
-    
+    // MARK: - PrivacyWizardRepository
+    func getAllQuestions(withCompletion completion: ((AMPrivacySettings?, NSError?) -> Void)?) {
+        workingQueue.async {
+            self.whenThereWasAnError = { error in
+                completion?(nil,error)
+            }
+            
+            
+            self.handlersPerSwarmingName[.privacyWizard] = { dataArray in
+                guard let dict = dataArray.first as? [String: Any] else {
+                    completion?(nil,OPErrorContainer.errorInvalidServerResponse)
+                    return
+                }
+                
+               let settings = AMPrivacySettings(dictionary: dict)
+                completion?(settings,nil)
+            }
+        }
+        
+        swarmClient.startSwarm(SwarmName.privacyWizard.rawValue, phase: SwarmPhase.start.rawValue, ctor: PrivacyWizardConstructor.getOSPSettings.rawValue, arguments: [])
+    }
+
     //MARK: AppSCDsRepository
     
     func retrieveAllSCDsFor(deviceId: String, completion: (([[String : Any]]?, NSError?) -> Void)?) {

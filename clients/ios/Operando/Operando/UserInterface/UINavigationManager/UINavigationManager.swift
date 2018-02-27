@@ -11,10 +11,47 @@ import UIKit
 
 class UIViewControllerFactory
 {
+    static let privacyWizardSB = UIStoryboard(name: "PrivacyWizard", bundle: nil);
     static let main = UIStoryboard(name: "Main", bundle: nil);
     static let utility = UIStoryboard(name: "UtilityControllers", bundle: nil)
     static let leftMenu = UIStoryboard(name: "LeftMenu", bundle: nil)
     static let cloak = UIStoryboard(name: "Cloak", bundle: nil)
+    
+    
+    fileprivate static func getViewController(_ storyboardName: String, bundle: Bundle?, controllerStoryboardId: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+        let viewController = storyboard.instantiateViewController(withIdentifier: controllerStoryboardId)
+        return viewController
+    }
+    
+    // MARK: - Public Methods
+    static func getMainScreenViewController() -> UIMainViewController {
+        return privacyWizardSB.instantiateViewController(withIdentifier: UIMainVCStoryboardId) as! UIMainViewController
+    }
+    
+    static func getUISetPrivacyViewController() -> UISetPrivacyViewController {
+        return main.instantiateViewController(withIdentifier: UISetPrivacyVCStoryboardId) as! UISetPrivacyViewController
+    }
+    
+    static func getPrivacyWizzardDashboardViewController() -> PrivacyWizzardDashboardViewController {
+        return PrivacyWizzardDashboardViewController(nibName: "PrivacyWizzardDashboardViewController", bundle: nil)
+    }
+    
+    static func getFBQuestionnarieViewController() -> PrivacyWizzardFacebookSettingsViewController {
+        return PrivacyWizzardFacebookSettingsViewController(nibName: "PrivacyWizzardFacebookSettingsViewController", bundle: nil)
+    }
+    
+    static func getQuestionnaireTableViewController() -> UIQuestionnaireTableViewController {
+         return privacyWizardSB.instantiateViewController(withIdentifier:  UIQuestionnaireTVCStoryboardId) as! UIQuestionnaireTableViewController
+    }
+    
+    static func getPrivacySettingViewController() -> UIPrivacySettingViewController {
+         return privacyWizardSB.instantiateViewController(withIdentifier:  UIPrivacySettingVCStoryboardId) as! UIPrivacySettingViewController
+    }
+    
+    static func getSetPrivacyViewController() -> UISetPrivacyViewController {
+         return privacyWizardSB.instantiateViewController(withIdentifier:  UISetPrivacyVCStoryboardId) as! UISetPrivacyViewController
+    }
     
     static var rootViewController : UIRootViewController{
         return main.instantiateViewController(withIdentifier: "UIRootViewController") as! UIRootViewController

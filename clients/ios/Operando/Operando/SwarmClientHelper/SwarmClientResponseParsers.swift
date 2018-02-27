@@ -14,8 +14,6 @@ struct IdentitiesListResponse {
     let indexOfDefaultIdentity: Int?
     static let defaultEmptyResponse = IdentitiesListResponse(identitiesList: [], indexOfDefaultIdentity: -1)
 }
-
-
 struct Domain: Equatable
 {
     let id: String
@@ -33,6 +31,11 @@ struct PfbDealUpdate {
     let subscribed: Bool
     
     static let emptyUnsubscribed = PfbDealUpdate(voucher: nil, subscribed: false)
+}
+
+class FacebookSetting
+{
+    
 }
 
 class PfbDeal

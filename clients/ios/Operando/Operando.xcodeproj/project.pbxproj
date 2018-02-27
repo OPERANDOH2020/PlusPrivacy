@@ -83,7 +83,7 @@
 		98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; };
 		98620DE91EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863E8AF1DEC28F50095CA30 /* IdentitiesManagementRepository.swift */; };
-		98668B611DB0D1F100FDE63A /* UIFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B601DB0D1F100FDE63A /* UIFlowController.swift */; };
+		98668B611DB0D1F100FDE63A /* UIOPFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B601DB0D1F100FDE63A /* UIOPFlowController.swift */; };
 		98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B621DB1018600FDE63A /* OPErrorContainer.swift */; };
 		98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98668B6A1DB1346600FDE63A /* UIIdentitiesListView.swift */; };
 		9866A7B41DBF4B1000907D05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9866A7B61DBF4B1000907D05 /* Localizable.strings */; };
@@ -221,6 +221,108 @@
 		C7908A3E1FC6E33400C93A82 /* PKHUDAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A2E1FC6E33300C93A82 /* PKHUDAnimating.swift */; };
 		C7908A3F1FC6E33400C93A82 /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A2F1FC6E33300C93A82 /* PKHUD.swift */; };
 		C7908A401FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */; };
+		C7F794F520235FD4005DE7B3 /* UIMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */; };
+		C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */; };
+		C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */; };
+		C7F794F820235FD4005DE7B3 /* UIQuestionnaireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794DA20235FD4005DE7B3 /* UIQuestionnaireTableViewController.swift */; };
+		C7F794F920235FD4005DE7B3 /* UISetPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794DC20235FD4005DE7B3 /* UISetPrivacyViewController.swift */; };
+		C7F7950920236129005DE7B3 /* UIAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794FD20236129005DE7B3 /* UIAlertViewController.swift */; };
+		C7F7950A20236129005DE7B3 /* UICustomTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794FF20236129005DE7B3 /* UICustomTableViewHeader.swift */; };
+		C7F7950B20236129005DE7B3 /* UIRadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7950120236129005DE7B3 /* UIRadialGradientView.swift */; };
+		C7F7950C20236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7950220236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift */; };
+		C7F7950D20236129005DE7B3 /* UIRibonHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7950420236129005DE7B3 /* UIRibonHeaderView.swift */; };
+		C7F7950E20236129005DE7B3 /* UIRibonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7950520236129005DE7B3 /* UIRibonHeaderView.xib */; };
+		C7F7950F20236129005DE7B3 /* UITutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7950720236129005DE7B3 /* UITutorialView.swift */; };
+		C7F7951020236129005DE7B3 /* UITutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7950820236129005DE7B3 /* UITutorialView.xib */; };
+		C7F7952020236153005DE7B3 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951320236153005DE7B3 /* UIColor+Utils.swift */; };
+		C7F7952120236153005DE7B3 /* UIImage+PWUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */; };
+		C7F7952220236153005DE7B3 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951720236153005DE7B3 /* UILabel+Utils.swift */; };
+		C7F7952320236153005DE7B3 /* UINavigationItem+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951920236153005DE7B3 /* UINavigationItem+Utils.swift */; };
+		C7F7952420236153005DE7B3 /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951B20236153005DE7B3 /* UITableViewCell+Utils.swift */; };
+		C7F7952520236153005DE7B3 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951D20236153005DE7B3 /* UIView+Utils.swift */; };
+		C7F7952620236153005DE7B3 /* WKWebView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951F20236153005DE7B3 /* WKWebView+Utils.swift */; };
+		C7F795382023620C005DE7B3 /* AMPrivacyRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795292023620C005DE7B3 /* AMPrivacyRecommendation.swift */; };
+		C7F795392023620C005DE7B3 /* AMPrivacySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7952B2023620C005DE7B3 /* AMPrivacySetting.swift */; };
+		C7F7953A2023620C005DE7B3 /* AMAvailableReadSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7952D2023620C005DE7B3 /* AMAvailableReadSetting.swift */; };
+		C7F7953B2023620C005DE7B3 /* AMRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7952E2023620C005DE7B3 /* AMRead.swift */; };
+		C7F7953C2023620C005DE7B3 /* AMReadJQuerySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7952F2023620C005DE7B3 /* AMReadJQuerySelector.swift */; };
+		C7F7953D2023620C005DE7B3 /* AMAvailableWriteSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795312023620C005DE7B3 /* AMAvailableWriteSetting.swift */; };
+		C7F7953E2023620C005DE7B3 /* AMWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795322023620C005DE7B3 /* AMWrite.swift */; };
+		C7F7953F2023620C005DE7B3 /* AMWriteSettingParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795332023620C005DE7B3 /* AMWriteSettingParameter.swift */; };
+		C7F795402023620C005DE7B3 /* AMPrivacySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795352023620C005DE7B3 /* AMPrivacySettings.swift */; };
+		C7F795412023620C005DE7B3 /* AMRecommendedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795372023620C005DE7B3 /* AMRecommendedSettings.swift */; };
+		C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79545202363B7005DE7B3 /* Array+Utils.swift */; };
+		C7F79560202363B7005DE7B3 /* ACNetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79548202363B7005DE7B3 /* ACNetworkingConstants.swift */; };
+		C7F79561202363B7005DE7B3 /* ACTypeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954A202363B7005DE7B3 /* ACTypeConstants.swift */; };
+		C7F79562202363B7005DE7B3 /* ACErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */; };
+		C7F79563202363B7005DE7B3 /* ACPrivacyWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954F202363B7005DE7B3 /* ACPrivacyWriter.swift */; };
+		C7F79564202363B7005DE7B3 /* ACSwarmCallbackContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79551202363B7005DE7B3 /* ACSwarmCallbackContainer.swift */; };
+		C7F79565202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79552202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift */; };
+		C7F79566202363B7005DE7B3 /* ACSwarmClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79553202363B7005DE7B3 /* ACSwarmClientHelper.swift */; };
+		C7F79567202363B7005DE7B3 /* ACPrivacyWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79556202363B7005DE7B3 /* ACPrivacyWizard.swift */; };
+		C7F79568202363B7005DE7B3 /* ACSwarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79558202363B7005DE7B3 /* ACSwarmManager.swift */; };
+		C7F79569202363B7005DE7B3 /* ACMathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7955B202363B7005DE7B3 /* ACMathOperator.swift */; };
+		C7F7956A202363B7005DE7B3 /* JSPrivacyWizardContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7955E202363B7005DE7B3 /* JSPrivacyWizardContext.swift */; };
+		C7F795AA202363F8005DE7B3 /* facebook_iOS.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79572202363F8005DE7B3 /* facebook_iOS.js */; };
+		C7F795AB202363F8005DE7B3 /* jquery-3.1.0.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79573202363F8005DE7B3 /* jquery-3.1.0.min.js */; };
+		C7F795AC202363F8005DE7B3 /* jquery214min.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79574202363F8005DE7B3 /* jquery214min.js */; };
+		C7F795AD202363F8005DE7B3 /* linkedin-iOS.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79575202363F8005DE7B3 /* linkedin-iOS.js */; };
+		C7F795AE202363F8005DE7B3 /* osp-settings.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79576202363F8005DE7B3 /* osp-settings.js */; };
+		C7F795AF202363F8005DE7B3 /* OSP.Settings.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79577202363F8005DE7B3 /* OSP.Settings.js */; };
+		C7F795B0202363F8005DE7B3 /* readSNSettings.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79578202363F8005DE7B3 /* readSNSettings.js */; };
+		C7F795B1202363F8005DE7B3 /* testJQuery.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79579202363F8005DE7B3 /* testJQuery.js */; };
+		C7F795B2202363F8005DE7B3 /* HTMLLoginInputDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7957B202363F8005DE7B3 /* HTMLLoginInputDetector.swift */; };
+		C7F795B3202363F8005DE7B3 /* OSPSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7957D202363F8005DE7B3 /* OSPSettingsManager.swift */; };
+		C7F795B4202363F8005DE7B3 /* LocalJSSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7957F202363F8005DE7B3 /* LocalJSSettingsProvider.swift */; };
+		C7F795B5202363F8005DE7B3 /* FacebookSecurityEnforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79581202363F8005DE7B3 /* FacebookSecurityEnforcer.swift */; };
+		C7F795B6202363F8005DE7B3 /* fbExtractData.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79582202363F8005DE7B3 /* fbExtractData.js */; };
+		C7F795B7202363F8005DE7B3 /* FbWebKitParametersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79583202363F8005DE7B3 /* FbWebKitParametersProvider.swift */; };
+		C7F795B8202363F8005DE7B3 /* interceptPOST.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F79584202363F8005DE7B3 /* interceptPOST.js */; };
+		C7F795B9202363F8005DE7B3 /* FbWebKitSecurityEnforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79586202363F8005DE7B3 /* FbWebKitSecurityEnforcer.swift */; };
+		C7F795BA202363F8005DE7B3 /* WebKitSettingsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79588202363F8005DE7B3 /* WebKitSettingsReader.swift */; };
+		C7F795BB202363F8005DE7B3 /* WebViewSettingsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79589202363F8005DE7B3 /* WebViewSettingsReader.swift */; };
+		C7F795BC202363F8005DE7B3 /* UISNSettingsReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7958B202363F8005DE7B3 /* UISNSettingsReaderViewController.swift */; };
+		C7F795BD202363F8005DE7B3 /* UISNSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7958E202363F8005DE7B3 /* UISNSettingsTableViewCell.swift */; };
+		C7F795BE202363F8005DE7B3 /* UISNSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7958F202363F8005DE7B3 /* UISNSettingsTableViewCell.xib */; };
+		C7F795BF202363F8005DE7B3 /* UISNSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79590202363F8005DE7B3 /* UISNSettingsView.swift */; };
+		C7F795C0202363F8005DE7B3 /* UISNSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F79591202363F8005DE7B3 /* UISNSettingsView.xib */; };
+		C7F795C7202363F8005DE7B3 /* Disclaimer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7959C202363F8005DE7B3 /* Disclaimer.xib */; };
+		C7F795C8202363F8005DE7B3 /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7959D202363F8005DE7B3 /* DisclaimerView.swift */; };
+		C7F795CA202363F8005DE7B3 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A0202363F8005DE7B3 /* Action.swift */; };
+		C7F795CB202363F8005DE7B3 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A1202363F8005DE7B3 /* ActionCell.swift */; };
+		C7F795CC202363F8005DE7B3 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795A2202363F8005DE7B3 /* ActionCell.xib */; };
+		C7F795CD202363F8005DE7B3 /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A3202363F8005DE7B3 /* ActionController.swift */; };
+		C7F795CE202363F8005DE7B3 /* ActionControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A4202363F8005DE7B3 /* ActionControllerSettings.swift */; };
+		C7F795CF202363F9005DE7B3 /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A5202363F8005DE7B3 /* ActionData.swift */; };
+		C7F795D0202363F9005DE7B3 /* DynamicCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A6202363F8005DE7B3 /* DynamicCollectionViewFlowLayout.swift */; };
+		C7F795D1202363F9005DE7B3 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795A7202363F8005DE7B3 /* Twitter.swift */; };
+		C7F795D2202363F9005DE7B3 /* TwitterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795A8202363F8005DE7B3 /* TwitterCell.xib */; };
+		C7F795D5202465BC005DE7B3 /* PrivacyWizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F795D3202465BC005DE7B3 /* PrivacyWizard.storyboard */; };
+		C7F795DD202472BD005DE7B3 /* UIFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795D7202472BD005DE7B3 /* UIFlowController.swift */; };
+		C7F795DE202472BD005DE7B3 /* UIMainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795D8202472BD005DE7B3 /* UIMainFlowController.swift */; };
+		C7F795DF202472BD005DE7B3 /* UIMainScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795D9202472BD005DE7B3 /* UIMainScreenFlowController.swift */; };
+		C7F795E0202472BD005DE7B3 /* UIPrivacySettingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795DA202472BD005DE7B3 /* UIPrivacySettingFlowController.swift */; };
+		C7F795E1202472BD005DE7B3 /* UIQuestionnaireFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795DB202472BD005DE7B3 /* UIQuestionnaireFlowController.swift */; };
+		C7F795E2202472BD005DE7B3 /* UISetPrivacyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795DC202472BD005DE7B3 /* UISetPrivacyFlowController.swift */; };
+		C7F795E720248DDB005DE7B3 /* PrivacyWizard.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F795E420248DDB005DE7B3 /* PrivacyWizard.js */; };
+		C7F795E820248DDB005DE7B3 /* PrivacyWizardModule.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F795E520248DDB005DE7B3 /* PrivacyWizardModule.js */; };
+		C7F795E920248DDB005DE7B3 /* PrivacyWizardResources.js in Resources */ = {isa = PBXBuildFile; fileRef = C7F795E620248DDB005DE7B3 /* PrivacyWizardResources.js */; };
+		C7F795F220248DF8005DE7B3 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7F795ED20248DF8005DE7B3 /* Dosis-Medium.otf */; };
+		C7F795F320248DF8005DE7B3 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7F795EE20248DF8005DE7B3 /* Dosis-SemiBold.otf */; };
+		C7F795F420248DF8005DE7B3 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F795F020248DF8005DE7B3 /* Common.xcassets */; };
+		C7F795F520248DF8005DE7B3 /* Questionnaire.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F795F120248DF8005DE7B3 /* Questionnaire.xcassets */; };
+		C7F795F9202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795F7202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift */; };
+		C7F795FA202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795F8202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib */; };
+		C7F795FF2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */; };
+		C7F796002028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */; };
+		C7F796042029B738005DE7B3 /* PrivacyWizardFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */; };
+		C7F796052029B738005DE7B3 /* PrivacyWizardFacebookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */; };
+		C7F796092029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F796072029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift */; };
+		C7F7960A2029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F796082029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib */; };
+		C7F7960E2029E5C6005DE7B3 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F7960D2029E5C6005DE7B3 /* DLRadioButton.m */; };
+		C7F79611202A022A005DE7B3 /* PrivacyWizardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79610202A022A005DE7B3 /* PrivacyWizardRepository.swift */; };
+		C7F79617202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79615202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift */; };
+		C7F79618202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F79616202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,7 +437,7 @@
 		9860B4541DB136C600AFE113 /* UIIdentitiesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIIdentitiesListView.xib; path = UserInterface/UIIdentityManagementViewController/UIIdentitiesListView/UIIdentitiesListView.xib; sourceTree = "<group>"; };
 		98620DE61EF7E5D900BF4673 /* PPWebContentBlocker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PPWebContentBlocker.framework; sourceTree = "<group>"; };
 		9863E8AF1DEC28F50095CA30 /* IdentitiesManagementRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentitiesManagementRepository.swift; sourceTree = "<group>"; };
-		98668B601DB0D1F100FDE63A /* UIFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIFlowController.swift; path = UserInterface/UIFlowController/UIFlowController.swift; sourceTree = "<group>"; };
+		98668B601DB0D1F100FDE63A /* UIOPFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIOPFlowController.swift; path = UserInterface/UIFlowController/UIOPFlowController.swift; sourceTree = "<group>"; };
 		98668B621DB1018600FDE63A /* OPErrorContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPErrorContainer.swift; path = Utilities/OPErrorContainer.swift; sourceTree = "<group>"; };
 		98668B6A1DB1346600FDE63A /* UIIdentitiesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIIdentitiesListView.swift; path = UserInterface/UIIdentityManagementViewController/UIIdentitiesListView/UIIdentitiesListView.swift; sourceTree = "<group>"; };
 		9866A7B51DBF4B1000907D05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -495,6 +597,109 @@
 		C7908A2E1FC6E33300C93A82 /* PKHUDAnimating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDAnimating.swift; sourceTree = "<group>"; };
 		C7908A2F1FC6E33300C93A82 /* PKHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUD.swift; sourceTree = "<group>"; };
 		C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
+		C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainViewController.swift; sourceTree = "<group>"; };
+		C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivacySettingViewController.swift; sourceTree = "<group>"; };
+		C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireTableViewCell.swift; sourceTree = "<group>"; };
+		C7F794DA20235FD4005DE7B3 /* UIQuestionnaireTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireTableViewController.swift; sourceTree = "<group>"; };
+		C7F794DC20235FD4005DE7B3 /* UISetPrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISetPrivacyViewController.swift; sourceTree = "<group>"; };
+		C7F794FD20236129005DE7B3 /* UIAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertViewController.swift; sourceTree = "<group>"; };
+		C7F794FF20236129005DE7B3 /* UICustomTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICustomTableViewHeader.swift; sourceTree = "<group>"; };
+		C7F7950120236129005DE7B3 /* UIRadialGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRadialGradientView.swift; sourceTree = "<group>"; };
+		C7F7950220236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRadialGradientViewPulsarConfiguration.swift; sourceTree = "<group>"; };
+		C7F7950420236129005DE7B3 /* UIRibonHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRibonHeaderView.swift; sourceTree = "<group>"; };
+		C7F7950520236129005DE7B3 /* UIRibonHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRibonHeaderView.xib; sourceTree = "<group>"; };
+		C7F7950720236129005DE7B3 /* UITutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITutorialView.swift; sourceTree = "<group>"; };
+		C7F7950820236129005DE7B3 /* UITutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITutorialView.xib; sourceTree = "<group>"; };
+		C7F7951320236153005DE7B3 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+PWUtils.swift"; sourceTree = "<group>"; };
+		C7F7951720236153005DE7B3 /* UILabel+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
+		C7F7951920236153005DE7B3 /* UINavigationItem+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Utils.swift"; sourceTree = "<group>"; };
+		C7F7951B20236153005DE7B3 /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
+		C7F7951D20236153005DE7B3 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		C7F7951F20236153005DE7B3 /* WKWebView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebView+Utils.swift"; sourceTree = "<group>"; };
+		C7F795292023620C005DE7B3 /* AMPrivacyRecommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMPrivacyRecommendation.swift; sourceTree = "<group>"; };
+		C7F7952B2023620C005DE7B3 /* AMPrivacySetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMPrivacySetting.swift; sourceTree = "<group>"; };
+		C7F7952D2023620C005DE7B3 /* AMAvailableReadSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMAvailableReadSetting.swift; sourceTree = "<group>"; };
+		C7F7952E2023620C005DE7B3 /* AMRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMRead.swift; sourceTree = "<group>"; };
+		C7F7952F2023620C005DE7B3 /* AMReadJQuerySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMReadJQuerySelector.swift; sourceTree = "<group>"; };
+		C7F795312023620C005DE7B3 /* AMAvailableWriteSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMAvailableWriteSetting.swift; sourceTree = "<group>"; };
+		C7F795322023620C005DE7B3 /* AMWrite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMWrite.swift; sourceTree = "<group>"; };
+		C7F795332023620C005DE7B3 /* AMWriteSettingParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMWriteSettingParameter.swift; sourceTree = "<group>"; };
+		C7F795352023620C005DE7B3 /* AMPrivacySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMPrivacySettings.swift; sourceTree = "<group>"; };
+		C7F795372023620C005DE7B3 /* AMRecommendedSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMRecommendedSettings.swift; sourceTree = "<group>"; };
+		C7F79545202363B7005DE7B3 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		C7F79548202363B7005DE7B3 /* ACNetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNetworkingConstants.swift; sourceTree = "<group>"; };
+		C7F7954A202363B7005DE7B3 /* ACTypeConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACTypeConstants.swift; sourceTree = "<group>"; };
+		C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACErrorContainer.swift; sourceTree = "<group>"; };
+		C7F7954F202363B7005DE7B3 /* ACPrivacyWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPrivacyWriter.swift; sourceTree = "<group>"; };
+		C7F79551202363B7005DE7B3 /* ACSwarmCallbackContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACSwarmCallbackContainer.swift; sourceTree = "<group>"; };
+		C7F79552202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACSwarmClientHelper+ConnectionCallbacks.swift"; sourceTree = "<group>"; };
+		C7F79553202363B7005DE7B3 /* ACSwarmClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACSwarmClientHelper.swift; sourceTree = "<group>"; };
+		C7F79556202363B7005DE7B3 /* ACPrivacyWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPrivacyWizard.swift; sourceTree = "<group>"; };
+		C7F79558202363B7005DE7B3 /* ACSwarmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACSwarmManager.swift; sourceTree = "<group>"; };
+		C7F7955B202363B7005DE7B3 /* ACMathOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACMathOperator.swift; sourceTree = "<group>"; };
+		C7F7955E202363B7005DE7B3 /* JSPrivacyWizardContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSPrivacyWizardContext.swift; sourceTree = "<group>"; };
+		C7F79572202363F8005DE7B3 /* facebook_iOS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = facebook_iOS.js; sourceTree = "<group>"; };
+		C7F79573202363F8005DE7B3 /* jquery-3.1.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-3.1.0.min.js"; sourceTree = "<group>"; };
+		C7F79574202363F8005DE7B3 /* jquery214min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery214min.js; path = Operando/PrivacyWizard/ExternalFrameworks/RSFBSecure/OSPSettings/ios/jquery214min.js; sourceTree = SOURCE_ROOT; };
+		C7F79575202363F8005DE7B3 /* linkedin-iOS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "linkedin-iOS.js"; sourceTree = "<group>"; };
+		C7F79576202363F8005DE7B3 /* osp-settings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "osp-settings.js"; sourceTree = "<group>"; };
+		C7F79577202363F8005DE7B3 /* OSP.Settings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = OSP.Settings.js; sourceTree = "<group>"; };
+		C7F79578202363F8005DE7B3 /* readSNSettings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = readSNSettings.js; sourceTree = "<group>"; };
+		C7F79579202363F8005DE7B3 /* testJQuery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = testJQuery.js; path = Operando/PrivacyWizard/ExternalFrameworks/RSFBSecure/OSPSettings/ios/testJQuery.js; sourceTree = SOURCE_ROOT; };
+		C7F7957B202363F8005DE7B3 /* HTMLLoginInputDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLLoginInputDetector.swift; sourceTree = "<group>"; };
+		C7F7957D202363F8005DE7B3 /* OSPSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSPSettingsManager.swift; sourceTree = "<group>"; };
+		C7F7957F202363F8005DE7B3 /* LocalJSSettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalJSSettingsProvider.swift; sourceTree = "<group>"; };
+		C7F79581202363F8005DE7B3 /* FacebookSecurityEnforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSecurityEnforcer.swift; sourceTree = "<group>"; };
+		C7F79582202363F8005DE7B3 /* fbExtractData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fbExtractData.js; sourceTree = "<group>"; };
+		C7F79583202363F8005DE7B3 /* FbWebKitParametersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbWebKitParametersProvider.swift; sourceTree = "<group>"; };
+		C7F79584202363F8005DE7B3 /* interceptPOST.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = interceptPOST.js; sourceTree = "<group>"; };
+		C7F79586202363F8005DE7B3 /* FbWebKitSecurityEnforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbWebKitSecurityEnforcer.swift; sourceTree = "<group>"; };
+		C7F79588202363F8005DE7B3 /* WebKitSettingsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebKitSettingsReader.swift; sourceTree = "<group>"; };
+		C7F79589202363F8005DE7B3 /* WebViewSettingsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewSettingsReader.swift; sourceTree = "<group>"; };
+		C7F7958B202363F8005DE7B3 /* UISNSettingsReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISNSettingsReaderViewController.swift; sourceTree = "<group>"; };
+		C7F7958E202363F8005DE7B3 /* UISNSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISNSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		C7F7958F202363F8005DE7B3 /* UISNSettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UISNSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		C7F79590202363F8005DE7B3 /* UISNSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISNSettingsView.swift; sourceTree = "<group>"; };
+		C7F79591202363F8005DE7B3 /* UISNSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UISNSettingsView.xib; sourceTree = "<group>"; };
+		C7F7959C202363F8005DE7B3 /* Disclaimer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Disclaimer.xib; sourceTree = "<group>"; };
+		C7F7959D202363F8005DE7B3 /* DisclaimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+		C7F795A0202363F8005DE7B3 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		C7F795A1202363F8005DE7B3 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		C7F795A2202363F8005DE7B3 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		C7F795A3202363F8005DE7B3 /* ActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionController.swift; sourceTree = "<group>"; };
+		C7F795A4202363F8005DE7B3 /* ActionControllerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerSettings.swift; sourceTree = "<group>"; };
+		C7F795A5202363F8005DE7B3 /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
+		C7F795A6202363F8005DE7B3 /* DynamicCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		C7F795A7202363F8005DE7B3 /* Twitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
+		C7F795A8202363F8005DE7B3 /* TwitterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterCell.xib; sourceTree = "<group>"; };
+		C7F795D4202465BC005DE7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PrivacyWizard/Storyboards/Base.lproj/PrivacyWizard.storyboard; sourceTree = "<group>"; };
+		C7F795D7202472BD005DE7B3 /* UIFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlowController.swift; sourceTree = "<group>"; };
+		C7F795D8202472BD005DE7B3 /* UIMainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainFlowController.swift; sourceTree = "<group>"; };
+		C7F795D9202472BD005DE7B3 /* UIMainScreenFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainScreenFlowController.swift; sourceTree = "<group>"; };
+		C7F795DA202472BD005DE7B3 /* UIPrivacySettingFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivacySettingFlowController.swift; sourceTree = "<group>"; };
+		C7F795DB202472BD005DE7B3 /* UIQuestionnaireFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireFlowController.swift; sourceTree = "<group>"; };
+		C7F795DC202472BD005DE7B3 /* UISetPrivacyFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISetPrivacyFlowController.swift; sourceTree = "<group>"; };
+		C7F795E420248DDB005DE7B3 /* PrivacyWizard.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PrivacyWizard.js; sourceTree = "<group>"; };
+		C7F795E520248DDB005DE7B3 /* PrivacyWizardModule.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PrivacyWizardModule.js; sourceTree = "<group>"; };
+		C7F795E620248DDB005DE7B3 /* PrivacyWizardResources.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PrivacyWizardResources.js; sourceTree = "<group>"; };
+		C7F795ED20248DF8005DE7B3 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.otf"; sourceTree = "<group>"; };
+		C7F795EE20248DF8005DE7B3 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		C7F795F020248DF8005DE7B3 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
+		C7F795F120248DF8005DE7B3 /* Questionnaire.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Questionnaire.xcassets; sourceTree = "<group>"; };
+		C7F795F7202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardDashboardViewController.swift; sourceTree = "<group>"; };
+		C7F795F8202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardDashboardViewController.xib; sourceTree = "<group>"; };
+		C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardFacebookSettingsViewController.swift; sourceTree = "<group>"; };
+		C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardFacebookSettingsViewController.xib; sourceTree = "<group>"; };
+		C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardFacebookCell.swift; sourceTree = "<group>"; };
+		C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizardFacebookCell.xib; sourceTree = "<group>"; };
+		C7F796072029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardFacebookOptionCell.swift; sourceTree = "<group>"; };
+		C7F796082029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizardFacebookOptionCell.xib; sourceTree = "<group>"; };
+		C7F7960C2029E5C5005DE7B3 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		C7F7960D2029E5C6005DE7B3 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		C7F79610202A022A005DE7B3 /* PrivacyWizardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardRepository.swift; sourceTree = "<group>"; };
+		C7F79615202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardFacebookExpandedCell.swift; sourceTree = "<group>"; };
+		C7F79616202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizardFacebookExpandedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -882,7 +1087,7 @@
 		98668B5F1DB0D1D500FDE63A /* UIFlowController */ = {
 			isa = PBXGroup;
 			children = (
-				98668B601DB0D1F100FDE63A /* UIFlowController.swift */,
+				98668B601DB0D1F100FDE63A /* UIOPFlowController.swift */,
 			);
 			name = UIFlowController;
 			sourceTree = "<group>";
@@ -1004,6 +1209,7 @@
 		9881D2321D0EC845005EE1FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7F7960F202A01FF005DE7B3 /* PrivacyWizard */,
 				AD48A8E11F6281FF003E5A88 /* FeedbackForm */,
 				981991161F39F27C004F3264 /* AppSCDsRepository */,
 				98BE1FAE1F0293EE00223926 /* UiserSettingsModel */,
@@ -1156,6 +1362,7 @@
 		98EAF66D1CCF86DC00C77649 /* Operando */ = {
 			isa = PBXGroup;
 			children = (
+				C7F794A720235F9D005DE7B3 /* PrivacyWizard */,
 				98516FCD1E040903007428F3 /* OPCloak */,
 				9848B2D41D67409100E0FD72 /* Extensions */,
 				98EAF6B01CCF997A00C77649 /* BridgingHeader */,
@@ -1164,6 +1371,7 @@
 				98EAF68F1CCF87B800C77649 /* Utilities */,
 				98EAF68E1CCF87AD00C77649 /* UserInterface */,
 				98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */,
+				C7F795D3202465BC005DE7B3 /* PrivacyWizard.storyboard */,
 				98EAF6721CCF86DC00C77649 /* Main.storyboard */,
 				9812DB5C1DB52BCC009DD50A /* UtilityControllers.storyboard */,
 				ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */,
@@ -1193,6 +1401,7 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				C7F795F620286B03005DE7B3 /* PrivacyWizard */,
 				C76ABAEA1FEBD8DE00104239 /* UIMyAccountViewController */,
 				AD48A8E51F628E97003E5A88 /* OPFeedbackFormViewController */,
 				9843340A1F06362B0016564E /* LocalizedStringKeys */,
@@ -1257,6 +1466,7 @@
 		98EAF6931CCF88D400C77649 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C7F7960B2029E5B6005DE7B3 /* DLRadioButton */,
 				C77B8E171FD6B6D100B16F6E /* ENSideMenu */,
 				C7908A1F1FC6E31200C93A82 /* PKHUD */,
 				987E717B1E8BB90C0006B240 /* SwarmClient.framework */,
@@ -1554,6 +1764,728 @@
 			path = PKHUD;
 			sourceTree = "<group>";
 		};
+		C7F794A720235F9D005DE7B3 /* PrivacyWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795EA20248DF8005DE7B3 /* Resources */,
+				C7F795E320248DDB005DE7B3 /* JSFiles */,
+				C7F795D6202472BD005DE7B3 /* UIFlowControllers */,
+				C7F7956B202363F8005DE7B3 /* ExternalFrameworks */,
+				C7F79542202363B7005DE7B3 /* ApplicationCore */,
+				C7F795272023620C005DE7B3 /* ApplicationModel */,
+				C7F794A820235FD4005DE7B3 /* UserInterface */,
+			);
+			name = PrivacyWizard;
+			path = "New Group3";
+			sourceTree = "<group>";
+		};
+		C7F794A820235FD4005DE7B3 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951120236153005DE7B3 /* UICategories */,
+				C7F794FB20236129005DE7B3 /* UICommon */,
+				C7F794D220235FD4005DE7B3 /* UIViewControllers */,
+			);
+			name = UserInterface;
+			path = Operando/PrivacyWizard/UserInterface;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F794D220235FD4005DE7B3 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794D320235FD4005DE7B3 /* UIMainViewController */,
+				C7F794D520235FD4005DE7B3 /* UIPrivacySettingViewController */,
+				C7F794D720235FD4005DE7B3 /* UIQuestionnaireTableViewController */,
+				C7F794DB20235FD4005DE7B3 /* UISetPrivacyViewController */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		C7F794D320235FD4005DE7B3 /* UIMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */,
+			);
+			path = UIMainViewController;
+			sourceTree = "<group>";
+		};
+		C7F794D520235FD4005DE7B3 /* UIPrivacySettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */,
+			);
+			path = UIPrivacySettingViewController;
+			sourceTree = "<group>";
+		};
+		C7F794D720235FD4005DE7B3 /* UIQuestionnaireTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794D820235FD4005DE7B3 /* UIQuestionnaireTableViewCell */,
+				C7F794DA20235FD4005DE7B3 /* UIQuestionnaireTableViewController.swift */,
+			);
+			path = UIQuestionnaireTableViewController;
+			sourceTree = "<group>";
+		};
+		C7F794D820235FD4005DE7B3 /* UIQuestionnaireTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */,
+			);
+			path = UIQuestionnaireTableViewCell;
+			sourceTree = "<group>";
+		};
+		C7F794DB20235FD4005DE7B3 /* UISetPrivacyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794DC20235FD4005DE7B3 /* UISetPrivacyViewController.swift */,
+			);
+			path = UISetPrivacyViewController;
+			sourceTree = "<group>";
+		};
+		C7F794FB20236129005DE7B3 /* UICommon */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794FC20236129005DE7B3 /* UIAlertViewController */,
+				C7F794FE20236129005DE7B3 /* UICustomTableViewHeader */,
+				C7F7950020236129005DE7B3 /* UIRadialGradientView */,
+				C7F7950320236129005DE7B3 /* UIRibonHeaderView */,
+				C7F7950620236129005DE7B3 /* UITutorialView */,
+			);
+			path = UICommon;
+			sourceTree = "<group>";
+		};
+		C7F794FC20236129005DE7B3 /* UIAlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794FD20236129005DE7B3 /* UIAlertViewController.swift */,
+			);
+			path = UIAlertViewController;
+			sourceTree = "<group>";
+		};
+		C7F794FE20236129005DE7B3 /* UICustomTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C7F794FF20236129005DE7B3 /* UICustomTableViewHeader.swift */,
+			);
+			path = UICustomTableViewHeader;
+			sourceTree = "<group>";
+		};
+		C7F7950020236129005DE7B3 /* UIRadialGradientView */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7950120236129005DE7B3 /* UIRadialGradientView.swift */,
+				C7F7950220236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift */,
+			);
+			path = UIRadialGradientView;
+			sourceTree = "<group>";
+		};
+		C7F7950320236129005DE7B3 /* UIRibonHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7950420236129005DE7B3 /* UIRibonHeaderView.swift */,
+				C7F7950520236129005DE7B3 /* UIRibonHeaderView.xib */,
+			);
+			path = UIRibonHeaderView;
+			sourceTree = "<group>";
+		};
+		C7F7950620236129005DE7B3 /* UITutorialView */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7950720236129005DE7B3 /* UITutorialView.swift */,
+				C7F7950820236129005DE7B3 /* UITutorialView.xib */,
+			);
+			path = UITutorialView;
+			sourceTree = "<group>";
+		};
+		C7F7951120236153005DE7B3 /* UICategories */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951220236153005DE7B3 /* UIColor+Utils */,
+				C7F7951420236153005DE7B3 /* UIImage+Utils */,
+				C7F7951620236153005DE7B3 /* UILabel+Utils */,
+				C7F7951820236153005DE7B3 /* UINavigationItem+Utils */,
+				C7F7951A20236153005DE7B3 /* UITableViewCell+Utils */,
+				C7F7951C20236153005DE7B3 /* UIView+Utils */,
+				C7F7951E20236153005DE7B3 /* WKWebView+Utils */,
+			);
+			path = UICategories;
+			sourceTree = "<group>";
+		};
+		C7F7951220236153005DE7B3 /* UIColor+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951320236153005DE7B3 /* UIColor+Utils.swift */,
+			);
+			path = "UIColor+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951420236153005DE7B3 /* UIImage+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */,
+			);
+			path = "UIImage+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951620236153005DE7B3 /* UILabel+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951720236153005DE7B3 /* UILabel+Utils.swift */,
+			);
+			path = "UILabel+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951820236153005DE7B3 /* UINavigationItem+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951920236153005DE7B3 /* UINavigationItem+Utils.swift */,
+			);
+			path = "UINavigationItem+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951A20236153005DE7B3 /* UITableViewCell+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951B20236153005DE7B3 /* UITableViewCell+Utils.swift */,
+			);
+			path = "UITableViewCell+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951C20236153005DE7B3 /* UIView+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951D20236153005DE7B3 /* UIView+Utils.swift */,
+			);
+			path = "UIView+Utils";
+			sourceTree = "<group>";
+		};
+		C7F7951E20236153005DE7B3 /* WKWebView+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7951F20236153005DE7B3 /* WKWebView+Utils.swift */,
+			);
+			path = "WKWebView+Utils";
+			sourceTree = "<group>";
+		};
+		C7F795272023620C005DE7B3 /* ApplicationModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795282023620C005DE7B3 /* AMPrivacyRecommendation */,
+				C7F7952A2023620C005DE7B3 /* AMPrivacySetting */,
+				C7F795342023620C005DE7B3 /* AMPrivacySettings */,
+				C7F795362023620C005DE7B3 /* AMRecommendedSettings */,
+			);
+			name = ApplicationModel;
+			path = Operando/PrivacyWizard/ApplicationModel;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F795282023620C005DE7B3 /* AMPrivacyRecommendation */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795292023620C005DE7B3 /* AMPrivacyRecommendation.swift */,
+			);
+			path = AMPrivacyRecommendation;
+			sourceTree = "<group>";
+		};
+		C7F7952A2023620C005DE7B3 /* AMPrivacySetting */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7952B2023620C005DE7B3 /* AMPrivacySetting.swift */,
+				C7F7952C2023620C005DE7B3 /* AMRead */,
+				C7F795302023620C005DE7B3 /* AMWrite */,
+			);
+			path = AMPrivacySetting;
+			sourceTree = "<group>";
+		};
+		C7F7952C2023620C005DE7B3 /* AMRead */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7952D2023620C005DE7B3 /* AMAvailableReadSetting.swift */,
+				C7F7952E2023620C005DE7B3 /* AMRead.swift */,
+				C7F7952F2023620C005DE7B3 /* AMReadJQuerySelector.swift */,
+			);
+			path = AMRead;
+			sourceTree = "<group>";
+		};
+		C7F795302023620C005DE7B3 /* AMWrite */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795312023620C005DE7B3 /* AMAvailableWriteSetting.swift */,
+				C7F795322023620C005DE7B3 /* AMWrite.swift */,
+				C7F795332023620C005DE7B3 /* AMWriteSettingParameter.swift */,
+			);
+			path = AMWrite;
+			sourceTree = "<group>";
+		};
+		C7F795342023620C005DE7B3 /* AMPrivacySettings */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795352023620C005DE7B3 /* AMPrivacySettings.swift */,
+			);
+			path = AMPrivacySettings;
+			sourceTree = "<group>";
+		};
+		C7F795362023620C005DE7B3 /* AMRecommendedSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795372023620C005DE7B3 /* AMRecommendedSettings.swift */,
+			);
+			path = AMRecommendedSettings;
+			sourceTree = "<group>";
+		};
+		C7F79542202363B7005DE7B3 /* ApplicationCore */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79543202363B7005DE7B3 /* ACCategories */,
+				C7F79546202363B7005DE7B3 /* ACConstants */,
+				C7F7954B202363B7005DE7B3 /* ACHelpers */,
+				C7F79554202363B7005DE7B3 /* ACManagers */,
+				C7F79559202363B7005DE7B3 /* ACOperators */,
+				C7F7955C202363B7005DE7B3 /* JSCommunication */,
+			);
+			name = ApplicationCore;
+			path = Operando/PrivacyWizard/ApplicationCore;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F79543202363B7005DE7B3 /* ACCategories */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79544202363B7005DE7B3 /* Array+Utils */,
+			);
+			path = ACCategories;
+			sourceTree = "<group>";
+		};
+		C7F79544202363B7005DE7B3 /* Array+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79545202363B7005DE7B3 /* Array+Utils.swift */,
+			);
+			path = "Array+Utils";
+			sourceTree = "<group>";
+		};
+		C7F79546202363B7005DE7B3 /* ACConstants */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79547202363B7005DE7B3 /* ACNetworkingConstants */,
+				C7F79549202363B7005DE7B3 /* ACTypeConstants */,
+			);
+			path = ACConstants;
+			sourceTree = "<group>";
+		};
+		C7F79547202363B7005DE7B3 /* ACNetworkingConstants */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79548202363B7005DE7B3 /* ACNetworkingConstants.swift */,
+			);
+			path = ACNetworkingConstants;
+			sourceTree = "<group>";
+		};
+		C7F79549202363B7005DE7B3 /* ACTypeConstants */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7954A202363B7005DE7B3 /* ACTypeConstants.swift */,
+			);
+			path = ACTypeConstants;
+			sourceTree = "<group>";
+		};
+		C7F7954B202363B7005DE7B3 /* ACHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7954C202363B7005DE7B3 /* ACErrorContainer */,
+				C7F7954E202363B7005DE7B3 /* ACPrivacyWriter */,
+				C7F79550202363B7005DE7B3 /* ACSwarmClientHelper */,
+			);
+			path = ACHelpers;
+			sourceTree = "<group>";
+		};
+		C7F7954C202363B7005DE7B3 /* ACErrorContainer */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */,
+			);
+			path = ACErrorContainer;
+			sourceTree = "<group>";
+		};
+		C7F7954E202363B7005DE7B3 /* ACPrivacyWriter */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7954F202363B7005DE7B3 /* ACPrivacyWriter.swift */,
+			);
+			path = ACPrivacyWriter;
+			sourceTree = "<group>";
+		};
+		C7F79550202363B7005DE7B3 /* ACSwarmClientHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79551202363B7005DE7B3 /* ACSwarmCallbackContainer.swift */,
+				C7F79552202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift */,
+				C7F79553202363B7005DE7B3 /* ACSwarmClientHelper.swift */,
+			);
+			path = ACSwarmClientHelper;
+			sourceTree = "<group>";
+		};
+		C7F79554202363B7005DE7B3 /* ACManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79555202363B7005DE7B3 /* ACPrivacyWizard */,
+				C7F79557202363B7005DE7B3 /* ACSwarmManager */,
+			);
+			path = ACManagers;
+			sourceTree = "<group>";
+		};
+		C7F79555202363B7005DE7B3 /* ACPrivacyWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79556202363B7005DE7B3 /* ACPrivacyWizard.swift */,
+			);
+			path = ACPrivacyWizard;
+			sourceTree = "<group>";
+		};
+		C7F79557202363B7005DE7B3 /* ACSwarmManager */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79558202363B7005DE7B3 /* ACSwarmManager.swift */,
+			);
+			path = ACSwarmManager;
+			sourceTree = "<group>";
+		};
+		C7F79559202363B7005DE7B3 /* ACOperators */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7955A202363B7005DE7B3 /* ACMathOperator */,
+			);
+			path = ACOperators;
+			sourceTree = "<group>";
+		};
+		C7F7955A202363B7005DE7B3 /* ACMathOperator */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7955B202363B7005DE7B3 /* ACMathOperator.swift */,
+			);
+			path = ACMathOperator;
+			sourceTree = "<group>";
+		};
+		C7F7955C202363B7005DE7B3 /* JSCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7955D202363B7005DE7B3 /* JSPrivacyWizardContext */,
+			);
+			path = JSCommunication;
+			sourceTree = "<group>";
+		};
+		C7F7955D202363B7005DE7B3 /* JSPrivacyWizardContext */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7955E202363B7005DE7B3 /* JSPrivacyWizardContext.swift */,
+			);
+			path = JSPrivacyWizardContext;
+			sourceTree = "<group>";
+		};
+		C7F7956B202363F8005DE7B3 /* ExternalFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7956F202363F8005DE7B3 /* RSFBSecure */,
+				C7F7959B202363F8005DE7B3 /* ScrollableOverlay */,
+				C7F7959F202363F8005DE7B3 /* XLActionController */,
+			);
+			name = ExternalFrameworks;
+			path = Operando/PrivacyWizard/ExternalFrameworks;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F7956F202363F8005DE7B3 /* RSFBSecure */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79570202363F8005DE7B3 /* OSPSettings */,
+				C7F79592202363F8005DE7B3 /* RSFBUtilities */,
+				C7F79599202363F8005DE7B3 /* UIViewController+Extensions */,
+			);
+			path = RSFBSecure;
+			sourceTree = "<group>";
+		};
+		C7F79570202363F8005DE7B3 /* OSPSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79571202363F8005DE7B3 /* ios */,
+				C7F7957A202363F8005DE7B3 /* LoginInputDetectors */,
+				C7F7957C202363F8005DE7B3 /* OSPSettingsManager */,
+				C7F7957E202363F8005DE7B3 /* Providers */,
+				C7F79580202363F8005DE7B3 /* SecurityEnforcers */,
+				C7F79587202363F8005DE7B3 /* SettingsAppliers */,
+				C7F7958A202363F8005DE7B3 /* UISNSettingsReaderViewController */,
+				C7F7958C202363F8005DE7B3 /* UISNSettingsView */,
+			);
+			path = OSPSettings;
+			sourceTree = "<group>";
+		};
+		C7F79571202363F8005DE7B3 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79572202363F8005DE7B3 /* facebook_iOS.js */,
+				C7F79573202363F8005DE7B3 /* jquery-3.1.0.min.js */,
+				C7F79574202363F8005DE7B3 /* jquery214min.js */,
+				C7F79575202363F8005DE7B3 /* linkedin-iOS.js */,
+				C7F79576202363F8005DE7B3 /* osp-settings.js */,
+				C7F79577202363F8005DE7B3 /* OSP.Settings.js */,
+				C7F79578202363F8005DE7B3 /* readSNSettings.js */,
+				C7F79579202363F8005DE7B3 /* testJQuery.js */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		C7F7957A202363F8005DE7B3 /* LoginInputDetectors */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7957B202363F8005DE7B3 /* HTMLLoginInputDetector.swift */,
+			);
+			path = LoginInputDetectors;
+			sourceTree = "<group>";
+		};
+		C7F7957C202363F8005DE7B3 /* OSPSettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7957D202363F8005DE7B3 /* OSPSettingsManager.swift */,
+			);
+			path = OSPSettingsManager;
+			sourceTree = "<group>";
+		};
+		C7F7957E202363F8005DE7B3 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7957F202363F8005DE7B3 /* LocalJSSettingsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		C7F79580202363F8005DE7B3 /* SecurityEnforcers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79581202363F8005DE7B3 /* FacebookSecurityEnforcer.swift */,
+				C7F79582202363F8005DE7B3 /* fbExtractData.js */,
+				C7F79583202363F8005DE7B3 /* FbWebKitParametersProvider.swift */,
+				C7F79584202363F8005DE7B3 /* interceptPOST.js */,
+				C7F79585202363F8005DE7B3 /* V2 */,
+			);
+			path = SecurityEnforcers;
+			sourceTree = "<group>";
+		};
+		C7F79585202363F8005DE7B3 /* V2 */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79586202363F8005DE7B3 /* FbWebKitSecurityEnforcer.swift */,
+			);
+			path = V2;
+			sourceTree = "<group>";
+		};
+		C7F79587202363F8005DE7B3 /* SettingsAppliers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79588202363F8005DE7B3 /* WebKitSettingsReader.swift */,
+				C7F79589202363F8005DE7B3 /* WebViewSettingsReader.swift */,
+			);
+			path = SettingsAppliers;
+			sourceTree = "<group>";
+		};
+		C7F7958A202363F8005DE7B3 /* UISNSettingsReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7958B202363F8005DE7B3 /* UISNSettingsReaderViewController.swift */,
+			);
+			path = UISNSettingsReaderViewController;
+			sourceTree = "<group>";
+		};
+		C7F7958C202363F8005DE7B3 /* UISNSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7958D202363F8005DE7B3 /* UISNSettingsTableViewCell */,
+				C7F79590202363F8005DE7B3 /* UISNSettingsView.swift */,
+				C7F79591202363F8005DE7B3 /* UISNSettingsView.xib */,
+			);
+			path = UISNSettingsView;
+			sourceTree = "<group>";
+		};
+		C7F7958D202363F8005DE7B3 /* UISNSettingsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7958E202363F8005DE7B3 /* UISNSettingsTableViewCell.swift */,
+				C7F7958F202363F8005DE7B3 /* UISNSettingsTableViewCell.xib */,
+			);
+			path = UISNSettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		C7F79592202363F8005DE7B3 /* RSFBUtilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RSFBUtilities;
+			sourceTree = "<group>";
+		};
+		C7F79599202363F8005DE7B3 /* UIViewController+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UIViewController+Extensions";
+			sourceTree = "<group>";
+		};
+		C7F7959B202363F8005DE7B3 /* ScrollableOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7959C202363F8005DE7B3 /* Disclaimer.xib */,
+				C7F7959D202363F8005DE7B3 /* DisclaimerView.swift */,
+			);
+			path = ScrollableOverlay;
+			sourceTree = "<group>";
+		};
+		C7F7959F202363F8005DE7B3 /* XLActionController */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795A0202363F8005DE7B3 /* Action.swift */,
+				C7F795A1202363F8005DE7B3 /* ActionCell.swift */,
+				C7F795A2202363F8005DE7B3 /* ActionCell.xib */,
+				C7F795A3202363F8005DE7B3 /* ActionController.swift */,
+				C7F795A4202363F8005DE7B3 /* ActionControllerSettings.swift */,
+				C7F795A5202363F8005DE7B3 /* ActionData.swift */,
+				C7F795A6202363F8005DE7B3 /* DynamicCollectionViewFlowLayout.swift */,
+				C7F795A7202363F8005DE7B3 /* Twitter.swift */,
+				C7F795A8202363F8005DE7B3 /* TwitterCell.xib */,
+			);
+			path = XLActionController;
+			sourceTree = "<group>";
+		};
+		C7F795D6202472BD005DE7B3 /* UIFlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795D7202472BD005DE7B3 /* UIFlowController.swift */,
+				C7F795D8202472BD005DE7B3 /* UIMainFlowController.swift */,
+				C7F795D9202472BD005DE7B3 /* UIMainScreenFlowController.swift */,
+				C7F795DA202472BD005DE7B3 /* UIPrivacySettingFlowController.swift */,
+				C7F795DB202472BD005DE7B3 /* UIQuestionnaireFlowController.swift */,
+				C7F795DC202472BD005DE7B3 /* UISetPrivacyFlowController.swift */,
+			);
+			name = UIFlowControllers;
+			path = Operando/PrivacyWizard/UserInterface/UIFlowControllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F795E320248DDB005DE7B3 /* JSFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795E420248DDB005DE7B3 /* PrivacyWizard.js */,
+				C7F795E520248DDB005DE7B3 /* PrivacyWizardModule.js */,
+				C7F795E620248DDB005DE7B3 /* PrivacyWizardResources.js */,
+			);
+			name = JSFiles;
+			path = Operando/PrivacyWizard/JSFiles;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F795EA20248DF8005DE7B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795EB20248DF8005DE7B3 /* Fonts */,
+				C7F795EF20248DF8005DE7B3 /* Images */,
+			);
+			name = Resources;
+			path = Operando/PrivacyWizard/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7F795EB20248DF8005DE7B3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795EC20248DF8005DE7B3 /* Dosis */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C7F795EC20248DF8005DE7B3 /* Dosis */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795ED20248DF8005DE7B3 /* Dosis-Medium.otf */,
+				C7F795EE20248DF8005DE7B3 /* Dosis-SemiBold.otf */,
+			);
+			path = Dosis;
+			sourceTree = "<group>";
+		};
+		C7F795EF20248DF8005DE7B3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795F020248DF8005DE7B3 /* Common.xcassets */,
+				C7F795F120248DF8005DE7B3 /* Questionnaire.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C7F795F620286B03005DE7B3 /* PrivacyWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795FC2028B78D005DE7B3 /* PrivacyWizzardFacebookSettings */,
+				C7F795FB2028B780005DE7B3 /* PrivacyWizardDashboard */,
+			);
+			name = PrivacyWizard;
+			sourceTree = "<group>";
+		};
+		C7F795FB2028B780005DE7B3 /* PrivacyWizardDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C7F795F7202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift */,
+				C7F795F8202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib */,
+			);
+			name = PrivacyWizardDashboard;
+			sourceTree = "<group>";
+		};
+		C7F795FC2028B78D005DE7B3 /* PrivacyWizzardFacebookSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C7F796012029B5DB005DE7B3 /* PrivacyWizardFacebookCell */,
+				C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */,
+				C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */,
+			);
+			name = PrivacyWizzardFacebookSettings;
+			sourceTree = "<group>";
+		};
+		C7F796012029B5DB005DE7B3 /* PrivacyWizardFacebookCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79612202DA8EB005DE7B3 /* PrivacyWizardFacebookExpandedCell */,
+				C7F796062029E1DA005DE7B3 /* PrivacyWizardFacebookOptionCell */,
+				C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */,
+				C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */,
+			);
+			name = PrivacyWizardFacebookCell;
+			sourceTree = "<group>";
+		};
+		C7F796062029E1DA005DE7B3 /* PrivacyWizardFacebookOptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7F796072029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift */,
+				C7F796082029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib */,
+			);
+			name = PrivacyWizardFacebookOptionCell;
+			sourceTree = "<group>";
+		};
+		C7F7960B2029E5B6005DE7B3 /* DLRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7960C2029E5C5005DE7B3 /* DLRadioButton.h */,
+				C7F7960D2029E5C6005DE7B3 /* DLRadioButton.m */,
+			);
+			path = DLRadioButton;
+			sourceTree = "<group>";
+		};
+		C7F7960F202A01FF005DE7B3 /* PrivacyWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79610202A022A005DE7B3 /* PrivacyWizardRepository.swift */,
+			);
+			name = PrivacyWizard;
+			sourceTree = "<group>";
+		};
+		C7F79612202DA8EB005DE7B3 /* PrivacyWizardFacebookExpandedCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7F79615202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift */,
+				C7F79616202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib */,
+			);
+			name = PrivacyWizardFacebookExpandedCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1640,23 +2572,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F795B1202363F8005DE7B3 /* testJQuery.js in Resources */,
 				ADF3CA651DB892F900BD2B7A /* SideMenu.xcassets in Resources */,
 				98EAF6791CCF86DC00C77649 /* LaunchScreen.storyboard in Resources */,
+				C7F795E920248DDB005DE7B3 /* PrivacyWizardResources.js in Resources */,
+				C7F795F420248DF8005DE7B3 /* Common.xcassets in Resources */,
 				98EAF6AB1CCF976200C77649 /* UIRegistrationView.xib in Resources */,
+				C7F79618202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib in Resources */,
 				98F6B12B1E7BFD9300D193FF /* UIWebViewTab.xib in Resources */,
 				AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */,
+				C7F795F220248DF8005DE7B3 /* Dosis-Medium.otf in Resources */,
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
 				AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */,
+				C7F795AD202363F8005DE7B3 /* linkedin-iOS.js in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
+				C7F795AC202363F8005DE7B3 /* jquery214min.js in Resources */,
+				C7F796052029B738005DE7B3 /* PrivacyWizardFacebookCell.xib in Resources */,
 				C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */,
+				C7F7960A2029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib in Resources */,
 				9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */,
 				988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */,
 				982DF0261DB638B900231BBD /* UIPfbDetailsView.xib in Resources */,
+				C7F795AB202363F8005DE7B3 /* jquery-3.1.0.min.js in Resources */,
+				C7F795CC202363F8005DE7B3 /* ActionCell.xib in Resources */,
 				982D31791E8427DB00FE2FB7 /* AppSCD.json in Resources */,
+				C7F795F520248DF8005DE7B3 /* Questionnaire.xcassets in Resources */,
 				9852C6F81CD0F68D00AF2BE5 /* UIIdentityCell.xib in Resources */,
 				98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */,
+				C7F795F320248DF8005DE7B3 /* Dosis-SemiBold.otf in Resources */,
 				9866A7C61DBF854000907D05 /* UINotificationsListView.xib in Resources */,
+				C7F795E820248DDB005DE7B3 /* PrivacyWizardModule.js in Resources */,
 				98F647591ED30662008EB91E /* PPCommonTypesBundle.bundle in Resources */,
 				98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */,
 				9866A7B41DBF4B1000907D05 /* Localizable.strings in Resources */,
@@ -1664,26 +2610,42 @@
 				9860B4551DB136C600AFE113 /* UIIdentitiesListView.xib in Resources */,
 				986E3E651DB3CA6B00453DC6 /* UIAddIdentityView.xib in Resources */,
 				AD4AD54B1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.xib in Resources */,
+				C7F795D5202465BC005DE7B3 /* PrivacyWizard.storyboard in Resources */,
 				98F6475A1ED30662008EB91E /* PPCloakBundle.bundle in Resources */,
 				986DB8A61E1CE99900F9BE39 /* schema.json in Resources */,
+				C7F795FA202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib in Resources */,
+				C7F795B0202363F8005DE7B3 /* readSNSettings.js in Resources */,
 				98B89E601EC1DF22009570EC /* LongPress.js in Resources */,
+				C7F795C0202363F8005DE7B3 /* UISNSettingsView.xib in Resources */,
 				C76ABAF11FEBFC9900104239 /* PasswordCell.xib in Resources */,
 				9866A7C01DBF779100907D05 /* UIChangePasswordView.xib in Resources */,
 				989C41861DBE18E800951AE5 /* Info.plist in Resources */,
 				9866A7CB1DBF861300907D05 /* UINotificationCell.xib in Resources */,
 				982DF0601DB660CD00231BBD /* UIPfbDealsListView.xib in Resources */,
+				C7F795C7202363F8005DE7B3 /* Disclaimer.xib in Resources */,
 				98EAF6A31CCF8A3400C77649 /* UILoginView.xib in Resources */,
 				98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */,
+				C7F795B8202363F8005DE7B3 /* interceptPOST.js in Resources */,
+				C7F7951020236129005DE7B3 /* UITutorialView.xib in Resources */,
+				C7F796002028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib in Resources */,
 				C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */,
+				C7F795AF202363F8005DE7B3 /* OSP.Settings.js in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
+				C7F795AA202363F8005DE7B3 /* facebook_iOS.js in Resources */,
 				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
 				C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */,
 				989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */,
+				C7F795BE202363F8005DE7B3 /* UISNSettingsTableViewCell.xib in Resources */,
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
+				C7F795E720248DDB005DE7B3 /* PrivacyWizard.js in Resources */,
+				C7F795AE202363F8005DE7B3 /* osp-settings.js in Resources */,
+				C7F7950E20236129005DE7B3 /* UIRibonHeaderView.xib in Resources */,
+				C7F795B6202363F8005DE7B3 /* fbExtractData.js in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
 				ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */,
 				9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */,
+				C7F795D2202363F9005DE7B3 /* TwitterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1701,37 +2663,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F7950C20236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift in Sources */,
 				98EAF6991CCF893500C77649 /* RSNibDesignableView.swift in Sources */,
 				98EAF6981CCF893500C77649 /* RSCommonUtilities.swift in Sources */,
 				9852C7061CD1197D00AF2BE5 /* UIDashboardViewController.swift in Sources */,
 				AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */,
+				C7F795D0202363F9005DE7B3 /* DynamicCollectionViewFlowLayout.swift in Sources */,
 				982DF05B1DB65D2800231BBD /* UIPfbDealsViewController.swift in Sources */,
+				C7F795FF2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift in Sources */,
 				982D31891E842A9B00FE2FB7 /* AFNetworkReachabilityManager.m in Sources */,
 				C7908A3C1FC6E33400C93A82 /* PKHUDAnimation.swift in Sources */,
+				C7F7956A202363B7005DE7B3 /* JSPrivacyWizardContext.swift in Sources */,
+				C7F796042029B738005DE7B3 /* PrivacyWizardFacebookCell.swift in Sources */,
 				C7908A3B1FC6E33400C93A82 /* PKHUDProgressView.swift in Sources */,
 				AD4AD54A1F666CF8008E6E49 /* OPFeedbackFormTVRadioCell.swift in Sources */,
+				C7F7953E2023620C005DE7B3 /* AMWrite.swift in Sources */,
 				987084101E8E938E00D9F8E9 /* UIImageView+AFNetworking.m in Sources */,
 				987F77B61F0F749300C70119 /* UIWebViewTabLogic.swift in Sources */,
 				982DF0241DB6388800231BBD /* UIPfbDetailsView.swift in Sources */,
+				C7F794F520235FD4005DE7B3 /* UIMainViewController.swift in Sources */,
+				C7F79565202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift in Sources */,
+				C7F795DF202472BD005DE7B3 /* UIMainScreenFlowController.swift in Sources */,
 				98BE1FB01F0294A900223926 /* UiserSettingsModel.swift in Sources */,
 				9852C6FD1CD10C7200AF2BE5 /* UISensorMonitoringViewController.swift in Sources */,
+				C7F7953D2023620C005DE7B3 /* AMAvailableWriteSetting.swift in Sources */,
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
+				C7F79564202363B7005DE7B3 /* ACSwarmCallbackContainer.swift in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
 				982D31881E842A9B00FE2FB7 /* AFHTTPSessionManager.m in Sources */,
 				C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */,
 				989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */,
+				C7F795B5202363F8005DE7B3 /* FacebookSecurityEnforcer.swift in Sources */,
 				987084121E8E938E00D9F8E9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9863E8B01DEC28F50095CA30 /* IdentitiesManagementRepository.swift in Sources */,
 				AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */,
 				986A58F81DB3A43700B622F5 /* UserInfoRepository.swift in Sources */,
 				98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */,
+				C7F7952220236153005DE7B3 /* UILabel+Utils.swift in Sources */,
+				C7F7950B20236129005DE7B3 /* UIRadialGradientView.swift in Sources */,
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
+				C7F795CB202363F8005DE7B3 /* ActionCell.swift in Sources */,
 				989C8A7C1DD3467E003BF341 /* UIRealIdentityView.swift in Sources */,
 				987E71881E8BC8D40006B240 /* UIWebViewTabHelperModels.swift in Sources */,
 				C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */,
+				C7F7952320236153005DE7B3 /* UINavigationItem+Utils.swift in Sources */,
 				C7908A371FC6E33400C93A82 /* PKHUDErrorView.swift in Sources */,
 				C76ABAF81FEC0AD600104239 /* AccountDeletionCell.swift in Sources */,
 				C76ABAF41FEBFF8200104239 /* PasswordExpandedCell.swift in Sources */,
+				C7F795CF202363F9005DE7B3 /* ActionData.swift in Sources */,
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */,
@@ -1740,54 +2719,84 @@
 				9866A7BE1DBF778100907D05 /* UIChangePasswordView.swift in Sources */,
 				9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */,
 				C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */,
+				C7F795B7202363F8005DE7B3 /* FbWebKitParametersProvider.swift in Sources */,
 				98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */,
 				C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */,
 				C7908A361FC6E33400C93A82 /* HUD.swift in Sources */,
 				982D318C1E842A9B00FE2FB7 /* AFURLResponseSerialization.m in Sources */,
 				98EAF69F1CCF899500C77649 /* UIViewController+Extensions.swift in Sources */,
+				C7F79566202363B7005DE7B3 /* ACSwarmClientHelper.swift in Sources */,
 				9852C6F71CD0F68D00AF2BE5 /* UIIdentityCell.swift in Sources */,
 				985A0D4B1DCCB0E40010C799 /* LocksmithInternetProtocol.swift in Sources */,
 				982750171D0849C700C73411 /* UIPrivateBrowsingViewController.swift in Sources */,
 				98EAF66F1CCF86DC00C77649 /* AppDelegate.swift in Sources */,
+				C7F795BC202363F8005DE7B3 /* UISNSettingsReaderViewController.swift in Sources */,
+				C7F79617202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift in Sources */,
 				98387BBE1DB75A8400A76F01 /* UIDashboardButton.swift in Sources */,
 				C7908A331FC6E33400C93A82 /* WindowRootViewController.swift in Sources */,
 				98EAF6911CCF884000C77649 /* OPUtils.swift in Sources */,
+				C7F795382023620C005DE7B3 /* AMPrivacyRecommendation.swift in Sources */,
+				C7F7950D20236129005DE7B3 /* UIRibonHeaderView.swift in Sources */,
 				988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */,
 				ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */,
+				C7F79569202363B7005DE7B3 /* ACMathOperator.swift in Sources */,
 				C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */,
+				C7F795B4202363F8005DE7B3 /* LocalJSSettingsProvider.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
+				C7F795E0202472BD005DE7B3 /* UIPrivacySettingFlowController.swift in Sources */,
+				C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */,
 				9870840E1E8E938E00D9F8E9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				986A58F21DB39C7300B622F5 /* SwarmClientHelperTypes.swift in Sources */,
 				C7908A3D1FC6E33400C93A82 /* PKHUDWideBaseView.swift in Sources */,
+				C7F7953A2023620C005DE7B3 /* AMAvailableReadSetting.swift in Sources */,
 				9882DCF71D140F3F00C7A70F /* NSDate+Utilities.swift in Sources */,
+				C7F795D1202363F9005DE7B3 /* Twitter.swift in Sources */,
 				987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */,
+				C7F795CA202363F8005DE7B3 /* Action.swift in Sources */,
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,
+				C7F795CE202363F8005DE7B3 /* ActionControllerSettings.swift in Sources */,
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
+				C7F7960E2029E5C6005DE7B3 /* DLRadioButton.m in Sources */,
 				C7908A321FC6E33400C93A82 /* Window.swift in Sources */,
+				C7F795BF202363F8005DE7B3 /* UISNSettingsView.swift in Sources */,
+				C7F795B3202363F8005DE7B3 /* OSPSettingsManager.swift in Sources */,
 				98EAF6A11CCF8A1800C77649 /* UILoginView.swift in Sources */,
+				C7F79611202A022A005DE7B3 /* PrivacyWizardRepository.swift in Sources */,
 				9827501D1D0849E200C73411 /* CredentialsStore.swift in Sources */,
 				C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */,
+				C7F7952120236153005DE7B3 /* UIImage+PWUtils.swift in Sources */,
 				9852C7031CD1191B00AF2BE5 /* UIRootViewController.swift in Sources */,
+				C7F79567202363B7005DE7B3 /* ACPrivacyWizard.swift in Sources */,
 				985A0D481DCCB0E40010C799 /* LocksmithAccessibleOption.swift in Sources */,
+				C7F795DE202472BD005DE7B3 /* UIMainFlowController.swift in Sources */,
+				C7F795DD202472BD005DE7B3 /* UIFlowController.swift in Sources */,
+				C7F795B9202363F8005DE7B3 /* FbWebKitSecurityEnforcer.swift in Sources */,
+				C7F79560202363B7005DE7B3 /* ACNetworkingConstants.swift in Sources */,
 				982D318A1E842A9B00FE2FB7 /* AFSecurityPolicy.m in Sources */,
 				986E3E631DB3CA5600453DC6 /* UIAddIdentityView.swift in Sources */,
 				C7908A341FC6E33400C93A82 /* PKHUDRotatingImageView.swift in Sources */,
+				C7F795402023620C005DE7B3 /* AMPrivacySettings.swift in Sources */,
 				986D4CAC1DB27F940006DA0B /* PrivacyForBenefitsRepository.swift in Sources */,
 				98387BC31DB7633500A76F01 /* UIColor+Utilities.swift in Sources */,
 				98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */,
 				C7908A3E1FC6E33400C93A82 /* PKHUDAnimating.swift in Sources */,
+				C7F7952420236153005DE7B3 /* UITableViewCell+Utils.swift in Sources */,
 				AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */,
 				C7908A311FC6E33400C93A82 /* PKHUDAssets.swift in Sources */,
+				C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */,
 				98F6B1241E7BE5A200D193FF /* UIWebToolbarView.swift in Sources */,
 				98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */,
 				985A0D4C1DCCB0E40010C799 /* LocksmithSecurityClass.swift in Sources */,
+				C7F795F9202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift in Sources */,
 				9866A7BB1DBF701400907D05 /* UIAccountViewController.swift in Sources */,
 				98516FCF1E040C51007428F3 /* OPCloak.swift in Sources */,
+				C7F7950A20236129005DE7B3 /* UICustomTableViewHeader.swift in Sources */,
 				C7908A391FC6E33400C93A82 /* PKHUDTextView.swift in Sources */,
 				C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */,
 				986F1A5E1E81331900107F23 /* WebTabsControllerLogic.swift in Sources */,
 				982DF05E1DB660B600231BBD /* UIPfbDealsListView.swift in Sources */,
+				C7F7950920236129005DE7B3 /* UIAlertViewController.swift in Sources */,
 				982750201D0849EB00C73411 /* SwarmClientHelper.swift in Sources */,
 				9827502D1D084A4B00C73411 /* WKWebViewUtilities.swift in Sources */,
 				98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */,
@@ -1795,6 +2804,7 @@
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,
 				982DF0631DB6618700231BBD /* UIPfbDealTableViewCell.swift in Sources */,
+				C7F7953B2023620C005DE7B3 /* AMRead.swift in Sources */,
 				AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,
 				98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */,
@@ -1804,39 +2814,63 @@
 				9896F46D1E892D7B00BA0D6E /* WebAdBlocker.swift in Sources */,
 				98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */,
 				98EAF6A61CCF92CA00C77649 /* UISignInViewController.swift in Sources */,
+				C7F79562202363B7005DE7B3 /* ACErrorContainer.swift in Sources */,
 				981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */,
+				C7F7952520236153005DE7B3 /* UIView+Utils.swift in Sources */,
+				C7F7952020236153005DE7B3 /* UIColor+Utils.swift in Sources */,
 				AD48A8EB1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift in Sources */,
+				C7F795392023620C005DE7B3 /* AMPrivacySetting.swift in Sources */,
+				C7F79561202363B7005DE7B3 /* ACTypeConstants.swift in Sources */,
 				C7908A3F1FC6E33400C93A82 /* PKHUD.swift in Sources */,
+				C7F794F820235FD4005DE7B3 /* UIQuestionnaireTableViewController.swift in Sources */,
 				98EAF6B41CCFA83600C77649 /* UIRegistrationViewController.swift in Sources */,
 				9852C6FA1CD0FEA000AF2BE5 /* OPViewUtils.swift in Sources */,
+				C7F7953F2023620C005DE7B3 /* AMWriteSettingParameter.swift in Sources */,
+				C7F795BB202363F8005DE7B3 /* WebViewSettingsReader.swift in Sources */,
 				985A0D461DCCB0E40010C799 /* Dictionary_Initializers.swift in Sources */,
 				C7908A381FC6E33400C93A82 /* FrameView.swift in Sources */,
 				AD4AD5501F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift in Sources */,
 				989C41881DBE18E800951AE5 /* MGSwipeTableCell.m in Sources */,
 				982750261D0849FA00C73411 /* OPConfigObject.swift in Sources */,
+				C7F7952620236153005DE7B3 /* WKWebView+Utils.swift in Sources */,
+				C7F795BD202363F8005DE7B3 /* UISNSettingsTableViewCell.swift in Sources */,
+				C7F79563202363B7005DE7B3 /* ACPrivacyWriter.swift in Sources */,
 				C7908A3A1FC6E33400C93A82 /* PKHUDSquareBaseView.swift in Sources */,
+				C7F79568202363B7005DE7B3 /* ACSwarmManager.swift in Sources */,
+				C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */,
+				C7F795CD202363F8005DE7B3 /* ActionController.swift in Sources */,
 				9870840F1E8E938E00D9F8E9 /* UIButton+AFNetworking.m in Sources */,
+				C7F796092029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift in Sources */,
 				9843340C1F06364A0016564E /* LocalizedStringKeys.swift in Sources */,
-				98668B611DB0D1F100FDE63A /* UIFlowController.swift in Sources */,
+				98668B611DB0D1F100FDE63A /* UIOPFlowController.swift in Sources */,
 				9827501A1D0849D400C73411 /* UserIdentityModel.swift in Sources */,
 				982DF0681DB6796500231BBD /* UIPfbDetailsAlertViewController.swift in Sources */,
+				C7F795B2202363F8005DE7B3 /* HTMLLoginInputDetector.swift in Sources */,
+				C7F7953C2023620C005DE7B3 /* AMReadJQuerySelector.swift in Sources */,
+				C7F795412023620C005DE7B3 /* AMRecommendedSettings.swift in Sources */,
 				987084111E8E938E00D9F8E9 /* UIProgressView+AFNetworking.m in Sources */,
 				985BA6B31DC23F0C00BC645B /* NotificationsRepository.swift in Sources */,
 				9852C7091CD119FD00AF2BE5 /* UINavigationManager.swift in Sources */,
 				98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */,
+				C7F795C8202363F8005DE7B3 /* DisclaimerView.swift in Sources */,
 				ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */,
 				AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */,
 				982D318D1E842A9B00FE2FB7 /* AFURLSessionManager.m in Sources */,
+				C7F794F920235FD4005DE7B3 /* UISetPrivacyViewController.swift in Sources */,
 				982D318B1E842A9B00FE2FB7 /* AFURLRequestSerialization.m in Sources */,
 				985A0D4A1DCCB0E40010C799 /* LocksmithInternetAuthenticationType.swift in Sources */,
 				98EAF69E1CCF899500C77649 /* UIView+Utilities.swift in Sources */,
 				986D4CA91DB23AA80006DA0B /* SwarmClientResponseParsers.swift in Sources */,
+				C7F795E1202472BD005DE7B3 /* UIQuestionnaireFlowController.swift in Sources */,
+				C7F795E2202472BD005DE7B3 /* UISetPrivacyFlowController.swift in Sources */,
 				98EAF6A91CCF974500C77649 /* UIRegistrationView.swift in Sources */,
 				9866A7CA1DBF861300907D05 /* UINotificationCell.swift in Sources */,
 				C7908A401FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift in Sources */,
+				C7F7950F20236129005DE7B3 /* UITutorialView.swift in Sources */,
 				9866A7C41DBF852500907D05 /* UINotificationsListView.swift in Sources */,
 				986A58F41DB39E7500B622F5 /* UsersRepository.swift in Sources */,
 				98D220BE1E80009D00B3BD06 /* UIWebTabCollectionCell.swift in Sources */,
+				C7F795BA202363F8005DE7B3 /* WebKitSettingsReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1902,6 +2936,14 @@
 				98EAF6781CCF86DC00C77649 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C7F795D3202465BC005DE7B3 /* PrivacyWizard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7F795D4202465BC005DE7B3 /* Base */,
+			);
+			name = PrivacyWizard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2016,6 +3058,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Operando",
+					"$(PROJECT_DIR)/Operando/PrivacyWizard/ExternalFrameworks",
 				);
 				INFOPLIST_FILE = Operando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2039,6 +3082,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Operando",
+					"$(PROJECT_DIR)/Operando/PrivacyWizard/ExternalFrameworks",
 				);
 				INFOPLIST_FILE = Operando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

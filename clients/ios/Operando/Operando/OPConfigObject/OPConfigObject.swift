@@ -19,7 +19,7 @@ class OPConfigObject: NSObject
     private let swarmClientHelper : SwarmClientHelper = SwarmClientHelper()
     private var userRepository: UsersRepository?
     private var notificationsRepository: NotificationsRepository?
-    private var flowController: UIFlowController?
+    private var flowController: UIOPFlowController?
     private var dependencies: Dependencies?
     private var actionsPerNotificationType: [NotificationAction: VoidBlock] = [:]
     private let adBlocker = WebAdBlocker();
@@ -51,10 +51,9 @@ class OPConfigObject: NSObject
                 })
             },
             feedbackFormRepo: self.swarmClientHelper,
-            myAccountRepo: self.swarmClientHelper
-        )
+            myAccountRepo: self.swarmClientHelper, privacyWizzard: self.swarmClientHelper)
         
-        self.flowController = UIFlowController(dependencies: dependencies)
+        self.flowController = UIOPFlowController(dependencies: dependencies)
         self.dependencies = dependencies
         
         weak var flowCntroler = self.flowController

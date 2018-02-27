@@ -23,6 +23,7 @@ enum SwarmName: String
     case email          = "emails.js"
     case ude            = "UDESwarm.js"
     case feedback       = "feedback.js"
+    case privacyWizard  = "PrivacyWizardSwarm.js"
 }
 
 enum SwarmPhase: String
@@ -34,6 +35,13 @@ enum LoginConstructor: String
 {
     case userLogin = "userLogin"
     case userLogout = "logout"
+}
+
+enum PrivacyWizardConstructor: String {
+    
+    case getOSPSettings         = "getOSPSettings"
+    case fetchRecommenderParams = "fetchRecommenderParams"
+    case completeWizard         = "completeWizard"
 }
 
 enum RegisterConstructor: String

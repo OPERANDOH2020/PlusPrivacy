@@ -26,6 +26,7 @@ struct Dependencies{
     let whenRequestingNumOfNotifications: NumOfNotificationsRequestCallback?
     let feedbackFormRepo: OPFeedbackFormProtocol?
     let myAccountRepo: UsersRepository?
+    let privacyWizzard:PrivacyWizardRepository?
 }
 
 struct AccountCallbacks {
@@ -36,7 +37,7 @@ struct AccountCallbacks {
     let passwordChangeCallback: PasswordChangeCallback?
 }
 
-class UIFlowController
+class UIOPFlowController
 {
     let dependencies: Dependencies
     let rootController: UIRootViewController
@@ -111,7 +112,8 @@ class UIFlowController
         },whenChoosingPrivacyForBenefits: {
             
             self.rootController.setupLeftButton(buttonType: .back)
-            weakSelf?.displayPfbDeals()
+//            weakSelf?.displayPfbDeals()
+            weakSelf?.displayPrivacyWizardDashboard()
         },whenChoosingPrivateBrowsing: {
             self.rootController.setupLeftButton(buttonType: .back)
             weakSelf?.displayPrivateBrowsing()
@@ -126,6 +128,50 @@ class UIFlowController
         dashBoardVC.setupWith(callbacks: dashboardCallbacks)
         self.rootController.setMainControllerTo(newController: dashBoardVC)
     }
+    
+    func displayPrivacyWizardDashboard() {
+
+        let vc = UIViewControllerFactory.getPrivacyWizzardDashboardViewController()
+       
+        vc.setupWithCallback(callbacks: PrivacyWizzardDashboardCallbacks(pressedFacebook: {
+            
+            //go to Facebook Privacy settings
+            
+            self.displayFacebookQuestionnaire()
+            
+        }))
+            
+        self.rootController.setupTabViewForIdentities()
+        self.rootController.setMainControllerTo(newController: vc)
+    }
+    
+    func displayFacebookQuestionnaire () {
+        let vc = UIViewControllerFactory.getFBQuestionnarieViewController()
+        
+        vc.setup(with: dependencies.privacyWizzard!, callbacks: PrivacyWizzardFacebookSettingsCallbacks(pressedSubmit: { (settings) in
+            
+            //go to privacy
+            print("go to privacy")
+            self.displaySetPrivacyVC()
+            
+        }, pressedRecommended: {
+            
+            print("pressedRecommended")
+            
+        }))
+        
+        self.rootController.setupTabViewForIdentities()
+        self.rootController.setMainControllerTo(newController: vc)
+        
+    }
+    
+    func displaySetPrivacyVC(){
+         let vc = UIViewControllerFactory.getSetPrivacyViewController()
+        self.rootController.setupTabViewForIdentities()
+        self.rootController.setMainControllerTo(newController: vc)
+    }
+    
+    
     
     func displayIdentitiesManagement(){
         let vc = UIViewControllerFactory.identityManagementViewController
