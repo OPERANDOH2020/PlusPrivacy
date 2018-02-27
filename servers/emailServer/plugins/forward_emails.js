@@ -133,7 +133,18 @@ exports.decide_action = function (next,connection) {
 
                     connection.relaying = true;
                     next()
-                }else {
+                }else
+                if(sender.toLocaleLowerCase().match('apache@'+host)){
+                    //TODO rewrite this
+                    connection.results.add(plugin,{
+                        "action":"sendWordpressEmail",
+                        "to":alias,
+                        "from":"pressrelease@"+host,
+                        "replyTo": "contact@"+host
+                    });
+                    connection.relaying = true;
+                    next();
+                }else{
                     next(DENYDISCONNECT)
                 }
 
