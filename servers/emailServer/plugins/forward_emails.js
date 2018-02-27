@@ -96,9 +96,6 @@ exports.decide_action = function (next,connection) {
         } else if(!swarmConnection.connected()){
             next(DENYSOFT)
         } else{
-
-            plugin.loginfo("\n\n\nMyALIST",alias.toLowerCase());
-
             swarmConnection.getRealEmail(alias.toLowerCase(), function (err, realEmail) {
                 if (realEmail) {
 
@@ -138,7 +135,7 @@ exports.decide_action = function (next,connection) {
                     next()
                 }else
                 if(sender.toLocaleLowerCase().match('apache@'+host)){
-                    plugin.loginfo('hack-ul vietii');//TODO rewrite this shit
+                    //TODO rewrite this
                     connection.results.add(plugin,{
                         "action":"sendWordpressEmail",
                         "to":alias,
