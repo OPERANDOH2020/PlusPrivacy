@@ -8,19 +8,6 @@ body
   background:#f5f3ed!important;
 }
 
-#clickhide-instructions,
-#clickhide-cancel,
-body.clickhide-active li
-{
-  display: none;
-}
-
-body.clickhide-active #clickhide-instructions,
-body.clickhide-active #clickhide-cancel
-{
-  display: block;
-}
-
 body.local #enabled,
 body.local #clickhide,
 body.local #stats-page
@@ -244,11 +231,6 @@ body.disabled #enabled #enabled-no
   background-position: -50px -33px;
 }
 
-#clickhide-instructions
-{
-  margin: 10px 15px;
-}
-
 #stats-container .icon
 {
   background-position: -50px -49px;
@@ -458,28 +440,9 @@ ul.popup-login-area{
   float:left;
 }
 
-#wrapperabp{
-  display: none;
-}
-#wrapperabp.visible{
-  display: block;
-}
 
 #operando_abp{
   background: #ece7df;
-}
-
-div#expand_abp{
-  position: absolute;
-  right:10px;
-  top:18px;
-  width:11px;
-  height:11px;
-  display: block;
-  background: url(../operando/assets/images/icons/collapsed.png) no-repeat left center;
-}
-div#expand_abp.expanded{
-  background: url(../operando/assets/images/icons/expanded.png) no-repeat left center;
 }
 
 #share,#show-iconnumber,.operando_hide{

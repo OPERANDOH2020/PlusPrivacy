@@ -26,18 +26,9 @@
     "description": "Cancel button label",
     "message": "Cancel"
   },
-  "clickhide_instructions": {
-    "description": "Instructions shown in popup UI before it disapears, when \"Block element\" action is executed",
-    "message": "After closing this popup, click (or right-click) an element on the page."
-  },
   "description": {
     "description": "Note: this cannot be longer than 132 characters",
     "message": "Plus Privacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy."
-  },
-  "disabled_for_site":
-  {
-    "description": "Popup balloon label to disable blocking",
-    "message": "<strong>Disabled</strong> on this site"
   },
   "disabled_for_these_domains": {
     "message": "Plus Privacy is disabled for the domains listed below."
@@ -51,10 +42,6 @@
   },
   "enable_only_the": {
     "message": "Enable only the filter lists you need. Too many can make your browser unresponsive."
-  },
-  "enabled_for_site": {
-    "description": "Popup balloon label to enable blocking",
-    "message": "<strong>Enabled</strong> on this site"
   },
   "filter_lists": {
     "description": "This is a tab heading.",
