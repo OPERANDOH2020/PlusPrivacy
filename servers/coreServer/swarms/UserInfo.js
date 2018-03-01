@@ -152,7 +152,7 @@ var userInfoSwarming =
                         "no-reply@"+thisAdapter.config.Core.operandoHost,
                         user['email'],
                         "Changed password",
-                        "Your password has been changed \nYour new password is " + newPassword,
+                        "Your password has been changed \nIf you didn't make this change, <a href='https://plusprivacy.com/contact'>please let us know</a>.",
                         self.meta['swarmId']);
                 }
             }));
