@@ -21,6 +21,7 @@
 
     <color name="green_button">#00a493</color>
     <color name="overlay_background">#bb000000</color>
+    <color name="overlay_webview">#78000000</color>
 
     <color name="menu_1">#45d0ce</color>
     <color name="menu_2">#beb9fd</color>

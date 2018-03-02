@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/scanner_info"
-        android:title="Recommended"
+        android:id="@+id/social_network_info"
         android:icon="@drawable/facebook_menu_item"
-        app:showAsAction="ifRoom"/>
+        android:title="Recommended"
+        app:showAsAction="ifRoom" />
 </menu>

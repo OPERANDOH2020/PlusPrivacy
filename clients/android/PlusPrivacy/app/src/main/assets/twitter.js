@@ -703,6 +703,7 @@ var mainFunction = function(privacySettingsJsonString) {
     var run = true;
     xhook.before(function(request) {
 
+        Android.setProgressBar(50, 100);
         headers = request.headers;
 
         if (run) {
@@ -737,6 +738,7 @@ var mainFunction = function(privacySettingsJsonString) {
                     if (data.settings_metadata && data.settings_metadata.is_eu == "true") {
                         isEUCountry = true;
                     }
+
 
                     secureAccount(isEUCountry, privacySettingsJsonString);
                 },
@@ -817,6 +819,7 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
                 },
                 success: function(data) {
                     resolve();
+                    Android.setProgressBar(100, 100);
                     Android.onFinishedLoadingCallback();
                 },
                 error: function(request, textStatus, errorThrown) {

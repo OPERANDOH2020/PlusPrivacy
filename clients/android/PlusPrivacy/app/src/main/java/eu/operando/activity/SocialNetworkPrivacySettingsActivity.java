@@ -20,7 +20,10 @@ import eu.operando.R;
 
 public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
 
-    private ImageView rotationDot;
+    private ImageView rotationDotFacebook;
+    private ImageView rotationDotLinkedin;
+    private ImageView rotationDotGoogle;
+    private ImageView rotationDotTwitter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,10 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         RelativeLayout linkedinLayout = (RelativeLayout) findViewById(R.id.linkedin_settings);
         RelativeLayout twitterLayout = (RelativeLayout) findViewById(R.id.twitter_settings);
         RelativeLayout googleLayout = (RelativeLayout) findViewById(R.id.google_settings);
-        rotationDot = (ImageView) findViewById(R.id.rotation_dot);
+        rotationDotFacebook = (ImageView) findViewById(R.id.rotation_dot_facebook);
+        rotationDotLinkedin = (ImageView) findViewById(R.id.rotation_dot_linkedin);
+        rotationDotGoogle = (ImageView) findViewById(R.id.rotation_dot_google);
+        rotationDotTwitter = (ImageView) findViewById(R.id.rotation_dot_twitter);
 
         facebookLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +113,10 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                rotationDot.startAnimation(rotate);
+                rotationDotFacebook.startAnimation(rotate);
+                rotationDotLinkedin.startAnimation(rotate);
+                rotationDotGoogle.startAnimation(rotate);
+                rotationDotTwitter.startAnimation(rotate);
             }
         });
     }

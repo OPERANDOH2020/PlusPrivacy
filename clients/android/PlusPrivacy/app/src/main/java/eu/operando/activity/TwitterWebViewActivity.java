@@ -1,14 +1,11 @@
 package eu.operando.activity;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
+
+import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import java.util.Map;
+import eu.operando.customView.MyWebViewClient;
 
 /**
  * Created by Alex on 1/23/2018.
@@ -16,69 +13,63 @@ import java.util.Map;
 
 public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
-    public class MyWebViewClient extends WebViewClient {
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-
-            if (shouldInject) {
-                injectScriptFile("test_jquery.js");
-                if (webAppInterface.getIsJQueryLoaded() == 0) {
-                    injectScriptFile("jquery214min.js");
-                }
-
-                injectScriptFile("twitter.js");
-                initProgressDialog();
-            }
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-
-            Log.e("requestHTTP", request.getMethod() + " " + request.getUrl());
-            Map<String, String> headers = request.getRequestHeaders();
-            for (Map.Entry<String, String> entry : headers.entrySet()){
-                String key = entry.getKey();
-                String value = entry.getValue();
-                Log.e("{HEADER Aos}" + key, value);
-            }
-            try {
-                Log.e("cookie ", String.valueOf(cookieManager.hasCookies()));
-
-                Log.e("cookie ", "cookie: " + cookieManager.getCookie("cookie"));
-            } catch (Exception e){
-                Log.e("exception", e.getMessage());
-            }
-
-//            WebResourceResponse response = super.shouldInterceptRequest(view, request);
-//            Log.e("{statusCode Aos}", String.valueOf(response.getStatusCode()));
-
-            return super.shouldInterceptRequest(view, request);
-        }
-
-    }
-
-    private final String URL_MOBILE = "https://mobile.twitter.com/settings/safety";
-//    private final String URL_MOBILE = "http://twitter.com/settings/safety";
-    private final String URL = "https://mobile.twitter.com/settings/safety";
-
     public String getURL_MOBILE() {
-        return URL_MOBILE;
+        return "https://mobile.twitter.com/settings/safety";
     }
 
     public String getURL() {
-        return URL;
+        return "https://mobile.twitter.com/settings/safety";
     }
 
     @Override
     public WebViewClient getWebViewClient() {
-        return new TwitterWebViewActivity.MyWebViewClient();
+        return new TwitterWebViewClient(this);
     }
 
     @Override
     public WebAppInterface getWebAppInterface() {
         return new WebAppInterface(this, privacySettingsString);
     }
+
+    @Override
+    public String getJsFile() {
+        return "twitter.js";
+    }
+
+    public void startInjectingOnClick(View view) {
+
+        if (!shouldInject) {
+
+            myWebView.loadUrl(getURL());
+
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
+            } else {
+                CookieManager.getInstance().setAcceptCookie(true);
+            }
+
+            initProgressDialog();
+            shouldInject = true;
+        }
+    }
+
+    public class TwitterWebViewClient extends MyWebViewClient {
+
+        public TwitterWebViewClient(SocialNetworkInterface socialNetworkInterface) {
+            super(socialNetworkInterface);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            socialNetworkInterface.onPageListener();
+
+        }
+
+        @Override
+        public void onPageCommitVisible(WebView view, String url) {
+//            super.onPageCommitVisible(view, url);
+        }
+    }
+
 }

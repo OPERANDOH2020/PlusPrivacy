@@ -13,15 +13,14 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.webkit.ConsoleMessage;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -32,24 +31,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 
 import eu.operando.R;
 import eu.operando.customView.ButtonTargetShowCaseView;
+import eu.operando.customView.MyWebViewClient;
 import eu.operando.customView.OperandoProgressDialog;
 
 /**
  * Created by Alex on 1/19/2018.
  */
 
-public abstract class SocialNetworkWebViewActivity extends BaseActivity {
+public abstract class SocialNetworkWebViewActivity extends BaseActivity implements MyWebViewClient.SocialNetworkInterface {
 
     protected WebView myWebView;
     protected String privacySettingsString;
@@ -62,9 +57,23 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
     protected JSONArray usualSettings = new JSONArray();
     protected JSONArray preferencesSettings = new JSONArray();
     protected JSONArray activityControlsSettings = new JSONArray();
-
+    protected Object mutex = new Object();
     protected ProgressBar progressBar;
     protected Button startButton;
+    protected FrameLayout frameLayout;
+    private int totalQuestions;
+
+
+    public abstract String getURL_MOBILE();
+
+    protected abstract String getURL();
+
+    public abstract WebViewClient getWebViewClient();
+
+    public abstract WebAppInterface getWebAppInterface();
+
+    public abstract String getJsFile();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,42 +105,31 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             e.printStackTrace();
         }
         Log.e(SocialNetworkFormBaseActivity.PRIVACY_SETTINGS_TAG, privacySettingsString);
+        totalQuestions = privacySettingsJSONArray.length();
     }
 
     private void initUI() {
 
-        setOverlay();
-
         startButton = (Button) findViewById(R.id.start_injecting_button);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         myWebView = (WebView) findViewById(R.id.webview);
+        frameLayout = (FrameLayout) findViewById(R.id.webview_frame);
+
+        setOverlay();
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
-
-//        setAgent();
-
         myWebView.setWebViewClient(getWebViewClient());
-//        myWebView.setWebChromeClient(new WebChromeClient() {
-//            @Override
-//            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-//                Log.e("My JS Console", consoleMessage.message() + " -- From line "
-//                        + consoleMessage.lineNumber() + " of "
-//                        + consoleMessage.sourceId());
-//                return super.onConsoleMessage(consoleMessage);
-//            }
-//        });
-        webAppInterface = getWebAppInterface();// new WebAppInterface(this, privacySettingsString);
+
+        webAppInterface = getWebAppInterface();
         myWebView.addJavascriptInterface(webAppInterface, "Android");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 
-
         cookieManager = CookieManager.getInstance();
-//        cookieManager.removeAllCookie();
         CookieSyncManager.getInstance().sync();
         CookieManager.setAcceptFileSchemeCookies(true);
 
@@ -144,19 +142,11 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         myWebView.loadUrl(getURL_MOBILE());
     }
 
-    public abstract String getURL_MOBILE();
-
-    protected abstract String getURL();
-
-    public abstract WebViewClient getWebViewClient();
-
-    public abstract WebAppInterface getWebAppInterface();
-
     public void startInjectingOnClick(View view) {
+
         if (!shouldInject) {
 
             setAgent();
-
             myWebView.loadUrl(getURL());
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -164,8 +154,23 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             } else {
                 CookieManager.getInstance().setAcceptCookie(true);
             }
-
+            initProgressDialog();
             shouldInject = true;
+        }
+    }
+
+    public void onPageListener() {
+
+        synchronized (mutex) {
+            if (shouldInject) {
+                injectScriptFile("test_jquery.js");
+                if (webAppInterface.getIsJQueryLoaded() == 0) {
+                    injectScriptFile("jquery214min.js");
+                }
+
+                shouldInject = false;
+                injectScriptFile(getJsFile());
+            }
         }
     }
 
@@ -176,11 +181,9 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
 
     protected void initProgressDialog() {
         if (!isFinishing()) {
-            progressDialog = new OperandoProgressDialog(this);
-            progressDialog.setTitle("Applying settings...");
-            progressDialog.setMessage("This may take some time");
-            progressDialog.setCancelable(true);
-            progressDialog.show();
+            frameLayout.setVisibility(View.VISIBLE);
+            startButton.setVisibility(View.GONE);
+            progressBar.setVisibility(View.VISIBLE);
         }
     }
 
@@ -201,7 +204,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         showcaseView.overrideButtonClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeStatusBarColor(R.color.primary_color_dark);
+                changeStatusBarColor(R.color.black);
                 showcaseView.hide();
             }
         });
@@ -230,6 +233,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
     }
 
     public void changeStatusBarColor(int color) {
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -249,7 +253,6 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
                 String jsString = new String(buffer);
-//                Log.e("PRIVACY", jsString);
                 myWebView.evaluateJavascript(jsString, null);
 
             } else {
@@ -262,18 +265,17 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
                         "script.type = 'text/javascript';" +
                         // Tell the browser to BASE64-decode the string into your script !!!
                         "script.innerHTML = window.atob('" + encoded + "');" +
-//                    "script.src = \"" + SCRIPT_URL + "\";" +
                         "parent.appendChild(script)" +
                         "})()");
 
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     public void injectCssFile(String scriptFile) {
+
         InputStream input;
         try {
             input = getAssets().open(scriptFile);
@@ -297,23 +299,16 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         }
     }
 
-//    String SCRIPT_URL = "https://raw.githubusercontent.com/OPERANDOH2020/PlusPrivacy/android/clients/android/PlusPrivacy/app/src/main/assets/twitter_desktop.js";
-
     public class WebAppInterface {
 
         private String privacySettings;
         private int isJQueryLoaded;
         private Context context;
+        private int index = 0;
 
         public WebAppInterface(Context context, String privacySettings) {
             this.context = context;
             this.privacySettings = privacySettings;
-        }
-
-        @JavascriptInterface
-        @SuppressWarnings("unused")
-        public void processHTML(String html) {
-//            Log.e("htmlString", html);
         }
 
         @JavascriptInterface
@@ -322,47 +317,8 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         }
 
         @JavascriptInterface
-        public String getPreferencePrivacySettings() {
-            return preferencesSettings.toString();
-        }
-
-        @JavascriptInterface
-        public String getUsualPrivacySettings() {
-            return usualSettings.toString();
-        }
-
-        @JavascriptInterface
-        public String getActivityControlsSettings() {
-            return activityControlsSettings.toString();
-        }
-
-        @JavascriptInterface
         public void showToast(String message) {
             Log.e("msg from the dark side", message);
-//            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-        }
-
-        @JavascriptInterface
-        public void onFinishedLoadingPreferenceSettings() {
-            myWebView.post(new Runnable() {
-                @Override
-                public void run() {
-                    myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
-                }
-            });
-        }
-
-        @JavascriptInterface
-        public void onFinishedLoadingUsualSettings() {
-            myWebView.post(new Runnable() {
-                @Override
-                public void run() {
-
-                    injectCssFile("activityControls.css");
-//                    myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
-                    injectScriptFile("google_activity_controls.js");
-                }
-            });
         }
 
         @JavascriptInterface
@@ -380,78 +336,30 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity {
         }
 
         @JavascriptInterface
-        public void dismissDialog() {
-            progressDialog.dismiss();
-        }
-
-        @JavascriptInterface
-        public String doGetRequest(String url) {
-            URL obj = null;
-            try {
-                obj = new URL(url);
-
-                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-                // optional default is GET
-                con.setRequestMethod("GET");
-
-                //add request header
-                con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-                int responseCode = con.getResponseCode();
-                Log.e("'GET' URL: ", url);
-                Log.e("Response Code : ", String.valueOf(responseCode));
-
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(con.getInputStream()));
-                String inputLine;
-                StringBuffer response = new StringBuffer();
-
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                //print result
-                Log.e("GET response: ", response.toString());
-
-                return response.toString();
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (ProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @JavascriptInterface
         public void isLoaded(int jquery) {
             Log.e("WebAppI isLoaded", String.valueOf(jquery));
             isJQueryLoaded = jquery;
         }
 
         @JavascriptInterface
-        public void setProgress(int index, int total) {
-            Log.e("index", String.valueOf(index));
-            Log.e("total", String.valueOf(total));
-            Log.e("percent", String.valueOf(index * 100 / total));
-            int percent = index * 100 / total;
-            progressDialog.setMax(100);
-            progressDialog.setProgress(percent);
+        public void setProgressBar() {
+            index++;
+            progressBar.setMax(totalQuestions);
+            progressBar.setProgress(index);
         }
 
         @JavascriptInterface
-        public void setProgressBar(int index, int total) {
-            Log.e("index", String.valueOf(index));
-            Log.e("total", String.valueOf(total));
-            Log.e("percent", String.valueOf(index * 100 / total));
-            int percent = index * 100 / total;
-            progressBar.setMax(100);
-            progressBar.setProgress(percent);
+        public void setProgressBar(int activityIndex, int totalActivity) {
+
+            progressBar.setMax(totalActivity);
+            progressBar.setProgress(index + activityIndex);
+        }
+
+        @JavascriptInterface
+        public void setProgressBar(int activityIndex) {
+
+            progressBar.setMax(totalQuestions);
+            progressBar.setProgress(index + activityIndex);
         }
 
         public int getIsJQueryLoaded() {

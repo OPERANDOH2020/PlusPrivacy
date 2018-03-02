@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void registerZone() {
-        SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("Android"),
+        SwarmService.getInstance().startSwarm(new RegisterZoneSwarm("Android"),
                 new SwarmCallback<RegisterZoneSwarm>() {
                     @Override
                     public void call(final RegisterZoneSwarm result) {
@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
         final String androidId = Settings.Secure.getString(
                 getContentResolver(), Settings.Secure.ANDROID_ID);
         Log.w("UUID", androidId);
-        SwarmClient.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
+        SwarmService.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
             @Override
             public void call(final UDESwarm result) {
                 runOnUiThread(new Runnable() {

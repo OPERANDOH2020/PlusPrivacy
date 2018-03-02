@@ -3,7 +3,6 @@ package eu.operando.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -222,7 +220,7 @@ public class ScannerActivity extends BaseActivity {
             onBackPressed();
         }
         switch (item.getItemId()) {
-            case R.id.scanner_info:
+            case R.id.social_network_info:
                 createInfoDialog();
                 return true;
             default:

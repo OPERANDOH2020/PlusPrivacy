@@ -5,16 +5,22 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.models.Identity;
-import eu.operando.swarmService.models.ChangePasswordEntity;
+import eu.operando.models.privacysettings.Preference;
 import eu.operando.swarmService.models.GenerateIdentitySwarmEntity;
 import eu.operando.swarmService.models.GetDomainsSwarmEntity;
+import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
+import eu.operando.swarmService.models.GetOspSettingsSwarmEntitty;
+import eu.operando.swarmService.models.GetUserPreferencesSwarmEntity;
 import eu.operando.swarmService.models.PfbSwarmEntity;
 import eu.operando.swarmService.models.RegisterInfo;
 import eu.operando.swarmService.models.RegisterSwarmEntity;
 import eu.operando.swarmclient.SwarmClient;
+import eu.operando.swarmclient.models.PrivacyWizardSwarmCallback;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
@@ -23,6 +29,7 @@ import eu.operando.swarmclient.models.SwarmCallback;
  */
 
 public class SwarmService {
+
     private static final String SWARMS_URL = "https://plusprivacy.com:8080";
     private static final String SWARMS_URL_DEBUG_RAFAEL = "http://192.168.103.149:8080";
     private static final String SWARMS_URL_DEBUG_RAFAEL_2 = "https://plusprivacy.club:8080";
@@ -44,6 +51,10 @@ public class SwarmService {
         }
 
         return instance;
+    }
+
+    public void startSwarm(Swarm swarm, SwarmCallback callback) {
+        swarmClient.startSwarm(swarm, callback);
     }
 
     public void login(String username, String password, SwarmCallback<? extends Swarm> callback) {
@@ -82,7 +93,8 @@ public class SwarmService {
     }
 
     public void registerSwarm(String email, String password, final SwarmCallback<? extends Swarm> callback){
-        swarmClient.startSwarm(callback, "register.js", "registerNewUser", new RegisterInfo(email, password, password));
+        swarmClient.startSwarm(callback, "register.js", "registerNewUser",
+                new RegisterInfo(email, password, password));
     }
 
     public void resetPassword(final String email, final SwarmCallback<Swarm> callback) {
@@ -96,6 +108,11 @@ public class SwarmService {
 
     public void getIdentitiesList(SwarmCallback<? extends Swarm> callback) {
         swarmClient.startSwarm(callback, "identity.js", "getMyIdentities");
+    }
+
+    public void updateIdentity(SwarmCallback<? extends Swarm> callback, String method, String emailIdentity) {
+        swarmClient.startSwarm(callback, "identity.js", method,
+                new Identity(emailIdentity, null, null));
     }
 
     public void getFeedbackQuestions(SwarmCallback<FeedbackQuestionListEntity> callback) {
@@ -137,6 +154,26 @@ public class SwarmService {
     public void changePassword(String currentPassword, String newPassword, SwarmCallback<Swarm> callback){
         swarmClient.startSwarm(callback,"UserInfo.js", "changePassword",
                 currentPassword, newPassword);
+    }
+
+    public void getOspSettings(PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty> callback){
+        swarmClient.startSwarm(callback,"PrivacyWizardSwarm.js",
+                "getOSPSettings");
+    }
+
+    public void saveSocialNetworkPreferences(SwarmCallback<Swarm> callback, String id,
+                                             List<Preference> userAnswers){
+        swarmClient.startSwarm(callback,"UserPreferences.js",
+                "saveOrUpdatePreferences", id, userAnswers);
+    }
+
+    public void getSocialNetworkPreferences(SwarmCallback<GetUserPreferencesSwarmEntity> callback, String id){
+        swarmClient.startSwarm(callback,"UserPreferences.js",
+                "getPreferences", id);
+    }
+
+    public void getNotifications(SwarmCallback<GetNotificationsSwarmEntity> callback){
+        swarmClient.startSwarm(callback,"notification.js","getNotifications");
     }
 
 }

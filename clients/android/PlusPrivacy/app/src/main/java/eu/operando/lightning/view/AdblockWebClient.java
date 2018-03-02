@@ -49,9 +49,9 @@ import eu.operando.lightning.utils.AdBlock;
 import eu.operando.lightning.utils.IntentUtils;
 import eu.operando.lightning.utils.Preconditions;
 import eu.operando.lightning.utils.Utils;
-import eu.operando.swarmService.models.GetNotificationsSwarm;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmService.models.RegisterZoneSwarm;
-import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class AdblockWebClient extends WebViewClient {
@@ -151,29 +151,28 @@ public class AdblockWebClient extends WebViewClient {
         return super.shouldInterceptRequest(view, url);
     }
 
-    private void registerInZone() {
-        SwarmClient.getInstance().startSwarm(new RegisterZoneSwarm("FEEDBACK_SUBMITTED"), new SwarmCallback<GetNotificationsSwarm>() {
-            @Override
-            public void call(final GetNotificationsSwarm result) {
-                mActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("RegisterZoneSwarm", result.toString());
-                    }
-                });
-            }
-        });
-    }
+//    private void registerInZone() {
+//        SwarmService.getInstance().startSwarm(new RegisterZoneSwarm("FEEDBACK_SUBMITTED"), new SwarmCallback<GetNotificationsSwarmEntity>() {
+//            @Override
+//            public void call(final GetNotificationsSwarmEntity result) {
+//                mActivity.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Log.e("RegisterZoneSwarm", result.toString());
+//                    }
+//                });
+//            }
+//        });
+//    }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public void onPageFinished(@NonNull WebView view, String url) {
         Log.e("AdblockWebCLient", url);
-        if(url.contains("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/formResponse")){
-//        if(url.contains("google")){
-            registerInZone();
-            Log.e("AdblockWebCLient", "da " + url);
-        }
+//        if(url.contains("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/formResponse")){
+//            registerInZone();
+//            Log.e("AdblockWebCLient", "da " + url);
+//        }
 
         if (view.isShown()) {
             mUIController.updateUrl(url, true);

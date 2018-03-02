@@ -1,5 +1,9 @@
 <resources>
 
+    <style name="CustomProgressBarHorizontal">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <style name="FacebookRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/white</item>

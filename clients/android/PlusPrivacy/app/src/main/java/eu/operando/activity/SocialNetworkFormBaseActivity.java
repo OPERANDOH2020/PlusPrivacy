@@ -35,10 +35,9 @@ import eu.operando.models.privacysettings.AvailableSettingsWrite;
 import eu.operando.models.privacysettings.OspSettings;
 import eu.operando.models.privacysettings.Preference;
 import eu.operando.models.privacysettings.Question;
-import eu.operando.swarmService.models.GetUserPreferencesSwarm;
-import eu.operando.swarmService.models.PrivacyWizardSwarm;
-import eu.operando.swarmService.models.SaveUserPreferencesSwarm;
-import eu.operando.swarmclient.SwarmClient;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmService.models.GetOspSettingsSwarmEntitty;
+import eu.operando.swarmService.models.GetUserPreferencesSwarmEntity;
 import eu.operando.swarmclient.models.PrivacyWizardSwarmCallback;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
@@ -54,6 +53,16 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     public static final String PRIVACY_SETTINGS_TAG = "OSP_PRIVACY_SETTINGS";
     private OperandoProgressDialog progressDialog;
     private List<Question> questions;
+
+
+    protected abstract List<Question> getQuestionsBySN(OspSettings ospSettings);
+
+    protected abstract Context getContext();
+
+    public abstract SocialNetworkEnum getSocialNetworkEnum();
+
+    protected abstract Class getWebViewClass();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +98,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     private void initProgressDialog() {
         progressDialog = new OperandoProgressDialog(this);
         progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(true);
         progressDialog.show();
     }
 
@@ -100,12 +110,12 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
     public void getQuestions() {
 
-        SwarmClient.getInstance().startSwarm(new PrivacyWizardSwarm("getOSPSettings"), new PrivacyWizardSwarmCallback<PrivacyWizardSwarm>() {
+        SwarmService.getInstance().getOspSettings(new PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty>() {
 
             @Override
             public void call(Swarm result) {
 
-                questions = getQuestionsBySN(((PrivacyWizardSwarm) result).getOspSettings());
+                questions = getQuestionsBySN(((GetOspSettingsSwarmEntitty) result).getOspSettings());
 
                 if (questions.size() != 0) {
                     progressDialog.dismiss();
@@ -118,10 +128,10 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     }
 
     private void getUserPreferences() {
-        SwarmClient.getInstance().startSwarm(new GetUserPreferencesSwarm(getSocialNetworkEnum().getId()), new SwarmCallback<GetUserPreferencesSwarm>() {
+        SwarmService.getInstance().getSocialNetworkPreferences(new SwarmCallback<GetUserPreferencesSwarmEntity>() {
 
             @Override
-            public void call(GetUserPreferencesSwarm result) {
+            public void call(GetUserPreferencesSwarmEntity result) {
 //                        Log.e("GetUserPrefSwm", result.getPreferences().get(0).getSettingValue());
                 final Map<Integer, Integer> checkedList;
                 if (result.getPreferences().size() == 0) {
@@ -140,14 +150,8 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
                     }
                 });
             }
-        });
+        }, getSocialNetworkEnum().getId());
     }
-
-    protected abstract List<Question> getQuestionsBySN(OspSettings ospSettings);
-
-    protected abstract Context getContext();
-
-    public abstract SocialNetworkEnum getSocialNetworkEnum();
 
     @Override
     public void onBackPressed() {
@@ -175,8 +179,6 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
         intent.putExtra(PRIVACY_SETTINGS_TAG, privacySettings);
         startActivity(intent);
     }
-
-    protected abstract Class getWebViewClass();
 
     public void onClickRecommended(View view) {
         elvAdapter.initCheckedStateFromRecommendedValues();
@@ -240,12 +242,13 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     }
 
     public void sendSaveUserPreferencesSwarm(List<Preference> userAnswers) {
-        SwarmClient.getInstance().startSwarm(new SaveUserPreferencesSwarm(getSocialNetworkEnum().getId(), userAnswers), new SwarmCallback<SaveUserPreferencesSwarm>() {
+
+        SwarmService.getInstance().saveSocialNetworkPreferences(new SwarmCallback<Swarm>() {
             @Override
-            public void call(SaveUserPreferencesSwarm result) {
+            public void call(Swarm result) {
                 Log.e("SaveUserPreferences", result.toString());
             }
-        });
+        },getSocialNetworkEnum().getId(), userAnswers);
     }
 
     private List<Preference> convertAnswers() {
@@ -321,7 +324,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.scanner_info:
+            case R.id.social_network_info:
                 showInfoDialog();
                 return true;
             default:

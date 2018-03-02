@@ -24,6 +24,7 @@ import eu.operando.activity.PFBActivity;
 import eu.operando.feedback.view.FeedbackActivity;
 import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.Notification;
+import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 
@@ -120,7 +121,7 @@ public class NotificationsExpandableListViewAdapter extends BaseExpandableListAd
                 public void onClick(View view) {
 
                     Object[] args = {notification.getNotificationId(), true};
-                    SwarmClient.getInstance().startSwarm(new Swarm("notification.js", "dismissNotification", args), null);
+                    SwarmService.getInstance().startSwarm(new Swarm("notification.js", "dismissNotification", args), null);
 
                     notifications.remove(notification);
                     notifyDataSetChanged();

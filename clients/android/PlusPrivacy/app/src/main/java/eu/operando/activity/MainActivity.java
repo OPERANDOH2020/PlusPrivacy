@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
@@ -35,10 +33,8 @@ import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.GetNotificationsSwarm;
+import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmService.models.LoginSwarmEntity;
-import eu.operando.swarmService.models.RegisterZoneSwarm;
-import eu.operando.swarmService.models.UDESwarm;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
@@ -285,10 +281,10 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     }
 
     private void initNotifications() {
-        SwarmClient.getInstance().startSwarm(new GetNotificationsSwarm(),
-                new SwarmCallback<GetNotificationsSwarm>() {
+        SwarmService.getInstance().getNotifications(
+                new SwarmCallback<GetNotificationsSwarmEntity>() {
                     @Override
-                    public void call(final GetNotificationsSwarm result) {
+                    public void call(final GetNotificationsSwarmEntity result) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

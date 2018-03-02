@@ -179,15 +179,20 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
         dialog.setCancelable(false);
         dialog.setMessage("Please wait...");
         dialog.show();
-        SwarmClient.getInstance().startSwarm(new Swarm("identity.js",
-                        method, new Identity(identity.getEmail(), null, null)),
-                new SwarmCallback<Swarm>() {
+
+        SwarmService.getInstance().updateIdentity(new SwarmCallback<Swarm>() {
+            @Override
+            public void call(final Swarm result) {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void call(Swarm result) {
+                    public void run() {
+
                         getIdentities();
                         dialog.dismiss();
                     }
                 });
+            }
+        }, method, identity.getEmail());
     }
 
     public void setClipboard(Identity identity) {

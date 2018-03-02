@@ -164,8 +164,6 @@
 
              }
          });
-
-
      }
 
      function secureAccount(callback) {
@@ -175,7 +173,7 @@
              sequence = sequence.then(function() {
 
 //                 Android.showToast("progress: " + index*100/total );
-                 Android.setProgress(index, total);
+                 Android.setProgressBar(index + 1, total);
                  return postToLinkedIn(settings, index, total);
 
              }).then(function(result) {}).catch(function(err) {

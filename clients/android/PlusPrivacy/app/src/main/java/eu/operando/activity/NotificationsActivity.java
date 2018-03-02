@@ -2,33 +2,19 @@ package eu.operando.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import eu.operando.R;
 import eu.operando.adapter.NotificationsExpandableListViewAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
-import eu.operando.customView.CustomOnGroupClickListener;
-import eu.operando.feedback.view.FeedbackActivity;
-import eu.operando.lightning.activity.MainBrowserActivity;
 import eu.operando.models.Notification;
-import eu.operando.swarmService.models.GetNotificationsSwarm;
-import eu.operando.swarmclient.SwarmClient;
-import eu.operando.swarmclient.models.Swarm;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class NotificationsActivity extends BaseActivity {
@@ -62,10 +48,10 @@ public class NotificationsActivity extends BaseActivity {
 
     private void setData() {
 
-        SwarmClient.getInstance().startSwarm(new GetNotificationsSwarm(),
-                new SwarmCallback<GetNotificationsSwarm>() {
+        SwarmService.getInstance().getNotifications(
+                new SwarmCallback<GetNotificationsSwarmEntity>() {
                     @Override
-                    public void call(final GetNotificationsSwarm result) {
+                    public void call(final GetNotificationsSwarmEntity result) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -77,7 +63,7 @@ public class NotificationsActivity extends BaseActivity {
                 });
     }
 
-    private void handleGetNotificationsSwarmResult(final GetNotificationsSwarm result) {
+    private void handleGetNotificationsSwarmResult(final GetNotificationsSwarmEntity result) {
         for (Notification notification : result.getNotifications()) {
             Log.e("Notifications", notification.toString());
         }

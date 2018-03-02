@@ -1,35 +1,34 @@
 (function(privacySettingsJsonString) {
 
-    //
     var privacySettings = JSON.parse(privacySettingsJsonString);
+
+    // var kMessageTypeKey = "messageType";
+    // var kLogMessageTypeContentKey = "logContent";
+    // var kLogMessageType = "log";
     //
-    var kMessageTypeKey = "messageType";
-    var kLogMessageTypeContentKey = "logContent";
-    var kLogMessageType = "log";
-
-    var kStatusMessageMessageType = "statusMessageType";
-    var kStatusMessageContentKey = "statusMessageContent";
-
-    var webkitSendMessage = function(message) {
-        alert(message);
-    };
-
-    window.console = {};
-    window.console.log = function(logMessage) {
-        var webkitMessage = {};
-        webkitMessage[kMessageTypeKey] = kLogMessageType;
-        webkitMessage[kLogMessageTypeContentKey] = logMessage;
-
-        webkitSendMessage(JSON.stringify(webkitMessage));
-
-    };
-
-    var sendStatusMessage = function(settingName) {
-        var webkitMessage = {};
-        webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
-        webkitMessage[kStatusMessageContentKey] = settingName;
-        webkitSendMessage(JSON.stringify(webkitMessage));
-    };
+    // var kStatusMessageMessageType = "statusMessageType";
+    // var kStatusMessageContentKey = "statusMessageContent";
+    //
+    // var webkitSendMessage = function(message) {
+    //     alert(message);
+    // };
+    //
+    // window.console = {};
+    // window.console.log = function(logMessage) {
+    //     var webkitMessage = {};
+    //     webkitMessage[kMessageTypeKey] = kLogMessageType;
+    //     webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    //
+    //     webkitSendMessage(JSON.stringify(webkitMessage));
+    //
+    // };
+    //
+    // var sendStatusMessage = function(settingName) {
+    //     var webkitMessage = {};
+    //     webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    //     webkitMessage[kStatusMessageContentKey] = settingName;
+    //     webkitSendMessage(JSON.stringify(webkitMessage));
+    // };
 
 
     Object.prototype.formStringToObject = function() {
@@ -73,14 +72,12 @@
                 formString += "&";
             }
         }
-
-
-
         return formString;
     };
 
 
-    function hijackNextPOSTRequestWithTemplate(template, callback) {
+    function
+    hijackNextPOSTRequestWithTemplate(template, callback) {
 
         (function(open, send) {
             var unalteredOpen = open;
@@ -120,7 +117,6 @@
                             XMLHttpRequest.prototype.send = unalteredSend;
                             callback(template);
                         }
-
                     }
                 };
 
@@ -148,6 +144,10 @@
                         makePOSTRequest(settings.url, settings.page, data, function() {
 
                             resolve("Done");
+
+                            console.log("result...", item, total);
+                            Android.setProgressBar(item + 1, total);
+
                         }, function() {
                             console.log('Error for page ' + settings.page);
                             reject("Error");
@@ -206,15 +206,15 @@
                     break;
                 case 3:
                     { // INTERACTIVE
-                        console.log("CASA 3");
+                        console.log("CASE 3");
                         console.log(xmlHttp.status);
-                        console.log(xmlHttp.responseText);
+                        // console.log(xmlHttp.responseText);
                     }
                 case 4:
                     { // COMPLETED
-                        console.log("CASA 4");
+                        console.log("CASE 4");
                         console.log(xmlHttp.status);
-                        console.log(xmlHttp.responseText);
+                        // console.log(xmlHttp.responseText);
                         onSuccess();
                     }
                     break;
@@ -235,7 +235,9 @@
     }
 
     function secureAccount(callback) {
+
         console.log('Will begin securing account');
+
         var fbdata = {
             "__req": null,
             "__dyn": null,
@@ -253,16 +255,16 @@
             var total = privacySettings.length;
             var sequence = Promise.resolve();
             privacySettings.forEach(function(settings, index) {
+
 			    sequence = sequence.then(function() {
                     return postToFacebook(settings, index, total);
                 }).then(function(result) {
                     console.log(result);
+
                 }).catch(function(err) {
-                    console.log(err)
+                    console.log(err);
                 });
             });
-
-
 
             sequence = sequence.then(function(result) {
                 Android.onFinishedLoadingCallback();
