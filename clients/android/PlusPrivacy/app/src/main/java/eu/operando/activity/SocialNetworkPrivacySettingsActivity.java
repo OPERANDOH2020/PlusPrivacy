@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import eu.operando.R;
+import eu.operando.swarmService.SwarmService;
 
 /**
  * Created by Alex on 12/12/2017.
@@ -99,7 +100,7 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         });
     }
 
-    private void rotateIndicator() {
+    private void rotateDot() {
 
         final int rotationAngle = 360;
         final RotateAnimation rotate = new RotateAnimation(0, rotationAngle,
@@ -124,7 +125,7 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        rotateIndicator();
+        rotateDot();
     }
 
     @Override

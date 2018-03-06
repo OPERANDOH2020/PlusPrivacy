@@ -76,8 +76,7 @@
     };
 
 
-    function
-    hijackNextPOSTRequestWithTemplate(template, callback) {
+    function hijackNextPOSTRequestWithTemplate(template, callback) {
 
         (function(open, send) {
             var unalteredOpen = open;

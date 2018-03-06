@@ -209,7 +209,7 @@ public class ScannerActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.scanner, menu);
+        inflater.inflate(R.menu.facebook_menu, menu);
         return true;
     }
 

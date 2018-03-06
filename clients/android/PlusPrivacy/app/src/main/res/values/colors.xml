@@ -91,7 +91,7 @@
     <color name="identities_button_active_background">#128e8d</color>
     <color name="identities_button_inactive_background">#45d0ce</color>
 
-    <!-- app scanner screen -->
+    <!-- facebook_menunner screen -->
     <color name="scanner_main_color">#beb9fd</color>
     <color name="scanner_second_color">#dbd9fd</color>
     <color name="scanner_background">#eae9fc</color>

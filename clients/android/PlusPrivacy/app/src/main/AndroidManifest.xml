@@ -18,6 +18,14 @@
             android:name="io.fabric.ApiKey"
             android:value="89d9e0d7caf9cde65df1b22cd21511f9997c05fc" />
 
+        <receiver
+            android:name=".utils.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:screenOrientation="portrait"
             android:name=".activity.LoginActivity">

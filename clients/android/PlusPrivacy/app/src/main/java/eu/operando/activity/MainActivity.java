@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
 //        autoLogin();
         initUI();
 
-        SwarmClient.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
+        /*SwarmService.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
             @Override
             public void onConnect() {
                 runOnUiThread(new Runnable() {
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
                     }
                 });
             }
-        });
+        });*/
     }
 
     private void autoLogin() {

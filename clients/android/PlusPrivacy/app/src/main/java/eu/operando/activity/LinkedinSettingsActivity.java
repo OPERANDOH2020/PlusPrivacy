@@ -1,9 +1,12 @@
 package eu.operando.activity;
 
 import android.content.Context;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import java.util.List;
 
+import eu.operando.R;
 import eu.operando.models.SocialNetworkEnum;
 import eu.operando.models.privacysettings.OspSettings;
 import eu.operando.models.privacysettings.Question;
@@ -32,6 +35,13 @@ public class LinkedinSettingsActivity extends SocialNetworkFormBaseActivity {
     @Override
     protected Class getWebViewClass() {
         return LinkedinWebViewActivity.class;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.linkedin_menu, menu);
+        return true;
     }
 
 }

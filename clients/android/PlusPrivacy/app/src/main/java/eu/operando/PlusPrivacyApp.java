@@ -5,12 +5,14 @@ import android.app.Application;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.webkit.WebView;
 
@@ -23,6 +25,7 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
+import eu.operando.activity.MainActivity;
 import eu.operando.feedback.repository.di.DaggerMyComponent;
 import eu.operando.feedback.repository.di.MyComponent;
 import eu.operando.feedback.repository.di.SharedPreferencesModule;
@@ -37,9 +40,13 @@ import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.FileUtils;
 import eu.operando.lightning.utils.MemoryLeakUtils;
 import eu.operando.lightning.utils.Preconditions;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmclient.SwarmClient;
+import eu.operando.utils.ConnectivityReceiver;
 import io.paperdb.Paper;
 
 import com.crashlytics.android.Crashlytics;
+
 import io.fabric.sdk.android.Fabric;
 
 public class PlusPrivacyApp extends Application {
@@ -132,7 +139,11 @@ public class PlusPrivacyApp extends Application {
 
         injectSharedPref();
 
+        mInstance = this;
+
     }
+
+    private AlertDialog disconnectDialog;
 
     private void injectSharedPref() {
         myComponent = DaggerMyComponent.builder()
@@ -170,6 +181,18 @@ public class PlusPrivacyApp extends Application {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("URL", string);
         clipboard.setPrimaryClip(clip);
+    }
+
+
+    private static PlusPrivacyApp mInstance;
+
+
+    public static synchronized PlusPrivacyApp getInstance() {
+        return mInstance;
+    }
+
+    public void setConnectivityListener(ConnectivityReceiver.ConnectivityReceiverListener listener) {
+        ConnectivityReceiver.connectivityReceiverListener = listener;
     }
 
 }

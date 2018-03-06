@@ -2,7 +2,11 @@ package eu.operando.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.adapter.FacebookSettingsListAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
@@ -41,6 +46,7 @@ import eu.operando.swarmService.models.GetUserPreferencesSwarmEntity;
 import eu.operando.swarmclient.models.PrivacyWizardSwarmCallback;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
+import eu.operando.utils.ConnectivityReceiver;
 
 /**
  * Created by Alex on 1/18/2018.
@@ -100,12 +106,6 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(true);
         progressDialog.show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getQuestions();
     }
 
     public void getQuestions() {
@@ -336,6 +336,12 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
         FacebookSettingsInfoDialog dialog = new FacebookSettingsInfoDialog();
         dialog.show(getFragmentManager(), "FacebookSettingsInfoDialog");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getQuestions();
     }
 
 }

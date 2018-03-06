@@ -64,7 +64,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$supportLibVersion"
     compile "com.android.support:support-v4:$supportLibVersion"
 
-    compile 'io.socket:socket.io-client:0.7.0'
+    compile 'io.socket:socket.io-client:1.0.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'io.paperdb:paperdb:2.1'

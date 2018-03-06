@@ -1,5 +1,7 @@
 package eu.operando.swarmService;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -40,17 +42,20 @@ public class SwarmService {
 
     private SwarmClient swarmClient;
 
-    private SwarmService() {
-        SwarmClient.init(SWARMS_URL);
-        swarmClient = SwarmClient.getInstance();
+    private SwarmService(/*Context context*/) {
+        swarmClient = SwarmClient.getInstance(/*context, */SWARMS_URL);
     }
 
-    public static SwarmService getInstance() {
+    public static SwarmService getInstance(/*Context context*/) {
         if (instance == null) {
-            instance = new SwarmService();
+            instance = new SwarmService(/*context*/);
         }
 
         return instance;
+    }
+
+    public void setConnectionListener(SwarmClient.ConnectionListener connectionListener) {
+        swarmClient.setConnectionListener(connectionListener);
     }
 
     public void startSwarm(Swarm swarm, SwarmCallback callback) {

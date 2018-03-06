@@ -1,6 +1,8 @@
 package eu.operando.activity;
 
 import android.content.Context;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import java.util.List;
 
@@ -33,5 +35,12 @@ public class TwitterSettingsActivity extends SocialNetworkFormBaseActivity{
     @Override
     protected Class getWebViewClass() {
         return TwitterWebViewActivity.class;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.twitter_menu, menu);
+        return true;
     }
 }

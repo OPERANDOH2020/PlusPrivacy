@@ -2,8 +2,12 @@ package eu.operando.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
@@ -35,10 +39,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.customView.ButtonTargetShowCaseView;
 import eu.operando.customView.MyWebViewClient;
-import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.utils.ConnectivityReceiver;
 
 /**
  * Created by Alex on 1/19/2018.
@@ -370,5 +375,4 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
             this.isJQueryLoaded = isJQueryLoaded;
         }
     }
-
 }
