@@ -336,8 +336,11 @@ class OPConfigObject: NSObject
     
     private func applyAndSaveUserSettings(_ settings: UserSettingsModel){
         settings.writeTo(defaults: UserDefaults.standard)
-        self.adBlocker.adBlockingEnabled = settings.enableAdBlock
-        self.adBlocker.protectionEnabled = !settings.disableWebsiteProtection
+//        self.adBlocker.adBlockingEnabled = settings.enableAdBlock
+//        self.adBlocker.protectionEnabled = !settings.disableWebsiteProtection
+        
+        self.adBlocker.adBlockingEnabled = false
+        self.adBlocker.protectionEnabled = false
     }
     
     private func createUserSettingsCallbacks() -> UserSettingsModelCallbacks {

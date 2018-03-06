@@ -71,12 +71,14 @@ class ACPrivacyWriter: NSObject {
 //        
 //        return result
         guard let read = setting.read,
-            let selectedSettingName = read.getSelectedReadSettingName(),
             let write = setting.write,
             let settingTitle = write.name,
             let page = write.page,
+            let selectedSettingName = read.getSelectedReadSettingName(),
             let urlTemplate = write.getCompletedUrlTemplate(forSettingNamed: selectedSettingName)
-            else { return nil }
+            else {
+                return nil
+        }
         
         var result = Dictionary<String, Any>()
         

@@ -50,8 +50,19 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        if let facebookSettings = self.facebookSettings{
+            
+            for setting in facebookSettings {
+                if setting.selectedOption == nil {
+                    
+                }
+            }
+        
+        }
+        
         ACPrivacyWizard.shared.privacySettings?.facebookSettings = self.facebookSettings
         ACPrivacyWizard.shared.selectedScope = .facebook
+        
     }
     
     func setup(with privacyWizardRepository:PrivacyWizardRepository, callbacks: PrivacyWizzardFacebookSettingsCallbacks){

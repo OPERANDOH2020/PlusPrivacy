@@ -42,6 +42,7 @@
 "kSettingsLocalizableKey" = "Settings";
 "kResearchOSDKLocalizableKey" = "Research OSDK";
 "kPrivacyPolicyLocalizableKey" = "Privacy Policy";
+"kPrivacyWizardLocalizablekey" = "Privacy Wizard";
 "kFeedBackFormKey" = "FeedBack";
 "kAboutLocalizableKey" = "About";
 "kMyAccountLocalizableKey" = "My Account";

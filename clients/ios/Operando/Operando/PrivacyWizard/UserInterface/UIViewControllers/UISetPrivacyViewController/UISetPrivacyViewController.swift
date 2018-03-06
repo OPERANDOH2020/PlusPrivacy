@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import PPApiHooksCore
 
 let UISetPrivacyVCStoryboardId = "UISetPrivacyVCStoryboardId"
 let MozillaUserAgentId = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12"
@@ -48,14 +49,16 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
         statusView.isHidden = true
         
         UIView.constrainView(view: webView, inHostView: self.webViewHostView)
-//        if #available(iOS 9.0, *) {
-//            self.webView.customUserAgent = MozillaUserAgentId
-//        }
+        if #available(iOS 9.0, *) {
+            self.webView.customUserAgent = MozillaUserAgentId
+        }
     }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PPApiHooks_disableWebKitURLMonitoring();
         
         setupControls()
         self.fbSecurityEnforcer = FbWebKitSecurityEnforcer(webView: self.webView)
@@ -70,7 +73,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        self.alterUserAgentInDefaults()
+        self.alterUserAgentInDefaults()
         
         ProgressHUD.show("Loading")
         self.fbSecurityEnforcer?.enforceWithCallToLogin(callToLoginWithCompletion: { callbackWhenLogInIsDone in

@@ -74,9 +74,9 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
         if let optionSetting = setting?.read?.availableSettings?[indexPath.row] {
             
             cell.setupWithSetting(setting: optionSetting,recommended: setting?.write?.recommended)
+            
             cell.delegate = self
         }
-        
         return cell
     }
     

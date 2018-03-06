@@ -19,6 +19,7 @@ extension WKWebView
         
         if let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
             let modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"\(privacySettingsJson.escapedStringForJS)\"")
+            print("modifiedJS")
             print(modifiedJS)
             self.evaluateJavaScript(modifiedJS as String, completionHandler: completion)
         }
@@ -89,15 +90,10 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
         self.whenNavigationFinishes = nil
     }
     
-    
-    
-    
     @IBAction func didPressFinishLoginButton(sender: Any?)
     {
         self.whenUserFinishedLogin?()
     }
-    
-    
     
     func logUserOnSite(site: String, withCompletion completion: ErrorCallback?) {
         if let error = self.loadWebViewToURL(urlString: site)
