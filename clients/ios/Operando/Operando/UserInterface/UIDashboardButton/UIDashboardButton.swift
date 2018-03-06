@@ -15,7 +15,7 @@ struct UIDashboardButtonStyle{
     
     static let identityManagementStyle: UIDashboardButtonStyle = UIDashboardButtonStyle(backgroundColor: .operandoDarkGreen, title: Bundle.localizedStringFor(key: kIdentitiesManagementLocalizableKey), image: UIImage(named: "ic_group_white"))
     
-    static let privacyForBenefitsStyle: UIDashboardButtonStyle = UIDashboardButtonStyle(backgroundColor: UIColor.operandoRed, title: Bundle.localizedStringFor(key: kPrivacyForBenefitsLocalizableKey), image: UIImage(named: "ic_fingerprint_white"))
+    static let privacyWizzardStyle: UIDashboardButtonStyle = UIDashboardButtonStyle(backgroundColor: UIColor.operandoRed, title: Bundle.localizedStringFor(key: kPrivacyWizardLocalizablekey), image: UIImage(named: "ic_fingerprint_white"))
     
     static let privateBrowsingStyle: UIDashboardButtonStyle = UIDashboardButtonStyle(backgroundColor: UIColor.operandoOrange, title: Bundle.localizedStringFor(key: kPrivateBrowsingLocalizableKey), image: UIImage(named: "ic_open_in_browser_white"))
     

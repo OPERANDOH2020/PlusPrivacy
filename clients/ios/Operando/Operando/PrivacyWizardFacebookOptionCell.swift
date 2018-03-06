@@ -46,6 +46,9 @@ class PrivacyWizardFacebookOptionCell: UITableViewCell{
             if setting.name == recommendedString.replace(target: "_", withString: " ").capitalized {
                 optionName.textColor = UIColor.operandoLightGreen
             }
+            if setting.isSelected == true {
+                self.selectedImageType = .Selected
+            }
         }
     }
     

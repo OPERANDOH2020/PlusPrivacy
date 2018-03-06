@@ -18,7 +18,7 @@ class UISetPrivacyFlowController: UIFlowController {
     }
     
     func start() -> UIMainViewController? {
-        let mainScreenVC = UIViewControllerFactory.getSetPrivacyViewController()
+        let mainScreenVC = UIViewControllerFactory.getUISetPrivacyViewController()
         configuration.navigationController?.pushViewController(mainScreenVC, animated: true)
         return nil
     }

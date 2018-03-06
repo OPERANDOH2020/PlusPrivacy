@@ -49,10 +49,6 @@ class UIViewControllerFactory
          return privacyWizardSB.instantiateViewController(withIdentifier:  UIPrivacySettingVCStoryboardId) as! UIPrivacySettingViewController
     }
     
-    static func getSetPrivacyViewController() -> UISetPrivacyViewController {
-         return privacyWizardSB.instantiateViewController(withIdentifier:  UISetPrivacyVCStoryboardId) as! UISetPrivacyViewController
-    }
-    
     static var rootViewController : UIRootViewController{
         return main.instantiateViewController(withIdentifier: "UIRootViewController") as! UIRootViewController
     }

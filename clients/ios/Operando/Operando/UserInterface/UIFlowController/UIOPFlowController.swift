@@ -148,7 +148,7 @@ class UIOPFlowController
     func displayFacebookQuestionnaire () {
         let vc = UIViewControllerFactory.getFBQuestionnarieViewController()
         
-        vc.setup(with: dependencies.privacyWizzard!, callbacks: PrivacyWizzardFacebookSettingsCallbacks(pressedSubmit: { (settings) in
+        vc.setup(with: dependencies.privacyWizzard!, callbacks: PrivacyWizzardFacebookSettingsCallbacks(pressedSubmit: { (_) in
             
             //go to privacy
             print("go to privacy")
@@ -157,21 +157,18 @@ class UIOPFlowController
         }, pressedRecommended: {
             
             print("pressedRecommended")
-            
+             self.displaySetPrivacyVC()
         }))
         
-        self.rootController.setupTabViewForIdentities()
+        self.rootController.setupTabViewForPrivacyWizzard()
         self.rootController.setMainControllerTo(newController: vc)
         
     }
     
     func displaySetPrivacyVC(){
-         let vc = UIViewControllerFactory.getSetPrivacyViewController()
-        self.rootController.setupTabViewForIdentities()
+         let vc = UIViewControllerFactory.getUISetPrivacyViewController()
         self.rootController.setMainControllerTo(newController: vc)
     }
-    
-    
     
     func displayIdentitiesManagement(){
         let vc = UIViewControllerFactory.identityManagementViewController

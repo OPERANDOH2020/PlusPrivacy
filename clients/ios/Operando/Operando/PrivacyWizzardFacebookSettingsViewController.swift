@@ -57,7 +57,6 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
                     
                 }
             }
-        
         }
         
         ACPrivacyWizard.shared.privacySettings?.facebookSettings = self.facebookSettings
@@ -83,6 +82,29 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     
     @IBAction func pressedRecommendedButton(_ sender: Any) {
         self.callbacks?.pressedRecommended()
+        
+        if let facebookSettings = self.facebookSettings {
+            for facebookSetting in facebookSettings {
+                
+                guard let recommendedString = facebookSetting.write?.recommended else {
+                    continue
+                }
+                
+                guard let availableSettings = facebookSetting.read?.availableSettings else {
+                    continue
+                }
+                
+                for availableSetting in availableSettings {
+                    if availableSetting.name == recommendedString.replace(target: "_", withString: " ").capitalized {
+                        
+                        if let index = availableSetting.index {
+                            
+                            facebookSetting.selectOption(withIndex: index)
+                        }
+                    }
+                }
+            }
+        }  
     }
     
     @IBAction func pressedSubmitButton(_ sender: Any) {

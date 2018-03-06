@@ -36,14 +36,14 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmarkDefault" translatesAutoresizingMaskIntoConstraints="NO" id="khJ-hX-CAd">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="43.5"/>
+                                        <rect key="frame" x="10" y="0.0" width="23" height="43.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="khJ-hX-CAd" secondAttribute="bottom" id="ICk-Tt-Wqx"/>
-                                    <constraint firstAttribute="trailing" secondItem="khJ-hX-CAd" secondAttribute="trailing" id="JYH-Jb-FWd"/>
-                                    <constraint firstItem="khJ-hX-CAd" firstAttribute="leading" secondItem="rEN-Nh-cNo" secondAttribute="leading" id="SOZ-3n-W3H"/>
+                                    <constraint firstAttribute="trailing" secondItem="khJ-hX-CAd" secondAttribute="trailing" constant="10" id="JYH-Jb-FWd"/>
+                                    <constraint firstItem="khJ-hX-CAd" firstAttribute="leading" secondItem="rEN-Nh-cNo" secondAttribute="leading" constant="10" id="SOZ-3n-W3H"/>
                                     <constraint firstItem="khJ-hX-CAd" firstAttribute="top" secondItem="rEN-Nh-cNo" secondAttribute="top" id="kGI-tg-WEb"/>
                                     <constraint firstItem="4Er-2Y-Dhl" firstAttribute="leading" secondItem="rEN-Nh-cNo" secondAttribute="leading" id="sAT-op-xdP"/>
                                     <constraint firstItem="4Er-2Y-Dhl" firstAttribute="top" secondItem="rEN-Nh-cNo" secondAttribute="top" id="sXf-Jc-xNu"/>

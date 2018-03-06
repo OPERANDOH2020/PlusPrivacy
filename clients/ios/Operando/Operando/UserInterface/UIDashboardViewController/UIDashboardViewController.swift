@@ -44,7 +44,7 @@ class UIDashboardViewController: UIViewController
     
         self.identityManagementButton?.setupWith(model: UIDashboardButtonModel(style: .identityManagementStyle, notificationsRequestCallbackIfAny: nil, onTap: callbacks?.whenChoosingIdentitiesManagement))
         
-        self.privacyForBenefitsButton?.setupWith(model: UIDashboardButtonModel(style: .privacyForBenefitsStyle, notificationsRequestCallbackIfAny: nil, onTap: callbacks?.whenChoosingPrivacyForBenefits))
+        self.privacyForBenefitsButton?.setupWith(model: UIDashboardButtonModel(style: .privacyWizzardStyle, notificationsRequestCallbackIfAny: nil, onTap: callbacks?.whenChoosingPrivacyForBenefits))
         
         self.privateBrowsingButton?.setupWith(model: UIDashboardButtonModel(style: .privateBrowsingStyle, notificationsRequestCallbackIfAny: nil, onTap: callbacks?.whenChoosingPrivateBrowsing))
         

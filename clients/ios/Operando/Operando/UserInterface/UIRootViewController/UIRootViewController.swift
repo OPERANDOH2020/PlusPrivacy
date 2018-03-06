@@ -96,6 +96,11 @@ class UIRootViewController: UIViewController
         self.topBarLabel.text = "Notifications"
     }
     
+    func setupTabViewForPrivacyWizzard() {
+        self.topBarView.backgroundColor = UIColor.identitiesBlue()
+        self.topBarLabel.text = "Privacy Wizzard"
+    }
+    
     func setupTabViewForIdentities() {
         self.topBarView.backgroundColor = UIColor.identitiesBlue()
         self.topBarLabel.text = "Identity Management"

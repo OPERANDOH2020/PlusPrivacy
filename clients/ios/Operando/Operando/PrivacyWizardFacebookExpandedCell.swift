@@ -39,6 +39,7 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.bounces = false
         tableView.register(UINib(nibName: "PrivacyWizardFacebookOptionCell", bundle: nil), forCellReuseIdentifier: "PrivacyWizardFacebookOptionCell")
     }
     
@@ -49,6 +50,7 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
         if let index = setting.index{
             
             delegate?.privacyWizardFacebookExpandedSelectedOption(selectedOptionIndex: index)
+            self.tableView.reloadData()
         }
     }
     
