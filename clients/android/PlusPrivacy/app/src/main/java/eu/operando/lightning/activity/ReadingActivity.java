@@ -32,8 +32,8 @@ import com.anthonycr.bonsai.Subscription;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.dialog.BrowserDialog;
 import eu.operando.lightning.preference.PreferenceManager;
@@ -68,7 +68,7 @@ public class ReadingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
 
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.fade_out_scale);
         mInvert = mPreferences.getInvertColors();

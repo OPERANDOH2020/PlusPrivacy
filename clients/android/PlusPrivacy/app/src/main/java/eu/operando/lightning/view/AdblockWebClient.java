@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.dialog.BrowserDialog;
@@ -49,6 +49,10 @@ import eu.operando.lightning.utils.AdBlock;
 import eu.operando.lightning.utils.IntentUtils;
 import eu.operando.lightning.utils.Preconditions;
 import eu.operando.lightning.utils.Utils;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
+import eu.operando.swarmService.models.RegisterZoneSwarm;
+import eu.operando.swarmclient.models.SwarmCallback;
 
 public class AdblockWebClient extends WebViewClient {
     private static final Pattern RE_JS = Pattern.compile("\\.js$", Pattern.CASE_INSENSITIVE);
@@ -62,7 +66,7 @@ public class AdblockWebClient extends WebViewClient {
     private String[] EMPTY_ARRAY = {};
     private boolean mBlockAds;
 
-
+    private static AdblockWebClient instance;
 
     private AdblockEngine getAdblockEngine() {
         return AdblockEngine
@@ -95,6 +99,7 @@ public class AdblockWebClient extends WebViewClient {
 
         return (engine.matches(url, contentType, EMPTY_ARRAY));
     }
+
     private static final String TAG = "AdblockWebClient";
 
     @NonNull private final Activity mActivity;
@@ -104,8 +109,9 @@ public class AdblockWebClient extends WebViewClient {
 
     @Inject AdBlock mAdBlock;
 
-    AdblockWebClient(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds) {
-        BrowserApp.getAppComponent().inject(this);
+    private AdblockWebClient(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds) {
+        Log.e("AdblockWebClient", "constructor call");
+        PlusPrivacyApp.getAppComponent().inject(this);
         Preconditions.checkNonNull(activity);
         Preconditions.checkNonNull(lightningView);
         mActivity = activity;
@@ -115,6 +121,14 @@ public class AdblockWebClient extends WebViewClient {
         mIntentUtils = new IntentUtils(activity);
         engine = getAdblockEngine();
         this.mBlockAds = blockAds;
+
+    }
+
+    public static AdblockWebClient getInstance(@NonNull Activity activity, @NonNull LightningView lightningView, boolean blockAds){
+        if( instance == null){
+            instance = new AdblockWebClient(activity, lightningView, blockAds);
+        }
+        return instance;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -137,9 +151,29 @@ public class AdblockWebClient extends WebViewClient {
         return super.shouldInterceptRequest(view, url);
     }
 
+//    private void registerInZone() {
+//        SwarmService.getInstance().startSwarm(new RegisterZoneSwarm("FEEDBACK_SUBMITTED"), new SwarmCallback<GetNotificationsSwarmEntity>() {
+//            @Override
+//            public void call(final GetNotificationsSwarmEntity result) {
+//                mActivity.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Log.e("RegisterZoneSwarm", result.toString());
+//                    }
+//                });
+//            }
+//        });
+//    }
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public void onPageFinished(@NonNull WebView view, String url) {
+        Log.e("AdblockWebCLient", url);
+//        if(url.contains("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/formResponse")){
+//            registerInZone();
+//            Log.e("AdblockWebCLient", "da " + url);
+//        }
+
         if (view.isShown()) {
             mUIController.updateUrl(url, true);
             mUIController.setBackButtonEnabled(view.canGoBack());

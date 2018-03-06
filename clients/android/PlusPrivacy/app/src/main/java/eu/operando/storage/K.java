@@ -11,4 +11,5 @@ final class K {
     static final String PASS = "u_pass";
     static final String REGISTER_USER = "r_name";
     static final String REGISTER_PASS = "r_pass";
+    static final String PRIVATE_BROWSING_DIALOG = "do_not_show";
 }

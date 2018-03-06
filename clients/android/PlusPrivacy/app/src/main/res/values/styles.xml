@@ -1,5 +1,28 @@
 <resources>
 
+    <style name="CustomProgressBarHorizontal">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="FacebookRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="buttonTint">@color/white</item>
+    </style>
+
+    <style name="InjectingButtonShowCaseView">
+        <item name="sv_titleTextAppearance">@style/InjectingButtonTitle</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail</item>
+        <item name="sv_backgroundColor">@color/overlay_background</item>
+        <item name="sv_showcaseColor">@color/colorPrimaryDark</item>
+        <item name="sv_buttonText">@android:string/ok</item>
+    </style>
+
+    <style name="InjectingButtonTitle" parent="TextAppearance.ShowcaseView.Title">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -8,11 +31,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
     <style name="AppTheme_Dialog" parent="Theme.AppCompat.Dialog">
 
         <item name="colorAccent">@color/main_background</item>
         <item name="android:textColorPrimary">@color/main_background</item>
         <item name="android:background">@color/colorPrimaryDark</item>
+
+        <!--<item name="android:colorControlNormal">#ffd600</item>-->
+        <!--<item name="android:colorControlActivated">#0091ea</item>-->
+        <!--<item name="android:colorControlHighlight">#c51162</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -28,20 +60,20 @@
     <!-- Settings themes -->
     <style name="Theme.SettingsTheme" parent="Theme.LightTheme">
         <item name="android:windowBackground">@null</item>
-        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+        <item name="toolbarSettingsBackground">@color/menu_5</item>
     </style>
 
     <style name="Theme.SettingsTheme.Dark" parent="Theme.DarkTheme">
         <item name="android:windowBackground">@null</item>
-        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate_dark</item>
+        <item name="toolbarSettingsBackground">@color/menu_5</item>
 
         <!-- Dark settings has a special primary dark -->
-        <item name="colorPrimaryDark">@color/secondary_color_settings_dark</item>
+        <item name="colorPrimaryDark">@color/accent_color</item>
     </style>
 
     <style name="Theme.SettingsTheme.Black" parent="Theme.BlackTheme">
         <item name="android:windowBackground">@null</item>
-        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate_black</item>
+        <item name="toolbarSettingsBackground">@color/menu_5</item>
     </style>
 
     <!-- Regular themes -->
@@ -67,10 +99,10 @@
     <style name="Theme.BaseLightTheme" parent="Theme.AppCompat.Light">
 
         <!-- Theme Colors -->
-        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimary">@color/menu_5</item>
         <item name="colorPrimaryDark">@color/transparent</item>
         <item name="colorAccent">@color/accent_color</item>
-        <item name="drawerBackground">@color/drawer_background</item>
+        <item name="drawerBackground">@color/menu_5</item>
         <item name="dividerColor">@color/divider_light</item>
 
         <item name="selectedBackground">@color/selected_light</item>
@@ -90,10 +122,10 @@
     <style name="Theme.BaseDarkTheme" parent="Theme.AppCompat">
 
         <!-- Theme colors -->
-        <item name="colorPrimary">@color/primary_color_dark</item>
+        <item name="colorPrimary">@color/menu_5</item>
         <item name="colorPrimaryDark">@color/transparent</item>
         <item name="colorAccent">@color/accent_color</item>
-        <item name="drawerBackground">@color/drawer_background_dark</item>
+        <item name="drawerBackground">@color/menu_5</item>
         <item name="dividerColor">@color/divider_dark</item>
 
         <item name="selectedBackground">@color/selected_dark</item>
@@ -114,7 +146,7 @@
         <!-- Theme Colors -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorAccent">@color/menu_5</item>
         <item name="drawerBackground">@color/black</item>
         <item name="dividerColor">@color/black</item>
 
@@ -133,15 +165,15 @@
 
     <!-- AlertDialog Theming -->
     <style name="AppCompatDialogStyle.Light" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorAccent">@color/menu_5</item>
     </style>
 
     <style name="AppCompatDialogStyle.Dark" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorAccent">@color/menu_5</item>
     </style>
 
     <style name="AppCompatDialogStyle.Black" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorAccent">@color/menu_5</item>
     </style>
 
     <!-- Overflow Menu Customization -->

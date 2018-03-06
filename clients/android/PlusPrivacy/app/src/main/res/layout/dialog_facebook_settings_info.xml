@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/fb_info_dialog_header"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/privacy_settings_info"
+                android:textColor="@color/social_network_settings_facebook" />
+
+            <ImageView
+                android:id="@+id/fb_dialog_close_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/close" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:background="@color/fb_info_dialog_body"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/dialog_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:text="@string/fb_dialog_info"
+                android:textColor="@color/social_network_settings_facebook" />
+
+            <RelativeLayout
+                android:id="@+id/fb_question_answers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dialog_info_tv"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@color/social_network_settings_facebook"
+                    android:padding="10dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fb_question_example"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_facebook_bottom_arrow" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/question"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="40dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@color/background_facebook_child_item"
+                        android:paddingStart="10dp">
+
+                        <RadioGroup
+
+                            android:id="@+id/layout_list_item_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-20dp"
+                            android:layout_marginStart="-60dp"
+                            android:layout_marginTop="-20dp"
+                            android:orientation="vertical"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/facebook_unselected"
+                                android:textSize="20dp"
+                                android:clickable="false"
+                                android:text="@string/everyone"
+                                android:textColor="@color/white" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20dp"
+                                android:clickable="false"
+                                android:buttonTint="@color/facebook_recommended"
+                                android:text="@string/friends"
+                                android:textColor="@color/facebook_recommended" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20dp"
+                                android:clickable="false"
+                                android:buttonTint="@color/facebook_selected"
+                                android:checked="true"
+                                android:text="Friends of friends"
+                                android:textColor="@color/social_network_settings_facebook" />
+
+                        </RadioGroup>
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:src="@drawable/facebook_shadow" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="-43dp"
+                android:layout_below="@id/fb_question_answers"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/fb_dialog_arrow_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/privacy_friendly"
+                    android:textColor="@color/fb_info_dialog_arrow_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="-25dp"
+                android:layout_marginStart="170dp"
+                android:layout_below="@id/fb_question_answers"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/fb_dialog_arrow_right" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/your_choice"
+                    android:textColor="@color/fb_info_dialog_arrow_text" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</FrameLayout>

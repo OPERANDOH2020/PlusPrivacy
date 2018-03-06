@@ -17,7 +17,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.Utils;
 
@@ -25,7 +25,7 @@ public class StartPage {
 
     public static final String FILENAME = "homepage.html";
 
-    private static final String HEAD_1 = "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\">"
+    private static final String HEAD_1 = "<!DOCTYPE html><html xmlns=\"http://assets.www.w3.org/1999/xhtml\">"
             + "<head>"
             + "<meta content=\"en-us\" http-equiv=\"Content-Language\" />"
             + "<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />"
@@ -60,7 +60,7 @@ public class StartPage {
     @Inject PreferenceManager mPreferenceManager;
 
     public StartPage() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTitle = mApp.getString(R.string.home);
     }
 

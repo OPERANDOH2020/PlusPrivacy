@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/notification_background_child_item"
+    android:paddingStart="40dp"
+    android:paddingBottom="10dp"
+    android:paddingEnd="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Check the new feature: Private Browsing"
+        android:textColor="@color/notification_font_color"
+        android:textSize="12sp"/>
+
+
+    <LinearLayout
+        android:id="@+id/take_action_rl"
+        android:layout_below="@id/tv_description"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/button_padding"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/notification_button_font_color"
+        android:background="@color/notification_button"
+        >
+
+        <ImageView
+            android:src="@drawable/notifications_thick"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/notification_button_font_color"
+            android:background="@color/notification_button"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/take_action"
+            android:textAllCaps="false"
+            />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dismiss_rl"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:padding="@dimen/button_padding"
+        android:layout_gravity="center"
+        android:textColor="@color/notification_button_font_color"
+        android:background="@color/notification_button"
+        >
+
+        <ImageView
+            android:src="@drawable/notifications_dismiss"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/button_icon_margin_right"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/notification_button_font_color"
+            android:background="@color/notification_button"
+            android:textSize="@dimen/button_font_size"
+            android:text="@string/dismiss"
+            android:textAllCaps="false"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

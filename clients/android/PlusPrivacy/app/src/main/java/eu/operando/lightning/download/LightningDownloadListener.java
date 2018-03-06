@@ -18,7 +18,7 @@ import com.anthonycr.grant.PermissionsResultAction;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.dialog.BrowserDialog;
 import eu.operando.lightning.preference.PreferenceManager;
 
@@ -31,7 +31,7 @@ public class LightningDownloadListener implements DownloadListener {
     @Inject PreferenceManager mPreferenceManager;
 
     public LightningDownloadListener(Activity context) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mActivity = context;
     }
 

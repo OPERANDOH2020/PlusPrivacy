@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 
 /**
  * A utility class containing helpful methods
@@ -38,7 +38,7 @@ public class FileUtils {
      * @param name   the name of the file to store the bundle in.
      */
     public static void writeBundleToStorage(final @NonNull Application app, final Bundle bundle, final @NonNull String name) {
-        BrowserApp.getIOThread().execute(new Runnable() {
+        PlusPrivacyApp.getIOThread().execute(new Runnable() {
             @Override
             public void run() {
                 File outputFile = new File(app.getFilesDir(), name);

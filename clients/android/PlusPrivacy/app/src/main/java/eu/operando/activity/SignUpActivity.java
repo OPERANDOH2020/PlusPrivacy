@@ -14,15 +14,15 @@ import android.widget.Toast;
 
 import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.customView.PasswordConfirmationView;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.RegisterSwarm;
+import eu.operando.swarmService.models.RegisterSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText inputName;
     private EditText inputEmail;
-    private EditText inputPassword;
+    private PasswordConfirmationView inputPassword;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, SignUpActivity.class);
@@ -39,9 +39,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        inputName = (EditText) findViewById(R.id.input_name);
         inputEmail = (EditText) findViewById(R.id.input_email);
-        inputPassword = (EditText) findViewById(R.id.input_password);
+        inputPassword = (PasswordConfirmationView) findViewById(R.id.input_password);
 
         findViewById(R.id.link_login).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,36 +53,32 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.btn_signup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = inputName.getText().toString();
                 String email = inputEmail.getText().toString();
-                String password = inputPassword.getText().toString();
+                String password = inputPassword.getConfirmedPassword();
 
-                signUp(name, email, password);
+                signUp(email, password);
             }
         });
 
     }
 
-    private void signUp(String name, final String email, final String password) {
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+    private void signUp(final String email, final String password) {
+        if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "Please complete all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
         final OperandoProgressDialog dialog = new OperandoProgressDialog(this, "Creating account...");
         dialog.show();
-        SwarmService.getInstance().signUp(name, email, password, new SwarmCallback<RegisterSwarm>() {
+        SwarmService.getInstance().signUp(email, password, new SwarmCallback<RegisterSwarmEntity>() {
             @Override
-            public void call(final RegisterSwarm result) {
+            public void call(final RegisterSwarmEntity result) {
                 Log.d("Register", "call() called with: result = [" + result + "]");
-                onSignUpSuccess(email,password,result, dialog);
+                onSignUpSuccess(email, password, result, dialog);
             }
-
-
         });
-
     }
 
-    private void onSignUpSuccess(final String email, final String password, final RegisterSwarm result, final ProgressDialog dialog) {
+    private void onSignUpSuccess(final String email, final String password, final RegisterSwarmEntity result, final ProgressDialog dialog) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -93,9 +88,10 @@ public class SignUpActivity extends AppCompatActivity {
                         dialog.dismiss();
 
                         if (result.getStatus() != null && result.getStatus().equals("error")) {
-                            Toast.makeText(SignUpActivity.this, result.getError(), Toast.LENGTH_LONG).show();
+                            if (result.getError() != null)
+                                Toast.makeText(SignUpActivity.this, result.getError().toString(), Toast.LENGTH_LONG).show();
                         } else {
-                            Storage.saveRegisterCredentials(email,password);
+                            Storage.saveRegisterCredentials(email, password);
                             Toast.makeText(SignUpActivity.this, "Registration success. Please check your e-mail to activate the account", Toast.LENGTH_LONG).show();
                             onBackPressed();
                         }

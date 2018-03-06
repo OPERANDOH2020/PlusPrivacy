@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_scanner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:background="@color/scanner_background"
     tools:context="eu.operando.activity.ScannerActivity">
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/secondary_toolbar"/>
 
-    <ListView
-        android:layout_below="@id/toolbar"
-        android:id="@+id/app_list_view"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/scanner_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</RelativeLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/scanner_main_color"
+        app:theme="@style/ToolbarStyle"
+        app:title="Installed Apps"
+        app:titleTextColor="@color/white" />
+
+    <ExpandableListView
+        android:background="@color/scanner_main_color"
+        android:divider="@null"
+        android:groupIndicator="@null"
+        android:id="@+id/app_list_view"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

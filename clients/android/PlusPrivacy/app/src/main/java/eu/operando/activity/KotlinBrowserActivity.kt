@@ -55,7 +55,7 @@ class KotlinBrowserActivity : AppCompatActivity() {
         val fab_new_tab = findViewById(R.id.fab_new_tab)
         fab_new_tab.setOnClickListener({
 
-            (viewPager.adapter as TabPagerAdapter).addTab("www.google.ro")
+            (viewPager.adapter as TabPagerAdapter).addTab("assets.www.google.ro")
             viewPager.setCurrentItem(viewPager.adapter.count - 1, true)
             (this@KotlinBrowserActivity.findViewById(R.id.fab_menu) as FloatingActionMenu).close(true)
 //            val dialogLayout = LinearLayout(this@KotlinBrowserActivity)

@@ -5,12 +5,13 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.ThemeUtils;
 
@@ -24,7 +25,7 @@ public abstract class ThemableBrowserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTheme = mPreferences.getUseTheme();
         mShowTabsInDrawer = mPreferences.getShowTabsInDrawer(!isTablet());
 
@@ -44,7 +45,7 @@ public abstract class ThemableBrowserActivity extends AppCompatActivity {
             if (mPreferences.getUseBlackStatusBar()) {
                 getWindow().setStatusBarColor(Color.BLACK);
             } else {
-                getWindow().setStatusBarColor(ThemeUtils.getStatusBarColor(this));
+                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.menu_5));//ThemeUtils.getStatusBarColor(this));
             }
         }
     }
@@ -62,7 +63,7 @@ public abstract class ThemableBrowserActivity extends AppCompatActivity {
      * Called after the activity is resumed
      * and the UI becomes visible to the user.
      * Called by onWindowFocusChanged only if
-     * onResume has been called.
+     * onLoading has been called.
      */
     void onWindowVisibleToUserAfterResume() {
 

@@ -104,7 +104,7 @@ public class AdBlock {
             return url;
         }
 
-        return domain.startsWith("www.") ? domain.substring(4) : domain;
+        return domain.startsWith("assets.www.") ? domain.substring(4) : domain;
     }
 
     /**

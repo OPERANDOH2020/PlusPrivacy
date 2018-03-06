@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/feedback_question_item_et_title"
+        android:background="?attr/colorAccent"
+        android:padding="@dimen/feedback_padding"
+        android:labelFor="@+id/feedback_question_item_et_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:layout_margin="@dimen/feedback_padding"
+        android:id="@+id/feedback_question_item_et_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+</LinearLayout>

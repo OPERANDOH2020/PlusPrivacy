@@ -8,7 +8,7 @@ import android.os.Bundle;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.ThemeUtils;
 
@@ -20,7 +20,7 @@ public abstract class ThemableSettingsActivity extends AppCompatPreferenceActivi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTheme = mPreferences.getUseTheme();
 
         // set the theme

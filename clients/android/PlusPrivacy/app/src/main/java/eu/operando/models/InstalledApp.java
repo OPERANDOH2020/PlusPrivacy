@@ -50,4 +50,8 @@ public class InstalledApp {
     public ArrayList<FeatureInfo> getFeatures() {
         return features;
     }
+
+    public void setPermissions(ArrayList<String> permissions) {
+        this.permissions = permissions;
+    }
 }

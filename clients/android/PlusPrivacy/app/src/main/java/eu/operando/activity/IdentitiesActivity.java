@@ -2,36 +2,47 @@ package eu.operando.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.adblockplus.libadblockplus.android.webview.BuildConfig;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import eu.operando.R;
-import eu.operando.adapter.IdentitiesListAdapter;
+import eu.operando.adapter.IdentitiesExpandableListViewAdapter;
+import eu.operando.customView.AccordionOnGroupExpandListener;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.models.Identity;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.IdentityListSwarm;
+import eu.operando.swarmService.models.IdentityListSwarmEntity;
 import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
-public class IdentitiesActivity extends BaseActivity {
-    private ListView identitiesLV;
+public class IdentitiesActivity extends BaseActivity implements IdentitiesExpandableListViewAdapter.IdentityListener {
+
+    private ExpandableListView identitiesELV;
+    private LinearLayout defaultRealIdentity;
     private View addIdentityBtn;
     ArrayList<Identity> identities;
+    private Identity realIdentity;
+    private Identity defaultIdentity;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, IdentitiesActivity.class);
@@ -42,28 +53,50 @@ public class IdentitiesActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_identities);
         initUI();
-        getIdentities();
+        setActions();
+
     }
 
     private void initUI() {
-        identitiesLV = ((ListView) findViewById(R.id.identitiesLV));
+
+        setToolbar();
+        identitiesELV = (ExpandableListView) findViewById(R.id.identities_elv);
         addIdentityBtn = findViewById(R.id.addIdentityBtn);
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        defaultRealIdentity = (LinearLayout) findViewById(R.id.default_real_identity);
+
+        if (BuildConfig.DEBUG)
+            ((TextView) findViewById(R.id.realIdentityTV)).setText("privacy_wizard@rms.ro");
+    }
+
+    private void setToolbar() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.identities_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void setActions() {
         addIdentityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CreateIdentityActivity.start(IdentitiesActivity.this);
             }
         });
-        if (BuildConfig.DEBUG)
-            ((TextView) findViewById(R.id.realIdentityTV)).setText("privacy_wizard@rms.ro");
+
+        defaultRealIdentity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (realIdentity != null && !realIdentity.equals(defaultIdentity)) {
+                    updateIdentity(realIdentity, "updateDefaultSubstituteIdentity");
+                } else {
+                    Toast.makeText(IdentitiesActivity.this, R.string.default_identity_toast, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        identitiesELV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(identitiesELV));
     }
 
     @Override
@@ -72,78 +105,105 @@ public class IdentitiesActivity extends BaseActivity {
         getIdentities();
     }
 
-    private void getIdentities() {
-        SwarmService.getInstance().getIdentitiesList(new SwarmCallback<IdentityListSwarm>() {
+    public void getIdentities() {
+
+        SwarmService.getInstance().getIdentitiesList(new SwarmCallback<IdentityListSwarmEntity>() {
             @Override
-            public void call(final IdentityListSwarm result) {
+            public void call(final IdentityListSwarmEntity result) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
-                        Log.d("ide", "call() called with: result = [" + result + "]");
-                        identities = result.getIdentities();
-                        identitiesLV.setAdapter(new IdentitiesListAdapter(IdentitiesActivity.this, identities));
-                        if (identities.size() > 0) {
-                            for (Identity i : identities) {
-                                if (i.isReal()) {
-                                    ((TextView) findViewById(R.id.realIdentityTV)).setText(i.getEmail());
-                                }
-                            }
-                        }
-
-                        identitiesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                                if (identities.get(position).isDefault()) return;
-                                AlertDialog.Builder builder = new AlertDialog.Builder(IdentitiesActivity.this)
-                                        .setMessage("Select an action")
-                                        .setNegativeButton(
-                                                "Remove",
-                                                new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        updateIdentity(position, "removeIdentity");
-                                                    }
-                                                }
-                                        ).setPositiveButton(
-                                                "Set default",
-                                                new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        updateIdentity(position, "updateDefaultSubstituteIdentity");
-                                                    }
-                                                }
-                                        );
-                                builder.show();
-
-                            }
-                        });
+                        setIdentities(result);
                     }
                 });
             }
         });
     }
 
+    private void setIdentities(IdentityListSwarmEntity result) {
 
-    private void updateIdentity(int position, String method) {
-        Identity i = identities.get(position);
-        final ProgressDialog dialog = new OperandoProgressDialog(this);
-        dialog.setCancelable(false);
-        dialog.setMessage("Please wait...");
-        dialog.show();
-        SwarmClient.getInstance().startSwarm(new Swarm("identity.js", method, new Identity(i.getEmail(), null, null)), new SwarmCallback<Swarm>() {
-            @Override
-            public void call(Swarm result) {
-                getIdentities();
-                dialog.dismiss();
-            }
-        });
+        Log.d("ide", "call() called with: result = [" + result + "]");
+        identities = result.getIdentities();
+
+        setRealIdentity(identities);
+        identitiesELV.setAdapter(new IdentitiesExpandableListViewAdapter(IdentitiesActivity.this,
+                identities));
     }
 
+    private void setRealIdentity(ArrayList<Identity> identities) {
+        if (identities.size() > 0) {
+            for (int index = 0; index < identities.size(); ++index) {
+                Identity i = identities.get(index);
+                if (i.isReal()) {
+                    realIdentity = i;
+                    identities.remove(realIdentity);
+                    --index;
+                    ((TextView) findViewById(R.id.realIdentityTV)).setText(i.getEmail());
+                }
+                if (i.isDefault()) {
+                    defaultIdentity = i;
+                    if (defaultIdentity.equals(realIdentity)) {
+                        defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
+                                R.color.identities_button_inactive_background));
+                    } else {
+                        defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
+                                R.color.identities_button_active_background));
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     public void onBackPressed() {
         finish();
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void updateIdentity(Identity identity, String method) {
+
+        if (identity.isDefault()){
+            Toast.makeText(this, R.string.default_identity_toast, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        final ProgressDialog dialog = new OperandoProgressDialog(this);
+        dialog.setCancelable(false);
+        dialog.setMessage("Please wait...");
+        dialog.show();
+
+        SwarmService.getInstance().updateIdentity(new SwarmCallback<Swarm>() {
+            @Override
+            public void call(final Swarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        getIdentities();
+                        dialog.dismiss();
+                    }
+                });
+            }
+        }, method, identity.getEmail());
+    }
+
+    public void setClipboard(Identity identity) {
+
+        ClipboardManager clipboard = (ClipboardManager)
+                this.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("identity", identity.getEmail());
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(this, "Identity was copied to clipboard", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

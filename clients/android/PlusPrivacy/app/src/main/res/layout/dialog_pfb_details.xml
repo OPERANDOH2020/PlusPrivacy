@@ -7,24 +7,26 @@
                 android:padding="5dp">
 
     <ImageView
-        android:id="@+id/iv"
+        android:id="@+id/pfb_item_iv"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/privacy_for_benefit" />
 
 
     <TextView
         android:id="@+id/url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv"/>
+        android:layout_toRightOf="@id/pfb_item_iv"/>
 
     <TextView
         android:id="@+id/voucher_benefit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv"
+        android:layout_below="@id/pfb_item_iv"
         android:layout_marginTop="10dp"/>
 
     <TextView

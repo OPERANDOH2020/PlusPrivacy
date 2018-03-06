@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background"
-                android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/notification_background"
 
-    <include
-        android:id="@+id/toolb"
-        layout="@layout/secondary_toolbar"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/notification_toolbar"
+        app:title="Notifications"
+        app:titleTextColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/notification_button"
+        app:theme="@style/ToolbarStyle"
+        >
 
-    <RelativeLayout
+    </android.support.v7.widget.Toolbar>
+
+    <ExpandableListView
+
+        android:id="@+id/notifications_elv"
+        android:paddingTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolb">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/notification_background"
+        android:divider="@color/notification_background"
+        android:groupIndicator="@null"
+        android:childDivider="@color/notification_divider_item"
+        android:dividerHeight="1dp">
 
-        <ListView
-            android:id="@+id/notifications_lv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@null"
-            android:background="@android:color/white"
-            android:dividerHeight="1dp"/>
-    </RelativeLayout>
+    </ExpandableListView>
+
 </RelativeLayout>

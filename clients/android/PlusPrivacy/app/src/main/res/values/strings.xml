@@ -3,7 +3,7 @@
     <string name="your_real_identity">Your real identity:</string>
     <string name="installed_apps">Installed apps:</string>
     <string name="potentially_unsafe_apps">Potentially unsafe apps:</string>
-    <string name="real_identity">This is your real identity</string>
+    <string name="real_identity">Your real identity</string>
     <string name="identities">Identities</string>
     <string name="alternative_identities">Alternative identities</string>
     <string name="add_identity">Add identity</string>
@@ -40,6 +40,7 @@
     <string name="importbookmarks">Import bookmarks from browser</string>
     <string name="size">Text size</string>
     <string name="recommended">Recommended</string>
+    <string name="recommended_settings">Recommended settings</string>
     <string name="search">Search Engine</string>
     <string name="search_hint">Search</string>
     <string name="wideViewPort">Use wide viewport</string>
@@ -123,7 +124,7 @@
     <string name="message_blocked_local">Local file has been blocked from loading</string>
     <string name="licenses">Open Source Licenses</string>
     <string name="suggestion">Search for</string>
-    <string name="block_ads">Block Ads</string>
+    <string name="block_ads">Block Ads in private browser</string>
     <string name="message_insecure_connection">Connection to this site is not secure:\n%1$s\nProceed anyway?</string>
     <string name="message_certificate_date_invalid">date of certificate is invalid</string>
     <string name="message_certificate_expired">certificate is expired</string>
@@ -254,4 +255,112 @@
     <string name="dialog_rename_folder">Rename folder</string>
     <string name="dialog_remove_folder">Remove folder</string>
     <string name="dialog_title_close_browser">Close browser</string>
+    <string name="submit">Submit</string>
+    <string name="start">Start</string>
+    <string name="dialog_sign_in_failed">Sign In Failed</string>
+    <string name="check_your_email_and_password">Check your email and password</string>
+    <string name="social_network_settings">Social Network Settings</string>
+    <string name="feedback">Feedback</string>
+    <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
+    <string name="change_response">Change response</string>
+    <string name="privacy_for_benefit">Privacy for Benefit</string>
+    <string name="alias">Alias</string>
+    <string name="open">open</string>
+    <string name="close" />
+    <string name="plusprivacy">PlusPrivacy</string>
+    <string name="make_default">Make default</string>
+
+    <string-array name="drawer_items">
+        <item>About</item>
+        <item>Privacy Policy</item>
+        <!--<item>Settings</item>-->
+        <item>Feedback</item>
+        <item>Account</item>
+    </string-array>
+
+    <string name="low">low</string>
+    <string name="Low">Low</string>
+    <string name="medium">medium</string>
+    <string name="high">high</string>
+    <string name="High">High</string>
+    <string name="take_action">Take Action</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="copy">Copy</string>
+    <string name="remove">Remove</string>
+    <string name="identity_management">Identity Management</string>
+    <string name="logout">Logout</string>
+    <string name="social_networks_header">Maximize privacy on social networks</string>
+    <string name="coming_soon">Coming soon</string>
+
+    <string name="remove_identity">Remove identity ?</string>
+    <string name="remove_identity_dialog_message">Do you really want to remove this identity ?</string>
+    <string name="this_is_your_real_identity">This is your real identity</string>
+    <string name="update_your_account_settings">Update your account settings</string>
+    <string name="change">Change</string>
+    <string name="account_deletion">Account deletion</string>
+    <string name="delete_account">Delete account</string>
+    <string name="account_deletion_description">Your alternative email identities and account data will be wiped. This action is irreversible</string>
+    <string name="current_password">Current password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="new_password">New password</string>
+    <string name="update_password">Update password</string>
+
+
+    <string name="weak">Weak</string>
+    <string name="acceptable">Acceptable</string>
+    <string name="strong">Strong</string>
+    <string name="very_strong">Very Strong</string>
+    <string name="doesnt_match">Doesn\'t match</string>
+    <string name="match">Match</string>
+    <string name="password_rules">Password rules:</string>
+    <string name="password_changed">Password changed</string>
+    <string name="update_password_err">Password doesn\'t match or the field is empty</string>
+    <string name="password_restriction">Contains at least 6 characters.\nContains 2 different types of characters.</string>
+    <string name="delete_account_question">Are you sure to delete this account ? All the account data will pe wiped.</string>
+    <string name="delete_account_confirmation">Your account has been deleted.</string>
+    <string name="password_changed_confirmation">Your password has been changed.</string>
+    <string name="facebook_privacy_settings">Facebook privacy settings</string>
+    <string name="linkedin_privacy_settings">Linkedin privacy settings</string>
+    <string name="twitter_privacy_settings">Twitter privacy settings</string>
+    <string name="google_privacy_settings">Google privacy settings</string>
+
+    <string name="about_first_paragraph">PlusPrivacy provides you with a unified dashboard for
+        protecting yourself from a variety of threats to your privacy. It will enable you to
+        control the privacy settings in your social network accounts, hide your email identity,
+        block ads,trackers and malware and prevent unwanted apps and browser extensions from
+        tracking you and collecting your private data.</string>
+    <string name="about_second_paragraph">If you explicitly choose to do so, PlusPrivacy will
+        help you to exchange some of your data for rewards and benefits offered by participating
+        service providers.</string>
+    <string name="about_third_paragraph">PlusPrivacy uses the following open source libraries:</string>
+    <string name="about_version">Version\ </string>
+    <string name="about_plusprivacy">About PlusPrivacy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="settings_activity">Settings Activity</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="no_deals_available">No deals available</string>
+    <string name="privacy_settings_info">Privacy settings info</string>
+    <string name="fb_dialog_info">How to select the right settings for you</string>
+    <string name="fb_question_example">Who can contact you/send you friend requests?</string>
+    <string name="friends">Friends</string>
+    <string name="everyone">Everyone</string>
+    <string name="privacy_friendly">Privacy friendly</string>
+    <string name="your_choice">Your choice</string>
+    <string name="default_identity_toast">This activity is already set as default</string>
+    <string name="save">Save</string>
+    <string name="don_t_show_again">Don\'t show again</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet</string>
+    <string name="private_browser_popup">PlusPrivacy\'s Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.</string>
+    <string name="private_browsing">Private Browsing</string>
+
+    <string name="installed_apps_info">Installed apps info</string>
+    <string name="installed_apps_info_txt">Each application has a privacy rating also called privacy score.
+        When the score is lower, the application is privacy friendly.
+        The score is visually represented by a palette of colors from dark green to bright red.\n
+        \nFor more information about the data that can be leaked, tap on the "View permissions" button and see the list of app permissions.
+        Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
+    </string>
+    <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
+
 </resources>

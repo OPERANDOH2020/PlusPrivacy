@@ -1,1 +1,1 @@
-include ':app', ':ResideMenu', ':libadblockplus-android-webview', ':libadblockplus-android'
+include ':app', ':libadblockplus-android-webview', ':libadblockplus-android'

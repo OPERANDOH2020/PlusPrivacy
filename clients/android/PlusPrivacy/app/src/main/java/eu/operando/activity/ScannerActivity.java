@@ -1,23 +1,47 @@
 package eu.operando.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
 
 import eu.operando.R;
 import eu.operando.adapter.ScannerListAdapter;
+import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.utils.PermissionUtils;
 
 public class ScannerActivity extends BaseActivity {
-    private ListView listView;
+
+    private ExpandableListView listView;
     private boolean shouldRefresh = true;
+    private HashSet<String> unknownPerms;
+    private ImageView indicatorIv;
+    private int privacyScore;
+    private Handler handler = new Handler();
 
     public static void start(Context context) {
+
         Intent starter = new Intent(context, ScannerActivity.class);
         context.startActivity(starter);
         ((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -32,15 +56,121 @@ public class ScannerActivity extends BaseActivity {
     }
 
     private void initUI() {
-        listView = (ListView) findViewById(R.id.app_list_view);
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+
+        setToolbar();
+
+        listView = (ExpandableListView) findViewById(R.id.app_list_view);
+        View myHeader = ((LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE))
+                .inflate(R.layout.scanner_list_header, null, false);
+
+        listView.addHeaderView(myHeader);
+        indicatorIv = (ImageView) myHeader.findViewById(R.id.privacy_indicator);
+
+        unknownPerms = new HashSet<>();
+//        if(/*PreferenceManager.getDefaultSharedPreferences(this).getBoolean("once",true)&&*/ BuildConfig.DEBUG) {
+//            for (InstalledApp app : Storage.readAppList()) {
+//                if (app.getPermissions() == null) continue;
+//                for (String permission : app.getPermissions()) {
+//                    String[] splitted = permission.split("\\.");
+//                    String simplifiedPermission = splitted[splitted.length - 1];
+//                    if (PermissionUtils.getPermissionDescription(simplifiedPermission).isEmpty()) {
+//                        unknownPerms.add(simplifiedPermission);
+//                    }
+//                }
+//            }
+//            sendEmail();
+//            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("once",false).apply();
+//        }
+
+
+    }
+
+    private void setData() {
+
+        List<InstalledApp> list = Storage.readAppList();
+        Collections.sort(list, new Comparator<InstalledApp>() {
             @Override
-            public void onClick(View v) {
-                onBackPressed();
+            public int compare(InstalledApp app1, InstalledApp app2) {
+                if (app1.getPollutionScore() > app2.getPollutionScore())
+                    return -1;
+                else if (app1.getPollutionScore() < app2.getPollutionScore())
+                    return 1;
+                else
+                    return 0;
             }
         });
-        ScannerListAdapter adapter = new ScannerListAdapter(this, Storage.readAppList());
+        setPrivacyScoreTv(list);
+        rotateIndicator();
+        setDataListView(list);
+
+    }
+
+    private void setDataListView(List<InstalledApp> list) {
+
+        listView.setOnGroupExpandListener(new AccordionOnGroupExpandListener(listView));
+
+        ScannerListAdapter adapter = new ScannerListAdapter(this, list);
         listView.setAdapter(adapter);
+    }
+
+    private void setPrivacyScoreTv(List<InstalledApp> list) {
+
+        int sum = 0;
+        for (InstalledApp app : list) {
+            sum += app.getPollutionScore();
+        }
+        privacyScore = 10 * sum / list.size();
+
+    }
+
+    private void rotateIndicator() {
+
+        final int rotationAngle = (privacyScore * 140) / 100;
+        final RotateAnimation rotate = new RotateAnimation(0, rotationAngle,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        rotate.setDuration(1500);
+        rotate.setFillAfter(true);
+        rotate.setInterpolator(new FastOutLinearInInterpolator());
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                indicatorIv.startAnimation(rotate);
+            }
+        });
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                indicatorIv.clearAnimation();
+                indicatorIv.setRotation(290 + rotationAngle);
+            }
+        }, 1700);
+
+    }
+
+    protected void sendEmail() {
+        String[] TO = {"sle@rms.ro"};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        String body = "";
+        for (String perm : unknownPerms) {
+            body += perm + "\n";
+        }
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Perms");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
@@ -48,6 +178,7 @@ public class ScannerActivity extends BaseActivity {
         super.onResume();
         if (shouldRefresh) {
             reloadApps();
+
         } else {
             shouldRefresh = true;
         }
@@ -55,7 +186,7 @@ public class ScannerActivity extends BaseActivity {
 
     private void reloadApps() {
         Storage.saveAppList(PermissionUtils.getApps(this, false));
-        initUI();
+        setData();
     }
 
     @Override
@@ -66,5 +197,53 @@ public class ScannerActivity extends BaseActivity {
 
     public void infoClicked() {
         shouldRefresh = false;
+    }
+
+    private void setToolbar() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.scanner_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.scanner, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        switch (item.getItemId()) {
+            case R.id.social_network_info:
+                createInfoDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void createInfoDialog() {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = inflater.inflate(R.layout.scanner_info_dialog, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(convertView);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        View closeIv = convertView.findViewById(R.id.fb_dialog_close_iv);
+        closeIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 }

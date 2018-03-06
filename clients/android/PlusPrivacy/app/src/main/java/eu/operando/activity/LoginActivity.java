@@ -1,25 +1,34 @@
 package eu.operando.activity;
 
-import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import eu.operando.R;
 import eu.operando.customView.OperandoProgressDialog;
+import eu.operando.customView.SignInFailedDialog;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmService.models.LoginSwarm;
+import eu.operando.swarmService.models.LoginSwarmEntity;
+import eu.operando.swarmService.models.RegisterZoneSwarm;
+import eu.operando.swarmService.models.UDESwarm;
+import eu.operando.swarmclient.SwarmClient;
+import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
-import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,8 +53,9 @@ public class LoginActivity extends AppCompatActivity {
         Pair<String, String> credentials = Storage.readCredentials();
         if (credentials.first != null && credentials.second != null) {
 //            login(credentials.first,credentials.second);
-            MainActivity.start(this, true);
-            finish();
+//            MainActivity.start(this, true);
+//            finish();
+            login(credentials.first, credentials.second);
             return;
         }
         credentials = Storage.readRegisterCredentials();
@@ -75,6 +85,13 @@ public class LoginActivity extends AppCompatActivity {
                 login(email, password);
             }
         });
+
+        findViewById(R.id.resetPasswordTV).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showResetPasswordDialog();
+            }
+        });
         //FIXME
 //        swarmLogin("kkkk@mailinator.com","aaaa",new ProgressDialog(this));
     }
@@ -85,20 +102,20 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-
         final OperandoProgressDialog progressDialog = new OperandoProgressDialog(this);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
         swarmLogin(email, password, progressDialog);
-
     }
 
     private void swarmLogin(final String username, final String password, final ProgressDialog dialog) {
 
-        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarm>() {
+        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarmEntity>() {
+
             @Override
-            public void call(final LoginSwarm result) {
+            public void call(final LoginSwarmEntity result) {
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -110,18 +127,92 @@ public class LoginActivity extends AppCompatActivity {
                                     Storage.saveUserID(result.getUserId());
                                     MainActivity.start(LoginActivity.this, false);
                                     storeCredentials(username, password);
+                                    registerZone();
                                     finish();
                                 } else {
-                                    emailText.setText("");
-                                    passwordText.setText("");
+                                    showFailedLoginDialog();
+//                                    emailText.setText("");
+//                                    passwordText.setText("");
                                 }
                             }
-                        }, 1);
+                        }, 100);
                     }
                 });
-
             }
         });
+    }
+
+    private void registerZone() {
+        SwarmService.getInstance().startSwarm(new RegisterZoneSwarm("Android"),
+                new SwarmCallback<RegisterZoneSwarm>() {
+                    @Override
+                    public void call(final RegisterZoneSwarm result) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.e("RegisterZoneSwarm", result.toString());
+                            }
+                        });
+                    }
+                });
+        final String androidId = Settings.Secure.getString(
+                getContentResolver(), Settings.Secure.ANDROID_ID);
+        Log.w("UUID", androidId);
+        SwarmService.getInstance().startSwarm(new UDESwarm(androidId), new SwarmCallback<UDESwarm>() {
+            @Override
+            public void call(final UDESwarm result) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("UDESwarm", result.toString());
+                    }
+                });
+            }
+        });
+    }
+
+    public void showFailedLoginDialog() {
+        if (!isFinishing()) {
+            DialogFragment newFragment = new SignInFailedDialog();
+            if (!newFragment.isAdded()) {
+                newFragment.show(getFragmentManager(), "SignInFailedDialog");
+            }
+        }
+    }
+
+    public void showResetPasswordDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.reset_pass_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.emailTV);
+
+        dialogBuilder.setTitle("Enter e-mail");
+        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String email = edt.getText().toString();
+                SwarmService.getInstance().resetPassword(email, new SwarmCallback<Swarm>() {
+                    @Override
+                    public void call(final Swarm result) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                if (result.getMeta().getCurrentPhase().equals("resetRequestDone")) {
+                                    Toast.makeText(LoginActivity.this, "You will receive an e-mail shortly.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, result.getError().toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", null);
+        AlertDialog b = dialogBuilder.create();
+        b.show();
     }
 
     private void storeCredentials(String user, String pass) {

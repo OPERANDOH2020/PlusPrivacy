@@ -26,13 +26,13 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/copy_to_clipboard"
         android:layout_margin="8dp"
-        android:layout_width="25dp"
-        android:src="@drawable/rightarrow"
+        android:layout_width="20dp"
+        android:src="@drawable/ic_copy"
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
         android:scaleType="centerInside"
         android:layout_centerVertical="true"
-        android:layout_height="25dp"/>
+        android:layout_height="20dp"/>
 </RelativeLayout>

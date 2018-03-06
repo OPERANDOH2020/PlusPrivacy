@@ -1,1 +1,1 @@
-include ':SwarmClient'
+include ':app', ':androidsdk'

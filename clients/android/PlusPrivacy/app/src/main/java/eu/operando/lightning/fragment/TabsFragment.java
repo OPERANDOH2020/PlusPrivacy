@@ -33,9 +33,9 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.lightning.activity.TabsManager;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.browser.TabsView;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.fragment.anim.HorizontalItemAnimator;
@@ -94,7 +94,7 @@ public class TabsFragment extends Fragment implements View.OnClickListener, View
     @Inject PreferenceManager mPreferences;
 
     public TabsFragment() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
     }
 
     @Override

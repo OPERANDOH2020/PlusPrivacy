@@ -7,14 +7,28 @@
     <!--<color name="bright_orange">#F77F00</color>-->
     <!--<color name="dutch_white">#EAE2B7</color>-->
     <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#E88B00</color>
+    <!--<color name="colorPrimaryDark">#E88B00</color>-->
+    <!--<color name="colorPrimaryDark">#FFB400</color>-->
+    <color name="toolbar_color">#FFB400</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="color_primary_backup">#eea82b</color>
     <color name="colorAccent">#FF9800</color>
     <color name="amaranth_red">#d62828</color>
     <color name="primary_text">#212121</color>
     <color name="bright_orange">#F77F00</color>
     <color name="main_background">#FFDCA0</color>
-    <color name="border">#000
-    </color>
+    <color name="border">#000</color>
+
+    <color name="green_button">#00a493</color>
+    <color name="overlay_background">#bb000000</color>
+    <color name="overlay_webview">#78000000</color>
+
+    <color name="menu_1">#45d0ce</color>
+    <color name="menu_2">#beb9fd</color>
+    <color name="menu_3">#ea70a3</color>
+    <color name="menu_4">#eea82b</color>
+    <color name="menu_5">#a3cb4f</color>
+    <color name="menu_6">#75b8e5</color>
 
     <color name="black">#ff000000</color>
     <color name="gray_dark">#222222</color>
@@ -24,7 +38,8 @@
 
     <color name="primary_color">#FFC107</color>
     <color name="secondary_color">#66E88B00</color>
-    <color name="accent_color">#FF9800</color>
+    <color name="accent_color">#82a33f</color>
+    <color name="secondary_color_add_identity">#d5a339</color>
 
     <color name="drawer_background">#FF9800</color>
     <color name="drawer_background_dark">#E88B00</color>
@@ -51,4 +66,77 @@
     <color name="icon_dark_theme_disabled">#8AFFFFFF</color>
 
     <color name="error_red">#F44336</color>
+
+    <color name="colorControlNormal">#000</color>
+    <color name="colorControlActivated">#000</color>
+
+    <color name="menu_title">#efaa33</color>
+    <color name="menu_text">#84610f</color>
+    <color name="menu_first_separator">#d99820</color>
+    <color name="menu_second_separator">#84610f</color>
+    <color name="menu_background">#eea82c</color>
+
+    <!-- notification screen colors -->
+    <color name="notification_background">#f0d0de</color>
+    <color name="notification_button">#ea70a3</color>
+    <color name="notification_button_font_color">#f9e8f0</color>
+    <color name="notification_divider_item">#fbcbe1</color>
+    <color name="notification_background_child_item">#fbe5f0</color>
+    <color name="notification_font_color">#661336</color>
+
+    <!-- identities screen -->
+    <color name="identities_main_color">#46cfca</color>
+    <color name="identities_list_background">#98f5f3</color>
+    <color name="identities_background">#d2fcfc</color>
+    <color name="identities_button_active_background">#128e8d</color>
+    <color name="identities_button_inactive_background">#45d0ce</color>
+
+    <!-- app scanner screen -->
+    <color name="scanner_main_color">#beb9fd</color>
+    <color name="scanner_second_color">#dbd9fd</color>
+    <color name="scanner_background">#eae9fc</color>
+    <color name="scanner_button_background">#635cb1</color>
+    <color name="scanner_arrow_background">#766ee0</color>
+
+    <!-- social network settings screen -->
+    <color name="social_network_settings_main_background">#dff3ff</color>
+    <color name="social_network_settings_header_background">#75b8e5</color>
+    <color name="social_network_settings_facebook">#40599a</color>
+    <color name="social_network_settings_facebook_alpha">#8040599a</color>
+
+    <color name="social_network_settings_linkedin">#2878b7</color>
+    <color name="social_network_settings_linkedin_child">#68a0ce</color>
+
+    <color name="social_network_settings_twitter">#53a3f8</color>
+    <color name="social_network_settings_twitter_child">#89baef</color>
+
+    <color name="social_network_settings_google">#5086f7</color>
+    <color name="social_network_settings_google_child">#8aacf2</color>
+
+    <!--Facebook privacy settings-->
+    <color name="background_facebook_settings">#dff3ff</color>
+    <color name="background_facebook_recommended_button">#81ce73</color>
+    <color name="background_facebook_submit_button">#ffb400</color>
+    <color name="background_facebook_child_item">#667db9</color>
+    <color name="fb_info_dialog_header">#c2d5ee</color>
+    <color name="fb_info_dialog_body">#dff3ff</color>
+    <color name="fb_info_dialog_arrow_text">#3a4e8c</color>
+
+    <!-- User account -->
+    <color name="account_background">#fcf2d7</color>
+    <color name="account_empty_indicator">#dbdad8</color>
+    <color name="weak_password">#FF0000</color>
+    <color name="acceptable_password">#FBB03B</color>
+    <color name="strong_password">#D9E021</color>
+    <color name="very_strong_password">#39B54A</color>
+
+    <color name="background_popup">#d1a53e</color>
+    <color name="background_about">#fdf2d8</color>
+    <color name="text_color_about">#824d00</color>
+
+
+    <color name="header_dialog_installed_apps">#563fbc</color>
+    <color name="body_dialog_installed_apps">#644dcb</color>
+
+
 </resources>
