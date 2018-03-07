@@ -177,6 +177,30 @@
 		AD28EA19204FEFA500AA998A /* UIDefaultFeatureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */; };
 		AD28EA1B204FF2B100AA998A /* UINotAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA1A204FF2B100AA998A /* UINotAvailableViewController.swift */; };
 		AD28EA1D2050197700AA998A /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */; };
+		AD28EA43205036C000AA998A /* UICustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA42205036C000AA998A /* UICustomPopup.swift */; };
+		AD28EA9E20503DD700AA998A /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8520503DD700AA998A /* InteractiveTransition.swift */; };
+		AD28EA9F20503DD700AA998A /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8620503DD700AA998A /* PresentationController.swift */; };
+		AD28EAA020503DD700AA998A /* UIImageView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8720503DD700AA998A /* UIImageView+Calculations.swift */; };
+		AD28EAA120503DD700AA998A /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8820503DD700AA998A /* UIView+Animations.swift */; };
+		AD28EAA220503DD700AA998A /* PopupDialogDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8920503DD700AA998A /* PopupDialogDefaultView.swift */; };
+		AD28EAA320503DD700AA998A /* PopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8A20503DD700AA998A /* PopupDialog.swift */; };
+		AD28EAA420503DD700AA998A /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8B20503DD700AA998A /* PopupDialogOverlayView.swift */; };
+		AD28EAA520503DD700AA998A /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8C20503DD700AA998A /* PopupDialogButton.swift */; };
+		AD28EAA620503DD700AA998A /* UIViewController+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8D20503DD700AA998A /* UIViewController+Visibility.swift */; };
+		AD28EAA720503DD700AA998A /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA8F20503DD700AA998A /* TransitionAnimator.swift */; };
+		AD28EAA820503DD700AA998A /* PopupDialog+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9020503DD700AA998A /* PopupDialog+Keyboard.swift */; };
+		AD28EAA920503DD700AA998A /* PopupDialogDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9120503DD700AA998A /* PopupDialogDefaultViewController.swift */; };
+		AD28EAAA20503DD700AA998A /* TransitionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9220503DD700AA998A /* TransitionAnimations.swift */; };
+		AD28EAAB20503DD700AA998A /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9320503DD700AA998A /* PopupDialogDefaultButtons.swift */; };
+		AD28EAAC20503DD700AA998A /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9520503DD700AA998A /* TZSpacerView.swift */; };
+		AD28EAAD20503DD700AA998A /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9620503DD700AA998A /* TZStackView.swift */; };
+		AD28EAAE20503DD700AA998A /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9720503DD700AA998A /* TZStackViewDistribution.swift */; };
+		AD28EAAF20503DD700AA998A /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9820503DD700AA998A /* TZStackViewAlignment.swift */; };
+		AD28EAB020503DD700AA998A /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9920503DD700AA998A /* PresentationManager.swift */; };
+		AD28EAB120503DD700AA998A /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9A20503DD700AA998A /* PopupDialogContainerView.swift */; };
+		AD28EAB220503DD700AA998A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9B20503DD700AA998A /* FXBlurView.m */; };
+		AD28EAB320503DD700AA998A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA9C20503DD700AA998A /* LICENSE */; };
+		AD28EAB420503DD700AA998A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA9D20503DD700AA998A /* README.md */; };
 		AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */; };
 		AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */; };
 		AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */; };
@@ -557,6 +581,31 @@
 		AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDefaultFeatureProvider.swift; sourceTree = "<group>"; };
 		AD28EA1A204FF2B100AA998A /* UINotAvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotAvailableViewController.swift; sourceTree = "<group>"; };
 		AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
+		AD28EA42205036C000AA998A /* UICustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomPopup.swift; sourceTree = "<group>"; };
+		AD28EA8520503DD700AA998A /* InteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
+		AD28EA8620503DD700AA998A /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		AD28EA8720503DD700AA998A /* UIImageView+Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Calculations.swift"; sourceTree = "<group>"; };
+		AD28EA8820503DD700AA998A /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		AD28EA8920503DD700AA998A /* PopupDialogDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultView.swift; sourceTree = "<group>"; };
+		AD28EA8A20503DD700AA998A /* PopupDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialog.swift; sourceTree = "<group>"; };
+		AD28EA8B20503DD700AA998A /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogOverlayView.swift; sourceTree = "<group>"; };
+		AD28EA8C20503DD700AA998A /* PopupDialogButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogButton.swift; sourceTree = "<group>"; };
+		AD28EA8D20503DD700AA998A /* UIViewController+Visibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Visibility.swift"; sourceTree = "<group>"; };
+		AD28EA8E20503DD700AA998A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		AD28EA8F20503DD700AA998A /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		AD28EA9020503DD700AA998A /* PopupDialog+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PopupDialog+Keyboard.swift"; sourceTree = "<group>"; };
+		AD28EA9120503DD700AA998A /* PopupDialogDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultViewController.swift; sourceTree = "<group>"; };
+		AD28EA9220503DD700AA998A /* TransitionAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimations.swift; sourceTree = "<group>"; };
+		AD28EA9320503DD700AA998A /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
+		AD28EA9520503DD700AA998A /* TZSpacerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZSpacerView.swift; sourceTree = "<group>"; };
+		AD28EA9620503DD700AA998A /* TZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackView.swift; sourceTree = "<group>"; };
+		AD28EA9720503DD700AA998A /* TZStackViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewDistribution.swift; sourceTree = "<group>"; };
+		AD28EA9820503DD700AA998A /* TZStackViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewAlignment.swift; sourceTree = "<group>"; };
+		AD28EA9920503DD700AA998A /* PresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationManager.swift; sourceTree = "<group>"; };
+		AD28EA9A20503DD700AA998A /* PopupDialogContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogContainerView.swift; sourceTree = "<group>"; };
+		AD28EA9B20503DD700AA998A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		AD28EA9C20503DD700AA998A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AD28EA9D20503DD700AA998A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackForm.swift; sourceTree = "<group>"; };
 		AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormViewController.swift; sourceTree = "<group>"; };
 		AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormViewController.xib; sourceTree = "<group>"; };
@@ -1478,6 +1527,7 @@
 		98EAF6931CCF88D400C77649 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				AD28EA8120503DD700AA998A /* MWPopupDialog */,
 				C7F7960B2029E5B6005DE7B3 /* DLRadioButton */,
 				C77B8E171FD6B6D100B16F6E /* ENSideMenu */,
 				C7908A1F1FC6E31200C93A82 /* PKHUD */,
@@ -1486,7 +1536,6 @@
 				98500BBB1E0935ED00DF87E8 /* KiteJSONValidator */,
 				985A0D3E1DCCB0E40010C799 /* Locksmith */,
 				989C41801DBE18E800951AE5 /* MGSwipeTableCell */,
-				ADB2AD4C1DB7FC85003E3AC1 /* SSASideMenu */,
 				98EAF6AC1CCF995B00C77649 /* IHKeyboardAvoiding */,
 				98EAF69A1CCF899500C77649 /* UIView+Utilities */,
 				98EAF69C1CCF899500C77649 /* UIViewController+Extensions */,
@@ -1595,6 +1644,7 @@
 		AD28EA11204FE06B00AA998A /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				AD28EA41205036B800AA998A /* UICustomPopup */,
 				AD28EA17204FEF9B00AA998A /* UIDefaultFeatureProvider */,
 				AD28EA12204FE0A100AA998A /* UINotAvailableView */,
 			);
@@ -1617,6 +1667,77 @@
 				AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */,
 			);
 			path = UIDefaultFeatureProvider;
+			sourceTree = "<group>";
+		};
+		AD28EA41205036B800AA998A /* UICustomPopup */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA42205036C000AA998A /* UICustomPopup.swift */,
+			);
+			path = UICustomPopup;
+			sourceTree = "<group>";
+		};
+		AD28EA8120503DD700AA998A /* MWPopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA8220503DD700AA998A /* PopupDialog */,
+			);
+			path = MWPopupDialog;
+			sourceTree = "<group>";
+		};
+		AD28EA8220503DD700AA998A /* PopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA8320503DD700AA998A /* PopupDialog */,
+				AD28EA9C20503DD700AA998A /* LICENSE */,
+				AD28EA9D20503DD700AA998A /* README.md */,
+			);
+			path = PopupDialog;
+			sourceTree = "<group>";
+		};
+		AD28EA8320503DD700AA998A /* PopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA8420503DD700AA998A /* Classes */,
+			);
+			path = PopupDialog;
+			sourceTree = "<group>";
+		};
+		AD28EA8420503DD700AA998A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA8520503DD700AA998A /* InteractiveTransition.swift */,
+				AD28EA8620503DD700AA998A /* PresentationController.swift */,
+				AD28EA8720503DD700AA998A /* UIImageView+Calculations.swift */,
+				AD28EA8820503DD700AA998A /* UIView+Animations.swift */,
+				AD28EA8920503DD700AA998A /* PopupDialogDefaultView.swift */,
+				AD28EA8A20503DD700AA998A /* PopupDialog.swift */,
+				AD28EA8B20503DD700AA998A /* PopupDialogOverlayView.swift */,
+				AD28EA8C20503DD700AA998A /* PopupDialogButton.swift */,
+				AD28EA8D20503DD700AA998A /* UIViewController+Visibility.swift */,
+				AD28EA8E20503DD700AA998A /* FXBlurView.h */,
+				AD28EA8F20503DD700AA998A /* TransitionAnimator.swift */,
+				AD28EA9020503DD700AA998A /* PopupDialog+Keyboard.swift */,
+				AD28EA9120503DD700AA998A /* PopupDialogDefaultViewController.swift */,
+				AD28EA9220503DD700AA998A /* TransitionAnimations.swift */,
+				AD28EA9320503DD700AA998A /* PopupDialogDefaultButtons.swift */,
+				AD28EA9420503DD700AA998A /* TZStackView */,
+				AD28EA9920503DD700AA998A /* PresentationManager.swift */,
+				AD28EA9A20503DD700AA998A /* PopupDialogContainerView.swift */,
+				AD28EA9B20503DD700AA998A /* FXBlurView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AD28EA9420503DD700AA998A /* TZStackView */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA9520503DD700AA998A /* TZSpacerView.swift */,
+				AD28EA9620503DD700AA998A /* TZStackView.swift */,
+				AD28EA9720503DD700AA998A /* TZStackViewDistribution.swift */,
+				AD28EA9820503DD700AA998A /* TZStackViewAlignment.swift */,
+			);
+			path = TZStackView;
 			sourceTree = "<group>";
 		};
 		AD48A8E11F6281FF003E5A88 /* FeedbackForm */ = {
@@ -1685,13 +1806,6 @@
 				AD4AD5551F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib */,
 			);
 			path = OPFeedbackFormTVTitleCell;
-			sourceTree = "<group>";
-		};
-		ADB2AD4C1DB7FC85003E3AC1 /* SSASideMenu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SSASideMenu;
 			sourceTree = "<group>";
 		};
 		ADF3CA621DB892DA00BD2B7A /* Resources */ = {
@@ -2641,6 +2755,8 @@
 				9852C6F81CD0F68D00AF2BE5 /* UIIdentityCell.xib in Resources */,
 				98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */,
 				C7F795F320248DF8005DE7B3 /* Dosis-SemiBold.otf in Resources */,
+				AD28EAB320503DD700AA998A /* LICENSE in Resources */,
+				AD28EAB420503DD700AA998A /* README.md in Resources */,
 				9866A7C61DBF854000907D05 /* UINotificationsListView.xib in Resources */,
 				C7F795E820248DDB005DE7B3 /* PrivacyWizardModule.js in Resources */,
 				98F647591ED30662008EB91E /* PPCommonTypesBundle.bundle in Resources */,
@@ -2730,6 +2846,7 @@
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
 				C7F79564202363B7005DE7B3 /* ACSwarmCallbackContainer.swift in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
+				AD28EAB020503DD700AA998A /* PresentationManager.swift in Sources */,
 				982D31881E842A9B00FE2FB7 /* AFHTTPSessionManager.m in Sources */,
 				C77B8E1B1FD6B6F200B16F6E /* ENSideMenu.swift in Sources */,
 				989C41871DBE18E800951AE5 /* MGSwipeButton.m in Sources */,
@@ -2739,6 +2856,7 @@
 				AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */,
 				986A58F81DB3A43700B622F5 /* UserInfoRepository.swift in Sources */,
 				98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */,
+				AD28EAA720503DD700AA998A /* TransitionAnimator.swift in Sources */,
 				C7F7952220236153005DE7B3 /* UILabel+Utils.swift in Sources */,
 				C7F7950B20236129005DE7B3 /* UIRadialGradientView.swift in Sources */,
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
@@ -2751,6 +2869,7 @@
 				C76ABAF81FEC0AD600104239 /* AccountDeletionCell.swift in Sources */,
 				C76ABAF41FEBFF8200104239 /* PasswordExpandedCell.swift in Sources */,
 				C7F795CF202363F9005DE7B3 /* ActionData.swift in Sources */,
+				AD28EAA520503DD700AA998A /* PopupDialogButton.swift in Sources */,
 				ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */,
 				9870840D1E8E938E00D9F8E9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98F6B1291E7BFC7100D193FF /* UIWebViewTab.swift in Sources */,
@@ -2758,10 +2877,12 @@
 				AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */,
 				9866A7BE1DBF778100907D05 /* UIChangePasswordView.swift in Sources */,
 				9812DB5B1DB52BBB009DD50A /* UIAddIdentityAlertViewController.swift in Sources */,
+				AD28EAA220503DD700AA998A /* PopupDialogDefaultView.swift in Sources */,
 				C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */,
 				C7F795B7202363F8005DE7B3 /* FbWebKitParametersProvider.swift in Sources */,
 				98668B6B1DB1346600FDE63A /* UIIdentitiesListView.swift in Sources */,
 				C77DCED51FC6E6C800B106ED /* ProgressHUD.swift in Sources */,
+				AD28EAA420503DD700AA998A /* PopupDialogOverlayView.swift in Sources */,
 				C7908A361FC6E33400C93A82 /* HUD.swift in Sources */,
 				982D318C1E842A9B00FE2FB7 /* AFURLResponseSerialization.m in Sources */,
 				98EAF69F1CCF899500C77649 /* UIViewController+Extensions.swift in Sources */,
@@ -2772,6 +2893,7 @@
 				98EAF66F1CCF86DC00C77649 /* AppDelegate.swift in Sources */,
 				C7F795BC202363F8005DE7B3 /* UISNSettingsReaderViewController.swift in Sources */,
 				C7F79617202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.swift in Sources */,
+				AD28EAAA20503DD700AA998A /* TransitionAnimations.swift in Sources */,
 				98387BBE1DB75A8400A76F01 /* UIDashboardButton.swift in Sources */,
 				C7908A331FC6E33400C93A82 /* WindowRootViewController.swift in Sources */,
 				98EAF6911CCF884000C77649 /* OPUtils.swift in Sources */,
@@ -2784,8 +2906,10 @@
 				C7F795B4202363F8005DE7B3 /* LocalJSSettingsProvider.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
 				C7F795E0202472BD005DE7B3 /* UIPrivacySettingFlowController.swift in Sources */,
+				AD28EA9E20503DD700AA998A /* InteractiveTransition.swift in Sources */,
 				C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */,
 				9870840E1E8E938E00D9F8E9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				AD28EA9F20503DD700AA998A /* PresentationController.swift in Sources */,
 				986A58F21DB39C7300B622F5 /* SwarmClientHelperTypes.swift in Sources */,
 				C7908A3D1FC6E33400C93A82 /* PKHUDWideBaseView.swift in Sources */,
 				C7F7953A2023620C005DE7B3 /* AMAvailableReadSetting.swift in Sources */,
@@ -2800,7 +2924,9 @@
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
 				C7F7960E2029E5C6005DE7B3 /* DLRadioButton.m in Sources */,
 				C7908A321FC6E33400C93A82 /* Window.swift in Sources */,
+				AD28EAA120503DD700AA998A /* UIView+Animations.swift in Sources */,
 				C7F795BF202363F8005DE7B3 /* UISNSettingsView.swift in Sources */,
+				AD28EAB220503DD700AA998A /* FXBlurView.m in Sources */,
 				C7F795B3202363F8005DE7B3 /* OSPSettingsManager.swift in Sources */,
 				98EAF6A11CCF8A1800C77649 /* UILoginView.swift in Sources */,
 				C7F79611202A022A005DE7B3 /* PrivacyWizardRepository.swift in Sources */,
@@ -2831,6 +2957,7 @@
 				985A0D4C1DCCB0E40010C799 /* LocksmithSecurityClass.swift in Sources */,
 				C7F795F9202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift in Sources */,
 				9866A7BB1DBF701400907D05 /* UIAccountViewController.swift in Sources */,
+				AD28EAA020503DD700AA998A /* UIImageView+Calculations.swift in Sources */,
 				98516FCF1E040C51007428F3 /* OPCloak.swift in Sources */,
 				C7F7950A20236129005DE7B3 /* UICustomTableViewHeader.swift in Sources */,
 				C7908A391FC6E33400C93A82 /* PKHUDTextView.swift in Sources */,
@@ -2840,15 +2967,18 @@
 				C7F7950920236129005DE7B3 /* UIAlertViewController.swift in Sources */,
 				982750201D0849EB00C73411 /* SwarmClientHelper.swift in Sources */,
 				9827502D1D084A4B00C73411 /* WKWebViewUtilities.swift in Sources */,
+				AD28EA43205036C000AA998A /* UICustomPopup.swift in Sources */,
 				98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */,
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,
+				AD28EAAB20503DD700AA998A /* PopupDialogDefaultButtons.swift in Sources */,
 				AD28EA19204FEFA500AA998A /* UIDefaultFeatureProvider.swift in Sources */,
 				982DF0631DB6618700231BBD /* UIPfbDealTableViewCell.swift in Sources */,
 				C7F7953B2023620C005DE7B3 /* AMRead.swift in Sources */,
 				AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,
+				AD28EAAD20503DD700AA998A /* TZStackView.swift in Sources */,
 				AD28EA1D2050197700AA998A /* UserDefaults+Utils.swift in Sources */,
 				98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */,
 				982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */,
@@ -2859,6 +2989,7 @@
 				98EAF6A61CCF92CA00C77649 /* UISignInViewController.swift in Sources */,
 				C7F79562202363B7005DE7B3 /* ACErrorContainer.swift in Sources */,
 				981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */,
+				AD28EAAF20503DD700AA998A /* TZStackViewAlignment.swift in Sources */,
 				C7F7952520236153005DE7B3 /* UIView+Utils.swift in Sources */,
 				C7F7952020236153005DE7B3 /* UIColor+Utils.swift in Sources */,
 				AD48A8EB1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift in Sources */,
@@ -2872,22 +3003,28 @@
 				C7F795BB202363F8005DE7B3 /* WebViewSettingsReader.swift in Sources */,
 				AD28EA1B204FF2B100AA998A /* UINotAvailableViewController.swift in Sources */,
 				985A0D461DCCB0E40010C799 /* Dictionary_Initializers.swift in Sources */,
+				AD28EAA320503DD700AA998A /* PopupDialog.swift in Sources */,
 				C7908A381FC6E33400C93A82 /* FrameView.swift in Sources */,
 				AD4AD5501F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift in Sources */,
+				AD28EAA820503DD700AA998A /* PopupDialog+Keyboard.swift in Sources */,
 				989C41881DBE18E800951AE5 /* MGSwipeTableCell.m in Sources */,
 				982750261D0849FA00C73411 /* OPConfigObject.swift in Sources */,
 				C7F7952620236153005DE7B3 /* WKWebView+Utils.swift in Sources */,
 				C7F795BD202363F8005DE7B3 /* UISNSettingsTableViewCell.swift in Sources */,
+				AD28EAB120503DD700AA998A /* PopupDialogContainerView.swift in Sources */,
 				C7F79563202363B7005DE7B3 /* ACPrivacyWriter.swift in Sources */,
 				C7908A3A1FC6E33400C93A82 /* PKHUDSquareBaseView.swift in Sources */,
 				C7F79568202363B7005DE7B3 /* ACSwarmManager.swift in Sources */,
 				C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */,
+				AD28EAAC20503DD700AA998A /* TZSpacerView.swift in Sources */,
 				C7F795CD202363F8005DE7B3 /* ActionController.swift in Sources */,
 				9870840F1E8E938E00D9F8E9 /* UIButton+AFNetworking.m in Sources */,
 				C7F796092029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift in Sources */,
+				AD28EAAE20503DD700AA998A /* TZStackViewDistribution.swift in Sources */,
 				9843340C1F06364A0016564E /* LocalizedStringKeys.swift in Sources */,
 				98668B611DB0D1F100FDE63A /* UIOPFlowController.swift in Sources */,
 				9827501A1D0849D400C73411 /* UserIdentityModel.swift in Sources */,
+				AD28EAA620503DD700AA998A /* UIViewController+Visibility.swift in Sources */,
 				982DF0681DB6796500231BBD /* UIPfbDetailsAlertViewController.swift in Sources */,
 				C7F795B2202363F8005DE7B3 /* HTMLLoginInputDetector.swift in Sources */,
 				C7F7953C2023620C005DE7B3 /* AMReadJQuerySelector.swift in Sources */,
@@ -2905,6 +3042,7 @@
 				985A0D4A1DCCB0E40010C799 /* LocksmithInternetAuthenticationType.swift in Sources */,
 				98EAF69E1CCF899500C77649 /* UIView+Utilities.swift in Sources */,
 				986D4CA91DB23AA80006DA0B /* SwarmClientResponseParsers.swift in Sources */,
+				AD28EAA920503DD700AA998A /* PopupDialogDefaultViewController.swift in Sources */,
 				C7F795E1202472BD005DE7B3 /* UIQuestionnaireFlowController.swift in Sources */,
 				C7F795E2202472BD005DE7B3 /* UISetPrivacyFlowController.swift in Sources */,
 				98EAF6A91CCF974500C77649 /* UIRegistrationView.swift in Sources */,

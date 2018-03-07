@@ -14,4 +14,5 @@
 #include "KiteJSONValidator.h"
 #import "UIKit+AFNetworking.h"
 #import "DLRadioButton.h"
+#import "FXBlurView.h"
 #endif /* Operando_BridgingHeader_h */
