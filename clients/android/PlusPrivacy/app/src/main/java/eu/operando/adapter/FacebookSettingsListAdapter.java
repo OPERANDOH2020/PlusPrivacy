@@ -3,6 +3,7 @@ package eu.operando.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatRadioButton;
@@ -174,9 +175,9 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
 
             convertView.setTag(holder);
         } else {
-            holder = ((GroupHolder) convertView.getTag());
+            holder = (GroupHolder) convertView.getTag();
         }
-        holder.setData(groupPosition);
+        holder.setData(groupPosition, isExpanded);
         return convertView;
     }
 
@@ -214,6 +215,7 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
         ImageView recommendedIcon;
         TextView questionTV;
         RelativeLayout socialNetworkMainLayout;
+        ImageView groupIndicator;
 
         GroupHolder(View itemView) {
             super(itemView);
@@ -221,12 +223,14 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
             questionTV = ((TextView) itemView.findViewById(R.id.question_tv));
             recommendedIcon = (ImageView) itemView.findViewById(R.id.recommended_icon);
             socialNetworkMainLayout = (RelativeLayout) itemView.findViewById(R.id.social_network_main_layout);
+            groupIndicator = (ImageView) itemView.findViewById(R.id.arrow);
         }
 
-        public void setData(int groupPosition){
+        public void setData(int groupPosition, boolean isExpanded){
             String questionText = ((Question) getGroup(groupPosition)).getRead().getName();
             questionTV.setText(questionText);
 
+            groupIndicator.setSelected(isExpanded);
             if (recommended.get(groupPosition).equals(checkedState.get(groupPosition))){
                 recommendedIcon.setVisibility(View.VISIBLE);
             } else {

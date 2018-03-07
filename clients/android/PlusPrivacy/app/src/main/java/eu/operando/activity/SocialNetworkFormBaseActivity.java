@@ -171,6 +171,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     }
 
     public void onClickSubmit(View view) {
+
         List<Preference> userAnswers = convertAnswers();
         sendSaveUserPreferencesSwarm(userAnswers);
         String privacySettings = editOspSettingsJSON(userAnswers);
@@ -181,6 +182,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     }
 
     public void onClickRecommended(View view) {
+
         elvAdapter.initCheckedStateFromRecommendedValues();
         Toast.makeText(this, "Recommended settings loaded", Toast.LENGTH_SHORT).show();
     }

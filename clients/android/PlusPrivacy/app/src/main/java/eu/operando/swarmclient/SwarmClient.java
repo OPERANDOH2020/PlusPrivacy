@@ -31,6 +31,7 @@ import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.ConnectivityReceiver;
 import eu.operando.utils.NetworkUtil;
+import io.socket.client.Ack;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -40,7 +41,7 @@ import okhttp3.OkHttpClient;
  * Created by Edy on 11/2/2016.
  */
 
-public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverListener {
+public class SwarmClient {
     private static SwarmClient instance;
     private String connectionURL;
     private Context context;
@@ -49,7 +50,7 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
     private HashMap<String, SwarmCallback> listeners;
     private ConnectionListener connectionListener;
 
-    private SwarmClient(final String connectionURL) {
+    public SwarmClient(final String connectionURL) {
 
         this.connectionURL = connectionURL;
         listeners = new HashMap<>();
@@ -57,9 +58,6 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
         setSocket();
 
         gson = new Gson();
-
-        registerConnectivityListener();
-
     }
 
     private void setSocket() {
@@ -111,6 +109,7 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
             options.timeout = 1000;
 
             ioSocket = IO.socket(connectionURL, options);
+            ioSocket.connect();
 
             Emitter.Listener onNewMessage = new Emitter.Listener() {
                 @Override
@@ -130,16 +129,6 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
                 @Override
                 public void call(Object... args) {
 
-//                    instance = new SwarmClient(connectionURL);
-//                    ioSocket.connect();
-
-//                    try {
-//                        ioSocket = IO.socket(connectionURL, options);
-//                        ioSocket.connect();
-//                        listeners = new HashMap<>();
-//                    } catch (URISyntaxException e) {
-//                        e.printStackTrace();
-//                    }
                     Log.e("Disconnect", "call() called with: args = [" + Arrays.toString(args) + "]");
                     if (connectionListener != null) {
                         connectionListener.onDisconnect();
@@ -214,21 +203,9 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
                 }
             });
 
-            ioSocket.connect();
-
         } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException exception) {
             exception.printStackTrace();
         }
-    }
-
-    public static SwarmClient getInstance(/*Context context,*/ String connectionURL) {
-
-        if (instance == null) {
-//            throw new IllegalStateException("init() was not called.");
-            instance = new SwarmClient(/*context,*/ connectionURL);
-        }
-
-        return instance;
     }
 
     public void startSwarm(Swarm swarm, SwarmCallback callback) {
@@ -238,7 +215,14 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
         }
         try {
             Log.e("startSwarm", new JSONObject(gson.toJson(swarm)).toString());
-            ioSocket.emit("message", new JSONObject(gson.toJson(swarm)));
+            ioSocket.emit("message", new JSONObject(gson.toJson(swarm)), new Ack(){
+                @Override
+                public void call(Object... args) {
+                    Ack ack = (Ack) args[args.length - 1];
+                    ack.call();
+                    Log.e("ack", "call");
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -258,40 +242,6 @@ public class SwarmClient implements ConnectivityReceiver.ConnectivityReceiverLis
         void onConnect();
 
         void onDisconnect();
-    }
-
-    private void registerConnectivityListener() {
-
-        final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-
-        ConnectivityReceiver connectivityReceiver = new ConnectivityReceiver();
-        PlusPrivacyApp.getInstance().getApplicationContext().registerReceiver(connectivityReceiver, intentFilter);
-
-        // register connection status listener
-        PlusPrivacyApp.getInstance().setConnectivityListener(this);
-    }
-
-    @Override
-    public void onNetworkConnectionChanged(boolean isConnected) {
-
-        String message;
-        if (isConnected) {
-            message = "Good! Connected to Internet";
-            goodInternetConnection();
-        } else {
-            message = "Sorry! Not connected to internet";
-            noInternetConnection();
-        }
-        Log.e("connection", message);
-    }
-
-    private void goodInternetConnection() {
-        ioSocket.connect();
-    }
-
-    private void noInternetConnection() {
-        ioSocket.disconnect();
     }
 
 }

@@ -1,6 +1,10 @@
 package eu.operando.swarmService;
 
 import android.content.Context;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.util.Log;
+import android.util.Pair;
 
 import com.google.gson.Gson;
 
@@ -9,10 +13,12 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.models.Identity;
 import eu.operando.models.privacysettings.Preference;
+import eu.operando.storage.Storage;
 import eu.operando.swarmService.models.GenerateIdentitySwarmEntity;
 import eu.operando.swarmService.models.GetDomainsSwarmEntity;
 import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
@@ -25,12 +31,13 @@ import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.PrivacyWizardSwarmCallback;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
+import eu.operando.utils.ConnectivityReceiver;
 
 /**
  * Created by Edy on 11/3/2016.
  */
 
-public class SwarmService {
+public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverListener {
 
     private static final String SWARMS_URL = "https://plusprivacy.com:8080";
     private static final String SWARMS_URL_DEBUG_RAFAEL = "http://192.168.103.149:8080";
@@ -41,17 +48,65 @@ public class SwarmService {
     private static SwarmService instance;
 
     private SwarmClient swarmClient;
+    private boolean first = true;
 
-    private SwarmService(/*Context context*/) {
-        swarmClient = SwarmClient.getInstance(/*context, */SWARMS_URL);
+    private SwarmService() {
+
+        swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL);
+        registerConnectivityListener();
+
     }
 
-    public static SwarmService getInstance(/*Context context*/) {
-        if (instance == null) {
-            instance = new SwarmService(/*context*/);
-        }
+    public static SwarmService getInstance() {
 
+        if (instance == null) {
+            instance = new SwarmService();
+        }
         return instance;
+    }
+
+    private void registerConnectivityListener() {
+
+        final IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+
+        ConnectivityReceiver connectivityReceiver = new ConnectivityReceiver();
+        PlusPrivacyApp.getInstance().getApplicationContext().registerReceiver(connectivityReceiver, intentFilter);
+
+        // register connection status listener
+        PlusPrivacyApp.getInstance().setConnectivityListener(this);
+    }
+
+    @Override
+    public void onNetworkConnectionChanged(boolean isConnected) {
+
+        String message;
+        if (isConnected) {
+            message = "Good! Connected to Internet";
+            goodInternetConnection();
+        } else {
+            message = "Sorry! Not connected to internet";
+        }
+        Log.e("connection", message);
+
+    }
+
+    private void goodInternetConnection() {
+
+        if (!first) {
+
+            swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL);
+            Log.e("login", "login");
+            Pair<String, String> credentials = Storage.readCredentials();
+            login(credentials.first, credentials.second, new SwarmCallback<Swarm>() {
+                @Override
+                public void call(Swarm result) {
+
+                }
+            });
+        } else {
+            first = false;
+        }
     }
 
     public void setConnectionListener(SwarmClient.ConnectionListener connectionListener) {
@@ -67,7 +122,7 @@ public class SwarmService {
     }
 
     public void logout(SwarmCallback<? extends Swarm> callback) {
-        swarmClient.startSwarm(callback,"login.js", "logout");
+        swarmClient.startSwarm(callback, "login.js", "logout");
     }
 
     public void signUp(final String email, final String password, final SwarmCallback<? extends Swarm> callback) {
@@ -97,7 +152,7 @@ public class SwarmService {
         });
     }
 
-    public void registerSwarm(String email, String password, final SwarmCallback<? extends Swarm> callback){
+    public void registerSwarm(String email, String password, final SwarmCallback<? extends Swarm> callback) {
         swarmClient.startSwarm(callback, "register.js", "registerNewUser",
                 new RegisterInfo(email, password, password));
     }
@@ -121,7 +176,7 @@ public class SwarmService {
     }
 
     public void getFeedbackQuestions(SwarmCallback<FeedbackQuestionListEntity> callback) {
-        swarmClient.startSwarm(callback,"feedback.js", "getFeedbackQuestions");
+        swarmClient.startSwarm(callback, "feedback.js", "getFeedbackQuestions");
     }
 
     public void submitFeedback(SwarmCallback<Swarm> callback, Object... args) {
@@ -129,7 +184,7 @@ public class SwarmService {
     }
 
     public void hasUserSubmittedAFeedback(SwarmCallback<FeedbackResultSwarmModel> callback) {
-        swarmClient.startSwarm(callback,"feedback.js", "hasUserSubmittedAFeedback");
+        swarmClient.startSwarm(callback, "feedback.js", "hasUserSubmittedAFeedback");
     }
 
     public void getAllDeals(SwarmCallback<PfbSwarmEntity> callback) {
@@ -140,45 +195,45 @@ public class SwarmService {
         swarmClient.startSwarm(callback, "pfb.js", accept ? "acceptDeal" : "unsubscribeDeal", offerId);
     }
 
-    public void createIdentity(SwarmCallback<Swarm> callback, Identity identity){
-        swarmClient.startSwarm(callback,"identity.js", "createIdentity", identity);
+    public void createIdentity(SwarmCallback<Swarm> callback, Identity identity) {
+        swarmClient.startSwarm(callback, "identity.js", "createIdentity", identity);
     }
 
-    public void generateIdentity(SwarmCallback<GenerateIdentitySwarmEntity> callback){
-        swarmClient.startSwarm(callback,"identity.js", "generateIdentity");
+    public void generateIdentity(SwarmCallback<GenerateIdentitySwarmEntity> callback) {
+        swarmClient.startSwarm(callback, "identity.js", "generateIdentity");
     }
 
-    public void listDomains(SwarmCallback<GetDomainsSwarmEntity> callback){
-        swarmClient.startSwarm(callback,"identity.js", "listDomains");
+    public void listDomains(SwarmCallback<GetDomainsSwarmEntity> callback) {
+        swarmClient.startSwarm(callback, "identity.js", "listDomains");
     }
 
-    public void deleteAccount(SwarmCallback<Swarm> callback){
-        swarmClient.startSwarm(callback,"UserInfo.js", "deleteAccount");
+    public void deleteAccount(SwarmCallback<Swarm> callback) {
+        swarmClient.startSwarm(callback, "UserInfo.js", "deleteAccount");
     }
 
-    public void changePassword(String currentPassword, String newPassword, SwarmCallback<Swarm> callback){
-        swarmClient.startSwarm(callback,"UserInfo.js", "changePassword",
+    public void changePassword(String currentPassword, String newPassword, SwarmCallback<Swarm> callback) {
+        swarmClient.startSwarm(callback, "UserInfo.js", "changePassword",
                 currentPassword, newPassword);
     }
 
-    public void getOspSettings(PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty> callback){
-        swarmClient.startSwarm(callback,"PrivacyWizardSwarm.js",
+    public void getOspSettings(PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty> callback) {
+        swarmClient.startSwarm(callback, "PrivacyWizardSwarm.js",
                 "getOSPSettings");
     }
 
     public void saveSocialNetworkPreferences(SwarmCallback<Swarm> callback, String id,
-                                             List<Preference> userAnswers){
-        swarmClient.startSwarm(callback,"UserPreferences.js",
+                                             List<Preference> userAnswers) {
+        swarmClient.startSwarm(callback, "UserPreferences.js",
                 "saveOrUpdatePreferences", id, userAnswers);
     }
 
-    public void getSocialNetworkPreferences(SwarmCallback<GetUserPreferencesSwarmEntity> callback, String id){
-        swarmClient.startSwarm(callback,"UserPreferences.js",
+    public void getSocialNetworkPreferences(SwarmCallback<GetUserPreferencesSwarmEntity> callback, String id) {
+        swarmClient.startSwarm(callback, "UserPreferences.js",
                 "getPreferences", id);
     }
 
-    public void getNotifications(SwarmCallback<GetNotificationsSwarmEntity> callback){
-        swarmClient.startSwarm(callback,"notification.js","getNotifications");
+    public void getNotifications(SwarmCallback<GetNotificationsSwarmEntity> callback) {
+        swarmClient.startSwarm(callback, "notification.js", "getNotifications");
     }
 
 }

@@ -13,6 +13,7 @@
         app:title="@string/facebook_privacy_settings"
         app:titleTextColor="@color/white"
         android:background="@color/social_network_settings_facebook"
+        app:titleTextAppearance="@style/ToolbarStyle"
         app:theme="@style/ToolbarStyle">
 
     </android.support.v7.widget.Toolbar>
