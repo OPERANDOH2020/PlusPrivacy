@@ -55,8 +55,15 @@ class UIOPFlowController
             whenMenuButtonPressed: {
                 weakSelf?.sideMenu?.toggleSideMenuView()},
             whenBackButtonPressed: {
-                weakSelf?.displayDashboard()
-                self.rootController.reset()
+                
+                if self.rootController.topBarLabel.text == "Facebook privacy settings" {
+                    weakSelf?.displayPrivacyWizardDashboard()
+                }
+                else {
+                    weakSelf?.displayDashboard()
+                    self.rootController.reset()
+                }
+                
         }, WhenBackPressOnSettingsView: {
             weakSelf?.displayPrivateBrowsing()
             self.rootController.reset()
@@ -147,7 +154,7 @@ class UIOPFlowController
             
         }))
             
-        self.rootController.setupTabViewForIdentities()
+        self.rootController.setupTabViewForPrivacyWizzard()
         self.rootController.setMainControllerTo(newController: vc)
     }
     
@@ -166,7 +173,7 @@ class UIOPFlowController
              self.displaySetPrivacyVC()
         }))
         
-        self.rootController.setupTabViewForPrivacyWizzard()
+        self.rootController.setupTabViewForFBQuestionnaire()
         self.rootController.setMainControllerTo(newController: vc)
         
     }
