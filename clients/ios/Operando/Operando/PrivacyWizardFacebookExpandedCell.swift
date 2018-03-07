@@ -17,6 +17,7 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingLabel: UILabel!
+    @IBOutlet weak var securedImageView: UIImageView!
     
     var delegate: PrivacyWizardFacebookExpandedCellDelegate?
     
@@ -29,9 +30,11 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
         self.setting = nil
     }
     
-    func setupWithSetting(setting: AMPrivacySetting){
+    func setupWithSetting(setting: AMPrivacySetting,isRecommendedSelected:Bool ){
         self.settingLabel.text = setting.read?.name
         self.setting = setting
+        
+        securedImageView.isHidden = !isRecommendedSelected
         setupTableView()
         self.tableView.reloadData()
     }

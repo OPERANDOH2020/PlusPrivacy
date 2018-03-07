@@ -30,15 +30,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYT-Du-OJ2">
-                                <rect key="frame" x="44" y="8" width="327" height="53"/>
+                                <rect key="frame" x="44" y="8" width="326" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-j6-xVa">
-                                <rect key="frame" x="371" y="20" width="29" height="29"/>
+                                <rect key="frame" x="370" y="20" width="30" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="29" id="gUG-yL-Can"/>
+                                    <constraint firstAttribute="width" constant="30" id="gUG-yL-Can"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -67,6 +67,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="securedImageView" destination="TGD-PS-bd9" id="jpQ-cL-cad"/>
                 <outlet property="settingLabel" destination="wYT-Du-OJ2" id="n7t-ZE-3gJ"/>
             </connections>
             <point key="canvasLocation" x="95" y="75"/>

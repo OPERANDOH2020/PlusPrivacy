@@ -267,11 +267,6 @@
                             <constraint firstItem="dHn-pY-4ah" firstAttribute="bottom" secondItem="Xor-4Y-QBo" secondAttribute="top" id="pJV-iw-ecq"/>
                         </constraints>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="logoView" destination="IIh-n5-SyA" id="WUh-bP-ac0"/>
                         <outlet property="nameLabel" destination="eu5-r4-shi" id="GhI-YR-vpG"/>
