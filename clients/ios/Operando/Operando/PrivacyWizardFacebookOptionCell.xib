@@ -28,9 +28,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-2Y-Dhl">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="43.5"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="pressedButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uiY-VI-2hA"/>
                                         </connections>

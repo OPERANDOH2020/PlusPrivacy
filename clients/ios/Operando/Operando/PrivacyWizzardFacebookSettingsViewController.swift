@@ -17,7 +17,7 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     private var repository: PrivacyWizardRepository?
-    private var facebookSettings: [AMPrivacySetting]?
+    @objc private var facebookSettings: [AMPrivacySetting]?
     
     var callbacks:PrivacyWizzardFacebookSettingsCallbacks?
     
@@ -28,6 +28,7 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
         setupTableView()
         
         repository?.getAllQuestions(withCompletion: { (settings,error) in
@@ -61,7 +62,6 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         
         ACPrivacyWizard.shared.privacySettings?.facebookSettings = self.facebookSettings
         ACPrivacyWizard.shared.selectedScope = .facebook
-        
     }
     
     func setup(with privacyWizardRepository:PrivacyWizardRepository, callbacks: PrivacyWizzardFacebookSettingsCallbacks){
@@ -107,6 +107,28 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         }  
     }
     
+    func isSelectedSettingRecommended(setting: AMPrivacySetting) -> Bool {
+            
+            guard let recommendedString = setting.write?.recommended else {
+                return false
+            }
+            
+            guard let availableSettings = setting.read?.availableSettings else {
+                return false
+            }
+            
+            for availableSetting in availableSettings {
+                if availableSetting.name == recommendedString.replace(target: "_", withString: " ").capitalized &&
+                     availableSetting.isSelected == true {
+                    
+                    return true
+                }
+            }
+        
+        return false
+        
+    }
+    
     @IBAction func pressedSubmitButton(_ sender: Any) {
         self.callbacks?.pressedSubmit(self.facebookSettings!)
     }
@@ -117,6 +139,7 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     func privacyWizardFacebookExpandedSelectedOption(selectedOptionIndex: Int) {
         
         self.currentSelectedSetting?.selectOption(withIndex: selectedOptionIndex)
+        self.tableView.reloadData()
         
     }
     
@@ -143,7 +166,7 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
             let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyWizardFacebookExpandedCell", for: indexPath) as! PrivacyWizardFacebookExpandedCell
             
             if let setting = self.facebookSettings?[indexPath.row] {
-                cell.setupWithSetting(setting: setting)
+                cell.setupWithSetting(setting: setting,isRecommendedSelected: isSelectedSettingRecommended(setting: setting))
                 cell.delegate = self
                 
             }
@@ -156,8 +179,8 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyWizardFacebookCell", for: indexPath) as! PrivacyWizardFacebookCell
             
-            if let setting = self.facebookSettings?[indexPath.row].read {
-                cell.setupWithSetting(setting: setting)
+            if let setting = self.facebookSettings?[indexPath.row]{
+                cell.setupWithSetting(setting: setting,isRecommendedSelected: isSelectedSettingRecommended(setting: setting))
             }
             
             cell.selectionStyle = .none
@@ -166,11 +189,10 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         }
     }
     
-    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         if let selectedIndexPath = self.selectedIndexPath ,
             selectedIndexPath == indexPath,
             let count = self.facebookSettings?[selectedIndexPath.row].availableOptionsCount{
