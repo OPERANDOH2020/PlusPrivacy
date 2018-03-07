@@ -9,6 +9,15 @@
 import Foundation
 extension String {
     
+    static func isNullEmptyOrSpace(_ string: String?) -> Bool {
+        guard let string = string else { return true }
+        return string == "" || string == " "
+    }
+    
+    static func isEmptyOrSpace(_ string: String) -> Bool {
+        return string == "" || string == " "
+    }
+    
     func capitalizingFirstLetter() -> String {
         let first = String(characters.prefix(1)).capitalized
         let other = String(characters.dropFirst())

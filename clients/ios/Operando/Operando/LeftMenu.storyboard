@@ -275,6 +275,9 @@
                     <connections>
                         <outlet property="logoView" destination="IIh-n5-SyA" id="WUh-bP-ac0"/>
                         <outlet property="nameLabel" destination="eu5-r4-shi" id="GhI-YR-vpG"/>
+                        <outlet property="nameSubtitleLabel" destination="ZQf-0M-30X" id="heT-xp-MZR"/>
+                        <outlet property="signingButton" destination="R4n-8v-tS9" id="xoO-l2-tGr"/>
+                        <outlet property="signingLabel" destination="qP6-pI-kSz" id="PDt-WM-CyY"/>
                         <outlet property="tableView" destination="rL3-st-xl2" id="2PT-rk-oRn"/>
                     </connections>
                 </viewController>

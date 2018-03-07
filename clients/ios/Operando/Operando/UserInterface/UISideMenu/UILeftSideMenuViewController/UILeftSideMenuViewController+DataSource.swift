@@ -25,6 +25,10 @@ extension UILeftSideMenuViewController {
 //            completion((identity,error))
         }
     }
+    
+    func signingTitle() -> String {
+        return UserDefaults.boolForKey(forKey: UserDefaultsKeys.isLoggedIn.rawValue) ? Bundle.localizedStringFor(key: "kLogoutLocalizableKey") : Bundle.localizedStringFor(key: "kSignInLocalizableKey")
+    }
 
     func getMenuDataSource() -> [UILeftSideMenuVCObject] {
         
@@ -50,7 +54,10 @@ extension UILeftSideMenuViewController {
         
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))
-        result.append(UILeftSideMenuVCObject(categoryImageName: "ic_account", categoryName: Bundle.localizedStringFor(key: kMyAccountLocalizableKey), action: self.callbacks?.whenChoosingMyAccount))
+        
+        if UserDefaults.boolForKey(forKey: UserDefaultsKeys.isLoggedIn.rawValue) {
+            result.append(UILeftSideMenuVCObject(categoryImageName: "ic_account", categoryName: Bundle.localizedStringFor(key: kMyAccountLocalizableKey), action: self.callbacks?.whenChoosingMyAccount))
+        }
         
         return result
     }

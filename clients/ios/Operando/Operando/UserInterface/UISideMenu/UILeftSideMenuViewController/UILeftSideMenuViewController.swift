@@ -38,8 +38,11 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - @IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameSubtitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var signingLabel: UILabel!
+    @IBOutlet weak var signingButton: UIButton!
     
     // MARK: - @IBActions
     @IBAction func didTapProfileButton(_ sender: AnyObject) {
@@ -50,11 +53,20 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func didTapLogoutButton(_ sender: Any) {
         self.callbacks?.logoutCallback?()
     }
+    
+    // MARK: - Public Methods
+    func refreshMenu() {
+        dataSource = getMenuDataSource()
+        tableView.reloadData()
+        signingLabel.text = self.signingTitle()
+    }
+    
     // MARK: - Private Methods
     private func setupControls() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 60
+        signingLabel.text = self.signingTitle()
     }
     
     func setupWith(userInfoRepo: UserInfoRepository?) {
@@ -103,6 +115,11 @@ class UILeftSideMenuViewController: UIViewController, UITableViewDataSource, UIT
     func sideMenuWillOpen() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         self.nameLabel.text = CredentialsStore.retrieveLastSavedCredentialsIfAny()?.username
+        if String.isNullEmptyOrSpace(nameLabel.text) {
+            nameSubtitleLabel.text = ""
+        } else {
+            nameSubtitleLabel.text = Bundle.localizedStringFor(key: "kYourRealIdentityLocalizableKey")
+        }
     }
     
     func sideMenuWillClose() {

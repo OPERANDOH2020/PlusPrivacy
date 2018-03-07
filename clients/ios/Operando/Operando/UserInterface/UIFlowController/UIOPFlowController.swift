@@ -63,7 +63,6 @@ class UIOPFlowController
             self.rootController.setupTabViewForPrivateBrowsing()
         }, whenSettingsButtonPressed: {
             weakSelf?.displaySettingsViewController()
-//            self.rootController.reset()
         })
         
         self.rootController.setupWithCallbacks(rootControllerCallbacks)
@@ -108,11 +107,14 @@ class UIOPFlowController
             
             whenChoosingIdentitiesManagement: {
                 self.rootController.setupLeftButton(buttonType: .back)
-                weakSelf?.displayIdentitiesManagement()
+                if UIDefaultFeatureProvider.shouldRestrictAccessToFeature() {
+                    weakSelf?.displayAuthenticationRequired(forFeature: .identityManagement)
+                } else {
+                    weakSelf?.displayIdentitiesManagement()
+                }
         },whenChoosingPrivacyForBenefits: {
             
             self.rootController.setupLeftButton(buttonType: .back)
-//            weakSelf?.displayPfbDeals()
             weakSelf?.displayPrivacyWizardDashboard()
         },whenChoosingPrivateBrowsing: {
             self.rootController.setupLeftButton(buttonType: .back)
@@ -120,7 +122,11 @@ class UIOPFlowController
         },
           whenChoosingNotifications: {
             self.rootController.setupLeftButton(buttonType: .back)
-            weakSelf?.displayNotifications()
+            if UIDefaultFeatureProvider.shouldRestrictAccessToFeature() {
+                weakSelf?.displayAuthenticationRequired(forFeature: .notifications)
+            } else {
+                weakSelf?.displayNotifications()
+            }
         },
           numOfNotificationsRequestCallback:
             self.dependencies.whenRequestingNumOfNotifications)
@@ -167,6 +173,27 @@ class UIOPFlowController
     
     func displaySetPrivacyVC(){
          let vc = UIViewControllerFactory.getUISetPrivacyViewController()
+        self.rootController.setMainControllerTo(newController: vc)
+    }
+    
+    func displayAuthenticationRequired(forFeature type: UIRestrictedFeatureType) {
+        let vc = UIViewControllerFactory.notAvailableViewController
+        
+        switch type {
+        case .identityManagement:
+            self.rootController.setupTabViewForIdentities()
+        case .notifications:
+            self.rootController.setupTabViewForNotification()
+        }
+        
+        weak var weakSelf = self
+        vc.setupWithCallbacks(whenLoginRequired: {
+            weakSelf?.displayLoginHierarchy()
+        }, whenNewAccountRequired: {
+            
+        })
+        
+        
         self.rootController.setMainControllerTo(newController: vc)
     }
     
@@ -266,33 +293,18 @@ class UIOPFlowController
     }
     
     func setupBaseHierarchyInWindow(_ window: UIWindow){
-        
-        //        let sideMenuEN = ENSideMenuNavigationController(menuViewController: createLeftSideMenuViewController(), contentViewController: self.rootController)
-        //        sideMenu.configure(configuration: SSASideMenu.MenuViewEffect(fade: true, scale: true, scaleBackground: false, parallaxEnabled: true, bouncesHorizontally: false, statusBarStyle: SSASideMenu.SSAStatusBarStyle.Black))
-        
         self.sideMenu = ENSideMenuNavigationController(menuViewController: createLeftSideMenuViewController(), contentViewController: self.rootController)
         self.sideMenu?.navigationBar.isHidden = true
         window.rootViewController = self.sideMenu
-        //        self.sideMenu = sideMenu
-        //        sideMenu.delegate = self
     }
     
-    //    private func createRightMenuViewController() -> UIAccountViewController {
-    //
-    //        let accountController = UIViewControllerFactory.accountViewController
-    //        accountController.logic.setupWith(callbacks:UIAccountViewControllerCallbacks(
-    //        whenUserChoosesToLogout: self.dependencies.accountCallbacks?.logoutCallback,
-    //        whenUserChangesPassword: self.dependencies.accountCallbacks?.passwordChangeCallback,
-    //        whenFeedbackFormAccessed: {
-    //            let feedbackFormVC = UIViewControllerFactory.feedbackFormViewController
-    //            feedbackFormVC.setup(with: OPFeedbackFormVCInteractor(feedbackForm: OPFeedbackForm(delegate: self.dependencies.feedbackFormRepo),
-    //                                                                  uiDelegate: feedbackFormVC as? OPFeedbackFormVCProtocol))
-    //            self.rootController.setMainControllerTo(newController: feedbackFormVC)
-    //            self.sideMenu?.sideMenu?.hideSideMenu()
-    //        }))
-    //
-    //        return accountController
-    //    }
+    func hideSideMenu() {
+        sideMenu?.hide()
+    }
+    
+    func refreshSideMenu() {
+        sideMenu?.reload()
+    }
     
     private func createLeftSideMenuViewController() -> UILeftSideMenuViewController {
         let leftSideMenu = UIViewControllerFactory.leftMenuViewController
@@ -361,7 +373,11 @@ class UIOPFlowController
             self.rootController.reset()
             
         }, logoutCallback: {
-            self.dependencies.accountCallbacks?.logoutCallback?()
+            if UIDefaultFeatureProvider.userIsLoggedIn() {
+                self.dependencies.accountCallbacks?.logoutCallback?()
+            } else {
+                self.displayLoginHierarchy()
+            }
             self.rootController.reset()
         }, whenChoosingMyAccount: {
             weakSelf?.displayMyAccountController()
@@ -370,13 +386,6 @@ class UIOPFlowController
         })
         
     }
-    
-    
-    //    func sideMenuWillShowMenuViewController(sideMenu: SSASideMenu, menuViewController: UIViewController) {
-    //        if let leftMenuVC = menuViewController as? UILeftSideMenuViewController {
-    //            leftMenuVC.prepareToAppear()
-    //        }
-    //    }
 }
 
 

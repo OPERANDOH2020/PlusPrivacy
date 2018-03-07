@@ -8,11 +8,12 @@
 
 import UIKit
 
-open class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
+class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
 
-    open var sideMenu : ENSideMenu?
-    open var sideMenuAnimationType : ENSideMenuAnimation = .default
+    var sideMenu : ENSideMenu?
+    var sideMenuAnimationType : ENSideMenuAnimation = .default
 
+    private var menuContentViewController: UILeftSideMenuViewController?
     
     // MARK: - Life cycle
     open override func viewDidLoad() {
@@ -20,13 +21,13 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
         
     }
 
-    public init( menuViewController: UIViewController, contentViewController: UIViewController?) {
+    public init( menuViewController: UILeftSideMenuViewController, contentViewController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
 
         if (contentViewController != nil) {
             self.viewControllers = [contentViewController!]
         }
-
+        menuContentViewController = menuViewController
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuViewController, menuPosition:.left)
         sideMenu?.menuWidth = UIScreen.main.bounds.width + 5
         view.bringSubview(toFront: navigationBar)
@@ -57,5 +58,13 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
             self.setViewControllers([contentViewController], animated: true)
             break
         }
+    }
+    
+    func hide() {
+        sideMenu?.hideSideMenu()
+    }
+    
+    func reload() {
+        menuContentViewController?.refreshMenu()
     }
 }

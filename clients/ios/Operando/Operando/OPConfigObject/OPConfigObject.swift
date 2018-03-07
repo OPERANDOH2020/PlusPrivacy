@@ -84,7 +84,8 @@ class OPConfigObject: NSObject
         self.initPropertiesOnAppStart()
         self.eraseCredentialsIfFreshAppReinstall()
         self.flowController?.setupBaseHierarchyInWindow(window)
-        self.flowController?.displayLoginHierarchy()
+        //self.flowController?.displayLoginHierarchy()
+        self.flowController?.displayDashboard()
     }
     
     func open(url: URL) -> Bool {
@@ -178,10 +179,10 @@ class OPConfigObject: NSObject
             })
             
             
-            self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
-                print(scds)
-                print(error)
-            }
+//            self.swarmClientHelper.retrieveAllSCDsFor(deviceId: "19DADEBF-FC9B-4016-89E6-C7816C7EEF23") { (scds, error) in
+//                print(scds)
+//                print(error)
+//            }
             
 //            if loginInfo.wishesToBeRemembered {
 //                if let error = CredentialsStore.saveCredentials(username: loginInfo.email, password: loginInfo.password){
@@ -226,7 +227,8 @@ class OPConfigObject: NSObject
     
     private func afterLoggingInWith(identity: UserIdentityModel){
         self.currentUserIdentity = identity
-        
+        UserDefaults.setSynchronizedBool(value: true, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        self.flowController?.refreshSideMenu()
         self.flowController?.displayDashboard()
     }
     
@@ -243,10 +245,12 @@ class OPConfigObject: NSObject
                 return
             }
             
-//            if let error = CredentialsStore.deleteCredentials() {
-//                OPErrorContainer.displayError(error: error)
-//            }
-            self.flowController?.displayLoginHierarchy()
+            let _ = CredentialsStore.deleteCredentials()
+            UserDefaults.setSynchronizedBool(value: false, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+            
+            self.flowController?.hideSideMenu()
+            self.flowController?.refreshSideMenu()
+            self.flowController?.displayDashboard()
         }
     }
     
@@ -263,9 +267,7 @@ class OPConfigObject: NSObject
             } else {
                 OPViewUtils.showOkAlertWithTitle(title: "", andMessage: "Will be available soon")
             }
-            
         }
-        
     }
     
     private func resetPasswordAndUpdateUIFor(email: String) {
@@ -302,9 +304,7 @@ class OPConfigObject: NSObject
                 }
                 successCallback?()
             })
-            
         }
-        
     }
     
     private func createAccountCallbacks() -> AccountCallbacks {
@@ -322,8 +322,6 @@ class OPConfigObject: NSObject
                forgotPasswordCallback: { email in
                 weakSelf?.resetPasswordAndUpdateUIFor(email: email)
         }, passwordChangeCallback: weakSelf?.createPasswordChangeCallback())
-        
-        
     }
     
     private var currentUserSettings: UserSettingsModel {

@@ -172,6 +172,11 @@
 		98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */; };
 		98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */; };
 		98FD07E81F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */; };
+		AD28EA14204FE0B200AA998A /* UINotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA13204FE0B200AA998A /* UINotAvailableView.swift */; };
+		AD28EA16204FE0BB00AA998A /* UINotAvailableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA15204FE0BB00AA998A /* UINotAvailableView.xib */; };
+		AD28EA19204FEFA500AA998A /* UIDefaultFeatureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */; };
+		AD28EA1B204FF2B100AA998A /* UINotAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA1A204FF2B100AA998A /* UINotAvailableViewController.swift */; };
+		AD28EA1D2050197700AA998A /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */; };
 		AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */; };
 		AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */; };
 		AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */; };
@@ -547,6 +552,11 @@
 		98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationsListViewLogic.swift; path = UserInterface/UINotificationsListViewLogic.swift; sourceTree = "<group>"; };
 		98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChangePasswordViewLogicTests.swift; path = UserInterface/UIChangePasswordViewLogicTests.swift; sourceTree = "<group>"; };
 		98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAccountViewControllerLogicTests.swift; path = UserInterface/UIAccountViewControllerLogicTests.swift; sourceTree = "<group>"; };
+		AD28EA13204FE0B200AA998A /* UINotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotAvailableView.swift; sourceTree = "<group>"; };
+		AD28EA15204FE0BB00AA998A /* UINotAvailableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotAvailableView.xib; sourceTree = "<group>"; };
+		AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDefaultFeatureProvider.swift; sourceTree = "<group>"; };
+		AD28EA1A204FF2B100AA998A /* UINotAvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotAvailableViewController.swift; sourceTree = "<group>"; };
+		AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackForm.swift; sourceTree = "<group>"; };
 		AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormViewController.swift; sourceTree = "<group>"; };
 		AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormViewController.xib; sourceTree = "<group>"; };
@@ -934,6 +944,7 @@
 			children = (
 				C7761DED1FDA83C700AC0F4F /* StringUtils.swift */,
 				9848B2D51D6740A500E0FD72 /* NSError+Utilities.swift */,
+				AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1401,6 +1412,10 @@
 		98EAF68E1CCF87AD00C77649 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				9852C7071CD119E300AF2BE5 /* UINavigationManager */,
+				98387BC11DB7631600A76F01 /* Extensions */,
+				AD28EA11204FE06B00AA998A /* UICommon */,
+				982227531DC8EBB90053B993 /* UILocalizable */,
 				C7F795F620286B03005DE7B3 /* PrivacyWizard */,
 				C76ABAEA1FEBD8DE00104239 /* UIMyAccountViewController */,
 				AD48A8E51F628E97003E5A88 /* OPFeedbackFormViewController */,
@@ -1411,11 +1426,9 @@
 				98F6B1271E7BFC2D00D193FF /* UIWebViewTab */,
 				98F6B1221E7BE58500D193FF /* UIWebToolbarView */,
 				989C8A7A1DD34634003BF341 /* UIRealIdentityView */,
-				982227531DC8EBB90053B993 /* UILocalizable */,
 				9866A7C21DBF850500907D05 /* UINotificationsListView */,
 				9866A7BC1DBF774E00907D05 /* UIChangePasswordView */,
 				9866A7B91DBF6FE900907D05 /* UIAccountViewController */,
-				98387BC11DB7631600A76F01 /* Extensions */,
 				ADF3CA661DB89BD000BD2B7A /* UISideMenu */,
 				98387BBC1DB75A5F00A76F01 /* UIDashboardButton */,
 				982DF0661DB6793800231BBD /* UIPfbDetailsAlertViewController */,
@@ -1426,7 +1439,6 @@
 				98668B5F1DB0D1D500FDE63A /* UIFlowController */,
 				982750151D0849C700C73411 /* UIPrivateBrowsingViewController */,
 				9827500B1D08496C00C73411 /* UIBrowsingNavigationBar */,
-				9852C7071CD119E300AF2BE5 /* UINavigationManager */,
 				9852C7041CD1196200AF2BE5 /* UIDashboardViewController */,
 				9852C7011CD1190100AF2BE5 /* UIRootController */,
 				9852C6FE1CD1141D00AF2BE5 /* UIMenuTableViewController */,
@@ -1578,6 +1590,33 @@
 				98F6B12A1E7BFD9300D193FF /* UIWebViewTab.xib */,
 			);
 			name = UIWebViewTab;
+			sourceTree = "<group>";
+		};
+		AD28EA11204FE06B00AA998A /* UICommon */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA17204FEF9B00AA998A /* UIDefaultFeatureProvider */,
+				AD28EA12204FE0A100AA998A /* UINotAvailableView */,
+			);
+			path = UICommon;
+			sourceTree = "<group>";
+		};
+		AD28EA12204FE0A100AA998A /* UINotAvailableView */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA1A204FF2B100AA998A /* UINotAvailableViewController.swift */,
+				AD28EA13204FE0B200AA998A /* UINotAvailableView.swift */,
+				AD28EA15204FE0BB00AA998A /* UINotAvailableView.xib */,
+			);
+			path = UINotAvailableView;
+			sourceTree = "<group>";
+		};
+		AD28EA17204FEF9B00AA998A /* UIDefaultFeatureProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */,
+			);
+			path = UIDefaultFeatureProvider;
 			sourceTree = "<group>";
 		};
 		AD48A8E11F6281FF003E5A88 /* FeedbackForm */ = {
@@ -2581,6 +2620,7 @@
 				C7F79618202DC242005DE7B3 /* PrivacyWizardFacebookExpandedCell.xib in Resources */,
 				98F6B12B1E7BFD9300D193FF /* UIWebViewTab.xib in Resources */,
 				AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */,
+				AD28EA16204FE0BB00AA998A /* UINotAvailableView.xib in Resources */,
 				C7F795F220248DF8005DE7B3 /* Dosis-Medium.otf in Resources */,
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
@@ -2754,6 +2794,7 @@
 				987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */,
 				C7F795CA202363F8005DE7B3 /* Action.swift in Sources */,
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
+				AD28EA14204FE0B200AA998A /* UINotAvailableView.swift in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,
 				C7F795CE202363F8005DE7B3 /* ActionControllerSettings.swift in Sources */,
 				9848B2D61D6740A500E0FD72 /* NSError+Utilities.swift in Sources */,
@@ -2803,10 +2844,12 @@
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,
+				AD28EA19204FEFA500AA998A /* UIDefaultFeatureProvider.swift in Sources */,
 				982DF0631DB6618700231BBD /* UIPfbDealTableViewCell.swift in Sources */,
 				C7F7953B2023620C005DE7B3 /* AMRead.swift in Sources */,
 				AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,
+				AD28EA1D2050197700AA998A /* UserDefaults+Utils.swift in Sources */,
 				98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */,
 				982227551DC8EBD40053B993 /* UILocalizable.swift in Sources */,
 				9852C6F31CD0F29900AF2BE5 /* UIIdentityManagementViewController.swift in Sources */,
@@ -2827,6 +2870,7 @@
 				9852C6FA1CD0FEA000AF2BE5 /* OPViewUtils.swift in Sources */,
 				C7F7953F2023620C005DE7B3 /* AMWriteSettingParameter.swift in Sources */,
 				C7F795BB202363F8005DE7B3 /* WebViewSettingsReader.swift in Sources */,
+				AD28EA1B204FF2B100AA998A /* UINotAvailableViewController.swift in Sources */,
 				985A0D461DCCB0E40010C799 /* Dictionary_Initializers.swift in Sources */,
 				C7908A381FC6E33400C93A82 /* FrameView.swift in Sources */,
 				AD4AD5501F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.swift in Sources */,

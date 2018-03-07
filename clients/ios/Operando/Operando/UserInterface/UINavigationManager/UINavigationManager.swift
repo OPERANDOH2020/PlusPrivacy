@@ -122,4 +122,7 @@ class UIViewControllerFactory
         return utility.instantiateViewController(withIdentifier: "UIUserSettingsViewController") as! UIUserSettingsViewController
     }
     
+    static var notAvailableViewController: UINotAvailableViewController {
+        return utility.instantiateViewController(withIdentifier: "UINotAvailableViewControllerStoryBoardId") as! UINotAvailableViewController
+    }
 }
