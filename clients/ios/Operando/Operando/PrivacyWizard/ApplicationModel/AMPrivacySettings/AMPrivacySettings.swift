@@ -18,10 +18,9 @@ class AMPrivacySettings: NSObject {
     init?(dictionary: [String: Any]) {
         super.init()
         if let ospSettings = dictionary["ospSettings"] as? NSDictionary {
-            facebookSettings = getFacebookSettings(fromDictionary: ospSettings)
-            linkedinSettings = getLinkedinSettings(fromDictionary: ospSettings)
-            privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
-            mapPrivacySettings()
+            extractPrivacySettings(from: ospSettings)
+        } else {
+            extractPrivacySettings(from: dictionary as NSDictionary)
         }
     }
     
@@ -37,6 +36,13 @@ class AMPrivacySettings: NSObject {
         }
         
         return result
+    }
+    
+    private func extractPrivacySettings(from dictionary: NSDictionary) {
+        facebookSettings = getFacebookSettings(fromDictionary: dictionary)
+        linkedinSettings = getLinkedinSettings(fromDictionary: dictionary)
+        privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
+        mapPrivacySettings()
     }
     
     private func mapPrivacySettings() {

@@ -216,6 +216,11 @@
 		AD4AD5591F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */; };
 		AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */; };
 		AD4AD55D1F66B044008E6E49 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */; };
+		ADA55744205141C200BFD1B3 /* ACRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA55743205141C200BFD1B3 /* ACRestClient.swift */; };
+		ADA557462051428C00BFD1B3 /* ACErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA557452051428C00BFD1B3 /* ACErrorContainer.swift */; };
+		ADA5574C205143B700BFD1B3 /* ACNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA55748205143B700BFD1B3 /* ACNetworkReachability.swift */; };
+		ADA5574D205143B700BFD1B3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA5574A205143B700BFD1B3 /* Reachability.m */; };
+		ADA55750205183EC00BFD1B3 /* ACPrivacySettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5574F205183EC00BFD1B3 /* ACPrivacySettingsService.swift */; };
 		ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */; };
 		ADF3CA651DB892F900BD2B7A /* SideMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */; };
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
@@ -283,7 +288,6 @@
 		C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79545202363B7005DE7B3 /* Array+Utils.swift */; };
 		C7F79560202363B7005DE7B3 /* ACNetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79548202363B7005DE7B3 /* ACNetworkingConstants.swift */; };
 		C7F79561202363B7005DE7B3 /* ACTypeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954A202363B7005DE7B3 /* ACTypeConstants.swift */; };
-		C7F79562202363B7005DE7B3 /* ACErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */; };
 		C7F79563202363B7005DE7B3 /* ACPrivacyWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7954F202363B7005DE7B3 /* ACPrivacyWriter.swift */; };
 		C7F79564202363B7005DE7B3 /* ACSwarmCallbackContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79551202363B7005DE7B3 /* ACSwarmCallbackContainer.swift */; };
 		C7F79565202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F79552202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift */; };
@@ -621,6 +625,12 @@
 		AD4AD5581F66729C008E6E49 /* OPFeedbackFormVCCellBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormVCCellBuilder.swift; sourceTree = "<group>"; };
 		AD4AD55A1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormTableViewCell.swift; sourceTree = "<group>"; };
 		AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		ADA55743205141C200BFD1B3 /* ACRestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACRestClient.swift; sourceTree = "<group>"; };
+		ADA557452051428C00BFD1B3 /* ACErrorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACErrorContainer.swift; sourceTree = "<group>"; };
+		ADA55748205143B700BFD1B3 /* ACNetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNetworkReachability.swift; sourceTree = "<group>"; };
+		ADA5574A205143B700BFD1B3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ADA5574B205143B700BFD1B3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ADA5574F205183EC00BFD1B3 /* ACPrivacySettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPrivacySettingsService.swift; sourceTree = "<group>"; };
 		ADB2AD4F1DB80474003E3AC1 /* LeftMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftMenu.storyboard; sourceTree = "<group>"; };
 		ADF3CA641DB892F900BD2B7A /* SideMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SideMenu.xcassets; sourceTree = "<group>"; };
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
@@ -689,7 +699,6 @@
 		C7F79545202363B7005DE7B3 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		C7F79548202363B7005DE7B3 /* ACNetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNetworkingConstants.swift; sourceTree = "<group>"; };
 		C7F7954A202363B7005DE7B3 /* ACTypeConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACTypeConstants.swift; sourceTree = "<group>"; };
-		C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACErrorContainer.swift; sourceTree = "<group>"; };
 		C7F7954F202363B7005DE7B3 /* ACPrivacyWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPrivacyWriter.swift; sourceTree = "<group>"; };
 		C7F79551202363B7005DE7B3 /* ACSwarmCallbackContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACSwarmCallbackContainer.swift; sourceTree = "<group>"; };
 		C7F79552202363B7005DE7B3 /* ACSwarmClientHelper+ConnectionCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACSwarmClientHelper+ConnectionCallbacks.swift"; sourceTree = "<group>"; };
@@ -996,6 +1005,7 @@
 				AD28EA1C2050197700AA998A /* UserDefaults+Utils.swift */,
 			);
 			name = Extensions;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		98500BBB1E0935ED00DF87E8 /* KiteJSONValidator */ = {
@@ -1422,13 +1432,12 @@
 		98EAF66D1CCF86DC00C77649 /* Operando */ = {
 			isa = PBXGroup;
 			children = (
-				C7F794A720235F9D005DE7B3 /* PrivacyWizard */,
 				98516FCD1E040903007428F3 /* OPCloak */,
-				9848B2D41D67409100E0FD72 /* Extensions */,
 				98EAF6B01CCF997A00C77649 /* BridgingHeader */,
 				98EAF6931CCF88D400C77649 /* External */,
 				9881D2321D0EC845005EE1FF /* Model */,
-				98EAF68F1CCF87B800C77649 /* Utilities */,
+				ADA55740205141B800BFD1B3 /* ACApplicationCore */,
+				C7F794A720235F9D005DE7B3 /* PrivacyWizard */,
 				98EAF68E1CCF87AD00C77649 /* UserInterface */,
 				98EAF66E1CCF86DC00C77649 /* AppDelegate.swift */,
 				C7F795D3202465BC005DE7B3 /* PrivacyWizard.storyboard */,
@@ -1511,8 +1520,10 @@
 				9852C6F91CD0FEA000AF2BE5 /* OPViewUtils.swift */,
 				9882DCF61D140F3F00C7A70F /* NSDate+Utilities.swift */,
 				C77DCED41FC6E6C800B106ED /* ProgressHUD.swift */,
+				ADA557452051428C00BFD1B3 /* ACErrorContainer.swift */,
 			);
 			name = Utilities;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		98EAF6921CCF88B300C77649 /* LoginView */ = {
@@ -1806,6 +1817,60 @@
 				AD4AD5551F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib */,
 			);
 			path = OPFeedbackFormTVTitleCell;
+			sourceTree = "<group>";
+		};
+		ADA55740205141B800BFD1B3 /* ACApplicationCore */ = {
+			isa = PBXGroup;
+			children = (
+				98EAF68F1CCF87B800C77649 /* Utilities */,
+				9848B2D41D67409100E0FD72 /* Extensions */,
+				ADA55741205141B800BFD1B3 /* Networking */,
+			);
+			path = ACApplicationCore;
+			sourceTree = "<group>";
+		};
+		ADA55741205141B800BFD1B3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ADA55747205143B700BFD1B3 /* ACNetworkReachability */,
+				ADA55742205141B800BFD1B3 /* ACRestClient */,
+				ADA5574E205183CA00BFD1B3 /* ACServices */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		ADA55742205141B800BFD1B3 /* ACRestClient */ = {
+			isa = PBXGroup;
+			children = (
+				ADA55743205141C200BFD1B3 /* ACRestClient.swift */,
+			);
+			path = ACRestClient;
+			sourceTree = "<group>";
+		};
+		ADA55747205143B700BFD1B3 /* ACNetworkReachability */ = {
+			isa = PBXGroup;
+			children = (
+				ADA55748205143B700BFD1B3 /* ACNetworkReachability.swift */,
+				ADA55749205143B700BFD1B3 /* Reachability */,
+			);
+			path = ACNetworkReachability;
+			sourceTree = "<group>";
+		};
+		ADA55749205143B700BFD1B3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				ADA5574A205143B700BFD1B3 /* Reachability.m */,
+				ADA5574B205143B700BFD1B3 /* Reachability.h */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		ADA5574E205183CA00BFD1B3 /* ACServices */ = {
+			isa = PBXGroup;
+			children = (
+				ADA5574F205183EC00BFD1B3 /* ACPrivacySettingsService.swift */,
+			);
+			path = ACServices;
 			sourceTree = "<group>";
 		};
 		ADF3CA621DB892DA00BD2B7A /* Resources */ = {
@@ -2244,19 +2309,10 @@
 		C7F7954B202363B7005DE7B3 /* ACHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				C7F7954C202363B7005DE7B3 /* ACErrorContainer */,
 				C7F7954E202363B7005DE7B3 /* ACPrivacyWriter */,
 				C7F79550202363B7005DE7B3 /* ACSwarmClientHelper */,
 			);
 			path = ACHelpers;
-			sourceTree = "<group>";
-		};
-		C7F7954C202363B7005DE7B3 /* ACErrorContainer */ = {
-			isa = PBXGroup;
-			children = (
-				C7F7954D202363B7005DE7B3 /* ACErrorContainer.swift */,
-			);
-			path = ACErrorContainer;
 			sourceTree = "<group>";
 		};
 		C7F7954E202363B7005DE7B3 /* ACPrivacyWriter */ = {
@@ -2820,6 +2876,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F7950C20236129005DE7B3 /* UIRadialGradientViewPulsarConfiguration.swift in Sources */,
+				ADA5574C205143B700BFD1B3 /* ACNetworkReachability.swift in Sources */,
 				98EAF6991CCF893500C77649 /* RSNibDesignableView.swift in Sources */,
 				98EAF6981CCF893500C77649 /* RSCommonUtilities.swift in Sources */,
 				9852C7061CD1197D00AF2BE5 /* UIDashboardViewController.swift in Sources */,
@@ -2949,6 +3006,7 @@
 				98BE1FAD1F02668800223926 /* UIPrivacyPolicyViewController.swift in Sources */,
 				C7908A3E1FC6E33400C93A82 /* PKHUDAnimating.swift in Sources */,
 				C7F7952420236153005DE7B3 /* UITableViewCell+Utils.swift in Sources */,
+				ADA55750205183EC00BFD1B3 /* ACPrivacySettingsService.swift in Sources */,
 				AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */,
 				C7908A311FC6E33400C93A82 /* PKHUDAssets.swift in Sources */,
 				C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */,
@@ -2978,6 +3036,7 @@
 				C7F7953B2023620C005DE7B3 /* AMRead.swift in Sources */,
 				AD4AD54C1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.swift in Sources */,
 				9852C6E31CD0D81200AF2BE5 /* UIOperandoTitleView.swift in Sources */,
+				ADA5574D205143B700BFD1B3 /* Reachability.m in Sources */,
 				AD28EAAD20503DD700AA998A /* TZStackView.swift in Sources */,
 				AD28EA1D2050197700AA998A /* UserDefaults+Utils.swift in Sources */,
 				98B89E631EC1E0D5009570EC /* LongPressHelper.swift in Sources */,
@@ -2985,11 +3044,12 @@
 				9852C6F31CD0F29900AF2BE5 /* UIIdentityManagementViewController.swift in Sources */,
 				C7908A351FC6E33400C93A82 /* PKHUDSuccessView.swift in Sources */,
 				9896F46D1E892D7B00BA0D6E /* WebAdBlocker.swift in Sources */,
+				ADA557462051428C00BFD1B3 /* ACErrorContainer.swift in Sources */,
 				98668B631DB1018600FDE63A /* OPErrorContainer.swift in Sources */,
 				98EAF6A61CCF92CA00C77649 /* UISignInViewController.swift in Sources */,
-				C7F79562202363B7005DE7B3 /* ACErrorContainer.swift in Sources */,
 				981991181F39F2B6004F3264 /* AppSCDsRepository.swift in Sources */,
 				AD28EAAF20503DD700AA998A /* TZStackViewAlignment.swift in Sources */,
+				ADA55744205141C200BFD1B3 /* ACRestClient.swift in Sources */,
 				C7F7952520236153005DE7B3 /* UIView+Utils.swift in Sources */,
 				C7F7952020236153005DE7B3 /* UIColor+Utils.swift in Sources */,
 				AD48A8EB1F62D73A003E5A88 /* OPFeedbackFormVCInteractor.swift in Sources */,
