@@ -221,6 +221,7 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		C74956792051441C0079DC8D /* PrivacyWizzardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */; };
 		C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */; };
 		C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */; };
 		C76ABAF11FEBFC9900104239 /* PasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */; };
@@ -250,6 +251,7 @@
 		C7908A3E1FC6E33400C93A82 /* PKHUDAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A2E1FC6E33300C93A82 /* PKHUDAnimating.swift */; };
 		C7908A3F1FC6E33400C93A82 /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A2F1FC6E33300C93A82 /* PKHUD.swift */; };
 		C7908A401FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */; };
+		C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */ = {isa = PBXBuildFile; fileRef = C7BAF33920513C0700A9BFF0 /* linkedin.js */; };
 		C7F794F520235FD4005DE7B3 /* UIMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */; };
 		C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */; };
 		C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */; };
@@ -342,8 +344,7 @@
 		C7F795F520248DF8005DE7B3 /* Questionnaire.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F795F120248DF8005DE7B3 /* Questionnaire.xcassets */; };
 		C7F795F9202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795F7202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift */; };
 		C7F795FA202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795F8202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib */; };
-		C7F795FF2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */; };
-		C7F796002028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */; };
+		C7F796002028B7B4005DE7B3 /* PrivacyWizzardSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardSettingsViewController.xib */; };
 		C7F796042029B738005DE7B3 /* PrivacyWizardFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */; };
 		C7F796052029B738005DE7B3 /* PrivacyWizardFacebookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */; };
 		C7F796092029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F796072029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift */; };
@@ -626,6 +627,7 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardSettingsViewController.swift; sourceTree = "<group>"; };
 		C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMyAccountViewController.swift; sourceTree = "<group>"; };
 		C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordCell.xib; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 		C7908A2E1FC6E33300C93A82 /* PKHUDAnimating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDAnimating.swift; sourceTree = "<group>"; };
 		C7908A2F1FC6E33300C93A82 /* PKHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUD.swift; sourceTree = "<group>"; };
 		C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
+		C7BAF33920513C0700A9BFF0 /* linkedin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = linkedin.js; sourceTree = "<group>"; };
 		C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainViewController.swift; sourceTree = "<group>"; };
 		C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivacySettingViewController.swift; sourceTree = "<group>"; };
 		C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireTableViewCell.swift; sourceTree = "<group>"; };
@@ -748,8 +751,7 @@
 		C7F795F120248DF8005DE7B3 /* Questionnaire.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Questionnaire.xcassets; sourceTree = "<group>"; };
 		C7F795F7202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardDashboardViewController.swift; sourceTree = "<group>"; };
 		C7F795F8202871BB005DE7B3 /* PrivacyWizzardDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardDashboardViewController.xib; sourceTree = "<group>"; };
-		C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardFacebookSettingsViewController.swift; sourceTree = "<group>"; };
-		C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardFacebookSettingsViewController.xib; sourceTree = "<group>"; };
+		C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardSettingsViewController.xib; sourceTree = "<group>"; };
 		C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardFacebookCell.swift; sourceTree = "<group>"; };
 		C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizardFacebookCell.xib; sourceTree = "<group>"; };
 		C7F796072029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizardFacebookOptionCell.swift; sourceTree = "<group>"; };
@@ -2373,6 +2375,7 @@
 		C7F79571202363F8005DE7B3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C7BAF33920513C0700A9BFF0 /* linkedin.js */,
 				C7F79572202363F8005DE7B3 /* facebook_iOS.js */,
 				C7F79573202363F8005DE7B3 /* jquery-3.1.0.min.js */,
 				C7F79574202363F8005DE7B3 /* jquery214min.js */,
@@ -2586,9 +2589,9 @@
 		C7F795FC2028B78D005DE7B3 /* PrivacyWizzardFacebookSettings */ = {
 			isa = PBXGroup;
 			children = (
+				C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */,
+				C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardSettingsViewController.xib */,
 				C7F796012029B5DB005DE7B3 /* PrivacyWizardFacebookCell */,
-				C7F795FD2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift */,
-				C7F795FE2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib */,
 			);
 			name = PrivacyWizzardFacebookSettings;
 			sourceTree = "<group>";
@@ -2596,10 +2599,10 @@
 		C7F796012029B5DB005DE7B3 /* PrivacyWizardFacebookCell */ = {
 			isa = PBXGroup;
 			children = (
-				C7F79612202DA8EB005DE7B3 /* PrivacyWizardFacebookExpandedCell */,
-				C7F796062029E1DA005DE7B3 /* PrivacyWizardFacebookOptionCell */,
 				C7F796022029B738005DE7B3 /* PrivacyWizardFacebookCell.swift */,
 				C7F796032029B738005DE7B3 /* PrivacyWizardFacebookCell.xib */,
+				C7F79612202DA8EB005DE7B3 /* PrivacyWizardFacebookExpandedCell */,
+				C7F796062029E1DA005DE7B3 /* PrivacyWizardFacebookOptionCell */,
 			);
 			name = PrivacyWizardFacebookCell;
 			sourceTree = "<group>";
@@ -2739,6 +2742,7 @@
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
 				AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */,
+				C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */,
 				C7F795AD202363F8005DE7B3 /* linkedin-iOS.js in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
 				C7F795AC202363F8005DE7B3 /* jquery214min.js in Resources */,
@@ -2783,7 +2787,7 @@
 				98EAF6741CCF86DC00C77649 /* Main.storyboard in Resources */,
 				C7F795B8202363F8005DE7B3 /* interceptPOST.js in Resources */,
 				C7F7951020236129005DE7B3 /* UITutorialView.xib in Resources */,
-				C7F796002028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.xib in Resources */,
+				C7F796002028B7B4005DE7B3 /* PrivacyWizzardSettingsViewController.xib in Resources */,
 				C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */,
 				C7F795AF202363F8005DE7B3 /* OSP.Settings.js in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
@@ -2826,8 +2830,8 @@
 				AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */,
 				C7F795D0202363F9005DE7B3 /* DynamicCollectionViewFlowLayout.swift in Sources */,
 				982DF05B1DB65D2800231BBD /* UIPfbDealsViewController.swift in Sources */,
-				C7F795FF2028B7B4005DE7B3 /* PrivacyWizzardFacebookSettingsViewController.swift in Sources */,
 				982D31891E842A9B00FE2FB7 /* AFNetworkReachabilityManager.m in Sources */,
+				C74956792051441C0079DC8D /* PrivacyWizzardSettingsViewController.swift in Sources */,
 				C7908A3C1FC6E33400C93A82 /* PKHUDAnimation.swift in Sources */,
 				C7F7956A202363B7005DE7B3 /* JSPrivacyWizardContext.swift in Sources */,
 				C7F796042029B738005DE7B3 /* PrivacyWizardFacebookCell.swift in Sources */,

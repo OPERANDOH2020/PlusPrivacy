@@ -37,8 +37,8 @@ class UIViewControllerFactory
         return PrivacyWizzardDashboardViewController(nibName: "PrivacyWizzardDashboardViewController", bundle: nil)
     }
     
-    static func getFBQuestionnarieViewController() -> PrivacyWizzardFacebookSettingsViewController {
-        return PrivacyWizzardFacebookSettingsViewController(nibName: "PrivacyWizzardFacebookSettingsViewController", bundle: nil)
+    static func getQuestionnarieViewController() -> PrivacyWizzardSettingsViewController {
+        return PrivacyWizzardSettingsViewController(nibName: "PrivacyWizzardSettingsViewController", bundle: nil)
     }
     
     static func getQuestionnaireTableViewController() -> UIQuestionnaireTableViewController {

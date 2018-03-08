@@ -150,18 +150,21 @@ class UIOPFlowController
             
             //go to Facebook Privacy settings
             
-            self.displayFacebookQuestionnaire()
+            self.displayQuestionnaire(wizzardType: .facebook)
             
+        }, pressedLinkedin: {
+            
+            self.displayQuestionnaire(wizzardType: .linkedin)
         }))
             
         self.rootController.setupTabViewForPrivacyWizzard()
         self.rootController.setMainControllerTo(newController: vc)
     }
     
-    func displayFacebookQuestionnaire () {
-        let vc = UIViewControllerFactory.getFBQuestionnarieViewController()
+    func displayQuestionnaire (wizzardType: PrivacyWizzardType) {
+        let vc = UIViewControllerFactory.getQuestionnarieViewController()
         
-        vc.setup(with: dependencies.privacyWizzard!, callbacks: PrivacyWizzardFacebookSettingsCallbacks(pressedSubmit: { (_) in
+        vc.setup(with: dependencies.privacyWizzard!, callbacks: PrivacyWizzardSettingsCallbacks(pressedSubmit: { (_) in
             
             //go to privacy
             print("go to privacy")
@@ -172,6 +175,8 @@ class UIOPFlowController
             print("pressedRecommended")
              self.displaySetPrivacyVC()
         }))
+        
+        vc.wizzardType = wizzardType
         
         self.rootController.setupTabViewForFBQuestionnaire()
         self.rootController.setMainControllerTo(newController: vc)

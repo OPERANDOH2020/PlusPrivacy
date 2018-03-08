@@ -102,7 +102,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtc-bd-vjk">
                                             <rect key="frame" x="186.5" y="0.0" width="156.5" height="156.5"/>
                                             <subviews>
-                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zux-Ap-h6g">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zux-Ap-h6g">
                                                     <rect key="frame" x="0.0" y="0.0" width="156.5" height="156.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rO-1o-N0T">
@@ -129,10 +129,10 @@
                                                         <constraint firstItem="2rO-1o-N0T" firstAttribute="top" secondItem="Zux-Ap-h6g" secondAttribute="top" constant="15" id="s7Z-LP-Wc0"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqD-wd-8gl">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqD-wd-8gl">
                                                     <rect key="frame" x="-0.5" y="116" width="156.5" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSY-b4-CHZ">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSY-b4-CHZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="156.5" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,12 +148,22 @@
                                                         <constraint firstItem="rSY-b4-CHZ" firstAttribute="top" secondItem="cqD-wd-8gl" secondAttribute="top" id="pJ8-l2-hx8"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mok-n0-XoW">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="156.5" height="156.5"/>
+                                                    <connections>
+                                                        <action selector="pressedLinkedinButton:" destination="-1" eventType="touchUpInside" id="OpT-fM-B0v"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cqD-wd-8gl" secondAttribute="bottom" id="1m5-h8-0WV"/>
                                                 <constraint firstItem="Zux-Ap-h6g" firstAttribute="top" secondItem="vtc-bd-vjk" secondAttribute="top" id="3BB-Rt-cs6"/>
                                                 <constraint firstAttribute="trailing" secondItem="cqD-wd-8gl" secondAttribute="trailing" id="5yM-XL-DRL"/>
+                                                <constraint firstItem="Mok-n0-XoW" firstAttribute="centerX" secondItem="vtc-bd-vjk" secondAttribute="centerX" id="8kD-AV-BBI"/>
+                                                <constraint firstItem="Mok-n0-XoW" firstAttribute="centerY" secondItem="vtc-bd-vjk" secondAttribute="centerY" id="AYh-zX-0l1"/>
+                                                <constraint firstItem="Mok-n0-XoW" firstAttribute="height" secondItem="vtc-bd-vjk" secondAttribute="height" id="DTe-Gt-U5o"/>
+                                                <constraint firstItem="Mok-n0-XoW" firstAttribute="width" secondItem="vtc-bd-vjk" secondAttribute="width" id="R8c-zQ-gly"/>
                                                 <constraint firstAttribute="trailing" secondItem="Zux-Ap-h6g" secondAttribute="trailing" id="YPu-QL-xgZ"/>
                                                 <constraint firstItem="cqD-wd-8gl" firstAttribute="leading" secondItem="vtc-bd-vjk" secondAttribute="leading" id="iym-4S-Bwk"/>
                                                 <constraint firstAttribute="bottom" secondItem="Zux-Ap-h6g" secondAttribute="bottom" id="mIv-Qj-hI4"/>

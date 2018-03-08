@@ -8,21 +8,29 @@
 
 import UIKit
 
-struct PrivacyWizzardFacebookSettingsCallbacks {
+enum PrivacyWizzardType {
+    case facebook
+    case linkedin
+}
+
+struct PrivacyWizzardSettingsCallbacks {
     let pressedSubmit:((_ facebookSettings: [AMPrivacySetting]) -> ())
     let pressedRecommended:(() -> ())
 }
 
-class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PrivacyWizardFacebookExpandedCellDelegate {
+class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PrivacyWizardFacebookExpandedCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     private var repository: PrivacyWizardRepository?
-    @objc private var facebookSettings: [AMPrivacySetting]?
+    @objc private var allSettings: AMPrivacySettings?
     
-    var callbacks:PrivacyWizzardFacebookSettingsCallbacks?
+    var
+    callbacks:PrivacyWizzardSettingsCallbacks?
     
     private var selectedIndexPath: IndexPath?
     private var currentSelectedSetting: AMPrivacySetting?
+    
+    var wizzardType: PrivacyWizzardType = .facebook
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +49,8 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     ACPrivacyWizard.shared.privacySettings = settings
-                    self.facebookSettings = settings?.facebookSettings
+                    
+                    self.allSettings = settings
                     self.tableView.reloadData()
                 })
             }
@@ -51,20 +60,20 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let facebookSettings = self.facebookSettings{
-            
-            for setting in facebookSettings {
-                if setting.selectedOption == nil {
-                    
-                }
-            }
-        }
         
-        ACPrivacyWizard.shared.privacySettings?.facebookSettings = self.facebookSettings
-        ACPrivacyWizard.shared.selectedScope = .facebook
+        ACPrivacyWizard.shared.privacySettings = self.allSettings
+        
+        switch self.wizzardType {
+        case .facebook:
+            ACPrivacyWizard.shared.selectedScope = .facebook
+            break
+        case .linkedin:
+            ACPrivacyWizard.shared.selectedScope = .linkedIn
+            break
+        }
     }
     
-    func setup(with privacyWizardRepository:PrivacyWizardRepository, callbacks: PrivacyWizzardFacebookSettingsCallbacks){
+    func setup(with privacyWizardRepository:PrivacyWizardRepository, callbacks: PrivacyWizzardSettingsCallbacks){
         self.repository = privacyWizardRepository
         self.callbacks = callbacks
     }
@@ -83,7 +92,9 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     @IBAction func pressedRecommendedButton(_ sender: Any) {
         self.callbacks?.pressedRecommended()
         
-        if let facebookSettings = self.facebookSettings {
+        let scopeSetting = getSettings()
+        
+        if let facebookSettings = scopeSetting {
             for facebookSetting in facebookSettings {
                 
                 guard let recommendedString = facebookSetting.write?.recommended else {
@@ -130,7 +141,23 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     }
     
     @IBAction func pressedSubmitButton(_ sender: Any) {
-        self.callbacks?.pressedSubmit(self.facebookSettings!)
+        
+        let scopeSetting: [AMPrivacySetting]?
+        
+        switch self.wizzardType {
+        case .facebook:
+            scopeSetting = allSettings?.facebookSettings
+            break
+        case .linkedin:
+            scopeSetting = allSettings?.linkedinSettings
+            break
+        }
+        
+        guard let scopeSettingUnwrapped = scopeSetting else {
+            return
+        }
+        
+        self.callbacks?.pressedSubmit(scopeSettingUnwrapped)
     }
     
     
@@ -151,7 +178,10 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.facebookSettings?.count {
+        let scopeSetting = getSettings()
+        
+        
+        if let count = scopeSetting?.count {
             return count
         }
         
@@ -160,12 +190,13 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let scopeSetting = getSettings()
         
         if indexPath == selectedIndexPath {
             //rotate arrow
             let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyWizardFacebookExpandedCell", for: indexPath) as! PrivacyWizardFacebookExpandedCell
             
-            if let setting = self.facebookSettings?[indexPath.row] {
+            if let setting = scopeSetting?[indexPath.row] {
                 cell.setupWithSetting(setting: setting,isRecommendedSelected: isSelectedSettingRecommended(setting: setting))
                 cell.delegate = self
                 
@@ -179,7 +210,7 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyWizardFacebookCell", for: indexPath) as! PrivacyWizardFacebookCell
             
-            if let setting = self.facebookSettings?[indexPath.row]{
+            if let setting = scopeSetting?[indexPath.row]{
                 cell.setupWithSetting(setting: setting,isRecommendedSelected: isSelectedSettingRecommended(setting: setting))
             }
             
@@ -189,13 +220,24 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
         }
     }
     
+    private func getSettings() -> [AMPrivacySetting]? {
+        switch self.wizzardType {
+        case .facebook:
+            return allSettings?.facebookSettings
+        case .linkedin:
+            return allSettings?.linkedinSettings
+        }
+    }
+    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        let scopeSetting = getSettings()
+        
         if let selectedIndexPath = self.selectedIndexPath ,
             selectedIndexPath == indexPath,
-            let count = self.facebookSettings?[selectedIndexPath.row].availableOptionsCount{
+            let count = scopeSetting?[selectedIndexPath.row].availableOptionsCount{
             
             return 90 + CGFloat(count) * 44
         }
@@ -205,12 +247,14 @@ class PrivacyWizzardFacebookSettingsViewController: UIViewController, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let scopeSetting = getSettings()
+        
         if selectedIndexPath == indexPath {
             selectedIndexPath = nil
         }
         else {
             self.selectedIndexPath = indexPath
-            self.currentSelectedSetting = facebookSettings?[indexPath.row]
+            self.currentSelectedSetting = scopeSetting?[indexPath.row]
         }
         
         self.tableView.reloadData()
