@@ -11,6 +11,7 @@ import UIKit
 struct PrivacyWizzardDashboardCallbacks {
     
     let pressedFacebook: VoidBlock
+    let pressedLinkedin: VoidBlock
 }
 
 class PrivacyWizzardDashboardViewController: UIViewController {
@@ -28,8 +29,8 @@ class PrivacyWizzardDashboardViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let gridViews = [twitterView,googleView,linkedinView, facebookView]
         setupGridViews(arrayOfViews: gridViews)
@@ -40,7 +41,7 @@ class PrivacyWizzardDashboardViewController: UIViewController {
         for view in arrayOfViews where view != nil{
             
             view!.layer.cornerRadius = facebookView.frame.height/2
-            view!.layer.borderWidth = 8
+            view!.layer.borderWidth = 7
             view!.layer.borderColor = UIColor.white.cgColor
         }
     }
@@ -51,6 +52,9 @@ class PrivacyWizzardDashboardViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction func pressedLinkedinButton(_ sender: Any) {
+        self.callbacks?.pressedLinkedin()
+    }
     @IBAction func pressedFacebookButton(_ sender: Any) {
         self.callbacks?.pressedFacebook()
     }
