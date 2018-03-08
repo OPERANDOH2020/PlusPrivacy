@@ -14,7 +14,6 @@ final class UICustomPopup: NSObject {
         
         let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true, completion: nil)
         
-        // Create second button
         let okButton = DefaultButton(title: "Ok", action: nil)
         
         let pv = PopupDialogDefaultView.appearance()
@@ -42,10 +41,8 @@ final class UICustomPopup: NSObject {
         db.buttonColor    = UIColor(red:0.25, green:0.25, blue:0.29, alpha:1.00)
         db.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
         
-        // Add buttons to dialog
         popup.addButtons([okButton])
         
-        // Present dialog
         vc.present(popup, animated: true, completion: nil)
     }
 }
