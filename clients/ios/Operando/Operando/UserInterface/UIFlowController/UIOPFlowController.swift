@@ -178,7 +178,16 @@ class UIOPFlowController
         
         vc.wizzardType = wizzardType
         
-        self.rootController.setupTabViewForFBQuestionnaire()
+        switch wizzardType {
+        case .facebook:
+            self.rootController.setupTabViewForFBQuestionnaire()
+            break
+        case .linkedin:
+            self.rootController.setupTabViewForLinkedinQuestionnaire()
+            break
+        }
+        
+        
         self.rootController.setMainControllerTo(newController: vc)
         
     }
