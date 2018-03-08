@@ -151,6 +151,9 @@ public class SwarmClient {
                 @Override
                 public void call(Object... args) {
                     Log.e("error", "call() called with: args = [" + Arrays.toString(args) + "]");
+                    if (connectionListener != null) {
+                        connectionListener.onReconnect();
+                    }
                 }
             });
 
@@ -242,6 +245,8 @@ public class SwarmClient {
         void onConnect();
 
         void onDisconnect();
+
+        void onReconnect();
     }
 
 }

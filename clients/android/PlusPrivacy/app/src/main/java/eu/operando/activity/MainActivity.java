@@ -21,8 +21,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.haha.perflib.Main;
 
 import java.util.List;
 
@@ -58,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     @Override
     protected void onResume() {
         super.onResume();
-        initNotifications();
+        if (Storage.isUserLogged()) {
+            initNotifications();
+        }
     }
 
     @Override
@@ -222,12 +227,26 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logOut();
-            }
-        });
+        View logoutBtn = findViewById(R.id.logout);
+        if (Storage.isUserLogged()) {
+            logoutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    logOut();
+                }
+            });
+        } else {
+            logoutBtn.setVisibility(View.GONE);
+            View loginBtn = findViewById(R.id.login);
+            loginBtn.setVisibility(View.VISIBLE);
+            loginBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LoginActivity.start(MainActivity.this, true);
+                }
+            });
+        }
+
     }
 
     private void setToolbar() {
@@ -275,7 +294,13 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     }
 
     private void setInfo() {
-        ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
+
+
+        if (Storage.isUserLogged()) {
+            LinearLayout realIdentityLayout = (LinearLayout) findViewById(R.id.real_identity_l);
+            realIdentityLayout.setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
+        }
         showUnsafeApps();
 //        initNotifications();
     }

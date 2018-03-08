@@ -46,7 +46,12 @@ public class Storage {
         return new Pair<>((String) Paper.book().read(K.USER), (String) Paper.book().read(K.PASS));
     }
 
-    public static void clearData(){
+    public static boolean isUserLogged() {
+        Pair<String, String> credentials = readCredentials();
+        return credentials.first != null && credentials.second != null;
+    }
+
+    public static void clearData() {
         Paper.book().destroy();
     }
 
@@ -59,7 +64,7 @@ public class Storage {
         return new Pair<>((String) Paper.book().read(K.REGISTER_USER), (String) Paper.book().read(K.REGISTER_PASS));
     }
 
-    public static void clearRegisterCredentials(){
+    public static void clearRegisterCredentials() {
         Paper.book().delete(K.REGISTER_USER);
         Paper.book().delete(K.REGISTER_PASS);
     }

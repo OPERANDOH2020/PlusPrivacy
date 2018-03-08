@@ -53,4 +53,14 @@ public class OspSettings {
     public void setGoogle(List<Question> google) {
         this.google = google;
     }
+
+    @Override
+    public String toString() {
+        return "OspSettings{" +
+                "facebook=" + facebook +
+                ", linkedin=" + linkedin +
+                ", twitter=" + twitter +
+                ", google=" + google +
+                '}';
+    }
 }

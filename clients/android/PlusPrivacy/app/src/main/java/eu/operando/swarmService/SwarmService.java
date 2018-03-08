@@ -54,6 +54,7 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
 
         swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL);
         registerConnectivityListener();
+        setConnectionListener();
 
     }
 
@@ -109,8 +110,22 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
         }
     }
 
-    public void setConnectionListener(SwarmClient.ConnectionListener connectionListener) {
-        swarmClient.setConnectionListener(connectionListener);
+    public void setConnectionListener() {
+        swarmClient.setConnectionListener(new SwarmClient.ConnectionListener() {
+            @Override
+            public void onConnect() {
+
+            }
+
+            @Override
+            public void onDisconnect() {
+            }
+
+            @Override
+            public void onReconnect() {
+                goodInternetConnection();
+            }
+        });
     }
 
     public void startSwarm(Swarm swarm, SwarmCallback callback) {

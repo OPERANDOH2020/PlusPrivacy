@@ -23,10 +23,9 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
     private IDrawerClickCallback callback;
     private Context context;
     private String[] mDataset;
-    int[] icons = new int[]{
+    private int[] icons = new int[]{
             R.drawable.ic_info,
             R.drawable.ic_privacy,
-//            R.drawable.ic_settings,
             R.drawable.ic_feedback,
             R.drawable.ic_account
     };

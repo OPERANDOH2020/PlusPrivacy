@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -12,8 +13,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.JsonElement;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import eu.operando.R;
+import eu.operando.models.privacysettings.OspSettings;
+import eu.operando.network.RestClient;
 import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmclient.models.PrivacySettingsPreprocessing;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Alex on 12/12/2017.
@@ -31,6 +43,30 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_network_settings);
         initUI();
+
+        RestClient.getApi().getPrivacySettings().enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                if (response.errorBody() == null) {
+                    Log.e("success1", response.body().toString());
+                    PrivacySettingsPreprocessing preprocessing = new PrivacySettingsPreprocessing();
+                    JSONObject jsonResponse = new JSONObject();
+                    try {
+                        jsonResponse = preprocessing.modifyResult(new JSONObject(response.body().getAsJsonObject().toString()));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("jsonResponse", jsonResponse.toString());
+                } else {
+                    Log.e("error", String.valueOf(response.errorBody()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                Log.e("error", t.getMessage());
+            }
+        });
     }
 
     private void initUI() {

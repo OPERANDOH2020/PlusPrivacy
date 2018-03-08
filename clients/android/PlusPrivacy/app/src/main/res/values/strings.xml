@@ -362,5 +362,7 @@
         Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
     </string>
     <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
+    <string name="authentication_required">For accessing this feature,\n authentication is required.</string>
+    <string name="dont_have_account">You don\'t have an account? Create one here</string>
 
 </resources>

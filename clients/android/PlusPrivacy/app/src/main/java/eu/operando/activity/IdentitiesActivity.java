@@ -12,9 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,20 +20,20 @@ import android.widget.Toast;
 import org.adblockplus.libadblockplus.android.webview.BuildConfig;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import eu.operando.AuthenticationRequiredActivity;
 import eu.operando.R;
 import eu.operando.adapter.IdentitiesExpandableListViewAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
 import eu.operando.customView.OperandoProgressDialog;
 import eu.operando.models.Identity;
+import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.IdentityListSwarmEntity;
-import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
 
-public class IdentitiesActivity extends BaseActivity implements IdentitiesExpandableListViewAdapter.IdentityListener {
+public class IdentitiesActivity extends AuthenticationRequiredActivity implements IdentitiesExpandableListViewAdapter.IdentityListener {
 
     private ExpandableListView identitiesELV;
     private LinearLayout defaultRealIdentity;
@@ -53,10 +51,14 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_identities);
-        initUI();
-        setActions();
+
+        if (Storage.isUserLogged()){
+            initUI();
+            setActions();
+        } else {
+            setViewForAuthenticationRequired();
+        }
 
     }
 
@@ -69,13 +71,6 @@ public class IdentitiesActivity extends BaseActivity implements IdentitiesExpand
 
         if (BuildConfig.DEBUG)
             ((TextView) findViewById(R.id.realIdentityTV)).setText("privacy_wizard@rms.ro");
-    }
-
-    private void setToolbar() {
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.identities_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setActions() {
