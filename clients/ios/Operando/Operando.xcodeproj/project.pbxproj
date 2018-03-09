@@ -227,6 +227,7 @@
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
 		C74956792051441C0079DC8D /* PrivacyWizzardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */; };
+		C749567B2052B86D0079DC8D /* twitter.js in Resources */ = {isa = PBXBuildFile; fileRef = C749567A2052B86D0079DC8D /* twitter.js */; };
 		C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */; };
 		C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */; };
 		C76ABAF11FEBFC9900104239 /* PasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */; };
@@ -638,6 +639,7 @@
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
 		C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardSettingsViewController.swift; sourceTree = "<group>"; };
+		C749567A2052B86D0079DC8D /* twitter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = twitter.js; sourceTree = "<group>"; };
 		C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMyAccountViewController.swift; sourceTree = "<group>"; };
 		C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		C76ABAEF1FEBFC9900104239 /* PasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordCell.xib; sourceTree = "<group>"; };
@@ -2431,6 +2433,7 @@
 		C7F79571202363F8005DE7B3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C749567A2052B86D0079DC8D /* twitter.js */,
 				C7BAF33920513C0700A9BFF0 /* linkedin.js */,
 				C7F79572202363F8005DE7B3 /* facebook_iOS.js */,
 				C7F79573202363F8005DE7B3 /* jquery-3.1.0.min.js */,
@@ -2811,6 +2814,7 @@
 				C7F795AB202363F8005DE7B3 /* jquery-3.1.0.min.js in Resources */,
 				C7F795CC202363F8005DE7B3 /* ActionCell.xib in Resources */,
 				982D31791E8427DB00FE2FB7 /* AppSCD.json in Resources */,
+				C749567B2052B86D0079DC8D /* twitter.js in Resources */,
 				C7F795F520248DF8005DE7B3 /* Questionnaire.xcassets in Resources */,
 				9852C6F81CD0F68D00AF2BE5 /* UIIdentityCell.xib in Resources */,
 				98D220BF1E80009D00B3BD06 /* UIWebTabCollectionCell.xib in Resources */,

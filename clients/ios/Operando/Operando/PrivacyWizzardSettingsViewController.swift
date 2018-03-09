@@ -11,6 +11,7 @@ import UIKit
 enum PrivacyWizzardType {
     case facebook
     case linkedin
+    case twitter
 }
 
 struct PrivacyWizzardSettingsCallbacks {
@@ -70,6 +71,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         case .linkedin:
             ACPrivacyWizard.shared.selectedScope = .linkedIn
             break
+        case .twitter:
+            ACPrivacyWizard.shared.selectedScope = .twitter
         }
     }
     
@@ -151,6 +154,9 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         case .linkedin:
             scopeSetting = allSettings?.linkedinSettings
             break
+        case .twitter:
+            scopeSetting = allSettings?.twitterSettings
+            break
         }
         
         guard let scopeSettingUnwrapped = scopeSetting else {
@@ -222,6 +228,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
     
     private func getSettings() -> [AMPrivacySetting]? {
         switch self.wizzardType {
+        case .twitter:
+            return allSettings?.twitterSettings
         case .facebook:
             return allSettings?.facebookSettings
         case .linkedin:

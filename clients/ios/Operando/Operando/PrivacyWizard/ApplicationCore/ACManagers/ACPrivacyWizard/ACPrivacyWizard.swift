@@ -17,6 +17,7 @@ enum ACPrivacyWizardState {
 enum ACPrivacyWizardScope {
     case facebook
     case linkedIn
+    case twitter
     case all
     
     func getNetworks() -> [String] {
@@ -25,8 +26,10 @@ enum ACPrivacyWizardScope {
             return ["facebook"]
         case .linkedIn:
             return ["linkedin"]
+        case .twitter:
+            return ["twitter"]
         case .all:
-            return ["facebook", "linkedin"]
+            return ["facebook", "linkedin","twitter"]
         }
     }
     
@@ -36,6 +39,8 @@ enum ACPrivacyWizardScope {
             return "https://www.facebook.com"
         case .linkedIn:
             return "https://www.linkedin.com"
+        case .twitter:
+            return "https://mobile.twitter.com/settings/safety"
         case .all:
             return "https://www.facebook.com"
         }
@@ -47,6 +52,8 @@ enum ACPrivacyWizardScope {
             return "facebook_iOS"
         case .linkedIn:
             return "linkedin-iOS"
+        case .twitter:
+            return "twitter"
         case .all:
             return "facebook_iOS"
         }
