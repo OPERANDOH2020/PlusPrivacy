@@ -16,7 +16,7 @@ enum UIRestrictedFeatureType {
 final class UIDefaultFeatureProvider: NSObject {
 
     static func shouldRestrictAccessToFeature() -> Bool {
-        return !UserDefaults.boolForKey(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        return !userIsLoggedIn()
     }
     
     static func userIsLoggedIn() -> Bool {

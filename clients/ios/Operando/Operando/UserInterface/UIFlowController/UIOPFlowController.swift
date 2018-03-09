@@ -212,11 +212,11 @@ class UIOPFlowController
         
         weak var weakSelf = self
         vc.setupWithCallbacks(whenLoginRequired: {
+            weakSelf?.rootController.reset()
             weakSelf?.displayLoginHierarchy()
         }, whenNewAccountRequired: {
             
         })
-        
         
         self.rootController.setMainControllerTo(newController: vc)
     }

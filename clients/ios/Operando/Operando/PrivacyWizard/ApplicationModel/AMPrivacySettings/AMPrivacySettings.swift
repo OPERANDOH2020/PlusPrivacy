@@ -13,17 +13,14 @@ class AMPrivacySettings: NSObject {
     var facebookSettings: [AMPrivacySetting]?
     private(set) var linkedinSettings: [AMPrivacySetting]?
     private(set) var privacySettings: [AMPrivacySetting]?
-    private(set) var twitterSettings: [AMPrivacySetting]?
     private(set) var mappedPrivacySettings: [Int : AMPrivacySetting]?
     
     init?(dictionary: [String: Any]) {
         super.init()
         if let ospSettings = dictionary["ospSettings"] as? NSDictionary {
-            facebookSettings = getFacebookSettings(fromDictionary: ospSettings)
-            linkedinSettings = getLinkedinSettings(fromDictionary: ospSettings)
-            twitterSettings = getTwitterSettings(fromDictionary: ospSettings)
-            privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
-            mapPrivacySettings()
+            extractPrivacySettings(from: ospSettings)
+        } else {
+            extractPrivacySettings(from: dictionary as NSDictionary)
         }
     }
     
@@ -39,6 +36,13 @@ class AMPrivacySettings: NSObject {
         }
         
         return result
+    }
+    
+    private func extractPrivacySettings(from dictionary: NSDictionary) {
+        facebookSettings = getFacebookSettings(fromDictionary: dictionary)
+        linkedinSettings = getLinkedinSettings(fromDictionary: dictionary)
+        privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
+        mapPrivacySettings()
     }
     
     private func mapPrivacySettings() {
@@ -68,10 +72,6 @@ class AMPrivacySettings: NSObject {
     
     private func getLinkedinSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
         return getSettings(withKey: "linkedin", type: .linkedin, fromDictionary: dictionary)
-    }
-    
-    private func getTwitterSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
-        return getSettings(withKey: "twitter", type: .linkedin, fromDictionary: dictionary)
     }
     
     private func getSettings(withKey key: String, type: AMPrivacySettingType, fromDictionary dictionary: NSDictionary?) -> [AMPrivacySetting]? {
