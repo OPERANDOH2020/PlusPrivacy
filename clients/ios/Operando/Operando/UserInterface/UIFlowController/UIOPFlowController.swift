@@ -155,6 +155,8 @@ class UIOPFlowController
         }, pressedLinkedin: {
             
             self.displayQuestionnaire(wizzardType: .linkedin)
+        }, pressedTwitter: {
+            self.displayQuestionnaire(wizzardType: .twitter)
         }))
             
         self.rootController.setupTabViewForPrivacyWizzard()
@@ -185,8 +187,9 @@ class UIOPFlowController
         case .linkedin:
             self.rootController.setupTabViewForLinkedinQuestionnaire()
             break
+        case .twitter:
+            self.rootController.setupTabViewForTwitterQuestionnaire()
         }
-        
         
         self.rootController.setMainControllerTo(newController: vc)
         

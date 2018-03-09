@@ -12,6 +12,7 @@ struct PrivacyWizzardDashboardCallbacks {
     
     let pressedFacebook: VoidBlock
     let pressedLinkedin: VoidBlock
+    let pressedTwitter: VoidBlock
 }
 
 class PrivacyWizzardDashboardViewController: UIViewController {
@@ -52,6 +53,9 @@ class PrivacyWizzardDashboardViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction func pressedTwitterButton(_ sender: Any) {
+        self.callbacks?.pressedTwitter()
+    }
     @IBAction func pressedLinkedinButton(_ sender: Any) {
         self.callbacks?.pressedLinkedin()
     }

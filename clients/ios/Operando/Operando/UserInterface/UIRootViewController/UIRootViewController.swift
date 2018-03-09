@@ -106,6 +106,10 @@ class UIRootViewController: UIViewController
         self.topBarLabel.text = "Linkedin privacy settings"
     }
     
+    func setupTabViewForTwitterQuestionnaire(){
+        self.topBarLabel.text = "Twitter privacy settings"
+    }
+    
     func setupTabViewForPrivacyWizzard() {
         self.topBarView.backgroundColor = UIColor.identitiesBlue()
         self.topBarLabel.text = "Privacy Wizzard"

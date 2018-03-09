@@ -13,6 +13,7 @@ class AMPrivacySettings: NSObject {
     var facebookSettings: [AMPrivacySetting]?
     private(set) var linkedinSettings: [AMPrivacySetting]?
     private(set) var privacySettings: [AMPrivacySetting]?
+    private(set) var twitterSettings: [AMPrivacySetting]?
     private(set) var mappedPrivacySettings: [Int : AMPrivacySetting]?
     
     init?(dictionary: [String: Any]) {
@@ -20,6 +21,7 @@ class AMPrivacySettings: NSObject {
         if let ospSettings = dictionary["ospSettings"] as? NSDictionary {
             facebookSettings = getFacebookSettings(fromDictionary: ospSettings)
             linkedinSettings = getLinkedinSettings(fromDictionary: ospSettings)
+            twitterSettings = getTwitterSettings(fromDictionary: ospSettings)
             privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
             mapPrivacySettings()
         }
@@ -66,6 +68,10 @@ class AMPrivacySettings: NSObject {
     
     private func getLinkedinSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
         return getSettings(withKey: "linkedin", type: .linkedin, fromDictionary: dictionary)
+    }
+    
+    private func getTwitterSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
+        return getSettings(withKey: "twitter", type: .linkedin, fromDictionary: dictionary)
     }
     
     private func getSettings(withKey key: String, type: AMPrivacySettingType, fromDictionary dictionary: NSDictionary?) -> [AMPrivacySetting]? {
