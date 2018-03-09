@@ -291,8 +291,8 @@ var authenticationService = exports.authenticationService = {
     },
     userIsAuthenticated : function(successCallback, failCallback){
         switch (authenticationService.isLoggedIn()){
-            case true:successCallback();
-            case false:failCallback();
+            case true:successCallback();break;
+            case false:failCallback(); break;
         }
     }
 };

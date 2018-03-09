@@ -16,18 +16,39 @@ var bus = require("bus-service").bus;
 
 var ospService = exports.ospService = {
     getOSPSettings: function (success_callback) {
-        var getOSPSettingsHandler = swarmHub.startSwarm('PrivacyWizardSwarm.js', 'getOSPSettings');
-        getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
-            var ospSettings = swarm.ospSettings;
-            var orderedOspSettings = {};
-            desiredOrder.forEach(function(ospName){
-                if(ospSettings[ospName]){
-                    orderedOspSettings[ospName] = ospSettings[ospName];
-                }
-            });
 
-            success_callback(orderedOspSettings);
-        });
+
+
+        function requestListener(){
+            console.log();
+
+            if(this.responseText){
+                var ospSettings = JSON.parse(this.responseText);
+                var orderedOspSettings = {};
+                desiredOrder.forEach(function(ospName){
+                    if(ospSettings[ospName]){
+                        orderedOspSettings[ospName] = ospSettings[ospName];
+                    }
+                });
+                success_callback(orderedOspSettings);
+            }
+            else{
+                console.error("Failed retrieving privacy settings!");
+            }
+
+        }
+
+        var xhrReq = new XMLHttpRequest();
+        xhrReq.addEventListener("load",requestListener);
+        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/social-networks/privacy-settings"
+        xhrReq.open("GET",resourceURI);
+        xhrReq.send();
+
+
+        /*var getOSPSettingsHandler = swarmHub.startSwarm('PrivacyWizardSwarm.js', 'getOSPSettings');
+        getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
+
+        });*/
     }
 }
 

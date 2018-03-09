@@ -84,20 +84,56 @@ angular.module("abp", [])
 
         var getFeatureSubscriptions = function (callback) {
 
-            messengerService.send("getUserPreferences", "abp-settings", function (response) {
-                if (response.status == "success") {
-                    if (response.data.length > 0) {
-                        for (var i = 0; i < response.data.length; i++) {
-                            for (var j = 0; j < featureSubscriptions.length; j++) {
-                                if (response.data[i].feature === featureSubscriptions[j].feature) {
-                                    featureSubscriptions[j].checked = response.data[i].checked;
+            var sequence = Promise.resolve();
+
+            sequence = sequence.then(function () {
+                return new Promise(function (resolve) {
+                    messengerService.send("userIsAuthenticated", function (data) {
+                        if (data.status && data.status == "success") {
+                            resolve(true);
+                        }
+                        else {
+                            resolve(false);
+                        }
+                    });
+                })
+            });
+
+
+
+            sequence = sequence.then(function(isLoggedIn){
+                return new Promise(function(resolve){
+
+                    if (isLoggedIn) {
+                        messengerService.send("getUserPreferences", "abp-settings", function (response) {
+                            if (response.status == "success") {
+                                if (response.data.length > 0) {
+                                    for (var i = 0; i < response.data.length; i++) {
+                                        for (var j = 0; j < featureSubscriptions.length; j++) {
+                                            if (response.data[i].feature === featureSubscriptions[j].feature) {
+                                                featureSubscriptions[j].checked = response.data[i].checked;
+                                            }
+                                        }
+                                    }
+                                    resolve(true);//ABP preferences set
+                                    updateSubscriptionsInExtension(featureSubscriptions);
+
+                                } else {
+                                    resolve(false); //ABP preferences not set or not found
                                 }
                             }
-                        }
-                        callback(featureSubscriptions);
-                        updateSubscriptionsInExtension(featureSubscriptions);
-
+                        });
                     } else {
+                        resolve(false); //ABP preferences don't exist
+                    }
+                });
+            });
+
+            sequence = sequence.then(function (abpPreferencesWereFound) {
+
+                return new Promise(function (resolve) {
+                    if (abpPreferencesWereFound !== true) {
+
                         ext.backgroundPage.sendMessage({
                             type: "subscriptions.get",
                             downloadable: true,
@@ -109,11 +145,19 @@ angular.module("abp", [])
                             for (var i = 0; i < featureSubscriptions.length; i++) {
                                 featureSubscriptions[i].checked = featureSubscriptions[i].url in known;
                             }
-                            callback(featureSubscriptions);
+                            resolve(featureSubscriptions);
                         });
+
+                    } else {
+                        resolve(featureSubscriptions);
                     }
-                }
+                });
             });
+
+            sequence.then(function(featureSubscriptions){
+                callback(featureSubscriptions);
+            });
+
         };
 
         var updateSubscriptions = function (callback) {

@@ -5,13 +5,44 @@ angular.module('osp', ['cfp.loadingBar'])
 
         function generateAngularForm(ospname, callback) {
 
-            messengerService.send("getUserPreferences", ospname, function(response){
+            var sequence = Promise.resolve();
 
-                if(response.status === "success"){
-                        var schemaCompleted = completeForm(response.data);
-                        callback (schemaCompleted);
-                }
+            sequence = sequence.then(function () {
+                return new Promise(function (resolve, reject) {
+                    messengerService.send("userIsAuthenticated", function (data) {
+                        if (data.status && data.status == "success") {
+                            resolve(true);
+                        }
+                        else {
+                            resolve(false);
+                        }
+                    });
+                })
             });
+
+            sequence = sequence.then(function(isLoggedIn){
+
+                return new Promise(function (resolve, reject) {
+                    if (isLoggedIn) {
+                        messengerService.send("getUserPreferences", ospname, function (response) {
+                            if (response.status === "success") {
+                                var schemaCompleted = completeForm(response.data);
+                                resolve(schemaCompleted);
+                            }
+                        });
+
+                    } else {
+                        var schemaCompleted = completeForm([]);
+                        resolve(schemaCompleted);
+                    }
+                });
+            });
+
+            sequence.then(function(schemaCompleted){
+                callback(schemaCompleted);
+            });
+
+
 
             function completeForm(preferences){
 

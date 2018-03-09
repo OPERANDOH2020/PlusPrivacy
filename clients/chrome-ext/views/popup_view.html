@@ -41,7 +41,7 @@
             </div>
         </li>
 
-        <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-show="isAuthenticated"></menu-item>
+        <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-hide="loginAreaState == 'forgot_password' || loginAreaState =='register_form'||loginAreaState == 'login_form'"></menu-item>
         <li id="operando_abp" ng-show="showABPAndPrivacyPolicyOptions">
 
                 <div id="enabled" class="menu-item" role="button">
