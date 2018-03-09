@@ -72,7 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
         SwarmService.getInstance().signUp(email, password, new SwarmCallback<RegisterSwarmEntity>() {
             @Override
             public void call(final RegisterSwarmEntity result) {
-                Log.d("Register", "call() called with: result = [" + result + "]");
+                Log.d("Register", "call() called with: getResult = [" + result + "]");
                 onSignUpSuccess(email, password, result, dialog);
             }
         });

@@ -24,7 +24,7 @@ public abstract class PrivacyWizardSwarmCallback<T extends Swarm> extends SwarmC
 
     public void result(JSONObject result) {
         result = modifyResult(result);
-        Log.e("swclient Swarms: ", "result: " + result.toString());
+        Log.e("swclient Swarms: ", "getResult: " + result.toString());
         T t = new Gson().fromJson(result.toString(), (Class<T>) super.getType());
         call(t);
     }

@@ -3,6 +3,8 @@ package eu.operando.network;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -20,9 +22,15 @@ public class RestClient {
             Gson gson = new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                     .create();
+
+            Interceptor tokenInterceptor = new PrivacySettingsInterceptor();
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(tokenInterceptor)
+                    .build();
+
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-//                    .addConverterFactory(MyJsonConverter.create(gson))
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             api = retrofit.create(Api.class);

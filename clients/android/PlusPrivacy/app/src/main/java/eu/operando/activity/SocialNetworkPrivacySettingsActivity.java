@@ -18,8 +18,11 @@ import com.google.gson.JsonElement;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import eu.operando.R;
 import eu.operando.models.privacysettings.OspSettings;
+import eu.operando.models.privacysettings.QuestionList;
 import eu.operando.network.RestClient;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmclient.models.PrivacySettingsPreprocessing;
@@ -37,6 +40,7 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
     private ImageView rotationDotLinkedin;
     private ImageView rotationDotGoogle;
     private ImageView rotationDotTwitter;
+    private OspSettings settings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,29 +48,6 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_social_network_settings);
         initUI();
 
-        RestClient.getApi().getPrivacySettings().enqueue(new Callback<JsonElement>() {
-            @Override
-            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                if (response.errorBody() == null) {
-                    Log.e("success1", response.body().toString());
-                    PrivacySettingsPreprocessing preprocessing = new PrivacySettingsPreprocessing();
-                    JSONObject jsonResponse = new JSONObject();
-                    try {
-                        jsonResponse = preprocessing.modifyResult(new JSONObject(response.body().getAsJsonObject().toString()));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    Log.e("jsonResponse", jsonResponse.toString());
-                } else {
-                    Log.e("error", String.valueOf(response.errorBody()));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<JsonElement> call, Throwable t) {
-                Log.e("error", t.getMessage());
-            }
-        });
     }
 
     private void initUI() {
@@ -87,32 +68,36 @@ public class SocialNetworkPrivacySettingsActivity extends BaseActivity {
         facebookLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
-                        FacebookSettingsActivity.class));
+                Intent intent = new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        FacebookSettingsActivity.class);
+                startActivity(intent);
             }
         });
 
         linkedinLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
-                        LinkedinSettingsActivity.class));
+                Intent intent = new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        LinkedinSettingsActivity.class);
+                startActivity(intent);
             }
         });
 
         twitterLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
-                        TwitterSettingsActivity.class));
+                Intent intent = new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        TwitterSettingsActivity.class);
+                startActivity(intent);
             }
         });
 
         googleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SocialNetworkPrivacySettingsActivity.this,
-                        GoogleSettingsActivity.class));
+                Intent intent = new Intent(SocialNetworkPrivacySettingsActivity.this,
+                        GoogleSettingsActivity.class);
+                startActivity(intent);
             }
         });
 

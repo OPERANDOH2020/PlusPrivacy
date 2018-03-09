@@ -118,7 +118,7 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
 
     private void setIdentities(IdentityListSwarmEntity result) {
 
-        Log.d("ide", "call() called with: result = [" + result + "]");
+        Log.d("ide", "call() called with: getResult = [" + result + "]");
         identities = result.getIdentities();
 
         setRealIdentity(identities);

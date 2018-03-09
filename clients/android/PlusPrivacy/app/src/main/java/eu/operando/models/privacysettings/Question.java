@@ -1,5 +1,6 @@
 package eu.operando.models.privacysettings;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class Question {
+public class Question implements Serializable{
     private Read read;
     private String tag;
     private Write write;
@@ -42,7 +43,7 @@ public class Question {
         this.read = read;
     }
 
-    public class Read {
+    public class Read implements Serializable{
         private String name;
         private String url;
         private List<AvailableSettings> availableSettings;

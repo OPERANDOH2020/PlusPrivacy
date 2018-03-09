@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class Write {
+public class Write implements Serializable{
 
     private String name;
     private List<AvailableSettingsWrite> availableSettings;

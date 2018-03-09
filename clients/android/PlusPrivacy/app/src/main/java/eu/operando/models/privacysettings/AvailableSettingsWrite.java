@@ -2,6 +2,7 @@ package eu.operando.models.privacysettings;
 
 import com.google.gson.JsonElement;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class AvailableSettingsWrite {
+public class AvailableSettingsWrite implements Serializable{
 
     private String name;
     private List<Param> params;
@@ -46,7 +47,7 @@ public class AvailableSettingsWrite {
         this.params = params;
     }
 
-    public class Param {
+    public class Param implements Serializable{
         private String placeholder;
         private JsonElement value;
 

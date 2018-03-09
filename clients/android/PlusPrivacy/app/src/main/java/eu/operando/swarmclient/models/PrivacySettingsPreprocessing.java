@@ -2,11 +2,16 @@ package eu.operando.swarmclient.models;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Iterator;
+
+import eu.operando.models.privacysettings.OspSettings;
 
 /**
  * Created by Alex on 3/8/2018.
@@ -14,21 +19,33 @@ import java.util.Iterator;
 
 public class PrivacySettingsPreprocessing {
 
+    public OspSettings getResult(JsonElement result) {
+        JSONObject preprocessResult = null;
+        try {
+            preprocessResult = modifyResult(new JSONObject(result.toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("swclient Swarms: ", "getResult: " + preprocessResult.toString());
+        OspSettings res = new Gson().fromJson(preprocessResult.toString(), OspSettings.class);
+        return res;
+    }
+
     public JSONObject modifyResult(JSONObject result) {
 
         JSONArray questionsJsonArray = null;
 
         try {
 
-            Iterator<String> keys = result.getJSONObject("ospSettings").keys();
+            Iterator<String> keys = result.keys();
             while (keys.hasNext()) {
                 String key = keys.next();
-                questionsJsonArray = convertJSONObjectToJSONArray(result
-                        .getJSONObject("ospSettings").getJSONObject(key), true);
+                questionsJsonArray = convertJSONObjectToJSONArray(result.getJSONObject(key),
+                        true);
 
                 JSONArray availableQuestionsJsonArray = modifyAvailableSettins(questionsJsonArray);
 
-                result.getJSONObject("ospSettings").put(key, availableQuestionsJsonArray);
+                result.put(key, availableQuestionsJsonArray);
             }
         } catch (JSONException e) {
             e.printStackTrace();
