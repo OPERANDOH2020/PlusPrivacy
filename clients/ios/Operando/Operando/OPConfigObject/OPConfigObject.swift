@@ -83,9 +83,9 @@ class OPConfigObject: NSObject
         
         self.initPropertiesOnAppStart()
         self.registerApplication()
-        self.eraseCredentialsIfFreshAppReinstall()
+        //self.eraseCredentialsIfFreshAppReinstall()
+        self.tryAutomaticLogin()
         self.flowController?.setupBaseHierarchyInWindow(window)
-        //self.flowController?.displayLoginHierarchy()
         self.flowController?.displayDashboard()
     }
     
@@ -113,10 +113,16 @@ class OPConfigObject: NSObject
     private func eraseCredentialsIfFreshAppReinstall() {
         let key = "DoNotEraseCredentials"
         if !UserDefaults.standard.bool(forKey: key) {
-            CredentialsStore.deleteCredentials()
+            _ = CredentialsStore.deleteCredentials()
         }
         
         UserDefaults.standard.set(true, forKey: key)
+    }
+    
+    private func tryAutomaticLogin() {
+        guard let credentials = CredentialsStore.retrieveLastSavedCredentialsIfAny(), UIDefaultFeatureProvider.userIsLoggedIn() else { return }
+        logiWithInfoAndUpdateUI(LoginInfo(email: credentials.username, password: credentials.password, wishesToBeRemembered: false))
+        print("Did automatic login with \(credentials.username) and \(credentials.password)")
     }
     
     private func showAlertControllerWithResendEmail(block:VoidBlock?)
