@@ -1,18 +1,18 @@
 var SwarmDispatcher = (function () {
     var instance;
+    var callbacks = {};
 
-    var ceva;
+    function init() {
 
-    function init(){
-        console.log("INITIALIZAT");
         return {
             subscribeToSwarmResult: function (id, callbck) {
-                console.log(id);
-                ceva = id;
+                callbacks[id] = callbck;
             },
             notifySubscribers: function (id, data) {
-                console.log("Acel ceva",ceva);
-                console.log("notified");
+                if (callbacks[id]) {
+                    callbacks[id](data);
+                    delete callbacks[id];
+                }
             }
         }
     }

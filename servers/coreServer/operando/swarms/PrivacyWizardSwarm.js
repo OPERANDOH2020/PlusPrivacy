@@ -10,25 +10,23 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-
 var privacyWizardSwarm = {
 
     getOSPSettings : function(){
         this.swarm("retrieveOSPSettingsFromServer");
-    },
+   },
 
     retrieveOSPSettingsFromServer:{
         node: "WatchDogAdapter",
-
         code: function () {
                this.ospSettings = getOspSettings();
-               this.home("gotOSPSettings");
+               this.swarm("sendOSPSettings");
         }
     },
 
     updateOSPSettings:function(newOspSettings){
         this.ospSettings = newOspSettings;
-        this.swarm("updateOSPSettingsOnServer")
+        this.swarm("updateOSPSettingsOnServer");
     },
 
     updateOSPSettingsOnServer:{
@@ -72,6 +70,18 @@ var privacyWizardSwarm = {
 
     dismissPrivacyNotifications:function(){
         this.swarm("updateNotifications");
+    },
+
+    sendOSPSettings :{
+        node: "WSServer",
+        code: function () {
+            if(thisAdapter.myUUID){
+                var swarmDispatcher = getSwarmDispatcher();
+                swarmDispatcher.notifySubscribers(thisAdapter.myUUID, this.ospSettings);
+            }else{
+                this.home("gotOSPSettings");
+            }
+        }
     },
 
     updateNotifications:{
