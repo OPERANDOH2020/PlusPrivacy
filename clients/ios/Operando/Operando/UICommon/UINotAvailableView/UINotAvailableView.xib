@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UINotAvailableView" customModule="Operando" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="G2V-cq-2RR"/>
+                <outlet property="createAccountButton" destination="Kx5-BA-5cZ" id="qeQ-xe-VLe"/>
+                <outlet property="loginButton" destination="MXz-ja-Mm3" id="Uu1-1C-CVd"/>
                 <outlet property="titleLabel" destination="5pW-ge-opY" id="1Ig-9w-nLD"/>
             </connections>
         </placeholder>
@@ -21,23 +23,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-Gm-aA1">
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-Gm-aA1">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Daf-7r-Nhy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <blurEffect style="dark"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEr-Q5-hpo">
                     <rect key="frame" x="47" y="251" width="280" height="164"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For accessing this feature, authentication is required." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pW-ge-opY">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To access this feature, authentication is required" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pW-ge-opY">
                             <rect key="frame" x="0.0" y="0.0" width="280" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="54" id="f09-DV-b7g"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -46,7 +49,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="5lK-Ot-drv"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                             <state key="normal" title="You do not have an account? Create one here">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -55,7 +58,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXz-ja-Mm3">
-                            <rect key="frame" x="55" y="86" width="171" height="40"/>
+                            <rect key="frame" x="0.0" y="86" width="280" height="40"/>
                             <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="5Kn-7A-LFm"/>
@@ -87,9 +90,9 @@
                         <constraint firstItem="5pW-ge-opY" firstAttribute="leading" secondItem="fEr-Q5-hpo" secondAttribute="leading" id="VTf-we-x9E"/>
                         <constraint firstItem="5pW-ge-opY" firstAttribute="top" secondItem="fEr-Q5-hpo" secondAttribute="top" id="Vin-09-PXe"/>
                         <constraint firstAttribute="trailing" secondItem="5pW-ge-opY" secondAttribute="trailing" id="fVy-0l-Yb6"/>
-                        <constraint firstItem="MXz-ja-Mm3" firstAttribute="leading" secondItem="fEr-Q5-hpo" secondAttribute="leading" constant="55" id="lX3-14-pR6"/>
+                        <constraint firstItem="MXz-ja-Mm3" firstAttribute="leading" secondItem="fEr-Q5-hpo" secondAttribute="leading" id="lX3-14-pR6"/>
                         <constraint firstItem="Kx5-BA-5cZ" firstAttribute="top" secondItem="MXz-ja-Mm3" secondAttribute="bottom" constant="8" id="lYk-8A-DSW"/>
-                        <constraint firstAttribute="trailing" secondItem="MXz-ja-Mm3" secondAttribute="trailing" constant="54" id="qMe-ES-hsd"/>
+                        <constraint firstAttribute="trailing" secondItem="MXz-ja-Mm3" secondAttribute="trailing" id="qMe-ES-hsd"/>
                     </constraints>
                 </view>
             </subviews>

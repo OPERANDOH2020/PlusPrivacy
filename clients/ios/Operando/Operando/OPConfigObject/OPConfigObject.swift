@@ -82,18 +82,10 @@ class OPConfigObject: NSObject
     {
         
         self.initPropertiesOnAppStart()
-        self.registerApplication()
         //self.eraseCredentialsIfFreshAppReinstall()
         self.tryAutomaticLogin()
         self.flowController?.setupBaseHierarchyInWindow(window)
         self.flowController?.displayDashboard()
-    }
-    
-    private func registerApplication() {
-        let path = "/\(UIDevice.current.identifierForVendor?.uuidString ?? "")/iOS"
-        ACRestClient.shared.post(path, params: nil, body: [:]) { (data, error) in
-           print(data)
-        }
     }
     //'/registerApplication/$deviceId/$applicationId'
     func open(url: URL) -> Bool {

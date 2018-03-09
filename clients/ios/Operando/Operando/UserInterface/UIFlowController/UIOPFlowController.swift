@@ -75,21 +75,30 @@ class UIOPFlowController
         self.rootController.setupWithCallbacks(rootControllerCallbacks)
     }
     
-    func displayLoginHierarchy()
+    func displayLoginHierarchy(shouldPresentRegistrationFirst: Bool = false)
     {
         let loginVC = UIViewControllerFactory.loginViewController
         let registrationViewController = UIViewControllerFactory.registerViewController
         weak var weakLoginVC = loginVC
+        weak var weakSelf = self
+//        let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
+//            self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
+//        {
+//            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
+//        }
         
-        let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
-            self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
-        {
-            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
-        }
+        let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin: self.dependencies.accountCallbacks?.loginCallback, whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback,
+        whenUserPressedRegister: {
+            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true) },
+        whenUserCancelLogin: {
+            weakSelf?.displayDashboard()
+        })
         
         let registerViewControllerCallbacks = UIRegistrationViewControllerCallbacks(whenUserRegisters: self.dependencies.accountCallbacks?.registerCallback) {
             weakLoginVC?.navigationController?.popViewController(animated: true)
         }
+        
+        if shouldPresentRegistrationFirst { loginVC.setToDisplayRegistrationFirst() }
         
         loginVC.logic.setupWithCallbacks(loginViewControllerCallbacks)
         registrationViewController.setupWith(callbacks: registerViewControllerCallbacks)
@@ -203,8 +212,10 @@ class UIOPFlowController
         switch type {
         case .identityManagement:
             self.rootController.setupTabViewForIdentities()
+            vc.setupForUI(activeColor: .identitiesBlue())
         case .notifications:
             self.rootController.setupTabViewForNotification()
+            vc.setupForUI(activeColor: .notificationPink())
         }
         
         weak var weakSelf = self
@@ -212,6 +223,8 @@ class UIOPFlowController
             weakSelf?.rootController.reset()
             weakSelf?.displayLoginHierarchy()
         }, whenNewAccountRequired: {
+            weakSelf?.rootController.reset()
+            weakSelf?.displayLoginHierarchy(shouldPresentRegistrationFirst: true)
             
         })
         

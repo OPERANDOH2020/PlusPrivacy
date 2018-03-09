@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIRegistrationView" customModule="Operando" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="TPv-S1-u7w" id="LqB-wN-l8o"/>
                 <outlet property="confirmPasswordTF" destination="SUc-qt-lyG" id="Awc-Hd-0nC"/>
                 <outlet property="emailTF" destination="wG2-2P-sRu" id="Cj0-gd-Uw0"/>
                 <outlet property="invalidEmailLabel" destination="tIo-Dw-XTR" id="IMn-Wm-I4C"/>
@@ -141,14 +142,26 @@
                         <constraint firstItem="meS-TU-big" firstAttribute="leading" secondItem="XEh-dd-mrZ" secondAttribute="leading" constant="10" id="dko-LA-7Ui"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPv-S1-u7w">
+                    <rect key="frame" x="95" y="345" width="131" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1CH-Ue-ggC"/>
+                        <constraint firstAttribute="width" constant="131" id="svm-K2-xgA"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.99974828959999995" green="0.86162966490000004" blue="0.62938243149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XEh-dd-mrZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="A1g-M9-LDJ"/>
+                <constraint firstItem="TPv-S1-u7w" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JXb-tx-MN7"/>
                 <constraint firstItem="xFe-TW-Wlm" firstAttribute="top" secondItem="XEh-dd-mrZ" secondAttribute="bottom" constant="20" id="W2b-SE-gF7"/>
                 <constraint firstItem="XEh-dd-mrZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" id="ZFz-uU-G7U"/>
                 <constraint firstItem="xFe-TW-Wlm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZGT-eU-fF6"/>
                 <constraint firstItem="xFe-TW-Wlm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" constant="20" id="dWf-WO-3W6"/>
+                <constraint firstItem="TPv-S1-u7w" firstAttribute="top" secondItem="xFe-TW-Wlm" secondAttribute="bottom" constant="8" id="nVU-XI-nAb"/>
                 <constraint firstAttribute="trailing" secondItem="XEh-dd-mrZ" secondAttribute="trailing" priority="750" id="owE-WC-JT9"/>
                 <constraint firstAttribute="trailing" secondItem="xFe-TW-Wlm" secondAttribute="trailing" priority="750" constant="20" id="qRt-uF-5jQ"/>
                 <constraint firstItem="XEh-dd-mrZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wFk-ag-Nig"/>

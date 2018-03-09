@@ -22,6 +22,7 @@ struct UIRegistrationViewOutlets {
     let emailTF: UITextField?
     
     let signUpButton: UIButton?
+    let cancelButton: UIButton?
     let scrollView: UIScrollView?
     
     let passwordsDontMatchLabel: UILabel?
@@ -29,15 +30,16 @@ struct UIRegistrationViewOutlets {
     
     let showSecureEntrySwitch: UISwitch?
     
-    static let allNil: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: nil, confirmPasswordTF: nil, emailTF: nil, signUpButton: nil, scrollView: nil, passwordsDontMatchLabel: nil, invalidEmailLabel: nil, showSecureEntrySwitch: nil)
+    static let allNil: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: nil, confirmPasswordTF: nil, emailTF: nil, signUpButton: nil, cancelButton: nil, scrollView: nil, passwordsDontMatchLabel: nil, invalidEmailLabel: nil, showSecureEntrySwitch: nil)
     
-    static let allDefault: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: .init(), confirmPasswordTF: .init(), emailTF: .init(), signUpButton: .init(), scrollView: .init(), passwordsDontMatchLabel: .init(), invalidEmailLabel: .init(), showSecureEntrySwitch: .init())
+    static let allDefault: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: .init(), confirmPasswordTF: .init(), emailTF: .init(), signUpButton: .init(), cancelButton: .init(), scrollView: .init(), passwordsDontMatchLabel: .init(), invalidEmailLabel: .init(), showSecureEntrySwitch: .init())
 }
 
 
 struct UIRegistrationViewLogicCallbacks {
     let presentOkAlert: CallbackWithString?
     let registrationCallback: RegistrationCallback?
+    let cancelCallback: VoidBlock?
 }
 
 class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
@@ -79,6 +81,7 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
         outlets.passswordTF?.addTarget(outlets.confirmPasswordTF, action: #selector(UITextField.becomeFirstResponder), for: .editingDidEndOnExit)
         
         outlets.signUpButton?.addTarget(self, action: #selector(didPressSignUp(_:)), for: .touchUpInside)
+        outlets.cancelButton?.addTarget(self, action: #selector(didPressCancelButton(_:)), for: .touchUpInside)
         outlets.showSecureEntrySwitch?.addTarget(self, action: #selector(didSwitchShowPasswordsOnOrOff(_:)), for: .valueChanged)
         
         outlets.showSecureEntrySwitch?.isOn = false
@@ -108,6 +111,10 @@ class UIRegistrationViewLogic: NSObject, UITextFieldDelegate {
         if let registrationInfo = self.createRegistrationInfo() {
             callbacks?.registrationCallback?(registrationInfo)
         }
+    }
+    
+    @IBAction func didPressCancelButton(_ sender: AnyObject){
+        callbacks?.cancelCallback?()
     }
     
     @IBAction func didSwitchShowPasswordsOnOrOff(_ sender: UISwitch){
@@ -242,6 +249,7 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     @IBOutlet weak var emailTF: UITextField!
     
     @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var passwordsDontMatchLabel: UILabel!
@@ -249,7 +257,7 @@ class UIRegistrationView: RSNibDesignableView, UITextFieldDelegate
     @IBOutlet weak var showPasswordSwitch: UISwitch?
     
     lazy var logic: UIRegistrationViewLogic = {
-        let outlets: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: self.passwordTF, confirmPasswordTF: self.confirmPasswordTF, emailTF: self.emailTF, signUpButton: self.signUpBtn, scrollView: self.scrollView, passwordsDontMatchLabel: self.passwordsDontMatchLabel, invalidEmailLabel: self.invalidEmailLabel, showSecureEntrySwitch: self.showPasswordSwitch)
+        let outlets: UIRegistrationViewOutlets = UIRegistrationViewOutlets(passswordTF: self.passwordTF, confirmPasswordTF: self.confirmPasswordTF, emailTF: self.emailTF, signUpButton: self.signUpBtn, cancelButton: self.cancelButton, scrollView: self.scrollView, passwordsDontMatchLabel: self.passwordsDontMatchLabel, invalidEmailLabel: self.invalidEmailLabel, showSecureEntrySwitch: self.showPasswordSwitch)
         
         let logic: UIRegistrationViewLogic = UIRegistrationViewLogic(outlets: outlets)
         return logic

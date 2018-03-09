@@ -15,6 +15,8 @@ class UINotAvailableView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     @IBAction func didTapLoginButton(_ sender: Any) {
         whenLoginRequired?()
@@ -37,6 +39,12 @@ class UINotAvailableView: UIView {
     func setupWithCallbacks(whenLoginRequired: (() -> Void)?, whenNewAccountRequired: (() -> Void)?) {
         self.whenLoginRequired = whenLoginRequired
         self.whenNewAccountRequired = whenNewAccountRequired
+    }
+    
+    func setupForUI(activeColor: UIColor?) {
+        guard let activeColor = activeColor else { return }
+        self.loginButton.backgroundColor = activeColor
+        self.createAccountButton.setTitleColor(activeColor, for: .normal)
     }
 }
 

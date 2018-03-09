@@ -16,8 +16,9 @@ struct UISignInViewControllerCallbacks {
     let whenUserWantsToLogin: LoginCallback?
     let whenUserForgotPassword: ((_ email: String) -> Void)?
     let whenUserPressedRegister: VoidBlock?
+    let whenUserCancelLogin: VoidBlock?
     
-    static let allNil: UISignInViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin: nil, whenUserForgotPassword: nil, whenUserPressedRegister: nil)
+    static let allNil: UISignInViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin: nil, whenUserForgotPassword: nil, whenUserPressedRegister: nil, whenUserCancelLogin: nil)
     
 }
 
@@ -71,7 +72,7 @@ class UISignInViewControllerLogic: NSObject {
                 
                 weakSelf?.signInCallbacks?.whenUserForgotPassword?(email)
             }
-        })
+        }, whenUserCancelLogin: self.signInCallbacks?.whenUserCancelLogin)
     }
 }
 
@@ -79,6 +80,8 @@ class UISignInViewController: UIViewController {
     
     @IBOutlet weak var loginView: UILoginView!
     @IBOutlet weak var registerButton: UIButton?
+    
+    private var shouldDisplayRegistrationFirst = false
     
     lazy var logic: UISignInViewControllerLogic = {
         let _ = self.view;
@@ -93,5 +96,16 @@ class UISignInViewController: UIViewController {
         
         return logic;
     }()
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if shouldDisplayRegistrationFirst {
+            shouldDisplayRegistrationFirst = false
+            logic.didPressRegisterButton(UIButton(type: .infoDark)) // random button
+        }
+    }
+    
+    func setToDisplayRegistrationFirst() {
+        shouldDisplayRegistrationFirst = true
+    }
 }

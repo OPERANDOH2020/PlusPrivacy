@@ -19,6 +19,7 @@ struct UILoginViewCallbacks
 {
     let whenUserWantsToLogin : ((_ info : LoginInfo) -> ())?
     let whenUserForgetsPassword: (() -> ())?
+    let whenUserCancelLogin: (() -> ())?
 }
 
 struct UILoginViewOutlets {
@@ -27,6 +28,7 @@ struct UILoginViewOutlets {
     let rememberMeSwitch: UISwitch?
     let signInButton: UIButton?
     let forgotPasswordButton: UIButton?
+    let cancelButton: UIButton?
 }
 
 class UILoginViewLogic: NSObject, UITextFieldDelegate {
@@ -43,6 +45,7 @@ class UILoginViewLogic: NSObject, UITextFieldDelegate {
         
         outlets.signInButton?.addTarget(self, action: #selector(didPressSignInButton(_:)), for: .touchUpInside)
         outlets.forgotPasswordButton?.addTarget(self, action: #selector(didPressForgotPassword(_:)), for: .touchUpInside)
+        outlets.cancelButton?.addTarget(self, action: #selector(didPressCancelButton(_:)), for: .touchUpInside)
         
         if let credentials = CredentialsStore.retrieveLastSavedCredentialsIfAny() {
             outlets.emailTF?.text = credentials.username
@@ -77,6 +80,10 @@ class UILoginViewLogic: NSObject, UITextFieldDelegate {
         let loginInfo = LoginInfo(email: self.outlets.emailTF?.text ?? "", password: self.outlets.passwordTF?.text ?? "", wishesToBeRemembered: true);
         self.callbacks?.whenUserWantsToLogin?(loginInfo);
     }
+    
+    @IBAction func didPressCancelButton(_ sender: AnyObject) {
+        self.callbacks?.whenUserCancelLogin?();
+    }
 }
 
 
@@ -84,12 +91,13 @@ class UILoginView: RSNibDesignableView {
 
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
     lazy var logic: UILoginViewLogic = {
-       return UILoginViewLogic(outlets: UILoginViewOutlets(emailTF: self.emailTF, passwordTF: self.passwordTF, rememberMeSwitch: self.rememberMeSwitch, signInButton: self.signInButton, forgotPasswordButton: self.forgotPasswordButton))
+        return UILoginViewLogic(outlets: UILoginViewOutlets(emailTF: self.emailTF, passwordTF: self.passwordTF, rememberMeSwitch: self.rememberMeSwitch, signInButton: self.signInButton, forgotPasswordButton: self.forgotPasswordButton, cancelButton: self.cancelButton))
     }()
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

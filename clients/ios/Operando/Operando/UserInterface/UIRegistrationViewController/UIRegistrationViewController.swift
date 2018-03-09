@@ -27,7 +27,7 @@ class UIRegistrationViewController: UIViewController {
     
             OPViewUtils.showOkAlertWithTitle(title: "", andMessage: alertMessage)
             
-        }, registrationCallback: callbacks?.whenUserRegisters))
+        }, registrationCallback: callbacks?.whenUserRegisters, cancelCallback: callbacks?.whenUserWantsToSignIn))
         
     }
     

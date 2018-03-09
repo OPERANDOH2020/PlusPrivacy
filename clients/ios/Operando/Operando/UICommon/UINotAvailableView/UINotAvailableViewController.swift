@@ -10,8 +10,9 @@ import UIKit
 
 class UINotAvailableViewController: UIViewController {
     
-    var whenLoginRequired: (() -> Void)?
-    var whenNewAccountRequired: (() -> Void)?
+    private var whenLoginRequired: (() -> Void)?
+    private var whenNewAccountRequired: (() -> Void)?
+    private var activeColor: UIColor?
 
     @IBOutlet weak var contentView: UINotAvailableView!
     
@@ -20,8 +21,13 @@ class UINotAvailableViewController: UIViewController {
         self.whenNewAccountRequired = whenNewAccountRequired
     }
     
+    func setupForUI(activeColor: UIColor) {
+        self.activeColor = activeColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.setupWithCallbacks(whenLoginRequired: whenLoginRequired, whenNewAccountRequired: whenNewAccountRequired)
+        contentView.setupForUI(activeColor: activeColor)
     }
 }

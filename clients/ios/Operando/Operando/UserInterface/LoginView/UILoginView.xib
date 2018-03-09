@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UILoginView" customModule="Operando" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="hyP-qr-1Mn" id="J9p-AZ-7tH"/>
                 <outlet property="emailTF" destination="MVb-eY-EeK" id="7RU-yz-7ah"/>
                 <outlet property="forgotPasswordButton" destination="dhF-V4-Ijc" id="5Qy-ia-DdP"/>
                 <outlet property="passwordTF" destination="Oq7-Fu-muE" id="ZVI-pR-JPy"/>
@@ -23,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n4m-Bl-VK9">
-                    <rect key="frame" x="10" y="172" width="282" height="130"/>
+                    <rect key="frame" x="10" y="172" width="280" height="130"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-Rc-0qE">
-                            <rect key="frame" x="0.0" y="0.0" width="282" height="36.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="36.5"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-eY-EeK" userLabel="emailTF">
-                                    <rect key="frame" x="0.0" y="0.0" width="282" height="35.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="35.5"/>
                                     <color key="backgroundColor" red="0.99974828959999995" green="0.86162966490000004" blue="0.62938243149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
@@ -44,10 +45,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xr1-D5-w5L">
-                            <rect key="frame" x="0.0" y="46.5" width="282" height="37"/>
+                            <rect key="frame" x="0.0" y="46.5" width="280" height="37"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oq7-Fu-muE" userLabel="passwordTF">
-                                    <rect key="frame" x="0.0" y="0.0" width="282" height="36"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="36"/>
                                     <color key="backgroundColor" red="0.99974828959999995" green="0.86162966490000004" blue="0.62938243149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
@@ -62,7 +63,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ww-HF-ALZ" userLabel="signInButton">
-                            <rect key="frame" x="0.0" y="93.5" width="282" height="36.5"/>
+                            <rect key="frame" x="0.0" y="93.5" width="280" height="36.5"/>
                             <color key="backgroundColor" red="1" green="0.59451687335968018" blue="0.0058014881797134876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <state key="normal" title="LOGIN">
@@ -85,12 +86,21 @@
                         <constraint firstAttribute="height" constant="144" id="r1j-BU-Mqf"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-V4-Ijc">
-                    <rect key="frame" x="96" y="310" width="109" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-qr-1Mn">
+                    <rect key="frame" x="159" y="310" width="131" height="44"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnu-iq-y4t">
+                    <rect key="frame" x="150" y="324" width="1" height="76"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="853-5A-FLR"/>
-                        <constraint firstAttribute="width" constant="109" id="hrI-a8-9V9"/>
+                        <constraint firstAttribute="width" constant="1" id="EN7-z8-et4"/>
                     </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-V4-Ijc">
+                    <rect key="frame" x="10" y="310" width="132" height="44"/>
                     <state key="normal" title="Reset password">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -98,14 +108,23 @@
             </subviews>
             <color key="backgroundColor" red="0.99974828958511353" green="0.8616296648979187" blue="0.6293824315071106" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="n4m-Bl-VK9" secondAttribute="trailing" constant="8" id="CUe-eE-DhL"/>
+                <constraint firstItem="tnu-iq-y4t" firstAttribute="top" secondItem="n4m-Bl-VK9" secondAttribute="bottom" constant="22" id="2qa-Yc-4QD"/>
+                <constraint firstAttribute="bottom" secondItem="hyP-qr-1Mn" secondAttribute="bottom" constant="46" id="6fa-Hx-rYk"/>
+                <constraint firstItem="hyP-qr-1Mn" firstAttribute="top" secondItem="n4m-Bl-VK9" secondAttribute="bottom" constant="8" id="7G3-9h-rbq"/>
+                <constraint firstItem="hyP-qr-1Mn" firstAttribute="leading" secondItem="tnu-iq-y4t" secondAttribute="trailing" constant="8" id="C5Y-2D-xRX"/>
+                <constraint firstAttribute="trailing" secondItem="n4m-Bl-VK9" secondAttribute="trailing" constant="10" id="CUe-eE-DhL"/>
                 <constraint firstItem="e1r-b6-t6F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="DVz-Fl-z3O"/>
                 <constraint firstItem="n4m-Bl-VK9" firstAttribute="top" secondItem="e1r-b6-t6F" secondAttribute="bottom" constant="8" id="Fwa-xg-i64"/>
+                <constraint firstItem="dhF-V4-Ijc" firstAttribute="top" secondItem="n4m-Bl-VK9" secondAttribute="bottom" constant="8" id="Kyv-ZP-4oZ"/>
+                <constraint firstItem="dhF-V4-Ijc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="LG0-w4-Zk6"/>
+                <constraint firstItem="tnu-iq-y4t" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MC3-qD-Q2y"/>
+                <constraint firstItem="tnu-iq-y4t" firstAttribute="leading" secondItem="dhF-V4-Ijc" secondAttribute="trailing" constant="8" id="QBu-kx-5rq"/>
+                <constraint firstAttribute="trailing" secondItem="hyP-qr-1Mn" secondAttribute="trailing" constant="10" id="QRg-v2-aLC"/>
                 <constraint firstAttribute="trailing" secondItem="e1r-b6-t6F" secondAttribute="trailing" constant="25" id="RN4-wh-2da"/>
-                <constraint firstItem="dhF-V4-Ijc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yak-SG-6Og"/>
                 <constraint firstItem="n4m-Bl-VK9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="bdM-Ud-Ft4"/>
+                <constraint firstAttribute="bottom" secondItem="dhF-V4-Ijc" secondAttribute="bottom" constant="46" id="dG2-cX-Heu"/>
                 <constraint firstItem="e1r-b6-t6F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hSf-XM-Z2o"/>
-                <constraint firstItem="dhF-V4-Ijc" firstAttribute="top" secondItem="n4m-Bl-VK9" secondAttribute="bottom" constant="8" id="veK-fL-F05"/>
+                <constraint firstAttribute="bottom" secondItem="tnu-iq-y4t" secondAttribute="bottom" id="hsr-6o-8dA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="39" y="281"/>
