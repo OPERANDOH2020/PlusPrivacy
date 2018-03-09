@@ -726,6 +726,7 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     //MARK: NotificationsRepository
     
     func getAllNotifications(in completion: (([OPNotification], NSError?) -> Void)?) {
+        guard UIDefaultFeatureProvider.userIsLoggedIn() else { return }
         workingQueue.async {
             
             self.whenThereWasAnError = { error in
