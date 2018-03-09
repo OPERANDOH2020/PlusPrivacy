@@ -13,6 +13,7 @@ class AMPrivacySettings: NSObject {
     var facebookSettings: [AMPrivacySetting]?
     private(set) var linkedinSettings: [AMPrivacySetting]?
     private(set) var privacySettings: [AMPrivacySetting]?
+    private(set) var twitterSettings: [AMPrivacySetting]?
     private(set) var mappedPrivacySettings: [Int : AMPrivacySetting]?
     
     init?(dictionary: [String: Any]) {
