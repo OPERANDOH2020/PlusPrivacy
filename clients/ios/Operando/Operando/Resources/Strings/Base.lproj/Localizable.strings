@@ -41,3 +41,6 @@
 "kPleaseCheckEmailResetLocalizableKey" = "Please check your e-mail for further instructions on how to reset your password";
 "kPasswordChangedSuccesfullyLocalizableKey" = "The password has been changed succesfully";
 "kNoDealsAtTheMomentLocalizableKey" = "There are no deals at the moment";
+
+"kSuccessfullLogout" = "You successfully logged out";
+"kLogoutMessage" = "You can continue using the application features which do not require authentication";
