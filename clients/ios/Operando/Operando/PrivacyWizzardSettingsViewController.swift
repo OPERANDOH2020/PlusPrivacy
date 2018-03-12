@@ -12,6 +12,22 @@ enum PrivacyWizzardType {
     case facebook
     case linkedin
     case twitter
+    case google
+    
+    func toPrivacySettingsType() -> ACPrivacySettingsType {
+        switch self {
+        case .facebook:
+            return .facebook
+        case .linkedin:
+            return .linkedin
+        case .twitter:
+            return .twitter
+        case .google:
+            return .google
+        default:
+            return .all
+        }
+    }
 }
 
 struct PrivacyWizzardSettingsCallbacks {
@@ -40,7 +56,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         
         setupTableView()
         
-        repository?.getAllQuestions(withCompletion: { (settings,error) in
+        let settingsType = wizzardType.toPrivacySettingsType()
+        repository?.getAllQuestions(withType: settingsType, withCompletion: { (settings,error) in
             
             if let error = error {
                 
@@ -50,7 +67,7 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     ACPrivacyWizard.shared.privacySettings = settings
-                    
+                    ACPrivacyWizard.shared.updatePrivacySettings(type: settingsType, updatedSettings: settings)
                     self.allSettings = settings
                     self.tableView.reloadData()
                 })
@@ -73,6 +90,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             break
         case .twitter:
             ACPrivacyWizard.shared.selectedScope = .twitter
+        case .google:
+            break
         }
     }
     
@@ -157,6 +176,9 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         case .twitter:
             scopeSetting = allSettings?.twitterSettings
             break
+        case .google:
+            scopeSetting = allSettings?.googleSettings
+            break
         }
         
         guard let scopeSettingUnwrapped = scopeSetting else {
@@ -234,6 +256,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             return allSettings?.facebookSettings
         case .linkedin:
             return allSettings?.linkedinSettings
+        case .google:
+            return allSettings?.googleSettings
         }
     }
     

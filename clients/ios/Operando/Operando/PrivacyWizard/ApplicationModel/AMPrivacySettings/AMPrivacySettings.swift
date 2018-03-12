@@ -14,6 +14,7 @@ class AMPrivacySettings: NSObject {
     private(set) var linkedinSettings: [AMPrivacySetting]?
     private(set) var privacySettings: [AMPrivacySetting]?
     private(set) var twitterSettings: [AMPrivacySetting]?
+    private(set) var googleSettings: [AMPrivacySetting]?
     private(set) var mappedPrivacySettings: [Int : AMPrivacySetting]?
     
     init?(dictionary: [String: Any]) {
@@ -23,6 +24,40 @@ class AMPrivacySettings: NSObject {
         } else {
             extractPrivacySettings(from: dictionary as NSDictionary)
         }
+    }
+    
+    init?(with dictionary: [String: Any], type: ACPrivacySettingsType) {
+        super.init()
+        
+        switch type {
+        case .facebook:
+            facebookSettings = getSettings(withType: .facebook, fromDictionary: dictionary as NSDictionary)
+        case .linkedin:
+            linkedinSettings = getSettings(withType: .linkedin, fromDictionary: dictionary as NSDictionary)
+        case .twitter:
+            twitterSettings = getSettings(withType: .twitter, fromDictionary: dictionary as NSDictionary)
+        case .google:
+            googleSettings = getSettings(withType: .google, fromDictionary: dictionary as NSDictionary)
+        case .all:
+            extractPrivacySettings(from: dictionary as NSDictionary)
+        }
+    }
+    
+    func update(type: ACPrivacySettingsType, updatedSettings: AMPrivacySettings) {
+        
+        switch type {
+        case .facebook:
+            facebookSettings = updatedSettings.facebookSettings
+        case .linkedin:
+            linkedinSettings = updatedSettings.linkedinSettings
+        case .twitter:
+            twitterSettings = updatedSettings.twitterSettings
+        case .google:
+            googleSettings = updatedSettings.googleSettings
+        default:
+            return
+        }
+        concatenateSettings()
     }
     
     func getPrivacySetting(withId id: Int?) -> AMPrivacySetting? {
@@ -42,7 +77,13 @@ class AMPrivacySettings: NSObject {
     private func extractPrivacySettings(from dictionary: NSDictionary) {
         facebookSettings = getFacebookSettings(fromDictionary: dictionary)
         linkedinSettings = getLinkedinSettings(fromDictionary: dictionary)
-        privacySettings = concatenate(settings: facebookSettings, withSettings: linkedinSettings)
+        twitterSettings = getTwitterSettings(fromDictionary: dictionary)
+        googleSettings = getGoogleSettings(fromDictionary: dictionary)
+        concatenateSettings()
+    }
+    
+    private func concatenateSettings() {
+        privacySettings = concatenateArrays(facebookSettings, linkedinSettings, twitterSettings, googleSettings)
         mapPrivacySettings()
     }
     
@@ -63,6 +104,10 @@ class AMPrivacySettings: NSObject {
         }
     }
     
+    private func concatenateArrays(_ array1: [AMPrivacySetting]?, _ array2: [AMPrivacySetting]?, _ array3: [AMPrivacySetting]?, _ array4: [AMPrivacySetting]?) -> [AMPrivacySetting] {
+        return concatenate(settings: concatenate(settings: concatenate(settings: array1, withSettings: array2), withSettings: array3), withSettings: array4)
+    }
+    
     private func concatenate(settings array1: [AMPrivacySetting]?, withSettings array2: [AMPrivacySetting]?) -> [AMPrivacySetting] {
         return Array<AMPrivacySetting>.concatenate(array1: array1, array2: array2)
     }
@@ -75,18 +120,28 @@ class AMPrivacySettings: NSObject {
         return getSettings(withKey: "linkedin", type: .linkedin, fromDictionary: dictionary)
     }
     
+    private func getTwitterSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
+        return getSettings(withKey: "twitter", type: .facebook, fromDictionary: dictionary)
+    }
+    
+    private func getGoogleSettings(fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
+        return getSettings(withKey: "google", type: .linkedin, fromDictionary: dictionary)
+    }
+    
     private func getSettings(withKey key: String, type: AMPrivacySettingType, fromDictionary dictionary: NSDictionary?) -> [AMPrivacySetting]? {
-        guard let dictionary = dictionary else { return nil }
+        guard let dictionary = dictionary, let settingsDictionary = dictionary[key] as? NSDictionary else { return nil }
+        return getSettings(withType: type, fromDictionary: settingsDictionary)
+    }
+    
+    private func getSettings(withType type: AMPrivacySettingType, fromDictionary dictionary: NSDictionary) -> [AMPrivacySetting]? {
         var settings = [AMPrivacySetting]()
         
-        if let settingsDictionary = dictionary[key] as? NSDictionary {
-            for (key, value) in settingsDictionary {
-                if let privacySetting = AMPrivacySetting(type: type, title: key as! String ,dictionary: value as! [String : Any]) {
-                    settings.append(privacySetting)
-                }
+        for (key, value) in dictionary {
+            if let privacySetting = AMPrivacySetting(type: type, title: key as! String ,dictionary: value as! [String : Any]) {
+                settings.append(privacySetting)
             }
         }
-
+        
         return settings
     }
 }

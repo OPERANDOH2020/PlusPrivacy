@@ -164,6 +164,16 @@ class ACPrivacyWizard: NSObject {
         privacyWizardScope = .all
     }
     
+    func updatePrivacySettings(type: ACPrivacySettingsType, updatedSettings: AMPrivacySettings?) {
+        guard let updatedSettings = updatedSettings else { return }
+        if self.privacySettings == nil || type == .all {
+            self.privacySettings = updatedSettings
+            return
+        }
+        
+        self.privacySettings?.update(type: type, updatedSettings: updatedSettings)
+    }
+    
     func getPrivacySettings(completion: @escaping (_ privacySettings: [AMPrivacySetting], _ state: ACPrivacyWizardState) -> Void) {
         switch state {
         case .interrogation:

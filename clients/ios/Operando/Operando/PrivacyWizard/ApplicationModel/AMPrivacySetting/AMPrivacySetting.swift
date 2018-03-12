@@ -11,6 +11,8 @@ import UIKit
 enum AMPrivacySettingType {
     case facebook
     case linkedin
+    case twitter
+    case google
     case unknown
 }
 

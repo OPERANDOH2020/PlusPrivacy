@@ -198,6 +198,8 @@ class UIOPFlowController
             break
         case .twitter:
             self.rootController.setupTabViewForTwitterQuestionnaire()
+        case .google:
+            return
         }
         
         self.rootController.setMainControllerTo(newController: vc)
