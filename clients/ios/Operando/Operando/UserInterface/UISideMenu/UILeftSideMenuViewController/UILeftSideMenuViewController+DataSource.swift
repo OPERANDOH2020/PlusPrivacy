@@ -50,8 +50,9 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "ic_feedback", categoryName: Bundle.localizedStringFor(key: kFeedBackFormKey), action: self.callbacks?.whenChoosingFeedbackForm))
-        
+        if UserDefaults.boolForKey(forKey: UserDefaultsKeys.isLoggedIn.rawValue) {
+            result.append(UILeftSideMenuVCObject(categoryImageName: "ic_feedback", categoryName: Bundle.localizedStringFor(key: kFeedBackFormKey), action: self.callbacks?.whenChoosingFeedbackForm))
+        }
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: Bundle.localizedStringFor(key: kAboutLocalizableKey), action: self.callbacks?.whenChoosingAbout))
         
