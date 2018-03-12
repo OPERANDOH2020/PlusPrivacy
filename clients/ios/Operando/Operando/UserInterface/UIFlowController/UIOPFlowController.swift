@@ -414,7 +414,7 @@ class UIOPFlowController
         }, logoutCallback: {
             if UIDefaultFeatureProvider.userIsLoggedIn() {
                 self.dependencies.accountCallbacks?.logoutCallback?()
-                UICustomPopup.displayOkAlert(from: self.rootController, title: "Logout message", message: "Message in cause")
+                UICustomPopup.displayOkAlert(from: self.rootController, title: Bundle.localizedStringFor(key: "kSuccessfullLogout"), message: Bundle.localizedStringFor(key: "kLogoutMessage"))
             } else {
                 self.displayLoginHierarchy()
             }
@@ -427,6 +427,3 @@ class UIOPFlowController
         
     }
 }
-
-
-

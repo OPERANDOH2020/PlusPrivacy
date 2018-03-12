@@ -48,3 +48,6 @@
 "kFeedBackFormKey" = "FeedBack";
 "kAboutLocalizableKey" = "About";
 "kMyAccountLocalizableKey" = "My Account";
+
+"kSuccessfullLogout" = "You successfully logged out";
+"kLogoutMessage" = "You can continue using the application features which do not require authentication";
