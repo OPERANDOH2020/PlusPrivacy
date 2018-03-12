@@ -38,8 +38,28 @@ class UIRealIdentityView: RSNibDesignableView {
     override func commonInit() {
         super.commonInit()
         self.changeDisplay(to: .nonDefault)
+        self.addObserverOnIdentity()
     }
     
+//    override func awakeFromNib() {
+//        let adjustedFontSize = realIdentityLabel.adjustedFontSize()
+//        if yourRealIdentityLabel.font.pointSize > adjustedFontSize {
+//            yourRealIdentityLabel.font = yourRealIdentityLabel.font.withSize(adjustedFontSize - 3.0)
+//        }
+//    }
+    
+    func addObserverOnIdentity() {
+        realIdentityLabel.addObserver(self, forKeyPath: "text", options: .new, context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "text" {
+            let adjustedFontSize = realIdentityLabel.adjustedFontSize()
+            if yourRealIdentityLabel.font.pointSize > adjustedFontSize {
+                yourRealIdentityLabel.font = yourRealIdentityLabel.font.withSize(adjustedFontSize)
+            }
+        }
+    }
     
     func setupWith(identity: String, state: UIRealIdentityViewDisplayState = .nonDefault,logicCallback: UIRealIdentityCallbacks) {
         self.realIdentityLabel.text = identity

@@ -201,6 +201,7 @@
 		AD28EAB220503DD700AA998A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA9B20503DD700AA998A /* FXBlurView.m */; };
 		AD28EAB320503DD700AA998A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA9C20503DD700AA998A /* LICENSE */; };
 		AD28EAB420503DD700AA998A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA9D20503DD700AA998A /* README.md */; };
+		AD3A20582056B042001B744F /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A20572056B042001B744F /* UILabel+Utils.swift */; };
 		AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */; };
 		AD48A8E81F628EAD003E5A88 /* OPFeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */; };
 		AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */; };
@@ -273,7 +274,6 @@
 		C7F7951020236129005DE7B3 /* UITutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7950820236129005DE7B3 /* UITutorialView.xib */; };
 		C7F7952020236153005DE7B3 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951320236153005DE7B3 /* UIColor+Utils.swift */; };
 		C7F7952120236153005DE7B3 /* UIImage+PWUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */; };
-		C7F7952220236153005DE7B3 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951720236153005DE7B3 /* UILabel+Utils.swift */; };
 		C7F7952320236153005DE7B3 /* UINavigationItem+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951920236153005DE7B3 /* UINavigationItem+Utils.swift */; };
 		C7F7952420236153005DE7B3 /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951B20236153005DE7B3 /* UITableViewCell+Utils.swift */; };
 		C7F7952520236153005DE7B3 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F7951D20236153005DE7B3 /* UIView+Utils.swift */; };
@@ -612,6 +612,7 @@
 		AD28EA9B20503DD700AA998A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AD28EA9C20503DD700AA998A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AD28EA9D20503DD700AA998A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AD3A20572056B042001B744F /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 		AD48A8E21F62823B003E5A88 /* OPFeedbackForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackForm.swift; sourceTree = "<group>"; };
 		AD48A8E61F628EAD003E5A88 /* OPFeedbackFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPFeedbackFormViewController.swift; sourceTree = "<group>"; };
 		AD48A8E71F628EAD003E5A88 /* OPFeedbackFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPFeedbackFormViewController.xib; sourceTree = "<group>"; };
@@ -686,7 +687,6 @@
 		C7F7950820236129005DE7B3 /* UITutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITutorialView.xib; sourceTree = "<group>"; };
 		C7F7951320236153005DE7B3 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+PWUtils.swift"; sourceTree = "<group>"; };
-		C7F7951720236153005DE7B3 /* UILabel+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 		C7F7951920236153005DE7B3 /* UINavigationItem+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Utils.swift"; sourceTree = "<group>"; };
 		C7F7951B20236153005DE7B3 /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
 		C7F7951D20236153005DE7B3 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
@@ -989,6 +989,7 @@
 			children = (
 				98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */,
 				AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */,
+				AD3A20572056B042001B744F /* UILabel+Utils.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2124,7 +2125,6 @@
 			children = (
 				C7F7951220236153005DE7B3 /* UIColor+Utils */,
 				C7F7951420236153005DE7B3 /* UIImage+Utils */,
-				C7F7951620236153005DE7B3 /* UILabel+Utils */,
 				C7F7951820236153005DE7B3 /* UINavigationItem+Utils */,
 				C7F7951A20236153005DE7B3 /* UITableViewCell+Utils */,
 				C7F7951C20236153005DE7B3 /* UIView+Utils */,
@@ -2147,14 +2147,6 @@
 				C7F7951520236153005DE7B3 /* UIImage+PWUtils.swift */,
 			);
 			path = "UIImage+Utils";
-			sourceTree = "<group>";
-		};
-		C7F7951620236153005DE7B3 /* UILabel+Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C7F7951720236153005DE7B3 /* UILabel+Utils.swift */,
-			);
-			path = "UILabel+Utils";
 			sourceTree = "<group>";
 		};
 		C7F7951820236153005DE7B3 /* UINavigationItem+Utils */ = {
@@ -2922,7 +2914,6 @@
 				986A58F81DB3A43700B622F5 /* UserInfoRepository.swift in Sources */,
 				98D220B81E7FFCEA00B3BD06 /* UIWebTabsListView.swift in Sources */,
 				AD28EAA720503DD700AA998A /* TransitionAnimator.swift in Sources */,
-				C7F7952220236153005DE7B3 /* UILabel+Utils.swift in Sources */,
 				C7F7950B20236129005DE7B3 /* UIRadialGradientView.swift in Sources */,
 				9852C7001CD1143800AF2BE5 /* UIMenuTableViewController.swift in Sources */,
 				C7F795CB202363F8005DE7B3 /* ActionCell.swift in Sources */,
@@ -2950,6 +2941,7 @@
 				AD28EAA420503DD700AA998A /* PopupDialogOverlayView.swift in Sources */,
 				C7908A361FC6E33400C93A82 /* HUD.swift in Sources */,
 				982D318C1E842A9B00FE2FB7 /* AFURLResponseSerialization.m in Sources */,
+				AD3A20582056B042001B744F /* UILabel+Utils.swift in Sources */,
 				98EAF69F1CCF899500C77649 /* UIViewController+Extensions.swift in Sources */,
 				C7F79566202363B7005DE7B3 /* ACSwarmClientHelper.swift in Sources */,
 				9852C6F71CD0F68D00AF2BE5 /* UIIdentityCell.swift in Sources */,

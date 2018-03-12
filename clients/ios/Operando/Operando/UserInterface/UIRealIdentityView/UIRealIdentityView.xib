@@ -28,9 +28,9 @@
                         <constraint firstAttribute="width" constant="38" id="qB3-l1-PU9"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO3-JJ-3Gg" userLabel="realIdentityLabel">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MO3-JJ-3Gg" userLabel="realIdentityLabel">
                     <rect key="frame" x="66" y="29" width="116.5" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                     <color key="textColor" red="0.074756406247615814" green="0.66264647245407104" blue="0.62733370065689087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -74,6 +74,7 @@
             <color key="backgroundColor" red="0.594166100025177" green="0.96457642316818237" blue="0.96451157331466675" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xak-tG-9OA" firstAttribute="top" secondItem="MO3-JJ-3Gg" secondAttribute="bottom" id="2zL-fv-Lyr"/>
+                <constraint firstItem="jqY-3C-tTC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MO3-JJ-3Gg" secondAttribute="trailing" constant="10" id="Hq6-7n-W6B"/>
                 <constraint firstItem="jqY-3C-tTC" firstAttribute="centerY" secondItem="Kb2-Ea-R51" secondAttribute="centerY" id="KuE-Yw-qd8"/>
                 <constraint firstItem="MO3-JJ-3Gg" firstAttribute="leading" secondItem="4vp-RN-uR1" secondAttribute="trailing" constant="14" id="WJN-ak-BUb"/>
                 <constraint firstItem="4vp-RN-uR1" firstAttribute="leading" secondItem="Kb2-Ea-R51" secondAttribute="leading" constant="14" id="YNU-a5-c4k"/>
