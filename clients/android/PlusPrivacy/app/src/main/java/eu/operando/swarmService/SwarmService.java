@@ -52,7 +52,7 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
 
     private SwarmService() {
 
-        swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL);
+        swarmClient = new SwarmClient(SWARMS_URL);
         registerConnectivityListener();
         setConnectionListener();
 
@@ -96,7 +96,7 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
 
         if (!first) {
 
-            swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL);
+            swarmClient = new SwarmClient(SWARMS_URL);
             Log.e("login", "login");
             Pair<String, String> credentials = Storage.readCredentials();
             login(credentials.first, credentials.second, new SwarmCallback<Swarm>() {

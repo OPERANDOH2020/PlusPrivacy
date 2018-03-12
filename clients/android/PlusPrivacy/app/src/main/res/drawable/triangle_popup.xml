@@ -28,12 +28,11 @@
 
     <!-- Bottom Triangle -->
     <item
-        android:width="80dp"
-        android:height="40dp"
-        android:left="90dp"
-        android:right="110dp"
+
+        android:left="100dp"
+        android:right="100dp"
         android:top="30dp"
-        android:bottom="0dp">
+        android:bottom="30dp">
         <rotate android:fromDegrees="45">
             <shape android:shape="rectangle">
                 <solid android:color="@color/background_popup" />

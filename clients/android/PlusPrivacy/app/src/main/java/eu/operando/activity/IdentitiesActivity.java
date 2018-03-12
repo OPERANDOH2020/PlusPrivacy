@@ -97,7 +97,9 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
     @Override
     protected void onResume() {
         super.onResume();
-        getIdentities();
+        if (Storage.isUserLogged()){
+            getIdentities();
+        }
     }
 
     public void getIdentities() {

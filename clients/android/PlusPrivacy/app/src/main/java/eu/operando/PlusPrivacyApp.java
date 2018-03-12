@@ -40,14 +40,9 @@ import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.FileUtils;
 import eu.operando.lightning.utils.MemoryLeakUtils;
 import eu.operando.lightning.utils.Preconditions;
-import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmclient.SwarmClient;
 import eu.operando.utils.ConnectivityReceiver;
 import io.paperdb.Paper;
 
-import com.crashlytics.android.Crashlytics;
-
-import io.fabric.sdk.android.Fabric;
 
 public class PlusPrivacyApp extends Application {
 
@@ -72,7 +67,7 @@ public class PlusPrivacyApp extends Application {
         super.onCreate();
 
         Paper.init(this);
-//        Fabric.with(this, new Crashlytics());
+
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                     .detectAll()

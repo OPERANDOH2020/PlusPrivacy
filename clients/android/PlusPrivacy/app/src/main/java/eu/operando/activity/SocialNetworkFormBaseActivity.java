@@ -83,6 +83,12 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facebook_settings);
         initUI();
+
+        if (Storage.isUserLogged()) {
+            getQuestions();
+        } else {
+            getData();
+        }
     }
 
     private void initUI() {
@@ -118,22 +124,21 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
     public void getQuestions() {
 
-//        SwarmService.getInstance().getOspSettings(new PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty>() {
-//
-//            @Override
-//            public void call(Swarm result) {
-//
-//                questions = getQuestionsBySN(((GetOspSettingsSwarmEntitty) result).getOspSettings());
-//
-//                if (questions.size() != 0) {
-//                    progressDialog.dismiss();
-//                }
-//
-//                getUserPreferences();
-//
-//            }
-//        });
-        getData();
+        SwarmService.getInstance().getOspSettings(new PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty>() {
+
+            @Override
+            public void call(Swarm result) {
+
+                questions = getQuestionsBySN(((GetOspSettingsSwarmEntitty) result).getOspSettings());
+
+                if (questions.size() != 0) {
+                    progressDialog.dismiss();
+                }
+
+                getUserPreferences();
+
+            }
+        });
     }
 
     private void getData() {
@@ -391,7 +396,9 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getQuestions();
+
+        getUserPreferences();
+
     }
 
 }

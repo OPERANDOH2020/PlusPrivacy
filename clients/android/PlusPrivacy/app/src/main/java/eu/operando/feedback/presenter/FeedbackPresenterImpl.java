@@ -51,7 +51,7 @@ public class FeedbackPresenterImpl implements FeedbackPresenter,
 
     @Override
     public void saveState() {
-        Log.e("onDestroy submit", feedbackDataModel.getFeedbackSubmitEntity().getJsonElement().getAsJsonObject().toString());
+//        Log.e("onDestroy submit", feedbackDataModel.getFeedbackSubmitEntity().getJsonElement().getAsJsonObject().toString());
         feedbackDataModel.setFeedbackResponseFromSharedPreferences(this);
     }
 

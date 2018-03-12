@@ -86,10 +86,6 @@ dependencies {
     compile 'com.squareup.mimecraft:mimecraft:1.1.0'
     compile 'com.github.amlcurran.showcaseview:library:5.4.3'
 
-    compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
-        transitive = true;
-    }
-
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 

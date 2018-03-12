@@ -170,12 +170,12 @@ public class PasswordConfirmationView extends LinearLayout {
             public void afterTextChanged(Editable editable) {
                 int length = newPassword.getText().length();
                 if (length < 6 && length > 0 && !popupWindow.isShowing()) {
-                    showPopup();
+//                    showPopup();
                 } else if (length >= 6 && popupWindow.isShowing()) {
                     PasswordStrength ps = new PasswordStrength(context, newPassword.getText().toString());
                     if (ps.hasLowerCaseLetters() && ps.hasUpperCaseLetters()) {
                         hidePopup();
-                        newPassword.setCompoundDrawables(null, null, getScaledDrawable(SUCCESS_DRAWABLE), null);
+                        setDrawable(newPassword, SUCCESS_DRAWABLE);
                     }
                 } else if (length == 0) {
                     hidePopup();
@@ -187,9 +187,9 @@ public class PasswordConfirmationView extends LinearLayout {
             public void onFocusChange(View view, boolean hasFocus) {
                 if (!hasFocus) popupWindow.dismiss();
                 if (!hasFocus && newPassword.getText().length() > 0 && newPassword.getText().length() < 6) {
-                    newPassword.setCompoundDrawables(null, null, getScaledDrawable(ERROR_DRAWABLE), null);
+                    setDrawable(newPassword, ERROR_DRAWABLE);
                 } else if (newPassword.getText().length() >= 6) {
-                    newPassword.setCompoundDrawables(null, null, getScaledDrawable(SUCCESS_DRAWABLE), null);
+                    setDrawable(newPassword, SUCCESS_DRAWABLE);
                 } else if (newPassword.getText().length() == 0) {
                     newPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
                 }
@@ -262,10 +262,10 @@ public class PasswordConfirmationView extends LinearLayout {
                     if (newPassword.getText().toString().length() >= 6
                             && newPassword.getText().toString().equals(charSequence.toString())) {
                         passwordMatchTv.setText(R.string.match);
-                        confirmPassword.setCompoundDrawables(null, null, getScaledDrawable(SUCCESS_DRAWABLE), null);
+                        setDrawable(confirmPassword, SUCCESS_DRAWABLE);
                     } else {
                         passwordMatchTv.setText(R.string.doesnt_match);
-                        confirmPassword.setCompoundDrawables(null, null, getScaledDrawable(ERROR_DRAWABLE), null);
+                        setDrawable(confirmPassword, ERROR_DRAWABLE);
                     }
                 }
             }
@@ -275,6 +275,14 @@ public class PasswordConfirmationView extends LinearLayout {
 
             }
         });
+    }
+
+    public void setDrawable(EditText editText, int drawableConst){
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP || Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP_MR1) {
+            editText.setCompoundDrawables(null, null, getScaledDrawable(drawableConst), null);
+        } else {
+            editText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getScaledDrawable(drawableConst), null);
+        }
     }
 
     public String getNewPassword() {

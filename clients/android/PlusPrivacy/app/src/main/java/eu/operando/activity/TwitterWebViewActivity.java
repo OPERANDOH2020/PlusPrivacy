@@ -65,11 +65,6 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
             socialNetworkInterface.onPageListener();
 
         }
-
-        @Override
-        public void onPageCommitVisible(WebView view, String url) {
-//            super.onPageCommitVisible(view, url);
-        }
     }
 
 }

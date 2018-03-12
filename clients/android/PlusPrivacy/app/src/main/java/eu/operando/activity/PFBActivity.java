@@ -82,10 +82,11 @@ public class PFBActivity extends BaseActivity implements PfbCustomDialog.PfbCall
                     public void run() {
 
                         pfbs = result.getDeals();
-                        if (pfbs.size() == 0) {
-                            noDealsTv.setVisibility(View.VISIBLE);
-                            listView.setVisibility(View.GONE);
-                        } else {
+                        if (pfbs.size() != 0) {
+
+                            noDealsTv.setVisibility(View.GONE);
+                            listView.setVisibility(View.VISIBLE);
+
                             adapter = new QuickAdapter<PFBObject>(PFBActivity.this, R.layout.pfb_item, pfbs) {
                                 @Override
                                 protected void convert(BaseAdapterHelper helper, final PFBObject item) {

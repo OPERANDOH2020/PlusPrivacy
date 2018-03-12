@@ -11,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 import eu.operando.R;
+import eu.operando.storage.Storage;
 
 /**
  * Created by Matei_Alexandru on 01.11.2017.
@@ -34,6 +37,10 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
         this.context = context;
         this.callback = (IDrawerClickCallback) context;
         mDataset = context.getResources().getStringArray(R.array.drawer_items);
+//        if (!Storage.isUserLogged()){
+//            Arrays.copyOfRange(mDataset, 0, mDataset.length - 2);
+//            Arrays.copyOfRange(icons, 0, icons.length - 2);
+//        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -87,6 +94,9 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
 
     @Override
     public int getItemCount() {
+        if (!Storage.isUserLogged()) {
+            return mDataset.length - 1;
+        }
         return mDataset.length;
     }
 
