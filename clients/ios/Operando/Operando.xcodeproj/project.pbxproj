@@ -235,6 +235,9 @@
 		C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAF31FEBFF8200104239 /* PasswordExpandedCell.xib */; };
 		C76ABAF81FEC0AD600104239 /* AccountDeletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAF61FEC0AD600104239 /* AccountDeletionCell.swift */; };
 		C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76ABAF71FEC0AD600104239 /* AccountDeletionCell.xib */; };
+		C76EC53A2056801600B26690 /* google_usual_settings.js in Resources */ = {isa = PBXBuildFile; fileRef = C76EC5372056801400B26690 /* google_usual_settings.js */; };
+		C76EC53B2056801600B26690 /* google_activity_controls.js in Resources */ = {isa = PBXBuildFile; fileRef = C76EC5382056801500B26690 /* google_activity_controls.js */; };
+		C76EC53C2056801600B26690 /* google_preferences_settings.js in Resources */ = {isa = PBXBuildFile; fileRef = C76EC5392056801600B26690 /* google_preferences_settings.js */; };
 		C7761DEA1FD96CEA00AC0F4F /* UINotificationExpandedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */; };
 		C7761DEC1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */; };
 		C7761DEE1FDA83C700AC0F4F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7761DED1FDA83C700AC0F4F /* StringUtils.swift */; };
@@ -647,6 +650,9 @@
 		C76ABAF31FEBFF8200104239 /* PasswordExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordExpandedCell.xib; sourceTree = "<group>"; };
 		C76ABAF61FEC0AD600104239 /* AccountDeletionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionCell.swift; sourceTree = "<group>"; };
 		C76ABAF71FEC0AD600104239 /* AccountDeletionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDeletionCell.xib; sourceTree = "<group>"; };
+		C76EC5372056801400B26690 /* google_usual_settings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = google_usual_settings.js; sourceTree = "<group>"; };
+		C76EC5382056801500B26690 /* google_activity_controls.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = google_activity_controls.js; sourceTree = "<group>"; };
+		C76EC5392056801600B26690 /* google_preferences_settings.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = google_preferences_settings.js; sourceTree = "<group>"; };
 		C7761DE91FD96CEA00AC0F4F /* UINotificationExpandedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationExpandedCell.swift; sourceTree = "<group>"; };
 		C7761DEB1FD96DAE00AC0F4F /* UINotificationExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotificationExpandedCell.xib; sourceTree = "<group>"; };
 		C7761DED1FDA83C700AC0F4F /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -2433,6 +2439,9 @@
 		C7F79571202363F8005DE7B3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C76EC5382056801500B26690 /* google_activity_controls.js */,
+				C76EC5392056801600B26690 /* google_preferences_settings.js */,
+				C76EC5372056801400B26690 /* google_usual_settings.js */,
 				C749567A2052B86D0079DC8D /* twitter.js */,
 				C7BAF33920513C0700A9BFF0 /* linkedin.js */,
 				C7F79572202363F8005DE7B3 /* facebook_iOS.js */,
@@ -2807,6 +2816,8 @@
 				C7F795AC202363F8005DE7B3 /* jquery214min.js in Resources */,
 				C7F796052029B738005DE7B3 /* PrivacyWizardFacebookCell.xib in Resources */,
 				C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */,
+				C76EC53B2056801600B26690 /* google_activity_controls.js in Resources */,
+				C76EC53C2056801600B26690 /* google_preferences_settings.js in Resources */,
 				C7F7960A2029E216005DE7B3 /* PrivacyWizardFacebookOptionCell.xib in Resources */,
 				9812DB5D1DB52BCC009DD50A /* UtilityControllers.storyboard in Resources */,
 				988E45D81F039C3F003D92C5 /* UISettingsView.xib in Resources */,
@@ -2860,6 +2871,7 @@
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
 				C7F795E720248DDB005DE7B3 /* PrivacyWizard.js in Resources */,
 				C7F795AE202363F8005DE7B3 /* osp-settings.js in Resources */,
+				C76EC53A2056801600B26690 /* google_usual_settings.js in Resources */,
 				C7F7950E20236129005DE7B3 /* UIRibonHeaderView.xib in Resources */,
 				C7F795B6202363F8005DE7B3 /* fbExtractData.js in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,

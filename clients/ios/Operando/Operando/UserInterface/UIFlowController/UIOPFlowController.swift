@@ -56,7 +56,10 @@ class UIOPFlowController
                 weakSelf?.sideMenu?.toggleSideMenuView()},
             whenBackButtonPressed: {
                 
-                if self.rootController.topBarLabel.text == "Facebook privacy settings" {
+                if self.rootController.topBarLabel.text == "Facebook privacy settings" ||
+                    self.rootController.topBarLabel.text == "Linkedin privacy settings" ||
+                    self.rootController.topBarLabel.text == "Twitter privacy settings" ||
+                    self.rootController.topBarLabel.text == "Google privacy settings" {
                     weakSelf?.displayPrivacyWizardDashboard()
                 }
                 else {
@@ -166,6 +169,8 @@ class UIOPFlowController
             self.displayQuestionnaire(wizzardType: .linkedin)
         }, pressedTwitter: {
             self.displayQuestionnaire(wizzardType: .twitter)
+        }, pressedGoogle: {
+            self.displayQuestionnaire(wizzardType: .google)
         }))
             
         self.rootController.setupTabViewForPrivacyWizzard()
@@ -198,6 +203,8 @@ class UIOPFlowController
             break
         case .twitter:
             self.rootController.setupTabViewForTwitterQuestionnaire()
+        case .google:
+            self.rootController.setupTabViewForGoogleQuestionnaire()
         }
         
         self.rootController.setMainControllerTo(newController: vc)

@@ -12,6 +12,7 @@ enum PrivacyWizzardType {
     case facebook
     case linkedin
     case twitter
+    case google
 }
 
 struct PrivacyWizzardSettingsCallbacks {
@@ -73,6 +74,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             break
         case .twitter:
             ACPrivacyWizard.shared.selectedScope = .twitter
+        case .google:
+            ACPrivacyWizard.shared.selectedScope = .google
         }
     }
     
@@ -157,6 +160,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         case .twitter:
             scopeSetting = allSettings?.twitterSettings
             break
+        case .google:
+            scopeSetting = allSettings?.googleSettings
         }
         
         guard let scopeSettingUnwrapped = scopeSetting else {
@@ -234,6 +239,8 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             return allSettings?.facebookSettings
         case .linkedin:
             return allSettings?.linkedinSettings
+        case .google:
+            return allSettings?.googleSettings
         }
     }
     

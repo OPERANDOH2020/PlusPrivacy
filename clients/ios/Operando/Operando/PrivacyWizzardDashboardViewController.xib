@@ -178,7 +178,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEr-U5-GIs">
                                             <rect key="frame" x="0.0" y="0.0" width="156.5" height="156.5"/>
                                             <subviews>
-                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-Qq-KBN">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-Qq-KBN">
                                                     <rect key="frame" x="0.0" y="0.0" width="156.5" height="156.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8D-hk-gYO">
@@ -205,7 +205,7 @@
                                                         <constraint firstItem="k8D-hk-gYO" firstAttribute="top" secondItem="cAn-Qq-KBN" secondAttribute="top" constant="15" id="XHQ-vt-xdk"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSG-RB-qNn">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSG-RB-qNn">
                                                     <rect key="frame" x="0.0" y="116.5" width="156.5" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMING SOON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3f-NZ-4MK">
@@ -224,14 +224,24 @@
                                                         <constraint firstItem="B3f-NZ-4MK" firstAttribute="leading" secondItem="aSG-RB-qNn" secondAttribute="leading" id="uMM-qp-NA1"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEH-hT-27M">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="156.5" height="156.5"/>
+                                                    <connections>
+                                                        <action selector="pressedGoogleButton:" destination="-1" eventType="touchUpInside" id="6Pf-KE-HSD"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cAn-Qq-KBN" secondAttribute="bottom" id="27V-Oh-wiB"/>
+                                                <constraint firstItem="JEH-hT-27M" firstAttribute="width" secondItem="TEr-U5-GIs" secondAttribute="width" id="3aC-VR-KM8"/>
                                                 <constraint firstItem="cAn-Qq-KBN" firstAttribute="leading" secondItem="TEr-U5-GIs" secondAttribute="leading" id="75C-ng-Res"/>
                                                 <constraint firstAttribute="trailing" secondItem="cAn-Qq-KBN" secondAttribute="trailing" id="Lyb-Q1-adu"/>
+                                                <constraint firstItem="JEH-hT-27M" firstAttribute="height" secondItem="TEr-U5-GIs" secondAttribute="height" id="UOP-IR-pjY"/>
                                                 <constraint firstAttribute="bottom" secondItem="aSG-RB-qNn" secondAttribute="bottom" id="dlT-FG-Qph"/>
                                                 <constraint firstAttribute="trailing" secondItem="aSG-RB-qNn" secondAttribute="trailing" id="f1w-CU-NKP"/>
+                                                <constraint firstItem="JEH-hT-27M" firstAttribute="centerY" secondItem="TEr-U5-GIs" secondAttribute="centerY" id="gv9-Pp-pEh"/>
+                                                <constraint firstItem="JEH-hT-27M" firstAttribute="centerX" secondItem="TEr-U5-GIs" secondAttribute="centerX" id="nq4-e9-9VS"/>
                                                 <constraint firstItem="cAn-Qq-KBN" firstAttribute="top" secondItem="TEr-U5-GIs" secondAttribute="top" id="sVa-Qg-dOD"/>
                                                 <constraint firstItem="aSG-RB-qNn" firstAttribute="leading" secondItem="TEr-U5-GIs" secondAttribute="leading" id="uAQ-fN-Q67"/>
                                             </constraints>
