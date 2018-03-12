@@ -88,6 +88,8 @@ class UIQuestionnaireFlowController: UIFlowController, UIQuestionnaireTVCProtoco
             openPrivacySettingsScreen()
         case .twitter:
             launchPrivacySetting()
+        case .google:
+            launchPrivacySetting()
         }
     }
     

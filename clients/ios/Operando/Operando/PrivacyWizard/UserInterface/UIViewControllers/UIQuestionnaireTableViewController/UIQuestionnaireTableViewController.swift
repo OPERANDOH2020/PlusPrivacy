@@ -99,6 +99,10 @@ class UIQuestionnaireTableViewController: UIViewController, UITableViewDelegate,
             return "facebook_icon_"
         case .linkedin:
             return "linkedin_icon_"
+        case .twitter:
+            return "twitter_logo"
+        case .google:
+            return "google_logo"
         case .unknown:
             return ""
         }

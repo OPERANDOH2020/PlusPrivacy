@@ -15,14 +15,17 @@ extension WKWebView
     func loadAndExecuteScriptNamed(scriptName: String, withCompletion completion: ((_ result: Any?, _ error: Error?) -> Void)?) {
         guard let filePath = Bundle.main.path(forResource: scriptName, ofType: "js"),
             let privacySettingsJson = ACPrivacyWriter.privacyOptionsJsonString()
-            else { completion?(nil, nil); return }
+            else {
+                completion?(nil, nil);
+                return
+        }
         
         if let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
             let modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"\(privacySettingsJson.escapedStringForJS)\"")
-            print("modifiedJS")
-            print(modifiedJS)
+
             self.evaluateJavaScript(modifiedJS as String, completionHandler: completion)
         }
+        
     }
     
     func loadJQueryIfNeededWithCompletion(completion: VoidBlock?)

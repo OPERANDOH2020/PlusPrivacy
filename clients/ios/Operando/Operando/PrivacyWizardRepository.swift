@@ -9,5 +9,5 @@
 import Foundation
 protocol PrivacyWizardRepository {
     
-    func getAllQuestions(withCompletion completion: ((AMPrivacySettings?, NSError?) -> Void)?)
+    func getAllQuestions(withType type: ACPrivacySettingsType, withCompletion completion: ((AMPrivacySettings?, NSError?) -> Void)?)
 }

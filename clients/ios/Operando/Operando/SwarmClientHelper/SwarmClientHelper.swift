@@ -54,15 +54,9 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     }
     
     // MARK: - PrivacyWizardRepository
-    func getAllQuestions(withCompletion completion: ((AMPrivacySettings?, NSError?) -> Void)?) {
-        
-        ACRestClient.shared.get("/social-networks/privacy-settings", params: []) { (data, error) in
-            guard let data = data as? [String: Any] else { completion?(nil, OPErrorContainer.errorInvalidServerResponse); return}
-            let settings = AMPrivacySettings(dictionary: data)
-            completion?(settings,nil)
-        }
+    func getAllQuestions(withType type: ACPrivacySettingsType, withCompletion completion: ((AMPrivacySettings?, NSError?) -> Void)?) {
         guard let completion = completion else { return }
-        ACPrivacySettingsService.fetchPrivacySettings(completion: completion)
+        ACPrivacySettingsService.fetchPrivacySettings(type: type, completion: completion)
         
 //        -- Previous Implementation
 //        workingQueue.async {

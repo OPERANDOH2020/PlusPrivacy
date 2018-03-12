@@ -62,7 +62,7 @@ enum ACPrivacyWizardScope {
         case .all:
             return "facebook_iOS"
         case .google:
-            <#code#>
+            return ""
         }
     }
 }
@@ -169,6 +169,16 @@ class ACPrivacyWizard: NSObject {
         currentSettings = []
         currentRecommendation = nil
         privacyWizardScope = .all
+    }
+    
+    func updatePrivacySettings(type: ACPrivacySettingsType, updatedSettings: AMPrivacySettings?) {
+        guard let updatedSettings = updatedSettings else { return }
+        if self.privacySettings == nil || type == .all {
+            self.privacySettings = updatedSettings
+            return
+        }
+        
+        self.privacySettings?.update(type: type, updatedSettings: updatedSettings)
     }
     
     func getPrivacySettings(completion: @escaping (_ privacySettings: [AMPrivacySetting], _ state: ACPrivacyWizardState) -> Void) {
