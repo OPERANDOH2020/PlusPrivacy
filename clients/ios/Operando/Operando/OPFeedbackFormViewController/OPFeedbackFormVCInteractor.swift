@@ -151,15 +151,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCCellDelegate {
 extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
     
     func viewDidLoad() {
-        
-        feedbackForm.requestLastAnswerIfAny { (success) in
-            if self.feedbackForm.answers.count == 0 {
-                self.showQuestionList()
-            }
-            else {
-                self.uiDelegate?.showThankYouSubView()
-            }
-        }
+        self.showQuestionList()
     }
     
     func numberOfRows() -> Int {

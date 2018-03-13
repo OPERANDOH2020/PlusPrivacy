@@ -172,6 +172,7 @@
 		98FD07E41F3B103600F8FBB2 /* UINotificationsListViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */; };
 		98FD07E61F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */; };
 		98FD07E81F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */; };
+		AD0BD50D2057CCE5008E10F0 /* ACFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0BD50C2057CCE5008E10F0 /* ACFeedbackService.swift */; };
 		AD28EA14204FE0B200AA998A /* UINotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA13204FE0B200AA998A /* UINotAvailableView.swift */; };
 		AD28EA16204FE0BB00AA998A /* UINotAvailableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD28EA15204FE0BB00AA998A /* UINotAvailableView.xib */; };
 		AD28EA19204FEFA500AA998A /* UIDefaultFeatureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */; };
@@ -582,6 +583,7 @@
 		98FD07E31F3B103600F8FBB2 /* UINotificationsListViewLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationsListViewLogic.swift; path = UserInterface/UINotificationsListViewLogic.swift; sourceTree = "<group>"; };
 		98FD07E51F3B345400F8FBB2 /* UIChangePasswordViewLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChangePasswordViewLogicTests.swift; path = UserInterface/UIChangePasswordViewLogicTests.swift; sourceTree = "<group>"; };
 		98FD07E71F3B55F400F8FBB2 /* UIAccountViewControllerLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAccountViewControllerLogicTests.swift; path = UserInterface/UIAccountViewControllerLogicTests.swift; sourceTree = "<group>"; };
+		AD0BD50C2057CCE5008E10F0 /* ACFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACFeedbackService.swift; sourceTree = "<group>"; };
 		AD28EA13204FE0B200AA998A /* UINotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotAvailableView.swift; sourceTree = "<group>"; };
 		AD28EA15204FE0BB00AA998A /* UINotAvailableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UINotAvailableView.xib; sourceTree = "<group>"; };
 		AD28EA18204FEFA500AA998A /* UIDefaultFeatureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDefaultFeatureProvider.swift; sourceTree = "<group>"; };
@@ -1874,6 +1876,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA5574F205183EC00BFD1B3 /* ACPrivacySettingsService.swift */,
+				AD0BD50C2057CCE5008E10F0 /* ACFeedbackService.swift */,
 			);
 			path = ACServices;
 			sourceTree = "<group>";
@@ -3094,6 +3097,7 @@
 				9852C7091CD119FD00AF2BE5 /* UINavigationManager.swift in Sources */,
 				98500BC11E0935ED00DF87E8 /* KiteValidationPair.m in Sources */,
 				C7F795C8202363F8005DE7B3 /* DisclaimerView.swift in Sources */,
+				AD0BD50D2057CCE5008E10F0 /* ACFeedbackService.swift in Sources */,
 				ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */,
 				AD4AD55B1F66AC80008E6E49 /* OPFeedbackFormTableViewCell.swift in Sources */,
 				982D318D1E842A9B00FE2FB7 /* AFURLSessionManager.m in Sources */,

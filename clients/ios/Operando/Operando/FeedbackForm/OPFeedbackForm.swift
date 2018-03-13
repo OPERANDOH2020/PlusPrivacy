@@ -10,7 +10,6 @@ import UIKit
 
 protocol OPFeedbackFormProtocol {
     func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
-    func getLastAnswers(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
     func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?)
 }
 
@@ -50,17 +49,6 @@ class OPFeedbackForm: NSObject {
         questions = [OPFeedbackQuestion]()
         questionsTitlesById = Dictionary<Int, String>()
         super.init()
-    }
-    
-    func requestLastAnswerIfAny(completion: @escaping ((_ success: Bool) -> Void)) {
-        
-        delegate?.getLastAnswers(completion: { [weak self] (data, error) in
-            guard let strongSelf = self, error == nil, let data = data else { completion(false); return }
-            
-            let answers = strongSelf.parseAnswers(dictionary: data)
-            strongSelf.answers = answers
-            completion(true)
-        })
     }
     
     func requestFeedbackForm(completion: @escaping ((_ success: Bool) -> Void)) {
@@ -113,7 +101,7 @@ class OPFeedbackForm: NSObject {
         var result = [OPFeedbackQuestion]()
         var questionsById = Dictionary<Int, String>()
         
-        if let feedbackQuestions = dictionary["feedbackQuestions"] as? NSArray {
+        if let feedbackQuestions = dictionary["result"] as? NSArray {
             var index = 0
             for question in feedbackQuestions {
                 if let question = question as? Dictionary<String, Any> {

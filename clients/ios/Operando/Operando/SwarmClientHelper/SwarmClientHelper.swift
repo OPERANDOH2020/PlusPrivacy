@@ -777,67 +777,14 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
     
     // MARK: - Feedback Form
     
-    func getLastAnswers(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
-    {
-        workingQueue.async {
-            self.whenThereWasAnError = { error in
-                completion?(nil, error)
-            }
-            
-            self.handlersPerSwarmingName[.feedback] = { dataArray in
-                
-                guard let dataDict = dataArray.first as? [String: Any] else {
-                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
-                    return
-                }
-                
-                completion?(dataDict, nil)
-            }
-        }
-        
-        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.hasUserSubmittedAFeedBack.rawValue, arguments: [])
-    }
-    
     func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
     {
-        workingQueue.async {
-            self.whenThereWasAnError = { error in
-                completion?(nil, error)
-            }
-            
-            self.handlersPerSwarmingName[.feedback] = { dataArray in
-                
-                guard let dataDict = dataArray.first as? [String: Any] else {
-                    completion?(nil, OPErrorContainer.errorInvalidServerResponse)
-                    return
-                }
-                
-                completion?(dataDict, nil)
-            }
-        }
-        
-        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.getFeedbackQuestions.rawValue, arguments: [])
+        ACFeedbackService.fetchFeedbackForm(completion: completion)
     }
     
     func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?) {
         
-        workingQueue.async {
-            self.whenThereWasAnError = { error in
-                completion?(false)
-            }
-            
-            self.handlersPerSwarmingName[.feedback] = { dataArray in
-                
-                guard (dataArray.first as? [String: Any]) != nil else {
-                    completion?(false)
-                    return
-                }
-                
-                completion?(true)
-            }
-        }
-        
-        self.swarmClient.startSwarm(SwarmName.feedback.rawValue, phase: SwarmPhase.start.rawValue, ctor: PFBConstructor.submitFeedback.rawValue, arguments: [feedbackDictionary as AnyObject])
+        ACFeedbackService.submitFeedbackForm(feedbackDictionary, completion: completion)
     }
     
     //MARK: SwarmClientProtocol

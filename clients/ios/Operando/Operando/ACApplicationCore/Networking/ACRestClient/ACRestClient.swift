@@ -10,6 +10,8 @@ import UIKit
 
 enum ACServiceEndpoints: String {
     case privacySettings = "/social-networks/privacy-settings"
+    case feedbackFetch = "/feedback/questions"
+    case feedbackSubmit = "/feedback/responses"
 }
 
 class ACRestClient: NSObject {
