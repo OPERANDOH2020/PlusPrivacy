@@ -19,6 +19,8 @@ class ACPrivacyWriter: NSObject {
             return createJsonString(fromPrivacySettings: privacySettings.facebookSettings)
         case .linkedIn:
             return createJsonString(fromPrivacySettings: privacySettings.linkedinSettings)
+        case .twitter:
+            return createJsonString(fromPrivacySettings: privacySettings.twitterSettings)
         default:
             return nil
         }
@@ -37,6 +39,10 @@ class ACPrivacyWriter: NSObject {
                 }
             case .linkedIn:
                 if let mappedSetting = map(linkedinPrivacySetting: setting) {
+                    array.append(mappedSetting)
+                }
+            case .twitter:
+                if let mappedSetting = map(twitterPrivacySettings: setting) {
                     array.append(mappedSetting)
                 }
             default:
@@ -95,6 +101,29 @@ class ACPrivacyWriter: NSObject {
     }
     
     static func map(linkedinPrivacySetting setting: AMPrivacySetting) -> Dictionary<String, Any>? {
+        guard let read = setting.read,
+            let selectedSettingName = read.getSelectedReadSettingName(),
+            let write = setting.write,
+            let settingTitle = write.name,
+            let page = write.page,
+            let urlTemplate = write.urlTemplate
+            else { return nil }
+        
+        var result = Dictionary<String, Any>()
+        
+        let parameters = write.getParams(forSettingNamed: selectedSettingName)
+        
+        result["name"] = settingTitle.replacingOccurrences(of: "\"", with: "")
+        result["page"] = page
+        result["url"] = urlTemplate
+        result["data"] = parameters.data
+        result["params"] = parameters.params
+        result["type"] = write.type
+        
+        return result
+    }
+    
+    static func map(twitterPrivacySettings setting: AMPrivacySetting) -> Dictionary<String, Any>? {
         guard let read = setting.read,
             let selectedSettingName = read.getSelectedReadSettingName(),
             let write = setting.write,

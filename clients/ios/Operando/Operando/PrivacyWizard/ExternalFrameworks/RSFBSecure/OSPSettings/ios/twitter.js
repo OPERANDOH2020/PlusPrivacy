@@ -1,5 +1,3 @@
-// XHook - v1.4.4 - https://github.com/jpillora/xhook
-// Jaime Pillora <dev@jpillora.com> - MIT Copyright 2017
 (function(undefined) {
     var AFTER, BEFORE, COMMON_EVENTS, EventEmitter, FETCH, FIRE, FormData, NativeFetch, NativeFormData, NativeXMLHttp, OFF, ON, READY_STATE, UPLOAD_EVENTS, WINDOW, XHookFetchRequest, XHookFormData, XHookHttpRequest, XMLHTTP, convertHeaders, depricatedProp, document, fakeEvent, mergeObjects, msie, nullify, proxyEvents, slice, useragent, xhook, _base,
         __indexOf = [].indexOf || function(item) {
@@ -692,14 +690,9 @@
 }.call(this));
 
 
-var sendStatusMessage = function(settingName) {
-    var webkitMessage = {};
-    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
-    webkitMessage[kStatusMessageContentKey] = settingName;
-    webkitSendMessage(JSON.stringify(webkitMessage));
-};
 
-//Android.showToast("works");
+
+console.log("works");
 var headers = {};
 var sequence = Promise.resolve();
 
@@ -732,7 +725,7 @@ var mainFunction = function(privacySettingsJsonString) {
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     for (var key in headers) {
                         if (headers.hasOwnProperty(key)) {
-//                            Android.showToast("[Header JS] " + key + " -> " + headers[key]);
+//                            console.log("[Header JS] " + key + " -> " + headers[key]);
                             xhr.setRequestHeader(key, headers[key]);
                         }
                     }
@@ -755,10 +748,40 @@ var mainFunction = function(privacySettingsJsonString) {
     });
 };
 
+
+console.log("BSFDASDAA");
 mainFunction(RS_PARAM_PLACEHOLDER);
 
 
 function secureAccount(isEUCountry, privacySettingsJsonString) {
+    
+    var kMessageTypeKey = "messageType";
+    var kLogMessageTypeContentKey = "logContent";
+    var kLogMessageType = "log";
+    
+    var kStatusMessageMessageType = "statusMessageType";
+    var kStatusMessageContentKey = "statusMessageContent";
+    
+    var webkitSendMessage = function(message) {
+        alert(message);
+    };
+    
+    window.console = {};
+    window.console.log = function(logMessage) {
+        var webkitMessage = {};
+        webkitMessage[kMessageTypeKey] = kLogMessageType;
+        webkitMessage[kLogMessageTypeContentKey] = logMessage;
+        
+        webkitSendMessage(JSON.stringify(webkitMessage));
+        
+    };
+    
+    var sendStatusMessage = function(settingName) {
+        var webkitMessage = {};
+        webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+        webkitMessage[kStatusMessageContentKey] = settingName;
+        webkitSendMessage(JSON.stringify(webkitMessage));
+    };
 
     privacySettings = JSON.parse(privacySettingsJsonString);
 
@@ -829,7 +852,7 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
                     sendStatusMessage("Done");
                 },
                 error: function(request, textStatus, errorThrown) {
-//                    Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
+                    console.log("error: " + request.status + " " + textStatus + " " + errorThrown);
                 }
             };
 
