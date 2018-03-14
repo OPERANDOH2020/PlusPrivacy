@@ -2,11 +2,12 @@ package eu.operando.activity;
 
 import android.content.Context;
 
-import java.util.List;
+import com.google.gson.JsonElement;
 
 import eu.operando.models.SocialNetworkEnum;
 import eu.operando.models.privacysettings.OspSettings;
-import eu.operando.models.privacysettings.Question;
+import eu.operando.network.RestClient;
+import retrofit2.Call;
 
 /**
  * Created by Matei_Alexandru on 31.08.2017.
@@ -16,8 +17,8 @@ import eu.operando.models.privacysettings.Question;
 public class FacebookSettingsActivity extends SocialNetworkFormBaseActivity {
 
     @Override
-    protected List<Question> getQuestionsBySN(OspSettings ospSettings) {
-        return ospSettings.getFacebook();
+    protected Call<JsonElement> getQuestionsBySN() {
+        return RestClient.getApi().getFacebookSettings();
     }
 
     @Override

@@ -13,22 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.google.gson.JsonElement;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Serializable;
-
 import eu.operando.R;
 import eu.operando.models.privacysettings.OspSettings;
-import eu.operando.models.privacysettings.QuestionList;
-import eu.operando.network.RestClient;
-import eu.operando.swarmService.SwarmService;
-import eu.operando.swarmclient.models.PrivacySettingsPreprocessing;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Alex on 12/12/2017.

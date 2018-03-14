@@ -120,9 +120,14 @@ public class PasswordConfirmationView extends LinearLayout {
 
     public void showPopup() {
 
-        customPopupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        customPopupView.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
         int height = customPopupView.getMeasuredHeight();
-        popupWindow.showAtLocation(newPassword, Gravity.CENTER_HORIZONTAL, 0, -newPassword.getHeight() - height);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            popupWindow.showAsDropDown(newPassword, 0, -newPassword.getHeight() - height, Gravity.CENTER_HORIZONTAL);
+        } else {
+            popupWindow.showAtLocation(newPassword, Gravity.CENTER_HORIZONTAL, 0, -newPassword.getHeight() - height);
+        }
 
     }
 

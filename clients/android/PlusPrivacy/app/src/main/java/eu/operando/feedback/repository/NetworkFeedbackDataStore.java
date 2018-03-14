@@ -7,9 +7,13 @@ import com.google.gson.JsonElement;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
+import eu.operando.network.RestClient;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.
@@ -36,19 +40,18 @@ public class NetworkFeedbackDataStore implements FeedbackDataStore {
     }
 
     @Override
-    public FeedbackQuestionListEntity getFeedbackQuestionList(final FeedbackRepository.OnFinishedLoadingModelListener listener) {
+    public void getFeedbackQuestionList(final FeedbackRepository.OnFinishedLoadingModelListener listener) {
         SwarmService.getInstance().getFeedbackQuestions(new SwarmCallback<FeedbackQuestionListEntity>() {
 
             @Override
             public void call(FeedbackQuestionListEntity result) {
                 try {
-                    listener.onFinishedLoadingRep(result);
+                    listener.onFinishedLoadingRep(result.getFeedbackQuestions());
                 } catch (Exception e) {
                     listener.onErrorModel();
                 }
             }
         });
-        return null;
     }
 
     @Override

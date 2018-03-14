@@ -2,11 +2,7 @@ package eu.operando.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -29,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.adapter.FacebookSettingsListAdapter;
 import eu.operando.customView.AccordionOnGroupExpandListener;
@@ -41,7 +36,6 @@ import eu.operando.models.privacysettings.AvailableSettingsWrite;
 import eu.operando.models.privacysettings.OspSettings;
 import eu.operando.models.privacysettings.Preference;
 import eu.operando.models.privacysettings.Question;
-import eu.operando.models.privacysettings.QuestionList;
 import eu.operando.network.RestClient;
 import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
@@ -51,7 +45,6 @@ import eu.operando.swarmclient.models.PrivacySettingsPreprocessing;
 import eu.operando.swarmclient.models.PrivacyWizardSwarmCallback;
 import eu.operando.swarmclient.models.Swarm;
 import eu.operando.swarmclient.models.SwarmCallback;
-import eu.operando.utils.ConnectivityReceiver;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,7 +62,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     private List<Question> questions;
 
 
-    protected abstract List<Question> getQuestionsBySN(OspSettings ospSettings);
+    protected abstract Call<JsonElement> getQuestionsBySN();
 
     protected abstract Context getContext();
 
@@ -84,11 +77,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
         setContentView(R.layout.activity_facebook_settings);
         initUI();
 
-        if (Storage.isUserLogged()) {
-            getQuestions();
-        } else {
-            getData();
-        }
+        getData();
     }
 
     private void initUI() {
@@ -116,42 +105,23 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
     }
 
     private void initProgressDialog() {
+
         progressDialog = new OperandoProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(true);
         progressDialog.show();
     }
 
-    public void getQuestions() {
-
-        SwarmService.getInstance().getOspSettings(new PrivacyWizardSwarmCallback<GetOspSettingsSwarmEntitty>() {
-
-            @Override
-            public void call(Swarm result) {
-
-                questions = getQuestionsBySN(((GetOspSettingsSwarmEntitty) result).getOspSettings());
-
-                if (questions.size() != 0) {
-                    progressDialog.dismiss();
-                }
-
-                getUserPreferences();
-
-            }
-        });
-    }
-
     private void getData() {
 
-        RestClient.getApi().getPrivacySettings().enqueue(new Callback<JsonElement>() {
+        getQuestionsBySN().enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
 
                 if (response.errorBody() == null) {
 
                     PrivacySettingsPreprocessing preprocessing = new PrivacySettingsPreprocessing();
-                    OspSettings settings = preprocessing.getResult(response.body());
-                    questions = getQuestionsBySN(settings);
+                    questions = preprocessing.getQuestionsResult(response.body());
 
                     if (questions.size() != 0) {
                         progressDialog.dismiss();
@@ -159,8 +129,9 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
                     Log.e("jsonResponse", questions.toString());
 
-                    if (Storage.isUserLogged()) getUserPreferences();
-                    else {
+                    if (Storage.isUserLogged()) {
+                        getUserPreferences();
+                    } else {
                         elvAdapter = new FacebookSettingsListAdapter(getContext(), questions,
                                 initCheckedStateFromRecommendedValues(), getSocialNetworkEnum());
                         questionsELV.setAdapter(elvAdapter);
@@ -183,7 +154,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
             @Override
             public void call(GetUserPreferencesSwarmEntity result) {
-//                        Log.e("GetUserPrefSwm", getResult.getPreferences().get(0).getSettingValue());
+
                 final Map<Integer, Integer> checkedList;
                 if (result.getPreferences().size() == 0) {
                     checkedList = initCheckedStateFromRecommendedValues();
@@ -219,6 +190,16 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
                 sendSaveUserPreferencesSwarm(convertAnswers());
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+//        if (Storage.isUserLogged()) {
+//            getUserPreferences();
+//        }
+
     }
 
     public void onClickSubmit(View view) {
@@ -391,14 +372,6 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
         FacebookSettingsInfoDialog dialog = new FacebookSettingsInfoDialog();
         dialog.show(getFragmentManager(), "FacebookSettingsInfoDialog");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        getUserPreferences();
-
     }
 
 }

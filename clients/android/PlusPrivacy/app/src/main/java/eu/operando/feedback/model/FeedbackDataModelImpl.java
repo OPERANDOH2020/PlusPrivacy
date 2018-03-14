@@ -62,15 +62,15 @@ public class FeedbackDataModelImpl implements FeedbackDataModel,
     public void hasUserSubmittedAFeedback(final HasUserSubmittedAFeedbackPresenterListener listener) {
 
         this.hasUserSubmittedAFeedbackPresenterListener = listener;
-        feedbackRepository.hasUserSubmittedAFeedback(DataStoreType.NETWORK, this);
+        feedbackRepository.hasUserSubmittedAFeedback(DataStoreType.SHARED_PREFERENCES, this);
     }
 
 //  ########################################################
 //  FeedbackRepository.OnFinishedLoadingModelListener
 
     @Override
-    public void onFinishedLoadingRep(FeedbackQuestionListEntity items) {
-        this.questions = items.getFeedbackQuestions();
+    public void onFinishedLoadingRep(List<FeedbackQuestionEntity> items) {
+        this.questions = items;
         onFinishedListener.onFinished(questions);
     }
 
@@ -83,7 +83,7 @@ public class FeedbackDataModelImpl implements FeedbackDataModel,
     @Override
     public void getQuestions(final OnFinishedPresenterListener listener) {
         this.onFinishedListener = listener;
-        feedbackRepository.getFeedbackQuestions(DataStoreType.NETWORK, this);
+        feedbackRepository.getFeedbackQuestions(DataStoreType.REST_ENDPOINT, this);
     }
 
 //  #########################################################
@@ -109,7 +109,8 @@ public class FeedbackDataModelImpl implements FeedbackDataModel,
         if (!areRequiredFieldsCompleted()) {
             onSubmitFeedbackListener.onFailed();
         } else {
-            feedbackRepository.setFeedbackResponse(DataStoreType.NETWORK, feedbackSubmitEntitty, this);
+            feedbackRepository.setFeedbackResponse(DataStoreType.SHARED_PREFERENCES, feedbackSubmitEntitty, this);
+            feedbackRepository.setFeedbackResponse(DataStoreType.REST_ENDPOINT, feedbackSubmitEntitty, this);
         }
     }
 

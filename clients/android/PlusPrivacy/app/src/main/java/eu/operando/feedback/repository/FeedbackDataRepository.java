@@ -22,9 +22,9 @@ public class FeedbackDataRepository implements FeedbackRepository {
     }
 
     @Override
-    public FeedbackQuestionListEntity getFeedbackQuestions(DataStoreType provider, FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener) {
+    public void getFeedbackQuestions(DataStoreType provider, FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener) {
         FeedbackDataStore feedbackDataStore = feedbackDataStoreFactory.create(provider);
-        return feedbackDataStore.getFeedbackQuestionList(onFinishedLoadingModelListener);
+        feedbackDataStore.getFeedbackQuestionList(onFinishedLoadingModelListener);
     }
 
     @Override

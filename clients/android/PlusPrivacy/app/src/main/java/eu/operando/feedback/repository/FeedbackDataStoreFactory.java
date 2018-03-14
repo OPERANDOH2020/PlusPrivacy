@@ -22,8 +22,10 @@ public class FeedbackDataStoreFactory {
             case SHARED_PREFERENCES:
 //                return new SharedPreferencesFeedbackDataStore(sharedPreferencesReader);
                 return new SharedPreferencesFeedbackDataStore();
-            case NETWORK:
+            case SWARMS:
                 return new NetworkFeedbackDataStore();
+            case REST_ENDPOINT:
+                return new RestEndpointDataStore();
             default:
                 return new NetworkFeedbackDataStore();
         }

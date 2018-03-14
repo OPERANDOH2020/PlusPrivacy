@@ -4,14 +4,19 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import eu.operando.models.privacysettings.OspSettings;
+import eu.operando.models.privacysettings.Question;
 
 /**
  * Created by Alex on 3/8/2018.
@@ -29,6 +34,26 @@ public class PrivacySettingsPreprocessing {
         Log.e("swclient Swarms: ", "getResult: " + preprocessResult.toString());
         OspSettings res = new Gson().fromJson(preprocessResult.toString(), OspSettings.class);
         return res;
+    }
+
+    public List<Question> getQuestionsResult(JsonElement result) {
+
+        JSONArray preprocessResult = null;
+        try {
+            preprocessResult = modifyQuestionResult(new JSONObject(result.toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("swclient Swarms: ", "getResult: " + preprocessResult.toString());
+        Type collectionType = new TypeToken<Collection<Question>>(){}.getType();
+        List<Question> res = new Gson().fromJson(preprocessResult.toString(), collectionType);
+        return res;
+    }
+
+    public JSONArray modifyQuestionResult(JSONObject result) {
+
+        JSONArray questionsJsonArray = convertJSONObjectToJSONArray(result,true);
+        return modifyAvailableSettins(questionsJsonArray);
     }
 
     public JSONObject modifyResult(JSONObject result) {

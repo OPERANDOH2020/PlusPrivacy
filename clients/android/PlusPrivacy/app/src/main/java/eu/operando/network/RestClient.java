@@ -8,12 +8,14 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static eu.operando.swarmService.SwarmService.SWARMS_URL_DEBUG_RAFAEL;
+
 /**
  * Created by Alex on 3/8/2018.
  */
 
 public class RestClient {
-    public static final String BASE_URL = "http://192.168.103.149:8080/";
+    
     private static Api api;
 
     public static Api getApi() {
@@ -23,14 +25,14 @@ public class RestClient {
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                     .create();
 
-            Interceptor tokenInterceptor = new PrivacySettingsInterceptor();
+            Interceptor restInterceptor = new PrivacySettingsInterceptor();
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                    .addInterceptor(tokenInterceptor)
+                    .addInterceptor(restInterceptor)
                     .build();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .client(okHttpClient)
+                    .baseUrl(SWARMS_URL_DEBUG_RAFAEL)
+//                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             api = retrofit.create(Api.class);

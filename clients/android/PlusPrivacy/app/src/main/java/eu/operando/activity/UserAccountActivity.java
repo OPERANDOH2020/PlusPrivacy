@@ -41,10 +41,12 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
 
     private LinearLayout changeBtn;
     private LinearLayout deleteAccountBtn;
+    private LinearLayout mainLayout;
     private TextView deleteTv;
     private RelativeLayout changePasswordCollapsed;
     private ChangePasswordView changePasswordExpanded;
     private ProgressDialog pd;
+
 
     public static void start(Context context) {
 
@@ -68,6 +70,7 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
         setToolbar();
         changeBtn = (LinearLayout) findViewById(R.id.change_btn);
         deleteAccountBtn = (LinearLayout) findViewById(R.id.delete_account_btn);
+        mainLayout = (LinearLayout) findViewById(R.id.main_layout);
         deleteTv = (TextView) findViewById(R.id.delete_account_tv);
         changePasswordCollapsed = (RelativeLayout) findViewById(R.id.change_password_rl);
         changePasswordExpanded = (ChangePasswordView) findViewById(R.id.change_password_expanded);
@@ -99,6 +102,12 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
                     Log.e("passwordChanged", result.toString());
                     pd.cancel();
                     changePasswordExpanded.onPasswordChangedListener();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            onCancelClickListener();
+                        }
+                    });
                 }
             });
         }
@@ -107,12 +116,12 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
     private void onInvalidPassword() {
 
         changePasswordExpanded.getPasswordConfirmationView().showPopup();
-        changePasswordExpanded.setOnTouchListener(new View.OnTouchListener() {
+        mainLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
                 changePasswordExpanded.getPasswordConfirmationView().hidePopup();
-                changePasswordExpanded.setOnTouchListener(null);
+                mainLayout.setOnTouchListener(null);
 
                 return false;
             }

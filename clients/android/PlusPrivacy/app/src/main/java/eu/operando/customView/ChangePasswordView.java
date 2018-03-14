@@ -145,6 +145,7 @@ public class ChangePasswordView extends LinearLayout {
                 showOnPasswordChangedDialog();
                 Storage.saveCredentials(Storage.readCredentials().first, passwordConfirmationView.getNewPassword());
                 removeAllInputFromEditText();
+
             }
         });
     }

@@ -1,6 +1,9 @@
 package eu.operando.feedback.repository;
 
+import java.util.List;
+
 import eu.operando.feedback.entity.DataStoreType;
+import eu.operando.feedback.entity.FeedbackQuestionEntity;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
 
@@ -11,7 +14,7 @@ import eu.operando.feedback.entity.FeedbackSubmitEntitty;
 
 public interface FeedbackRepository {
 
-    FeedbackQuestionListEntity getFeedbackQuestions(DataStoreType provider, FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener);
+    void getFeedbackQuestions(DataStoreType provider, FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener);
 
     void setFeedbackResponse(DataStoreType provider, FeedbackSubmitEntitty feedbackSubmitEntitty, OnSubmitFeedbackModelListener listener);
 
@@ -25,7 +28,7 @@ public interface FeedbackRepository {
     }
 
     interface OnFinishedLoadingModelListener {
-        void onFinishedLoadingRep(FeedbackQuestionListEntity items);
+        void onFinishedLoadingRep(List<FeedbackQuestionEntity> items);
         void onErrorModel();
     }
 

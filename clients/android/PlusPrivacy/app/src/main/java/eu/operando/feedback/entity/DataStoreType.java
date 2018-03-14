@@ -6,5 +6,5 @@ package eu.operando.feedback.entity;
  */
 
 public enum DataStoreType {
-    SHARED_PREFERENCES, NETWORK
+    SHARED_PREFERENCES, SWARMS, REST_ENDPOINT
 }

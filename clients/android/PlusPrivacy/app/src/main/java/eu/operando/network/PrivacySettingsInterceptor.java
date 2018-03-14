@@ -28,29 +28,23 @@ public class PrivacySettingsInterceptor implements Interceptor {
 
         Request initialRequest = chain.request();
 
-        if (initialRequest.url().toString()
-                .endsWith("social-networks/privacy-settings")) {
-            Log.e("interceptor", "catch request");
-
-            String file = loadJSONFromAsset();
-            JSONObject obj = new JSONObject();
-            try {
-                obj = new JSONObject(file);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            MediaType contentType = MediaType.parse("application/json");
-            ResponseBody body = ResponseBody.create(contentType, file);
-
-            Response.Builder responseBuilder = new Response.Builder()
-                    .request(initialRequest)
-                    .protocol(Protocol.HTTP_1_1)
-                    .code(200)
-                    .message("OK")
-                    .body(body);
-
-            return responseBuilder.build();
-        }
+//        if (initialRequest.url().toString()
+//                .endsWith("social-networks/privacy-settings")) {
+//            Log.e("interceptor", "catch request");
+//
+//            String file = loadJSONFromAsset();
+//            MediaType contentType = MediaType.parse("application/json");
+//            ResponseBody body = ResponseBody.create(contentType, file);
+//
+//            Response.Builder responseBuilder = new Response.Builder()
+//                    .request(initialRequest)
+//                    .protocol(Protocol.HTTP_1_1)
+//                    .code(200)
+//                    .message("OK")
+//                    .body(body);
+//
+//            return responseBuilder.build();
+//        }
 
         Response response = chain.proceed(initialRequest);
         return response;

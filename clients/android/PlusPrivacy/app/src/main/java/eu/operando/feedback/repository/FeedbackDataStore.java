@@ -14,7 +14,7 @@ public interface FeedbackDataStore {
 
     void setFeedbackResponse(FeedbackSubmitEntitty feedbackSubmitEntitty, final FeedbackRepository.OnSubmitFeedbackModelListener listener);
 
-    FeedbackQuestionListEntity getFeedbackQuestionList(FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener);
+    void getFeedbackQuestionList(FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener);
 
     boolean hasUserSubmittedAFeedback(final FeedbackRepository.HasUserSubmittedAFeedbackModelListener listener);
 }
