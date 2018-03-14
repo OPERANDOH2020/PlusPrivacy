@@ -4373,7 +4373,7 @@ var ospSettingsConfigPreferences = {
                 }
             },
             write: {
-                name: "Use private results?",
+                "name": "When you search by voice, Google should speak the answers aloud?",
                 page: "https://www.google.com/preferences",
                 url_template: "https://www.google.com/setprefs?sig={SIG}&submit2=Save+Preferences&hl=&lang=&lr=&safeui=&num=&pson=&tts={TTS}&newwindow=&gl=&region=&q=&prev=",
                 method_type: "GET",

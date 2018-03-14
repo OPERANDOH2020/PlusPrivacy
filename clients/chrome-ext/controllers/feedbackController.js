@@ -16,7 +16,6 @@ controller("FeedbackController", ["$scope","$sce", "messengerService", function 
     }
 
     messengerService.send("hasUserSubmittedAFeedback", function(response){
-        console.log(response);
        if(response.status === "success"){
            if(Object.keys(response.data).length === 0){
                $scope.feedbackSubmitted = false;
@@ -29,7 +28,6 @@ controller("FeedbackController", ["$scope","$sce", "messengerService", function 
            }
        }
     });
-
 
     function prepareResponses(questions){
 
@@ -66,15 +64,21 @@ controller("FeedbackController", ["$scope","$sce", "messengerService", function 
         })
     };
 
-    $scope.editFeedback = function(){
-        loadFeedback(function(){
+    $scope.editFeedback = function () {
+        loadFeedback(function () {
             $scope.feedbackSubmitted = false;
-            $scope.answers = $scope.previousResponses;
-            for(var i in $scope.answers){
-                if($scope.previousResponses[i]){
-                    $scope.answers[i] = $scope.previousResponses[i];
+
+            messengerService.send("hasUserSubmittedAFeedback", function (response) {
+                if (Object.keys(response.data).length >= 0) {
+                    $scope.previousResponses = response.data;
+                    for (var i in $scope.answers) {
+                        if ($scope.previousResponses[i]) {
+                            $scope.answers[i] = $scope.previousResponses[i];
+                        }
+                    }
                 }
-            }
+                $scope.$apply();
+            });
         });
     }
 

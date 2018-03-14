@@ -261,7 +261,7 @@ var authenticationService = exports.authenticationService = {
     notifyWhenLogout: function (callback) {
         notLoggedInObservable.observe(function () {
             callback();
-        }, true);
+        }, loggedIn);
     },
 
     clearUserData:function(){
@@ -269,8 +269,8 @@ var authenticationService = exports.authenticationService = {
         authenticatedUser = {};
         loggedIn = false;
         notLoggedInObservable.notify();
-        notLoggedInObservable = swarmHub.createObservable();
-        loggedInObservable = swarmHub.createObservable();
+        //notLoggedInObservable = swarmHub.createObservable();
+        //loggedInObservable = swarmHub.createObservable();
         Cookies.remove("userId");
         Cookies.remove("sessionId");
     },
@@ -291,8 +291,8 @@ var authenticationService = exports.authenticationService = {
     },
     userIsAuthenticated : function(successCallback, failCallback){
         switch (authenticationService.isLoggedIn()){
-            case true:successCallback();
-            case false:failCallback();
+            case true:successCallback();break;
+            case false:failCallback(); break;
         }
     }
 };

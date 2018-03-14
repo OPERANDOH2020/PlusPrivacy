@@ -117,31 +117,75 @@ var userService = exports.userService = {
     },
 
     provideFeedbackQuestions:function(success_callback, error_callback){
-        var provideFeedbackQuestionsHandler = swarmHub.startSwarm("feedback.js", "getFeedbackQuestions");
-        provideFeedbackQuestionsHandler.onResponse("success",function(swarm){
-            success_callback(swarm.feedbackQuestions);
-        });
+        function requestListener(){
+            if(this.responseText){
+                success_callback(JSON.parse(this.responseText));
+            }
+            else{
+                error_callback("Failed retrieving feedback questions!");
+            }
+        }
 
-        provideFeedbackQuestionsHandler.onResponse("error",function(){
-            error_callback(response);
-        });
+        var xhrReq = new XMLHttpRequest();
+        xhrReq.addEventListener("load",requestListener);
+        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/feedback/questions";
+        xhrReq.open("GET",resourceURI);
+        xhrReq.send();
     },
 
     sendFeedback:function(feedback, success_callback, error_callback){
-      var sendFeedbackHandler = swarmHub.startSwarm("feedback.js", "submitFeedback",feedback);
-        sendFeedbackHandler.onResponse("success", success_callback);
-        sendFeedbackHandler.onResponse("error", error_callback);
+        function requestListener(){
+            if(this.responseText){
+
+                success_callback(JSON.parse(this.responseText));
+
+                chrome.storage.local.get("UserPrefs", function (items) {
+                    var userPreferences;
+                    if (typeof items === "object" && Object.keys(items).length === 0) {
+                        userPreferences = {};
+                    }
+                    else {
+                        userPreferences = JSON.parse(items['UserPrefs']);
+                    }
+
+                    userPreferences['feedback-responses'] = feedback;
+
+                    chrome.storage.local.set({UserPrefs: JSON.stringify(userPreferences)});
+                })
+
+            }
+            else{
+                error_callback("Failed submitting feedback responses!");
+            }
+        }
+
+        var xhrReq = new XMLHttpRequest();
+        xhrReq.addEventListener("load",requestListener);
+        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/feedback/responses";
+        xhrReq.open("POST",resourceURI);
+        xhrReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhrReq.send(JSON.stringify(feedback));
     },
-    provideLogoutLink:function(callback){
+    //TODO remove it, not used anymore
+    /*provideLogoutLink:function(callback){
         callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
-    },
-    hasUserSubmittedAFeedback:function(success_callback, error_callback){
-        var hasUserSubmittedAFeedbackHandler = swarmHub.startSwarm("feedback.js", "hasUserSubmittedAFeedback");
-        hasUserSubmittedAFeedbackHandler.onResponse("success", function(swarm){
-            success_callback(swarm.feedback);
-        });
-        hasUserSubmittedAFeedbackHandler.onResponse("error", function(swarm){
-            error_callback(swarm.error);
+    },*/
+    hasUserSubmittedAFeedback:function(callback){
+        chrome.storage.local.get("UserPrefs", function (items) {
+            var userPreferences;
+            if (typeof items === "object" && Object.keys(items).length === 0) {
+                userPreferences = {};
+            }
+            else {
+                userPreferences = JSON.parse(items['UserPrefs']);
+            }
+
+            var feedbackResponses = {};
+
+            if (userPreferences['feedback-responses']) {
+                feedbackResponses = userPreferences['feedback-responses'];
+            }
+            callback(feedbackResponses);
         });
     }
 
