@@ -204,7 +204,30 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             })
             .state('deals', {
                 url: "/deals",
-                templateUrl: "views/deals.html"
+                templateProvider:["$stateParams", '$templateRequest',"messengerService",
+                    function($stateParams, templateRequest,messengerService) {
+                        var tplName = "views/deals.html";
+                        var notLoggedIn = "views/not_authenticated.html";
+
+                        return new Promise(function (resolve) {
+                            messengerService.send("userIsAuthenticated", function (data) {
+                                if(data.status && data.status =="success"){
+                                    resolve(templateRequest(tplName))
+                                }
+                                else{
+                                    resolve(templateRequest(notLoggedIn));
+                                }
+
+                            });
+                        });
+                    }
+                ],
+                resolve:{
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        //TODO load only when is needed
+                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                    }]
+                }
             })
             .state('identityManagement', {
                 url: "/identities",

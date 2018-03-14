@@ -1,16 +1,24 @@
 var feedbackSwarming = {
 
-    getFeedbackQuestions: function () {
+    getFeedbackQuestions: function (myRequestId) {
+        if(myRequestId){
+            this.myRequestId = myRequestId;
+        }
         this.swarm("getFeedbackFormQuestions");
     },
-    submitFeedback: function (feedback) {
-        this.feedback = feedback;
-        this.swarm("submitFeedbackValues")
+    submitFeedback: function (feedback, myRequestId) {
+
+        if(myRequestId){
+            this.myRequestId = myRequestId;
+        }
+        this.feedback = JSON.parse(feedback);
+        this.swarm("submitFeedbackValues");
     },
-    hasUserSubmittedAFeedback:function(){
+    //TODO remove it. not used anymore
+    /*hasUserSubmittedAFeedback:function(){
         this.userId = this.meta.userId;
         this.swarm("checkUserFeedback");
-    },
+    },*/
 
     getAllFeedback:function(){
         this.userId = this.meta.userId;
@@ -28,30 +36,59 @@ var feedbackSwarming = {
                 }
                 else {
                     self.feedbackQuestions = feedbackQuestions;
-                    self.home("success");
+                    self.swarm("returnFeedbackQuestions");
                 }
             }));
         }
     },
 
+
+
+    returnFeedbackQuestions :{
+        node: "WSServer",
+        code: function () {
+            if(this.myRequestId){
+                var swarmDispatcher = getSwarmDispatcher();
+                swarmDispatcher.notifySubscribers(this.myRequestId, this.feedbackQuestions);
+            }else{
+                this.home("success");
+            }
+        }
+    },
+
+
     submitFeedbackValues: {
         node: "FeedbackAdapter",
         code: function () {
             var self = this;
-
-            submitFeedbackAnswer(this.meta.userId, this.feedback,S(function(err, feedback){
+            submitFeedbackAnswer(this.feedback,S(function(err, feedback){
+                self.feedbackId = feedback['feedbackId'];
                 delete self.feedback;
                 if (err) {
                     console.error(err);
                     self.home("error");
                 }
                 else {
-                    self.home("success");
+                    self.swarm("returnFeedbackCompletion");
                 }
             }));
         }
     },
-    checkUserFeedback:{
+
+    returnFeedbackCompletion:{
+        node: "WSServer",
+        code: function () {
+            if(this.myRequestId){
+                var swarmDispatcher = getSwarmDispatcher();
+                swarmDispatcher.notifySubscribers(this.myRequestId,{"feedbackId":this.feedbackId});
+            }else{
+                this.home("success");
+            }
+        }
+    },
+
+    /**TODO To be removed - not used anymore
+    /*checkUserFeedback:{
         node:"FeedbackAdapter",
         code:function(){
             var self = this;
@@ -67,7 +104,7 @@ var feedbackSwarming = {
                 }
             }));
         }
-    },
+    },*/
     checkUserAuthorisation:{
       node:"UsersManager",
         code: function () {

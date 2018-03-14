@@ -12,15 +12,38 @@
 
 var privacyWizardSwarm = {
 
-    getOSPSettings : function(){
+    getOSPSettings : function(ospName, myRequestId){
+        if(ospName){
+            this.ospName = ospName;
+        }
+
+        if(myRequestId){
+            this.myRequestId = myRequestId
+        }
+
         this.swarm("retrieveOSPSettingsFromServer");
    },
 
     retrieveOSPSettingsFromServer:{
         node: "WatchDogAdapter",
         code: function () {
-               this.ospSettings = getOspSettings();
-               this.swarm("sendOSPSettings");
+            this.ospSettings = getOspSettings();
+
+            if (this.ospName) {
+                if (this.ospSettings[this.ospName]) {
+                    this.ospSettings = this.ospSettings[this.ospName];
+                    this.swarm("sendOSPSettings");
+                }
+                else {
+                    this.swarm("sendOSPSettings");
+                }
+            }
+            else {
+                this.swarm("sendOSPSettings");
+            }
+
+
+
         }
     },
 
@@ -72,12 +95,12 @@ var privacyWizardSwarm = {
         this.swarm("updateNotifications");
     },
 
-    sendOSPSettings :{
+    sendOSPSettings:{
         node: "WSServer",
         code: function () {
-            if(thisAdapter.myUUID){
+            if(this.myRequestId){
                 var swarmDispatcher = getSwarmDispatcher();
-                swarmDispatcher.notifySubscribers(thisAdapter.myUUID, this.ospSettings);
+                swarmDispatcher.notifySubscribers(this.myRequestId, this.ospSettings);
             }else{
                 this.home("gotOSPSettings");
             }

@@ -269,7 +269,8 @@ div.tab-content{
 #notifications_tab,
 #contact_tab,
 #network_tab,
-#feedback_tab
+#feedback_tab,
+#not_authenticated_tab
 {
     display: block;
     padding: 20px;

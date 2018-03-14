@@ -187,10 +187,16 @@ angular.module("abp", [])
                 });
 
 
-                messengerService.send("saveUserPreferences", {
-                    preferenceKey: "abp-settings",
-                    preferences: preferences
-                }, callback);
+                messengerService.send("userIsAuthenticated", function(data){
+                    if(data.status === "success"){
+                        messengerService.send("saveUserPreferences", {
+                            preferenceKey: "abp-settings",
+                            preferences: preferences
+                        }, callback);
+                    }
+                });
+
+
 
             })
         };
@@ -208,13 +214,15 @@ angular.module("abp", [])
                     checked: subscription.checked
                 });
             });
-            messengerService.send("saveUserPreferences", {
-                preferenceKey: "abp-settings",
-                preferences: preferences
-            }, function () {
 
-            });
-
+            messengerService.send("userIsAuthenticated", function(data){
+                if(data.status === "success"){
+                    messengerService.send("saveUserPreferences", {
+                        preferenceKey: "abp-settings",
+                        preferences: preferences
+                    });
+                }
+            })
         };
 
         var subscribeToBeBeUpdated = function(callback){

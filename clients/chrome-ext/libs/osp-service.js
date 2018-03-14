@@ -17,10 +17,7 @@ var bus = require("bus-service").bus;
 var ospService = exports.ospService = {
     getOSPSettings: function (success_callback) {
 
-
-
         function requestListener(){
-            console.log();
 
             if(this.responseText){
                 var ospSettings = JSON.parse(this.responseText);
@@ -35,22 +32,16 @@ var ospService = exports.ospService = {
             else{
                 console.error("Failed retrieving privacy settings!");
             }
-
         }
 
         var xhrReq = new XMLHttpRequest();
         xhrReq.addEventListener("load",requestListener);
-        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/social-networks/privacy-settings"
+        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/social-networks/privacy-settings/all";
         xhrReq.open("GET",resourceURI);
         xhrReq.send();
 
-
-        /*var getOSPSettingsHandler = swarmHub.startSwarm('PrivacyWizardSwarm.js', 'getOSPSettings');
-        getOSPSettingsHandler.onResponse("gotOSPSettings",function(swarm){
-
-        });*/
     }
-}
+};
 
 bus.registerService(ospService);
 
