@@ -239,7 +239,7 @@ var initOperando = {
         code:function(){
             var self = this;
             function createDefaultIdentities(callback) {
-                var identities = ["help", "info", "webmaster", "web", "contact",'support'].map(function (halfAlias, index) {
+                var identities = ["help", "info", "webmaster", "web", "contact","support","pressrelease"].map(function (halfAlias, index) {
                     var identity = {
                         "email": halfAlias + "@" + thisAdapter.config.Core.operandoHost,
                         "userId": self.adminId,
@@ -254,13 +254,14 @@ var initOperando = {
                     return identity;
                 });
 
-                identities.push({
+
+                /*identities.push({
                     "email": thisAdapter.config.Core.adminEmail,
                     "userId": self.adminId,
                     "isReal": true,
                     "isDefault": false,
                     "deleted": false
-                });
+                });*/
 
 
                 var errors=[];
@@ -273,7 +274,7 @@ var initOperando = {
                             createdIdentities.push(result);
                         }
 
-                        if(errors.length+createdIdentities.length===identities.length){
+                        if(errors.length+createdIdentities.length === identities.length){
                             if(errors.length>0){
                                 callback(errors,createdIdentities);
                             }else{

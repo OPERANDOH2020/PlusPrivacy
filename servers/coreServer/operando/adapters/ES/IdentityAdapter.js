@@ -116,7 +116,6 @@ createIdentity = function (identityData, callback){
 
             var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
             if(emailRegex.test(identityData.email.toLocaleLowerCase())){
-                console.log("Debug:",identityData.email);
                 checkIfIdentityIsAvailable(identityData.email.toLocaleLowerCase(), function (err, isAvailable) {
                     if(isAvailable){
                         persistence.lookup.async("Identity", identityData.email, self.continue("createIdentity"));
