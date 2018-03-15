@@ -38,7 +38,7 @@ sendEmail = function(from,to,subject,text,callback){
         "from": from,
         "to": "reply_anonymously_to_sender_"+to+"@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
-        "html": text
+        "text": text
     }, callback)
 };
 
