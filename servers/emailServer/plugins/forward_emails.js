@@ -176,7 +176,6 @@ exports.clean_body = function (next, connection) {
 
 exports.perform_action = function (next, connection) {
     var plugin = this;
-    plugin.loginfo("\n\n\nTESSSSST\n\n\n");
     var decision = connection.results.get('forward_emails');
 
     switch(decision.action){
