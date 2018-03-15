@@ -25,6 +25,7 @@ exports.register = function(){
 };
 
 exports.performForwardingTest = function (next,connection) {
+    plugin.loginfo("\n\n\nTEST\n\n");
     if(connection.transaction.rcpt_to[0].user+"@"+connection.transaction.rcpt_to[0].host===testAlias){
         fs.writeFileSync(testDirectory+"/email_received_at_"+new Date().toISOString());
         next();
