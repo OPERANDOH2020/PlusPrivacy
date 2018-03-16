@@ -182,12 +182,13 @@ var osp = {
                     console.log(err)
                 }
                 else{
+                    var loginUrl = thisAdapter.config.PlusPrivacy.OSPHost+"/#/login";
                     startSwarm("emails.js", "sendEmail", "no-reply@" + thisAdapter.config.Core.operandoHost,
                         user['email'],
                         "Your OSP request was accepted",
                         "Congratulations,\n" +
                         "Your OSP request was accepted\n" +
-                        "Login at "+thisAdapter.config.PlusPrivacy.OSPHost+"/#/login"+" and start using the service");
+                        "<p>Login at <a href=\""+loginUrl+"\">"+loginUrl+"</a> and start using the service</p>");
 
                     self.swarm("changeUserOrganisation");
                 }

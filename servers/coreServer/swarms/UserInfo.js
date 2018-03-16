@@ -152,7 +152,7 @@ var userInfoSwarming =
                         "no-reply@"+thisAdapter.config.Core.operandoHost,
                         user['email'],
                         "Changed password",
-                        "Your password has been changed \nIf you didn't make this change, <a href='https://plusprivacy.com/contact'>please let us know</a>.",
+                        "<p>Your password has been changed <br/>If you didn't make this change, <a href='https://"+thisAdapter.config.Core.operandoHost+"/contact'>please let us know</a>.</p>",
                         self.meta['swarmId']);
                 }
             }));
@@ -183,13 +183,14 @@ var userInfoSwarming =
                             self.error = err.message;
                             self.home('resetPasswordFailed')
                         }else{
+                            var resetPasswordLink = "https://"+thisAdapter.config.Core.operandoHost + "/reset-password?reset_id="+passwordResetRequest.id;
                             startSwarm("emails.js",
                                 "sendEmail",
                                 "no-reply@"+thisAdapter.config.Core.operandoHost,
                                 users[0].email,
                                 "Reset password",
-                                "A password reset request was issued for your account.\nPlease access the following link to reset the password.\n\n" +
-                                "https://"+thisAdapter.config.Core.operandoHost + "/reset-password?reset_id="+passwordResetRequest.id+"\n\nThe link expires in 24 hours."
+                                "<p>A password reset request was issued for your account.<br/>Please access the following link to reset the password.<br/>" +
+                                "<a href='\""+resetPasswordLink+"\"'>"+resetPasswordLink+"</a><p>The link expires in 24 hours.</p>"
                             );
 
                             self.home('resetRequestDone');
