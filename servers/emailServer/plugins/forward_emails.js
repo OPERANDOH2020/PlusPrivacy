@@ -25,7 +25,7 @@ function SwarmConnector(){
         var swarmHandler = client.startSwarm("identity.js","getRealEmail",userAlias);
         swarmHandler.onResponse(function(swarm){
             if(swarm.realEmail){
-                plugin.loginfo("\n\n\n\n"+userAlias+" --- "+swarm.realEmail+"\n\n\n");
+                //plugin.loginfo("\n\n\n\n"+userAlias+" --- "+swarm.realEmail+"\n\n\n");
                 callback(undefined,swarm.realEmail);
             }else{
                 callback(swarm.error);
