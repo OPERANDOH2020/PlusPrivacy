@@ -255,13 +255,13 @@ var initOperando = {
                 });
 
 
-                /*identities.push({
+                identities.push({
                     "email": thisAdapter.config.Core.adminEmail,
                     "userId": self.adminId,
                     "isReal": true,
                     "isDefault": false,
                     "deleted": false
-                });*/
+                });
 
 
                 var errors=[];
