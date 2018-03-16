@@ -259,9 +259,7 @@ var authenticationService = exports.authenticationService = {
     },
 
     notifyWhenLogout: function (callback) {
-        notLoggedInObservable.observe(function () {
-            callback();
-        }, loggedIn);
+        notLoggedInObservable.observe(callback, loggedIn);
     },
 
     clearUserData:function(){

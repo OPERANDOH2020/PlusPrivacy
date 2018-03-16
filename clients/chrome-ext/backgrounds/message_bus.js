@@ -31,6 +31,7 @@ chrome.runtime.onConnect.addListener(function (_port) {
              **/
 
             clientPort.onDisconnect.addListener(function () {
+                console.log("disconnected");
                 clientPort = null;
 
             });
@@ -78,7 +79,10 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 clientPort.postMessage(messageToClient);
                             } else {
                                 console.log("CLIENTPORT IS NULL. Trying latest port...");
-                                chrome.runtime.sendMessage(messageToClient);
+                                if(messageToClient.type !== "BACKGROUND_DEMAND"){
+                                    chrome.runtime.sendMessage(messageToClient);
+                                }
+
                             }
                         });
 
@@ -97,6 +101,9 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 clientPort.postMessage(messageToClient);
                             } else {
                                 console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                if(messageToClient.type !== "BACKGROUND_DEMAND"){
+                                    chrome.runtime.sendMessage(messageToClient);
+                                }
                                 chrome.runtime.sendMessage(messageToClient);
                             }
                         });

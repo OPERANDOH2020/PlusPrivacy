@@ -166,10 +166,6 @@ var userService = exports.userService = {
         xhrReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhrReq.send(JSON.stringify(feedback));
     },
-    //TODO remove it, not used anymore
-    /*provideLogoutLink:function(callback){
-        callback(ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ ExtensionConfig.WEBSITE_HOST);
-    },*/
     hasUserSubmittedAFeedback:function(callback){
         chrome.storage.local.get("UserPrefs", function (items) {
             var userPreferences;

@@ -20,17 +20,46 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
     };
 
 
-    var userDataIsRetrieved = function(response){
+    /*var userDataIsRetrieved = function(response){
         //messengerService.off("getCurrentUser",userDataIsRetrieved);
         $scope.user = response.data;
         $scope.userIsLoggedIn = true;
-        $state.reload();
+        //$state.reload();
         $scope.$apply();
         $rootScope.$broadcast("dismissLoginModal");
-    }
+    }*/
 
 
-    messengerService.on("getCurrentUser",userDataIsRetrieved);
+    messengerService.send("userIsAuthenticated", function (data) {
+        var refreshPageData = function(refresh){
+            return function(response){
+                $scope.user = response.data;
+                $scope.userIsLoggedIn = true;
+
+                if(refresh){
+                    console.log("dau refresh");
+                    $rootScope.$broadcast("dismissLoginModal");
+                    $state.reload();
+                }
+                else{
+                    console.log("nu dau refresh inca");
+                    refresh = true;
+                }
+                $scope.$apply();
+            }
+        };
+
+        if(data.status && data.status == "success"){
+            //we don't need to refresh the state
+            messengerService.on("getCurrentUser",refreshPageData(false));
+        }
+        else{
+            messengerService.on("getCurrentUser",refreshPageData(true));
+        }
+
+    });
+
+
 
     messengerService.on("userUpdated", updatedUserHandler);
 
@@ -50,10 +79,6 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
         //messengerService.off("notifyWhenLogout", logoutHandler);
         //messengerService.on("getCurrentUser",userDataIsRetrieved);
         $state.reload();
-
-        /*messengerService.send("provideLogoutLink",function(response){
-            $window.location.href = response.data;
-        });*/
     }
 
 
