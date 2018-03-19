@@ -12,6 +12,7 @@
 
 
 var busActions = {};
+var observers = {};
 
 var bus = exports.bus = {
 
@@ -30,6 +31,18 @@ var bus = exports.bus = {
         Object.keys(service).forEach(function(key){
             self.registerAction(key, service[key]);
         })
+    },
+
+    registerObservers: function () {
+        for (var i = 0; i < arguments.length; i++) {
+            Object.assign(observers,arguments[i]);
+        }
+    },
+
+    removeObserverByCallback:function(request,fn){
+            if(observers[request]){
+                observers[request].removeObserver(fn);
+            }
     },
 
     hasAction: function (actionName) {

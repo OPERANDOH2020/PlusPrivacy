@@ -168,6 +168,16 @@ function SwarmHub(swarmConnection){
                 })
                 notifiedAtLeastOnce = true;
             }
+
+            this.removeObserver = function(c){
+                for(var i = 0; i<observers.length; i++){
+                    if(observers[i] === c){
+                        observers.splice(i,1);
+                        break;
+                    }
+                }
+            }
+
         }
         return new Observer(template);
     }

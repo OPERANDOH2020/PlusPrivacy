@@ -47,6 +47,14 @@ PortsObserversPool.prototype = {
         this.observersPool.push(new PortObserver(port));
     },
 
+    getPortObservers:function(_port){
+        for(var i = 0; i < this.observersPool.length; i++){
+            if(this.observersPool[i].port === _port){
+                return this.observersPool[i].observers;
+            }
+        }
+    },
+
     unregisterPortObserver : function (port) {
         this.observersPool = this.observersPool.filter(function (portObserver) {
             return portObserver.port !== port
@@ -74,6 +82,13 @@ PortsObserversPool.prototype = {
                 return portObserver.port;
             }
         }
+    },
+    removeSubscriber: function(port, request, callback){
+        this.observersPool.forEach(function (observer) {
+            if (observer.port === port) {
+                observer.unsubscribe(request, callback);
+            }
+        })
     }
 }
 

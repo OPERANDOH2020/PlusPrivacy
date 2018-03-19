@@ -17,9 +17,14 @@ var bus = require("bus-service").bus;
 
 chrome.runtime.onConnect.addListener(function (_port) {
     (function(clientPort){
-
         portObserversPool.registerPortObserver(clientPort);
         clientPort.onDisconnect.addListener(function(){
+
+            var portObservers = portObserversPool.getPortObservers(clientPort);
+            portObservers.forEach(function (portObserver) {
+                bus.removeObserverByCallback(portObserver.request, portObserver.fn);
+            });
+
             portObserversPool.unregisterPortObserver(clientPort);
             clientPort = null;
         });
@@ -67,7 +72,8 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             args.push(request.message);
                         }
 
-                        args.push(function (data) {
+
+                        var successCallbackResponse = function (data) {
                             var response = data;
                             var messageToClient = {
                                 type: messageType,
@@ -82,9 +88,14 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 if(messageToClient.type !== "BACKGROUND_DEMAND"){
                                     chrome.runtime.sendMessage(messageToClient);
                                 }
-
                             }
-                        });
+                        };
+
+                        if(messageType === "BACKGROUND_DEMAND"){
+                            portObserversPool.addPortRequestSubscriber(clientPort, request.action, successCallbackResponse);
+                        }
+
+                        args.push(successCallbackResponse);
 
                         args.push(function (err) {
                             if(!err){

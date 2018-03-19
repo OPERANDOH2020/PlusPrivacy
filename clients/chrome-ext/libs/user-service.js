@@ -42,9 +42,7 @@ var userService = exports.userService = {
     },
 
     userUpdated : function(callback){
-        userUpdatedObservable.observe(function(){
-            callback();
-        }, true);
+        userUpdatedObservable.observe(callback, true);
     },
     getUserPreferences:function(preference_key,success_callback, error_callback){
         var getUserPreferencesHandler =  swarmHub.startSwarm("UserPreferences.js","getPreferences",preference_key);
@@ -188,3 +186,4 @@ var userService = exports.userService = {
 };
 
 bus.registerService(userService);
+bus.registerObservers({"userUpdated":userUpdatedObservable});
