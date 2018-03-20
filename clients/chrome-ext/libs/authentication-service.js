@@ -17,6 +17,7 @@ var loggedIn = false;
 var authenticatedUser = {};
 var loggedInObservable = swarmHub.createObservable();
 var notLoggedInObservable = swarmHub.createObservable();
+var portObserversPool = require("observers-pool").portObserversPool;
 var bus = require("bus-service").bus;
 
 var authenticationService = exports.authenticationService = {
@@ -257,9 +258,14 @@ var authenticationService = exports.authenticationService = {
     },
 
     getCurrentUser: function (callback) {
-        loggedInObservable.observe(function () {
+
+        var wrappedCallback = function () {
             callback(authenticatedUser);
-        }, !loggedIn);
+        };
+
+        //hack of my life
+        portObserversPool.changeObserverCallback("getCurrentUser",callback,wrappedCallback);
+        loggedInObservable.observe(wrappedCallback, !loggedIn);
     },
 
     notifyWhenLogout: function (callback) {

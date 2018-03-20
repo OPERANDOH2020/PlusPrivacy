@@ -83,11 +83,25 @@ PortsObserversPool.prototype = {
             }
         }
     },
+
     removeSubscriber: function(port, request, callback){
         this.observersPool.forEach(function (observer) {
             if (observer.port === port) {
                 observer.unsubscribe(request, callback);
             }
+        })
+    },
+
+    changeObserverCallback:function(request,sourceCallback,toBeChangedCallback){
+
+        this.observersPool.forEach(function(observer){
+            var observers = observer.observers;
+            observers.forEach(function(obs){
+                if(obs.request === request && obs.fn === sourceCallback){
+                    console.log("IUPII")
+                   obs.fn = toBeChangedCallback;
+                }
+            })
         })
     }
 }

@@ -32,16 +32,6 @@ chrome.runtime.onConnect.addListener(function (_port) {
         if (clientPort.name === "OPERANDO_MESSAGER" || clientPort.name === "INPUT_TRACKER") {
 
             /**
-             * Listen for swarm connection events
-             **/
-
-            clientPort.onDisconnect.addListener(function () {
-                console.log("disconnected");
-                clientPort = null;
-
-            });
-
-            /**
              * Listen for commands
              **/
             clientPort.onMessage.addListener(function (request) {
@@ -91,9 +81,9 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             }
                         };
 
-                        if(messageType === "BACKGROUND_DEMAND"){
+                        //if(messageType === "BACKGROUND_DEMAND"){
                             portObserversPool.addPortRequestSubscriber(clientPort, request.action, successCallbackResponse);
-                        }
+                        //}
 
                         args.push(successCallbackResponse);
 
