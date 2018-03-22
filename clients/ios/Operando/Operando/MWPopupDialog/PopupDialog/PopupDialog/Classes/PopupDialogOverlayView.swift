@@ -104,8 +104,11 @@ final public class PopupDialogOverlayView: UIView {
         self.alpha = 0
 
         // Add subviews
-        addSubview(blurView)
-        addSubview(overlay)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.addSubview(strongSelf.blurView)
+            strongSelf.addSubview(strongSelf.overlay)
+        }
     }
 
 }

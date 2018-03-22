@@ -10,7 +10,6 @@ import UIKit
 
 protocol OPFeedbackFormProtocol {
     func getFeedbackForm(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
-    func getLastAnswers(completion: ((_ feedbackForm: [String: Any]?, _ error: NSError?) -> Void)?)
     func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?)
 }
 
@@ -21,10 +20,36 @@ enum OPFeedBackQuestionType: String {
     case radio = "radio"
 }
 
-struct OPFeedbackAnswer {
+class OPFeedbackAnswer: NSObject, NSCoding {
+    
     let questionKey: String
     let itemName: String?
     let answer: Any
+    
+    init(questionKey: String, itemName: String?, answer: Any) {
+        self.questionKey = questionKey
+        self.itemName = itemName
+        self.answer = answer
+        super.init()
+    }
+    
+    init(json: NSDictionary) {
+        self.questionKey = json["questionKey"] as! String
+        self.itemName = json["itemName"] as? String
+        self.answer = json["answer"] as Any
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.questionKey = aDecoder.decodeObject(forKey: "questionKey") as! String
+        self.itemName = aDecoder.decodeObject(forKey: "itemName") as? String
+        self.answer = aDecoder.decodeObject(forKey: "answer") as Any
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.questionKey, forKey: "questionKey");
+        aCoder.encode(self.itemName, forKey: "itemName");
+        aCoder.encode(self.answer, forKey: "answer");
+    }
 }
 
 struct OPFeedbackQuestion {
@@ -47,20 +72,10 @@ class OPFeedbackForm: NSObject {
     
     init(delegate: OPFeedbackFormProtocol?) {
         self.delegate = delegate
+        answers = UserDefaults.objectsArray(forKey: UserDefaultsKeys.localFeedbackAnswers.rawValue) ?? []
         questions = [OPFeedbackQuestion]()
         questionsTitlesById = Dictionary<Int, String>()
         super.init()
-    }
-    
-    func requestLastAnswerIfAny(completion: @escaping ((_ success: Bool) -> Void)) {
-        
-        delegate?.getLastAnswers(completion: { [weak self] (data, error) in
-            guard let strongSelf = self, error == nil, let data = data else { completion(false); return }
-            
-            let answers = strongSelf.parseAnswers(dictionary: data)
-            strongSelf.answers = answers
-            completion(true)
-        })
     }
     
     func requestFeedbackForm(completion: @escaping ((_ success: Bool) -> Void)) {
@@ -73,8 +88,11 @@ class OPFeedbackForm: NSObject {
         })
     }
     
-    func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, completion: ((_ succes: Bool) -> Void)?) {
+    func submitFeedbackForm(feedbackDictionary: Dictionary<String, String>, withAnswers answers: [OPFeedbackAnswer], completion: ((_ succes: Bool) -> Void)?) {
         delegate?.submitFeedbackForm(feedbackDictionary: feedbackDictionary, completion: { (success) in
+            if success {
+                UserDefaults.setSyncronizedObjectsArray(value: answers, forKey: UserDefaultsKeys.localFeedbackAnswers.rawValue)
+            }
             completion?(success)
         })
     }
@@ -113,7 +131,7 @@ class OPFeedbackForm: NSObject {
         var result = [OPFeedbackQuestion]()
         var questionsById = Dictionary<Int, String>()
         
-        if let feedbackQuestions = dictionary["feedbackQuestions"] as? NSArray {
+        if let feedbackQuestions = dictionary["result"] as? NSArray {
             var index = 0
             for question in feedbackQuestions {
                 if let question = question as? Dictionary<String, Any> {

@@ -9,7 +9,8 @@
 import UIKit
 
 enum UserDefaultsKeys: String {
-    case isLoggedIn                     = "isLoggedIn"
+    case isLoggedIn           = "isLoggedIn"
+    case localFeedbackAnswers = "localFeedbackAnswers"
 }
 
 extension UserDefaults {
@@ -42,6 +43,11 @@ extension UserDefaults {
     
     class func setSynchronizedInt(value: Int, forKey key: String) {
         UserDefaults.standard.set(value, forKey: key)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func setSyncronizedObjectsArray<T>(value: [T], forKey key: String) {
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: value), forKey: key)
         UserDefaults.standard.synchronize()
     }
     
@@ -79,5 +85,10 @@ extension UserDefaults {
     
     static func intForKey(forKey key: String) -> Int {
         return UserDefaults.standard.integer(forKey: key)
+    }
+    
+    static func objectsArray<T>(forKey key: String) -> [T]? {
+        guard let storedArray = UserDefaults.standard.object(forKey: key) as? Data else { return nil }
+        return NSKeyedUnarchiver.unarchiveObject(with: storedArray) as? [T]
     }
 }

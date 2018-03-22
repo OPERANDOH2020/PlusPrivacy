@@ -151,14 +151,10 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCCellDelegate {
 extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
     
     func viewDidLoad() {
-        
-        feedbackForm.requestLastAnswerIfAny { (success) in
-            if self.feedbackForm.answers.count == 0 {
-                self.showQuestionList()
-            }
-            else {
-                self.uiDelegate?.showThankYouSubView()
-            }
+        if self.feedbackForm.answers.count == 0 {
+            self.showQuestionList()
+        } else {
+            self.uiDelegate?.showThankYouSubView()
         }
     }
     
@@ -200,6 +196,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
     func didSubmitForm() {
         uiDelegate?.showLoadingMessage(message: nil)
         var feedbackDictionary = Dictionary<String, String>()
+        var answers = [OPFeedbackAnswer]()
         var feedbackComplete = true
         var radioWithExclusivityVerifiedQuestions = [Int]()
         
@@ -214,6 +211,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
                     let value = viewModel.type == .rating ? ("\(viewModel.option + 1)") : (viewModel.option >= 0 ? "true" : "")
                     feedbackDictionary[key] = value
                     viewModel.shouldDisplayWarning = false
+                    answers.append(OPFeedbackAnswer(questionKey: key, itemName: viewModel.title, answer: value))
                 }
             case .radioWithExclusivity:
                 if radioWithExclusivityVerifiedQuestions.contains(viewModel.parentId) {
@@ -228,6 +226,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
                                 let key = feedbackForm.questionsTitlesById[viewModel.parentId] ?? ""
                                 feedbackDictionary[key] = model.title
                                 validOptionFound = true
+                                answers.append(OPFeedbackAnswer(questionKey: key, itemName: nil, answer: model.title))
                             }
                             checkedViewModels.append(model)
                         }
@@ -247,6 +246,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
                     let key = feedbackForm.questionsTitlesById[viewModel.parentId] ?? ""
                     feedbackDictionary[key] = viewModel.textContent ?? ""
                     viewModel.shouldDisplayWarning = false
+                    answers.append(OPFeedbackAnswer(questionKey: key, itemName: nil, answer: viewModel.textContent ?? ""))
                 }
             case .title:
                 break
@@ -254,7 +254,7 @@ extension OPFeedbackFormVCInteractor: OPFeedbackFormVCInteractorProtocol {
         }
         
         if feedbackComplete {
-            feedbackForm.submitFeedbackForm(feedbackDictionary: feedbackDictionary, completion: { [weak self] (success) in
+            feedbackForm.submitFeedbackForm(feedbackDictionary: feedbackDictionary, withAnswers: answers, completion: { [weak self] (success) in
                 guard let strongSelf = self else { return }
                 strongSelf.uiDelegate?.refreshUI()
                 if success {
