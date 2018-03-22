@@ -106,7 +106,7 @@ extension OPFeedbackFormViewController: OPFeedbackFormVCProtocol {
     }
     
     func showLoadingMessage(message: String?) {
-        ProgressHUD.show(message ?? "")
+        ProgressHUD.show()
     }
     
     func showMessage(title: String, message: String) {

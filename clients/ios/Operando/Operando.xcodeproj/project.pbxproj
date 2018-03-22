@@ -262,6 +262,7 @@
 		C7908A3F1FC6E33400C93A82 /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A2F1FC6E33300C93A82 /* PKHUD.swift */; };
 		C7908A401FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */; };
 		C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */ = {isa = PBXBuildFile; fileRef = C7BAF33920513C0700A9BFF0 /* linkedin.js */; };
+		C7C5D0EB2063C403000352D6 /* activityControls.css in Resources */ = {isa = PBXBuildFile; fileRef = C7C5D0EA2063C402000352D6 /* activityControls.css */; };
 		C7F794F520235FD4005DE7B3 /* UIMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */; };
 		C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */; };
 		C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */; };
@@ -678,6 +679,7 @@
 		C7908A2F1FC6E33300C93A82 /* PKHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUD.swift; sourceTree = "<group>"; };
 		C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
 		C7BAF33920513C0700A9BFF0 /* linkedin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = linkedin.js; sourceTree = "<group>"; };
+		C7C5D0EA2063C402000352D6 /* activityControls.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = activityControls.css; sourceTree = "<group>"; };
 		C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainViewController.swift; sourceTree = "<group>"; };
 		C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivacySettingViewController.swift; sourceTree = "<group>"; };
 		C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireTableViewCell.swift; sourceTree = "<group>"; };
@@ -2431,6 +2433,7 @@
 		C7F79571202363F8005DE7B3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C7C5D0EA2063C402000352D6 /* activityControls.css */,
 				C76EC53D2056BCDD00B26690 /* twitter.js */,
 				C76EC5382056801500B26690 /* google_activity_controls.js */,
 				C76EC5392056801600B26690 /* google_preferences_settings.js */,
@@ -2798,6 +2801,7 @@
 				98F6B12B1E7BFD9300D193FF /* UIWebViewTab.xib in Resources */,
 				AD48A8E91F628EAD003E5A88 /* OPFeedbackFormViewController.xib in Resources */,
 				AD28EA16204FE0BB00AA998A /* UINotAvailableView.xib in Resources */,
+				C7C5D0EB2063C403000352D6 /* activityControls.css in Resources */,
 				C7F795F220248DF8005DE7B3 /* Dosis-Medium.otf in Resources */,
 				98F6B1261E7BE62400D193FF /* UIWebToolbarView.xib in Resources */,
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,

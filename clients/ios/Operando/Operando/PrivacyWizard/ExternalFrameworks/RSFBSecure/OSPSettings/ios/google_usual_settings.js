@@ -1,9 +1,36 @@
-Android.showToast("usual settings");
+
 console.log("usual settings");
 
 
 var extractedData = {};
 var googleParams = {};
+
+var kMessageTypeKey = "messageType";
+var kLogMessageTypeContentKey = "logContent";
+var kLogMessageType = "log";
+
+var kStatusMessageMessageType = "statusMessageType";
+var kStatusMessageContentKey = "statusMessageContent";
+
+var webkitSendMessage = function(message) {
+    alert(message);
+};
+
+window.console = {};
+window.console.log = function(logMessage) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kLogMessageType;
+    webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    
+    webkitSendMessage(JSON.stringify(webkitMessage));
+    
+};
+var sendStatusMessage = function(settingName) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    webkitMessage[kStatusMessageContentKey] = settingName;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
 
 
 if (!String.prototype.unescapeHtmlChars) {
@@ -113,7 +140,7 @@ getGoogleData(function (response) {
     googleParams = response;
 //        console.log("google params", googleParams);
 
-    secureAccount(Android.getUsualPrivacySettings());
+    secureAccount(RS_PARAM_PLACEHOLDER);
 });
 
 
@@ -168,7 +195,7 @@ function secureAccount(privacySettingsJsonString) {
             return postToGoogle(settings, index, total);
         }).then(function (result) {
             console.log("result", result);
-            Android.setProgressBar();
+//            Android.setProgressBar();
             //             port.postMessage({action: "waitingGoogleCommand", data:{status:"progress", progress:(index+1)}});
         }).catch(function (err) {
             console.log("err", err)
@@ -176,7 +203,8 @@ function secureAccount(privacySettingsJsonString) {
     });
 
     sequence = sequence.then(function (result) {
-        Android.onFinishedLoadingUsualSettings();
+//        Android.onFinishedLoadingUsualSettings();
+        sendStatusMessage("DONE-POST");
     });
 }
 

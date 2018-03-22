@@ -1,75 +1,101 @@
+
+//
+var kMessageTypeKey = "messageType";
+var kLogMessageTypeContentKey = "logContent";
+var kLogMessageType = "log";
+
+var kStatusMessageMessageType = "statusMessageType";
+var kStatusMessageContentKey = "statusMessageContent";
+
+var webkitSendMessage = function(message) {
+    alert(message);
+};
+
+window.console = {};
+window.console.log = function(logMessage) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kLogMessageType;
+    webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    
+    webkitSendMessage(JSON.stringify(webkitMessage));
+    
+};
+
+var sendStatusMessage = function(settingName) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    webkitMessage[kStatusMessageContentKey] = settingName;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
+
 console.log("activity_controls_script");
-console.log("activity_controls_script2");
-Android.dismissDialog();
-console.log("activity_controls_script3");
-showModal();
 
 
 function showModal() {
-
+    
     var modal = $('<div class="modal"></div>');
     var modal_content = $('<div class="modal-content"></div>');
-
+    
     var header = $('<div class="modal-header"><h2>PlusPrivacy Wizard</h2></header>');
-
+    
     var closeModal = function () {
         $(modal_content).animate({
-            opacity: 0, // animate slideUp
-            marginTop: '600px'
-        }, 'fast', 'linear', function () {
-            $(modal).remove();
-        });
+                                 opacity: 0, // animate slideUp
+                                 marginTop: '600px'
+                                 }, 'fast', 'linear', function () {
+                                 $(modal).remove();
+                                 });
     };
-
+    
     modal_content.append(header);
-
+    
     var modal_body = $('<div class="modal-body"><p>PlusPrivacy needs you to do some clicks to optimize your Google privacy settings</p></div>');
     var letsDoItBtn = $("<button class='orange'>OK, let's do it</button>");
     letsDoItBtn.click(closeModal);
     modal_body.append(letsDoItBtn);
     modal_content.append(modal_body);
-
-
+    
+    
     var modal_footer = $('<div class="modal-footer"></div>');
     modal_content.append(modal_footer);
-
+    
     modal.append(modal_content);
     $("body").append(modal);
-
+    
     $(modal).css("display", "block");
-
+    
     var checkModalClick = function (event) {
         if (event.target == modal.get(0)) {
-
+            
             closeModal();
             window.removeEventListener("click", checkModalClick);
         }
     };
     window.addEventListener("click", checkModalClick);
-
+    
 }
 
 
 (function ($) {
-    $.fn.goTo = function () {
-        var windowHeight = jQuery(window).height();
-
-        var itemHeight = $(this).height();
-        $('html, body').animate({
-            scrollTop: $(this).offset().top - (windowHeight - itemHeight) / 2 + 'px'
-        }, 500);
-        return this;
-    }
-})(jQuery);
+ $.fn.goTo = function () {
+ var windowHeight = jQuery(window).height();
+ 
+ var itemHeight = $(this).height();
+ $('html, body').animate({
+                         scrollTop: $(this).offset().top - (windowHeight - itemHeight) / 2 + 'px'
+                         }, 500);
+ return this;
+ }
+ })(jQuery);
 
 
 (function ($) {
-    console.log("$.fn.hasAttr = function(name) {");
-    $.fn.hasAttr = function (name) {
-        return this.attr(name) !== undefined;
-    };
-
-})($);
+ console.log("$.fn.hasAttr = function(name) {");
+ $.fn.hasAttr = function (name) {
+ return this.attr(name) !== undefined;
+ };
+ 
+ })($);
 
 
 var steps = [];
@@ -108,22 +134,22 @@ arrowRightElementEnable.append(jQuery("<span>Click to turn on</span>"));
 $(arrowRightImage).clone().appendTo(arrowRightElementEnable);
 
 
-applyActivityControlSettings(Android.getActivityControlsSettings());
+applyActivityControlSettings(RS_PARAM_PLACEHOLDER);
 
 
 function applyActivityControlSettings(privacySettingsJsonString) {
-
+    
     var settings = JSON.parse(privacySettingsJsonString);
-    console.log("activityControlsSettings", settings);
-
+    console.log("activityControlsSettings" + JSON.stringify(settings));
+    
     settings.forEach(function (setting, index) {
-        steps.push({
-            name: setting.name,
-            index: index,
-            data: setting.data.setting
-        });
-    });
-
+                     steps.push({
+                                name: setting.name,
+                                index: index,
+                                data: setting.data.setting
+                                });
+                     });
+    
     watchCurrentSettings();
 }
 
@@ -131,18 +157,30 @@ function applyActivityControlSettings(privacySettingsJsonString) {
 function watchCurrentSettings() {
     detectCurrentSettings();
     var changeIsNeeded = false;
+    
+            console.log("STEPs = " + steps.length)
+    
     for (var i = 0; i < steps.length; i++) {
+        
         if (steps[i]['current_setting'] != steps[i]['data']) {
             currentIndex = i;
             changeIsNeeded = true;
             changeIndex(currentIndex);
             break;
         }
+        else {
+            console.log("ELSE STEP")
+        }
     }
     if (changeIsNeeded == false) {
         console.log("changeIsNeeded", changeIsNeeded);
-        Android.onFinishedLoadingCallback();
+//        Android.onFinishedLoadingCallback();
+        sendStatusMessage("DONE");
         // port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"wizardFinished"}});
+    }
+    else{
+//        sendStatusMessage("I DONT WANT CHANGE");   
+
     }
 }
 
@@ -150,28 +188,28 @@ function watchCurrentSettings() {
 function detectCurrentSettings() {
 
     jQuery(containerClassName).each(function (index, element) {
-
-        if ($(element).find(".N2RpBe").length > 0) {
-            steps[index]['current_setting'] = "on";
-        }
-        else {
-            steps[index]['current_setting'] = "off";
-        }
-    })
+                                    
+                                    if ($(element).find(".N2RpBe").length > 0) {
+                                    steps[index]['current_setting'] = "on";
+                                    }
+                                    else {
+                                    steps[index]['current_setting'] = "off";
+                                    }
+                                    })
 }
 
 function detectCurrentSetting(element) {
-
+    
     console.log("detectCurrentSetting");
-
+    
     if ($(element).find(".N2RpBe").length > 0) {
         var toggleElement = $(element).find(".N2RpBe")[0];
         $(toggleElement).parent().css("position", "relative");
-
+        
         // bounceOverlayEnable.append(arrowElementDisable[0]);
         console.log("hyMrOd  iJaZXd", $(toggleElement).parent().parent().parent().parent().parent().parent().children(".M0CMRc"));
         $(toggleElement).parent().parent().parent().parent().parent().parent().children(".M0CMRc").append(bounceOverlayDisable);
-
+        
     }
     else {
         var toggleElement = $(element).find(".LsSwGf.PciPcd")[0];
@@ -184,57 +222,58 @@ function detectCurrentSetting(element) {
 }
 
 function changeIndex(index) {
-
+    
     console.log("changeIndex", $(containerClassName)[index]);
     detectCurrentSetting($(containerClassName)[index]);
+    
     $(containerClassName).addClass("pp_item_overlay");
-
+    
     $($(containerClassName)[index]).removeClass("pp_item_overlay");
     $($(containerClassName)[index]).goTo();
-
-    Android.setProgressBar(index);
-
+    
+//    Android.setProgressBar(index);
+    
     // port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"currentIndex", index:index}});
 }
 
 
 setInterval(function () {
-    if ($(".pp_item_overlay").length == 0) {
-
-        watchCurrentSettings();
-    }
-}, 200);
+            if ($(".pp_item_overlay").length == 0) {
+            
+            watchCurrentSettings();
+            }
+            }, 200);
 
 
 function enableDisablePopupCheckIntervalFn() {
     var checkItOnce = false;
     enableDisablePopupCheckInterval = setInterval(function () {
-        if ($("div[jsaction='JIbuQc:Wh8OAb']").length > 0) {
-            if (steps[currentIndex]['current_setting'] == "on") {
-                $("div[jsaction='JIbuQc:Wh8OAb']").append(arrowRightElementDisable[0]);
-            }
-            else {
-                $("div[jsaction='JIbuQc:Wh8OAb']").append(arrowRightElementEnable[0]);
-            }
-            clearInterval(enableDisablePopupCheckInterval);
-            checkForPopupFn();
-        }
-        else {
-            if (checkItOnce == false) {
-                watchCurrentSettings();
-            }
-            checkItOnce = true;
-        }
-    }, 200);
+                                                  if ($("div[jsaction='JIbuQc:Wh8OAb']").length > 0) {
+                                                  if (steps[currentIndex]['current_setting'] == "on") {
+                                                  $("div[jsaction='JIbuQc:Wh8OAb']").append(arrowRightElementDisable[0]);
+                                                  }
+                                                  else {
+                                                  $("div[jsaction='JIbuQc:Wh8OAb']").append(arrowRightElementEnable[0]);
+                                                  }
+                                                  clearInterval(enableDisablePopupCheckInterval);
+                                                  checkForPopupFn();
+                                                  }
+                                                  else {
+                                                  if (checkItOnce == false) {
+                                                  watchCurrentSettings();
+                                                  }
+                                                  checkItOnce = true;
+                                                  }
+                                                  }, 200);
 }
 
 function checkForPopupFn() {
     checkForPopup = setInterval(function () {
-        if ($("div[jsaction='JIbuQc:Wh8OAb']").length === 0) {
-            enableDisablePopupCheckIntervalFn();
-            clearInterval(checkForPopup);
-        }
-    }, 300);
+                                if ($("div[jsaction='JIbuQc:Wh8OAb']").length === 0) {
+                                enableDisablePopupCheckIntervalFn();
+                                clearInterval(checkForPopup);
+                                }
+                                }, 300);
 }
 
 enableDisablePopupCheckIntervalFn();

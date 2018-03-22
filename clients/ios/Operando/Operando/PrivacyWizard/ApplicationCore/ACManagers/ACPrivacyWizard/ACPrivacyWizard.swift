@@ -18,7 +18,9 @@ enum ACPrivacyWizardScope {
     case facebook
     case linkedIn
     case twitter
-    case google
+    case googleLogin
+    case googlePreferences
+    case googleActivity
     case all
     
     func getNetworks() -> [String] {
@@ -29,7 +31,7 @@ enum ACPrivacyWizardScope {
             return ["linkedin"]
         case .twitter:
             return ["twitter"]
-        case .google:
+        case .googleActivity, .googleLogin, .googlePreferences:
             return ["google"]
         case .all:
             return ["facebook", "linkedin","twitter","google"]
@@ -44,8 +46,12 @@ enum ACPrivacyWizardScope {
             return "https://www.linkedin.com"
         case .twitter:
             return "https://mobile.twitter.com/settings/safety"
-        case .google:
-            return ""
+        case .googleLogin:
+            return "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+        case .googleActivity:
+            return "https://myaccount.google.com/activitycontrols"
+        case .googlePreferences:
+            return "https://www.google.com/preferences"
         case .all:
             return "https://www.facebook.com"
         }
@@ -61,8 +67,12 @@ enum ACPrivacyWizardScope {
             return "twitter"
         case .all:
             return "facebook_iOS"
-        case .google:
-            return ""
+        case .googleLogin:
+            return "google_preferences_settings"
+        case .googlePreferences:
+            return "google_usual_settings"
+        case .googleActivity:
+            return "google_activity_controls"
         }
     }
 }

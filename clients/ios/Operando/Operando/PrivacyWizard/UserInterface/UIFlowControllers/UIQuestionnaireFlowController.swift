@@ -80,15 +80,9 @@ class UIQuestionnaireFlowController: UIFlowController, UIQuestionnaireTVCProtoco
     
     private func wizardDidFinished() {
         switch privacyWizard.privacyWizardScope {
-        case .facebook:
-            launchPrivacySetting()
-        case .linkedIn:
-            launchPrivacySetting()
         case .all:
             openPrivacySettingsScreen()
-        case .twitter:
-            launchPrivacySetting()
-        case .google:
+        default:
             launchPrivacySetting()
         }
     }

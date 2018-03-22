@@ -69,6 +69,7 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
                     ACPrivacyWizard.shared.privacySettings = settings
                     ACPrivacyWizard.shared.updatePrivacySettings(type: settingsType, updatedSettings: settings)
                     self.allSettings = settings
+                    self.setupSettingsWithRecommended()
                     self.tableView.reloadData()
                 })
             }
@@ -90,7 +91,9 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             break
         case .twitter:
             ACPrivacyWizard.shared.selectedScope = .twitter
+            break
         case .google:
+            ACPrivacyWizard.shared.selectedScope = .googleLogin
             break
         }
     }
@@ -112,32 +115,36 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
     // MARK: - Actions
     
     @IBAction func pressedRecommendedButton(_ sender: Any) {
-        self.callbacks?.pressedRecommended()
         
+        self.setupSettingsWithRecommended()
+        self.callbacks?.pressedRecommended()
+    }
+    
+    private func setupSettingsWithRecommended(){
         let scopeSetting = getSettings()
         
-        if let facebookSettings = scopeSetting {
-            for facebookSetting in facebookSettings {
+        if let currentScopeSettings = scopeSetting {
+            for currentScopeSetting in currentScopeSettings {
                 
-                guard let recommendedString = facebookSetting.write?.recommended else {
+                guard let recommendedString = currentScopeSetting.write?.recommended else {
                     continue
                 }
                 
-                guard let availableSettings = facebookSetting.read?.availableSettings else {
+                guard let availableSettings = currentScopeSetting.read?.availableSettings else {
                     continue
                 }
                 
                 for availableSetting in availableSettings {
-                    if availableSetting.name == recommendedString.replace(target: "_", withString: " ").capitalized {
+                    if availableSetting.key == recommendedString {
                         
                         if let index = availableSetting.index {
                             
-                            facebookSetting.selectOption(withIndex: index)
+                            currentScopeSetting.selectOption(withIndex: index)
                         }
                     }
                 }
             }
-        }  
+        }
     }
     
     func isSelectedSettingRecommended(setting: AMPrivacySetting) -> Bool {
@@ -151,7 +158,7 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             }
             
             for availableSetting in availableSettings {
-                if availableSetting.name == recommendedString.replace(target: "_", withString: " ").capitalized &&
+                if availableSetting.key == recommendedString &&
                      availableSetting.isSelected == true {
                     
                     return true

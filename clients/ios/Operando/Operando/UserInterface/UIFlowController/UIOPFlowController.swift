@@ -165,7 +165,6 @@ class UIOPFlowController
             self.displayQuestionnaire(wizzardType: .facebook)
             
         }, pressedLinkedin: {
-            
             self.displayQuestionnaire(wizzardType: .linkedin)
         }, pressedTwitter: {
             self.displayQuestionnaire(wizzardType: .twitter)
@@ -203,8 +202,10 @@ class UIOPFlowController
             break
         case .twitter:
             self.rootController.setupTabViewForTwitterQuestionnaire()
+            break
         case .google:
             self.rootController.setupTabViewForGoogleQuestionnaire()
+            break
         }
         
         self.rootController.setMainControllerTo(newController: vc)

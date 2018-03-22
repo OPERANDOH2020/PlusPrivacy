@@ -18,7 +18,7 @@ class ACRestClient: NSObject {
     typealias Callback = (AnyObject?, NSError?) -> ()
     
     fileprivate var session: URLSession?
-    fileprivate let API_URL = "http://192.168.103.149:8080"
+    fileprivate let API_URL = "https://plusprivacy.club:8080"
     
     static let shared = ACRestClient()
     

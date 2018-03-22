@@ -21,9 +21,26 @@ extension WKWebView
         }
         
         if let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
-            let modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"\(privacySettingsJson.escapedStringForJS)\"")
-
-            self.evaluateJavaScript(modifiedJS as String, completionHandler: completion)
+            
+            var modifiedJS = ""
+            
+            if ACPrivacyWizard.shared.selectedScope == .googleLogin {
+                
+                modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"" + privacySettingsJson.escapedStringForGoogleJS + "\"")
+            }
+            else {
+                modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"\(privacySettingsJson.escapedStringForJS)\"")
+            }
+            
+            print(privacySettingsJson)
+            print("\n\n\n")
+            print(privacySettingsJson.escapedStringForGoogleJS)
+//            print(modifiedJS)
+            print("\n\n\n")
+            
+            
+            
+            self.evaluateJavaScript(modifiedJS, completionHandler: completion)
         }
         
     }
@@ -54,7 +71,7 @@ extension WKWebView
         guard let url = NSURL(string: urlString) else {return NSError.malformedURLError(url: urlString);}
         let request = NSURLRequest(url: url as URL);
         self.load(request as URLRequest)
-        
+
         return nil
     }
     
@@ -66,6 +83,11 @@ extension String
     {
         return self.replacingOccurrences(of: "\"", with: "\\\"").replacingOccurrences(of: "\'", with: "\\\'")
     }
+    
+    var escapedStringForGoogleJS: String
+    {
+        return self.replacingOccurrences(of: "\\\"", with: "'").replacingOccurrences(of: "\"", with: "\\\"")
+    }
 }
 
 class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
@@ -75,6 +97,7 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
     private var whenNavigationFails: ErrorCallback?
     private var whenNavigationFinishes: VoidBlock?
     private var whenUserFinishedLogin: VoidBlock?
+    var whenPageIsLoaded: VoidBlock?
     
     init(loginIsDoneButton: UIButton, webView: WKWebView)
     {
@@ -106,6 +129,8 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
         }
         
         self.clearAllCallbacks()
+        
+        
         
         weak var weakSelf = self
         self.whenNavigationFails = completion
@@ -191,6 +216,7 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.whenNavigationFinishes?()
+        self.whenPageIsLoaded?()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

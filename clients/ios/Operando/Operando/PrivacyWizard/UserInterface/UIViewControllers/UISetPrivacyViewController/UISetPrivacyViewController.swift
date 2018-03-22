@@ -14,7 +14,7 @@ let UISetPrivacyVCStoryboardId = "UISetPrivacyVCStoryboardId"
 let MozillaUserAgentId = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12"
 
 class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
-
+    
     // MARK: - Properties
     private var whenUserPressedLoggedIn: VoidBlock?
     private var fbSecurityEnforcer: FbWebKitSecurityEnforcer?
@@ -67,7 +67,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,19 +83,45 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             self.whenUserPressedLoggedIn = {
                 UIAlertViewController.presentOkAlert(from: self, title: "Information", message: "Please wait while we collect some data from the page, which will help us in applying your privacy settings. Sometimes this process might take a few minutes. You can help us by doing some scrolling movements on the page.", submitCallback: { (action) in
                     
-                    self.displayStatusView(hidden: false)
+           
                     callbackWhenLogInIsDone?()
+                    
+                    self.displayStatusView(hidden: false)
                     self.whenUserPressedLoggedIn = nil
                 })
             }
-            
         }, whenDisplayingMessage: {
+            
             if $0 == "Done" {
+                
                 self.displayStatusView(hidden: true)
                 RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
                 return
-            } else {
-                RSCommonUtilities.showOKAlertWithMessage(message: $0)
+            }
+            else if $0 == "DONE-POST" {
+                
+                print("GO TO NEXT STEP")
+                switch ACPrivacyWizard.shared.selectedScope {
+                    
+                case .googleLogin:
+                    print("SET TO GOOGLE PREFES")
+                    ACPrivacyWizard.shared.selectedScope = .googlePreferences
+                    self.fbSecurityEnforcer?.loadAddress()
+                    return
+                case .googlePreferences:
+                    print("SET TO GOOGLE ACTIVITY")
+                    ACPrivacyWizard.shared.selectedScope = .googleActivity
+                    self.fbSecurityEnforcer?.loadAddress()
+                    self.displayStatusView(hidden: true)
+                    break
+                default:
+                    ACPrivacyWizard.shared.selectedScope = .googleLogin
+                }
+            }
+            else {
+                print($0)
+                RSCommonUtilities.showOKAlertWithMessage(message: "A problem has ocurred!")
+                self.displayStatusView(hidden: true)
             }
         }, completion: { error in
             if let error = error {
@@ -108,7 +134,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        //        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func alterUserAgentInDefaults()
@@ -144,7 +170,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             }
         }
     }
-     
+    
     private func createTutorialView() -> UITutorialView {
         let rect = loggedInButton.frame
         return UITutorialView.create(withTitle: "Please log in and then press the pointed button",

@@ -17,6 +17,7 @@ class AMWrite: NSObject {
     private(set) var recommended: String?
     private(set) var type: String?
     private(set) var availableSettings: [AMAvailableWriteSetting]?
+    private(set) var methodType: String?
     
     init?(dictionary: [String: Any]?) {
         guard let dictionary = dictionary else { return nil }
@@ -26,6 +27,7 @@ class AMWrite: NSObject {
         data = Dictionary<String, Any>()
         recommended = dictionary["recommended"] as? String
         type = dictionary["type"] as? String
+        methodType = dictionary["method_type"] as? String
         
         if let settings = dictionary["availableSettings"] as? NSDictionary {
             availableSettings = [AMAvailableWriteSetting]()

@@ -19,6 +19,7 @@ enum POSTRequestStatus: String
 
 
 typealias CallToLoginWithCompletion = (_ callbackWhenLoginIsDone: VoidBlock?) -> Void
+typealias CallbackWithCallback = (_ callbackWhenLoginIsDone: VoidBlock?) -> Void
 
 let kMessageTypeKey = "messageType";
 
@@ -33,7 +34,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
     private let webView: WKWebView
     private var whenWebViewFinishesNavigation: VoidBlock?
     private var whenDisplayingMessage: ((_ message: String) -> Void)?
-    
+    private var finishedLoading: VoidBlock?
     
     init(webView: WKWebView)
     {
@@ -42,7 +43,6 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
     }
-    
     
     func enforceWithCallToLogin(callToLoginWithCompletion: CallToLoginWithCompletion?, whenDisplayingMessage: ((_ message: String) -> Void)? ,completion: ((_ error: NSError?) -> Void)?)
     {
@@ -64,12 +64,38 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
             }
             
             weakSelf?.whenWebViewFinishesNavigation = nil;
-
         }
     }
     
+    func loadAddress() {
+        let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getNetworkUrl()
+        
+       self.webView.loadWebViewToURL(urlString: socialMediaUrl)
+        
+        weak var weakSelf = self
+        
+        finishedLoading = {
+            
+            if ACPrivacyWizard.shared.selectedScope == .googleActivity {
+             //load css
+                
+                let path = Bundle.main.path(forResource: "activityControls", ofType: "css")
+                let javaScriptStr = "var link = document.createElement('link'); link.href = '%@'; link.rel = 'stylesheet'; document.head.appendChild(link)"
+                let javaScripthPath = NSString(format: javaScriptStr as NSString, path!)
+                self.webView.stringByEvaluatingJavaScriptFromString(script: javaScripthPath as String)
+                
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.loginIsDoneInitiateNextStep()
+            }
+            
+            self.finishedLoading = nil
+        }
+    }
     
-    private func loginIsDoneInitiateNextStep() {
+    func loginIsDoneInitiateNextStep() {
+        
         let resource = ACPrivacyWizard.shared.selectedScope.getWizardResourceName()
         
         self.webView.loadJQueryIfNeededWithCompletion(completion: {
@@ -98,8 +124,9 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.whenWebViewFinishesNavigation?()
+      
+        self.finishedLoading?()
     }
-    
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
@@ -113,11 +140,9 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         }
     }
     
-    
     //MARK: internal utils
     
-    private func handleMessage(message: [String: String])
-    {
+    private func handleMessage(message: [String: String]) {
         guard let messageType = message[kMessageTypeKey] else {return}
         
         if messageType == kLogMessageType

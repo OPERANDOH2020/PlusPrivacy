@@ -32,7 +32,6 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
 {
     
     //    static let ServerURL = "https://plusprivacy.club:8080";
-    //    static let ServerURL = "https://plusprivacy.com:8080";
 //    static let ServerURL = "http://192.168.103.149:8080";
     static let ServerURL = "https://plusprivacy.com:8080";
     let swarmClient = SwarmClient(connectionURL: SwarmClientHelper.ServerURL);

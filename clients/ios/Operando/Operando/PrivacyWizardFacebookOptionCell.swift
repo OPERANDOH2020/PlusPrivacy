@@ -44,7 +44,7 @@ class PrivacyWizardFacebookOptionCell: UITableViewCell{
         selectedImageType = .Unselected
         
         if let recommendedString = recommended,
-            setting.name == recommendedString.replace(target: "_", withString: " ").capitalized {
+            setting.key == recommendedString{
             
             if setting.isSelected == true {
                 self.selectedImageType = .RecommendedSelected
