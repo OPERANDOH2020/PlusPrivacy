@@ -98,7 +98,6 @@ PortsObserversPool.prototype = {
             var observers = observer.observers;
             observers.forEach(function(obs){
                 if(obs.request === request && obs.fn === sourceCallback){
-                    console.log("IUPII")
                    obs.fn = toBeChangedCallback;
                 }
             })

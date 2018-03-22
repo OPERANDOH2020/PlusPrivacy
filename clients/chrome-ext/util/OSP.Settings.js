@@ -4633,7 +4633,7 @@ var ospSettingsConfigPreferences = {
                     },
                     off: {
                         name: "Off",
-                        cssClasses: "LsSwGf PciPcd i9xfbb",
+                        cssClasses: "LsSwGf PciPcd i9xfbb"
                     }
                 }
             },

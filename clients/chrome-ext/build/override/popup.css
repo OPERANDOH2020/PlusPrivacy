@@ -320,6 +320,7 @@ label
 .operando_wrapper ul > li > div.item_icon.abp_icon{
   background: url(../operando/assets/images/icons/ad_block_options.png) no-repeat left center;
 }
+
 .operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
   background: url(../operando/assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
 }
