@@ -20,6 +20,13 @@ public abstract class AuthenticationRequiredActivity extends BaseActivity {
                 LoginActivity.start(AuthenticationRequiredActivity.this, true);
             }
         });
+
+        findViewById(R.id.remain_anonymous).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         setToolbar();
     }
 

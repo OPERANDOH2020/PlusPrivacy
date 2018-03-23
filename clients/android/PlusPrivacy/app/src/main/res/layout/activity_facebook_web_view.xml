@@ -12,18 +12,6 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/start_injecting_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:background="@color/white"
-            android:onClick="startInjectingOnClick"
-            android:padding="5dp"
-            android:text="@string/start"
-            android:textAllCaps="false" />
-
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -44,6 +32,48 @@
             android:layout_height="fill_parent" />
 
     </LinearLayout>
+
+    <!--<FrameLayout-->
+        <!--android:clickable="true"-->
+        <!--android:id="@+id/tutorial"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="58dp"-->
+        <!--android:visibility="visible"-->
+        <!--android:background="@color/overlay_webview"-->
+        <!--&gt;-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@color/black"-->
+            <!--android:padding="20dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<ProgressBar-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="18sp"-->
+                <!--android:text="Applying settings..."-->
+                <!--android:textColor="@color/white" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="18sp"-->
+                <!--android:text="This may take some time."-->
+                <!--android:textColor="@color/white" />-->
+
+        <!--</LinearLayout>-->
+
+    <!--</FrameLayout>-->
 
     <FrameLayout
         android:clickable="true"

@@ -26,13 +26,13 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        socialNetworkInterface.onPageListener();
+        socialNetworkInterface.onPageFinished();
     }
 
     @Override
     public void onPageCommitVisible(WebView view, String url) {
         super.onPageCommitVisible(view, url);
-        socialNetworkInterface.onPageListener();
+        socialNetworkInterface.onPageCommitVisible();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -50,7 +50,9 @@ public class MyWebViewClient extends WebViewClient {
     }
 
     public interface SocialNetworkInterface{
-        void onPageListener();
+        void onPageCommitVisible();
+
+        void onPageFinished();
     }
 }
 

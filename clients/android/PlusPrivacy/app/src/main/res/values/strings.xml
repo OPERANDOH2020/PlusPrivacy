@@ -2,7 +2,7 @@
     <string name="app_name">PlusPrivacy</string>
     <string name="your_real_identity">Your real identity:</string>
     <string name="installed_apps">Installed apps:</string>
-    <string name="potentially_unsafe_apps">Potentially unsafe apps:</string>
+    <string name="potentially_unsafe_apps">Potentially unsafe:</string>
     <string name="real_identity">Your real identity</string>
     <string name="identities">Identities</string>
     <string name="alternative_identities">Alternative identities</string>
@@ -12,7 +12,7 @@
     <string name="url">URL</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="no_account_yet_create_one">No account yet? Create one</string>
+    <string name="no_account_yet_create_one"><u>No account yet? Create one</u></string>
 
     <string name="action_new_tab">New Tab</string>
     <string name="action_share">Share</string>
@@ -259,7 +259,7 @@
     <string name="start">Start</string>
     <string name="dialog_sign_in_failed">Sign In Failed</string>
     <string name="check_your_email_and_password">Check your email and password</string>
-    <string name="social_network_settings">Social Network Settings</string>
+    <string name="social_network_settings">Social networks privacy</string>
     <string name="feedback">Feedback</string>
     <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
@@ -287,7 +287,7 @@
     <string name="dismiss">Dismiss</string>
     <string name="copy">Copy</string>
     <string name="remove">Remove</string>
-    <string name="identity_management">Identity Management</string>
+    <string name="identity_management">Email identities</string>
     <string name="logout">Logout</string>
     <string name="social_networks_header">Maximize privacy on social networks</string>
     <string name="coming_soon">Coming soon</string>
@@ -362,7 +362,10 @@
         Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
     </string>
     <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
-    <string name="authentication_required">For accessing this feature,\n authentication is required.</string>
-    <string name="dont_have_account">You don\'t have an account? Create one here</string>
+    <string name="authentication_required">You need to login or sign up with your email address only if you wish to use the email identity management feature. If you choose not to log in, you can still use all the other features of PlusPrivacy, anonymously.</string>
+    <string name="reset_password"><u>Reset password</u></string>
+    <string name="log_in_with_my_email">Log in with my email</string>
+    <string name="remain_anonymous">Remain anonymous</string>
+    <string name="social_networks_overlay_dialog_message">The settings will be saved after you are logged</string>
 
 </resources>

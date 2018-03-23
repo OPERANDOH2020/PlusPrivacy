@@ -1,16 +1,15 @@
 package eu.operando.activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.IntentFilter;
-import android.graphics.Color;
-import android.net.ConnectivityManager;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,7 +22,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -39,11 +38,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.customView.ButtonTargetShowCaseView;
 import eu.operando.customView.MyWebViewClient;
-import eu.operando.utils.ConnectivityReceiver;
+import eu.operando.storage.Storage;
 
 /**
  * Created by Alex on 1/19/2018.
@@ -55,6 +52,8 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
     protected String privacySettingsString;
     protected SocialNetworkWebViewActivity.WebAppInterface webAppInterface;
     protected boolean shouldInject = false;
+    protected boolean isUserLogged = false;
+    protected boolean triggered = false;
     protected ProgressDialog progressDialog;
     protected CookieManager cookieManager;
     protected ImageView paperAirplane;
@@ -64,7 +63,6 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
     protected JSONArray activityControlsSettings = new JSONArray();
     protected Object mutex = new Object();
     protected ProgressBar progressBar;
-    protected Button startButton;
     protected FrameLayout frameLayout;
     private int totalQuestions;
 
@@ -78,6 +76,8 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
     public abstract WebAppInterface getWebAppInterface();
 
     public abstract String getJsFile();
+
+    public abstract String getIsLoggedJsFile();
 
 
     @Override
@@ -115,12 +115,13 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
 
     private void initUI() {
 
-        startButton = (Button) findViewById(R.id.start_injecting_button);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         myWebView = (WebView) findViewById(R.id.webview);
         frameLayout = (FrameLayout) findViewById(R.id.webview_frame);
 
-        setOverlay();
+        if (!Storage.getSocialNetworkDialogOption()) {
+            showSocialNetworkDialog();
+        }
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -135,6 +136,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
         }
 
         cookieManager = CookieManager.getInstance();
+//        cookieManager.removeAllCookie();
         CookieSyncManager.getInstance().sync();
         CookieManager.setAcceptFileSchemeCookies(true);
 
@@ -147,7 +149,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
         myWebView.loadUrl(getURL_MOBILE());
     }
 
-    public void startInjectingOnClick(View view) {
+    public void startInjecting() {
 
         if (!shouldInject) {
 
@@ -161,21 +163,37 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
             }
             initProgressDialog();
             shouldInject = true;
+
         }
+    }
+
+    public void onPageCommitVisible() {
+        onPageListener();
     }
 
     public void onPageListener() {
 
         synchronized (mutex) {
-            if (shouldInject) {
-                injectScriptFile("test_jquery.js");
-                if (webAppInterface.getIsJQueryLoaded() == 0) {
-                    injectScriptFile("jquery214min.js");
-                }
+            if (!triggered) {
+                injectScriptFile(getIsLoggedJsFile());
+            } else {
+                if (shouldInject) {
+                    injectScriptFile("test_jquery.js");
+                    if (webAppInterface.getIsJQueryLoaded() == 0) {
+                        injectScriptFile("jquery214min.js");
+                    }
 
-                shouldInject = false;
-                injectScriptFile(getJsFile());
+                    shouldInject = false;
+                    injectScriptFile(getJsFile());
+                }
             }
+        }
+    }
+
+    public void onPageFinished() {
+
+        if (Build.VERSION.SDK_INT < 23) {
+            onPageListener();
         }
     }
 
@@ -187,54 +205,29 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
     protected void initProgressDialog() {
         if (!isFinishing()) {
             frameLayout.setVisibility(View.VISIBLE);
-            startButton.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setOverlay() {
+    public void showSocialNetworkDialog() {
 
-        final ShowcaseView showcaseView = new ShowcaseView.Builder(this)
-                .withMaterialShowcase()
-                .setTarget(new ButtonTargetShowCaseView(
-                        (Button) findViewById(R.id.start_injecting_button)))
-                .setContentTitle("Privacy Wizard")
-                .setContentText("Press START button after you are logged")
-                .setStyle(R.style.InjectingButtonShowCaseView)
-                .blockAllTouches()
-                .build();
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = inflater.inflate(R.layout.dialog_private_browsing, null);
 
-        changeStatusBarColor(R.color.overlay_background);
+        final CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.do_not_show_cb);
 
-        showcaseView.overrideButtonClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeStatusBarColor(R.color.black);
-                showcaseView.hide();
-            }
-        });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(convertView);
+        builder.setTitle(R.string.social_network_settings)
+                .setMessage(R.string.social_networks_overlay_dialog_message)
+                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Storage.saveSocialNetworkDialogOption(checkBox.isChecked());
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
 
-        setPaperAirplane(showcaseView);
-    }
-
-    private void setPaperAirplane(ShowcaseView showcaseView) {
-
-        View inflatedView = View.inflate(showcaseView.getContext(),
-                R.layout.fragment_webview_social_network, showcaseView);
-        ImageView paperAirplane = (ImageView) inflatedView.findViewById(R.id.paper_airplane);
-        paperAirplane.startAnimation(buildAnimationForPaperAirplane());
-    }
-
-    private Animation buildAnimationForPaperAirplane() {
-
-        Animation animation = new TranslateAnimation(0, 15, 0, -15);
-        animation.setDuration(500);
-        animation.setFillAfter(true);
-        animation.setRepeatCount(Animation.INFINITE);
-        animation.setRepeatMode(Animation.REVERSE);
-        animation.setInterpolator(new LinearInterpolator());
-
-        return animation;
     }
 
     public void changeStatusBarColor(int color) {
@@ -308,6 +301,7 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
 
         private String privacySettings;
         private int isJQueryLoaded;
+        private boolean isUserLogged;
         private Context context;
         private int index = 0;
 
@@ -347,6 +341,21 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
         }
 
         @JavascriptInterface
+        public void isLogged(int isLogged) {
+            Log.e("WebAppI isLogged", String.valueOf(isLogged));
+            if (isLogged == 1) {
+                triggered = true;
+                myWebView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        startInjecting();
+                    }
+                });
+            }
+            this.isUserLogged = isLogged != 0;
+        }
+
+        @JavascriptInterface
         public void setProgressBar() {
             index++;
             progressBar.setMax(totalQuestions);
@@ -369,6 +378,10 @@ public abstract class SocialNetworkWebViewActivity extends BaseActivity implemen
 
         public int getIsJQueryLoaded() {
             return isJQueryLoaded;
+        }
+
+        public boolean isUserLogged() {
+            return isUserLogged;
         }
 
         public void setIsJQueryLoaded(int isJQueryLoaded) {

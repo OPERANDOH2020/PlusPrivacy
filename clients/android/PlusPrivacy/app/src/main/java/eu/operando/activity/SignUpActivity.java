@@ -21,6 +21,7 @@ import eu.operando.swarmService.models.RegisterSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
 public class SignUpActivity extends AppCompatActivity {
+
     private EditText inputEmail;
     private PasswordConfirmationView inputPassword;
 
@@ -28,7 +29,6 @@ public class SignUpActivity extends AppCompatActivity {
         Intent starter = new Intent(context, SignUpActivity.class);
         context.startActivity(starter);
         ((Activity) context).overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-        ;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        LoginActivity.start(SignUpActivity.this);
+        LoginActivity.start(SignUpActivity.this, true);
         finish();
     }
 }

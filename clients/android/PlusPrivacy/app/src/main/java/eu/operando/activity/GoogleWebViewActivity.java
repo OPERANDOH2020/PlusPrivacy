@@ -49,6 +49,11 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     @Override
+    public String getIsLoggedJsFile() {
+        return "google_is_logged.js";
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         totalQuestions = privacySettingsJSONArray.length();
@@ -63,14 +68,12 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            socialNetworkInterface.onPageListener();
             googlePageListener(url);
         }
 
         @Override
         public void onPageCommitVisible(WebView view, String url) {
             super.onPageCommitVisible(view, url);
-            socialNetworkInterface.onPageListener();
             googlePageListener(url);
         }
     }
@@ -91,8 +94,18 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         }
     }
 
+//    @Override
+//    public void onPageCommitVisible() {
+//
+//    }
+//
+//    @Override
+//    public void onPageFinished() {
+//
+//    }
+
     @Override
-    public void startInjectingOnClick(View view) {
+    public void startInjecting() {
 
         if (!shouldInject) {
 
@@ -106,7 +119,6 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
             }
 
             shouldInject = true;
-            shouldInjectUsualSettings = true;
 
             initProgressDialog();
         }
@@ -140,6 +152,8 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
             myWebView.post(new Runnable() {
                 @Override
                 public void run() {
+                    shouldInjectUsualSettings = true;
+
                     myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
                 }
             });

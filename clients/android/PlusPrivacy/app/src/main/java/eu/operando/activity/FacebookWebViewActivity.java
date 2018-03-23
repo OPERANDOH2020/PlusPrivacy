@@ -34,4 +34,9 @@ public class FacebookWebViewActivity extends SocialNetworkWebViewActivity {
         return "facebook.js";
     }
 
+    @Override
+    public String getIsLoggedJsFile() {
+        return "facebook_is_logged.js";
+    }
+
 }

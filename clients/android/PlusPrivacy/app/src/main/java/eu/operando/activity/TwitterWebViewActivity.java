@@ -1,10 +1,12 @@
 package eu.operando.activity;
 
 
+import android.os.Build;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import eu.operando.customView.MyWebViewClient;
 
 /**
@@ -23,7 +25,7 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
     @Override
     public WebViewClient getWebViewClient() {
-        return new TwitterWebViewClient(this);
+        return new MyWebViewClient(this);
     }
 
     @Override
@@ -36,7 +38,13 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
         return "twitter.js";
     }
 
-    public void startInjectingOnClick(View view) {
+    @Override
+    public String getIsLoggedJsFile() {
+        return "twitter_is_logged.js";
+    }
+
+    @Override
+    public void startInjecting() {
 
         if (!shouldInject) {
 
@@ -53,18 +61,13 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
         }
     }
 
-    public class TwitterWebViewClient extends MyWebViewClient {
+    @Override
+    public void onPageCommitVisible() {
 
-        public TwitterWebViewClient(SocialNetworkInterface socialNetworkInterface) {
-            super(socialNetworkInterface);
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-            socialNetworkInterface.onPageListener();
-
-        }
     }
 
+    public void onPageFinished() {
+
+        onPageListener();
+    }
 }

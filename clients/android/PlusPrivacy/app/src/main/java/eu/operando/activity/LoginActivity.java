@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             boolean extra = getIntent().getBooleanExtra("fromMainActivity", false);
             if (!extra){
                 MainActivity.start(LoginActivity.this, false);
+                finish();
             }
         }
     }
@@ -136,6 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (result.isAuthenticated()) {
                                     Storage.saveUserID(result.getUserId());
                                     MainActivity.start(LoginActivity.this, false);
+                                    finish();
                                     storeCredentials(username, password);
                                     registerZone();
                                     finish();

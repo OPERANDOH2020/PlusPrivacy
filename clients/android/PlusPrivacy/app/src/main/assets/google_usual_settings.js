@@ -156,8 +156,10 @@ function doGetRequest(url, callback) {
 
 
 function secureAccount(privacySettingsJsonString) {
+
+    console.log("privacySettingsAsString" ,privacySettingsJsonString);
     var privacySettings = JSON.parse(privacySettingsJsonString);
-    console.log("privacySettings" ,privacySettings);
+    console.log("privacySettingsJSON" ,privacySettings);
     var total = privacySettings.length;
     privacySettings = privacySettings.reverse();
 

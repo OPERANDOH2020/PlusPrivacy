@@ -63,6 +63,7 @@
                   android:layout_marginBottom="24dp"
                   android:text="@string/no_account_yet_create_one"
                   android:gravity="center"
+                    android:textStyle=""
                   android:textSize="16sp"/>
 
         <TextView
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Reset password"
+            android:text="@string/reset_password"
             android:textSize="16sp"/>
 
     </LinearLayout>

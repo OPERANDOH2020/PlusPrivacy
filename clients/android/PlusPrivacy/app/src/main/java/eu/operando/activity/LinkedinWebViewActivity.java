@@ -12,7 +12,7 @@ import eu.operando.customView.MyWebViewClient;
 public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity {
 
     public String getURL_MOBILE() {
-        return "http://linkedin.com";
+        return "http://linkedin.com/psettings/privacy";
     }
 
     public String getURL() {
@@ -32,6 +32,11 @@ public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity {
     @Override
     public String getJsFile() {
         return "linkedin.js";
+    }
+
+    @Override
+    public String getIsLoggedJsFile() {
+        return "linkedin_is_logged.js";
     }
 
 }

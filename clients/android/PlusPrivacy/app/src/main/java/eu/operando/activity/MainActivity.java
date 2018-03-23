@@ -25,8 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.haha.perflib.Main;
-
 import java.util.List;
 
 import eu.operando.R;
@@ -243,6 +241,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
                 @Override
                 public void onClick(View view) {
                     LoginActivity.start(MainActivity.this, true);
+                    finish();
                 }
             });
         }
