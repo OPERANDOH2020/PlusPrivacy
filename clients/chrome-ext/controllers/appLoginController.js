@@ -1,5 +1,11 @@
 angular.module("operando").
-controller("appLoginController", ["$scope", "ModalService", function ($scope, ModalService) {
+controller("appLoginController", ["$scope", "ModalService","$state", function ($scope, ModalService, $state) {
+
+    switch($state.current.name){
+        case "identityManagement": $scope.featureName = "identity management"; break;
+        case "deals": $scope.featureName = "deals"; break;
+        case "contact": $scope.featureName = "contact"; break;
+    }
 
     $scope.displayLoginModal = function () {
 
