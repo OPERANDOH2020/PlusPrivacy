@@ -2030,6 +2030,10 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/feedback_selected.png");
 }
 
+.menu_icon.privacy_policy_icon{
+    background-image:url("/operando/assets/images/menu_icons/privacy_policy.png") ;
+}
+
 .menu_icon.user-account{
     background-image:url("/operando/assets/images/menu_icons/user_account.png");
 }
