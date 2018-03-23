@@ -63,11 +63,13 @@ var loginSwarming = {
                 return false;
             }
 
-            if (emailIsValid(this.email) === false || !this.authorisationToken
-                || this.authorisationToken.length === 0) {
+            if (emailIsValid(this.email) === false) {
                 this.error = "emailIsInvalid";
                 this.swarm('failed', this.getEntryAdapter());
-                return;
+            }else if(!this.authorisationToken
+                || this.authorisationToken.length === 0){
+                this.error = "passwordIsRequired";
+                this.swarm('failed', this.getEntryAdapter());
             }
             else {
                 this.sessionId = this.getSessionId();
