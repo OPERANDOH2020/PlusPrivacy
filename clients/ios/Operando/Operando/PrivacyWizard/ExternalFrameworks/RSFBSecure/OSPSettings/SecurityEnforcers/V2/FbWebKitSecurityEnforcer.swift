@@ -76,19 +76,9 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         
         finishedLoading = {
             
-            if ACPrivacyWizard.shared.selectedScope == .googleActivity {
-             //load css
-                
-                let path = Bundle.main.path(forResource: "activityControls", ofType: "css")
-                let javaScriptStr = "var link = document.createElement('link'); link.href = '%@'; link.rel = 'stylesheet'; document.head.appendChild(link)"
-                let javaScripthPath = NSString(format: javaScriptStr as NSString, path!)
-                self.webView.stringByEvaluatingJavaScriptFromString(script: javaScripthPath as String)
-                
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.loginIsDoneInitiateNextStep()
-            }
+//            }
             
             self.finishedLoading = nil
         }
@@ -124,8 +114,26 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.whenWebViewFinishesNavigation?()
-      
-        self.finishedLoading?()
+
+          if ACPrivacyWizard.shared.selectedScope == .googleActivity {
+            insertContentsOfCSSFile(into: webView)
+        }
+          else {
+            self.finishedLoading?()
+        }
+    }
+    
+    func insertContentsOfCSSFile(into webView: WKWebView) {
+        guard let path = Bundle.main.path(forResource: "activityControls.min", ofType: "css") else { return }
+        let cssString = try! String(contentsOfFile: path)
+        let jsString = "var style = document.createElement('style'); style.innerHTML = \"" + "\(cssString)" + "\"; document.head.appendChild(style);"
+//        let jsString = "console.log('am intrat')";
+        
+        print(jsString)
+        
+        webView.evaluateJavaScript(jsString) { (anyOBJC, error) in
+            self.finishedLoading?()
+        }
     }
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {

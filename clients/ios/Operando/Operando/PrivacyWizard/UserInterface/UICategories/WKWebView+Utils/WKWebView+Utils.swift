@@ -22,7 +22,7 @@ extension WKWebView {
                 }
             }
             else {
-                NSLog("evaluateJavaScript error : %@", error?.localizedDescription ?? "Nil Error")
+                NSLog("evaluateJavaScript error : %@ , %@", error?.localizedDescription ?? "Nil Error",script)
             }
             finished = true
         }

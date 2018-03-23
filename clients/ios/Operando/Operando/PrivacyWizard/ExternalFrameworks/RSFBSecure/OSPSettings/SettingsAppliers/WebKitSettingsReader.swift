@@ -32,17 +32,8 @@ extension WKWebView
                 modifiedJS = jsString.replacingOccurrences(of: "RS_PARAM_PLACEHOLDER", with: "\"\(privacySettingsJson.escapedStringForJS)\"")
             }
             
-            print(privacySettingsJson)
-            print("\n\n\n")
-            print(privacySettingsJson.escapedStringForGoogleJS)
-//            print(modifiedJS)
-            print("\n\n\n")
-            
-            
-            
-            self.evaluateJavaScript(modifiedJS, completionHandler: completion)
+        self.evaluateJavaScript(modifiedJS, completionHandler: completion)
         }
-        
     }
     
     func loadJQueryIfNeededWithCompletion(completion: VoidBlock?)
@@ -179,8 +170,6 @@ class WebKitSettingsReader : NSObject, OSPSettingsReader, WKNavigationDelegate
             weakSelf?.extractSettingsByExecuting(jsToExecute: jsToExecute, withCompletion: completion)
             weakSelf?.clearAllCallbacks()
         }
-        
-        
     }
     
     

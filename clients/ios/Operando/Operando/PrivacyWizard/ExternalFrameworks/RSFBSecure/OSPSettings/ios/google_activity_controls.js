@@ -1,5 +1,6 @@
 
 //
+
 var kMessageTypeKey = "messageType";
 var kLogMessageTypeContentKey = "logContent";
 var kLogMessageType = "log";
@@ -29,6 +30,8 @@ var sendStatusMessage = function(settingName) {
 };
 
 console.log("activity_controls_script");
+
+showModal();
 
 
 function showModal() {
@@ -175,7 +178,9 @@ function watchCurrentSettings() {
     if (changeIsNeeded == false) {
         console.log("changeIsNeeded", changeIsNeeded);
 //        Android.onFinishedLoadingCallback();
-        sendStatusMessage("DONE");
+       sendStatusMessage("Done-GOOGLE");
+          // console.log("SE APELEAZA INCONTINUUU")
+
         // port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"wizardFinished"}});
     }
     else{
@@ -242,7 +247,7 @@ setInterval(function () {
             
             watchCurrentSettings();
             }
-            }, 200);
+            }, 1000);
 
 
 function enableDisablePopupCheckIntervalFn() {

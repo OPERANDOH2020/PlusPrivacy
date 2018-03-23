@@ -264,6 +264,7 @@
 		C7908A401FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */; };
 		C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */ = {isa = PBXBuildFile; fileRef = C7BAF33920513C0700A9BFF0 /* linkedin.js */; };
 		C7C5D0EB2063C403000352D6 /* activityControls.css in Resources */ = {isa = PBXBuildFile; fileRef = C7C5D0EA2063C402000352D6 /* activityControls.css */; };
+		C7C5D0ED20641501000352D6 /* activityControls.min.css in Resources */ = {isa = PBXBuildFile; fileRef = C7C5D0EC20641501000352D6 /* activityControls.min.css */; };
 		C7F794F520235FD4005DE7B3 /* UIMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */; };
 		C7F794F620235FD4005DE7B3 /* UIPrivacySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */; };
 		C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */; };
@@ -682,6 +683,7 @@
 		C7908A301FC6E33400C93A82 /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
 		C7BAF33920513C0700A9BFF0 /* linkedin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = linkedin.js; sourceTree = "<group>"; };
 		C7C5D0EA2063C402000352D6 /* activityControls.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = activityControls.css; sourceTree = "<group>"; };
+		C7C5D0EC20641501000352D6 /* activityControls.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = activityControls.min.css; sourceTree = "<group>"; };
 		C7F794D420235FD4005DE7B3 /* UIMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMainViewController.swift; sourceTree = "<group>"; };
 		C7F794D620235FD4005DE7B3 /* UIPrivacySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPrivacySettingViewController.swift; sourceTree = "<group>"; };
 		C7F794D920235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQuestionnaireTableViewCell.swift; sourceTree = "<group>"; };
@@ -2450,6 +2452,7 @@
 				C7F79577202363F8005DE7B3 /* OSP.Settings.js */,
 				C7F79578202363F8005DE7B3 /* readSNSettings.js */,
 				C7F79579202363F8005DE7B3 /* testJQuery.js */,
+				C7C5D0EC20641501000352D6 /* activityControls.min.css */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -2868,6 +2871,7 @@
 				989C8A7E1DD346A0003BF341 /* UIRealIdentityView.xib in Resources */,
 				C7F795BE202363F8005DE7B3 /* UISNSettingsTableViewCell.xib in Resources */,
 				9827500F1D08496C00C73411 /* UIBrowsingNavigationBar.xib in Resources */,
+				C7C5D0ED20641501000352D6 /* activityControls.min.css in Resources */,
 				C7F795E720248DDB005DE7B3 /* PrivacyWizard.js in Resources */,
 				C7F795AE202363F8005DE7B3 /* osp-settings.js in Resources */,
 				C76EC53A2056801600B26690 /* google_usual_settings.js in Resources */,

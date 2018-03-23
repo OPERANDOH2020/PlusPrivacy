@@ -18,6 +18,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     // MARK: - Properties
     private var whenUserPressedLoggedIn: VoidBlock?
     private var fbSecurityEnforcer: FbWebKitSecurityEnforcer?
+    private var isDONE = false
     
     private var webView: WKWebView = WKWebView(frame: .zero)
     private var tutorialView: UITutorialView?
@@ -95,8 +96,29 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             if $0 == "Done" {
                 
                 self.displayStatusView(hidden: true)
+                self.navigationController?.popViewController(animated: true)
                 RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
                 return
+            }
+            else if $0 == "Done-GOOGLE" {
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    
+                    if self.isDONE == true {
+                        return
+                    }
+                    else {
+                        self.isDONE = true
+                    }
+                    
+                    self.displayStatusView(hidden: true)
+                    self.navigationController?.popViewController(animated: true)
+                    RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
+                    
+                })
+            
+                return
+                
             }
             else if $0 == "DONE-POST" {
                 
@@ -134,6 +156,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        self.isDONE == false
         //        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
