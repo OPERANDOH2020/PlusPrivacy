@@ -61,7 +61,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     .run( function(DTDefaultOptions){
         DTDefaultOptions.setLoadingTemplate('<ui-loader ></ui-loader>');
     })
-    .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$locationProvider) {
 
         $ocLazyLoadProvider.config({
             debug: false,
@@ -70,6 +70,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
 
         // Now set up the states
         $stateProvider
+            .state('/', {
+                url: "/home",
+                templateUrl: "views/home.html",
+                cache: false
+            })
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
@@ -83,7 +88,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         return ospService.loadOSPs();
                     }]
                 }
-
             })
             .state("notifications", {
                 url: "/notifications",
@@ -276,7 +280,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 }
             })
             .state("admin.privacy_settings",{
-                url:"/privacy_settings/:sn",
+                url:"operando/privacy_settings/:sn",
                 params: {
                     sn: "facebook"
                 },
@@ -446,6 +450,14 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 }
             });
 
+
+
+        $stateProvider
+            .state("otherwise", { url : '/home'});
+
+        //$locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('!');
+
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();
@@ -456,7 +468,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
         $ocLazyLoad.load(
             ['../ext/common.js',
                 '../ext/content.js',
-                'util/hooks.js'
+                '/operando/util/hooks.js'
             ]).then(function () {
             subscriptionsService.init();
             firstRunService.onFirstRun(function(){
