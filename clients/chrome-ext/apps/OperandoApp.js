@@ -61,7 +61,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     .run( function(DTDefaultOptions){
         DTDefaultOptions.setLoadingTemplate('<ui-loader ></ui-loader>');
     })
-    .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$locationProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
         $ocLazyLoadProvider.config({
             debug: false,
@@ -280,7 +280,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 }
             })
             .state("admin.privacy_settings",{
-                url:"operando/privacy_settings/:sn",
+                url:"/privacy_settings/:sn",
                 params: {
                     sn: "facebook"
                 },
@@ -450,14 +450,8 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 }
             });
 
-
-
         $stateProvider
             .state("otherwise", { url : '/home'});
-
-        //$locationProvider.html5Mode(true);
-        $locationProvider.hashPrefix('!');
-
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();
@@ -468,7 +462,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
         $ocLazyLoad.load(
             ['../ext/common.js',
                 '../ext/content.js',
-                '/operando/util/hooks.js'
+                'util/hooks.js'
             ]).then(function () {
             subscriptionsService.init();
             firstRunService.onFirstRun(function(){
