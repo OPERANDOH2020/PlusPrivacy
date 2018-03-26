@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -237,41 +236,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-GY-fTq" userLabel="identitiesManagementButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-tQ-Ctd" userLabel="privateBrowsingButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="333.5" width="187.5" height="333.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-DK-fav" userLabel="privacyForBenefitsButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="333.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-Jh-xYI" userLabel="notificationsButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="187.5" y="333.5" width="187.5" height="333.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O52-aU-tFX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yD8-6h-ZEn">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="667"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-GY-fTq" userLabel="identitiesManagementButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-Jh-xYI" userLabel="notificationsButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="333.5" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yuC-aL-igZ">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="667"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-DK-fav" userLabel="privacyForBenefitsButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-tQ-Ctd" userLabel="privateBrowsingButton" customClass="UIDashboardButton" customModule="Operando" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="333.5" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HWf-Jh-xYI" firstAttribute="leading" secondItem="cZe-tQ-Ctd" secondAttribute="trailing" id="3XM-1x-ILL"/>
-                            <constraint firstItem="j6b-GY-fTq" firstAttribute="height" secondItem="yQY-wI-nZ0" secondAttribute="height" multiplier="0.5" id="5fI-5H-qPH"/>
-                            <constraint firstItem="cZe-tQ-Ctd" firstAttribute="centerX" secondItem="j6b-GY-fTq" secondAttribute="centerX" id="ANo-tT-Cva"/>
-                            <constraint firstItem="j6b-GY-fTq" firstAttribute="top" secondItem="yQY-wI-nZ0" secondAttribute="top" id="Azf-uQ-iR9"/>
-                            <constraint firstItem="Kf6-DK-fav" firstAttribute="height" secondItem="j6b-GY-fTq" secondAttribute="height" id="Cyf-jf-3PQ"/>
-                            <constraint firstItem="Kf6-DK-fav" firstAttribute="leading" secondItem="j6b-GY-fTq" secondAttribute="trailing" id="DJ5-6L-BUY"/>
-                            <constraint firstItem="j6b-GY-fTq" firstAttribute="width" secondItem="yQY-wI-nZ0" secondAttribute="width" multiplier="0.5" id="EAG-If-MhC"/>
-                            <constraint firstItem="cZe-tQ-Ctd" firstAttribute="width" secondItem="j6b-GY-fTq" secondAttribute="width" id="HSh-4i-dEF"/>
-                            <constraint firstItem="cZe-tQ-Ctd" firstAttribute="height" secondItem="j6b-GY-fTq" secondAttribute="height" id="Qc8-7Z-7nv"/>
-                            <constraint firstItem="Kf6-DK-fav" firstAttribute="centerY" secondItem="j6b-GY-fTq" secondAttribute="centerY" id="Qqn-LE-Sbt"/>
-                            <constraint firstItem="Kf6-DK-fav" firstAttribute="width" secondItem="j6b-GY-fTq" secondAttribute="width" id="R7v-kZ-LAf"/>
-                            <constraint firstItem="HWf-Jh-xYI" firstAttribute="height" secondItem="cZe-tQ-Ctd" secondAttribute="height" id="bl7-10-zSj"/>
-                            <constraint firstItem="HWf-Jh-xYI" firstAttribute="width" secondItem="cZe-tQ-Ctd" secondAttribute="width" id="glG-sM-rch"/>
-                            <constraint firstItem="cZe-tQ-Ctd" firstAttribute="top" secondItem="j6b-GY-fTq" secondAttribute="bottom" id="qmz-76-98N"/>
-                            <constraint firstItem="HWf-Jh-xYI" firstAttribute="centerY" secondItem="cZe-tQ-Ctd" secondAttribute="centerY" id="r5q-g1-vpD"/>
-                            <constraint firstItem="j6b-GY-fTq" firstAttribute="leading" secondItem="yQY-wI-nZ0" secondAttribute="leading" id="rBB-wa-cQg"/>
+                            <constraint firstItem="O52-aU-tFX" firstAttribute="leading" secondItem="yQY-wI-nZ0" secondAttribute="leading" id="63z-bF-Ja2"/>
+                            <constraint firstAttribute="bottom" secondItem="O52-aU-tFX" secondAttribute="bottom" id="Eno-a9-1Yu"/>
+                            <constraint firstAttribute="trailing" secondItem="O52-aU-tFX" secondAttribute="trailing" id="WiD-OP-3hv"/>
+                            <constraint firstItem="O52-aU-tFX" firstAttribute="top" secondItem="yQY-wI-nZ0" secondAttribute="top" id="sFb-z9-XHM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8iO-qa-A3G"/>

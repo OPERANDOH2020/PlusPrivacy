@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivacyWizzardSettingsViewController" customModule="Operando" customModuleProvider="target">
             <connections>
+                <outlet property="spinner" destination="oIY-cu-DPn" id="Hro-be-ak4"/>
                 <outlet property="tableView" destination="fs1-jw-L0P" id="rp5-vg-xjc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -135,16 +136,26 @@
                                 <constraint firstAttribute="height" constant="70" id="R8Z-lZ-DW0"/>
                             </constraints>
                         </stackView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-cu-DPn">
+                            <rect key="frame" x="177" y="313" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="l2z-m6-rc2"/>
+                                <constraint firstAttribute="width" constant="20" id="lvN-on-1p5"/>
+                            </constraints>
+                            <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="fs1-jw-L0P" firstAttribute="top" secondItem="gp5-H7-ew6" secondAttribute="top" id="2N1-dg-6Sc"/>
                         <constraint firstItem="3wV-Cb-we7" firstAttribute="leading" secondItem="gp5-H7-ew6" secondAttribute="leading" id="B5j-2p-TLF"/>
+                        <constraint firstItem="oIY-cu-DPn" firstAttribute="centerX" secondItem="gp5-H7-ew6" secondAttribute="centerX" id="DZ1-cx-Jn8"/>
                         <constraint firstItem="fs1-jw-L0P" firstAttribute="leading" secondItem="gp5-H7-ew6" secondAttribute="leading" id="FQ1-FM-dwk"/>
                         <constraint firstItem="3wV-Cb-we7" firstAttribute="top" secondItem="fs1-jw-L0P" secondAttribute="bottom" constant="20" id="Kom-yD-AST"/>
                         <constraint firstAttribute="trailing" secondItem="3wV-Cb-we7" secondAttribute="trailing" id="Okc-Ux-seK"/>
                         <constraint firstAttribute="bottom" secondItem="3wV-Cb-we7" secondAttribute="bottom" id="YXm-nG-tI7"/>
                         <constraint firstAttribute="trailing" secondItem="fs1-jw-L0P" secondAttribute="trailing" id="eED-VK-Ne7"/>
+                        <constraint firstItem="oIY-cu-DPn" firstAttribute="centerY" secondItem="gp5-H7-ew6" secondAttribute="centerY" id="eTu-s6-sKV"/>
                     </constraints>
                 </view>
             </subviews>

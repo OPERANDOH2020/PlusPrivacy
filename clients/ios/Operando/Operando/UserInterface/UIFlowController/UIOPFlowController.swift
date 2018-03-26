@@ -172,7 +172,7 @@ class UIOPFlowController
             self.displayQuestionnaire(wizzardType: .google)
         }))
             
-        self.rootController.setupTabViewForPrivacyWizzard()
+        self.rootController.setupTabBarForSocialNetworks()
         self.rootController.setMainControllerTo(newController: vc)
     }
     

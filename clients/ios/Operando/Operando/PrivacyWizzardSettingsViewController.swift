@@ -37,12 +37,12 @@ struct PrivacyWizzardSettingsCallbacks {
 
 class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PrivacyWizardFacebookExpandedCellDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var repository: PrivacyWizardRepository?
     @objc private var allSettings: AMPrivacySettings?
     
-    var
-    callbacks:PrivacyWizzardSettingsCallbacks?
+    var callbacks:PrivacyWizzardSettingsCallbacks?
     
     private var selectedIndexPath: IndexPath?
     private var currentSelectedSetting: AMPrivacySetting?
@@ -55,7 +55,7 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
         // Do any additional setup after loading the view.
         
         setupTableView()
-        
+        self.spinner.startAnimating()
         let settingsType = wizzardType.toPrivacySettingsType()
         repository?.getAllQuestions(withType: settingsType, withCompletion: { (settings,error) in
             
@@ -71,6 +71,7 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
                     self.allSettings = settings
                     self.setupSettingsWithRecommended()
                     self.tableView.reloadData()
+                    self.spinner.stopAnimating()
                 })
             }
         })

@@ -114,9 +114,9 @@ class UIRootViewController: UIViewController
         self.topBarLabel.text = "Google privacy settings"
     }
     
-    func setupTabViewForPrivacyWizzard() {
-        self.topBarView.backgroundColor = UIColor.identitiesBlue()
-        self.topBarLabel.text = "Privacy Wizzard"
+    func setupTabBarForSocialNetworks() {
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = "Social Networks Settings"
     }
     
     func setupTabViewForIdentities() {

@@ -749,7 +749,7 @@ var mainFunction = function(privacySettingsJsonString) {
 };
 
 
-console.log("BSFDASDAA");
+console.log("twitter");
 mainFunction(RS_PARAM_PLACEHOLDER);
 
 
