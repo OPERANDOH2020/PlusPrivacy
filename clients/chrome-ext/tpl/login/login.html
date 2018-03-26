@@ -24,13 +24,13 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    <button class="btn-primary btn-block" type="submit">Login</button>
+                    <button class="btn-primary btn-block" type="submit"  ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Logging in...">Login</button>
                 </div>
                 <div class="col-lg-2">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-5">
-                    <button class="btn-primary btn-block" ng-click="show_signup()">Sign Up</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_signup()">Sign Up</button>
                 </div>
             </div>
 
@@ -57,13 +57,13 @@
 
             <div class="row">
                 <div class="col-lg-7">
-                    <button class="btn-primary btn-block" type="submit">Sign up</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">Sign up</button>
                 </div>
                 <div class="col-lg-2">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-3">
-                    <button class="btn-primary btn-block" ng-click="show_login()">Sign In</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_login()">Sign In</button>
                 </div>
             </div>
 
@@ -79,13 +79,13 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <button class="btn-primary btn-block" type="submit">{{"resetPassword"|i18n}}</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">{{"resetPassword"|i18n}}</button>
                 </div>
                 <div class="col-lg-12">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-12">
-                    <button class="btn-primary btn-block" ng-click="show_login()">{{"signIn"|i18n}}</button>
+                    <button class="btn-primary-black btn-block" ng-click="show_login()">{{"signIn"|i18n}}</button>
                 </div>
             </div>
         </form>
