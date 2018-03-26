@@ -177,13 +177,6 @@ var authenticationService = exports.authenticationService = {
             }
         });
     },
-    changeLoggedInIcon: function (isLoggedIn) {
-        var icon = "operando/assets/images/icons/operando/abp-19-grey.png";
-        if (isLoggedIn) {
-            icon = "operando/assets/images/icons/operando/abp-19.png"
-        }
-        chrome.browserAction.setIcon({path: icon});
-    },
 
     restoreUserSession: function (successCallback, failCallback, errorCallback, reconnectCallback) {
         if (!errorCallback) {
@@ -209,7 +202,6 @@ var authenticationService = exports.authenticationService = {
 
             if (!username || !sessionId) {
                 failCallback();
-                authenticationService.changeLoggedInIcon(false);
                 return;
             }
             swarmService.restoreConnection(ExtensionConfig.OPERANDO_SERVER_HOST, ExtensionConfig.OPERANDO_SERVER_PORT, username, sessionId, failCallback, errorCallback, customReconnectCallback);
@@ -240,7 +232,6 @@ var authenticationService = exports.authenticationService = {
         associateUserWithDeviceAction();
         registerForPushNotificationsAction();
 
-        authenticationService.changeLoggedInIcon(true);
         var setUserHandler = swarmHub.startSwarm('UserInfo.js', 'info');
         setUserHandler.onResponse("result", function (swarm) {
             authenticatedUser = swarm.result;
@@ -273,7 +264,6 @@ var authenticationService = exports.authenticationService = {
     },
 
     clearUserData: function () {
-        authenticationService.changeLoggedInIcon(false);
         authenticatedUser = {};
         loggedIn = false;
         notLoggedInObservable.notify();

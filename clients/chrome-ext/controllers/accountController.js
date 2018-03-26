@@ -26,12 +26,8 @@ controller("accountCtrl", ["$scope","messengerService","Notification","ModalServ
 
     var alias = this;
 
-    $scope.emailIsEditMode = false;
     $scope.passwordIsEditMode = false;
 
-    $scope.changeEmailState = function(){
-        $scope.emailIsEditMode = !$scope.emailIsEditMode;
-    }
 
     $scope.changePassword = function () {
         $scope.passwordIsEditMode = !$scope.passwordIsEditMode;
@@ -66,23 +62,6 @@ controller("accountCtrl", ["$scope","messengerService","Notification","ModalServ
             }
         });
 
-    }
-    $scope.updateEmail = function () {
-        messengerService.send("updateUserInfo", {email: $scope.email}, function (response) {
-            if (response.status === "success") {
-                $scope.emailIsEditMode = false;
-                Notification.success({
-                    message: "Email successfully updated!",
-                    positionY: 'bottom',
-                    positionX: 'center',
-                    delay: 3000
-                });
-            }
-            else if (response.error) {
-                Notification.error({message: response.error, positionY: 'bottom', positionX: 'center', delay: 3000});
-
-            }
-        })
     }
 
     $scope.loading = function($event){
