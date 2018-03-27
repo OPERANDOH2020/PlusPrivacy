@@ -3,11 +3,14 @@
     <div class="user_area">
         <div class="user_actions">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-5">
                     <button class="regular_btn" ng-click="show_login()">{{"login"|i18n}}</button>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-5">
                     <button id="register" ng-click="show_register()" class="regular_btn">{{"signUp"|i18n}}</button>
+                </div>
+                <div class="col-xs-2">
+                    <button id="what_use_to"  ng-mouseover="showRegisterTooltip($event)" ng-mouseleave = "hideRegisterTooltip($event)">?</button>
                 </div>
             </div>
         </div>

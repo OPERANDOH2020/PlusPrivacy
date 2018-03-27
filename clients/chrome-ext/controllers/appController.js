@@ -11,23 +11,59 @@
  */
 
 angular.module("operando").
-controller("appCtrl", ["$scope", "messengerService","$window","$state", function ($scope, messengerService, $window, $state) {
+controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$state", function ($scope, $rootScope, messengerService, $window, $state) {
     $scope.appVersion = chrome.app.getDetails().version;
     $scope.userIsLoggedIn = false;
     $scope.state = $state;
     $scope.logout = function () {
-        messengerService.send("logoutCurrentUser", logoutHandler);
-    }
+        messengerService.send("logoutCurrentUser");
+    };
 
-    messengerService.send("getCurrentUser",function(response){
+
+    /*var userDataIsRetrieved = function(response){
+        //messengerService.off("getCurrentUser",userDataIsRetrieved);
         $scope.user = response.data;
         $scope.userIsLoggedIn = true;
+        //$state.reload();
         $scope.$apply();
+        $rootScope.$broadcast("dismissLoginModal");
+    }*/
+
+
+    messengerService.send("userIsAuthenticated", function (data) {
+        var refreshPageData = function(refresh){
+            return function(response){
+                $scope.user = response.data;
+                $scope.userIsLoggedIn = true;
+
+                if(refresh){
+                    console.log("dau refresh");
+                    $rootScope.$broadcast("dismissLoginModal");
+                    $state.reload();
+                }
+                else{
+                    console.log("nu dau refresh inca");
+                    refresh = true;
+                }
+                $scope.$apply();
+            }
+        };
+
+        if(data.status && data.status == "success"){
+            //we don't need to refresh the state
+            messengerService.on("getCurrentUser",refreshPageData(false));
+        }
+        else{
+            messengerService.on("getCurrentUser",refreshPageData(true));
+        }
+
     });
+
+
 
     messengerService.on("userUpdated", updatedUserHandler);
 
-    messengerService.send("notifyWhenLogout", logoutHandler);
+    messengerService.on("notifyWhenLogout", logoutHandler);
 
 
     function updatedUserHandler(){
@@ -38,10 +74,11 @@ controller("appCtrl", ["$scope", "messengerService","$window","$state", function
     }
 
     function logoutHandler(){
+        console.log("afara");
         $scope.userIsLoggedIn = false;
-        messengerService.send("provideLogoutLink",function(response){
-            $window.location.href = response.data;
-        });
+        //messengerService.off("notifyWhenLogout", logoutHandler);
+        //messengerService.on("getCurrentUser",userDataIsRetrieved);
+        $state.reload();
     }
 
 

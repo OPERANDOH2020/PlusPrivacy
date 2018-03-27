@@ -28,5 +28,5 @@
     "please-login-with-social-networks":"You need to be logged into your social networks accounts. Currently you are not logged into %{socialNetworks}. Please log in to at least one social network and try again.",
     "try-again":"Try again",
     "not-logged-in":"You are not logged in",
-    "login":"Login"
+    "passwordIsRequired":"Password is required"
   }

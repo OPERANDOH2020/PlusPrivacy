@@ -1,6 +1,17 @@
 <div class="operando_wrapper" ng-controller="menuCtrl" ng-init="initPopup()">
 
     <ul ng-controller="loginCtrl" class="popup-login-area">
+
+        <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-hide="loginAreaState == 'forgot_password' || loginAreaState =='register_form'||loginAreaState == 'login_form'"></menu-item>
+        <li id="operando_abp" ng-show="showABPAndPrivacyPolicyOptions">
+
+                <div id="enabled" class="menu-item" role="button">
+                    <div class="icon"></div>
+                    <span id="enabled-yes">Ads blocked on this site</span>
+                    <span id="enabled-no">Ads on blocked on this site</span>
+                </div>
+        </li>
+
         <li id="login_area" ng-switch="loginAreaState">
             <div ng-if="info.status">
                 <div class="panel panel-{{info.status=='error'?'danger':info.status}}">
@@ -39,57 +50,6 @@
             <div ng-switch-when="register_form">
                 <div ng-include src="'operando/tpl/panel/register_form_state.html'"></div>
             </div>
-        </li>
-
-        <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-show="isAuthenticated"></menu-item>
-        <li id="operando_abp" ng-show="showABPAndPrivacyPolicyOptions">
-            <div class="item_icon abp_icon"></div>
-            <a id="abp_expand" href="#">{{"adblockerOptions"|i18n}}</a>
-
-            <div id="expand_abp"></div>
-
-            <div id="wrapperabp" class="right_content">
-                <div id="notification" hidden>
-                    <div id="notification-content">
-                        <h1>
-                            <span id="notification-title"></span>
-                            <span id="notification-close"></span>
-                        </h1>
-
-                        <p id="notification-message"></p>
-                    </div>
-                    <ul id="notification-close-content">
-                        <li id="notification-hide"
-                            class="i18n_overlay_notification_closing_button_hide"></li>
-                        <li id="notification-optout"
-                            class="i18n_overlay_notification_closing_button_optout"></li>
-                    </ul>
-                </div>
-
-                <div id="clickhide-instructions" class="i18n_clickhide_instructions"></div>
-
-                <ul id="menu">
-                    <li id="enabled" class="menu-item" role="button">
-                        <div class="icon"></div>
-                        <span id="enabled-yes" class="i18n_enabled_for_site"></span>
-                        <span id="enabled-no" class="i18n_disabled_for_site"></span>
-                    </li>
-
-                    <li id="clickhide" class="menu-item" role="button">
-                        <div class="icon"></div>
-                        <span class="i18n_easy_create_filter"></span>
-                    </li>
-                    <li id="clickhide-cancel" class="menu-item" role="button">
-                        <div class="icon"></div>
-                        <span class="i18n_cancel"></span>
-                    </li>
-                </ul>
-            </div>
-
-        </li>
-        <li id="privacy_policy" ng-show="showABPAndPrivacyPolicyOptions && isAuthenticated == false">
-            <div class="item_icon privacy_policy_icon"></div>
-                <a href="/operando/operando.html#/privacy-policy" target="_blank">{{"privacyPolicy"|i18n}}</a>
         </li>
     </ul>
 </div>

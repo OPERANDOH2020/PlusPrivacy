@@ -45,10 +45,7 @@ port.onMessage.addListener(function (msg) {
             data:setting.data.setting
         });
     });
-
-
     watchCurrentSettings();
-
 });
 
 

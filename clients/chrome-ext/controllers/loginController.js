@@ -186,6 +186,23 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         $scope.showABPAndPrivacyPolicyOptions = false;
     }
 
+    $scope.showRegisterTooltip = function($event){
+        $($event.target)
+            .tooltipster({
+                contentAsHTML: true,
+                theme: ['tooltipster-plus-privacy'],
+                content: "<div class='register_tooltip'><p>You need to login or sign up with your email address only if you wish to use the email identity management feature. If you choose not to log in, you can still use all the other features of PlusPrivacy, anonymously.</p></div>",
+                trigger: "custom",
+                interactive: true,
+                animationDuration: 200,
+                zIndex: 2147483647
+            })
+            .tooltipster('open');
+    };
+    $scope.hideRegisterTooltip = function($event){
+        $($event.target).tooltipster('close');
+    }
+
     $scope.register = function(){
 
         $scope.info.status = "success";

@@ -70,6 +70,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
 
         // Now set up the states
         $stateProvider
+            .state('/', {
+                url: "/home",
+                templateUrl: "views/home.html",
+                cache: false
+            })
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
@@ -83,7 +88,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         return ospService.loadOSPs();
                     }]
                 }
-
             })
             .state("notifications", {
                 url: "/notifications",
@@ -204,11 +208,57 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             })
             .state('deals', {
                 url: "/deals",
-                templateUrl: "views/deals.html"
+                templateProvider:["$stateParams", '$templateRequest',"messengerService",
+                    function($stateParams, templateRequest,messengerService) {
+                        var tplName = "views/deals.html";
+                        var notLoggedIn = "views/not_authenticated.html";
+
+                        return new Promise(function (resolve) {
+                            messengerService.send("userIsAuthenticated", function (data) {
+                                if(data.status && data.status =="success"){
+                                    resolve(templateRequest(tplName))
+                                }
+                                else{
+                                    resolve(templateRequest(notLoggedIn));
+                                }
+
+                            });
+                        });
+                    }
+                ],
+                resolve:{
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        //TODO load only when is needed
+                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                    }]
+                }
             })
             .state('identityManagement', {
                 url: "/identities",
-                templateUrl: "views/identity_management.html"
+                templateProvider:["$stateParams", '$templateRequest',"messengerService",
+                    function($stateParams, templateRequest,messengerService) {
+                        var tplName = "views/identity_management.html";
+                        var notLoggedIn = "views/not_authenticated.html";
+
+                        return new Promise(function (resolve) {
+                            messengerService.send("userIsAuthenticated", function (data) {
+                                if(data.status && data.status =="success"){
+                                    resolve(templateRequest(tplName))
+                                }
+                                else{
+                                    resolve(templateRequest(notLoggedIn));
+                                }
+
+                            });
+                        });
+                    }
+                ],
+                resolve:{
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        //TODO load only when is needed
+                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                    }]
+                }
             })
             .state('extensions', {
                 url: "/extensions",
@@ -318,7 +368,29 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             .state('account', {
                 url: "/account",
                 abstract: true,
-                templateUrl: "views/user_account.html"
+                templateProvider:["$stateParams", '$templateRequest',"messengerService",
+                    function($stateParams, templateRequest, messengerService) {
+                        var tplName = "views/user_account.html";
+                        var notLoggedIn = "views/not_authenticated.html";
+
+                        return new Promise(function (resolve) {
+                            messengerService.send("userIsAuthenticated", function (data) {
+                                if(data.status && data.status =="success"){
+                                    resolve(templateRequest(tplName))
+                                }
+                                else{
+                                    resolve(templateRequest(notLoggedIn));
+                                }
+
+                            });
+                        });
+                    }
+                ],
+                resolve: {
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                    }]
+                }
             })
             .state('account.personal-details', {
                 url: "/personal-details",
@@ -352,14 +424,34 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             })
             .state('contact', {
                 url: "/contact",
-                templateUrl: "views/contact.html",
+                templateProvider:["$stateParams", '$templateRequest',"messengerService",
+                    function($stateParams, templateRequest, messengerService) {
+                        var tplName = "views/contact.html";
+                        var notLoggedIn = "views/not_authenticated.html";
+
+                        return new Promise(function (resolve) {
+                            messengerService.send("userIsAuthenticated", function (data) {
+                                if(data.status && data.status =="success"){
+                                    resolve(templateRequest(tplName))
+                                }
+                                else{
+                                    resolve(templateRequest(notLoggedIn));
+                                }
+
+                            });
+                        });
+                    }
+                ],
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/contactController.js');
+                        return $ocLazyLoad.load(['/operando/controllers/contactController.js',
+                            '/operando/controllers/appLoginController.js']);
                     }]
                 }
             });
 
+        $stateProvider
+            .state("otherwise", { url : '/home'});
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();

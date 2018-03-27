@@ -17,23 +17,19 @@ var bus = require("bus-service").bus;
 
 chrome.runtime.onConnect.addListener(function (_port) {
     (function(clientPort){
-
         portObserversPool.registerPortObserver(clientPort);
         clientPort.onDisconnect.addListener(function(){
+
+            var portObservers = portObserversPool.getPortObservers(clientPort);
+            portObservers.forEach(function (portObserver) {
+                bus.removeObserverByCallback(portObserver.request, portObserver.fn);
+            });
+
             portObserversPool.unregisterPortObserver(clientPort);
             clientPort = null;
         });
 
         if (clientPort.name === "OPERANDO_MESSAGER" || clientPort.name === "INPUT_TRACKER") {
-
-            /**
-             * Listen for swarm connection events
-             **/
-
-            clientPort.onDisconnect.addListener(function () {
-                clientPort = null;
-
-            });
 
             /**
              * Listen for commands
@@ -66,7 +62,8 @@ chrome.runtime.onConnect.addListener(function (_port) {
                             args.push(request.message);
                         }
 
-                        args.push(function (data) {
+
+                        var successCallbackResponse = function (data) {
                             var response = data;
                             var messageToClient = {
                                 type: messageType,
@@ -78,9 +75,17 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 clientPort.postMessage(messageToClient);
                             } else {
                                 console.log("CLIENTPORT IS NULL. Trying latest port...");
-                                chrome.runtime.sendMessage(messageToClient);
+                                if(messageToClient.type !== "BACKGROUND_DEMAND"){
+                                    chrome.runtime.sendMessage(messageToClient);
+                                }
                             }
-                        });
+                        };
+
+                        //if(messageType === "BACKGROUND_DEMAND"){
+                            portObserversPool.addPortRequestSubscriber(clientPort, request.action, successCallbackResponse);
+                        //}
+
+                        args.push(successCallbackResponse);
 
                         args.push(function (err) {
                             if(!err){
@@ -97,6 +102,9 @@ chrome.runtime.onConnect.addListener(function (_port) {
                                 clientPort.postMessage(messageToClient);
                             } else {
                                 console.log("CLIENTPORT IS NULL. Trying latest port...");
+                                if(messageToClient.type !== "BACKGROUND_DEMAND"){
+                                    chrome.runtime.sendMessage(messageToClient);
+                                }
                                 chrome.runtime.sendMessage(messageToClient);
                             }
                         });

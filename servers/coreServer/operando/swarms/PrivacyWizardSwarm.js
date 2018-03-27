@@ -10,25 +10,46 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-
 var privacyWizardSwarm = {
 
-    getOSPSettings : function(){
+    getOSPSettings : function(ospName, myRequestId){
+        if(ospName){
+            this.ospName = ospName;
+        }
+
+        if(myRequestId){
+            this.myRequestId = myRequestId
+        }
+
         this.swarm("retrieveOSPSettingsFromServer");
-    },
+   },
 
     retrieveOSPSettingsFromServer:{
         node: "WatchDogAdapter",
-
         code: function () {
-               this.ospSettings = getOspSettings();
-               this.home("gotOSPSettings");
+            this.ospSettings = getOspSettings();
+
+            if (this.ospName) {
+                if (this.ospSettings[this.ospName]) {
+                    this.ospSettings = this.ospSettings[this.ospName];
+                    this.swarm("sendOSPSettings");
+                }
+                else {
+                    this.swarm("sendOSPSettings");
+                }
+            }
+            else {
+                this.swarm("sendOSPSettings");
+            }
+
+
+
         }
     },
 
     updateOSPSettings:function(newOspSettings){
         this.ospSettings = newOspSettings;
-        this.swarm("updateOSPSettingsOnServer")
+        this.swarm("updateOSPSettingsOnServer");
     },
 
     updateOSPSettingsOnServer:{
@@ -72,6 +93,18 @@ var privacyWizardSwarm = {
 
     dismissPrivacyNotifications:function(){
         this.swarm("updateNotifications");
+    },
+
+    sendOSPSettings:{
+        node: "WSServer",
+        code: function () {
+            if(this.myRequestId){
+                var swarmDispatcher = getSwarmDispatcher();
+                swarmDispatcher.notifySubscribers(this.myRequestId, this.ospSettings);
+            }else{
+                this.home("gotOSPSettings");
+            }
+        }
     },
 
     updateNotifications:{

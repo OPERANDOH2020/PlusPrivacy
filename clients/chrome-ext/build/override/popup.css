@@ -8,19 +8,6 @@ body
   background:#f5f3ed!important;
 }
 
-#clickhide-instructions,
-#clickhide-cancel,
-body.clickhide-active li
-{
-  display: none;
-}
-
-body.clickhide-active #clickhide-instructions,
-body.clickhide-active #clickhide-cancel
-{
-  display: block;
-}
-
 body.local #enabled,
 body.local #clickhide,
 body.local #stats-page
@@ -205,6 +192,11 @@ li li
   background-image: url(popup.png);
 }
 
+#enabled{
+font-size: 16px;
+font-family: arial;
+}
+
 #enabled-yes strong
 {
   font-weight: normal;
@@ -242,11 +234,6 @@ body.disabled #enabled #enabled-no
 #clickhide-cancel .icon
 {
   background-position: -50px -33px;
-}
-
-#clickhide-instructions
-{
-  margin: 10px 15px;
 }
 
 #stats-container .icon
@@ -338,6 +325,7 @@ label
 .operando_wrapper ul > li > div.item_icon.abp_icon{
   background: url(../operando/assets/images/icons/ad_block_options.png) no-repeat left center;
 }
+
 .operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
   background: url(../operando/assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
 }
@@ -372,12 +360,16 @@ label
 }
 
 .user_area{
-  height: 70px;
+  /*height: 70px;*/
   background: url(../operando/assets/images/icons/user.png) no-repeat left 5px;
 }
 
+.logout_btn{
+  margin-top: 15px;
+}
+
 .popup-login-area  div.login_form .user_area{
-  height: 55px;
+ /* height: 55px;*/
 }
 
 .user_area .keep_user_logged_in{
@@ -416,18 +408,31 @@ ul.popup-login-area{
 .form-horizontal .form-group.user_actions,
 .user_actions{
   clear: both;
-  margin: 10px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
 }
 .user_actions button,
 #about_operando_ctn button,
 #resend_activation_link{
   background: #F5A43C;
-  padding: 7px 25px;
+  padding: 6px 25px;
   border: none;
   color: #FFF;
   cursor: pointer;
   width:100%;
 }
+
+.register_tooltip button{
+  background: #F5A43C;
+  padding: 6px 9px;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+}
+
 #resend_activation_link
 {margin-bottom: 15px;
   margin-top: -5px;
@@ -458,28 +463,9 @@ ul.popup-login-area{
   float:left;
 }
 
-#wrapperabp{
-  display: none;
-}
-#wrapperabp.visible{
-  display: block;
-}
 
 #operando_abp{
   background: #ece7df;
-}
-
-div#expand_abp{
-  position: absolute;
-  right:10px;
-  top:18px;
-  width:11px;
-  height:11px;
-  display: block;
-  background: url(../operando/assets/images/icons/collapsed.png) no-repeat left center;
-}
-div#expand_abp.expanded{
-  background: url(../operando/assets/images/icons/expanded.png) no-repeat left center;
 }
 
 #share,#show-iconnumber,.operando_hide{
@@ -553,6 +539,73 @@ input[type=email].ng-invalid.ng-dirty {
 
 #login_area .input-group-addon{
   color:#928667;
+}
+
+#what_use_to{
+  border-radius: 50%;
+  padding-left: 13px;
+  padding-right: 20px;
+  margin-left: -10px;
+  z-index: 200;
+  position: relative;
+}
+
+.register_tooltip{
+  background: #F5A43C;
+  color: #FFF;
+  position: absolute;
+  top: 0px;
+  margin: 35px 5px 45px;;
+  padding: 9px;
+  font-size: 14px;
+  bottom: 20px;
+  border: 1px solid #DE912f;
+  border-radius: 4px;
+  z-index: 200;
+}
+
+.local .register_tooltip{
+  margin: 5px 5px 45px;
+  font-size: 13px;
+}
+
+.register_tooltip::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 7px;
+  border-color:#DE912f transparent transparent transparent;
+  border-style:solid;
+  top: 100%;
+  right: 13px;
+}
+
+.register_tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  right: 15px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #F5A43C transparent transparent transparent;
+}
+
+.local .register_tooltip{
+  font-size: 13px;
+}
+
+.tooltipster-content:after{
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: rgba(245, 239, 231, 0.9);
+  z-index: 100;
+  content:"";
 }
 
 .sk-fading-circle {

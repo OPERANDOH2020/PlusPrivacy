@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/operando/utils/jquery-custom-scrollbar/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="/operando/utils/ui-select/select.min.css">
     <link rel="stylesheet" type="text/css" href="/operando/utils/ui-select/selectize.css">
-    <link rel="stylesheet" type="text/css" href="/operando/utils/angular-datatables/datatables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/operando/utils/angular-datatables/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/operando/utils/angular-ui-notification/angular-ui-notification.min.css">
     <link rel="stylesheet" type="text/css" href="/operando/utils/jquery-tipsy/tipsy.css">
     <link rel="stylesheet" href="/operando/assets/bootstrap/css/font-awesome.min.css">
@@ -57,14 +57,11 @@
     <script type="text/javascript" src="/operando/util/OSP.Settings.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/operando/schema-form.js"></script>
-
-
     <script type="text/javascript" src="/operando/util/computePrivacyPollution.js" charset="utf-8"></script>
-
 </head>
 <body ng-controller="appCtrl" class="operando">
-<div ng-switch="userIsLoggedIn">
-    <div ng-switch-when="true">
+<div>
+    <div>
     <nav class="navbar operando-navbar">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -101,7 +98,7 @@
                     </a>
                 </li>
 
-                <li ui-sref-active="active">
+                <li ui-sref-active="active" ng-if="userIsLoggedIn">
                     <a class="menu_icon notifications_orange_icon" ui-sref="notifications">
                         <div class="menu_item_content">
                             <notification-counter></notification-counter>
@@ -109,7 +106,7 @@
                     </a>
                 </li>
 
-                <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark">
+                <li ui-sref-active="active" class="dropdown dropdown-user dropdown-dark" ng-if="userIsLoggedIn">
 
                     <a class="menu_icon user-account dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
@@ -119,7 +116,7 @@
                     </a>
 
 
-                    <ul class="dropdown-menu dropdown-menu-default">
+                    <ul class="dropdown-menu dropdown-menu-default" ng-if="userIsLoggedIn">
                         <li ng-class="{active: $state.includes('account')}">
                             <a class="menu_icon account" ui-sref="account.personal-details">Account</a>
                         </li>
@@ -164,7 +161,7 @@
                     </li>
 
                     <li  class="no-sub-menu">
-                        <a class="menu_icon extensions_icon" ui-sref="extensions" change-state-if="{condition:$state.includes('extensions') || $state.includes('network'),state:'home'}" >Extensions & Apps</a>
+                        <a class="menu_icon extensions_icon" ui-sref="extensions" change-state-if="{condition:$state.includes('extensions') || $state.includes('network'),state:'home'}" >Connected apps</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
                             ng-controller="socialAppsController">
                             <li>
@@ -281,7 +278,7 @@
         </div>
     </footer>
 </div>
-<div ng-switch-when="false" class="loggedin_status_false">
+<!--<div class="loggedin_status_false">
     <div ng-if="state.current.name == 'privacyPolicy'" class="privacyPolicyNotLoggedIn">
         <div ng-include src="'/operando/views/privacy_policy.html'"></div>
     </div>
@@ -300,7 +297,7 @@
             <div class="sk-circle11 sk-circle"></div>
             <div class="sk-circle12 sk-circle"></div>
         </div>
-    </div>
+    </div>-->
 
 </div>
 </div>

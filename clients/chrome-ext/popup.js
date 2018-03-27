@@ -12,18 +12,7 @@
 
 
 (function () {
-    var handleClick = function () {
-        var abpCtn = document.getElementById("wrapperabp");
-        var expandIcon = document.getElementById("expand_abp");
-        var apbExpanderBtn = document.getElementById("abp_expand");
-        apbExpanderBtn.addEventListener("click", function () {
-            abpCtn.classList.toggle('visible');
-            expandIcon.classList.toggle('expanded');
-        });
-    }
-
     function init() {
-        handleClick();
         //close icon
         document.getElementById("close_popup").addEventListener("click", function () {
             window.close();

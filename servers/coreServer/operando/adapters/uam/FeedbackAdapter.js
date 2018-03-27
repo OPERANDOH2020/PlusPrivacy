@@ -21,11 +21,6 @@ function registerModels(callback){
                     index:true,
                     pk:true
                 },
-                userId:{
-                    type: "string",
-                    length:255,
-                    index:true
-                },
                 feedback:{
                     type: "string",
                     length:8096
@@ -91,37 +86,24 @@ getFeedbackQuestions = function(callback){
     }
 };
 
-submitFeedbackAnswer = function(userId, feedback, callback){
+submitFeedbackAnswer = function(feedback, callback){
     flow.create("submitFeedbackFlow", {
         begin: function () {
-            persistence.filter("UserFeedback", {userId: userId}, this.continue("checkPreviousFeedback"));
+            persistence.lookup("UserFeedback",uuid.v1(), this.continue("saveFeedback"));
         },
-        checkPreviousFeedback: function (err, userFeedback) {
-            if (err) {
-                callback(err);
-            }
-            else if (userFeedback.length > 0) {
-                userFeedback[0]['feedback'] = JSON.stringify(feedback);
-                persistence.save(userFeedback[0], callback);
-            }
-            else {
-                persistence.lookup("UserFeedback",uuid.v1(), this.continue("saveFeedback"));
-            }
-        },
-        saveFeedback:function(err,feedbackRawObj){
+        saveFeedback:function(err, feedbackRawObj){
             if(err){
                 callback(err);
             }
             else{
-                feedbackRawObj["userId"] = userId;
                 feedbackRawObj["feedback"] = JSON.stringify(feedback);
                 persistence.save(feedbackRawObj, callback);
             }
         }
     })();
 };
-
-checkIfUserSubmittedFeedback = function(userId, callback){
+//TODO remove it, not used anymore
+/*checkIfUserSubmittedFeedback = function(userId, callback){
     flow.create("checkIfUserSubmittedFeedback", {
         begin: function () {
             persistence.filter("UserFeedback", {userId: userId}, this.continue("checkPreviousFeedback"));
@@ -138,7 +120,7 @@ checkIfUserSubmittedFeedback = function(userId, callback){
             }
         }
     })();
-};
+};*/
 
 retrieveAllFeedback = function(callback){
     flow.create("retrieveFeedback",{

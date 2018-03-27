@@ -3,7 +3,7 @@
         <div class="icon_header"></div>
         <form class="form-signin" ng-submit="login()" ng-switch-when="login">
 
-            <h2 class="form-signin-heading">Authentication</h2>
+            <h2 class="form-signin-heading">Login</h2>
             <label for="login_input_email" class="sr-only">Email address</label>
             <input type="email" id="login_input_email" class="form-control" placeholder="Email address" required=""
                    ng-model="user.email"
@@ -14,13 +14,8 @@
 
 
             <div class="row">
-                <div class="checkbox col-lg-7">
-                    <label>
-                        <input type="checkbox" value="remember-me" ng-model="user.remember_me" ng-checked="true"><span>Remember me</span>
-                    </label>
-                </div>
 
-                <div class="checkbox col-lg-5">
+                <div class="checkbox col-lg-12">
 
                     <a class="forgot-password" ng-click="show_forgot_password()">Forgot Password?</a>
 
@@ -29,13 +24,13 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    <button class="btn-primary btn-block" type="submit">Sign In</button>
+                    <button class="btn-primary btn-block" type="submit"  ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Logging in...">Login</button>
                 </div>
                 <div class="col-lg-2">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-5">
-                    <button class="btn-primary btn-block" ng-click="show_signup()">Sign Up</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_signup()">Sign Up</button>
                 </div>
             </div>
 
@@ -62,13 +57,13 @@
 
             <div class="row">
                 <div class="col-lg-7">
-                    <button class="btn-primary btn-block" type="submit">Register</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">Sign up</button>
                 </div>
                 <div class="col-lg-2">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-3">
-                    <button class="btn-primary btn-block" ng-click="show_login()">Sign In</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_login()">Sign In</button>
                 </div>
             </div>
 
@@ -79,18 +74,18 @@
 
             <label for="recover_input_email" class="sr-only">Email address</label>
             <input type="email" id="recover_input_email" class="form-control" placeholder="Your email address" required=""
-                   ng-model="reset_email"
+                   ng-model="user.reset_email"
                    autofocus="">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <button class="btn-primary btn-block" type="submit">{{"resetPassword"|i18n}}</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">{{"resetPassword"|i18n}}</button>
                 </div>
                 <div class="col-lg-12">
                     <span class="or_separator">OR</span>
                 </div>
                 <div class="col-lg-12">
-                    <button class="btn-primary btn-block" ng-click="show_login()">{{"signIn"|i18n}}</button>
+                    <button class="btn-primary-black btn-block" ng-click="show_login()">{{"signIn"|i18n}}</button>
                 </div>
             </div>
         </form>

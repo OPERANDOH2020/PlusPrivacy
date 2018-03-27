@@ -1,5 +1,5 @@
 [general]
-version = 0.7.3
+version = 1.2.7
 backgroundScripts =lib/polyfills/url.js
   lib/polyfills/promise.js
   lib/polyfills/fetch.js

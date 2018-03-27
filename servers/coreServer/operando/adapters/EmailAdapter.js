@@ -31,11 +31,14 @@ sendEmail = function(from,to,subject,text,callback){
         "alias":from,
         "sender":to
     }),encryptionKey,{algorithm: "HS256"});
+
+
+
     transporter.sendMail({
         "from": from,
         "to": "reply_anonymously_to_sender_"+to+"@"+thisAdapter.config.Core.operandoHost,
         "subject": subject,
-        "text": text
+        "html": text
     }, callback)
 };
 

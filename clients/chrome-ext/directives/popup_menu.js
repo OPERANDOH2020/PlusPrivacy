@@ -24,7 +24,7 @@ angular.module('popupMenu', [])
                 scope.tabToOpen = attributes.tabToOpen;
 
                 element.on("click", function(){
-                    window.open(chrome.runtime.getURL("operando/operando.html#"+scope.tabToOpen),"operando");
+                    window.open(chrome.runtime.getURL("operando/operando.html#/" + scope.tabToOpen),"operando");
                 })
             },
 

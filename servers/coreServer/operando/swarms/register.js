@@ -32,11 +32,11 @@ var registerSwarming = {
                 } else {
                     subscribeUserToNewsletter(user['email']);
                     self.user = user;
-
+                    var activationLink = "https://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode;
                     startSwarm("emails.js", "sendEmail", "no-reply@" + thisAdapter.config.Core.operandoHost,
                         user['email'],
                         "Activate account",
-                        "Your account has been registered \nTo activate it, please access the following link:\n https://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode);
+                        "<p>Your account has been registered <br/>To activate it, please access the following link:<a href='"+activationLink+"'>"+activationLink+"</a></p>");
 
                     startSwarm("analytics.js","addRegistration",user.email,user.userId);
 
@@ -127,10 +127,11 @@ var registerSwarming = {
                             self.error = "Account already activated";
                             self.home("failed");
                         }else {
+                                var activationUrl = "https://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode;
                                 startSwarm("emails.js", "sendEmail", "no-reply@" + thisAdapter.config.Core.operandoHost,
                                     user['email'],
                                     "Activate account",
-                                    "Your account has been registered \nTo activate it, please access the following link:\n https://" + thisAdapter.config.Core.operandoHost + "/activate/?confirmation_code=" + user.activationCode);
+                                    "<p>Your account has been registered <br/>To activate it, please access the following link:<br/><a href=\""+activationUrl+"\">"+activationUrl+"</a></p>");
                                 self.home("success");
                             }
                         }

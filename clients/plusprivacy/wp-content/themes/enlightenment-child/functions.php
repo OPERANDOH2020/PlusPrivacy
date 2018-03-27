@@ -1,6 +1,8 @@
 <?php
 function install_plusprivacy() {
+    wp_register_script('check-installation', get_stylesheet_directory_uri() . '/js/check-installation.js', array('jquery'),'2.2.1', true);
     wp_register_script('install_plusprivacy', get_stylesheet_directory_uri() . '/js/installPlusPrivacy.js', array('jquery'),'2.2.1', true);
+    wp_enqueue_script('check-installation');
     wp_enqueue_script('install_plusprivacy');
 }
 
@@ -26,5 +28,12 @@ function the_excerpt_more_link( $excerpt ){
 }
 add_filter( 'the_excerpt', 'the_excerpt_more_link', 21 );
 
+
+// REMOVE WP EMOJI
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 ?>
 
