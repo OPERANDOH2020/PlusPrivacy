@@ -364,6 +364,10 @@ label
   background: url(../operando/assets/images/icons/user.png) no-repeat left 5px;
 }
 
+.logout_btn{
+  margin-top: 15px;
+}
+
 .popup-login-area  div.login_form .user_area{
  /* height: 55px;*/
 }

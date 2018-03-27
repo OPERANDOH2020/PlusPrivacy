@@ -22,8 +22,10 @@ angular.module("login",[]).
                         Notification.success({message: 'You have successfully logged in!', positionY: 'bottom', positionX: 'center', delay: 2000});
                     }
                     else if (response.error)
+                    {
                         $scope.submitRequest.button('reset');
                         Notification.error({message: i18nService._(response.error), positionY: 'bottom', positionX: 'center', delay: 2000});
+                    }
                 });
             }
 
