@@ -70,11 +70,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
 
         // Now set up the states
         $stateProvider
-            .state('/', {
-                url: "/home",
-                templateUrl: "views/home.html",
-                cache: false
-            })
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
@@ -449,9 +444,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     }]
                 }
             });
-
-        $stateProvider
-            .state("otherwise", { url : '/home'});
+        $urlRouterProvider.otherwise('/home');
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();

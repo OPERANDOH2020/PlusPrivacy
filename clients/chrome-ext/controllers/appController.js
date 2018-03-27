@@ -75,10 +75,10 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
 
     function logoutHandler(){
         console.log("afara");
+        if($scope.userIsLoggedIn === true){
+            $state.reload();
+        }
         $scope.userIsLoggedIn = false;
-        //messengerService.off("notifyWhenLogout", logoutHandler);
-        //messengerService.on("getCurrentUser",userDataIsRetrieved);
-        $state.reload();
     }
 
 
