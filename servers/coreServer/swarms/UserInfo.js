@@ -189,7 +189,7 @@ var userInfoSwarming =
                                 users[0].email,
                                 "Reset password",
                                 "<p>A password reset request was issued for your account.<br/>Please access the following link to reset the password.<br/>" +
-                                "<a href='\""+resetPasswordLink+"\"'>"+resetPasswordLink+"</a><p>The link expires in 24 hours.</p>"
+                                "<a href='"+resetPasswordLink+"'>"+resetPasswordLink+"</a><p>The link expires in 24 hours.</p>"
                             );
 
                             self.home('resetRequestDone');
