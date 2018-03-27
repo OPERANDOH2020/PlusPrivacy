@@ -144,7 +144,6 @@ var userInfoSwarming =
                     self.home("passwordChangeFailure");
                 }
                 else {
-                    var newPassword = self['newPassword'];
                     delete self['newPassword'];
                     self.home("passwordSuccessfullyChanged");
                     startSwarm("emails.js",
