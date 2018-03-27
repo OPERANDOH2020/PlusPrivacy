@@ -7,11 +7,15 @@ jQuery(document).ready(function(){
             jQuery(self).click();
         }
         else{
-            chrome.webstore.install("https://chrome.google.com/webstore/detail/boagbmhcbemflaclmnbeebgbfhbegekc", function(){
+            if(window.chrome){
+                chrome.webstore.install("https://chrome.google.com/webstore/detail/boagbmhcbemflaclmnbeebgbfhbegekc", function(){
+                }, function(error){
+                });
+            }
+            else{
+                checkInstallation();
+            }
 
-            }, function(error){
-
-            });
         }
     });
 });
