@@ -88,15 +88,15 @@
   var unalteredSend = send;
   
   XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
-  console.log('opened a ' + method + ' to ' + url);
+  // console.log('opened a ' + method + ' to ' + url);
   this.lastRequestMethod = method;
   open.call(this, method, url, async, user, pass);
   };
   
   XMLHttpRequest.prototype.send = function(body) {
   
-  console.log("FOR LAST REQUEST METHOD " + this.lastRequestMethod);
-  console.log("BODY IS " + body);
+  // console.log("FOR LAST REQUEST METHOD " + this.lastRequestMethod);
+  // console.log("BODY IS " + body);
   
   if (this.lastRequestMethod === "POST" || this.lastRequestMethod === "post") {
   if (body) {
@@ -149,6 +149,12 @@
                                          makePOSTRequest(settings.url, settings.page, data, function() {
                                                          
                                                          resolve("Done");
+
+                                                         sendStatusMessage("DONE PROGRESS " + "item=" + item + "total=" + total)
+
+                                                         Android.setProgressBar(item + 1, total);
+
+
                                                          }, function() {
                                                          console.log('Error for page ' + settings.page);
                                                          reject("Error");
@@ -162,7 +168,7 @@
                                                      data: data,
                                                      dataType: "text",
                                                      beforeSend: function(request) {
-                                                     console.log("BEFORE SEND IN AJAX");
+                                                     // console.log("BEFORE SEND IN AJAX");
                                                      if (settings.headers) {
                                                      for (var i = 0; i < settings.headers.length; i++) {
                                                      var header = settings.headers[i];
@@ -207,13 +213,13 @@
  break;
  case 3:
  { // INTERACTIVE
- console.log("CASA 3");
+ // console.log("CASA 3");
  console.log(xmlHttp.status);
  console.log(xmlHttp.responseText);
  }
  case 4:
  { // COMPLETED
- console.log("CASA 4");
+ // console.log("CASA 4");
  console.log(xmlHttp.status);
  console.log(xmlHttp.responseText);
  onSuccess();
@@ -252,16 +258,16 @@
                                    window.fbdata = filledData;
                                    var total = privacySettings.length;
                                    
-                                   console.log(privacySettings);
+                                   // console.log(privacySettings);
                                    
                                    var sequence = Promise.resolve();
                                    privacySettings.forEach(function(settings, index) {
                                                            sequence = sequence.then(function() {
                                                                                     return postToFacebook(settings, index, total);
                                                                                     }).then(function(result) {
-                                                                                            console.log(result);
+                                                                                            // console.log(result);
                                                                                             }).catch(function(err) {
-                                                                                                     console.log(err)
+                                                                                                     // console.log(err)
                                                                                                      });
                                                            });
                                    

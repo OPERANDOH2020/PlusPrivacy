@@ -228,6 +228,8 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
+		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
 		C74956792051441C0079DC8D /* PrivacyWizzardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */; };
 		C76ABAEC1FEBD90700104239 /* UIMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */; };
 		C76ABAF01FEBFC9900104239 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */; };
@@ -646,6 +648,8 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
+		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
 		C74956782051441B0079DC8D /* PrivacyWizzardSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardSettingsViewController.swift; sourceTree = "<group>"; };
 		C76ABAEB1FEBD90700104239 /* UIMyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMyAccountViewController.swift; sourceTree = "<group>"; };
 		C76ABAEE1FEBFC9900104239 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
@@ -1944,6 +1948,15 @@
 			path = UILeftSideMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		C7107168206A49A3000D3AB6 /* UISettingsProgress */ = {
+			isa = PBXGroup;
+			children = (
+				C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */,
+				C710716D206A6059000D3AB6 /* UISettingsProgress.swift */,
+			);
+			path = UISettingsProgress;
+			sourceTree = "<group>";
+		};
 		C76ABAEA1FEBD8DE00104239 /* UIMyAccountViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2081,6 +2094,7 @@
 		C7F794FB20236129005DE7B3 /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				C7107168206A49A3000D3AB6 /* UISettingsProgress */,
 				C7F794FC20236129005DE7B3 /* UIAlertViewController */,
 				C7F794FE20236129005DE7B3 /* UICustomTableViewHeader */,
 				C7F7950020236129005DE7B3 /* UIRadialGradientView */,
@@ -2815,6 +2829,7 @@
 				C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */,
 				C7F795AD202363F8005DE7B3 /* linkedin-iOS.js in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
+				C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */,
 				C7F795AC202363F8005DE7B3 /* jquery214min.js in Resources */,
 				C7F796052029B738005DE7B3 /* PrivacyWizardFacebookCell.xib in Resources */,
 				C76ABAF91FEC0AD600104239 /* AccountDeletionCell.xib in Resources */,
@@ -2985,6 +3000,7 @@
 				C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */,
 				C7F795B4202363F8005DE7B3 /* LocalJSSettingsProvider.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
+				C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */,
 				C7F795E0202472BD005DE7B3 /* UIPrivacySettingFlowController.swift in Sources */,
 				AD28EA9E20503DD700AA998A /* InteractiveTransition.swift in Sources */,
 				C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */,

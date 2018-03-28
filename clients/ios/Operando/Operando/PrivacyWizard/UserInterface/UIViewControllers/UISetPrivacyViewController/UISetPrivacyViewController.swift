@@ -20,6 +20,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     private var fbSecurityEnforcer: FbWebKitSecurityEnforcer?
     private var isDONE = false
     
+    @IBOutlet weak var settingsProgressView: UISettingsProgress!
     private var webView: WKWebView = WKWebView(frame: .zero)
     private var tutorialView: UITutorialView?
     
@@ -73,9 +74,8 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         self.alterUserAgentInDefaults()
-        
         ProgressHUD.show("Loading")
         self.fbSecurityEnforcer?.enforceWithCallToLogin(callToLoginWithCompletion: { callbackWhenLogInIsDone in
             ProgressHUD.dismiss()
@@ -94,7 +94,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
         }, whenDisplayingMessage: {
             
             if $0 == "Done" {
-                
+                self.settingsProgressView.setPercetange(value: 100)
                 self.displayStatusView(hidden: true)
                 self.navigationController?.popViewController(animated: true)
                 RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
@@ -139,6 +139,22 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                 default:
                     ACPrivacyWizard.shared.selectedScope = .googleLogin
                 }
+            }
+            else if $0.range(of: "DONE PROGRESS") != nil {
+                print("E DE BINE")
+                
+                let pat = "DONE PROGRESS item=([0-9]+)?total=([0-9]+)?"
+                
+                let matches = $0.capturedGroups(withRegex: pat)
+                
+                
+                if let items = Int(matches[0]),
+                    let total = Int(matches[1]) {
+                   
+                    self.settingsProgressView.setProgressBar(item: items, total: total)
+                }
+            
+                print($0)
             }
             else {
                 print($0)

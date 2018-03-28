@@ -732,6 +732,12 @@
                                     <constraint firstAttribute="height" constant="64" id="ptu-3G-f9d"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UN-fL-EQQ" customClass="UISettingsProgress" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jIu-aO-kxb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -739,8 +745,11 @@
                             <constraint firstItem="Hni-sa-1IA" firstAttribute="top" secondItem="1aE-YB-WoK" secondAttribute="top" id="KfB-DW-F8v"/>
                             <constraint firstAttribute="trailing" secondItem="Hni-sa-1IA" secondAttribute="trailing" id="L23-wF-Im0"/>
                             <constraint firstItem="8q1-2I-iXp" firstAttribute="top" secondItem="Hni-sa-1IA" secondAttribute="bottom" id="Vng-FT-hP2"/>
+                            <constraint firstItem="3UN-fL-EQQ" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="bgR-PH-6jm"/>
+                            <constraint firstItem="3UN-fL-EQQ" firstAttribute="top" secondItem="Hni-sa-1IA" secondAttribute="bottom" id="cgq-O7-2BU"/>
                             <constraint firstAttribute="trailing" secondItem="8q1-2I-iXp" secondAttribute="trailing" id="gi4-Ks-TBy"/>
                             <constraint firstAttribute="trailing" secondItem="gEi-85-mbH" secondAttribute="trailing" id="gn1-MM-zbx"/>
+                            <constraint firstAttribute="trailing" secondItem="3UN-fL-EQQ" secondAttribute="trailing" id="hRv-k3-h4S"/>
                             <constraint firstItem="rOU-Tc-gXJ" firstAttribute="top" secondItem="gEi-85-mbH" secondAttribute="bottom" id="kkj-kn-Pp7"/>
                             <constraint firstItem="8q1-2I-iXp" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="n8e-AY-Yct"/>
                             <constraint firstItem="Hni-sa-1IA" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="nC4-B2-Dvw"/>
@@ -750,6 +759,7 @@
                     <connections>
                         <outlet property="loggedInButton" destination="rQy-bH-a3Y" id="HLo-If-uLO"/>
                         <outlet property="navigationView" destination="Hni-sa-1IA" id="y0k-dd-TDJ"/>
+                        <outlet property="settingsProgressView" destination="3UN-fL-EQQ" id="qw2-k4-JQp"/>
                         <outlet property="statusIndicatorView" destination="QRL-AS-fvg" id="7nf-Gd-Vfl"/>
                         <outlet property="statusLabel" destination="zKf-nw-cZJ" id="lPf-oD-s8s"/>
                         <outlet property="statusView" destination="gEi-85-mbH" id="4sq-cg-fQF"/>
