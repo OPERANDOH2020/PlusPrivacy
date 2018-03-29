@@ -94,16 +94,6 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         }
     }
 
-//    @Override
-//    public void onPageCommitVisible() {
-//
-//    }
-//
-//    @Override
-//    public void onPageFinished() {
-//
-//    }
-
     @Override
     public void startInjecting() {
 

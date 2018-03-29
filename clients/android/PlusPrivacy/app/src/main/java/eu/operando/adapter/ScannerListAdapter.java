@@ -1,31 +1,21 @@
 package eu.operando.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,8 +23,9 @@ import java.util.List;
 
 import eu.operando.R;
 import eu.operando.activity.PermissionsActivity;
-import eu.operando.activity.ScannerActivity;
-import eu.operando.models.InstalledApp;
+import eu.operando.tasks.DownloadImageTask;
+import eu.operando.models.AbstractApp;
+import eu.operando.models.SocialNetworkApp;
 import eu.operando.utils.PermissionUtils;
 
 /**
@@ -43,11 +34,27 @@ import eu.operando.utils.PermissionUtils;
 public class ScannerListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<InstalledApp> list;
+    private List<? extends AbstractApp> list;
 
-    public ScannerListAdapter(Context context, List<InstalledApp> objects) {
+    public ScannerListAdapter(Context context, List<? extends AbstractApp> objects) {
         this.context = context;
         this.list = objects;
+    }
+
+    public interface RemoveAppInterface {
+        void removeSocialApp(String appId);
+    }
+
+    public void removeGroupItem(String appId) {
+
+        for (int index = 0; index < list.size(); ++index) {
+            SocialNetworkApp app = (SocialNetworkApp) list.get(index);
+            if (app.getAppId().equals(appId)) {
+                list.remove(index);
+                --index;
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override
@@ -101,7 +108,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             holder = (GroupHolder) convertView.getTag();
         }
 
-        final InstalledApp groupItem = (InstalledApp) getGroup(position);
+        final AbstractApp groupItem = (AbstractApp) getGroup(position);
         holder.setData(groupItem, isExpanded);
 
         return convertView;
@@ -126,7 +133,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             holder = (ChildHolder) convertView.getTag();
         }
 
-        final InstalledApp groupItem = (InstalledApp) getGroup(groupPosition);
+        final AbstractApp groupItem = (AbstractApp) getGroup(groupPosition);
         holder.setData(groupItem);
 
         return convertView;
@@ -136,6 +143,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int i, int i1) {
         return false;
     }
+
 
     private class ChildHolder extends RecyclerView.ViewHolder {
 
@@ -150,19 +158,19 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             viewPermission = itemView.findViewById(R.id.eye_btn);
         }
 
-        public void setData(final InstalledApp item) {
+        public void setData(final AbstractApp item) {
 
             viewPermission.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, PermissionsActivity.class);
-                    ArrayList<String> permissions = item.getPermissions();
-                    if (permissions != null){
+                    ArrayList<String> permissions = (ArrayList<String>) item.getPermissions();
+                    if (permissions != null) {
                         sortPermissionList(permissions);
                     }
 
-                    i.putExtra("perms", item.getPermissions());
-                    ((ScannerActivity) context).infoClicked();
+                    i.putExtra("perms", (ArrayList<String>) item.getPermissions());
+//                    ((ScannerActivity) context).infoClicked();
                     context.startActivity(i);
                 }
             });
@@ -170,9 +178,13 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             uninstallApp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_DELETE);
-                    intent.setData(Uri.parse("package:" + item.getPackageName()));
-                    context.startActivity(intent);
+                    if (item instanceof SocialNetworkApp) {
+                        ((RemoveAppInterface) context).removeSocialApp(((SocialNetworkApp) item).getAppId());
+                    } else {
+                        Intent intent = new Intent(Intent.ACTION_DELETE);
+                        intent.setData(Uri.parse("package:" + item.getPackageName()));
+                        context.startActivity(intent);
+                    }
                 }
             });
         }
@@ -209,7 +221,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             groupIndicator = (ImageView) itemView.findViewById(R.id.arrow);
         }
 
-        public void setData(InstalledApp item, boolean isExpanded) {
+        public void setData(AbstractApp item, boolean isExpanded) {
 
             groupIndicator.setSelected(isExpanded);
             setAppCircleIndicator(item);
@@ -217,6 +229,19 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             String poll = "Privacy Pollution: " + item.getPollutionScore() + "/10";
 
             appPrivacyPolution.setText(poll);
+
+            if (item instanceof SocialNetworkApp) {
+
+                setSocialAppIcon(item);
+
+            } else {
+
+                setNativeAppIcon(item);
+            }
+        }
+
+        private void setNativeAppIcon(AbstractApp item) {
+
             Drawable d = null;
             try {
                 d = context.getPackageManager().getApplicationIcon(item.getPackageName());
@@ -228,13 +253,28 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             }
         }
 
-        private void setAppCircleIndicator(InstalledApp item) {
+        private void setSocialAppIcon(AbstractApp item) {
 
-            GradientDrawable bgShape = (GradientDrawable)appCircleIndicator.getBackground();
+            String appIconUrl = ((SocialNetworkApp) item).getIconUrl();
+            appIconUrl = appIconUrl.replace("\\", "%");
+            appIconUrl = appIconUrl.replace(" ", "");
+
+            try {
+                appIconUrl = java.net.URLDecoder.decode(appIconUrl, "UTF-8");
+                Log.e("appiconurl", appIconUrl);
+                new DownloadImageTask(appIcon)
+                        .execute(appIconUrl);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void setAppCircleIndicator(AbstractApp item) {
+
+            GradientDrawable bgShape = (GradientDrawable) appCircleIndicator.getBackground();
             bgShape.setColor(PermissionUtils.getColor(item));
 
         }
-
     }
 
 }

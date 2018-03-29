@@ -3,6 +3,7 @@ package eu.operando.activity;
 import android.app.ProgressDialog;
 import android.webkit.WebViewClient;
 import eu.operando.customView.MyWebViewClient;
+import eu.operando.utils.WebAppI;
 
 /**
  * Created by Matei_Alexandru on 07.09.2017.
@@ -25,7 +26,7 @@ public class FacebookWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     @Override
-    public WebAppInterface getWebAppInterface() {
+    public WebAppI getWebAppInterface() {
         return new WebAppInterface(this, privacySettingsString);
     }
 

@@ -2,7 +2,6 @@ package eu.operando.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -36,7 +35,6 @@ import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmService.models.LoginSwarmEntity;
-import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
 
@@ -110,51 +108,12 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         });*/
     }
 
-    private void autoLogin() {
-        if (getIntent().getBooleanExtra("autologin", false)) {
-            Pair<String, String> credentials = Storage.readCredentials();
-            if (credentials.first != null && credentials.second != null) {
-                swarmLogin(credentials.first, credentials.second);
-                return;
-            }
-        } else {
-            initUI();
-        }
-    }
-
     private void setStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
         }
-    }
-
-    private void swarmLogin(final String username, final String password) {
-
-        loadingDialog = new ProgressDialog(this);
-        loadingDialog.setCancelable(false);
-        loadingDialog.setMessage("Please wait...");
-        loadingDialog.show();
-
-        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarmEntity>() {
-            @Override
-            public void call(final LoginSwarmEntity result) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingDialog.dismiss();
-                        if (!result.isAuthenticated()) {
-                            Storage.clearData();
-                            finish();
-                        } else {
-                            Storage.saveUserID(result.getUserId());
-                            initUI();
-                        }
-                    }
-                });
-            }
-        });
     }
 
     private void initUI() {
@@ -339,22 +298,30 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
     }
 
+    private boolean logoutTriggered = false;
+
     private void logOut() {
         Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
 //        SwarmService.getInstance().logout(null);
-        Storage.clearData();
-        LoginActivity.start(MainActivity.this);
+        Storage.clearLoginCredentials();
+        logoutTriggered = true;
         finish();
+        LoginActivity.start(MainActivity.this);
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SwarmService.getInstance().logout(null);
+        if (Storage.isUserLogged() || logoutTriggered) {
+            SwarmService.getInstance().logout(null);
+        }
+
     }
 
+
     @Override
-    public void selectItem(int position) {
+    public void selectMenuItem(int position) {
 
         switch (position) {
 
@@ -365,14 +332,14 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             case 1: //Privacy Policy
                 HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
                 break;
-//            case 2: //Settings
-//                SettingsActivity.start(this);
-//                break;
             case 2: //Feedback
                 startFeedbackActivity();
                 break;
-            case 3: //Account
+            case 4: //Account
                 UserAccountActivity.start(this);
+                break;
+            case 3: //Apps
+                startActivity(new Intent(MainActivity.this, ConnectedAppsActivity.class));
                 break;
         }
         drawerLayout.closeDrawer(Gravity.START);

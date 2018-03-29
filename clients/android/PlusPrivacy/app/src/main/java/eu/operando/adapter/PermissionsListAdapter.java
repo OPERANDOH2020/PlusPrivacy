@@ -36,7 +36,6 @@ public class PermissionsListAdapter extends ArrayAdapter<String> {
         String[] splitted = permission.split("\\.");
         String simplifiedPermission = splitted[splitted.length-1];
         ((TextView) convertView.findViewById(R.id.permission_tv)).setText(PermissionUtils.getPermissionDescription(simplifiedPermission));
-//        convertView.findViewById(R.id.drawable_circle_indicator).setBackgroundColor(PermissionUtils.getPermissionColor(permission));
 
         GradientDrawable bgShape = (GradientDrawable)convertView
                 .findViewById(R.id.drawable_circle_indicator).getBackground();

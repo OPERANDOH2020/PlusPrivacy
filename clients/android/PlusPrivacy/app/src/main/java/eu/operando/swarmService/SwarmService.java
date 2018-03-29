@@ -52,7 +52,7 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
 
     private SwarmService() {
 
-        swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL_2);
+        swarmClient = new SwarmClient(SWARMS_URL);
         registerConnectivityListener();
         setConnectionListener();
 
@@ -96,15 +96,17 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
 
         if (!first) {
 
-            swarmClient = new SwarmClient(SWARMS_URL_DEBUG_RAFAEL_2);
+            swarmClient = new SwarmClient(SWARMS_URL);
             Log.e("login", "login");
             Pair<String, String> credentials = Storage.readCredentials();
-            login(credentials.first, credentials.second, new SwarmCallback<Swarm>() {
-                @Override
-                public void call(Swarm result) {
+            if (Storage.isUserLogged()) {
+                login(credentials.first, credentials.second, new SwarmCallback<Swarm>() {
+                    @Override
+                    public void call(Swarm result) {
 
-                }
-            });
+                    }
+                });
+            }
         } else {
             first = false;
         }
@@ -133,11 +135,14 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
     }
 
     public void login(String username, String password, SwarmCallback<? extends Swarm> callback) {
+        swarmClient.connect();
         swarmClient.startSwarm(callback, "login.js", "userLogin", username, password);
     }
 
     public void logout(SwarmCallback<? extends Swarm> callback) {
+
         swarmClient.startSwarm(callback, "login.js", "logout");
+        swarmClient.disconnect();
     }
 
     public void signUp(final String email, final String password, final SwarmCallback<? extends Swarm> callback) {

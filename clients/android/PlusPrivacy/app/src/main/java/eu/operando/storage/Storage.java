@@ -69,6 +69,11 @@ public class Storage {
         Paper.book().delete(K.REGISTER_PASS);
     }
 
+    public static void clearLoginCredentials() {
+        Paper.book().delete(K.USER);
+        Paper.book().delete(K.PASS);
+    }
+
     public static void savePrivateBrowsingDialogOption(boolean value) {
         Paper.book().write(K.PRIVATE_BROWSING_DIALOG, value);
     }

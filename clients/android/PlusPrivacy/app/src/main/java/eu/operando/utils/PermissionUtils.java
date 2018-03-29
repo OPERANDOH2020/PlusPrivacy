@@ -7,12 +7,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import eu.operando.models.AbstractApp;
 import eu.operando.models.InstalledApp;
 
 /**
@@ -269,7 +271,10 @@ public class PermissionUtils {
     }
 
     @ColorInt
-    public static int getColor(InstalledApp app) {
+    public static int getColor(AbstractApp app) {
+        if (app.getPollutionScore() < 1){
+            return colors[0];
+        }
         return colors[app.getPollutionScore() - 1];
     }
 
@@ -342,8 +347,8 @@ public class PermissionUtils {
                 }
                 String appName = pm.getApplicationLabel(applicationInfo).toString();
                 String[] requestedPermissions = info.requestedPermissions;
-                System.out.println(applicationInfo.packageName);
-                System.out.println(Arrays.toString(requestedPermissions));
+                Log.e("packageName", applicationInfo.packageName);
+                Log.e("permissions", Arrays.toString(requestedPermissions));
                 InstalledApp app = new InstalledApp(appName, packageName, requestedPermissions, info.reqFeatures);
                 PermissionUtils.calculatePollutionScore(app);
                 apps.add(app);
@@ -352,7 +357,7 @@ public class PermissionUtils {
             for (InstalledApp app : apps) {
                 if (app.getPermissions() == null) continue;
                 ArrayList<String> cleanPerms = new ArrayList<>();
-                ArrayList<String> perms = app.getPermissions();
+                ArrayList<String> perms = (ArrayList<String>) app.getPermissions();
                 for (String permission : perms) {
                     String[] splitted = permission.split("\\.");
                     String simplifiedPermission = splitted[splitted.length - 1];

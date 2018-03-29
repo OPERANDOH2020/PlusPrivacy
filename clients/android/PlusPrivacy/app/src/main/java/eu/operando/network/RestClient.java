@@ -16,7 +16,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static eu.operando.swarmService.SwarmService.SWARMS_URL_DEBUG_RAFAEL_2;
+import static eu.operando.swarmService.SwarmService.SWARMS_URL;
 
 /**
  * Created by Alex on 3/8/2018.
@@ -67,8 +67,8 @@ public class RestClient {
 //                    .build();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(SWARMS_URL_DEBUG_RAFAEL_2)
-                    .client(okHttpClient)
+                    .baseUrl(SWARMS_URL)
+//                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             api = retrofit.create(Api.class);

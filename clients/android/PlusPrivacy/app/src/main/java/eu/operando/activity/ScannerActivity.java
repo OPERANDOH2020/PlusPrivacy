@@ -26,7 +26,7 @@ import java.util.List;
 
 import eu.operando.R;
 import eu.operando.adapter.ScannerListAdapter;
-import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.tasks.AccordionOnGroupExpandListener;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.utils.PermissionUtils;

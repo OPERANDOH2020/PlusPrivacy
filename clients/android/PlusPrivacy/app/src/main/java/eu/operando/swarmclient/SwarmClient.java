@@ -64,44 +64,40 @@ public class SwarmClient {
         final IO.Options options = new IO.Options();
         SSLContext sslContext;
         try {
-            if (connectionURL.startsWith("https://")) {
-                HostnameVerifier verifier = new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) {
-                        return true;
-                    }
-                };
-                sslContext = SSLContext.getInstance("TLS");
-                sslContext.init(null, new TrustManager[]{new X509TrustManager() {
-                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                        return new java.security.cert.X509Certificate[]{};
-                    }
-
-                    public void checkClientTrusted(X509Certificate[] chain,
-                                                   String authType) throws CertificateException {
-                    }
-
-                    public void checkServerTrusted(X509Certificate[] chain,
-                                                   String authType) throws CertificateException {
-                    }
-                }}, null);
-
-                OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                        .hostnameVerifier(verifier)
-                        .sslSocketFactory(sslContext.getSocketFactory())
-                        .build();
-
-// default settings for all sockets
-                IO.setDefaultOkHttpWebSocketFactory(okHttpClient);
-                IO.setDefaultOkHttpCallFactory(okHttpClient);
-//                IO.setDefaultSSLContext(sslContext);
-//                IO.setDefaultHostnameVerifier(verifier);
-//                options.sslContext = sslContext;
-//                options.hostnameVerifier = verifier;
-                options.secure = true;
-                options.callFactory = okHttpClient;
-                options.webSocketFactory = okHttpClient;
-            }
+//            if (connectionURL.startsWith("https://")) {
+//                HostnameVerifier verifier = new HostnameVerifier() {
+//                    @Override
+//                    public boolean verify(String hostname, SSLSession session) {
+//                        return true;
+//                    }
+//                };
+//                sslContext = SSLContext.getInstance("TLS");
+//                sslContext.init(null, new TrustManager[]{new X509TrustManager() {
+//                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+//                        return new java.security.cert.X509Certificate[]{};
+//                    }
+//
+//                    public void checkClientTrusted(X509Certificate[] chain,
+//                                                   String authType) throws CertificateException {
+//                    }
+//
+//                    public void checkServerTrusted(X509Certificate[] chain,
+//                                                   String authType) throws CertificateException {
+//                    }
+//                }}, null);
+//
+//                OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                        .hostnameVerifier(verifier)
+//                        .sslSocketFactory(sslContext.getSocketFactory())
+//                        .build();
+//
+//
+//                IO.setDefaultOkHttpWebSocketFactory(okHttpClient);
+//                IO.setDefaultOkHttpCallFactory(okHttpClient);
+//                options.secure = true;
+//                options.callFactory = okHttpClient;
+//                options.webSocketFactory = okHttpClient;
+//            }
 
             options.forceNew = true;
             options.reconnection = true;
@@ -206,7 +202,7 @@ public class SwarmClient {
                 }
             });
 
-        } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException exception) {
+        } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
     }
@@ -239,6 +235,14 @@ public class SwarmClient {
 
     public void setConnectionListener(ConnectionListener connectionListener) {
         this.connectionListener = connectionListener;
+    }
+
+    public void disconnect() {
+        ioSocket.disconnect();
+    }
+
+    public void connect() {
+        ioSocket.connect();
     }
 
     public interface ConnectionListener {

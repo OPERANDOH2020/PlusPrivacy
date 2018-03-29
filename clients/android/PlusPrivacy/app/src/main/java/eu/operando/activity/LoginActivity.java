@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         context.startActivity(starter);
         ((Activity) context).overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+
+
     }
 
     @Override
@@ -71,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         } else {
             boolean extra = getIntent().getBooleanExtra("fromMainActivity", false);
-            if (!extra){
+            if (!extra) {
                 MainActivity.start(LoginActivity.this, false);
                 finish();
             }
@@ -142,9 +144,11 @@ public class LoginActivity extends AppCompatActivity {
                                     registerZone();
                                     finish();
                                 } else {
-                                    showFailedLoginDialog();
-//                                    emailText.setText("");
-//                                    passwordText.setText("");
+                                    if (Storage.isUserLogged()) {
+                                        MainActivity.start(LoginActivity.this, false);
+                                    } else {
+                                        showFailedLoginDialog();
+                                    }
                                 }
                             }
                         }, 100);

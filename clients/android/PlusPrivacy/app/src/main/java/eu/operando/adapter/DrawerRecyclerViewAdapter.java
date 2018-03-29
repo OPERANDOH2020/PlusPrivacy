@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Arrays;
-
 import eu.operando.R;
 import eu.operando.storage.Storage;
 
@@ -30,6 +28,7 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
             R.drawable.ic_info,
             R.drawable.ic_privacy,
             R.drawable.ic_feedback,
+            R.drawable.ic_account,
             R.drawable.ic_account
     };
 
@@ -79,7 +78,7 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callback.selectItem(position);
+                callback.selectMenuItem(position);
             }
         };
         holder.ll.setOnClickListener(listener);
@@ -109,6 +108,6 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
     }
 
     public interface IDrawerClickCallback {
-        void selectItem(int index);
+        void selectMenuItem(int index);
     }
 }

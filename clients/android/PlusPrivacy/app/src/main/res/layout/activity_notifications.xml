@@ -38,6 +38,7 @@
 
     <include
         android:id="@+id/not_logged"
+        android:visibility="gone"
         android:layout_below="@id/toolbar"
         layout="@layout/activity_not_logged"
         android:layout_width="match_parent"

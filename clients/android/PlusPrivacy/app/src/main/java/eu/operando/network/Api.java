@@ -19,6 +19,9 @@ import retrofit2.http.Query;
 
 public interface Api {
 
+    @GET("/")
+    Call<String> getTest();
+
     @GET("/social-networks/privacy-settings/all")
     Call<JsonElement> getPrivacySettings();
 
