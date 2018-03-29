@@ -51,7 +51,7 @@
                  }
              }
          }
-           console.log("URL:"+settings.page);
+           // console.log("URL:"+settings.page);
          if (settings.type == "application/json") {
              $.ajax({
                  type: "POST",
@@ -131,7 +131,7 @@
                      reject(c);
                  },
                  complete: function(request, status) {
-                     console.log(request.responseText);
+//                     console.log(request.responseText);
                  }
 
              });
@@ -152,9 +152,9 @@
                       //TO DO: count no of links
                      preparePostRequest(settings, csrfToken, resolve, reject);
                  } else {
-                   console.log("works5");
+                   // console.log("works5");
                     doGET(settings.page, function(response) {
-                         console.log("works6");
+                         // console.log("works6");
                          csrfToken = extractHeaders(response);
                          preparePostRequest(settings, csrfToken, resolve, reject);
 
@@ -169,9 +169,13 @@
          var total = privacySettings.length;
          var sequence = Promise.resolve();
          privacySettings.forEach(function(settings, index) {
+
              sequence = sequence.then(function() {
 
-//                 Android.showToast("progress: " + index*100/total );
+             var text = "DONE PROGRESS " + "item=" + index + "total=" + total
+            console.log(text)
+             sendStatusMessage(text);
+                                      
                  return postToLinkedIn(settings, index, total);
 
              }).then(function(result) {}).catch(function(err) {
@@ -179,11 +183,10 @@
              });
          });
 
-         sequence = sequence.then(function(result) {
-             sendStatusMessage("Done")
-         });
 
          sequence = sequence.then(function(result) {
+            sendStatusMessage("Done")
+
              callback();
          });
 
@@ -210,7 +213,7 @@
              }
          }
          data['csrfToken'] = decodeURIComponent(match[1]);
-         console.log(data['csrfToken']);
+         // console.log(data['csrfToken']);
          return data;
 
      }

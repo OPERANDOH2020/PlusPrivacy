@@ -50,7 +50,7 @@
                  }
              }
          }
-           console.log("URL:"+settings.page);
+           // console.log("URL:"+settings.page);
          if (settings.type == "application/json") {
              $.ajax({
                  type: "POST",
@@ -169,7 +169,9 @@
              sequence = sequence.then(function() {
 
 //                 Android.showToast("progress: " + index*100/total );
-//                 Android.setProgressBar(index + 1, total);
+
+                sendStatusMessage("DONE PROGRESS " + "item=" + item + "total=" + total);
+                Android.setProgressBar(index + 1, total);
                  return postToLinkedIn(settings, index, total);
 
              }).then(function(result) {}).catch(function(err) {
@@ -208,7 +210,7 @@
              }
          }
          data['csrfToken'] = decodeURIComponent(match[1]);
-         console.log(data['csrfToken']);
+         // console.log(data['csrfToken']);
          return data;
 
      }
