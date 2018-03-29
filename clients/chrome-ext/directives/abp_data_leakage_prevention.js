@@ -18,6 +18,14 @@ angular.module("abp", [])
          * from chromeadblockplus/firstRun.js
          **/
         var featureSubscriptions = [
+           /* {
+                feature: "standard-ad-blocking",
+                homepage: "https://easylist.adblockplus.org/",
+                title: "Standard ad-blocking",
+                feature_title: "Block advertisements",
+                feature_description: "Prevent unwanted adds to be shown when visiting websites",
+                url: "https://easylist.to/easylist/easylist.txt"
+            },*/
             {
                 feature: "tracking",
                 homepage: "https://easylist.adblockplus.org/",
