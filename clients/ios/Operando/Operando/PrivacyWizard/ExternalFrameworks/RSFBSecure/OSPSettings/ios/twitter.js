@@ -1,3 +1,34 @@
+console.log("twitter");
+var kMessageTypeKey = "messageType";
+    var kLogMessageTypeContentKey = "logContent";
+    var kLogMessageType = "log";
+    
+    var kStatusMessageMessageType = "statusMessageType";
+    var kStatusMessageContentKey = "statusMessageContent";
+    
+    var webkitSendMessage = function(message) {
+        alert(message);
+    };
+    
+    window.console = {};
+    window.console.log = function(logMessage) {
+        var webkitMessage = {};
+        webkitMessage[kMessageTypeKey] = kLogMessageType;
+        webkitMessage[kLogMessageTypeContentKey] = logMessage;
+        
+        webkitSendMessage(JSON.stringify(webkitMessage));
+        
+    };
+    
+    var sendStatusMessage = function(settingName) {
+        var webkitMessage = {};
+        webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+        webkitMessage[kStatusMessageContentKey] = settingName;
+        webkitSendMessage(JSON.stringify(webkitMessage));
+    };
+
+// XHook - v1.4.4 - https://github.com/jpillora/xhook
+// Jaime Pillora <dev@jpillora.com> - MIT Copyright 2017
 (function(undefined) {
     var AFTER, BEFORE, COMMON_EVENTS, EventEmitter, FETCH, FIRE, FormData, NativeFetch, NativeFormData, NativeXMLHttp, OFF, ON, READY_STATE, UPLOAD_EVENTS, WINDOW, XHookFetchRequest, XHookFormData, XHookHttpRequest, XMLHTTP, convertHeaders, depricatedProp, document, fakeEvent, mergeObjects, msie, nullify, proxyEvents, slice, useragent, xhook, _base,
         __indexOf = [].indexOf || function(item) {
@@ -690,18 +721,36 @@
 }.call(this));
 
 
+var stop = false
+
+function updateProgres(value){
+
+    if (stop == true) {
+        return
+    }
+
+    setTimeout(function(){
+
+    sendStatusMessage("DONE PROGRESS " + "item=" + value + "total=" + 100);  
+    updateProgres(value+4);
+    }, 1100);
+}
 
 
-console.log("works");
+//Android.showToast("works");
 var headers = {};
 var sequence = Promise.resolve();
 
 var mainFunction = function(privacySettingsJsonString) {
 
+   
+updateProgres(10);
+
+
+
     var run = true;
     xhook.before(function(request) {
-
-//        Android.setProgressBar(50, 100);
+       
         headers = request.headers;
 
         if (run) {
@@ -725,7 +774,7 @@ var mainFunction = function(privacySettingsJsonString) {
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     for (var key in headers) {
                         if (headers.hasOwnProperty(key)) {
-//                            console.log("[Header JS] " + key + " -> " + headers[key]);
+//                            Android.showToast("[Header JS] " + key + " -> " + headers[key]);
                             xhr.setRequestHeader(key, headers[key]);
                         }
                     }
@@ -741,47 +790,17 @@ var mainFunction = function(privacySettingsJsonString) {
                     secureAccount(isEUCountry, privacySettingsJsonString);
                 },
                 error: function(request, textStatus, errorThrown) {
-                    console.log("error: " + request.status + " " + textStatus + " " + errorThrown);
+                   console.log("error: " + request.status + " " + textStatus + " " + errorThrown);
                 }
             });
         }
     });
 };
 
-
-console.log("twitter");
 mainFunction(RS_PARAM_PLACEHOLDER);
 
 
 function secureAccount(isEUCountry, privacySettingsJsonString) {
-    
-    var kMessageTypeKey = "messageType";
-    var kLogMessageTypeContentKey = "logContent";
-    var kLogMessageType = "log";
-    
-    var kStatusMessageMessageType = "statusMessageType";
-    var kStatusMessageContentKey = "statusMessageContent";
-    
-    var webkitSendMessage = function(message) {
-        alert(message);
-    };
-    
-    window.console = {};
-    window.console.log = function(logMessage) {
-        var webkitMessage = {};
-        webkitMessage[kMessageTypeKey] = kLogMessageType;
-        webkitMessage[kLogMessageTypeContentKey] = logMessage;
-        
-        webkitSendMessage(JSON.stringify(webkitMessage));
-        
-    };
-    
-    var sendStatusMessage = function(settingName) {
-        var webkitMessage = {};
-        webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
-        webkitMessage[kStatusMessageContentKey] = settingName;
-        webkitSendMessage(JSON.stringify(webkitMessage));
-    };
 
     privacySettings = JSON.parse(privacySettingsJsonString);
 
@@ -847,12 +866,12 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
                 },
                 success: function(data) {
                     resolve();
-//                    Android.setProgressBar(100, 100);
-//                    Android.onFinishedLoadingCallback();
-                    sendStatusMessage("Done");
+                    sendStatusMessage("Done")
+                    stop = true
                 },
                 error: function(request, textStatus, errorThrown) {
                     console.log("error: " + request.status + " " + textStatus + " " + errorThrown);
+                    // Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
                 }
             };
 
