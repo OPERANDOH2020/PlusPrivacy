@@ -42,7 +42,7 @@ var userService = exports.userService = {
 
             var keyPreferences = {};
 
-            if (userPreferences[preferenceKey]) {
+            if (userPreferences[preferenceKey] !== 'undefined' ) {
                 keyPreferences = userPreferences[preferenceKey];
             }
             success_callback(keyPreferences);

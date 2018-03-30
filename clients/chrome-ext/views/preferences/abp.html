@@ -5,6 +5,18 @@
                 <section id="can-do-more">
 
                     <div id="can-do-more-content" ng-controller="abpController">
+
+                        <h4>Enable ad blocking and anti-tracking</h4>
+
+                        <div class="toggle">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" ng-checked="abp.isEnabled === true" ng-cloak
+                                   id="toggle-abp" ng-click="toggleAdBlocking()">
+                            <label class="onoffswitch-label" for="toggle-abp" >
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+
                         <ul id="features">
 
                             <li class="feature" ng-repeat="featureSubscription in featureSubscriptions" id="feature-{{featureSubscription.feature}}">

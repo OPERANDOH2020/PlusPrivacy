@@ -466,6 +466,11 @@ padding-left: 0px;
     border-bottom: 4px solid #FFB400;
 }
 
+.feature-standard-ad-blocking-image{
+    background-image: url("/operando/assets/images/block_ads.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 .feature-malware-image
 {
     background-image: url("/operando/assets/images/malware-block.png");

@@ -470,10 +470,12 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     });
 
                     getPref("subscriptions_exceptionsurl", function (url) {
+                        console.log(url);
                         removeSubscription(url);
                         firstRunService.setupComplete();
                         console.log("Setup Completed...")
                     });
+                    removeSubscription("https://easylist-downloads.adblockplus.org/easylist.txt");
                 });
             });
 

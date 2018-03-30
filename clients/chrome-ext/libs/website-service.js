@@ -124,7 +124,13 @@ var websiteService = exports.websiteService = {
             var parser = new DOMParser();
             var doc = parser.parseFromString(res, "text/html");
             var sequence = Promise.resolve();
-            var apps = doc.getElementsByClassName("_5b6s");
+            var appsContainer = doc.getElementsByClassName("_5b6q");
+
+            var apps = [];
+
+            for(var i = 0; i<appsContainer.length; i++){
+                apps.push(appsContainer[i].children[0].children[0]);
+            }
 
             for (var i = 0; i < apps.length; i++) {
                 (function (i) {

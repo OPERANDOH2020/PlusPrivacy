@@ -18,14 +18,14 @@ angular.module("abp", [])
          * from chromeadblockplus/firstRun.js
          **/
         var featureSubscriptions = [
-           /* {
+           {
                 feature: "standard-ad-blocking",
                 homepage: "https://easylist.adblockplus.org/",
                 title: "Standard ad-blocking",
                 feature_title: "Block advertisements",
                 feature_description: "Prevent unwanted adds to be shown when visiting websites",
-                url: "https://easylist.to/easylist/easylist.txt"
-            },*/
+                url: "http://easylist-downloads.adblockplus.org/easylist.txt"
+            },
             {
                 feature: "tracking",
                 homepage: "https://easylist.adblockplus.org/",
@@ -63,13 +63,14 @@ angular.module("abp", [])
         }
 
 
-        var updateSubscriptionsInExtension = function (subscriptions) {
+        /*var updateSubscriptionsInExtension = function (subscriptions) {
 
             ext.backgroundPage.sendMessage({
                 type: "subscriptions.get",
                 downloadable: true,
                 ignoreDisabled: true
             }, function (extensionSubscriptions) {
+                console.log(extensionSubscriptions);
 
                 for(var i = 0; i < extensionSubscriptions.length; i++){
                     for(var j = 0; j < subscriptions.length; j++){
@@ -88,11 +89,28 @@ angular.module("abp", [])
 
             });
 
-        };
+        };*/
 
         var getFeatureSubscriptions = function (callback) {
 
-            var sequence = Promise.resolve();
+
+            ext.backgroundPage.sendMessage({
+                type: "subscriptions.get",
+                downloadable: true,
+                ignoreDisabled: true
+            }, function (subscriptions) {
+                var known = Object.create(null);
+                for (var i = 0; i < subscriptions.length; i++)
+                    known[subscriptions[i].url] = true;
+                for (var i = 0; i < featureSubscriptions.length; i++) {
+                    featureSubscriptions[i].checked = featureSubscriptions[i].url in known;
+                }
+                callback(featureSubscriptions);
+            });
+
+
+
+            /*var sequence = Promise.resolve();
 
             sequence = sequence.then(function () {
                 return new Promise(function (resolve) {
@@ -136,8 +154,7 @@ angular.module("abp", [])
                     }
                 });
             });
-
-            sequence = sequence.then(function (abpPreferencesWereFound) {
+            sequence = sequence.then(function () {
 
                 return new Promise(function (resolve) {
                     if (abpPreferencesWereFound !== true) {
@@ -165,6 +182,7 @@ angular.module("abp", [])
             sequence.then(function(featureSubscriptions){
                 callback(featureSubscriptions);
             });
+             */
 
         };
 
@@ -211,20 +229,17 @@ angular.module("abp", [])
                     subscription.checked = !subscription.checked;
                 }
 
-                preferences.push({
+                /*preferences.push({
                     feature: subscription.feature,
                     checked: subscription.checked
-                });
+                });*/
             });
 
-            messengerService.send("userIsAuthenticated", function(data){
-                if(data.status === "success"){
-                    messengerService.send("saveUserPreferences", {
-                        preferenceKey: "abp-settings",
-                        preferences: preferences
-                    });
-                }
-            })
+            messengerService.send("saveUserPreferences", {
+                preferenceKey: "abp-settings",
+                preferences: preferences
+            });
+
         };
 
         var subscribeToBeBeUpdated = function(callback){
@@ -254,7 +269,19 @@ angular.module("abp", [])
             init:init
         }
     })
-    .controller('abpController', ['$scope', "subscriptionsService", function ($scope, subscriptionsService) {
+    .controller('abpController', ['$scope',"$rootScope", "subscriptionsService","messengerService", function ($scope, $rootScope, subscriptionsService, messengerService) {
+        $scope.abp = {};
+
+        messengerService.send("getUserPreferences","abp-status",function(response){
+            if(response.status === "success" && typeof response.data === "boolean" ){
+                $scope.abp.isEnabled = response.data;
+            }
+            else{
+                //default is enabled
+                $scope.abp.isEnabled = true;
+            }
+            $scope.$apply();
+        });
 
 
         subscriptionsService.subscribeToBeBeUpdated(updateToggleButtons);
@@ -267,8 +294,48 @@ angular.module("abp", [])
         }
         updateToggleButtons();
 
+        $scope.toggleAdBlocking = function(){
+            $scope.abp.isEnabled = !$scope.abp.isEnabled ;
+
+
+            $rootScope.$broadcast('updateToggle',$scope.abp.isEnabled);
+
+            ext.backgroundPage.sendMessage({
+                type: "subscriptions.get",
+                downloadable: true
+            }, function (subscriptions) {
+                subscriptions.forEach(function(subscription){
+                if(subscription.disabled == $scope.abp.isEnabled){
+                    ext.backgroundPage.sendMessage({
+                        type: "subscriptions.toggle",
+                        url: subscription.url,
+                        title:subscription.title,
+                        homepage:subscription.homepage
+                    });
+                }
+
+                });
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+            messengerService.send("saveUserPreferences", {
+                preferenceKey: "abp-status",
+                preferences: $scope.abp.isEnabled
+            });
+        }
+
     }]);
-angular.module("abp").directive("abpLeakagePrevention", function (subscriptionsService) {
+angular.module("abp").directive("abpLeakagePrevention", ["$timeout",function (subscriptionsService,$timeout) {
     return {
         restrict: "E",
         replace: true,
@@ -285,8 +352,23 @@ angular.module("abp").directive("abpLeakagePrevention", function (subscriptionsS
                     });
                     subscriptionsService.saveFeatureSubscription(scope.subscription);
                 }, 500);
-            }
-        }
+            },
+                scope.$on("updateToggle", function(event, status){
+                    console.log(status);
+                    console.log(scope.subscription);
+                    if(scope.subscription.checked != status){
+                        //elem.triggerHandler('click');
+                        //elem.click();
+                        console.log("schimb");
+                        angular.element(elem[0].querySelector('input')).triggerHandler('click');
+                            //angular.element(elem).triggerHandler('click');
+
+                    }
+                })
+        },
+        controller:["$scope",function($scope){
+
+        }]
 
     }
-});
+}]);
