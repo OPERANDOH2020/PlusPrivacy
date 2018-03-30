@@ -8,33 +8,13 @@ angular.module('osp', ['cfp.loadingBar'])
             var sequence = Promise.resolve();
 
             sequence = sequence.then(function () {
-                return new Promise(function (resolve, reject) {
-                    messengerService.send("userIsAuthenticated", function (data) {
-                        if (data.status && data.status == "success") {
-                            resolve(true);
-                        }
-                        else {
-                            resolve(false);
+                return new Promise(function (resolve) {
+                    messengerService.send("getUserPreferences", ospname, function (response) {
+                        if (response.status === "success") {
+                            var schemaCompleted = completeForm(response.data);
+                            resolve(schemaCompleted);
                         }
                     });
-                })
-            });
-
-            sequence = sequence.then(function(isLoggedIn){
-
-                return new Promise(function (resolve, reject) {
-                    if (isLoggedIn) {
-                        messengerService.send("getUserPreferences", ospname, function (response) {
-                            if (response.status === "success") {
-                                var schemaCompleted = completeForm(response.data);
-                                resolve(schemaCompleted);
-                            }
-                        });
-
-                    } else {
-                        var schemaCompleted = completeForm([]);
-                        resolve(schemaCompleted);
-                    }
                 });
             });
 
@@ -46,7 +26,12 @@ angular.module('osp', ['cfp.loadingBar'])
 
             function completeForm(preferences){
 
-                var hasPreferences  = preferences.length > 0;
+                var hasPreferences = false;
+
+                if(preferences instanceof Array){
+                    hasPreferences  = preferences.length > 0;
+                }
+
                 if(hasPreferences){
                     var preferencesObject = {};
                     preferences.forEach(function (preference) {

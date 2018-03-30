@@ -134,11 +134,11 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 if (preferred == item.value) {
                                     item.className = "recommended";
                                 }
-                            }
+                            };
                             return initFn;
                         }()
 
-                    })
+                    });
                     $scope.schema.properties[key].default = $scope.schema.properties[key].preferred;
                 }
 
@@ -178,15 +178,10 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                         })
                     }
 
-                    messengerService.send("userIsAuthenticated", function (data) {
-                        if (data.status === "success") {
-                            messengerService.send("saveUserPreferences", {
-                                preferenceKey: $scope.socialNetwork,
-                                preferences: preferences
-                            });
-                        }
+                    messengerService.send("saveUserPreferences", {
+                        preferenceKey: $scope.socialNetwork,
+                        preferences: preferences
                     });
-
 
 
                 }, $scope.socialNetwork);
