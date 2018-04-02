@@ -466,6 +466,22 @@ padding-left: 0px;
     border-bottom: 4px solid #FFB400;
 }
 
+#enable_disable_ad_blocker{
+    padding: 10px 40px 10px 20px;
+    background: #cabea1;
+    position: relative;
+    margin-bottom: 20px;
+    color: #fdfaf0;
+}
+
+#enable_disable_ad_blocker h4{
+    color:#444;
+}
+
+#enable_disable_ad_blocker div.toggle{
+    top:-20px;
+}
+
 .feature-standard-ad-blocking-image{
     background-image: url("/operando/assets/images/block_ads.png");
     background-repeat: no-repeat;
@@ -494,7 +510,7 @@ padding-left: 0px;
 
 #can-do-more-content
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 #can-do-more #features
@@ -549,6 +565,11 @@ padding-left: 0px;
     margin: 10px 0px;
     -webkit-margin-start: 20px;
     -moz-margin-start: 20px;
+}
+
+.abp_disabled {
+    pointer-events: none;
+    opacity: 0.25;
 }
 
 

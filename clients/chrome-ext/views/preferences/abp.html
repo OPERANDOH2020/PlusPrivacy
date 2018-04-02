@@ -6,18 +6,20 @@
 
                     <div id="can-do-more-content" ng-controller="abpController">
 
+                        <div id="enable_disable_ad_blocker">
                         <h4>Enable ad blocking and anti-tracking</h4>
 
-                        <div class="toggle">
-                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" ng-checked="abp.isEnabled === true" ng-cloak
-                                   id="toggle-abp" ng-click="toggleAdBlocking()">
-                            <label class="onoffswitch-label" for="toggle-abp" >
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
+                            <div class="toggle" ng-if="loaded">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" ng-checked="abpIsEnabled"
+                                       id="toggle-abp" ng-click="toggleAdBlocking()">
+                                <label class="onoffswitch-label" for="toggle-abp" >
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
                         </div>
 
-                        <ul id="features">
+                        <ul id="features" ng-class="abpIsEnabled === false?'abp_disabled':''">
 
                             <li class="feature" ng-repeat="featureSubscription in featureSubscriptions" id="feature-{{featureSubscription.feature}}">
                                 <abp-leakage-prevention subscription="featureSubscription"></abp-leakage-prevention>
