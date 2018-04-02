@@ -36,6 +36,8 @@ showModal();
 
 function showModal() {
     
+    sendStatusMessage("DONE PROGRESS " + "item=" + 100 + "total=" + 100);
+    
     var modal = $('<div class="modal"></div>');
     var modal_content = $('<div class="modal-content"></div>');
     

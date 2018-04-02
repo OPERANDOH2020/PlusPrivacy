@@ -46,9 +46,11 @@ enum ACPrivacyWizardScope {
             return "https://www.linkedin.com"
         case .twitter:
             return "https://mobile.twitter.com/settings/safety"
-        case .googleLogin:
-            return "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-        case .googleActivity:
+//        case .googleLogin:
+//            return "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+            
+//            return "https://accounts.google.com/"
+        case  .googleLogin, .googleActivity:
             return "https://myaccount.google.com/activitycontrols"
         case .googlePreferences:
             return "https://www.google.com/preferences"

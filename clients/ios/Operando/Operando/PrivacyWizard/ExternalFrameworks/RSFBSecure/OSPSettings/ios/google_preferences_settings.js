@@ -39,6 +39,7 @@ getGoogleData(function (response) {
   secureAccount(RS_PARAM_PLACEHOLDER);
 });
 
+
 function doGetRequest(url, callback) {
 
 
@@ -175,8 +176,6 @@ function getGoogleData(callback) {
       'f_sid': sid
     };
 
-    //console.log("DATA = " + data);
-
     callback(data);
   }
 
@@ -185,12 +184,10 @@ function getGoogleData(callback) {
 
 function secureAccount(privacySettingsJsonString) {
 
-  //console.log("BEFORE RASPUNS")
-  //console.log("RASPUNS" + privacySettingsJsonString);
 
   try{
     var privacySettings = JSON.parse(privacySettingsJsonString);
-//console.log("AFWTER PARSE")
+
   }catch(e){
     //console.log("in catch")
     setTimeout(function(){
@@ -200,9 +197,6 @@ function secureAccount(privacySettingsJsonString) {
   var total = privacySettings.length;
   privacySettings = privacySettings.reverse();
 
-
-//console.log("PRIVACYSETTINGS ")
-//console.log(privacySettings)
 
   var sequence = Promise.resolve();
   privacySettings.forEach(function (settings, index) {
@@ -317,10 +311,12 @@ function postToGoogle(settings, item, total) {
    if (settings.page) {
      if(settings.method_type === "GET"){
 
+      sendStatusMessage("DONE PROGRESS " + "item=" + 40 + "total=" + 100);  
       sendGetRequest(settings,resolve,reject);
     }
     else{
 
+      sendStatusMessage("DONE PROGRESS " + "item=" + 80 + "total=" + 100);  
       sendPostRequest(settings,resolve,reject);
     }
 
