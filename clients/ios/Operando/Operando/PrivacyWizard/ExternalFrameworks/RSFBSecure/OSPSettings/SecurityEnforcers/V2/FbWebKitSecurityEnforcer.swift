@@ -95,7 +95,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
             self.webView.loadJSFile(scriptName: isLoggedScript, withCompletion: { (islogged, isloggedError) in
                 
                 if let islogged = islogged as? String,
-                    islogged == "true" {
+                    islogged == "true" || ACPrivacyWizard.shared.selectedScope == .googlePreferences {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         self.webView.loadAndExecuteScriptNamed(scriptName: resource) { (result, error) in
