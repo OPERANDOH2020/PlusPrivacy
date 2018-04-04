@@ -42,6 +42,18 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         super.init()
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
+        
+        weak var weakSelf = self
+        
+        finishedLoading = {
+            
+            //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.loginIsDoneInitiateNextStep()
+            //            }
+            
+//            self.finishedLoading = nil
+        }
+        
     }
     
     func enforceWithCallToLogin(callToLoginWithCompletion: CallToLoginWithCompletion?, whenDisplayingMessage: ((_ message: String) -> Void)? ,completion: ((_ error: NSError?) -> Void)?)
@@ -70,18 +82,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
     func loadAddress() {
         let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getNetworkUrl()
         
-       self.webView.loadWebViewToURL(urlString: socialMediaUrl)
-        
-        weak var weakSelf = self
-        
-        finishedLoading = {
-            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.loginIsDoneInitiateNextStep()
-//            }
-            
-            self.finishedLoading = nil
-        }
+        self.webView.loadWebViewToURL(urlString: socialMediaUrl)
     }
     
     func loginIsDoneInitiateNextStep() {
@@ -89,9 +90,23 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         let resource = ACPrivacyWizard.shared.selectedScope.getWizardResourceName()
         
         self.webView.loadJQueryIfNeededWithCompletion(completion: {
-            self.webView.loadAndExecuteScriptNamed(scriptName: resource) { (result, error) in
-                print(error)
-            }
+            
+            let isLoggedScript =  ACPrivacyWizard.shared.selectedScope.getNetworks().first! + "_is_logged"
+            self.webView.loadJSFile(scriptName: isLoggedScript, withCompletion: { (islogged, isloggedError) in
+                
+                if let islogged = islogged as? String,
+                    islogged == "true" {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        self.webView.loadAndExecuteScriptNamed(scriptName: resource) { (result, error) in
+                            print(error)
+                        }
+                    })
+                }
+                else {
+                    self.whenDisplayingMessage?("Please log in!")
+                }
+            })
         })
     }
     
@@ -113,12 +128,13 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
     //MARK: WKWebView delegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("FINISH")
         self.whenWebViewFinishesNavigation?()
-
-          if ACPrivacyWizard.shared.selectedScope == .googleActivity {
+        
+        if ACPrivacyWizard.shared.selectedScope == .googleActivity {
             insertContentsOfCSSFile(into: webView)
         }
-          else {
+        else {
             self.finishedLoading?()
         }
     }
@@ -127,7 +143,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         guard let path = Bundle.main.path(forResource: "activityControls.min", ofType: "css") else { return }
         let cssString = try! String(contentsOfFile: path)
         let jsString = "var style = document.createElement('style'); style.innerHTML = \"" + "\(cssString)" + "\"; document.head.appendChild(style);"
-//        let jsString = "console.log('am intrat')";
+        //        let jsString = "console.log('am intrat')";
         
         print(jsString)
         

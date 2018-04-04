@@ -664,7 +664,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q1-2I-iXp">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEi-85-mbH">
@@ -707,11 +707,11 @@
                                     <constraint firstItem="QRL-AS-fvg" firstAttribute="centerX" secondItem="gEi-85-mbH" secondAttribute="centerX" id="t4E-he-GnY"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hni-sa-1IA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hni-sa-1IA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQy-bH-a3Y">
-                                        <rect key="frame" x="277" y="23" width="90" height="30"/>
+                                        <rect key="frame" x="277" y="-41" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.66666666669999997" blue="0.70588235290000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ckv-p6-lro"/>
@@ -729,11 +729,11 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="rQy-bH-a3Y" secondAttribute="bottom" constant="11" id="1MP-cQ-Xna"/>
                                     <constraint firstAttribute="trailing" secondItem="rQy-bH-a3Y" secondAttribute="trailing" constant="8" id="Hly-un-zKw"/>
-                                    <constraint firstAttribute="height" constant="64" id="ptu-3G-f9d"/>
+                                    <constraint firstAttribute="height" id="ptu-3G-f9d"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UN-fL-EQQ" customClass="UISettingsProgress" customModule="Operando" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UN-fL-EQQ" customClass="UISettingsProgress" customModule="Operando" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jIu-aO-kxb"/>
                                 </constraints>

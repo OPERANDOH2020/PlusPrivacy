@@ -43,7 +43,7 @@ enum ACPrivacyWizardScope {
         case .facebook:
             return "https://www.facebook.com"
         case .linkedIn:
-            return "https://www.linkedin.com"
+            return "https://www.linkedin.com/psettings/"
         case .twitter:
             return "https://mobile.twitter.com/settings/safety"
 //        case .googleLogin:

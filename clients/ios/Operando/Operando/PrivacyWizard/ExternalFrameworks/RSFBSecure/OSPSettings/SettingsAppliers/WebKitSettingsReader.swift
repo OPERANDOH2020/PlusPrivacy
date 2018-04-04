@@ -12,6 +12,18 @@ import WebKit
 
 extension WKWebView
 {
+    func loadJSFile(scriptName: String, withCompletion completion: ((_ result: Any?, _ error: Error?) -> Void)?) {
+        
+        if let filePath = Bundle.main.path(forResource: scriptName, ofType: "js"),
+            let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
+            
+            self.evaluateJavaScript(jsString as String, completionHandler: completion)
+        }
+        else {
+            completion?(nil, nil);
+        }
+    }
+    
     func loadAndExecuteScriptNamed(scriptName: String, withCompletion completion: ((_ result: Any?, _ error: Error?) -> Void)?) {
         guard let filePath = Bundle.main.path(forResource: scriptName, ofType: "js"),
             let privacySettingsJson = ACPrivacyWriter.privacyOptionsJsonString()

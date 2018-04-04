@@ -1,9 +1,9 @@
 (function()
  {
  if (typeof jQuery == 'undefined') {
- return "false";
+    return "false";
  } else {
- return "true";
+    return "true";
  }
  }
  )()

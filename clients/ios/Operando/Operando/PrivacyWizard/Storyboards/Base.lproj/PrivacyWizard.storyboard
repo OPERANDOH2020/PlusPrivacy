@@ -546,7 +546,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKO-bU-AU4" customClass="UISettingsProgress" customModule="Operando" customModuleProvider="target">
                                 <rect key="frame" x="16" y="64" width="343" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.40041303630000002" green="0.48972344400000001" blue="0.72515052560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kYa-4a-Rcz"/>
                                 </constraints>

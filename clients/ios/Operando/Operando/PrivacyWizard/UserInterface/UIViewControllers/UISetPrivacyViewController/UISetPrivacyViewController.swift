@@ -77,9 +77,10 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     
         self.alterUserAgentInDefaults()
         ProgressHUD.show("Loading")
+        self.displayStatusView(hidden: false)
         self.fbSecurityEnforcer?.enforceWithCallToLogin(callToLoginWithCompletion: { callbackWhenLogInIsDone in
             ProgressHUD.dismiss()
-            self.addTutorialView()
+//            self.addTutorialView()
             
             self.whenUserPressedLoggedIn = {
                 UIAlertViewController.presentOkAlert(from: self, title: "Information", message: "Please wait while we collect some data from the page, which will help us in applying your privacy settings. Sometimes this process might take a few minutes. You can help us by doing some scrolling movements on the page.", submitCallback: { (action) in
@@ -118,7 +119,6 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                 })
             
                 return
-                
             }
             else if $0 == "DONE-POST" {
                 
@@ -142,7 +142,6 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             }
             else if $0.range(of: "DONE PROGRESS") != nil {
                 print("E DE BINE")
-                
                 let pat = "DONE PROGRESS item=([0-9]+)?total=([0-9]+)?"
                 
                 let matches = $0.capturedGroups(withRegex: pat)
@@ -156,8 +155,14 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             
                 print($0)
             }
+            else if $0 == "Please log in!" {
+                self.settingsProgressView.isHidden = true
+                RSCommonUtilities.showOKAlertWithMessage(message: "Please log in!")
+                self.displayStatusView(hidden: true)
+            }
             else {
                 print($0)
+                self.settingsProgressView.isHidden = true
                 RSCommonUtilities.showOKAlertWithMessage(message: "A problem has ocurred!")
                 self.displayStatusView(hidden: true)
             }
