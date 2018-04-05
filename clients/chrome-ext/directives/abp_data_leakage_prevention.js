@@ -22,9 +22,10 @@ angular.module("abp", [])
                 feature: "standard-ad-blocking",
                 homepage: "https://easylist.adblockplus.org/",
                 title: "Standard ad-blocking",
-                feature_title: "Block advertisements",
-                feature_description: "Prevent unwanted adds to be shown when visiting websites",
-                url: "http://easylist-downloads.adblockplus.org/easylist.txt"
+                feature_title: "Block ads",
+                feature_description: "Do not show ads",
+                url: "https://easylist-downloads.adblockplus.org/easylist.txt",
+                check_if_active_before:true
             },
             {
                 feature: "tracking",
@@ -86,7 +87,6 @@ angular.module("abp", [])
                 downloadable: true,
                 ignoreDisabled: true
             }, function (extensionSubscriptions) {
-                var preferences = [];
                 featureSubscriptions.forEach(function (subscription, index) {
                     var subscriptionIsOn = false;
                     for(var i = 0; i < extensionSubscriptions.length; i++){
@@ -95,22 +95,10 @@ angular.module("abp", [])
                             subscriptionIsOn = true;
                             break;
                         }
-
                     }
                     featureSubscriptions[index].checked = subscriptionIsOn;
-                    preferences.push({
-                        feature: subscription.feature,
-                        checked: subscriptionIsOn
-                    });
 
                 });
-
-
-                messengerService.send("saveUserPreferences", {
-                    preferenceKey: "abp-settings",
-                    preferences: preferences
-                }, callback);
-
             })
         };
 

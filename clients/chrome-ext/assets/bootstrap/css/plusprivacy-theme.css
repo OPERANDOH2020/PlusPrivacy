@@ -419,6 +419,7 @@ ul.nav.navbar-nav.pull-right li>a>.menu_item_content{
 
 #features{
 padding-left: 0px;
+margin: 0px 30px;
 }
 
 .extension_icon{
@@ -468,21 +469,22 @@ padding-left: 0px;
 
 #enable_disable_ad_blocker{
     padding: 10px 40px 10px 20px;
-    background: #cabea1;
+    /*background: #cabea1;*/
     position: relative;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     color: #fdfaf0;
 }
 
 #enable_disable_ad_blocker h4{
     color:#444;
+    font-size: 23px;
 }
 
 #enable_disable_ad_blocker div.toggle{
     top:-20px;
 }
 
-.feature-standard-ad-blocking-image{
+/*.feature-standard-ad-blocking-image{
     background-image: url("/operando/assets/images/block_ads.png");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -506,7 +508,7 @@ padding-left: 0px;
     background-image: url("/operando/assets/images/disable-tracking.png");
     background-repeat: no-repeat;
     background-size: 100%;
-}
+}*/
 
 #can-do-more-content
 {
@@ -521,9 +523,8 @@ padding-left: 0px;
 #can-do-more .feature
 {
     list-style-type: none;
-    padding-top: 30px;
     padding-bottom: 20px;
-    border-top: 1px dashed #c0bebb;
+    /*border-top: 1px dashed #c0bebb;*/
     position: relative;
 }
 
@@ -560,11 +561,12 @@ padding-left: 0px;
 
 #can-do-more .feature-image
 {
-    width: 59px;
+ /*   width: 59px;
     height: 59px;
     margin: 10px 0px;
     -webkit-margin-start: 20px;
-    -moz-margin-start: 20px;
+    -moz-margin-start: 20px;*/
+    display: none;
 }
 
 .abp_disabled {
@@ -572,6 +574,13 @@ padding-left: 0px;
     opacity: 0.25;
 }
 
+.feature-description .toggle{
+transform: scale(0.9);
+}
+
+.feature-description h3{
+    font-size: 19px;
+}
 
 .toggle
 {
@@ -587,7 +596,7 @@ padding-left: 0px;
     margin-right:32px;
     position: absolute;
     right: 0;
-    top:20px;
+    top:0px;
 }
 
 .onoffswitch-checkbox {
