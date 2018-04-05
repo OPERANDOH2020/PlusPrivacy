@@ -469,9 +469,7 @@ margin: 0px 30px;
 
 #enable_disable_ad_blocker{
     padding: 10px 40px 10px 20px;
-    /*background: #cabea1;*/
     position: relative;
-    /*margin-bottom: 20px;*/
     color: #fdfaf0;
 }
 
@@ -484,31 +482,6 @@ margin: 0px 30px;
     top:-20px;
 }
 
-/*.feature-standard-ad-blocking-image{
-    background-image: url("/operando/assets/images/block_ads.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-.feature-malware-image
-{
-    background-image: url("/operando/assets/images/malware-block.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.feature-social-image
-{
-    background-image: url("/operando/assets/images/remove_socials.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.feature-tracking-image
-{
-    background-image: url("/operando/assets/images/disable-tracking.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}*/
 
 #can-do-more-content
 {
@@ -524,7 +497,6 @@ margin: 0px 30px;
 {
     list-style-type: none;
     padding-bottom: 20px;
-    /*border-top: 1px dashed #c0bebb;*/
     position: relative;
 }
 
@@ -561,11 +533,6 @@ margin: 0px 30px;
 
 #can-do-more .feature-image
 {
- /*   width: 59px;
-    height: 59px;
-    margin: 10px 0px;
-    -webkit-margin-start: 20px;
-    -moz-margin-start: 20px;*/
     display: none;
 }
 
@@ -851,43 +818,6 @@ color:#FFF;
     display: inline-block;
 }
 
-/*.pp-red{
- background: #d0c09e;
-
-}
-.pp-red:hover{
-    background: rgba(226,27,46,0.35);
-}
-
-.pp-blue{
-    background:#ebe1cc;
-}
-.pp-blue:hover{
-    background: rgba(27,163,226,0.35);
-}
-
-.pp-green{
-    background:#f3ecdc;
-}
-.pp-green:hover{
-    background: rgba(32,226,27,0.35);
-}
-
-.pp-yellow{
-    background:#e3d7bd;
-}
-
-.pp-yellow:hover{
-    background: rgba(226,219,27,0.35);
-}
-
-.pp-orange{
-    background: #dacbac;
-}
-
-.pp-orange:hover{
-    background: rgba(226,149,27,0.35);
-}*/
 
 .tabs-left{
     border-right:0;
