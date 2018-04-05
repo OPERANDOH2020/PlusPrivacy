@@ -12,11 +12,11 @@ import eu.operando.customView.MyWebViewClient;
 public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity {
 
     public String getURL_MOBILE() {
-        return "http://linkedin.com/psettings/privacy";
+        return "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fpsettings%2Fprivacy&fromSignIn=true&trk=uno-reg-join-mobile-sign-in";
     }
 
     public String getURL() {
-        return "http://linkedin.com/psettings/privacy";
+        return "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fpsettings%2Fprivacy&fromSignIn=true&trk=uno-reg-join-mobile-sign-in";
     }
 
     @Override

@@ -1,5 +1,7 @@
 package eu.operando.activity;
 
+import eu.operando.R;
+
 /**
  * Created by Alex on 12/12/2017.
  */
@@ -25,5 +27,15 @@ public class SocialNetworkPrivacySettingsActivity extends SocialNetworkBaseActiv
     @Override
     public Class googleClass() {
         return GoogleSettingsActivity.class;
+    }
+
+    @Override
+    public int getStringTitleId() {
+        return R.string.social_network_settings;
+    }
+
+    @Override
+    public int getStringDescriptionId() {
+        return R.string.social_networks_header;
     }
 }

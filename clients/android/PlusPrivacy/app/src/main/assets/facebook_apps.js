@@ -68,8 +68,8 @@
 
     };
 
-    doGetRequest("https://m.facebook.com/privacy/touch/apps/list/?tab=all", getApps);
-
+//    doGetRequest("https://m.facebook.com/privacy/touch/apps/list/?tab=all", getApps);
+    getApps(document.getElementsByTagName('html')[0].innerHTML);
 
 })();
 

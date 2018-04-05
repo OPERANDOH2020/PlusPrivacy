@@ -9,11 +9,17 @@ import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -23,7 +29,7 @@ import java.util.List;
 
 import eu.operando.R;
 import eu.operando.activity.PermissionsActivity;
-import eu.operando.tasks.DownloadImageTask;
+import eu.operando.activity.SocialNetworkAppsListActivity;
 import eu.operando.models.AbstractApp;
 import eu.operando.models.SocialNetworkApp;
 import eu.operando.utils.PermissionUtils;
@@ -35,6 +41,12 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<? extends AbstractApp> list;
+
+    public interface SocialNetworkColor {
+        int getSNMainColor();
+
+        int getSNSecondaryColor();
+    }
 
     public ScannerListAdapter(Context context, List<? extends AbstractApp> objects) {
         this.context = context;
@@ -95,7 +107,6 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int position, boolean isExpanded, View convertView, ViewGroup viewGroup) {
         final GroupHolder holder;
-
         if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -107,6 +118,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
         } else {
             holder = (GroupHolder) convertView.getTag();
         }
+
 
         final AbstractApp groupItem = (AbstractApp) getGroup(position);
         holder.setData(groupItem, isExpanded);
@@ -149,6 +161,7 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
         View uninstallApp;
         View viewPermission;
+        RelativeLayout childItem;
 
 
         public ChildHolder(View itemView) {
@@ -156,9 +169,22 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
             uninstallApp = itemView.findViewById(R.id.trash_btn);
             viewPermission = itemView.findViewById(R.id.eye_btn);
+            childItem = (RelativeLayout) itemView.findViewById(R.id.child_item);
         }
 
         public void setData(final AbstractApp item) {
+
+            if (item instanceof SocialNetworkApp) {
+                childItem.setBackgroundColor(context.getResources().getColor(
+                        ((SocialNetworkColor) context).getSNSecondaryColor()
+                ));
+                viewPermission.setBackgroundColor(context.getResources().getColor(
+                        ((SocialNetworkColor) context).getSNMainColor()
+                ));
+                uninstallApp.setBackgroundColor(context.getResources().getColor(
+                        ((SocialNetworkColor) context).getSNMainColor()
+                ));
+            }
 
             viewPermission.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -170,6 +196,9 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
                     }
 
                     i.putExtra("perms", (ArrayList<String>) item.getPermissions());
+                    if (item instanceof SocialNetworkApp) {
+                        i.putExtra("color", ((SocialNetworkColor) context).getSNMainColor());
+                    }
 //                    ((ScannerActivity) context).infoClicked();
                     context.startActivity(i);
                 }
@@ -205,7 +234,10 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
     private class GroupHolder extends RecyclerView.ViewHolder {
 
+        RelativeLayout itemRL;
+        RelativeLayout itemBoxRL;
         ImageView appIcon;
+        WebView appIconWv;
         TextView appName;
         TextView appPrivacyPolution;
         View appCircleIndicator;
@@ -214,7 +246,10 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
         public GroupHolder(View itemView) {
             super(itemView);
 
+            itemRL = (RelativeLayout) itemView.findViewById(R.id.item_view);
+            itemBoxRL = (RelativeLayout) itemView.findViewById(R.id.item_box);
             appIcon = (ImageView) itemView.findViewById(R.id.app_icon);
+            appIconWv = (WebView) itemView.findViewById(R.id.app_icon_wv);
             appName = (TextView) itemView.findViewById(R.id.app_name);
             appPrivacyPolution = (TextView) itemView.findViewById(R.id.app_privacy_polution);
             appCircleIndicator = itemView.findViewById(R.id.drawable_circle_indicator);
@@ -223,21 +258,33 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
         public void setData(AbstractApp item, boolean isExpanded) {
 
+            if (context instanceof SocialNetworkAppsListActivity) {
+                itemBoxRL.setBackgroundColor(context.getResources().getColor(
+                        ((SocialNetworkColor) context).getSNSecondaryColor()
+                ));
+            }
             groupIndicator.setSelected(isExpanded);
             setAppCircleIndicator(item);
             appName.setText(item.getAppName());
-            String poll = "Privacy Pollution: " + item.getPollutionScore() + "/10";
-
-            appPrivacyPolution.setText(poll);
 
             if (item instanceof SocialNetworkApp) {
 
                 setSocialAppIcon(item);
+                if (((SocialNetworkApp) item).getPermissionGroups() != null) {
+                    for (SocialNetworkApp.PermissionGroups permissionGroup : ((SocialNetworkApp) item).getPermissionGroups()) {
+                        item.setPermissions(permissionGroup.getPermissions());
+                    }
+                }
+                PermissionUtils.calculatePollutionScore(item);
+
 
             } else {
 
                 setNativeAppIcon(item);
             }
+
+            String poll = "Privacy Pollution: " + item.getPollutionScore() + "/10";
+            appPrivacyPolution.setText(poll);
         }
 
         private void setNativeAppIcon(AbstractApp item) {
@@ -260,13 +307,48 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             appIconUrl = appIconUrl.replace(" ", "");
 
             try {
-                appIconUrl = java.net.URLDecoder.decode(appIconUrl, "UTF-8");
+                if (!appIconUrl.contains("linkedin")) {
+                    appIconUrl = java.net.URLDecoder.decode(appIconUrl, "UTF-8");
+                }
                 Log.e("appiconurl", appIconUrl);
-                new DownloadImageTask(appIcon)
-                        .execute(appIconUrl);
+
+                if (appIconUrl.endsWith("svg")) {
+                    setAppIconWebView(appIconUrl);
+                } else {
+                    Picasso.with(context).load(appIconUrl).into(appIcon);
+//                    new DownloadImageTask(appIcon)
+//                        .execute(appIconUrl);
+                }
+
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
+        }
+
+        private void setAppIconWebView(String appIconURL) {
+
+            appIconWv.setVisibility(View.VISIBLE);
+            appIcon.setVisibility(View.GONE);
+
+//            appIconWv.setInitialScale(1);
+//            WebSettings settings = appIconWv.getSettings();
+//            settings.setSupportZoom(true);
+//            settings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
+//            settings.setUseWideViewPort(true);
+//            appIconWv.getSettings().setBuiltInZoomControls(true);
+//            appIconWv.getSettings().setDisplayZoomControls(false);
+            appIconWv.setVerticalScrollBarEnabled(false);
+            appIconWv.setHorizontalScrollBarEnabled(false);
+            appIconWv.setBackgroundColor(0x00000000);
+
+            appIconWv.setWebViewClient(new WebViewClient() {
+
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    view.setVisibility(View.VISIBLE);
+                }
+            });
+            appIconWv.loadUrl(appIconURL);
         }
 
         private void setAppCircleIndicator(AbstractApp item) {

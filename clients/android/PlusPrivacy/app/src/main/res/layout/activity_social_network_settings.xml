@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/menu_6"
-        app:title="Social Network Settings"
+        app:title="@string/social_network_settings"
         app:theme="@style/ToolbarStyle"
         app:titleTextColor="@color/white">
 
@@ -37,6 +37,7 @@
                 android:src="@drawable/secured" />
 
             <TextView
+                android:id="@+id/info_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

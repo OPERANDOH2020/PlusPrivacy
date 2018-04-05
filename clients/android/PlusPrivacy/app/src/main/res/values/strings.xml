@@ -259,7 +259,9 @@
     <string name="start">Start</string>
     <string name="dialog_sign_in_failed">Sign In Failed</string>
     <string name="check_your_email_and_password">Check your email and password</string>
-    <string name="social_network_settings">Social networks privacy</string>
+    <string name="social_network_privacy">Social networks privacy</string>
+    <string name="connected_apps">Connected Apps</string>
+    <string name="social_network_settings">Social networks settings</string>
     <string name="feedback">Feedback</string>
     <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
@@ -291,6 +293,7 @@
     <string name="identity_management">Email identities</string>
     <string name="logout">Logout</string>
     <string name="social_networks_header">Maximize privacy on social networks</string>
+    <string name="connected_apps_header">Apps connected to your social networks</string>
     <string name="coming_soon">Coming soon</string>
 
     <string name="remove_identity">Remove identity ?</string>
@@ -368,5 +371,10 @@
     <string name="log_in_with_my_email">Log in with my email</string>
     <string name="remain_anonymous">Remain anonymous</string>
     <string name="social_networks_overlay_dialog_message">The settings will be saved after you are logged</string>
+    <string name="no_apps_installed">No apps installed</string>
+    <string name="applying_settings">Applying settings...</string>
+    <string name="this_may_take_some_time">This may take some time.</string>
+    <string name="getting_apps">Getting apps ...</string>
+    <string name="connection_lost">Connection lost</string>
 
 </resources>

@@ -11,9 +11,9 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import eu.operando.R;
-import eu.operando.models.privacysettings.OspSettings;
 
 /**
  * Created by Alex on 3/28/2018.
@@ -25,6 +25,7 @@ public abstract class SocialNetworkBaseActivity extends BaseActivity {
     private ImageView rotationDotLinkedin;
     private ImageView rotationDotGoogle;
     private ImageView rotationDotTwitter;
+    private TextView infoHeader;
 
     public abstract Class facebookClass();
 
@@ -34,20 +35,27 @@ public abstract class SocialNetworkBaseActivity extends BaseActivity {
 
     public abstract Class googleClass();
 
+    public abstract int getStringTitleId();
+
+    public abstract int getStringDescriptionId();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_network_settings);
         initUI();
 
-//        new RequestTask().execute("https://plusprivacy.com");
     }
 
     private void initUI() {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        myToolbar.setTitle(getStringTitleId());
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        infoHeader = (TextView) findViewById(R.id.info_header);
+        infoHeader.setText(getStringDescriptionId());
 
         RelativeLayout facebookLayout = (RelativeLayout) findViewById(R.id.facebook_settings);
         RelativeLayout linkedinLayout = (RelativeLayout) findViewById(R.id.linkedin_settings);

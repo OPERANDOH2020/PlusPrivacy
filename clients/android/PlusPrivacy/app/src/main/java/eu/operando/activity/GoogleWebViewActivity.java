@@ -99,7 +99,7 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
 
         if (!shouldInject) {
 
-//            setAgent();
+//            setUserAgent();
             myWebView.loadUrl(PREFERENCES_URL);
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {

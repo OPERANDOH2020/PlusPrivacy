@@ -120,6 +120,76 @@ public class PermissionUtils {
         permissionRisks.put("android.permission.WRITE_SOCIAL_STREAM", 8);
         permissionRisks.put("android.permission.WRITE_USER_DICTIONARY", 4);
 
+
+
+        permissionRisks.put("Public", 1);
+        permissionRisks.put("Public profile (required)", 2);
+        permissionRisks.put("Friends list", 9);
+        permissionRisks.put("Birthday", 9);
+        permissionRisks.put("Email address", 7);
+        permissionRisks.put("Post on your behalf", 10);
+        permissionRisks.put("Work history", 9);
+        permissionRisks.put("Education history", 9);
+        permissionRisks.put("Current city", 7);
+        permissionRisks.put("Photos", 8);
+        permissionRisks.put("Videos", 8);
+        permissionRisks.put("Likes", 7);
+        permissionRisks.put("Send Facebook notifications", 10);
+        permissionRisks.put("Custom friends lists", 9);
+        permissionRisks.put("Website", 3);
+        permissionRisks.put("Personal description", 6);
+        permissionRisks.put("Hometown", 7);
+        permissionRisks.put("Religious and political views", 9);
+        permissionRisks.put("Friend list (required)", 10);
+        permissionRisks.put("Email address (required)", 7);
+        permissionRisks.put("Manage your Pages", 10);
+        permissionRisks.put("Show a list of the Pages you manage", 7);
+        permissionRisks.put("Publish as Pages you manage", 10);
+        permissionRisks.put("Timeline posts", 9);
+        permissionRisks.put("Relationships", 10);
+        permissionRisks.put("Books activity", 7);
+        permissionRisks.put("Status updates", 7);
+        permissionRisks.put("Events", 9);
+        permissionRisks.put("Access the groups you manage", 9);
+        permissionRisks.put("Friends", 9);
+        permissionRisks.put("Relationship interests", 9);
+        permissionRisks.put("Groups", 9);
+        permissionRisks.put("Manage your business", 10);
+        permissionRisks.put("Manage your events", 10);
+        permissionRisks.put("Only me", 2);
+        permissionRisks.put("Birthday (required)", 9);
+        permissionRisks.put("Current city (required)", 7);
+        permissionRisks.put("Date of birth", 9);
+
+
+        //google
+        permissionRisks.put("Know the list of people in your circles, your age range, and language", 8);
+        permissionRisks.put("View your email address", 7);
+        permissionRisks.put("View your basic profile info", 3);
+        permissionRisks.put("View your approximate age", 7);
+        permissionRisks.put("View your language preferences", 3);
+        permissionRisks.put("View and manage Google Drive files and folders that you have opened or created with this app", 10);
+        permissionRisks.put("Add itself to Google Drive", 10);
+        permissionRisks.put("Manage your contacts", 10);
+        permissionRisks.put("Manage your game activity for this game", 6);
+        permissionRisks.put("View and manage its own configuration data in your Google Drive", 10);
+        permissionRisks.put("Read, send, delete, and manage your email", 10);
+        permissionRisks.put("Manage your calendars", 10);
+        permissionRisks.put("Know who you are on Google", 8);
+        permissionRisks.put("Full account access", 10);
+        permissionRisks.put("View the names and email addresses of your Google Contacts", 9);
+        permissionRisks.put("View and send chat messages", 10);
+        permissionRisks.put("View and manage any of your documents and files in Google Drive", 10);
+        permissionRisks.put("View and manage the files in your Google Drive", 10);
+        permissionRisks.put("View your Chrome Remote Desktop computers", 10);
+
+
+        //twitter
+        permissionRisks.put("read-only", 2);
+        permissionRisks.put("read and write", 6);
+        permissionRisks.put("read, write, and direct messages", 10);
+
+
         permissionDescriptions = new HashMap<>();
         permissionDescriptions.put("ACCESS_CHECKIN_PROPERTIES", "Allows read/write access to the \"properties\" table in the checkin database, to change values that get uploaded.");
         permissionDescriptions.put("ACCESS_COARSE_LOCATION", "Allows an app to access approximate location.");
@@ -268,6 +338,75 @@ public class PermissionUtils {
         permissionDescriptions.put("WRITE_SYNC_SETTINGS", "Allows applications to write the sync settings.");
         permissionDescriptions.put("WRITE_VOICEMAIL", "");
 
+        //facebook
+        permissionDescriptions.put("Public", "Public");
+        permissionDescriptions.put("Public profile (required)", "Public profile (required)");
+        permissionDescriptions.put("Friends list", "Friends list");
+        permissionDescriptions.put("Birthday", "Birthday");
+        permissionDescriptions.put("Email address", "Email address");
+        permissionDescriptions.put("Post on your behalf", "Post on your behalf");
+        permissionDescriptions.put("Work history", "Work history");
+        permissionDescriptions.put("Education history", "Education history");
+        permissionDescriptions.put("Current city", "Current city");
+        permissionDescriptions.put("Photos", "Photos");
+        permissionDescriptions.put("Videos", "Videos");
+        permissionDescriptions.put("Likes", "Likes");
+        permissionDescriptions.put("Send Facebook notifications", "Send Facebook notifications");
+        permissionDescriptions.put("Custom friends lists", "Custom friends lists");
+        permissionDescriptions.put("Website", "Website");
+        permissionDescriptions.put("Personal description", "Personal description");
+        permissionDescriptions.put("Hometown", "Hometown");
+        permissionDescriptions.put("Religious and political views", "Religious and political views");
+        permissionDescriptions.put("Friend list (required)", "Friend list (required)");
+        permissionDescriptions.put("Email address (required)", "Email address (required)");
+        permissionDescriptions.put("Manage your Pages", "Manage your Pages");
+        permissionDescriptions.put("Show a list of the Pages you manage", "Show a list of the Pages you manage");
+        permissionDescriptions.put("Publish as Pages you manage", "Publish as Pages you manage");
+        permissionDescriptions.put("Timeline posts", "Timeline posts");
+        permissionDescriptions.put("Relationships", "Relationships");
+        permissionDescriptions.put("Books activity", "Books activity");
+        permissionDescriptions.put("Status updates", "Status updates");
+        permissionDescriptions.put("Events", "Events");
+        permissionDescriptions.put("Access the groups you manage", "Access the groups you manage");
+        permissionDescriptions.put("Friends", "Friends");
+        permissionDescriptions.put("Relationship interests", "Relationship interests");
+        permissionDescriptions.put("Groups", "Groups");
+        permissionDescriptions.put("Manage your business", "Manage your business");
+        permissionDescriptions.put("Manage your events", "Manage your events");
+        permissionDescriptions.put("Only me", "Only me");
+        permissionDescriptions.put("Birthday (required)", "Birthday (required)");
+        permissionDescriptions.put("Current city (required)", "Current city (required)");
+        permissionDescriptions.put("Date of birth", "Date of birth");
+
+
+
+        //twitter
+        permissionDescriptions.put("read-only", "read-only");
+        permissionDescriptions.put("read and write", "read and write");
+        permissionDescriptions.put("read, write, and direct messages", "read, write, and direct messages");
+
+        //google
+        permissionDescriptions.put("Know the list of people in your circles, your age range, and language", "Know the list of people in your circles, your age range, and language");
+        permissionDescriptions.put("View your email address", "View your email address");
+        permissionDescriptions.put("View your basic profile info", "View your basic profile info");
+        permissionDescriptions.put("View your approximate age", "View your approximate age");
+        permissionDescriptions.put("View your language preferences", "View your language preferences");
+        permissionDescriptions.put("View and manage Google Drive files and folders that you have opened or created with this app", "View and manage Google Drive files and folders that you have opened or created with this app");
+        permissionDescriptions.put("Add itself to Google Drive", "Add itself to Google Drive");
+        permissionDescriptions.put("Manage your contacts", "Manage your contacts");
+        permissionDescriptions.put("Manage your game activity for this game", "Manage your game activity for this game");
+        permissionDescriptions.put("View and manage its own configuration data in your Google Drive", "View and manage its own configuration data in your Google Drive");
+        permissionDescriptions.put("Read, send, delete, and manage your email", "Read, send, delete, and manage your email");
+        permissionDescriptions.put("Manage your calendars", "Manage your calendars");
+        permissionDescriptions.put("Know who you are on Google", "Know who you are on Google");
+        permissionDescriptions.put("Full account access", "Full account access");
+        permissionDescriptions.put("Basic account info", "Basic account info");
+        permissionDescriptions.put("View the names and email addresses of your Google Contacts", "View the names and email addresses of your Google Contacts");
+        permissionDescriptions.put("View and send chat messages", "View and send chat messages");
+        permissionDescriptions.put("View and manage any of your documents and files in Google Drive", "View and manage any of your documents and files in Google Drive");
+        permissionDescriptions.put("View and manage the files in your Google Drive", "View and manage the files in your Google Drive");
+        permissionDescriptions.put("View your Chrome Remote Desktop computers", "View your Chrome Remote Desktop computers");
+
     }
 
     @ColorInt
@@ -278,7 +417,7 @@ public class PermissionUtils {
         return colors[app.getPollutionScore() - 1];
     }
 
-    private static void calculatePollutionScore(InstalledApp app) {
+    public static void calculatePollutionScore(AbstractApp app) {
         if (app.getPermissions() == null) {
             app.setPollutionScore(1);
             return;

@@ -1,34 +1,18 @@
 package eu.operando.activity;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.TranslateAnimation;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import com.github.amlcurran.showcaseview.ShowcaseView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -101,10 +85,6 @@ public abstract class SocialNetworkWebViewActivity extends SocialNetworkAppsBase
         }
         Log.e(SocialNetworkFormBaseActivity.PRIVACY_SETTINGS_TAG, privacySettingsString);
         totalQuestions = privacySettingsJSONArray.length();
-
-        if (!Storage.getSocialNetworkDialogOption()) {
-            showSocialNetworkDialog();
-        }
     }
 
     @Override
@@ -113,27 +93,6 @@ public abstract class SocialNetworkWebViewActivity extends SocialNetworkAppsBase
             frameLayout.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
         }
-    }
-
-    public void showSocialNetworkDialog() {
-
-        LayoutInflater inflater = getLayoutInflater();
-        View convertView = inflater.inflate(R.layout.dialog_private_browsing, null);
-
-        final CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.do_not_show_cb);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(convertView);
-        builder.setTitle(R.string.social_network_settings)
-                .setMessage(R.string.social_networks_overlay_dialog_message)
-                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Storage.saveSocialNetworkDialogOption(checkBox.isChecked());
-                        dialog.dismiss();
-                    }
-                });
-        builder.create().show();
-
     }
 
     public void injectCssFile(String scriptFile) {

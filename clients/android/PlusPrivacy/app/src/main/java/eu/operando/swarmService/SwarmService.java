@@ -1,10 +1,15 @@
 package eu.operando.swarmService;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.util.Log;
 import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
 
 import com.google.gson.Gson;
 
@@ -12,8 +17,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.logging.Handler;
 
 import eu.operando.PlusPrivacyApp;
+import eu.operando.R;
+import eu.operando.activity.MainActivity;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
 import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.models.Identity;
@@ -87,6 +95,7 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
             goodInternetConnection();
         } else {
             message = "Sorry! Not connected to internet";
+//            showSocialNetworkDialog();
         }
         Log.e("connection", message);
 
@@ -110,6 +119,27 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
         } else {
             first = false;
         }
+    }
+
+    public void showSocialNetworkDialog() {
+
+        new android.os.Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PlusPrivacyApp.getInstance().getBaseContext());
+                builder.setTitle(R.string.connection_lost)
+                        .setMessage(R.string.connection_lost)
+                        .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                dialog.dismiss();
+                            }
+                        })
+                        .create()
+                        .show();
+            }
+        });
+
     }
 
     public void setConnectionListener() {

@@ -1,8 +1,10 @@
 package eu.operando.activity;
 
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
@@ -33,20 +35,14 @@ import eu.operando.utils.WebAppI;
  * Created by Alex on 3/26/2018.
  */
 
-public class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActivity implements MyWebViewClient.SocialNetworkInterface, ScannerListAdapter.RemoveAppInterface {
+public abstract class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActivity implements MyWebViewClient.SocialNetworkInterface, ScannerListAdapter.RemoveAppInterface, ScannerListAdapter.SocialNetworkColor{
 
     private List<SocialNetworkApp> apps;
     private ExpandableListView listView;
-    private WebView myWebView;
     private ScannerListAdapter adapter;
 
     @Override
     public String getURL_MOBILE() {
-        return null;
-    }
-
-    @Override
-    protected String getURL() {
         return null;
     }
 
@@ -57,11 +53,6 @@ public class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActiv
 
     @Override
     public WebAppI getWebAppInterface() {
-        return null;
-    }
-
-    @Override
-    public String getJsFile() {
         return null;
     }
 
@@ -107,6 +98,12 @@ public class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActiv
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void setWebView() {
 
         WebSettings webSettings = myWebView.getSettings();
@@ -117,7 +114,6 @@ public class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActiv
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
-
     }
 
     @Override
@@ -125,22 +121,23 @@ public class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActiv
 
         RemoveWebAppInterface webAppInterface = new RemoveWebAppInterface(appId);
         myWebView.addJavascriptInterface(webAppInterface, "Android");
-        myWebView.loadUrl("https://www.facebook.com/settings?tab=applications");
+        myWebView.loadUrl(getURL());
     }
 
     private void setToolbar() {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.scanner_toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(
+                ContextCompat.getColor(this, getSNMainColor())));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 
     public void onPageListener() {
 
         injectScriptFile("jquery214min.js");
         injectScriptFile("RegexUtils.js");
-        injectScriptFile("remove_facebook_app.js");
+        injectScriptFile(getJsFile());
     }
 
     private class RemoveWebAppInterface extends WebAppI {
