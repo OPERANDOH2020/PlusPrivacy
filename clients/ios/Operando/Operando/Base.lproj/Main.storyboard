@@ -667,6 +667,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9D-ZY-PnQ">
+                                <rect key="frame" x="0.0" y="60" width="375" height="507"/>
+                                <color key="backgroundColor" red="1" green="0.76168996099999997" blue="0.014052012940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEi-85-mbH">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
@@ -742,6 +746,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rOU-Tc-gXJ" firstAttribute="top" secondItem="8q1-2I-iXp" secondAttribute="bottom" id="895-Hc-qb4"/>
+                            <constraint firstItem="gEi-85-mbH" firstAttribute="top" secondItem="T9D-ZY-PnQ" secondAttribute="bottom" id="Abt-Qd-sqk"/>
+                            <constraint firstAttribute="trailing" secondItem="T9D-ZY-PnQ" secondAttribute="trailing" id="B2g-Nf-G1A"/>
+                            <constraint firstItem="T9D-ZY-PnQ" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="EDx-El-Uyx"/>
                             <constraint firstItem="Hni-sa-1IA" firstAttribute="top" secondItem="1aE-YB-WoK" secondAttribute="top" id="KfB-DW-F8v"/>
                             <constraint firstAttribute="trailing" secondItem="Hni-sa-1IA" secondAttribute="trailing" id="L23-wF-Im0"/>
                             <constraint firstItem="8q1-2I-iXp" firstAttribute="top" secondItem="Hni-sa-1IA" secondAttribute="bottom" id="Vng-FT-hP2"/>
@@ -754,11 +761,13 @@
                             <constraint firstItem="8q1-2I-iXp" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="n8e-AY-Yct"/>
                             <constraint firstItem="Hni-sa-1IA" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="nC4-B2-Dvw"/>
                             <constraint firstItem="gEi-85-mbH" firstAttribute="leading" secondItem="1aE-YB-WoK" secondAttribute="leading" id="tT8-G7-bqV"/>
+                            <constraint firstItem="T9D-ZY-PnQ" firstAttribute="top" secondItem="3UN-fL-EQQ" secondAttribute="bottom" id="zs8-Zk-C6n"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loggedInButton" destination="rQy-bH-a3Y" id="HLo-If-uLO"/>
                         <outlet property="navigationView" destination="Hni-sa-1IA" id="y0k-dd-TDJ"/>
+                        <outlet property="overlayView" destination="T9D-ZY-PnQ" id="JFx-lK-ipT"/>
                         <outlet property="settingsProgressView" destination="3UN-fL-EQQ" id="qw2-k4-JQp"/>
                         <outlet property="statusIndicatorView" destination="QRL-AS-fvg" id="7nf-Gd-Vfl"/>
                         <outlet property="statusLabel" destination="zKf-nw-cZJ" id="lPf-oD-s8s"/>

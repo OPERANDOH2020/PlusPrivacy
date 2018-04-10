@@ -13,6 +13,11 @@ import PPApiHooksCore
 let UISetPrivacyVCStoryboardId = "UISetPrivacyVCStoryboardId"
 let MozillaUserAgentId = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12"
 
+struct UISetPrivacyViewControllerCallbacks {
+    
+    let doneWithPrivacySettings: VoidBlock
+}
+
 class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     
     // MARK: - Properties
@@ -31,6 +36,9 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var overlayView: UIView!
+    
+    private var callbacks: UISetPrivacyViewControllerCallbacks?
     
     // MARK: - @IBActions
     @IBAction func didTapBackButton(_ sender: Any) {
@@ -40,6 +48,11 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     @IBAction func didTapLoggedInButton(_ sender: Any) {
         self.whenUserPressedLoggedIn?()
     }
+    
+    func setupWithCallback(callbacks: UISetPrivacyViewControllerCallbacks) {
+        self.callbacks = callbacks
+    }
+
     
     // MARK: - Private Methods
     private func setupControls() {
@@ -97,8 +110,8 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             if $0 == "Done" {
                 self.settingsProgressView.setPercetange(value: 100)
                 self.displayStatusView(hidden: true)
-                self.navigationController?.popViewController(animated: true)
-                RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
+//                self.navigationController?.popViewController(animated: false)
+                self.callbacks?.doneWithPrivacySettings()
                 return
             }
             else if $0 == "Done-GOOGLE" {
@@ -114,7 +127,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                     
                     self.displayStatusView(hidden: true)
                     self.navigationController?.popViewController(animated: true)
-                    RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
+                    self.callbacks?.doneWithPrivacySettings()
                     
                 })
             
@@ -177,7 +190,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.isDONE == false
+        self.isDONE = false
         //        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -192,6 +205,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     private func displayStatusView(hidden: Bool) {
         UIView.animate(withDuration: 2) { 
             self.statusView.isHidden = hidden
+            self.overlayView.isHidden = hidden
             if hidden {
                 self.statusIndicatorView.stopAnimating()
             } else {

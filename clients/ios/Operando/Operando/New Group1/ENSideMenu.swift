@@ -145,10 +145,10 @@ open class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
     open weak var delegate : ENSideMenuDelegate?
     fileprivate(set) var isMenuOpen : Bool = false
     /// A Boolean value indicating whether the left swipe is enabled.
-    open var allowLeftSwipe : Bool = true
+    open var allowLeftSwipe : Bool = false
     /// A Boolean value indicating whether the right swipe is enabled.
-    open var allowRightSwipe : Bool = true
-    open var allowPanGesture : Bool = true
+    open var allowRightSwipe : Bool = false
+    open var allowPanGesture : Bool = false
     fileprivate var panRecognizer : UIPanGestureRecognizer?
 
     /**

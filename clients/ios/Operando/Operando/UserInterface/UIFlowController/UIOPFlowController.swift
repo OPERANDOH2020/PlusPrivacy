@@ -214,6 +214,12 @@ class UIOPFlowController
     
     func displaySetPrivacyVC(){
          let vc = UIViewControllerFactory.getUISetPrivacyViewController()
+        vc.setupWithCallback(callbacks: UISetPrivacyViewControllerCallbacks(doneWithPrivacySettings: {
+            
+            RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
+            self.displayPrivacyWizardDashboard()
+            
+        }))
         self.rootController.setMainControllerTo(newController: vc)
     }
     

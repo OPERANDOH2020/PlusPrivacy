@@ -23,6 +23,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-7g-6QS">
                     <rect key="frame" x="15" y="15" width="365" height="30"/>
                     <subviews>
+                        <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-E0-C2g">
+                            <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWm-ii-rYO">
                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,9 +37,13 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.76168996099999997" blue="0.014052012940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="kSm-E0-C2g" firstAttribute="top" secondItem="vq8-7g-6QS" secondAttribute="top" id="Ilp-bi-V3c"/>
+                        <constraint firstItem="kSm-E0-C2g" firstAttribute="leading" secondItem="vq8-7g-6QS" secondAttribute="leading" id="STD-mO-WEP"/>
                         <constraint firstItem="vWm-ii-rYO" firstAttribute="leading" secondItem="vq8-7g-6QS" secondAttribute="leading" id="XE3-t1-jHK"/>
                         <constraint firstItem="vWm-ii-rYO" firstAttribute="top" secondItem="vq8-7g-6QS" secondAttribute="top" id="hnz-Yf-uM8"/>
+                        <constraint firstAttribute="bottom" secondItem="kSm-E0-C2g" secondAttribute="bottom" id="lAx-Kd-WTq"/>
                         <constraint firstAttribute="bottom" secondItem="vWm-ii-rYO" secondAttribute="bottom" id="pbf-6H-BLz"/>
+                        <constraint firstAttribute="trailing" secondItem="kSm-E0-C2g" secondAttribute="trailing" id="tvL-Le-l0j"/>
                     </constraints>
                 </view>
             </subviews>
