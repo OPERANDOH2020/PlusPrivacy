@@ -124,12 +124,12 @@ var websiteService = exports.websiteService = {
             var parser = new DOMParser();
             var doc = parser.parseFromString(res, "text/html");
             var sequence = Promise.resolve();
-            var appsContainer = doc.getElementsByClassName("_5b6q");
+            var appsContainer = doc.getElementsByClassName("_xef");
 
             var apps = [];
 
             for(var i = 0; i<appsContainer.length; i++){
-                apps.push(appsContainer[i].children[0].children[0]);
+                apps.push(appsContainer[i].children[0].children[0].children[0].children[0]);
             }
 
             for (var i = 0; i < apps.length; i++) {
@@ -151,7 +151,7 @@ var websiteService = exports.websiteService = {
 
         };
 
-        doGetRequest("https://m.facebook.com/privacy/touch/apps/list/?tab=all", getApps)
+        doGetRequest("https://m.facebook.com/settings/apps/tabbed/", getApps)
 
     },
 
