@@ -435,8 +435,10 @@ public class PermissionUtils {
         if (over7) {
             totalScore += 5 * counter;
         }
-        totalScore = totalScore / counter;
-        if (totalScore > 10) totalScore = 10;
+        if (counter != 0){
+            totalScore = totalScore / counter;
+            if (totalScore > 10) totalScore = 10;
+        }
         app.setPollutionScore(totalScore);
 
     }

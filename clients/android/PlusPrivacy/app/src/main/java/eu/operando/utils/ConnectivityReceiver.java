@@ -16,6 +16,7 @@ public class ConnectivityReceiver
         extends BroadcastReceiver {
 
     public static ConnectivityReceiverListener connectivityReceiverListener;
+    private Object mutex = new Object();
 
     public ConnectivityReceiver() {
         super();
@@ -30,7 +31,9 @@ public class ConnectivityReceiver
                 && activeNetwork.isConnectedOrConnecting();
 
         if (connectivityReceiverListener != null) {
-            connectivityReceiverListener.onNetworkConnectionChanged(isConnected);
+            synchronized (mutex){
+                connectivityReceiverListener.onNetworkConnectionChanged(isConnected);
+            }
         }
     }
 

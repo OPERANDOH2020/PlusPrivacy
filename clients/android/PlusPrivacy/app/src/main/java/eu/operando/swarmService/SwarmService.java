@@ -121,27 +121,6 @@ public class SwarmService implements ConnectivityReceiver.ConnectivityReceiverLi
         }
     }
 
-    public void showSocialNetworkDialog() {
-
-        new android.os.Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(PlusPrivacyApp.getInstance().getBaseContext());
-                builder.setTitle(R.string.connection_lost)
-                        .setMessage(R.string.connection_lost)
-                        .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-                                dialog.dismiss();
-                            }
-                        })
-                        .create()
-                        .show();
-            }
-        });
-
-    }
-
     public void setConnectionListener() {
         swarmClient.setConnectionListener(new SwarmClient.ConnectionListener() {
             @Override

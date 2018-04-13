@@ -3,6 +3,7 @@ package eu.operando.customView;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -46,10 +47,13 @@ public class MyWebViewClient extends WebViewClient {
             Log.e("{HEADER Aos}" + key, value);
         }
 
+        String cookies = CookieManager.getInstance().getCookie(request.getUrl().toString());
+        Log.d("Cookie", "[" + request.getUrl().toString() + "] All the cookies in a string:" + cookies);
+
         return super.shouldInterceptRequest(view, request);
     }
 
-    public interface SocialNetworkInterface{
+    public interface SocialNetworkInterface {
         void onPageCommitVisible();
 
         void onPageFinished();

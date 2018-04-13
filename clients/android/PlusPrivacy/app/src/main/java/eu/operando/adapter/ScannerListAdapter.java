@@ -269,7 +269,9 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
 
             if (item instanceof SocialNetworkApp) {
 
-                setSocialAppIcon(item);
+                if (((SocialNetworkApp) item).getIconUrl() != null){
+                    setSocialAppIcon(item);
+                }
                 if (((SocialNetworkApp) item).getPermissionGroups() != null) {
                     for (SocialNetworkApp.PermissionGroups permissionGroup : ((SocialNetworkApp) item).getPermissionGroups()) {
                         item.setPermissions(permissionGroup.getPermissions());

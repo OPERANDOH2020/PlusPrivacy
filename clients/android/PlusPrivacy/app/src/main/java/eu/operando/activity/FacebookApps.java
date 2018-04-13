@@ -11,12 +11,12 @@ public class FacebookApps extends SocialNetworkAppsActivity {
 
     @Override
     public String getURL_MOBILE() {
-        return "https://m.facebook.com/privacy/touch/apps/list/?tab=all";
+        return "https://m.facebook.com/settings/apps/tabbed/";
     }
 
     @Override
     protected String getURL() {
-        return "https://m.facebook.com/privacy/touch/apps/list/?tab=all";
+        return "https://m.facebook.com/settings/apps/tabbed/";
     }
 
     @Override

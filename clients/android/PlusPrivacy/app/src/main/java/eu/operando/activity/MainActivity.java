@@ -38,7 +38,7 @@ import eu.operando.swarmService.models.LoginSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
 
-public class MainActivity extends AppCompatActivity implements DrawerRecyclerViewAdapter.IDrawerClickCallback {
+public class MainActivity extends BaseActivity implements DrawerRecyclerViewAdapter.IDrawerClickCallback {
 
     private AlertDialog disconnectDialog;
     private ProgressDialog loadingDialog;

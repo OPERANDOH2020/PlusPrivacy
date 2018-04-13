@@ -20,7 +20,8 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
 
     private int totalQuestions;
     private boolean shouldInjectUsualSettings = false;
-    private final String URL_MOBILE = "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+//    private final String URL_MOBILE = "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+    private final String URL_MOBILE = "https://myaccount.google.com/activitycontrols";
     private final String URL = "https://myaccount.google.com/activitycontrols";
     private final String PREFERENCES_URL = "https://www.google.com/preferences";
 

@@ -121,7 +121,9 @@ public abstract class SocialNetworkAppsBaseWebActivity extends BaseActivity impl
 
         if (!shouldInject) {
 
-            loginDialog.dismiss();
+            if (loginDialog!= null){
+                loginDialog.dismiss();
+            }
             setUserAgent();
             myWebView.loadUrl(getURL());
 

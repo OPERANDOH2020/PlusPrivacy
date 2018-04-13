@@ -13,6 +13,7 @@
 
     var handleDataForSingleApp = function (appId, crawledPage) {
 
+        console.log("crawledPage", crawledPage);
         var appNameRegex;
         var appIconRegex;
         var permissionsRegex;
@@ -68,7 +69,6 @@
 
     };
 
-//    doGetRequest("https://m.facebook.com/privacy/touch/apps/list/?tab=all", getApps);
     getApps(document.getElementsByTagName('html')[0].innerHTML);
 
 })();

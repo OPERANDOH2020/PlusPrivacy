@@ -376,5 +376,6 @@
     <string name="this_may_take_some_time">This may take some time.</string>
     <string name="getting_apps">Getting apps ...</string>
     <string name="connection_lost">Connection lost</string>
+    <string name="social_netwrok_accounts">Social netwrok accounts</string>
 
 </resources>
