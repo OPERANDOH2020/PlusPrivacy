@@ -1,8 +1,11 @@
 (function(){
-// if (typeof jQuery == 'undefined') {
-//    return "false";
-// } else {
+ 
+ console.log("BAA")
+ 
+ if (typeof jQuery == 'undefined') {
+    return "false";
+ } else {
     return "true";
-// }
+ }
  }
  )()

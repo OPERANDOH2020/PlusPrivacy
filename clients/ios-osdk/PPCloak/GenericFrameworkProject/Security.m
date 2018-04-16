@@ -58,7 +58,7 @@ MAKE_HIDDEN inline void checkNoSwizzlingForApiHooks(){
     frameworksToIgnore[1] = libBacktraceRecording;
     
     model->frameworksToIgnore = frameworksToIgnore;
-    model->numOfFrameworksToIgnore = 1;
+    model->numOfFrameworksToIgnore = 2;
 
     checkObjcSymbolsDefinedBeforeFramework(model);
 }

@@ -18,6 +18,7 @@ extension WKWebView
             let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
             
             self.evaluateJavaScript(jsString as String, completionHandler: completion)
+            
         }
         else {
             completion?(nil, nil);
@@ -49,18 +50,30 @@ extension WKWebView
     }
     
     func loadJQuerry(completion: VoidBlock? ){
-        self.loadAndExecuteScriptNamed(scriptName: "jquery214min", withCompletion: { (result, error) in
-       
-            self.loadAndExecuteScriptNamed(scriptName: "testJQuery", withCompletion: { (testJQueryResult, testJQueryError) in
-            
-            
-                print(testJQueryResult.debugDescription)
+        
+        self.loadJSFile(scriptName: "testJQuery") { (result, error) in
+            if let resultString = result as? String
+            {
+                if resultString == "true"
+                {
+                    completion?();
+                    return;
+                }
+                else {
+                    print("NASOL")
+                }
                 
-            })
-            
-            
-            completion?()
-        })
+                self.loadJSFile(scriptName: "jquery214min", withCompletion: { (result, error) in
+                    if error == nil
+                    {
+                        completion?()
+                    }
+                    else {
+                        print("NASOL2")
+                    }
+                })
+            }
+        }
     }
     
     func loadJQueryIfNeededWithCompletion(completion: VoidBlock?)

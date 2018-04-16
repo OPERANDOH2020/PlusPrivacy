@@ -88,11 +88,13 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     func getApps() {
     
-        self.webView.loadJQuerry {
+        self.webView.loadJQuerry(completion: {
+          
             self.webView.loadJSFile(scriptName: "facebook_apps", withCompletion: { (data, isloggedError) in
                 
             })
-        }
+            
+        })
     }
 
     func checkIfLoggedIn(_ completionHandler: @escaping CallbackWithBool ){
