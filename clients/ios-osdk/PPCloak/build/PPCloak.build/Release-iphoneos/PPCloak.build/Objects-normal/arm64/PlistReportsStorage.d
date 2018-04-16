@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PlistReportsStorage.m \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/build/PPCloak.build/Release-iphoneos/PPCloak.build/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PlistReportsStorage.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/ReportsStorageProtocol.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Modules/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Headers/PPCommonUI-Swift.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Headers/PPCommonUI.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Modules/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Headers/PPCommonTypes.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/BaseReportWithDate/BaseReportWithDate.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Common/Common.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Helpers/NSArray+ContainsAnyFromArray.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPAccessUnlistedHostReport+NSDictionaryRepresentation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/DictionaryRepresentableProtocol.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPPrivacyLevelViolationReport+NSDictionaryRepresentation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPUnlistedInputAccessViolation+NSDictionaryRepresentation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPAccessFrequencyViolationReport+NSDictionaryRepresentation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPModuleDeniedAccessReport+NSDictionaryRepresentation.h

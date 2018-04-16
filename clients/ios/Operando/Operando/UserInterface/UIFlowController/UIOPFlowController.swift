@@ -287,7 +287,6 @@ class UIOPFlowController
         self.rootController.setupTabViewForPrivateBrowsing()
     }
     
-    
     func displayNotifications() {
         let vc = UIViewControllerFactory.notificationsViewController
         
@@ -331,6 +330,30 @@ class UIOPFlowController
     func displayAboutViewController(){
         let vc = UIViewControllerFactory.aboutViewController
         self.rootController.setMainControllerTo(newController: vc)
+    }
+    
+    func displayConnectedAppsDashboard(){
+        let privacyDashboard = UIViewControllerFactory.getPrivacyWizzardDashboardViewController()
+        
+        privacyDashboard.setupWithCallback(callbacks: PrivacyWizzardDashboardCallbacks(pressedFacebook: {
+            self.displayConnectedAppList(type: .facebook)
+        }, pressedLinkedin: {
+            self.displayConnectedAppList(type: .linkedIn)
+        }, pressedTwitter: {
+            self.displayConnectedAppList(type: .twitter)
+        }, pressedGoogle: {
+            self.displayConnectedAppList(type: .googleLogin)
+
+        }))
+        
+        self.rootController.setupTabBarForSocialNetworks()
+        self.rootController.setMainControllerTo(newController: privacyDashboard)
+    }
+    
+    func displayConnectedAppList(type: ACPrivacyWizardScope){
+         let connectedAppList = UIViewControllerFactory.getConnectedAppTableViewController()
+            connectedAppList.setupFor(type: type)
+         self.rootController.setMainControllerTo(newController: connectedAppList)
     }
     
     func displaySettingsViewController() {
@@ -402,8 +425,6 @@ class UIOPFlowController
             }, completion: { completed in
                 // maybe do something here
             })
-            
-            
         }, whenChoosingSettings: {
             weakSelf?.displaySettingsViewController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
@@ -435,6 +456,10 @@ class UIOPFlowController
             weakSelf?.displayMyAccountController()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             self.rootController.reset()
+        },whenChoosingAppList:{
+            weakSelf?.displayConnectedAppsDashboard()
+            weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
+            
         })
         
     }

@@ -48,6 +48,21 @@ extension WKWebView
         }
     }
     
+    func loadJQuerry(completion: VoidBlock? ){
+        self.loadAndExecuteScriptNamed(scriptName: "jquery214min", withCompletion: { (result, error) in
+       
+            self.loadAndExecuteScriptNamed(scriptName: "testJQuery", withCompletion: { (testJQueryResult, testJQueryError) in
+            
+            
+                print(testJQueryResult.debugDescription)
+                
+            })
+            
+            
+            completion?()
+        })
+    }
+    
     func loadJQueryIfNeededWithCompletion(completion: VoidBlock?)
     {
         self.loadAndExecuteScriptNamed(scriptName: "testJQuery") { (result, error) in
@@ -58,11 +73,17 @@ extension WKWebView
                     completion?();
                     return;
                 }
+                else {
+                    print("NASOL")
+                }
                 
                 self.loadAndExecuteScriptNamed(scriptName: "jquery214min", withCompletion: { (result, error) in
                     if error == nil
                     {
                         completion?()
+                    }
+                    else {
+                        print("NASOL2")
                     }
                 })
             }

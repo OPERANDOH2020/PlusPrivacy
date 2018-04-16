@@ -11,6 +11,7 @@ import Foundation
 
 typealias UserOperationCallback = (_ error: NSError?, _ identityModel: UserIdentityModel) -> Void
 typealias CallbackWithError = (_ error: NSError?) -> Void
+typealias CallbackWithBool = (_ value: Bool?) -> Void
 
 protocol UsersRepository {
     func loginWith(email: String, password: String, withCompletion completion: UserOperationCallback?)

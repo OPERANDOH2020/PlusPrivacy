@@ -1,0 +1,2226 @@
+BCSymbolMap Version: 2.0
+-[NSData(MultipartParsing) multipartDictionaryWithBoundary:]
+-[NSData(MultipartParsing) multipartArray]
+-[NSData(MultipartParsing) multipartDictionary]
+Apple LLVM version 9.1.0 (clang-902.0.39.1)
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/URLFormParsers/PPBasicHttpBodyParser/NSData+MultipartFormParsing/NSData+MultipartParsing.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak
+parseHeaders
+-[TPKeyboardAvoidingScrollView setup]
+-[TPKeyboardAvoidingScrollView initWithFrame:]
+-[TPKeyboardAvoidingScrollView awakeFromNib]
+-[TPKeyboardAvoidingScrollView dealloc]
+-[TPKeyboardAvoidingScrollView setFrame:]
+-[TPKeyboardAvoidingScrollView setContentSize:]
+-[TPKeyboardAvoidingScrollView contentSizeToFit]
+-[TPKeyboardAvoidingScrollView focusNextTextField]
+-[TPKeyboardAvoidingScrollView scrollToActiveTextField]
+-[TPKeyboardAvoidingScrollView willMoveToSuperview:]
+-[TPKeyboardAvoidingScrollView touchesEnded:withEvent:]
+-[TPKeyboardAvoidingScrollView textFieldShouldReturn:]
+-[TPKeyboardAvoidingScrollView layoutSubviews]
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_UITextFieldDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextFieldDelegate
+l_OBJC_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_PROTOCOL_$_UITextViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextViewDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/TPKeyboardAvoidingTableView/TPKeyboardAvoidingScrollView.m
+-[UILocationPinningView highlightLocationAt:]
+-[UILocationPinningView deleteLocationAt:]
+-[UILocationPinningView modifyLocationAt:toLatitude:andLongitude:]
+-[UILocationPinningView clearAll]
+-[UILocationPinningView currentLocationsOnMap]
+-[UILocationPinningView setupWithModel:callbacks:]
+-[UILocationPinningView setupWithLocations:callbacks:]
+-[UILocationPinningView commonInit]
+-[UILocationPinningView longPressEvent:]
+-[UILocationPinningView addNewLocation:]
+-[UILocationPinningView mapView:viewForAnnotation:]
+-[UILocationPinningView refreshMapView]
+-[UILocationPinningView mapView:annotationView:didChangeDragState:fromOldState:]
+-[UILocationPinningView initWithCoder:]
+-[UILocationPinningView initWithFrame:]
+-[UILocationPinningView mapView]
+-[UILocationPinningView setMapView:]
+-[UILocationPinningView allLocationsArray]
+-[UILocationPinningView setAllLocationsArray:]
+-[UILocationPinningView allAnnotations]
+-[UILocationPinningView setAllAnnotations:]
+-[UILocationPinningView callbacks]
+-[UILocationPinningView setCallbacks:]
+-[UILocationPinningView model]
+-[UILocationPinningView setModel:]
+-[UILocationPinningView highlightedLocationIndex]
+-[UILocationPinningView setHighlightedLocationIndex:]
+-[UILocationPinningView .cxx_destruct]
+_OBJC_IVAR_$_UILocationPinningView._mapView
+_OBJC_IVAR_$_UILocationPinningView._allLocationsArray
+_OBJC_IVAR_$_UILocationPinningView._allAnnotations
+_OBJC_IVAR_$_UILocationPinningView._callbacks
+_OBJC_IVAR_$_UILocationPinningView._model
+_OBJC_IVAR_$_UILocationPinningView._highlightedLocationIndex
+l_OBJC_PROTOCOL_$_MKMapViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_MKMapViewDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationPinningView/UILocationPinningView.m
+-[PPAccessUnlistedHostReport(NSDictionaryRepresentation) dictionaryRepresentation]
+-[PPAccessUnlistedHostReport(NSDictionaryRepresentation) initWithNSDictionary:]
+l_OBJC_PROTOCOL_$_DictionaryRepresentable
+l_OBJC_LABEL_PROTOCOL_$_DictionaryRepresentable
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPAccessUnlistedHostReport+NSDictionaryRepresentation.m
+-[TPKeyboardAvoidingCollectionView setup]
+-[TPKeyboardAvoidingCollectionView initWithFrame:]
+-[TPKeyboardAvoidingCollectionView initWithFrame:collectionViewLayout:]
+-[TPKeyboardAvoidingCollectionView awakeFromNib]
+-[TPKeyboardAvoidingCollectionView dealloc]
+-[TPKeyboardAvoidingCollectionView hasAutomaticKeyboardAvoidingBehaviour]
+-[TPKeyboardAvoidingCollectionView setFrame:]
+-[TPKeyboardAvoidingCollectionView setContentSize:]
+-[TPKeyboardAvoidingCollectionView focusNextTextField]
+-[TPKeyboardAvoidingCollectionView scrollToActiveTextField]
+-[TPKeyboardAvoidingCollectionView willMoveToSuperview:]
+-[TPKeyboardAvoidingCollectionView touchesEnded:withEvent:]
+-[TPKeyboardAvoidingCollectionView textFieldShouldReturn:]
+-[TPKeyboardAvoidingCollectionView layoutSubviews]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/TPKeyboardAvoidingTableView/TPKeyboardAvoidingCollectionView.m
+__CGSizeEqualToSize
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+-[UIInputAccessViolationReportsSection initWithSectionIndex:tableView:inputAccessReportsSource:]
+-[UIInputAccessViolationReportsSection loadReportsWithCompletion:]
+___66-[UIInputAccessViolationReportsSection loadReportsWithCompletion:]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[UIInputAccessViolationReportsSection cellForRowAtIndex:]
+-[UIInputAccessViolationReportsSection sectionName]
+-[UIInputAccessViolationReportsSection reportsSource]
+-[UIInputAccessViolationReportsSection setReportsSource:]
+-[UIInputAccessViolationReportsSection .cxx_destruct]
+___block_descriptor_tmp
+_OBJC_IVAR_$_UIInputAccessViolationReportsSection._reportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIInputAccessViolationReportsSection/UIInputAccessViolationReportsSection.m
+__destroy_helper_block_
+__copy_helper_block_
+__66-[UIInputAccessViolationReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIPrivacyLevelViolationReportsSection initWithSectionIndex:tableView:reportsSource:]
+-[UIPrivacyLevelViolationReportsSection loadReportsWithCompletion:]
+___67-[UIPrivacyLevelViolationReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIPrivacyLevelViolationReportsSection cellForRowAtIndex:]
+-[UIPrivacyLevelViolationReportsSection sectionName]
+-[UIPrivacyLevelViolationReportsSection reportsSource]
+-[UIPrivacyLevelViolationReportsSection setReportsSource:]
+-[UIPrivacyLevelViolationReportsSection .cxx_destruct]
+_OBJC_IVAR_$_UIPrivacyLevelViolationReportsSection._reportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIPrivacyLevelViolationReportsSection/UIPrivacyLevelViolationReportsSection.m
+__67-[UIPrivacyLevelViolationReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIRandomWalkLocationStatusViewController setupWithModel:onExit:]
+___66-[UIRandomWalkLocationStatusViewController setupWithModel:onExit:]_block_invoke
+-[UIRandomWalkLocationStatusViewController didPressBack:]
+-[UIRandomWalkLocationStatusViewController dealloc]
+-[UIRandomWalkLocationStatusViewController enabledSwitch]
+-[UIRandomWalkLocationStatusViewController setEnabledSwitch:]
+-[UIRandomWalkLocationStatusViewController mapView]
+-[UIRandomWalkLocationStatusViewController setMapView:]
+-[UIRandomWalkLocationStatusViewController model]
+-[UIRandomWalkLocationStatusViewController setModel:]
+-[UIRandomWalkLocationStatusViewController callbackForChanges]
+-[UIRandomWalkLocationStatusViewController setCallbackForChanges:]
+-[UIRandomWalkLocationStatusViewController exitCallback]
+-[UIRandomWalkLocationStatusViewController setExitCallback:]
+-[UIRandomWalkLocationStatusViewController .cxx_destruct]
+_OBJC_IVAR_$_UIRandomWalkLocationStatusViewController._enabledSwitch
+_OBJC_IVAR_$_UIRandomWalkLocationStatusViewController._mapView
+_OBJC_IVAR_$_UIRandomWalkLocationStatusViewController._model
+_OBJC_IVAR_$_UIRandomWalkLocationStatusViewController._callbackForChanges
+_OBJC_IVAR_$_UIRandomWalkLocationStatusViewController._exitCallback
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationStatusViewController/UIRandomWalkLocationStatusViewController.m
+__66-[UIRandomWalkLocationStatusViewController setupWithModel:onExit:]_block_invoke
++[UserDefinedLocationsSwizzlerSettings createWithLocations:enabled:cycle:changeInterval:error:]
++[UserDefinedLocationsSwizzlerSettings createFromUserDefaults:error:]
+-[UserDefinedLocationsSwizzlerSettings synchronizeToUserDefaults:]
+-[UserDefinedLocationsSwizzlerSettings locations]
+-[UserDefinedLocationsSwizzlerSettings setLocations:]
+-[UserDefinedLocationsSwizzlerSettings enabled]
+-[UserDefinedLocationsSwizzlerSettings setEnabled:]
+-[UserDefinedLocationsSwizzlerSettings changeInterval]
+-[UserDefinedLocationsSwizzlerSettings setChangeInterval:]
+-[UserDefinedLocationsSwizzlerSettings cycle]
+-[UserDefinedLocationsSwizzlerSettings setCycle:]
+-[UserDefinedLocationsSwizzlerSettings .cxx_destruct]
+_OBJC_IVAR_$_UserDefinedLocationsSwizzlerSettings._locations
+_OBJC_IVAR_$_UserDefinedLocationsSwizzlerSettings._enabled
+_OBJC_IVAR_$_UserDefinedLocationsSwizzlerSettings._changeInterval
+_OBJC_IVAR_$_UserDefinedLocationsSwizzlerSettings._cycle
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/UserDefinedLocationsSwizzlerSettings.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/UserDefinedLocationsSwizzlerSettings.h
+-[NSURLRequest(AnalyzingUtilities) contentType]
+___numberToString_block_invoke
+-[BaseHTTPAnalyzer initWithHttpBodyParser:]
+-[BaseHTTPAnalyzer naiveSearchTextValues:inRequestBody:completion:]
+-[BaseHTTPAnalyzer naiveSearchTextValues:inRequestURL:]
+-[BaseHTTPAnalyzer naiveSearchNumericValues:compareUpToFractionDigit:inRequestURL:]
+-[BaseHTTPAnalyzer naiveSearchNumericValues:compareUpToFractionDigit:inRequestBody:completin:]
+-[BaseHTTPAnalyzer searchRecursivelyInDictValues:processingNumbersArray:processingStringsArray:]
+-[BaseHTTPAnalyzer dictionaryFromRequestBody:withCompletion:]
+-[BaseHTTPAnalyzer httpBodyParser]
+-[BaseHTTPAnalyzer setHttpBodyParser:]
+-[BaseHTTPAnalyzer .cxx_destruct]
+_numberToString.nfm
+_numberToString.onceToken
+___block_literal_global
+_OBJC_IVAR_$_BaseHTTPAnalyzer._httpBodyParser
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/BaseHTTPAnalyzer/BaseHTTPAnalyzer.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/BaseHTTPAnalyzer/BaseHTTPAnalyzer.h
+__numberToString_block_invoke
+numberToString
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/dispatch/once.h
++[NSError(AVInputSupervisor) errorCaptureDeviceBlocked]
+-[BaseCaptureDeviceSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/BaseCaptureDeviceSupervisor/BaseCaptureDeviceSupervisor.m
+-[UIPPOptionsViewControllerCallbacks whenExiting]
+-[UIPPOptionsViewControllerCallbacks setWhenExiting:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingSCDInfo]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingSCDInfo:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingViewSCD]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingViewSCD:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingReportsInfo]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingReportsInfo:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingUsageGraphs]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingUsageGraphs:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingOverrideLocation]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingOverrideLocation:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingLocationStatus]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingLocationStatus:]
+-[UIPPOptionsViewControllerCallbacks whenChoosingAbout]
+-[UIPPOptionsViewControllerCallbacks setWhenChoosingAbout:]
+-[UIPPOptionsViewControllerCallbacks .cxx_destruct]
+-[UIPPOptionsViewController setupWithCallbacks:andMonitorSettings:]
+-[UIPPOptionsViewController tableView:didSelectRowAtIndexPath:]
+-[UIPPOptionsViewController getCallbackForCellAtIndex:]
+-[UIPPOptionsViewController didChangeSwitchValue:]
+-[UIPPOptionsViewController didPressClose:]
+-[UIPPOptionsViewController notificationsSwitch]
+-[UIPPOptionsViewController setNotificationsSwitch:]
+-[UIPPOptionsViewController callbacks]
+-[UIPPOptionsViewController setCallbacks:]
+-[UIPPOptionsViewController monitorSettings]
+-[UIPPOptionsViewController setMonitorSettings:]
+-[UIPPOptionsViewController .cxx_destruct]
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenExiting
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingSCDInfo
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingViewSCD
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingReportsInfo
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingUsageGraphs
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingOverrideLocation
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingLocationStatus
+_OBJC_IVAR_$_UIPPOptionsViewControllerCallbacks._whenChoosingAbout
+_OBJC_IVAR_$_UIPPOptionsViewController._notificationsSwitch
+_OBJC_IVAR_$_UIPPOptionsViewController._callbacks
+_OBJC_IVAR_$_UIPPOptionsViewController._monitorSettings
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIPPOptionsViewController/UIPPOptionsViewController.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIPPOptionsViewController/UIPPOptionsViewController.h
+-[UILocationStatusModel currentSettings]
+-[UILocationStatusModel setCurrentSettings:]
+-[UILocationStatusModel currentActiveLocationIndex]
+-[UILocationStatusModel setCurrentActiveLocationIndex:]
+-[UILocationStatusModel registerChangeCallback]
+-[UILocationStatusModel setRegisterChangeCallback:]
+-[UILocationStatusModel removeChangeCallback]
+-[UILocationStatusModel setRemoveChangeCallback:]
+-[UILocationStatusModel .cxx_destruct]
+-[UILocationStatusViewController viewDidLoad]
+-[UILocationStatusViewController setupWithModel:onExit:]
+___56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke
+___56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke.73
+___copy_helper_block_.74
+___destroy_helper_block_.75
+___56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke.92
+___copy_helper_block_.93
+___destroy_helper_block_.94
+-[UILocationStatusViewController dealloc]
+-[UILocationStatusViewController didPressBack:]
+-[UILocationStatusViewController locationListView]
+-[UILocationStatusViewController setLocationListView:]
+-[UILocationStatusViewController locationPinningView]
+-[UILocationStatusViewController setLocationPinningView:]
+-[UILocationStatusViewController locationSettingsView]
+-[UILocationStatusViewController setLocationSettingsView:]
+-[UILocationStatusViewController exitCallback]
+-[UILocationStatusViewController setExitCallback:]
+-[UILocationStatusViewController changeCallback]
+-[UILocationStatusViewController setChangeCallback:]
+-[UILocationStatusViewController model]
+-[UILocationStatusViewController setModel:]
+-[UILocationStatusViewController .cxx_destruct]
+_OBJC_IVAR_$_UILocationStatusModel._currentSettings
+_OBJC_IVAR_$_UILocationStatusModel._currentActiveLocationIndex
+_OBJC_IVAR_$_UILocationStatusModel._registerChangeCallback
+_OBJC_IVAR_$_UILocationStatusModel._removeChangeCallback
+___block_descriptor_tmp.76
+___block_descriptor_tmp.96
+_OBJC_IVAR_$_UILocationStatusViewController._locationListView
+_OBJC_IVAR_$_UILocationStatusViewController._locationPinningView
+_OBJC_IVAR_$_UILocationStatusViewController._locationSettingsView
+_OBJC_IVAR_$_UILocationStatusViewController._exitCallback
+_OBJC_IVAR_$_UILocationStatusViewController._changeCallback
+_OBJC_IVAR_$_UILocationStatusViewController._model
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationStatusViewController/UILocationStatusViewController.m
+__56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke.92
+__56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke.73
+__56-[UILocationStatusViewController setupWithModel:onExit:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationStatusViewController/UILocationStatusViewController.h
+-[WeakLocationManagerWrapper setManager:]
+-[WeakLocationManagerWrapper manager]
+-[WeakLocationManagerWrapper delegate]
+-[WeakLocationManagerWrapper setDelegate:]
+-[WeakLocationManagerWrapper onLocationManagerDestruction]
+-[WeakLocationManagerWrapper setOnLocationManagerDestruction:]
+-[WeakLocationManagerWrapper .cxx_destruct]
+-[LocationManagerSubstituteDelegate initWithLocationSubstituteCallback:]
+-[LocationManagerSubstituteDelegate substituteDelegate:forManager:]
+___67-[LocationManagerSubstituteDelegate substituteDelegate:forManager:]_block_invoke
+-[LocationManagerSubstituteDelegate locationManager:didUpdateLocations:]
+-[LocationManagerSubstituteDelegate delegateForManager:]
+-[LocationManagerSubstituteDelegate removeDelegateAndManager:]
+-[LocationManagerSubstituteDelegate broadcastToDelegatesLocation:]
+-[LocationManagerSubstituteDelegate locationManager:didVisit:]
+-[LocationManagerSubstituteDelegate locationManager:didExitRegion:]
+-[LocationManagerSubstituteDelegate locationManager:didEnterRegion:]
+-[LocationManagerSubstituteDelegate locationManager:didFailWithError:]
+-[LocationManagerSubstituteDelegate locationManager:didUpdateHeading:]
+-[LocationManagerSubstituteDelegate locationManagerDidPauseLocationUpdates:]
+-[LocationManagerSubstituteDelegate locationManagerDidResumeLocationUpdates:]
+-[LocationManagerSubstituteDelegate wrappersPerManagerHash]
+-[LocationManagerSubstituteDelegate setWrappersPerManagerHash:]
+-[LocationManagerSubstituteDelegate locationSubstituteRetrieve]
+-[LocationManagerSubstituteDelegate setLocationSubstituteRetrieve:]
+-[LocationManagerSubstituteDelegate .cxx_destruct]
+_OBJC_IVAR_$_WeakLocationManagerWrapper._manager
+_OBJC_IVAR_$_WeakLocationManagerWrapper._delegate
+_OBJC_IVAR_$_WeakLocationManagerWrapper._onLocationManagerDestruction
+_OBJC_IVAR_$_LocationManagerSubstituteDelegate._wrappersPerManagerHash
+_OBJC_IVAR_$_LocationManagerSubstituteDelegate._locationSubstituteRetrieve
+l_OBJC_PROTOCOL_$_CLLocationManagerDelegate
+l_OBJC_LABEL_PROTOCOL_$_CLLocationManagerDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/LocationManagerSubstituteDelegate/LocationManagerSubstituteDelegate.m
+__67-[LocationManagerSubstituteDelegate substituteDelegate:forManager:]_block_invoke
+-[PPAccessUnlistedHostReport initWithURLHost:reportedDate:]
+-[PPAccessUnlistedHostReport urlHost]
+-[PPAccessUnlistedHostReport setUrlHost:]
+-[PPAccessUnlistedHostReport .cxx_destruct]
+_OBJC_IVAR_$_PPAccessUnlistedHostReport._urlHost
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h
+-[DeviceInfoInputSupervisor monitoringInputType]
+-[DeviceInfoInputSupervisor isEventOfInterest:]
+-[DeviceInfoInputSupervisor specificProcessOfEvent:nextHandler:]
+-[DeviceInfoInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]
+___94-[DeviceInfoInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
+___94-[DeviceInfoInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke.51
+___copy_helper_block_.52
+___destroy_helper_block_.53
+-[DeviceInfoInputSupervisor buildStringsArray]
+-[DeviceInfoInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[DeviceInfoInputSupervisor deviceName]
+-[DeviceInfoInputSupervisor setDeviceName:]
+-[DeviceInfoInputSupervisor deviceUUID]
+-[DeviceInfoInputSupervisor setDeviceUUID:]
+-[DeviceInfoInputSupervisor deviceSystemName]
+-[DeviceInfoInputSupervisor setDeviceSystemName:]
+-[DeviceInfoInputSupervisor deviceModel]
+-[DeviceInfoInputSupervisor setDeviceModel:]
+-[DeviceInfoInputSupervisor .cxx_destruct]
+___block_descriptor_tmp.55
+_OBJC_IVAR_$_DeviceInfoInputSupervisor._deviceName
+_OBJC_IVAR_$_DeviceInfoInputSupervisor._deviceUUID
+_OBJC_IVAR_$_DeviceInfoInputSupervisor._deviceSystemName
+_OBJC_IVAR_$_DeviceInfoInputSupervisor._deviceModel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/DeviceInfoInputSupervisor/DeviceInfoInputSupervisor.m
+__94-[DeviceInfoInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke.51
+__94-[DeviceInfoInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
+-[UIGraphViewController setupWithReports:exitCallback:]
+-[UIGraphViewController viewDidLoad]
+-[UIGraphViewController didPressBackButton:]
+-[UIGraphViewController didChangeSegmentIndex:]
+-[UIGraphViewController reportAggregator]
+-[UIGraphViewController setReportAggregator:]
+-[UIGraphViewController reportsArray]
+-[UIGraphViewController setReportsArray:]
+-[UIGraphViewController exitCallback]
+-[UIGraphViewController setExitCallback:]
+-[UIGraphViewController .cxx_destruct]
+_OBJC_IVAR_$_UIGraphViewController._reportAggregator
+_OBJC_IVAR_$_UIGraphViewController._reportsArray
+_OBJC_IVAR_$_UIGraphViewController._exitCallback
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputGraphViewController/UIInputGraphViewController.m
+-[BatteryHttpAnalyzer findBatteryValues:sentInRequest:completion:]
+___66-[BatteryHttpAnalyzer findBatteryValues:sentInRequest:completion:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/BatteryHttpAnalyzer/BatteryHttpAnalyzer.m
+__66-[BatteryHttpAnalyzer findBatteryValues:sentInRequest:completion:]_block_invoke
++[NSError(NSURLSessionSupervisor) errorRequestBlocked:]
+-[NSURLSessionSupervisor setupWithModel:]
+___41-[NSURLSessionSupervisor setupWithModel:]_block_invoke
+-[NSURLSessionSupervisor processRequestEvent:]
+-[NSURLSessionSupervisor accessesUnspecifiedLink:]
+-[NSURLSessionSupervisor model]
+-[NSURLSessionSupervisor setModel:]
+-[NSURLSessionSupervisor myHandlerIdentifier]
+-[NSURLSessionSupervisor setMyHandlerIdentifier:]
+-[NSURLSessionSupervisor .cxx_destruct]
+_OBJC_IVAR_$_NSURLSessionSupervisor._model
+_OBJC_IVAR_$_NSURLSessionSupervisor._myHandlerIdentifier
+l_OBJC_PROTOCOL_$_InputSourceSupervisor
+l_OBJC_LABEL_PROTOCOL_$_InputSourceSupervisor
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/NSURLSessionHook/NSURLSessionSupervisor.m
+__41-[NSURLSessionSupervisor setupWithModel:]_block_invoke
+-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]
+___78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke
+___78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke_2
+___78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke.31
+___copy_helper_block_.34
+___destroy_helper_block_.35
+___78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke.39
+___copy_helper_block_.42
+___destroy_helper_block_.43
+___copy_helper_block_.48
+___destroy_helper_block_.49
+-[LocationHTTPAnalyzer findLocations:inNumberValues:]
+-[LocationHTTPAnalyzer findLocations:inStringValues:]
+___53-[LocationHTTPAnalyzer findLocations:inStringValues:]_block_invoke
+_locationsArrayToStrings.nf
+___block_descriptor_tmp.36
+___block_descriptor_tmp.45
+___block_descriptor_tmp.51
+_findLocations:inStringValues:.nf
+_findLocations:inStringValues:.onceToken
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/LocationHTTPAnalyzer/LocationHTTPAnalyzer.m
+__53-[LocationHTTPAnalyzer findLocations:inStringValues:]_block_invoke
+__78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke.39
+__78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke.31
+__78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke_2
+__78-[LocationHTTPAnalyzer checkIfAnyLocationFrom:isSentInRequest:withCompletion:]_block_invoke
+locationsArrayToStrings
+isNumberALocationCoordinate
+approximatelyEqual
+-[PPInputSwizzlingModule installInputSwizzlersOnEventDispatcher:]
+-[PPInputSwizzlingModule setupLocationInputSwizzlerUsingDispatcher:]
+___68-[PPInputSwizzlingModule setupLocationInputSwizzlerUsingDispatcher:]_block_invoke
+-[PPInputSwizzlingModule locationInputSwizzler]
+-[PPInputSwizzlingModule setLocationInputSwizzler:]
+-[PPInputSwizzlingModule .cxx_destruct]
+_OBJC_IVAR_$_PPInputSwizzlingModule._locationInputSwizzler
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPInputSwizzlingModule/PPInputSwizzlingModule.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPInputSwizzlingModule/PPInputSwizzlingModule.h
+__68-[PPInputSwizzlingModule setupLocationInputSwizzlerUsingDispatcher:]_block_invoke
+-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]
+___86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke
+___86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke.31
+___86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke_2
+___copy_helper_block_.39
+___destroy_helper_block_.40
+___copy_helper_block_.43
+___destroy_helper_block_.44
+-[LocationInputSwizzler registerNewChangeCallback:]
+-[LocationInputSwizzler removeChangeCallback:]
+-[LocationInputSwizzler applyNewRandomWalkSettings:]
+___52-[LocationInputSwizzler applyNewRandomWalkSettings:]_block_invoke
+___copy_helper_block_.86
+___destroy_helper_block_.87
+-[LocationInputSwizzler locationSubstituteIfAny]
+-[LocationInputSwizzler processAskForLocationEvent:]
+-[LocationInputSwizzler processSetDelegateEvent:]
+-[LocationInputSwizzler currentSettings]
+-[LocationInputSwizzler setCurrentSettings:]
+-[LocationInputSwizzler indexOfCurrentSentLocation]
+-[LocationInputSwizzler setIndexOfCurrentSentLocation:]
+-[LocationInputSwizzler substituteDelegate]
+-[LocationInputSwizzler setSubstituteDelegate:]
+-[LocationInputSwizzler callbacksToNotifyChange]
+-[LocationInputSwizzler setCallbacksToNotifyChange:]
+-[LocationInputSwizzler whenLocationsAreRequested]
+-[LocationInputSwizzler setWhenLocationsAreRequested:]
+-[LocationInputSwizzler timer]
+-[LocationInputSwizzler setTimer:]
+-[LocationInputSwizzler .cxx_destruct]
+___block_descriptor_tmp.42
+___block_descriptor_tmp.46
+___block_descriptor_tmp.88
+_OBJC_IVAR_$_LocationInputSwizzler._currentSettings
+_OBJC_IVAR_$_LocationInputSwizzler._indexOfCurrentSentLocation
+_OBJC_IVAR_$_LocationInputSwizzler._substituteDelegate
+_OBJC_IVAR_$_LocationInputSwizzler._callbacksToNotifyChange
+_OBJC_IVAR_$_LocationInputSwizzler._whenLocationsAreRequested
+_OBJC_IVAR_$_LocationInputSwizzler._timer
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/LocationInputSwizzler.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/LocationInputSwizzler.h
+__52-[LocationInputSwizzler applyNewRandomWalkSettings:]_block_invoke
+__86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke_2
+__86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke.31
+__86-[LocationInputSwizzler setupWithSettings:eventsDispatcher:whenLocationsAreRequested:]_block_invoke
+-[PPModuleDeniedAccessReport(NSDictionaryRepresentation) initWithNSDictionary:]
+-[PPModuleDeniedAccessReport(NSDictionaryRepresentation) dictionaryRepresentation]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPModuleDeniedAccessReport+NSDictionaryRepresentation.m
+-[AccelerometerInputSupervisor isEventOfInterest:]
+-[AccelerometerInputSupervisor monitoringInputType]
+-[AccelerometerInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+_isAccelerometerSubtype.accelerometerEvents
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/AccelerometerInputSupervisor/AccelerometerInputSupervisor.m
+isAccelerometerSubtype
+-[UILocationListView commonInit]
+-[UILocationListView setupTableView]
+-[UILocationListView setupWithModel:callbacks:]
+-[UILocationListView setupWithInitialList:callbacks:]
+-[UILocationListView addNewLocation:]
+-[UILocationListView removeLocationAt:]
+-[UILocationListView modifyLocationAt:to:]
+-[UILocationListView highlightLocationAt:]
+-[UILocationListView tableView:numberOfRowsInSection:]
+-[UILocationListView tableView:cellForRowAtIndexPath:]
+___54-[UILocationListView tableView:cellForRowAtIndexPath:]_block_invoke
+___54-[UILocationListView tableView:cellForRowAtIndexPath:]_block_invoke.116
+___copy_helper_block_.119
+___destroy_helper_block_.120
+-[UILocationListView tableView:shouldHighlightRowAtIndexPath:]
+-[UILocationListView didPressDeleteAll:]
+___40-[UILocationListView didPressDeleteAll:]_block_invoke
+___copy_helper_block_.143
+___destroy_helper_block_.144
+-[UILocationListView didPressAdd:]
+-[UILocationListView currentLocations]
+-[UILocationListView tableView]
+-[UILocationListView setTableView:]
+-[UILocationListView tutorialLabel]
+-[UILocationListView setTutorialLabel:]
+-[UILocationListView model]
+-[UILocationListView setModel:]
+-[UILocationListView callbacks]
+-[UILocationListView setCallbacks:]
+-[UILocationListView allLocations]
+-[UILocationListView setAllLocations:]
+-[UILocationListView highlightedIndex]
+-[UILocationListView setHighlightedIndex:]
+-[UILocationListView toolbarHeightCn]
+-[UILocationListView setToolbarHeightCn:]
+-[UILocationListView toolbar]
+-[UILocationListView setToolbar:]
+-[UILocationListView .cxx_destruct]
+___block_descriptor_tmp.122
+___block_descriptor_tmp.145
+_OBJC_IVAR_$_UILocationListView._tableView
+_OBJC_IVAR_$_UILocationListView._tutorialLabel
+_OBJC_IVAR_$_UILocationListView._model
+_OBJC_IVAR_$_UILocationListView._callbacks
+_OBJC_IVAR_$_UILocationListView._allLocations
+_OBJC_IVAR_$_UILocationListView._highlightedIndex
+_OBJC_IVAR_$_UILocationListView._toolbarHeightCn
+_OBJC_IVAR_$_UILocationListView._toolbar
+l_OBJC_PROTOCOL_$_UITableViewDataSource
+l_OBJC_LABEL_PROTOCOL_$_UITableViewDataSource
+l_OBJC_PROTOCOL_$_UITableViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITableViewDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationListView/UILocationListView.m
+__40-[UILocationListView didPressDeleteAll:]_block_invoke
+__54-[UILocationListView tableView:cellForRowAtIndexPath:]_block_invoke.116
+__54-[UILocationListView tableView:cellForRowAtIndexPath:]_block_invoke
+-[CloakNibView commonInit]
+-[CloakNibView initWithFrame:]
+-[CloakNibView initWithCoder:]
+-[CloakNibView contentView]
+-[CloakNibView setContentView:]
+-[CloakNibView .cxx_destruct]
+_OBJC_IVAR_$_CloakNibView._contentView
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/CloakNibView/CloakNibView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/CloakNibView/CloakNibView.h
+-[OPMonitorSettings initFromDefaults]
+-[OPMonitorSettings synchronize]
+-[OPMonitorSettings setAllowNotifications:]
+-[OPMonitorSettings allowNotifications]
+_OBJC_IVAR_$_OPMonitorSettings._allowNotifications
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitorSettings/OPMonitorSettings.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitorSettings/OPMonitorSettings.h
+-[PPModuleDeniedAccessReport initWithModuleName:inputType:date:]
+-[PPModuleDeniedAccessReport moduleName]
+-[PPModuleDeniedAccessReport setModuleName:]
+-[PPModuleDeniedAccessReport inputType]
+-[PPModuleDeniedAccessReport setInputType:]
+-[PPModuleDeniedAccessReport .cxx_destruct]
+_OBJC_IVAR_$_PPModuleDeniedAccessReport._moduleName
+_OBJC_IVAR_$_PPModuleDeniedAccessReport._inputType
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.h
++[CommonViewUtils fullyConstrainView:inHostView:]
+___49+[CommonViewUtils fullyConstrainView:inHostView:]_block_invoke
++[CommonViewUtils showOkAlertWithMessage:completion:]
+___53+[CommonViewUtils showOkAlertWithMessage:completion:]_block_invoke
+___copy_helper_block_.19
+___destroy_helper_block_.20
+___53+[CommonViewUtils showOkAlertWithMessage:completion:]_block_invoke.38
++[CommonViewUtils showConfirmAlertWithMessage:onConfirm:]
+___57+[CommonViewUtils showConfirmAlertWithMessage:onConfirm:]_block_invoke
+___57+[CommonViewUtils showConfirmAlertWithMessage:onConfirm:]_block_invoke.48
+___copy_helper_block_.49
+___destroy_helper_block_.50
+___block_descriptor_tmp.22
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIView+FullConstrain/CommonViewUtils.m
+__57+[CommonViewUtils showConfirmAlertWithMessage:onConfirm:]_block_invoke.48
+__57+[CommonViewUtils showConfirmAlertWithMessage:onConfirm:]_block_invoke
+__53+[CommonViewUtils showOkAlertWithMessage:completion:]_block_invoke.38
+__53+[CommonViewUtils showOkAlertWithMessage:completion:]_block_invoke
+__49+[CommonViewUtils fullyConstrainView:inHostView:]_block_invoke
+-[PPAccessFrequencyViolationReport(NSDictionaryRepresentation) dictionaryRepresentation]
+-[PPAccessFrequencyViolationReport(NSDictionaryRepresentation) initWithNSDictionary:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPAccessFrequencyViolationReport+NSDictionaryRepresentation.m
+-[UIEncapsulatorViewController loadView]
+-[UIEncapsulatorViewController viewDidLoad]
+-[UIEncapsulatorViewController didReceiveMemoryWarning]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIEncapsulatorViewController/UIEncapsulatorViewController.m
+-[UserDefinedLocationsSettingsModel saveCallback]
+-[UserDefinedLocationsSettingsModel setSaveCallback:]
+-[UserDefinedLocationsSettingsModel getCallback]
+-[UserDefinedLocationsSettingsModel setGetCallback:]
+-[UserDefinedLocationsSettingsModel .cxx_destruct]
+-[UILocationSettingsViewController viewDidLoad]
+-[UILocationSettingsViewController setupWithModel:onExit:]
+-[UILocationSettingsViewController createLocationListCallbacks]
+___63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke
+___63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.75
+___copy_helper_block_.78
+___destroy_helper_block_.79
+___63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.84
+___copy_helper_block_.87
+___destroy_helper_block_.88
+___63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.93
+___copy_helper_block_.98
+___destroy_helper_block_.99
+-[UILocationSettingsViewController createLocationPinningViewCallbacks]
+___70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke
+___copy_helper_block_.104
+___destroy_helper_block_.105
+___70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke.107
+___copy_helper_block_.110
+___destroy_helper_block_.111
+___70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke.113
+___copy_helper_block_.116
+___destroy_helper_block_.117
+-[UILocationSettingsViewController callbacksForLocationSettingsView]
+___68-[UILocationSettingsViewController callbacksForLocationSettingsView]_block_invoke
+___copy_helper_block_.120
+___destroy_helper_block_.121
+___68-[UILocationSettingsViewController callbacksForLocationSettingsView]_block_invoke.125
+___copy_helper_block_.126
+___destroy_helper_block_.127
+-[UILocationSettingsViewController didPressBack:]
+-[UILocationSettingsViewController didPressSave:]
+-[UILocationSettingsViewController compileSettingsAndSave]
+-[UILocationSettingsViewController onExitCallback]
+-[UILocationSettingsViewController setOnExitCallback:]
+-[UILocationSettingsViewController model]
+-[UILocationSettingsViewController setModel:]
+-[UILocationSettingsViewController locationListView]
+-[UILocationSettingsViewController setLocationListView:]
+-[UILocationSettingsViewController locationPinningView]
+-[UILocationSettingsViewController setLocationPinningView:]
+-[UILocationSettingsViewController locationSettingsView]
+-[UILocationSettingsViewController setLocationSettingsView:]
+-[UILocationSettingsViewController .cxx_destruct]
+_OBJC_IVAR_$_UserDefinedLocationsSettingsModel._saveCallback
+_OBJC_IVAR_$_UserDefinedLocationsSettingsModel._getCallback
+___block_descriptor_tmp.81
+___block_descriptor_tmp.90
+___block_descriptor_tmp.101
+___block_descriptor_tmp.106
+___block_descriptor_tmp.112
+___block_descriptor_tmp.118
+___block_descriptor_tmp.128
+_OBJC_IVAR_$_UILocationSettingsViewController._onExitCallback
+_OBJC_IVAR_$_UILocationSettingsViewController._model
+_OBJC_IVAR_$_UILocationSettingsViewController._locationListView
+_OBJC_IVAR_$_UILocationSettingsViewController._locationPinningView
+_OBJC_IVAR_$_UILocationSettingsViewController._locationSettingsView
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsViewController/UILocationSettingsViewController.m
+__68-[UILocationSettingsViewController callbacksForLocationSettingsView]_block_invoke.125
+__68-[UILocationSettingsViewController callbacksForLocationSettingsView]_block_invoke
+__70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke.113
+__70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke.107
+__70-[UILocationSettingsViewController createLocationPinningViewCallbacks]_block_invoke
+__63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.93
+__63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.84
+__63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke.75
+__63-[UILocationSettingsViewController createLocationListCallbacks]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsViewController/UILocationSettingsViewController.h
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPPrivacyLevelViolationReport+NSDictionaryRepresentation.m
+-[PPUnlistedInputAccessViolation(NSDictionaryRepresentation) dictionaryRepresentation]
+-[PPUnlistedInputAccessViolation(NSDictionaryRepresentation) initWithNSDictionary:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPUnlistedInputAccessViolation+NSDictionaryRepresentation.m
+-[HTTPAnalyzers locationHTTPAnalyzer]
+-[HTTPAnalyzers setLocationHTTPAnalyzer:]
+-[HTTPAnalyzers batteryHTTPAnalyzer]
+-[HTTPAnalyzers setBatteryHTTPAnalyzer:]
+-[HTTPAnalyzers basicAnalyzer]
+-[HTTPAnalyzers setBasicAnalyzer:]
+-[HTTPAnalyzers .cxx_destruct]
+-[InputSupervisorModel delegate]
+-[InputSupervisorModel setDelegate:]
+-[InputSupervisorModel scdDocument]
+-[InputSupervisorModel setScdDocument:]
+-[InputSupervisorModel privacyLevelAbuseDetector]
+-[InputSupervisorModel setPrivacyLevelAbuseDetector:]
+-[InputSupervisorModel httpAnalyzers]
+-[InputSupervisorModel setHttpAnalyzers:]
+-[InputSupervisorModel eventsDispatcher]
+-[InputSupervisorModel setEventsDispatcher:]
+-[InputSupervisorModel .cxx_destruct]
+_OBJC_IVAR_$_HTTPAnalyzers._locationHTTPAnalyzer
+_OBJC_IVAR_$_HTTPAnalyzers._batteryHTTPAnalyzer
+_OBJC_IVAR_$_HTTPAnalyzers._basicAnalyzer
+_OBJC_IVAR_$_InputSupervisorModel._delegate
+_OBJC_IVAR_$_InputSupervisorModel._scdDocument
+_OBJC_IVAR_$_InputSupervisorModel._privacyLevelAbuseDetector
+_OBJC_IVAR_$_InputSupervisorModel._httpAnalyzers
+_OBJC_IVAR_$_InputSupervisorModel._eventsDispatcher
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/InputSupervisorModel/InputSupervisorModel.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/InputSupervisorModel/InputSupervisorModel.h
+-[RandomWalkBoundCircle initWithCenter:radiusInKm:]
+-[RandomWalkBoundCircle center]
+-[RandomWalkBoundCircle setCenter:]
+-[RandomWalkBoundCircle radiusInKm]
+-[RandomWalkBoundCircle setRadiusInKm:]
+-[RandomWalkGenerator generateRandomWalkInCircle:withCompletion:]
+___65-[RandomWalkGenerator generateRandomWalkInCircle:withCompletion:]_block_invoke
+___65-[RandomWalkGenerator generateRandomWalkInCircle:withCompletion:]_block_invoke_2
+___copy_helper_block_.21
+___destroy_helper_block_.22
+-[RandomWalkGenerator generateRandomWalkInCircle:]
+_generateRandomLocationPoint.didSeed
+_OBJC_IVAR_$_RandomWalkBoundCircle._center
+_OBJC_IVAR_$_RandomWalkBoundCircle._radiusInKm
+___block_descriptor_tmp.23
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/RandomWalkGenerator/RandomWalkGenerator.m
+__65-[RandomWalkGenerator generateRandomWalkInCircle:withCompletion:]_block_invoke_2
+__65-[RandomWalkGenerator generateRandomWalkInCircle:withCompletion:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/RandomWalkGenerator/RandomWalkGenerator.h
+haversine_km
+generateRandomLocationPoint
+-[PlistReportsStorage initWithDefaultPlistPath]
+-[PlistReportsStorage addAccessFrequencyReport:withCompletion:]
+-[PlistReportsStorage getFrequencyReportsIn:]
+-[PlistReportsStorage addUnlistedHostReport:withCompletion:]
+-[PlistReportsStorage getUnlistedHostReportsIn:]
+-[PlistReportsStorage addPrivacyLevelReport:withCompletion:]
+-[PlistReportsStorage getPrivacyLevelReportsIn:]
+-[PlistReportsStorage addUnlistedInputReport:withCompletion:]
+-[PlistReportsStorage getUnlistedInputReportsIn:]
+-[PlistReportsStorage getCurrentInputTypesInViolationReportsIn:]
+-[PlistReportsStorage getViolationReportsOfInputType:in:]
+-[PlistReportsStorage addModuleDeniedAccessReport:withCompletion:]
+-[PlistReportsStorage getModuleDeniedAccessReportsIn:]
+-[PlistReportsStorage populateArrays]
++[PlistReportsStorage synchronizeArray:toPlistNamed:]
++[PlistReportsStorage plistPathForRepositoryName:]
++[PlistReportsStorage buildObjectsOfClass:fromDictionaries:]
++[PlistReportsStorage createDictionaryRepresentationsOfObjects:]
+-[PlistReportsStorage frequencyReportsArray]
+-[PlistReportsStorage setFrequencyReportsArray:]
+-[PlistReportsStorage hostReportsArray]
+-[PlistReportsStorage setHostReportsArray:]
+-[PlistReportsStorage privacyLevelReportsArray]
+-[PlistReportsStorage setPrivacyLevelReportsArray:]
+-[PlistReportsStorage inputReportsArray]
+-[PlistReportsStorage setInputReportsArray:]
+-[PlistReportsStorage moduleDeniedAccessReportsArray]
+-[PlistReportsStorage setModuleDeniedAccessReportsArray:]
+-[PlistReportsStorage .cxx_destruct]
+_OBJC_IVAR_$_PlistReportsStorage._frequencyReportsArray
+_OBJC_IVAR_$_PlistReportsStorage._hostReportsArray
+_OBJC_IVAR_$_PlistReportsStorage._privacyLevelReportsArray
+_OBJC_IVAR_$_PlistReportsStorage._inputReportsArray
+_OBJC_IVAR_$_PlistReportsStorage._moduleDeniedAccessReportsArray
+l_OBJC_PROTOCOL_$_PPPrivacyLevelReportsSource
+l_OBJC_LABEL_PROTOCOL_$_PPPrivacyLevelReportsSource
+l_OBJC_PROTOCOL_$_PPPrivacyLevelReportsRepository
+l_OBJC_LABEL_PROTOCOL_$_PPPrivacyLevelReportsRepository
+l_OBJC_PROTOCOL_$_PPUnlistedHostReportsSource
+l_OBJC_LABEL_PROTOCOL_$_PPUnlistedHostReportsSource
+l_OBJC_PROTOCOL_$_PPUnlistedHostReportsRepository
+l_OBJC_LABEL_PROTOCOL_$_PPUnlistedHostReportsRepository
+l_OBJC_PROTOCOL_$_PPUnlistedInputReportsSource
+l_OBJC_LABEL_PROTOCOL_$_PPUnlistedInputReportsSource
+l_OBJC_PROTOCOL_$_PPUnlistedInputReportsRepository
+l_OBJC_LABEL_PROTOCOL_$_PPUnlistedInputReportsRepository
+l_OBJC_PROTOCOL_$_PPAccessFrequencyReportsSource
+l_OBJC_LABEL_PROTOCOL_$_PPAccessFrequencyReportsSource
+l_OBJC_PROTOCOL_$_PPAccessFrequencyReportsRepository
+l_OBJC_LABEL_PROTOCOL_$_PPAccessFrequencyReportsRepository
+l_OBJC_PROTOCOL_$_PPModuleDeniedAccessReportsSource
+l_OBJC_LABEL_PROTOCOL_$_PPModuleDeniedAccessReportsSource
+l_OBJC_PROTOCOL_$_PPModuleDeniedAccessReportsRepository
+l_OBJC_LABEL_PROTOCOL_$_PPModuleDeniedAccessReportsRepository
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PlistReportsStorage.m
+-[MGSwipeTableInputOverlay initWithFrame:]
+-[MGSwipeTableInputOverlay hitTest:withEvent:]
+-[MGSwipeTableInputOverlay currentCell]
+-[MGSwipeTableInputOverlay setCurrentCell:]
+-[MGSwipeTableInputOverlay .cxx_destruct]
+-[MGSwipeButtonsView initWithButtons:direction:differentWidth:]
+-[MGSwipeButtonsView dealloc]
+-[MGSwipeButtonsView resetButtons]
+-[MGSwipeButtonsView layoutExpansion:]
+-[MGSwipeButtonsView layoutSubviews]
+-[MGSwipeButtonsView expansionBackgroundRect:]
+-[MGSwipeButtonsView expandToOffset:settings:]
+___46-[MGSwipeButtonsView expandToOffset:settings:]_block_invoke
+___46-[MGSwipeButtonsView expandToOffset:settings:]_block_invoke.116
+-[MGSwipeButtonsView endExpansionAnimated:]
+___43-[MGSwipeButtonsView endExpansionAnimated:]_block_invoke
+___copy_helper_block_.121
+___destroy_helper_block_.122
+___43-[MGSwipeButtonsView endExpansionAnimated:]_block_invoke.124
+___copy_helper_block_.125
+___destroy_helper_block_.126
+-[MGSwipeButtonsView getExpandedButton]
+-[MGSwipeButtonsView handleClick:fromExpansion:]
+-[MGSwipeButtonsView mgButtonClicked:]
+-[MGSwipeButtonsView transitionStatic:]
+-[MGSwipeButtonsView transitionDrag:]
+-[MGSwipeButtonsView transitionClip:]
+-[MGSwipeButtonsView transtitionFloatBorder:]
+-[MGSwipeButtonsView transition3D:]
+-[MGSwipeButtonsView transition:percent:]
+-[MGSwipeButtonsView cell]
+-[MGSwipeButtonsView setCell:]
+-[MGSwipeButtonsView backgroundColorCopy]
+-[MGSwipeButtonsView setBackgroundColorCopy:]
+-[MGSwipeButtonsView .cxx_destruct]
+-[MGSwipeSettings init]
+-[MGSwipeSettings setAnimationDuration:]
+-[MGSwipeSettings animationDuration]
+-[MGSwipeSettings transition]
+-[MGSwipeSettings setTransition:]
+-[MGSwipeSettings threshold]
+-[MGSwipeSettings setThreshold:]
+-[MGSwipeSettings offset]
+-[MGSwipeSettings setOffset:]
+-[MGSwipeSettings topMargin]
+-[MGSwipeSettings setTopMargin:]
+-[MGSwipeSettings bottomMargin]
+-[MGSwipeSettings setBottomMargin:]
+-[MGSwipeSettings showAnimation]
+-[MGSwipeSettings setShowAnimation:]
+-[MGSwipeSettings hideAnimation]
+-[MGSwipeSettings setHideAnimation:]
+-[MGSwipeSettings stretchAnimation]
+-[MGSwipeSettings setStretchAnimation:]
+-[MGSwipeSettings keepButtonsSwiped]
+-[MGSwipeSettings setKeepButtonsSwiped:]
+-[MGSwipeSettings onlySwipeButtons]
+-[MGSwipeSettings setOnlySwipeButtons:]
+-[MGSwipeSettings enableSwipeBounces]
+-[MGSwipeSettings setEnableSwipeBounces:]
+-[MGSwipeSettings .cxx_destruct]
+-[MGSwipeExpansionSettings init]
+-[MGSwipeExpansionSettings buttonIndex]
+-[MGSwipeExpansionSettings setButtonIndex:]
+-[MGSwipeExpansionSettings fillOnTrigger]
+-[MGSwipeExpansionSettings setFillOnTrigger:]
+-[MGSwipeExpansionSettings threshold]
+-[MGSwipeExpansionSettings setThreshold:]
+-[MGSwipeExpansionSettings expansionColor]
+-[MGSwipeExpansionSettings setExpansionColor:]
+-[MGSwipeExpansionSettings expansionLayout]
+-[MGSwipeExpansionSettings setExpansionLayout:]
+-[MGSwipeExpansionSettings triggerAnimation]
+-[MGSwipeExpansionSettings setTriggerAnimation:]
+-[MGSwipeExpansionSettings animationDuration]
+-[MGSwipeExpansionSettings setAnimationDuration:]
+-[MGSwipeExpansionSettings .cxx_destruct]
+-[MGSwipeAnimationData from]
+-[MGSwipeAnimationData setFrom:]
+-[MGSwipeAnimationData to]
+-[MGSwipeAnimationData setTo:]
+-[MGSwipeAnimationData duration]
+-[MGSwipeAnimationData setDuration:]
+-[MGSwipeAnimationData start]
+-[MGSwipeAnimationData setStart:]
+-[MGSwipeAnimationData animation]
+-[MGSwipeAnimationData setAnimation:]
+-[MGSwipeAnimationData .cxx_destruct]
+-[MGSwipeAnimation init]
+-[MGSwipeAnimation value:duration:from:to:]
+_mgEaseLinear
+_mgEaseInQuad
+_mgEaseOutQuad
+_mgEaseInOutQuad
+_mgEaseInCubic
+_mgEaseOutCubic
+_mgEaseInOutCubic
+_mgEaseInBounce
+_mgEaseOutBounce
+_mgEaseInOutBounce
+-[MGSwipeAnimation duration]
+-[MGSwipeAnimation setDuration:]
+-[MGSwipeAnimation easingFunction]
+-[MGSwipeAnimation setEasingFunction:]
+-[MGSwipeTableCell initWithStyle:reuseIdentifier:]
+-[MGSwipeTableCell initWithCoder:]
+-[MGSwipeTableCell awakeFromNib]
+-[MGSwipeTableCell dealloc]
+-[MGSwipeTableCell initViews:]
+-[MGSwipeTableCell cleanViews]
+-[MGSwipeTableCell isRTLLocale]
+-[MGSwipeTableCell fixRegionAndAccesoryViews]
+-[MGSwipeTableCell swipeContentView]
+-[MGSwipeTableCell layoutSubviews]
+-[MGSwipeTableCell fetchButtonsIfNeeded]
+-[MGSwipeTableCell createSwipeViewIfNeeded]
+-[MGSwipeTableCell showSwipeOverlayIfNeeded]
+-[MGSwipeTableCell hideSwipeOverlayIfNeeded]
+-[MGSwipeTableCell refreshContentView]
+-[MGSwipeTableCell refreshButtons:]
+-[MGSwipeTableCell willMoveToSuperview:]
+-[MGSwipeTableCell prepareForReuse]
+-[MGSwipeTableCell setEditing:animated:]
+-[MGSwipeTableCell setEditing:]
+-[MGSwipeTableCell hitTest:withEvent:]
+-[MGSwipeTableCell imageFromView:]
+-[MGSwipeTableCell setAccesoryViewsHidden:]
+-[MGSwipeTableCell backgroundColorForSwipe]
+-[MGSwipeTableCell parentTable]
+-[MGSwipeTableCell updateState:]
+-[MGSwipeTableCell setSwipeOffset:]
+-[MGSwipeTableCell hideSwipeAnimated:completion:]
+-[MGSwipeTableCell hideSwipeAnimated:]
+-[MGSwipeTableCell showSwipe:animated:]
+-[MGSwipeTableCell showSwipe:animated:completion:]
+-[MGSwipeTableCell expandSwipe:animated:]
+___41-[MGSwipeTableCell expandSwipe:animated:]_block_invoke
+___copy_helper_block_.502
+___destroy_helper_block_.503
+-[MGSwipeTableCell animationTick:]
+-[MGSwipeTableCell setSwipeOffset:animated:completion:]
+-[MGSwipeTableCell setSwipeOffset:animation:completion:]
+-[MGSwipeTableCell cancelPanGesture]
+-[MGSwipeTableCell tapHandler:]
+-[MGSwipeTableCell filterSwipe:]
+-[MGSwipeTableCell panHandler:]
+___31-[MGSwipeTableCell panHandler:]_block_invoke
+___copy_helper_block_.548
+___destroy_helper_block_.549
+-[MGSwipeTableCell gestureRecognizerShouldBegin:]
+-[MGSwipeTableCell isSwipeGestureActive]
+-[MGSwipeTableCell setSwipeBackgroundColor:]
+-[MGSwipeTableCell delegate]
+-[MGSwipeTableCell setDelegate:]
+-[MGSwipeTableCell leftButtons]
+-[MGSwipeTableCell setLeftButtons:]
+-[MGSwipeTableCell rightButtons]
+-[MGSwipeTableCell setRightButtons:]
+-[MGSwipeTableCell leftSwipeSettings]
+-[MGSwipeTableCell setLeftSwipeSettings:]
+-[MGSwipeTableCell rightSwipeSettings]
+-[MGSwipeTableCell setRightSwipeSettings:]
+-[MGSwipeTableCell leftExpansion]
+-[MGSwipeTableCell setLeftExpansion:]
+-[MGSwipeTableCell rightExpansion]
+-[MGSwipeTableCell setRightExpansion:]
+-[MGSwipeTableCell swipeState]
+-[MGSwipeTableCell allowsMultipleSwipe]
+-[MGSwipeTableCell setAllowsMultipleSwipe:]
+-[MGSwipeTableCell allowsButtonsWithDifferentWidth]
+-[MGSwipeTableCell setAllowsButtonsWithDifferentWidth:]
+-[MGSwipeTableCell allowsSwipeWhenTappingButtons]
+-[MGSwipeTableCell setAllowsSwipeWhenTappingButtons:]
+-[MGSwipeTableCell allowsOppositeSwipe]
+-[MGSwipeTableCell setAllowsOppositeSwipe:]
+-[MGSwipeTableCell preservesSelectionStatus]
+-[MGSwipeTableCell setPreservesSelectionStatus:]
+-[MGSwipeTableCell touchOnDismissSwipe]
+-[MGSwipeTableCell setTouchOnDismissSwipe:]
+-[MGSwipeTableCell swipeBackgroundColor]
+-[MGSwipeTableCell swipeOffset]
+-[MGSwipeTableCell .cxx_destruct]
+_OBJC_IVAR_$_MGSwipeTableInputOverlay._currentCell
+_OBJC_IVAR_$_MGSwipeButtonsView._fromLeft
+_OBJC_IVAR_$_MGSwipeButtonsView._container
+_OBJC_IVAR_$_MGSwipeButtonsView._buttons
+_OBJC_IVAR_$_MGSwipeButtonsView._expansionOffset
+_OBJC_IVAR_$_MGSwipeButtonsView._expansionBackgroundAnimated
+_OBJC_IVAR_$_MGSwipeButtonsView._expandedButtonAnimated
+_OBJC_IVAR_$_MGSwipeButtonsView._expandedButton
+_OBJC_IVAR_$_MGSwipeButtonsView._expansionBackground
+_OBJC_IVAR_$_MGSwipeButtonsView._backgroundColorCopy
+_OBJC_IVAR_$_MGSwipeButtonsView._expansionLayout
+_OBJC_IVAR_$_MGSwipeButtonsView._cell
+_OBJC_IVAR_$_MGSwipeButtonsView._expandedButtonBoundsCopy
+___block_descriptor_tmp.123
+___block_descriptor_tmp.127
+_OBJC_IVAR_$_MGSwipeButtonsView._autoHideExpansion
+_OBJC_IVAR_$_MGSwipeSettings._showAnimation
+_OBJC_IVAR_$_MGSwipeSettings._hideAnimation
+_OBJC_IVAR_$_MGSwipeSettings._stretchAnimation
+_OBJC_IVAR_$_MGSwipeSettings._transition
+_OBJC_IVAR_$_MGSwipeSettings._threshold
+_OBJC_IVAR_$_MGSwipeSettings._offset
+_OBJC_IVAR_$_MGSwipeSettings._topMargin
+_OBJC_IVAR_$_MGSwipeSettings._bottomMargin
+_OBJC_IVAR_$_MGSwipeSettings._keepButtonsSwiped
+_OBJC_IVAR_$_MGSwipeSettings._onlySwipeButtons
+_OBJC_IVAR_$_MGSwipeSettings._enableSwipeBounces
+_OBJC_IVAR_$_MGSwipeExpansionSettings._buttonIndex
+_OBJC_IVAR_$_MGSwipeExpansionSettings._fillOnTrigger
+_OBJC_IVAR_$_MGSwipeExpansionSettings._threshold
+_OBJC_IVAR_$_MGSwipeExpansionSettings._expansionColor
+_OBJC_IVAR_$_MGSwipeExpansionSettings._expansionLayout
+_OBJC_IVAR_$_MGSwipeExpansionSettings._triggerAnimation
+_OBJC_IVAR_$_MGSwipeExpansionSettings._animationDuration
+_OBJC_IVAR_$_MGSwipeAnimationData._from
+_OBJC_IVAR_$_MGSwipeAnimationData._to
+_OBJC_IVAR_$_MGSwipeAnimationData._duration
+_OBJC_IVAR_$_MGSwipeAnimationData._start
+_OBJC_IVAR_$_MGSwipeAnimationData._animation
+_OBJC_IVAR_$_MGSwipeAnimation._duration
+_OBJC_IVAR_$_MGSwipeAnimation._easingFunction
+_OBJC_IVAR_$_MGSwipeTableCell._panRecognizer
+_OBJC_IVAR_$_MGSwipeTableCell._leftButtons
+_OBJC_IVAR_$_MGSwipeTableCell._rightButtons
+_OBJC_IVAR_$_MGSwipeTableCell._leftSwipeSettings
+_OBJC_IVAR_$_MGSwipeTableCell._rightSwipeSettings
+_OBJC_IVAR_$_MGSwipeTableCell._leftExpansion
+_OBJC_IVAR_$_MGSwipeTableCell._rightExpansion
+_OBJC_IVAR_$_MGSwipeTableCell._animationData
+_OBJC_IVAR_$_MGSwipeTableCell._activeExpansion
+_OBJC_IVAR_$_MGSwipeTableCell._previusHiddenViews
+_OBJC_IVAR_$_MGSwipeTableCell._swipeState
+_OBJC_IVAR_$_MGSwipeTableCell._triggerStateChanges
+_OBJC_IVAR_$_MGSwipeTableCell._allowsSwipeWhenTappingButtons
+_OBJC_IVAR_$_MGSwipeTableCell._preservesSelectionStatus
+_OBJC_IVAR_$_MGSwipeTableCell._allowsOppositeSwipe
+_OBJC_IVAR_$_MGSwipeTableCell._firstSwipeState
+_OBJC_IVAR_$_MGSwipeTableCell._displayLink
+_OBJC_IVAR_$_MGSwipeTableCell._swipeOverlay
+_OBJC_IVAR_$_MGSwipeTableCell._rightView
+_OBJC_IVAR_$_MGSwipeTableCell._leftView
+_OBJC_IVAR_$_MGSwipeTableCell._swipeContentView
+_OBJC_IVAR_$_MGSwipeTableCell._swipeView
+_OBJC_IVAR_$_MGSwipeTableCell._delegate
+_OBJC_IVAR_$_MGSwipeTableCell._allowsButtonsWithDifferentWidth
+_OBJC_IVAR_$_MGSwipeTableCell._overlayEnabled
+_OBJC_IVAR_$_MGSwipeTableCell._allowsMultipleSwipe
+_OBJC_IVAR_$_MGSwipeTableCell._tableInputOverlay
+_OBJC_IVAR_$_MGSwipeTableCell._previusSelectionStyle
+_OBJC_IVAR_$_MGSwipeTableCell._tapRecognizer
+_OBJC_IVAR_$_MGSwipeTableCell._swipeOffset
+_OBJC_IVAR_$_MGSwipeTableCell._swipeBackgroundColor
+_OBJC_IVAR_$_MGSwipeTableCell._cachedParentTable
+_OBJC_IVAR_$_MGSwipeTableCell._targetOffset
+_OBJC_IVAR_$_MGSwipeTableCell._allowSwipeLeftToRight
+_OBJC_IVAR_$_MGSwipeTableCell._allowSwipeRightToLeft
+___block_descriptor_tmp.504
+_OBJC_IVAR_$_MGSwipeTableCell._animationCompletion
+_OBJC_IVAR_$_MGSwipeTableCell._panStartPoint
+_OBJC_IVAR_$_MGSwipeTableCell._panStartOffset
+___block_descriptor_tmp.550
+_OBJC_IVAR_$_MGSwipeTableCell._touchOnDismissSwipe
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MGSwipeTableCell/MGSwipeTableCell.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MGSwipeTableCell/MGSwipeTableCell.h
+__31-[MGSwipeTableCell panHandler:]_block_invoke
+__41-[MGSwipeTableCell expandSwipe:animated:]_block_invoke
+mgEaseInOutBounce
+mgEaseOutBounce
+mgEaseInBounce
+mgEaseInOutCubic
+mgEaseOutCubic
+mgEaseInCubic
+mgEaseInOutQuad
+mgEaseOutQuad
+mgEaseInQuad
+mgEaseLinear
+__43-[MGSwipeButtonsView endExpansionAnimated:]_block_invoke.124
+__43-[MGSwipeButtonsView endExpansionAnimated:]_block_invoke
+__46-[MGSwipeButtonsView expandToOffset:settings:]_block_invoke.116
+__46-[MGSwipeButtonsView expandToOffset:settings:]_block_invoke
+-[NSArray(ContainsAnyFromArray) PPCloak_containsAnyFromArray:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Helpers/NSArray+ContainsAnyFromArray.m
+-[PPFlowBuilderLocationActions getCurrentRandomWalkSettings]
+-[PPFlowBuilderLocationActions setGetCurrentRandomWalkSettings:]
+-[PPFlowBuilderLocationActions onSaveCurrentRandomWalkSettings]
+-[PPFlowBuilderLocationActions setOnSaveCurrentRandomWalkSettings:]
+-[PPFlowBuilderLocationActions getCurrentActiveLocationIndex]
+-[PPFlowBuilderLocationActions setGetCurrentActiveLocationIndex:]
+-[PPFlowBuilderLocationActions registerChangeCallback]
+-[PPFlowBuilderLocationActions setRegisterChangeCallback:]
+-[PPFlowBuilderLocationActions removeChangeCallback]
+-[PPFlowBuilderLocationActions setRemoveChangeCallback:]
+-[PPFlowBuilderLocationActions .cxx_destruct]
+-[PPFlowBuilderModel monitoringSettings]
+-[PPFlowBuilderModel setMonitoringSettings:]
+-[PPFlowBuilderModel scdJSON]
+-[PPFlowBuilderModel setScdJSON:]
+-[PPFlowBuilderModel scdRepository]
+-[PPFlowBuilderModel setScdRepository:]
+-[PPFlowBuilderModel reportSources]
+-[PPFlowBuilderModel setReportSources:]
+-[PPFlowBuilderModel locationActions]
+-[PPFlowBuilderModel setLocationActions:]
+-[PPFlowBuilderModel onExitCallback]
+-[PPFlowBuilderModel setOnExitCallback:]
+-[PPFlowBuilderModel .cxx_destruct]
+-[PPFlowBuilder buildFlowWithModel:]
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2
+___copy_helper_block_.115
+___destroy_helper_block_.116
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.120
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.124
+___copy_helper_block_.130
+___destroy_helper_block_.131
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.135
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.139
+___copy_helper_block_.140
+___destroy_helper_block_.141
+___copy_helper_block_.145
+___destroy_helper_block_.146
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.150
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.156
+___copy_helper_block_.157
+___destroy_helper_block_.158
+___copy_helper_block_.167
+___destroy_helper_block_.168
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.172
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.189
+___copy_helper_block_.190
+___destroy_helper_block_.191
+___copy_helper_block_.195
+___destroy_helper_block_.196
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.200
+___36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.203
+___copy_helper_block_.204
+___destroy_helper_block_.205
+___copy_helper_block_.209
+___destroy_helper_block_.210
+_OBJC_IVAR_$_PPFlowBuilderLocationActions._getCurrentRandomWalkSettings
+_OBJC_IVAR_$_PPFlowBuilderLocationActions._onSaveCurrentRandomWalkSettings
+_OBJC_IVAR_$_PPFlowBuilderLocationActions._getCurrentActiveLocationIndex
+_OBJC_IVAR_$_PPFlowBuilderLocationActions._registerChangeCallback
+_OBJC_IVAR_$_PPFlowBuilderLocationActions._removeChangeCallback
+_OBJC_IVAR_$_PPFlowBuilderModel._monitoringSettings
+_OBJC_IVAR_$_PPFlowBuilderModel._scdJSON
+_OBJC_IVAR_$_PPFlowBuilderModel._scdRepository
+_OBJC_IVAR_$_PPFlowBuilderModel._reportSources
+_OBJC_IVAR_$_PPFlowBuilderModel._locationActions
+_OBJC_IVAR_$_PPFlowBuilderModel._onExitCallback
+___block_descriptor_tmp.117
+___block_descriptor_tmp.132
+___block_descriptor_tmp.142
+___block_descriptor_tmp.147
+___block_descriptor_tmp.159
+___block_descriptor_tmp.169
+___block_descriptor_tmp.192
+___block_descriptor_tmp.197
+___block_descriptor_tmp.206
+___block_descriptor_tmp.211
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.m
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.203
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.200
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.189
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.172
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.156
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.150
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.139
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.135
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2.124
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke.120
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke_2
+__36-[PPFlowBuilder buildFlowWithModel:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.h
+-[PerSecondReportAggregator aggregateReports:inSecondGroupsOfLength:]
+___69-[PerSecondReportAggregator aggregateReports:inSecondGroupsOfLength:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/Aggregators/PerSecondReportAggregator/PerSecondReportAggregator.m
+__69-[PerSecondReportAggregator aggregateReports:inSecondGroupsOfLength:]_block_invoke
++[NSError(HTTPParsing) errorDataArgumentNil]
+-[PPBasicHttpBodyParser parseJSONFromBodyData:withCompletion:]
+-[PPBasicHttpBodyParser parseFormURLEncodedFromBodyData:withCompletion:]
+-[PPBasicHttpBodyParser parseMultipartBodyData:withCompletion:]
+l_OBJC_PROTOCOL_$_HTTPBodyParser
+l_OBJC_LABEL_PROTOCOL_$_HTTPBodyParser
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/HTTPRequestAnalyzers/URLFormParsers/PPBasicHttpBodyParser/PPBasicHttpBodyParser.m
+-[UIModuleDeniedAccessReportsSection initWithSectionIndex:tableView:reportsSource:]
+-[UIModuleDeniedAccessReportsSection cellForRowAtIndex:]
+-[UIModuleDeniedAccessReportsSection loadReportsWithCompletion:]
+___64-[UIModuleDeniedAccessReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIModuleDeniedAccessReportsSection sectionName]
+-[UIModuleDeniedAccessReportsSection reportsSource]
+-[UIModuleDeniedAccessReportsSection setReportsSource:]
+-[UIModuleDeniedAccessReportsSection .cxx_destruct]
+_OBJC_IVAR_$_UIModuleDeniedAccessReportsSection._reportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIModuleDeniedAccessReportsSection/UIModuleDeniedAccessReportsSection.m
+__64-[UIModuleDeniedAccessReportsSection loadReportsWithCompletion:]_block_invoke
+-[OPMonitorInputSourceEvent initWithType:sampleValues:]
+-[OPMonitorInputSourceEvent accessFrequencyType]
+-[OPMonitorInputSourceEvent setAccessFrequencyType:]
+-[OPMonitorInputSourceEvent values]
+-[OPMonitorInputSourceEvent setValues:]
+-[OPMonitorInputSourceEvent .cxx_destruct]
+_OBJC_IVAR_$_OPMonitorInputSourceEvent._accessFrequencyType
+_OBJC_IVAR_$_OPMonitorInputSourceEvent._values
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitor/OPMonitorInputSourceReport/OPMonitorInputSourceEvent.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitor/OPMonitorInputSourceReport/OPMonitorInputSourceEvent.h
+-[MagnetometerInputSupervisor isEventOfInterest:]
+-[MagnetometerInputSupervisor monitoringInputType]
+-[MagnetometerInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+_isMagnetometerSubtype.magnetometerEvents
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MagnetometerInputSupervisor/MagnetometerInputSupervisor.m
+isMagnetometerSubtype
+-[TPKeyboardAvoidingTableView setup]
+-[TPKeyboardAvoidingTableView initWithFrame:]
+-[TPKeyboardAvoidingTableView initWithFrame:style:]
+-[TPKeyboardAvoidingTableView awakeFromNib]
+-[TPKeyboardAvoidingTableView dealloc]
+-[TPKeyboardAvoidingTableView hasAutomaticKeyboardAvoidingBehaviour]
+-[TPKeyboardAvoidingTableView setFrame:]
+-[TPKeyboardAvoidingTableView setContentSize:]
+-[TPKeyboardAvoidingTableView focusNextTextField]
+-[TPKeyboardAvoidingTableView scrollToActiveTextField]
+-[TPKeyboardAvoidingTableView willMoveToSuperview:]
+-[TPKeyboardAvoidingTableView touchesEnded:withEvent:]
+-[TPKeyboardAvoidingTableView textFieldShouldReturn:]
+-[TPKeyboardAvoidingTableView layoutSubviews]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/TPKeyboardAvoidingTableView/TPKeyboardAvoidingTableView.m
+-[BarometerInputSupervisor monitoringInputType]
+-[BarometerInputSupervisor isEventOfInterest:]
+-[BarometerInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/BarometerInputSupervisor/BarometerInputSupervisor.m
+-[CommonLocationViewModel initWithLocations:editable:]
+-[CommonLocationViewModel initialLocations]
+-[CommonLocationViewModel setInitialLocations:]
+-[CommonLocationViewModel editable]
+-[CommonLocationViewModel setEditable:]
+-[CommonLocationViewModel .cxx_destruct]
+-[CommonLocationViewCallbacks onDeleteAll]
+-[CommonLocationViewCallbacks setOnDeleteAll:]
+-[CommonLocationViewCallbacks onNewLocationAdded]
+-[CommonLocationViewCallbacks setOnNewLocationAdded:]
+-[CommonLocationViewCallbacks onDeleteLocationAtIndex]
+-[CommonLocationViewCallbacks setOnDeleteLocationAtIndex:]
+-[CommonLocationViewCallbacks onModifyLocationAtIndex]
+-[CommonLocationViewCallbacks setOnModifyLocationAtIndex:]
+-[CommonLocationViewCallbacks .cxx_destruct]
+-[RandomWalkLocationSettingsModel currentSettings]
+-[RandomWalkLocationSettingsModel setCurrentSettings:]
+-[RandomWalkLocationSettingsModel randomWalkGenerator]
+-[RandomWalkLocationSettingsModel setRandomWalkGenerator:]
+-[RandomWalkLocationSettingsModel .cxx_destruct]
+-[RandomWalkLocationStatusModel currentSettings]
+-[RandomWalkLocationStatusModel setCurrentSettings:]
+-[RandomWalkLocationStatusModel currentSentLocationIndex]
+-[RandomWalkLocationStatusModel setCurrentSentLocationIndex:]
+-[RandomWalkLocationStatusModel registerCallbackForChanges]
+-[RandomWalkLocationStatusModel setRegisterCallbackForChanges:]
+-[RandomWalkLocationStatusModel removeCallbackForChanges]
+-[RandomWalkLocationStatusModel setRemoveCallbackForChanges:]
+-[RandomWalkLocationStatusModel .cxx_destruct]
+_OBJC_IVAR_$_CommonLocationViewModel._initialLocations
+_OBJC_IVAR_$_CommonLocationViewModel._editable
+_OBJC_IVAR_$_CommonLocationViewCallbacks._onDeleteAll
+_OBJC_IVAR_$_CommonLocationViewCallbacks._onNewLocationAdded
+_OBJC_IVAR_$_CommonLocationViewCallbacks._onDeleteLocationAtIndex
+_OBJC_IVAR_$_CommonLocationViewCallbacks._onModifyLocationAtIndex
+_OBJC_IVAR_$_RandomWalkLocationSettingsModel._currentSettings
+_OBJC_IVAR_$_RandomWalkLocationSettingsModel._randomWalkGenerator
+_OBJC_IVAR_$_RandomWalkLocationStatusModel._currentSettings
+_OBJC_IVAR_$_RandomWalkLocationStatusModel._currentSentLocationIndex
+_OBJC_IVAR_$_RandomWalkLocationStatusModel._registerCallbackForChanges
+_OBJC_IVAR_$_RandomWalkLocationStatusModel._removeCallbackForChanges
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/CommonLocationViewModels/CommonLocationViewModels.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/CommonLocationViewModels/CommonLocationViewModels.h
+-[UIHostAccessViolationReportsSection initWithSectionIndex:tableView:reportsSource:]
+-[UIHostAccessViolationReportsSection loadReportsWithCompletion:]
+___65-[UIHostAccessViolationReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIHostAccessViolationReportsSection cellForRowAtIndex:]
+-[UIHostAccessViolationReportsSection sectionName]
+-[UIHostAccessViolationReportsSection reportsSource]
+-[UIHostAccessViolationReportsSection setReportsSource:]
+-[UIHostAccessViolationReportsSection .cxx_destruct]
+_OBJC_IVAR_$_UIHostAccessViolationReportsSection._reportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIHostAccessViolationReportsSection/UIHostAccessViolationReportsSection.m
+__65-[UIHostAccessViolationReportsSection loadReportsWithCompletion:]_block_invoke
++[NSError(ContactsInputSupervisor) errorContactsAccessDenied]
+-[ContactsInputSupervisor isEventOfInterest:]
+-[ContactsInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[ContactsInputSupervisor monitoringInputType]
+-[ContactsInputSupervisor newURLRequestMade:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ContactsInputSupervisor/ContactsInputSupervisor.m
+-[UILocationSettingsViewSettings initWithInterval:cycle:enabled:]
+-[UILocationSettingsViewSettings enabled]
+-[UILocationSettingsViewSettings setEnabled:]
+-[UILocationSettingsViewSettings cycle]
+-[UILocationSettingsViewSettings setCycle:]
+-[UILocationSettingsViewSettings changeInterval]
+-[UILocationSettingsViewSettings setChangeInterval:]
+-[UILocationSettingsViewCallbacks onMapItemsPress]
+-[UILocationSettingsViewCallbacks setOnMapItemsPress:]
+-[UILocationSettingsViewCallbacks onListItemsPress]
+-[UILocationSettingsViewCallbacks setOnListItemsPress:]
+-[UILocationSettingsViewCallbacks .cxx_destruct]
+-[UILocationSettingsView commonInit]
+-[UILocationSettingsView setupWithCurrentSettings:editable:callbacks:]
+-[UILocationSettingsView didPressMapButton:]
+-[UILocationSettingsView didPressListButton:]
+-[UILocationSettingsView setSecondsInTextField:]
+-[UILocationSettingsView touchesEnded:withEvent:]
+-[UILocationSettingsView textFieldDidEndEditing:]
+-[UILocationSettingsView textFieldShouldReturn:]
+-[UILocationSettingsView currentSettings]
+-[UILocationSettingsView callbacks]
+-[UILocationSettingsView setCallbacks:]
+-[UILocationSettingsView settings]
+-[UILocationSettingsView setSettings:]
+-[UILocationSettingsView changeIntervalTF]
+-[UILocationSettingsView setChangeIntervalTF:]
+-[UILocationSettingsView enabledSwitch]
+-[UILocationSettingsView setEnabledSwitch:]
+-[UILocationSettingsView cycleSwitch]
+-[UILocationSettingsView setCycleSwitch:]
+-[UILocationSettingsView actionIndicatingLabel]
+-[UILocationSettingsView setActionIndicatingLabel:]
+-[UILocationSettingsView .cxx_destruct]
+_OBJC_IVAR_$_UILocationSettingsViewSettings._enabled
+_OBJC_IVAR_$_UILocationSettingsViewSettings._cycle
+_OBJC_IVAR_$_UILocationSettingsViewSettings._changeInterval
+_OBJC_IVAR_$_UILocationSettingsViewCallbacks._onMapItemsPress
+_OBJC_IVAR_$_UILocationSettingsViewCallbacks._onListItemsPress
+_OBJC_IVAR_$_UILocationSettingsView._callbacks
+_OBJC_IVAR_$_UILocationSettingsView._settings
+_OBJC_IVAR_$_UILocationSettingsView._changeIntervalTF
+_OBJC_IVAR_$_UILocationSettingsView._enabledSwitch
+_OBJC_IVAR_$_UILocationSettingsView._cycleSwitch
+_OBJC_IVAR_$_UILocationSettingsView._actionIndicatingLabel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsView/UILocationSettingsView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsView/UILocationSettingsView.h
+-[NSArray(FindObjectOfClass) firstObjectOfClass:]
++[OPMonitor sharedInstance]
+___27+[OPMonitor sharedInstance]_block_invoke
++[OPMonitor load]
+___17+[OPMonitor load]_block_invoke
+_checkNoSwizzlingForOPMonitor
+_checkNoSwizzlingForApiHooks
+_checkForOtherFrameworks
++[OPMonitor initializeMonitoring]
++[OPMonitor displayFlow]
+-[OPMonitor beginMonitoringWithAppDocument:text:]
+___49-[OPMonitor beginMonitoringWithAppDocument:text:]_block_invoke
+___49-[OPMonitor beginMonitoringWithAppDocument:text:]_block_invoke_2
+___copy_helper_block_.88
+___destroy_helper_block_.89
+-[OPMonitor trySendToServerSCD:withCompletion:]
+___47-[OPMonitor trySendToServerSCD:withCompletion:]_block_invoke
+___47-[OPMonitor trySendToServerSCD:withCompletion:]_block_invoke_2
+___copy_helper_block_.105
+___destroy_helper_block_.106
+-[OPMonitor installInputSwizzlersWithEventDispatcher:]
+-[OPMonitor installSupervisorsWithDocument:eventsDispatcher:]
+___61-[OPMonitor installSupervisorsWithDocument:eventsDispatcher:]_block_invoke
+___copy_helper_block_.138
+___destroy_helper_block_.139
+-[OPMonitor buildSCDParametersWithJSON:]
+-[OPMonitor displayFlowIfNecessary]
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___35-[OPMonitor displayFlowIfNecessary]_block_invoke
+-[OPMonitor actionsLocationRelatedInScreenFlow]
+___47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke
+___copy_helper_block_.219
+___destroy_helper_block_.220
+___47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.225
+___copy_helper_block_.228
+___destroy_helper_block_.229
+___47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.234
+___copy_helper_block_.237
+___destroy_helper_block_.238
+___47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.242
+___copy_helper_block_.251
+___destroy_helper_block_.252
+___47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.257
+___copy_helper_block_.267
+___destroy_helper_block_.268
+-[OPMonitor displayNotificationIfPossible:]
+-[OPMonitor monitorSettings]
+-[OPMonitor setMonitorSettings:]
+-[OPMonitor scdJson]
+-[OPMonitor setScdJson:]
+-[OPMonitor document]
+-[OPMonitor setDocument:]
+-[OPMonitor handle]
+-[OPMonitor setHandle:]
+-[OPMonitor scdSender]
+-[OPMonitor setScdSender:]
+-[OPMonitor supervisingModule]
+-[OPMonitor setSupervisingModule:]
+-[OPMonitor inputSwizzlingModule]
+-[OPMonitor setInputSwizzlingModule:]
+-[OPMonitor plistRepository]
+-[OPMonitor setPlistRepository:]
+-[OPMonitor .cxx_destruct]
+_sharedInstance.shared
+_sharedInstance.onceToken
+___block_descriptor_tmp.21
+___block_literal_global.22
+___block_descriptor_tmp.66
+___block_descriptor_tmp.91
+___block_descriptor_tmp.103
+___block_literal_global.104
+___block_descriptor_tmp.108
+___block_descriptor_tmp.141
+_displayFlowIfNecessary.isFlowDisplayed
+___block_descriptor_tmp.222
+___block_descriptor_tmp.231
+___block_descriptor_tmp.239
+___block_descriptor_tmp.254
+___block_descriptor_tmp.270
+_OBJC_IVAR_$_OPMonitor._monitorSettings
+_OBJC_IVAR_$_OPMonitor._scdJson
+_OBJC_IVAR_$_OPMonitor._document
+_OBJC_IVAR_$_OPMonitor._handle
+_OBJC_IVAR_$_OPMonitor._scdSender
+_OBJC_IVAR_$_OPMonitor._supervisingModule
+_OBJC_IVAR_$_OPMonitor._inputSwizzlingModule
+_OBJC_IVAR_$_OPMonitor._plistRepository
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitor/OPMonitor.m
+__47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.257
+__47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.242
+__47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.234
+__47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke.225
+__47-[OPMonitor actionsLocationRelatedInScreenFlow]_block_invoke
+__35-[OPMonitor displayFlowIfNecessary]_block_invoke
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+__61-[OPMonitor installSupervisorsWithDocument:eventsDispatcher:]_block_invoke
+__47-[OPMonitor trySendToServerSCD:withCompletion:]_block_invoke_2
+__47-[OPMonitor trySendToServerSCD:withCompletion:]_block_invoke
+__49-[OPMonitor beginMonitoringWithAppDocument:text:]_block_invoke_2
+__49-[OPMonitor beginMonitoringWithAppDocument:text:]_block_invoke
+__17+[OPMonitor load]_block_invoke
+__27+[OPMonitor sharedInstance]_block_invoke
+-[SCDSendParamaters initWithJSON:deviceId:bundleId:]
+-[SCDSendParamaters scdJSONText]
+-[SCDSendParamaters setScdJSONText:]
+-[SCDSendParamaters deviceId]
+-[SCDSendParamaters setDeviceId:]
+-[SCDSendParamaters appBundleIdentifier]
+-[SCDSendParamaters setAppBundleIdentifier:]
+-[SCDSendParamaters .cxx_destruct]
+-[SCDSender sendSCDParameters:withCompletion:]
+___46-[SCDSender sendSCDParameters:withCompletion:]_block_invoke
+-[SCDSender buildSendSCDURL:]
+_OBJC_IVAR_$_SCDSendParamaters._scdJSONText
+_OBJC_IVAR_$_SCDSendParamaters._deviceId
+_OBJC_IVAR_$_SCDSendParamaters._appBundleIdentifier
+l_OBJC_PROTOCOL_$_SCDSender
+l_OBJC_LABEL_PROTOCOL_$_SCDSender
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/SCDSender/SCDSender.m
+__46-[SCDSender sendSCDParameters:withCompletion:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/SCDSender/SCDSender.h
+-[UIAccessFrequencyViolationReportsSection initWithSectionIndex:tableView:reportsSource:]
+-[UIAccessFrequencyViolationReportsSection loadReportsWithCompletion:]
+___70-[UIAccessFrequencyViolationReportsSection loadReportsWithCompletion:]_block_invoke
+-[UIAccessFrequencyViolationReportsSection cellForRowAtIndex:]
+-[UIAccessFrequencyViolationReportsSection sectionName]
+-[UIAccessFrequencyViolationReportsSection reportsSource]
+-[UIAccessFrequencyViolationReportsSection setReportsSource:]
+-[UIAccessFrequencyViolationReportsSection .cxx_destruct]
+_OBJC_IVAR_$_UIAccessFrequencyViolationReportsSection._reportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIAccessFrequencyViolationReportsSection/UIAccessFrequencyViolationReportsSection.m
+__70-[UIAccessFrequencyViolationReportsSection loadReportsWithCompletion:]_block_invoke
+_frameworkDidSwizzleClassesInApiHooks
+_printErrorSwizzling
+_frameworkDidSwizzleOPMonitor
+_printErrorForMissingFramework
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Security.m
+checkForOtherFrameworks
+printErrorForMissingFramework
+checkNoSwizzlingForOPMonitor
+checkNoSwizzlingForApiHooks
+frameworkDidSwizzleOPMonitor
+printErrorSwizzling
+frameworkDidSwizzleClassesInApiHooks
+-[MicrophoneInputSupervisor monitoringInputType]
+-[MicrophoneInputSupervisor isEventOfInterest:]
+-[MicrophoneInputSupervisor newURLRequestMade:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MicrophoneInputSupervisor/MicrophoneInputSupervisor.m
+isMicrophoneEvent
++[CommonUtils extractInputOfType:from:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/CommonUtils/CommonUtils.m
+-[DeviceMotionInputSupervisor monitoringInputType]
+-[DeviceMotionInputSupervisor isEventOfInterest:]
+-[DeviceMotionInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/DeviceMotionInputSupervisor/DeviceMotionInputSupervisor.m
+isDeviceMotionEvent
++[NSError(RandomWalkSwizzlerSettings) randomWalkDefaultsError]
++[RandomWalkSwizzlerSettings createFromDefaults:error:]
+-[RandomWalkSwizzlerSettings synchronizeToDefaults:]
++[RandomWalkSwizzlerSettings createWithCircle:walkPath:enabled:error:]
+-[RandomWalkSwizzlerSettings description]
+-[RandomWalkSwizzlerSettings boundCircle]
+-[RandomWalkSwizzlerSettings setBoundCircle:]
+-[RandomWalkSwizzlerSettings walkPath]
+-[RandomWalkSwizzlerSettings setWalkPath:]
+-[RandomWalkSwizzlerSettings enabled]
+-[RandomWalkSwizzlerSettings setEnabled:]
+-[RandomWalkSwizzlerSettings .cxx_destruct]
+_OBJC_IVAR_$_RandomWalkSwizzlerSettings._boundCircle
+_OBJC_IVAR_$_RandomWalkSwizzlerSettings._walkPath
+_OBJC_IVAR_$_RandomWalkSwizzlerSettings._enabled
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/RandomWalkSwizzlerSettings.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/RandomWalkSwizzlerSettings.h
++[NSError(TouchIdSupervisor) errorTouchIdAccessDenied]
+-[TouchIdSupervisor isEventOfInterest:]
+-[TouchIdSupervisor monitoringInputType]
+-[TouchIdSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/TouchIdSupervisor/TouchIdSupervisor.m
+-[PrivacyLevelAbuseDetector initWithDocument:]
+-[PrivacyLevelAbuseDetector detectViolationForInput:overNetworkRequest:]
+-[PrivacyLevelAbuseDetector document]
+-[PrivacyLevelAbuseDetector setDocument:]
+-[PrivacyLevelAbuseDetector .cxx_destruct]
+_OBJC_IVAR_$_PrivacyLevelAbuseDetector._document
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/PrivacyLevelAbuseDetector/PrivacyLevelAbuseDetector.m
+-[UIViolationReportsViewController viewDidLoad]
+-[UIViolationReportsViewController setupWithReportSources:onExit:]
+-[UIViolationReportsViewController createReportSectionsWith:]
+-[UIViolationReportsViewController numberOfSectionsInTableView:]
+-[UIViolationReportsViewController tableView:numberOfRowsInSection:]
+-[UIViolationReportsViewController tableView:viewForHeaderInSection:]
+-[UIViolationReportsViewController tableView:heightForHeaderInSection:]
+-[UIViolationReportsViewController tableView:cellForRowAtIndexPath:]
+-[UIViolationReportsViewController setupTableView:]
+-[UIViolationReportsViewController backButtonPressed:]
+-[UIViolationReportsViewController tableView]
+-[UIViolationReportsViewController setTableView:]
+-[UIViolationReportsViewController exitCallback]
+-[UIViolationReportsViewController setExitCallback:]
+-[UIViolationReportsViewController reportSections]
+-[UIViolationReportsViewController setReportSections:]
+-[UIViolationReportsViewController noReportsLabel]
+-[UIViolationReportsViewController setNoReportsLabel:]
+-[UIViolationReportsViewController .cxx_destruct]
+_OBJC_IVAR_$_UIViolationReportsViewController._tableView
+_OBJC_IVAR_$_UIViolationReportsViewController._exitCallback
+_OBJC_IVAR_$_UIViolationReportsViewController._reportSections
+_OBJC_IVAR_$_UIViolationReportsViewController._noReportsLabel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIViolationReportsViewController.m
++[MGSwipeButton buttonWithTitle:backgroundColor:]
++[MGSwipeButton buttonWithTitle:backgroundColor:padding:]
++[MGSwipeButton buttonWithTitle:backgroundColor:insets:]
++[MGSwipeButton buttonWithTitle:backgroundColor:callback:]
++[MGSwipeButton buttonWithTitle:backgroundColor:padding:callback:]
++[MGSwipeButton buttonWithTitle:backgroundColor:insets:callback:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:padding:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:insets:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:callback:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:padding:callback:]
++[MGSwipeButton buttonWithTitle:icon:backgroundColor:insets:callback:]
+-[MGSwipeButton callMGSwipeConvenienceCallback:]
+-[MGSwipeButton centerIconOverText]
+-[MGSwipeButton centerIconOverTextWithSpacing:]
+-[MGSwipeButton setPadding:]
+-[MGSwipeButton setButtonWidth:]
+-[MGSwipeButton setEdgeInsets:]
+-[MGSwipeButton callback]
+-[MGSwipeButton setCallback:]
+-[MGSwipeButton buttonWidth]
+-[MGSwipeButton .cxx_destruct]
+_OBJC_IVAR_$_MGSwipeButton._callback
+_OBJC_IVAR_$_MGSwipeButton._buttonWidth
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MGSwipeTableCell/MGSwipeButton.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/MGSwipeTableCell/MGSwipeButton.h
+-[UILocationIndexPinAnnotationView commonInit]
+-[UILocationIndexPinAnnotationView initWithFrame:]
+-[UILocationIndexPinAnnotationView initWithCoder:]
+-[UILocationIndexPinAnnotationView setVisuallyBigger:]
+___54-[UILocationIndexPinAnnotationView setVisuallyBigger:]_block_invoke
+-[UILocationIndexPinAnnotationView locationIndexPinView]
+-[UILocationIndexPinAnnotationView setLocationIndexPinView:]
+-[UILocationIndexPinAnnotationView visuallyBigger]
+-[UILocationIndexPinAnnotationView .cxx_destruct]
+_OBJC_IVAR_$_UILocationIndexPinAnnotationView._visuallyBigger
+_OBJC_IVAR_$_UILocationIndexPinAnnotationView._locationIndexPinView
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationIndexPinAnnotationView/UILocationIndexPinAnnotationView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationIndexPinAnnotationView/UILocationIndexPinAnnotationView.h
+__54-[UILocationIndexPinAnnotationView setVisuallyBigger:]_block_invoke
+_generateNSContactsUsageDescription
+_generateNSLocationAlwaysUsageDescription
+_generatePPContactsApiHook
+_generatePPLocationApiHooks
+_generateNSLocationWhenInUseUsageDescription
+_generateNSCameraUsageDescription
+_generateNSPhotoLibraryUsageDescription
+_generatePPUIPickerControllerHooks
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Strings/Strings.c
+generatePPUIPickerControllerHooks
+generateNSPhotoLibraryUsageDescription
+generateNSCameraUsageDescription
+generateNSLocationWhenInUseUsageDescription
+generatePPLocationApiHooks
+generatePPContactsApiHook
+generateNSLocationAlwaysUsageDescription
+generateNSContactsUsageDescription
+-[AVCameraInputSupervisor isEventOfInterest:]
+-[AVCameraInputSupervisor monitoringInputType]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/CameraInputSupervisor/CameraInputSupervisor.m
+isCameraEvent
+-[BaseReportWithDate initWithDate:]
+-[BaseReportWithDate reportDate]
+-[BaseReportWithDate setReportDate:]
+-[BaseReportWithDate .cxx_destruct]
+_OBJC_IVAR_$_BaseReportWithDate._reportDate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/BaseReportWithDate/BaseReportWithDate.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/BaseReportWithDate/BaseReportWithDate.h
+-[PedometerInputSupervisor isEventOfInterest:]
+-[PedometerInputSupervisor monitoringInputType]
+-[PedometerInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PedometerInputSupervisor/PedometerInputSupervisor.m
+-[DefaultConfirmationSupervisor setupWithModel:]
+___48-[DefaultConfirmationSupervisor setupWithModel:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/DefaultConfirmationSupervisor/DefaultConfirmationSupervisor.m
+__48-[DefaultConfirmationSupervisor setupWithModel:]_block_invoke
+-[PPUnlistedInputAccessViolation initWithInputType:dateReported:]
+-[PPUnlistedInputAccessViolation inputType]
+-[PPUnlistedInputAccessViolation setInputType:]
+-[PPUnlistedInputAccessViolation .cxx_destruct]
+_OBJC_IVAR_$_PPUnlistedInputAccessViolation._inputType
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h
+-[PPSupervisingReportRepositories privacyLevelReportsRepository]
+-[PPSupervisingReportRepositories setPrivacyLevelReportsRepository:]
+-[PPSupervisingReportRepositories unlistedHostReportsRepository]
+-[PPSupervisingReportRepositories setUnlistedHostReportsRepository:]
+-[PPSupervisingReportRepositories accessFrequencyReportsRepository]
+-[PPSupervisingReportRepositories setAccessFrequencyReportsRepository:]
+-[PPSupervisingReportRepositories moduleDeniedAccessReportsRepository]
+-[PPSupervisingReportRepositories setModuleDeniedAccessReportsRepository:]
+-[PPSupervisingReportRepositories unlistedInputReportsRepository]
+-[PPSupervisingReportRepositories setUnlistedInputReportsRepository:]
+-[PPSupervisingReportRepositories .cxx_destruct]
+-[PPSupervisingModuleModel initWithSCD:eventsDispatcher:reportRepositories:]
+-[PPSupervisingModuleModel scd]
+-[PPSupervisingModuleModel setScd:]
+-[PPSupervisingModuleModel eventsDispatcher]
+-[PPSupervisingModuleModel setEventsDispatcher:]
+-[PPSupervisingModuleModel reportRepositories]
+-[PPSupervisingModuleModel setReportRepositories:]
+-[PPSupervisingModuleModel .cxx_destruct]
+-[PPSupervisingModuleCallbacks presentNotificationCallback]
+-[PPSupervisingModuleCallbacks setPresentNotificationCallback:]
+-[PPSupervisingModuleCallbacks .cxx_destruct]
+-[PPSupervisingModule beginSupervisingWithModel:callbacks:]
+-[PPSupervisingModule buildSupervisorsWithDocument:]
+-[PPSupervisingModule createHTTPAnalyzers]
+-[PPSupervisingModule newURLHostViolationReported:]
+-[PPSupervisingModule newUnlistedInputAccessViolationReported:]
+-[PPSupervisingModule newPrivacyLevelViolationReported:]
+-[PPSupervisingModule newAccessFrequencyViolationReported:]
+-[PPSupervisingModule newModuleDeniedAccessReport:]
+-[PPSupervisingModule model]
+-[PPSupervisingModule setModel:]
+-[PPSupervisingModule callbacks]
+-[PPSupervisingModule setCallbacks:]
+-[PPSupervisingModule reportRepositories]
+-[PPSupervisingModule setReportRepositories:]
+-[PPSupervisingModule inputSupervisors]
+-[PPSupervisingModule setInputSupervisors:]
+-[PPSupervisingModule .cxx_destruct]
+_OBJC_IVAR_$_PPSupervisingReportRepositories._privacyLevelReportsRepository
+_OBJC_IVAR_$_PPSupervisingReportRepositories._unlistedHostReportsRepository
+_OBJC_IVAR_$_PPSupervisingReportRepositories._accessFrequencyReportsRepository
+_OBJC_IVAR_$_PPSupervisingReportRepositories._moduleDeniedAccessReportsRepository
+_OBJC_IVAR_$_PPSupervisingReportRepositories._unlistedInputReportsRepository
+_OBJC_IVAR_$_PPSupervisingModuleModel._scd
+_OBJC_IVAR_$_PPSupervisingModuleModel._eventsDispatcher
+_OBJC_IVAR_$_PPSupervisingModuleModel._reportRepositories
+_OBJC_IVAR_$_PPSupervisingModuleCallbacks._presentNotificationCallback
+_OBJC_IVAR_$_PPSupervisingModule._model
+_OBJC_IVAR_$_PPSupervisingModule._callbacks
+_OBJC_IVAR_$_PPSupervisingModule._reportRepositories
+_OBJC_IVAR_$_PPSupervisingModule._inputSupervisors
+l_OBJC_PROTOCOL_$_InputSupervisorDelegate
+l_OBJC_LABEL_PROTOCOL_$_InputSupervisorDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPSupervisingModule/PPSupervisingModule.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPSupervisingModule/PPSupervisingModule.h
+-[UIAboutViewPageInfo initWithImageName:text:]
+-[UIAboutViewPageInfo text]
+-[UIAboutViewPageInfo setText:]
+-[UIAboutViewPageInfo imageName]
+-[UIAboutViewPageInfo setImageName:]
+-[UIAboutViewPageInfo .cxx_destruct]
+-[UIAboutView setupWithPageInfos:]
+-[UIAboutView commonInit]
+-[UIAboutView numberOfSectionsInCollectionView:]
+-[UIAboutView collectionView:numberOfItemsInSection:]
+-[UIAboutView collectionView:cellForItemAtIndexPath:]
+-[UIAboutView collectionView:layout:sizeForItemAtIndexPath:]
+-[UIAboutView scrollViewDidScroll:]
+-[UIAboutView collectionView]
+-[UIAboutView setCollectionView:]
+-[UIAboutView pageInfos]
+-[UIAboutView setPageInfos:]
+-[UIAboutView pageControl]
+-[UIAboutView setPageControl:]
+-[UIAboutView .cxx_destruct]
+_OBJC_IVAR_$_UIAboutViewPageInfo._text
+_OBJC_IVAR_$_UIAboutViewPageInfo._imageName
+_OBJC_IVAR_$_UIAboutView._collectionView
+_OBJC_IVAR_$_UIAboutView._pageInfos
+_OBJC_IVAR_$_UIAboutView._pageControl
+l_OBJC_PROTOCOL_$_UICollectionViewDataSource
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDataSource
+l_OBJC_PROTOCOL_$_UICollectionViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDelegate
+l_OBJC_PROTOCOL_$_UICollectionViewDelegateFlowLayout
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDelegateFlowLayout
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIAboutView/UIAboutView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIAboutView/UIAboutView.h
+-[LocationInputSupervisor init]
+___31-[LocationInputSupervisor init]_block_invoke
+-[LocationInputSupervisor isEventOfInterest:]
+-[LocationInputSupervisor monitoringInputType]
+-[LocationInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[LocationInputSupervisor specificProcessOfEvent:nextHandler:]
+-[LocationInputSupervisor processNewlyRequestedLocations:]
+-[LocationInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]
+___92-[LocationInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
+___copy_helper_block_.99
+___destroy_helper_block_.100
+-[LocationInputSupervisor locationsArray]
+-[LocationInputSupervisor setLocationsArray:]
+-[LocationInputSupervisor substituteDelegate]
+-[LocationInputSupervisor setSubstituteDelegate:]
+-[LocationInputSupervisor .cxx_destruct]
+___block_descriptor_tmp.102
+_OBJC_IVAR_$_LocationInputSupervisor._locationsArray
+_OBJC_IVAR_$_LocationInputSupervisor._substituteDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSupervisors/LocationInputSupervisor/LocationInputSupervisor.m
+__92-[LocationInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
+__31-[LocationInputSupervisor init]_block_invoke
+-[UILocationListViewCellCallbacks onCoordinatesUpdate]
+-[UILocationListViewCellCallbacks setOnCoordinatesUpdate:]
+-[UILocationListViewCellCallbacks onDelete]
+-[UILocationListViewCellCallbacks setOnDelete:]
+-[UILocationListViewCellCallbacks .cxx_destruct]
+-[UILocationListViewCellModel latitude]
+-[UILocationListViewCellModel setLatitude:]
+-[UILocationListViewCellModel longitude]
+-[UILocationListViewCellModel setLongitude:]
+-[UILocationListViewCellModel locationIndex]
+-[UILocationListViewCellModel setLocationIndex:]
+-[UILocationListViewCellModel editable]
+-[UILocationListViewCellModel setEditable:]
+-[UILocationListViewCell awakeFromNib]
++[UILocationListViewCell identifierNibName]
+-[UILocationListViewCell setupWithModel:callbacks:]
+-[UILocationListViewCell setSelected:animated:]
+___47-[UILocationListViewCell setSelected:animated:]_block_invoke
+-[UILocationListViewCell setSelected:]
+-[UILocationListViewCell setupWithLatitude:longitude:index:callbacks:]
+-[UILocationListViewCell setTextFieldsWithLatitude:longitude:]
+-[UILocationListViewCell textFieldShouldReturn:]
+___48-[UILocationListViewCell textFieldShouldReturn:]_block_invoke
+___copy_helper_block_.96
+___destroy_helper_block_.97
+-[UILocationListViewCell textFieldDidEndEditing:]
+-[UILocationListViewCell updateTextFieldsAndCall]
+-[UILocationListViewCell swipeTableCell:swipeButtonsForDirection:swipeSettings:expansionSettings:]
+___98-[UILocationListViewCell swipeTableCell:swipeButtonsForDirection:swipeSettings:expansionSettings:]_block_invoke
+___copy_helper_block_.124
+___destroy_helper_block_.125
+-[UILocationListViewCell latitudeTF]
+-[UILocationListViewCell setLatitudeTF:]
+-[UILocationListViewCell longitudeTF]
+-[UILocationListViewCell setLongitudeTF:]
+-[UILocationListViewCell locationIndexPinView]
+-[UILocationListViewCell setLocationIndexPinView:]
+-[UILocationListViewCell callbacks]
+-[UILocationListViewCell setCallbacks:]
+-[UILocationListViewCell model]
+-[UILocationListViewCell setModel:]
+-[UILocationListViewCell .cxx_destruct]
+_OBJC_IVAR_$_UILocationListViewCellCallbacks._onCoordinatesUpdate
+_OBJC_IVAR_$_UILocationListViewCellCallbacks._onDelete
+_OBJC_IVAR_$_UILocationListViewCellModel._latitude
+_OBJC_IVAR_$_UILocationListViewCellModel._longitude
+_OBJC_IVAR_$_UILocationListViewCellModel._locationIndex
+_OBJC_IVAR_$_UILocationListViewCellModel._editable
+___block_descriptor_tmp.98
+_OBJC_IVAR_$_UILocationListViewCell._latitudeTF
+_OBJC_IVAR_$_UILocationListViewCell._longitudeTF
+_OBJC_IVAR_$_UILocationListViewCell._locationIndexPinView
+_OBJC_IVAR_$_UILocationListViewCell._callbacks
+_OBJC_IVAR_$_UILocationListViewCell._model
+l_OBJC_PROTOCOL_$_MGSwipeTableCellDelegate
+l_OBJC_LABEL_PROTOCOL_$_MGSwipeTableCellDelegate
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationListView/UILocationListViewCell/UILocationListViewCell.m
+__98-[UILocationListViewCell swipeTableCell:swipeButtonsForDirection:swipeSettings:expansionSettings:]_block_invoke
+__48-[UILocationListViewCell textFieldShouldReturn:]_block_invoke
+__47-[UILocationListViewCell setSelected:animated:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationListView/UILocationListViewCell/UILocationListViewCell.h
+-[UIAboutViewController viewDidLoad]
+-[UIAboutViewController setupWithCallback:]
+-[UIAboutViewController didPressBack:]
++[UIAboutViewController createPageInfos]
+-[UIAboutViewController aboutView]
+-[UIAboutViewController setAboutView:]
+-[UIAboutViewController backButton]
+-[UIAboutViewController setBackButton:]
+-[UIAboutViewController callback]
+-[UIAboutViewController setCallback:]
+-[UIAboutViewController .cxx_destruct]
+_OBJC_IVAR_$_UIAboutViewController._aboutView
+_OBJC_IVAR_$_UIAboutViewController._backButton
+_OBJC_IVAR_$_UIAboutViewController._callback
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIAboutViewController/UIAboutViewController.m
+-[PPCircularArray initWithCapacity:]
+-[PPCircularArray addObject:]
+-[PPCircularArray addObjects:]
+-[PPCircularArray allObjects]
+-[PPCircularArray backingArray]
+-[PPCircularArray setBackingArray:]
+-[PPCircularArray capacity]
+-[PPCircularArray setCapacity:]
+-[PPCircularArray numOfItemsEverInserted]
+-[PPCircularArray setNumOfItemsEverInserted:]
+-[PPCircularArray .cxx_destruct]
+_OBJC_IVAR_$_PPCircularArray._backingArray
+_OBJC_IVAR_$_PPCircularArray._capacity
+_OBJC_IVAR_$_PPCircularArray._numOfItemsEverInserted
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/Utilities/PPCircularArray/PPCircularArray.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/GCDWebServerFunctions.m
+GCDWebServerParseURLEncodedForm
+GCDWebServerUnescapeURLString
+GCDWebServerEscapeURLString
+-[BatteryInputSupervisor init]
+-[BatteryInputSupervisor monitoringInputType]
+-[BatteryInputSupervisor specificProcessOfEvent:nextHandler:]
+-[BatteryInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]
+___91-[BatteryInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
+___91-[BatteryInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke.30
+___copy_helper_block_.54
+___destroy_helper_block_.55
+-[BatteryInputSupervisor isEventOfInterest:]
+-[BatteryInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[BatteryInputSupervisor batteryValues]
+-[BatteryInputSupervisor setBatteryValues:]
+-[BatteryInputSupervisor valuesSuspectedToBeSent]
+-[BatteryInputSupervisor setValuesSuspectedToBeSent:]
+-[BatteryInputSupervisor .cxx_destruct]
+___block_descriptor_tmp.57
+_OBJC_IVAR_$_BatteryInputSupervisor._batteryValues
+_OBJC_IVAR_$_BatteryInputSupervisor._valuesSuspectedToBeSent
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/BatteryInputSupervisor/BatteryInputSupervisor.m
+__91-[BatteryInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke.30
+__91-[BatteryInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]_block_invoke
++[UIWindow(rsHookHandle) load]
+-[UIWindow(rsHookHandle) rsHook_addSubview:]
+___44-[UIWindow(rsHookHandle) rsHook_addSubview:]_block_invoke
+___44-[UIWindow(rsHookHandle) rsHook_addSubview:]_block_invoke_2
+___copy_helper_block_.23
+___destroy_helper_block_.24
+-[UIWindow(rsHookHandle) rsHookdragMoving:withEvent:]
+-[UIWindow(rsHookHandle) rsHookdragEnded:withEvent:]
+_handle
+_repositionHandleTimer
+_rsHook_addSubview:.onceToken
+___block_descriptor_tmp.25
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIWindow+RSHookHandle/UIWindow+RSHookHandle.m
+__44-[UIWindow(rsHookHandle) rsHook_addSubview:]_block_invoke_2
+__44-[UIWindow(rsHookHandle) rsHook_addSubview:]_block_invoke
+-[PPReportsSourcesBundle unlistedHostReportsSource]
+-[PPReportsSourcesBundle setUnlistedHostReportsSource:]
+-[PPReportsSourcesBundle unlistedInputReportsSource]
+-[PPReportsSourcesBundle setUnlistedInputReportsSource:]
+-[PPReportsSourcesBundle privacyViolationReportsSource]
+-[PPReportsSourcesBundle setPrivacyViolationReportsSource:]
+-[PPReportsSourcesBundle accessFrequencyReportsSource]
+-[PPReportsSourcesBundle setAccessFrequencyReportsSource:]
+-[PPReportsSourcesBundle moduleDeniedAccessReportsSource]
+-[PPReportsSourcesBundle setModuleDeniedAccessReportsSource:]
+-[PPReportsSourcesBundle .cxx_destruct]
+_OBJC_IVAR_$_PPReportsSourcesBundle._unlistedHostReportsSource
+_OBJC_IVAR_$_PPReportsSourcesBundle._unlistedInputReportsSource
+_OBJC_IVAR_$_PPReportsSourcesBundle._privacyViolationReportsSource
+_OBJC_IVAR_$_PPReportsSourcesBundle._accessFrequencyReportsSource
+_OBJC_IVAR_$_PPReportsSourcesBundle._moduleDeniedAccessReportsSource
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPReportsSourcesBundle.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPReportsSourcesBundle.h
++[NSBundle(RSFrameworkHooks) PPCloakBundle]
+_PPCloakBundle.bundle
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/NSBundle+RSFrameworkHooks/NSBundle+RSFrameworkHooks.m
+-[UILocationIndexPinView commonInit]
+-[UILocationIndexPinView setIndex:]
+-[UILocationIndexPinView index]
+-[UILocationIndexPinView indexLabel]
+-[UILocationIndexPinView setIndexLabel:]
+-[UILocationIndexPinView .cxx_destruct]
+_OBJC_IVAR_$_UILocationIndexPinView._index
+_OBJC_IVAR_$_UILocationIndexPinView._indexLabel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationIndexPinView/UILocationIndexPinView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationIndexPinView/UILocationIndexPinView.h
+-[BaseInputSupervisor setupWithModel:]
+___38-[BaseInputSupervisor setupWithModel:]_block_invoke
+-[BaseInputSupervisor processEvent:nextHandler:]
+-[BaseInputSupervisor detectUnregisteredAccess]
+-[BaseInputSupervisor itsSpecifiedThatDataIsSentToHost:]
+-[BaseInputSupervisor isEventOfInterest:]
+-[BaseInputSupervisor monitoringInputType]
+-[BaseInputSupervisor specificProcessOfEvent:nextHandler:]
+-[BaseInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[BaseInputSupervisor analyzeNetworkRequestForPossibleLeakedData:ifOkContinueToHandler:]
+-[BaseInputSupervisor model]
+-[BaseInputSupervisor setModel:]
+-[BaseInputSupervisor accessedInput]
+-[BaseInputSupervisor setAccessedInput:]
+-[BaseInputSupervisor .cxx_destruct]
+_OBJC_IVAR_$_BaseInputSupervisor._model
+_OBJC_IVAR_$_BaseInputSupervisor._accessedInput
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/BaseInputSupervisor/BaseInputSupervisor.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/BaseInputSupervisor/BaseInputSupervisor.h
+__38-[BaseInputSupervisor setupWithModel:]_block_invoke
++[NSObject(JRSwizzle) jr_swizzleMethod:withMethod:error:]
++[NSObject(JRSwizzle) jr_swizzleClassMethod:withClassMethod:error:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/JRSwizzle/JRSwizzle.m
+-[UIRandomWalkLocationSettingsVCCallbacks onSettingsSave]
+-[UIRandomWalkLocationSettingsVCCallbacks setOnSettingsSave:]
+-[UIRandomWalkLocationSettingsVCCallbacks onExit]
+-[UIRandomWalkLocationSettingsVCCallbacks setOnExit:]
+-[UIRandomWalkLocationSettingsVCCallbacks .cxx_destruct]
+-[UIRandomWalkLocationSettingsViewController setupWithModel:callbacks:]
+-[UIRandomWalkLocationSettingsViewController setupWithSettings:callbacks:]
+___74-[UIRandomWalkLocationSettingsViewController setupWithSettings:callbacks:]_block_invoke
+___74-[UIRandomWalkLocationSettingsViewController setupWithSettings:callbacks:]_block_invoke_2
+___copy_helper_block_.71
+___destroy_helper_block_.72
+-[UIRandomWalkLocationSettingsViewController didPressBack:]
+-[UIRandomWalkLocationSettingsViewController didPressSave:]
+-[UIRandomWalkLocationSettingsViewController callbacks]
+-[UIRandomWalkLocationSettingsViewController setCallbacks:]
+-[UIRandomWalkLocationSettingsViewController enabledSwitch]
+-[UIRandomWalkLocationSettingsViewController setEnabledSwitch:]
+-[UIRandomWalkLocationSettingsViewController randomWalkMapView]
+-[UIRandomWalkLocationSettingsViewController setRandomWalkMapView:]
+-[UIRandomWalkLocationSettingsViewController randomWalkGenerator]
+-[UIRandomWalkLocationSettingsViewController setRandomWalkGenerator:]
+-[UIRandomWalkLocationSettingsViewController currentWalk]
+-[UIRandomWalkLocationSettingsViewController setCurrentWalk:]
+-[UIRandomWalkLocationSettingsViewController boundCircle]
+-[UIRandomWalkLocationSettingsViewController setBoundCircle:]
+-[UIRandomWalkLocationSettingsViewController .cxx_destruct]
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsVCCallbacks._onSettingsSave
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsVCCallbacks._onExit
+___block_descriptor_tmp.74
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._callbacks
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._enabledSwitch
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._randomWalkMapView
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._randomWalkGenerator
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._currentWalk
+_OBJC_IVAR_$_UIRandomWalkLocationSettingsViewController._boundCircle
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationSettingsViewController/UIRandomWalkLocationSettingsViewController.m
+__74-[UIRandomWalkLocationSettingsViewController setupWithSettings:callbacks:]_block_invoke_2
+__74-[UIRandomWalkLocationSettingsViewController setupWithSettings:callbacks:]_block_invoke
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationSettingsViewController/UIRandomWalkLocationSettingsViewController.h
+-[PickerControllerSupervisor isEventOfInterest:]
+-[PickerControllerSupervisor monitoringInputType]
+-[PickerControllerSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSupervisors/PickerControllerSupervisor/PickerControllerSupervisor.m
++[UIAboutCollectionViewCell identifierNibName]
+-[UIAboutCollectionViewCell setupWithText:imageName:]
+-[UIAboutCollectionViewCell imageView]
+-[UIAboutCollectionViewCell setImageView:]
+-[UIAboutCollectionViewCell textView]
+-[UIAboutCollectionViewCell setTextView:]
+-[UIAboutCollectionViewCell .cxx_destruct]
+_OBJC_IVAR_$_UIAboutCollectionViewCell._imageView
+_OBJC_IVAR_$_UIAboutCollectionViewCell._textView
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIAboutView/UIAboutCollectionViewCell/UIAboutCollectionViewCell.m
+-[UIViolationReportsSection initWithSectionIndex:tableView:]
+-[UIViolationReportsSection reloadTableViewIfNecessary]
+-[UIViolationReportsSection numberOfRows]
+-[UIViolationReportsSection prepare]
+___36-[UIViolationReportsSection prepare]_block_invoke
+-[UIViolationReportsSection loadReportsWithCompletion:]
+-[UIViolationReportsSection cellForRowAtIndex:]
+-[UIViolationReportsSection scdSectionHeader]
+___45-[UIViolationReportsSection scdSectionHeader]_block_invoke
+___copy_helper_block_.29
+___destroy_helper_block_.30
+-[UIViolationReportsSection sectionHeader]
+-[UIViolationReportsSection sectionName]
+-[UIViolationReportsSection setupSectionHeader]
+-[UIViolationReportsSection getCallbacksForSectionHeader]
+___57-[UIViolationReportsSection getCallbacksForSectionHeader]_block_invoke
+___copy_helper_block_.51
+___destroy_helper_block_.52
+___57-[UIViolationReportsSection getCallbacksForSectionHeader]_block_invoke.55
+___copy_helper_block_.58
+___destroy_helper_block_.59
+-[UIViolationReportsSection indexPaths]
+-[UIViolationReportsSection headerHeight]
+-[UIViolationReportsSection reportsArray]
+-[UIViolationReportsSection setReportsArray:]
+-[UIViolationReportsSection amExpanded]
+-[UIViolationReportsSection setAmExpanded:]
+-[UIViolationReportsSection setScdSectionHeader:]
+-[UIViolationReportsSection tableView]
+-[UIViolationReportsSection setTableView:]
+-[UIViolationReportsSection sectionIndex]
+-[UIViolationReportsSection setSectionIndex:]
+-[UIViolationReportsSection onceToken]
+-[UIViolationReportsSection setOnceToken:]
+-[UIViolationReportsSection .cxx_destruct]
+_OBJC_IVAR_$_UIViolationReportsSection._onceToken
+___block_descriptor_tmp.31
+_OBJC_IVAR_$_UIViolationReportsSection._scdSectionHeader
+___block_descriptor_tmp.54
+___block_descriptor_tmp.60
+_OBJC_IVAR_$_UIViolationReportsSection._reportsArray
+_OBJC_IVAR_$_UIViolationReportsSection._amExpanded
+_OBJC_IVAR_$_UIViolationReportsSection._tableView
+_OBJC_IVAR_$_UIViolationReportsSection._sectionIndex
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIViolationReportsSection/UIViolationReportsSection.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIViolationReportsSection/UIViolationReportsSection.h
+__57-[UIViolationReportsSection getCallbacksForSectionHeader]_block_invoke.55
+__57-[UIViolationReportsSection getCallbacksForSectionHeader]_block_invoke
+__45-[UIViolationReportsSection scdSectionHeader]_block_invoke
+__36-[UIViolationReportsSection prepare]_block_invoke
+-[ProximityInputSupervisor isEventOfInterest:]
+-[ProximityInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+-[ProximityInputSupervisor monitoringInputType]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ProximityInputSupervisor/ProximityInputSupervisor.m
+-[GyroscopeInputSupervisor monitoringInputType]
+-[GyroscopeInputSupervisor isEventOfInterest:]
+-[GyroscopeInputSupervisor denyValuesOrActionsForModuleName:inEvent:]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/GyroscopeInputSupervisor/GyroscopeInputSupervisor.m
+isGyroEvent
+-[UIRandomWalkMapViewModel initialCircle]
+-[UIRandomWalkMapViewModel setInitialCircle:]
+-[UIRandomWalkMapViewModel initialLocations]
+-[UIRandomWalkMapViewModel setInitialLocations:]
+-[UIRandomWalkMapViewModel editable]
+-[UIRandomWalkMapViewModel setEditable:]
+-[UIRandomWalkMapViewModel .cxx_destruct]
+-[UIRandomWalkMapViewCallbacks onBoundCircleChange]
+-[UIRandomWalkMapViewCallbacks setOnBoundCircleChange:]
+-[UIRandomWalkMapViewCallbacks .cxx_destruct]
+-[UIRandomWalkMapView commonInit]
+-[UIRandomWalkMapView displayAsBusy:]
+-[UIRandomWalkMapView displayPinForLocationAt:]
+-[UIRandomWalkMapView setupWithModel:callbacks:]
+-[UIRandomWalkMapView drawNewLocations:]
+-[UIRandomWalkMapView updateCircleToCenter:radiusInKM:]
+-[UIRandomWalkMapView mapView:viewForAnnotation:]
+-[UIRandomWalkMapView mapView:rendererForOverlay:]
+-[UIRandomWalkMapView createPolylineRendererFor:]
+-[UIRandomWalkMapView createCircleRendererFor:]
+-[UIRandomWalkMapView setRadiusValue:]
+-[UIRandomWalkMapView stepperDidChangeValue:]
+-[UIRandomWalkMapView didPressSetCenter:]
+-[UIRandomWalkMapView currentCircle]
+-[UIRandomWalkMapView setCurrentCircle:]
+-[UIRandomWalkMapView mapView]
+-[UIRandomWalkMapView setMapView:]
+-[UIRandomWalkMapView kmLabel]
+-[UIRandomWalkMapView setKmLabel:]
+-[UIRandomWalkMapView stepper]
+-[UIRandomWalkMapView setStepper:]
+-[UIRandomWalkMapView busyView]
+-[UIRandomWalkMapView setBusyView:]
+-[UIRandomWalkMapView setCenterButton]
+-[UIRandomWalkMapView setSetCenterButton:]
+-[UIRandomWalkMapView toolsView]
+-[UIRandomWalkMapView setToolsView:]
+-[UIRandomWalkMapView toolsViewHeightConstraint]
+-[UIRandomWalkMapView setToolsViewHeightConstraint:]
+-[UIRandomWalkMapView axes]
+-[UIRandomWalkMapView setAxes:]
+-[UIRandomWalkMapView currentDrawnPolyline]
+-[UIRandomWalkMapView setCurrentDrawnPolyline:]
+-[UIRandomWalkMapView currentDrawnCircle]
+-[UIRandomWalkMapView setCurrentDrawnCircle:]
+-[UIRandomWalkMapView callbacks]
+-[UIRandomWalkMapView setCallbacks:]
+-[UIRandomWalkMapView currentLocations]
+-[UIRandomWalkMapView setCurrentLocations:]
+-[UIRandomWalkMapView currentAnnotation]
+-[UIRandomWalkMapView setCurrentAnnotation:]
+-[UIRandomWalkMapView .cxx_destruct]
+_OBJC_IVAR_$_UIRandomWalkMapViewModel._initialCircle
+_OBJC_IVAR_$_UIRandomWalkMapViewModel._initialLocations
+_OBJC_IVAR_$_UIRandomWalkMapViewModel._editable
+_OBJC_IVAR_$_UIRandomWalkMapViewCallbacks._onBoundCircleChange
+_OBJC_IVAR_$_UIRandomWalkMapView._currentCircle
+_OBJC_IVAR_$_UIRandomWalkMapView._mapView
+_OBJC_IVAR_$_UIRandomWalkMapView._kmLabel
+_OBJC_IVAR_$_UIRandomWalkMapView._stepper
+_OBJC_IVAR_$_UIRandomWalkMapView._busyView
+_OBJC_IVAR_$_UIRandomWalkMapView._setCenterButton
+_OBJC_IVAR_$_UIRandomWalkMapView._toolsView
+_OBJC_IVAR_$_UIRandomWalkMapView._toolsViewHeightConstraint
+_OBJC_IVAR_$_UIRandomWalkMapView._axes
+_OBJC_IVAR_$_UIRandomWalkMapView._currentDrawnPolyline
+_OBJC_IVAR_$_UIRandomWalkMapView._currentDrawnCircle
+_OBJC_IVAR_$_UIRandomWalkMapView._callbacks
+_OBJC_IVAR_$_UIRandomWalkMapView._currentLocations
+_OBJC_IVAR_$_UIRandomWalkMapView._currentAnnotation
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkMapView/UIRandomWalkMapView.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkMapView/UIRandomWalkMapView.h
+-[PPUsageLevelViolationReport(DictionaryRepresentation) initWithNSDictionary:]
+-[PPUsageLevelViolationReport(DictionaryRepresentation) dictionaryRepresentation]
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/PPUsageLevelViolationReport+DictionaryRepresentation.m
+-[PPUsageLevelViolationReport initWithInputType:violatedUsageLevel:destinationURL:]
+-[PPUsageLevelViolationReport inputType]
+-[PPUsageLevelViolationReport setInputType:]
+-[PPUsageLevelViolationReport violatedPrivacyLevel]
+-[PPUsageLevelViolationReport setViolatedPrivacyLevel:]
+-[PPUsageLevelViolationReport destinationURLForData]
+-[PPUsageLevelViolationReport setDestinationURLForData:]
+-[PPUsageLevelViolationReport .cxx_destruct]
+_OBJC_IVAR_$_PPUsageLevelViolationReport._inputType
+_OBJC_IVAR_$_PPUsageLevelViolationReport._violatedPrivacyLevel
+_OBJC_IVAR_$_PPUsageLevelViolationReport._destinationURLForData
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.h
++[ViolationReportCell identifierNibName]
+-[ViolationReportCell setMessage:subMessage:]
+-[ViolationReportCell messageLabel]
+-[ViolationReportCell setMessageLabel:]
+-[ViolationReportCell dateLabel]
+-[ViolationReportCell setDateLabel:]
+-[ViolationReportCell .cxx_destruct]
+_OBJC_IVAR_$_ViolationReportCell._messageLabel
+_OBJC_IVAR_$_ViolationReportCell._dateLabel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/ViolationReportCell/ViolationReportCell.m
+-[PPAccessFrequencyViolationReport initWithInput:registeredFrequency:actualFrequency:]
+-[PPAccessFrequencyViolationReport inputType]
+-[PPAccessFrequencyViolationReport setInputType:]
+-[PPAccessFrequencyViolationReport registeredFrequency]
+-[PPAccessFrequencyViolationReport setRegisteredFrequency:]
+-[PPAccessFrequencyViolationReport actualFrequency]
+-[PPAccessFrequencyViolationReport setActualFrequency:]
+-[PPAccessFrequencyViolationReport .cxx_destruct]
+_OBJC_IVAR_$_PPAccessFrequencyViolationReport._inputType
+_OBJC_IVAR_$_PPAccessFrequencyViolationReport._registeredFrequency
+_OBJC_IVAR_$_PPAccessFrequencyViolationReport._actualFrequency
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.h
+-[UIScrollView(TPKeyboardAvoidingAdditions) keyboardAvoidingState]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_keyboardWillShow:]
+___81-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_keyboardWillShow:]_block_invoke
+-[UIScrollView(TPKeyboardAvoidingAdditions) keyboardViewAppear:context:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) keyboardViewDisappear:finished:context:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_keyboardWillHide:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_updateContentInset]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_updateFromContentSizeChange]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_focusNextTextField]
+___82-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_focusNextTextField]_block_invoke
+___copy_helper_block_.107
+___destroy_helper_block_.108
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_scrollToActiveTextField]
+___87-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_scrollToActiveTextField]_block_invoke
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_findFirstResponderBeneathView:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_findNextInputViewAfterView:beneathView:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_findNextInputViewAfterView:beneathView:bestCandidate:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_nextInputViewHeuristicForViewFrame:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_viewHiddenOrUserInteractionNotEnabled:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_viewIsValidKeyViewCandidate:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_contentInsetForKeyboard]
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_idealOffsetForView:withViewingAreaHeight:]
+___105-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_idealOffsetForView:withViewingAreaHeight:]_block_invoke
+___copy_helper_block_.159
+___destroy_helper_block_.160
+-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_initializeView:]
+-[TPKeyboardAvoidingState priorInset]
+-[TPKeyboardAvoidingState setPriorInset:]
+-[TPKeyboardAvoidingState priorScrollIndicatorInsets]
+-[TPKeyboardAvoidingState setPriorScrollIndicatorInsets:]
+-[TPKeyboardAvoidingState keyboardVisible]
+-[TPKeyboardAvoidingState setKeyboardVisible:]
+-[TPKeyboardAvoidingState keyboardRect]
+-[TPKeyboardAvoidingState setKeyboardRect:]
+-[TPKeyboardAvoidingState priorContentSize]
+-[TPKeyboardAvoidingState setPriorContentSize:]
+-[TPKeyboardAvoidingState priorPagingEnabled]
+-[TPKeyboardAvoidingState setPriorPagingEnabled:]
+-[TPKeyboardAvoidingState ignoringNotifications]
+-[TPKeyboardAvoidingState setIgnoringNotifications:]
+-[TPKeyboardAvoidingState keyboardAnimationInProgress]
+-[TPKeyboardAvoidingState setKeyboardAnimationInProgress:]
+_kStateKey
+___block_descriptor_tmp.109
+___block_descriptor_tmp.161
+l_OBJC_PROTOCOL_$_UITextInputTraits
+l_OBJC_LABEL_PROTOCOL_$_UITextInputTraits
+l_OBJC_PROTOCOL_$_UIKeyInput
+l_OBJC_LABEL_PROTOCOL_$_UIKeyInput
+l_OBJC_PROTOCOL_$_UITextInput
+l_OBJC_LABEL_PROTOCOL_$_UITextInput
+l_OBJC_PROTOCOL_REFERENCE_$_UITextInput
+_OBJC_IVAR_$_TPKeyboardAvoidingState._priorInset
+_OBJC_IVAR_$_TPKeyboardAvoidingState._priorScrollIndicatorInsets
+_OBJC_IVAR_$_TPKeyboardAvoidingState._keyboardVisible
+_OBJC_IVAR_$_TPKeyboardAvoidingState._keyboardRect
+_OBJC_IVAR_$_TPKeyboardAvoidingState._priorContentSize
+_OBJC_IVAR_$_TPKeyboardAvoidingState._priorPagingEnabled
+_OBJC_IVAR_$_TPKeyboardAvoidingState._ignoringNotifications
+_OBJC_IVAR_$_TPKeyboardAvoidingState._keyboardAnimationInProgress
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/TPKeyboardAvoidingTableView/UIScrollView+TPKeyboardAvoidingAdditions.m
+__105-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_idealOffsetForView:withViewingAreaHeight:]_block_invoke
+__87-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_scrollToActiveTextField]_block_invoke
+__82-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_focusNextTextField]_block_invoke
+__81-[UIScrollView(TPKeyboardAvoidingAdditions) TPKeyboardAvoiding_keyboardWillShow:]_block_invoke
+-[UISCDViewController setupWithSCD:onClose:]
+-[UISCDViewController didPressBackButton:]
+-[UISCDViewController textView]
+-[UISCDViewController setTextView:]
+-[UISCDViewController onCloseCallback]
+-[UISCDViewController setOnCloseCallback:]
+-[UISCDViewController .cxx_destruct]
+_OBJC_IVAR_$_UISCDViewController._textView
+_OBJC_IVAR_$_UISCDViewController._onCloseCallback
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UISCDViewController/UISCDViewController.m
+-[UIUsageViewControllerCallbacks exitCallback]
+-[UIUsageViewControllerCallbacks setExitCallback:]
+-[UIUsageViewControllerCallbacks inputTypeSelectedCallback]
+-[UIUsageViewControllerCallbacks setInputTypeSelectedCallback:]
+-[UIUsageViewControllerCallbacks networkReportsSelectedCallback]
+-[UIUsageViewControllerCallbacks setNetworkReportsSelectedCallback:]
+-[UIUsageViewControllerCallbacks .cxx_destruct]
+-[UIUsageViewControllerModel displayNetworkReportsOption]
+-[UIUsageViewControllerModel setDisplayNetworkReportsOption:]
+-[UIUsageViewControllerModel inputTypesOptions]
+-[UIUsageViewControllerModel setInputTypesOptions:]
+-[UIUsageViewControllerModel .cxx_destruct]
+-[UIUsageViewController setupWithModel:andCallbacks:]
+-[UIUsageViewController numberOfSectionsInTableView:]
+-[UIUsageViewController tableView:titleForHeaderInSection:]
+-[UIUsageViewController tableView:numberOfRowsInSection:]
+-[UIUsageViewController tableView:cellForRowAtIndexPath:]
+-[UIUsageViewController tableView:didSelectRowAtIndexPath:]
+-[UIUsageViewController didPressBackButton:]
+-[UIUsageViewController model]
+-[UIUsageViewController setModel:]
+-[UIUsageViewController callbacks]
+-[UIUsageViewController setCallbacks:]
+-[UIUsageViewController titleLabel]
+-[UIUsageViewController setTitleLabel:]
+-[UIUsageViewController .cxx_destruct]
+_OBJC_IVAR_$_UIUsageViewControllerCallbacks._exitCallback
+_OBJC_IVAR_$_UIUsageViewControllerCallbacks._inputTypeSelectedCallback
+_OBJC_IVAR_$_UIUsageViewControllerCallbacks._networkReportsSelectedCallback
+_OBJC_IVAR_$_UIUsageViewControllerModel._displayNetworkReportsOption
+_OBJC_IVAR_$_UIUsageViewControllerModel._inputTypesOptions
+_OBJC_IVAR_$_UIUsageViewController._model
+_OBJC_IVAR_$_UIUsageViewController._callbacks
+_OBJC_IVAR_$_UIUsageViewController._titleLabel
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputUsageGraphsViewController/UIUsageViewController.m
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputUsageGraphsViewController/UIUsageViewController.h
+/Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/build/PPCloak.build/Release-iphoneos/PPCloak.build/DerivedSources/PPCloak_vers.c

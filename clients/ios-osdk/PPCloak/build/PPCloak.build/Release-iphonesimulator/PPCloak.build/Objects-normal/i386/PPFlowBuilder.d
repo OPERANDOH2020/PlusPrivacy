@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.m \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/build/PPCloak.build/Release-iphonesimulator/PPCloak.build/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPFlowBuilder/PPFlowBuilder.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Modules/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Headers/PPCommonUI-Swift.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonUI.framework/Headers/PPCommonUI.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Modules/module.modulemap \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Headers/PPCommonTypes-Swift.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/PPCommonTypes.framework/Headers/PPCommonTypes.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/ReportsStorageAndUI/ReportsStorageProtocol.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/PPInputAccessViolation/PPUnlistedInputAccessViolation.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/BaseReportWithDate/BaseReportWithDate.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPPrivacyLevelViolationReport/PPUsageLevelViolationReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessFrequencyViolationReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPAccessUnlistedURLReport/PPAccessUnlistedHostReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ModuleDeniedAccessReport/PPModuleDeniedAccessReport.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/OPMonitorSettings/OPMonitorSettings.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationSettingsViewController/UILocationSettingsViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/UserDefinedLocationsSwizzlerSettings.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/CommonLocationViewModels/CommonLocationViewModels.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/LocationInputSwizzlerSettings/RandomWalkSwizzlerSettings.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/InputSwizzling/LocationInputSwizzler/RandomWalkGenerator/RandomWalkGenerator.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Models/ViolationReports/PPReportsSourcesBundle.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UILocationStatusViewController/UILocationStatusViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIViolationReportsViewController/UIViolationReportsViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIPPOptionsViewController/UIPPOptionsViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIEncapsulatorViewController/UIEncapsulatorViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UISCDViewController/UISCDViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/NSBundle+RSFrameworkHooks/NSBundle+RSFrameworkHooks.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputUsageGraphsViewController/UIUsageViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIInputGraphViewController/UIInputGraphViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationSettingsViewController/UIRandomWalkLocationSettingsViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIRandomWalkLocationStatusViewController/UIRandomWalkLocationStatusViewController.h \
+  /Users/RomSoft/Documents/Workspace/OPERANDO/clients/ios-osdk/PPCloak/GenericFrameworkProject/Views/UIAboutViewController/UIAboutViewController.h

@@ -33,6 +33,10 @@ class UIViewControllerFactory
         return main.instantiateViewController(withIdentifier: UISetPrivacyVCStoryboardId) as! UISetPrivacyViewController
     }
     
+    static func getConnectedAppTableViewController() -> UIConnectedTableViewController {
+        return UIConnectedTableViewController()
+    }
+    
     static func getPrivacyWizzardDashboardViewController() -> PrivacyWizzardDashboardViewController {
         return PrivacyWizzardDashboardViewController(nibName: "PrivacyWizzardDashboardViewController", bundle: nil)
     }
