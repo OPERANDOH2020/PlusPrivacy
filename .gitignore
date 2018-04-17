@@ -562,17 +562,6 @@ build/*
 *.xcworkspace
 xcuserdata
 
-clients/ios/Operando/Operando/PPApiHooksCore.framework
-clients/ios/Operando/Operando/PPCloak.framework
-clients/ios/Operando/Operando/PPCloakBundle.bundle
-clients/ios/Operando/Operando/PPCommonTypes.framework
-clients/ios/Operando/Operando/PPCommonTypesBundle.bundle
-clients/ios/Operando/Operando/PPCommonUI.framework
-clients/ios/Operando/Operando/PPCommonUIBundle.bundle
-clients/ios/Operando/Operando/PPLocationApiHooks.framework
-clients/ios/Operando/Operando/PPWebContentBlocker.framework
-clients/ios/Operando/Operando/SwarmClient.framework
-
 # svn & cvs
 .svn
 CVS
