@@ -228,6 +228,9 @@
 		ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */; };
 		ADF3CA6D1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */; };
 		ADF3CA6F1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */; };
+		B93F97CA2085EAF800C82815 /* ACCookieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97C92085EAF800C82815 /* ACCookieManager.swift */; };
+		B93F97CF208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97CD208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift */; };
+		B93F97D0208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
 		C710717420739409000D3AB6 /* twitter_is_logged.js in Resources */ = {isa = PBXBuildFile; fileRef = C710717020739407000D3AB6 /* twitter_is_logged.js */; };
@@ -661,6 +664,9 @@
 		ADF3CA681DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILeftSideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		ADF3CA6E1DB89F8D00BD2B7A /* UILeftSideMenuViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILeftSideMenuViewController+DataSource.swift"; sourceTree = "<group>"; };
+		B93F97C92085EAF800C82815 /* ACCookieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCookieManager.swift; sourceTree = "<group>"; };
+		B93F97CD208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardLogoutDashboardViewController.swift; sourceTree = "<group>"; };
+		B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardLogoutDashboardViewController.xib; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
 		C710717020739407000D3AB6 /* twitter_is_logged.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = twitter_is_logged.js; sourceTree = "<group>"; };
@@ -1880,6 +1886,7 @@
 		ADA55741205141B800BFD1B3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B93F97C82085EACC00C82815 /* ACCookieManager */,
 				ADA55747205143B700BFD1B3 /* ACNetworkReachability */,
 				ADA55742205141B800BFD1B3 /* ACRestClient */,
 				ADA5574E205183CA00BFD1B3 /* ACServices */,
@@ -1973,6 +1980,23 @@
 				ADF3CA6C1DB89D3D00BD2B7A /* UILeftSideMenuTableViewCell.swift */,
 			);
 			path = UILeftSideMenuTableViewCell;
+			sourceTree = "<group>";
+		};
+		B93F97C82085EACC00C82815 /* ACCookieManager */ = {
+			isa = PBXGroup;
+			children = (
+				B93F97C92085EAF800C82815 /* ACCookieManager.swift */,
+			);
+			path = ACCookieManager;
+			sourceTree = "<group>";
+		};
+		B93F97CC2086038000C82815 /* PrivacyWizzardLogoutDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				B93F97CD208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift */,
+				B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */,
+			);
+			name = PrivacyWizzardLogoutDashboard;
 			sourceTree = "<group>";
 		};
 		C7107168206A49A3000D3AB6 /* UISettingsProgress */ = {
@@ -2733,6 +2757,7 @@
 		C7F795F620286B03005DE7B3 /* PrivacyWizard */ = {
 			isa = PBXGroup;
 			children = (
+				B93F97CC2086038000C82815 /* PrivacyWizzardLogoutDashboard */,
 				C7F795FC2028B78D005DE7B3 /* PrivacyWizzardFacebookSettings */,
 				C7F795FB2028B780005DE7B3 /* PrivacyWizardDashboard */,
 			);
@@ -2964,6 +2989,7 @@
 				C76ABAF51FEBFF8200104239 /* PasswordExpandedCell.xib in Resources */,
 				C7F795AF202363F8005DE7B3 /* OSP.Settings.js in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
+				B93F97D0208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
 				C7F795AA202363F8005DE7B3 /* facebook_iOS.js in Resources */,
 				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
@@ -3091,6 +3117,7 @@
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
 				C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */,
 				C7F795E0202472BD005DE7B3 /* UIPrivacySettingFlowController.swift in Sources */,
+				B93F97CA2085EAF800C82815 /* ACCookieManager.swift in Sources */,
 				AD28EA9E20503DD700AA998A /* InteractiveTransition.swift in Sources */,
 				C7F7955F202363B7005DE7B3 /* Array+Utils.swift in Sources */,
 				9870840E1E8E938E00D9F8E9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -3137,6 +3164,7 @@
 				ADA55750205183EC00BFD1B3 /* ACPrivacySettingsService.swift in Sources */,
 				AD48A8E31F62823B003E5A88 /* OPFeedbackForm.swift in Sources */,
 				C7908A311FC6E33400C93A82 /* PKHUDAssets.swift in Sources */,
+				B93F97CF208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift in Sources */,
 				C7F794F720235FD4005DE7B3 /* UIQuestionnaireTableViewCell.swift in Sources */,
 				98F6B1241E7BE5A200D193FF /* UIWebToolbarView.swift in Sources */,
 				98500BC01E0935ED00DF87E8 /* KiteJSONValidator.m in Sources */,

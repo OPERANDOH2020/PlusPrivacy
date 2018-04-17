@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class UIConnectedTableViewController: UITableViewController, WKNavigationDelegate{
+class UIConnectedTableViewController: UITableViewController, WKNavigationDelegate, WKUIDelegate{
     
     private var selectedIndexPath: IndexPath?
     private var webView: WKWebView = WKWebView(frame: .zero)
@@ -36,6 +36,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getNetworkUrl()
         self.webView.loadWebViewToURL(urlString: socialMediaUrl)
         self.webView.navigationDelegate = self
+        self.webView.uiDelegate = self
     }
 
     // MARK: - Table view data source
@@ -87,13 +88,12 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     }
     
     func getApps() {
-    
+        
         self.webView.loadJQuerry(completion: {
           
             self.webView.loadJSFile(scriptName: "facebook_apps", withCompletion: { (data, isloggedError) in
                 
             })
-            
         })
     }
 
@@ -113,8 +113,26 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         })
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    // MARK: - WKUIDelegate
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
+        completionHandler()
+        print(message)
+        
+        if let data = message.data(using: String.Encoding.utf8),
+            let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+            let messageDict = jsonObject as? [String: String]
+        {
+            print(messageDict)
+        }
+
+    }
+    
+    // MARK: - WebView Delegate
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    
         checkIfLoggedIn { (isLogged) in
             if isLogged == true {
                 print("LOGGED IN")

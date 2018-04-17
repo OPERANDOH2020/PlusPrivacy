@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivacyWizzardLogoutDashboardViewController" customModule="Operando" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oww-ND-BAu">
+                    <rect key="frame" x="16" y="40" width="343" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="secured" translatesAutoresizingMaskIntoConstraints="NO" id="Fey-o9-lkG">
+                            <rect key="frame" x="15" y="15" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Fey-o9-lkG" secondAttribute="height" multiplier="1:1" id="pae-md-dpm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximize orivacy on social networks!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-tH-Lpg">
+                            <rect key="frame" x="55" y="8" width="288" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45823770759999999" green="0.72118175029999998" blue="0.89769369359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="DzI-tH-Lpg" firstAttribute="top" secondItem="Oww-ND-BAu" secondAttribute="top" constant="8" id="3le-O2-Rr4"/>
+                        <constraint firstItem="Fey-o9-lkG" firstAttribute="top" secondItem="Oww-ND-BAu" secondAttribute="top" constant="15" id="GXU-tB-395"/>
+                        <constraint firstAttribute="trailing" secondItem="DzI-tH-Lpg" secondAttribute="trailing" id="NE4-dW-334"/>
+                        <constraint firstAttribute="bottom" secondItem="Fey-o9-lkG" secondAttribute="bottom" constant="20" id="SnI-5M-GoY"/>
+                        <constraint firstAttribute="height" constant="60" id="lCG-GB-ZLP"/>
+                        <constraint firstItem="DzI-tH-Lpg" firstAttribute="leading" secondItem="Fey-o9-lkG" secondAttribute="trailing" constant="15" id="oIO-bE-R6w"/>
+                        <constraint firstItem="Fey-o9-lkG" firstAttribute="leading" secondItem="Oww-ND-BAu" secondAttribute="leading" constant="15" id="qoN-0L-DEp"/>
+                        <constraint firstAttribute="bottom" secondItem="DzI-tH-Lpg" secondAttribute="bottom" constant="8" id="x9B-oR-Lwe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77u-gl-PIV">
+                    <rect key="frame" x="16" y="120" width="343" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="3yY-IT-1He">
+                            <rect key="frame" x="15" y="17.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="3yY-IT-1He" secondAttribute="height" multiplier="1:1" id="7T2-iK-Eg6"/>
+                                <constraint firstAttribute="height" constant="25" id="Pf3-8Z-UiN"/>
+                                <constraint firstAttribute="width" constant="25" id="zZy-hn-EAq"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-fu-Ie5">
+                            <rect key="frame" x="48" y="0.0" width="199" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFl-70-vXQ">
+                            <rect key="frame" x="255" y="10" width="80" height="40"/>
+                            <color key="backgroundColor" red="0.22769132256507874" green="0.49735808372497559" blue="0.69806581735610962" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="2bW-e3-w5a"/>
+                                <constraint firstAttribute="height" constant="40" id="RmC-aL-spc"/>
+                            </constraints>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="pressedFBLogout:" destination="-1" eventType="touchUpInside" id="CS2-1U-x0K"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45823770759999999" green="0.72118175029999998" blue="0.89769369359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Ct6-nU-Rpr"/>
+                        <constraint firstItem="KFl-70-vXQ" firstAttribute="centerY" secondItem="77u-gl-PIV" secondAttribute="centerY" id="ECW-ic-38q"/>
+                        <constraint firstAttribute="trailing" secondItem="KFl-70-vXQ" secondAttribute="trailing" constant="8" id="JsW-gD-O7b"/>
+                        <constraint firstAttribute="bottom" secondItem="zaV-fu-Ie5" secondAttribute="bottom" id="NcQ-E9-5cN"/>
+                        <constraint firstItem="3yY-IT-1He" firstAttribute="centerY" secondItem="77u-gl-PIV" secondAttribute="centerY" id="O5b-SK-Y04"/>
+                        <constraint firstItem="zaV-fu-Ie5" firstAttribute="leading" secondItem="3yY-IT-1He" secondAttribute="trailing" constant="8" id="TOD-i7-l0H"/>
+                        <constraint firstItem="zaV-fu-Ie5" firstAttribute="top" secondItem="77u-gl-PIV" secondAttribute="top" id="TvA-lx-48c"/>
+                        <constraint firstItem="KFl-70-vXQ" firstAttribute="leading" secondItem="zaV-fu-Ie5" secondAttribute="trailing" constant="8" id="ZNM-pD-8J4"/>
+                        <constraint firstItem="3yY-IT-1He" firstAttribute="leading" secondItem="77u-gl-PIV" secondAttribute="leading" constant="15" id="pJA-4g-FBc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYB-5u-jDE">
+                    <rect key="frame" x="16" y="188" width="343" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="xGR-6g-44l">
+                            <rect key="frame" x="15" y="17.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="KO8-5w-C2o"/>
+                                <constraint firstAttribute="height" constant="25" id="Knn-eI-B87"/>
+                                <constraint firstAttribute="width" secondItem="xGR-6g-44l" secondAttribute="height" multiplier="1:1" id="Rqt-Z9-emF"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linkedin" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmN-YM-XNr">
+                            <rect key="frame" x="48" y="0.0" width="199" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deF-MC-WiY">
+                            <rect key="frame" x="255" y="10" width="80" height="40"/>
+                            <color key="backgroundColor" red="0.2276913226" green="0.49735808370000001" blue="0.69806581739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="Gad-r8-gTc"/>
+                                <constraint firstAttribute="height" constant="40" id="tTI-Br-fIe"/>
+                            </constraints>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="pressedLinkedinLogout:" destination="-1" eventType="touchUpInside" id="b0z-OR-v4j"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45823770759999999" green="0.72118175029999998" blue="0.89769369359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="xGR-6g-44l" firstAttribute="leading" secondItem="kYB-5u-jDE" secondAttribute="leading" constant="15" id="58n-Ci-BJt"/>
+                        <constraint firstItem="hmN-YM-XNr" firstAttribute="leading" secondItem="xGR-6g-44l" secondAttribute="trailing" constant="8" id="AHO-n7-Qzp"/>
+                        <constraint firstItem="deF-MC-WiY" firstAttribute="centerY" secondItem="kYB-5u-jDE" secondAttribute="centerY" id="T3l-2S-Oiv"/>
+                        <constraint firstAttribute="height" constant="60" id="WvU-EC-Ckb"/>
+                        <constraint firstItem="xGR-6g-44l" firstAttribute="centerY" secondItem="kYB-5u-jDE" secondAttribute="centerY" id="XhO-nA-4gm"/>
+                        <constraint firstAttribute="bottom" secondItem="hmN-YM-XNr" secondAttribute="bottom" id="Yhu-IR-1sK"/>
+                        <constraint firstItem="deF-MC-WiY" firstAttribute="leading" secondItem="hmN-YM-XNr" secondAttribute="trailing" constant="8" id="ZhF-pz-IH1"/>
+                        <constraint firstAttribute="trailing" secondItem="deF-MC-WiY" secondAttribute="trailing" constant="8" id="hIQ-nX-ABr"/>
+                        <constraint firstItem="hmN-YM-XNr" firstAttribute="top" secondItem="kYB-5u-jDE" secondAttribute="top" id="oaY-iX-WaN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-Ig-sJA">
+                    <rect key="frame" x="16" y="256" width="343" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="MRj-yd-evL">
+                            <rect key="frame" x="15" y="17.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="MRj-yd-evL" secondAttribute="height" multiplier="1:1" id="5sY-bB-mai"/>
+                                <constraint firstAttribute="width" constant="25" id="9Em-gY-5ac"/>
+                                <constraint firstAttribute="height" constant="25" id="nsw-6V-NXv"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-gs-TRT">
+                            <rect key="frame" x="48" y="0.0" width="199" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11Y-Dq-mB5">
+                            <rect key="frame" x="260" y="11" width="80" height="40"/>
+                            <color key="backgroundColor" red="0.2276913226" green="0.49735808370000001" blue="0.69806581739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Ldy-1p-9SU"/>
+                                <constraint firstAttribute="width" constant="80" id="XCp-z2-4dU"/>
+                            </constraints>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="pressedTwitterLogout:" destination="-1" eventType="touchUpInside" id="DD0-57-Vld"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45823770759999999" green="0.72118175029999998" blue="0.89769369359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="3Dz-AY-wgk"/>
+                        <constraint firstItem="MRj-yd-evL" firstAttribute="leading" secondItem="sGv-Ig-sJA" secondAttribute="leading" constant="15" id="9fg-H6-Fmm"/>
+                        <constraint firstItem="11Y-Dq-mB5" firstAttribute="leading" secondItem="fpg-gs-TRT" secondAttribute="trailing" constant="8" id="EvY-ZM-W8z"/>
+                        <constraint firstAttribute="trailing" secondItem="11Y-Dq-mB5" secondAttribute="trailing" constant="8" id="IRB-Aa-rth"/>
+                        <constraint firstItem="fpg-gs-TRT" firstAttribute="leading" secondItem="MRj-yd-evL" secondAttribute="trailing" constant="8" id="ahV-ag-NaS"/>
+                        <constraint firstItem="fpg-gs-TRT" firstAttribute="top" secondItem="sGv-Ig-sJA" secondAttribute="top" id="g5g-5P-fBb"/>
+                        <constraint firstItem="11Y-Dq-mB5" firstAttribute="centerY" secondItem="sGv-Ig-sJA" secondAttribute="centerY" id="goP-Tq-kTy"/>
+                        <constraint firstAttribute="bottom" secondItem="fpg-gs-TRT" secondAttribute="bottom" id="mfd-lc-ciT"/>
+                        <constraint firstItem="MRj-yd-evL" firstAttribute="centerY" secondItem="sGv-Ig-sJA" secondAttribute="centerY" id="oAd-IM-sQG"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFO-JQ-NqQ">
+                    <rect key="frame" x="16" y="324" width="343" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-fg-agn">
+                            <rect key="frame" x="15" y="17.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="Smk-y9-hts"/>
+                                <constraint firstAttribute="width" secondItem="Tez-fg-agn" secondAttribute="height" multiplier="1:1" id="hoj-Fe-sAO"/>
+                                <constraint firstAttribute="height" constant="25" id="mLE-Oy-W3N"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEi-Jj-5Ux">
+                            <rect key="frame" x="48" y="0.0" width="199" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5W-0X-sbU">
+                            <rect key="frame" x="255" y="10" width="80" height="40"/>
+                            <color key="backgroundColor" red="0.2276913226" green="0.49735808370000001" blue="0.69806581739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="eG1-jO-xjU"/>
+                                <constraint firstAttribute="height" constant="40" id="wxP-oy-ADe"/>
+                            </constraints>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="pressedGoogleLogout:" destination="-1" eventType="touchUpInside" id="Jvy-vW-Yii"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45823770759999999" green="0.72118175029999998" blue="0.89769369359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Tez-fg-agn" firstAttribute="centerY" secondItem="HFO-JQ-NqQ" secondAttribute="centerY" id="85T-u6-38H"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="CmN-LP-nQy"/>
+                        <constraint firstAttribute="bottom" secondItem="ZEi-Jj-5Ux" secondAttribute="bottom" id="DmZ-Ye-Yaa"/>
+                        <constraint firstAttribute="height" constant="60" id="ErO-Qi-yYl"/>
+                        <constraint firstItem="B5W-0X-sbU" firstAttribute="centerY" secondItem="HFO-JQ-NqQ" secondAttribute="centerY" id="LRh-CS-sBp"/>
+                        <constraint firstItem="ZEi-Jj-5Ux" firstAttribute="top" secondItem="HFO-JQ-NqQ" secondAttribute="top" id="Mve-Dq-QqL"/>
+                        <constraint firstItem="ZEi-Jj-5Ux" firstAttribute="leading" secondItem="Tez-fg-agn" secondAttribute="trailing" constant="8" id="cJk-VD-8iH"/>
+                        <constraint firstAttribute="trailing" secondItem="B5W-0X-sbU" secondAttribute="trailing" constant="8" id="gLr-kx-LUI"/>
+                        <constraint firstItem="Tez-fg-agn" firstAttribute="leading" secondItem="HFO-JQ-NqQ" secondAttribute="leading" constant="15" id="htO-qX-Cg6"/>
+                        <constraint firstItem="B5W-0X-sbU" firstAttribute="leading" secondItem="ZEi-Jj-5Ux" secondAttribute="trailing" constant="8" id="nlZ-WC-Ehe"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.86808985471725464" green="0.94416564702987671" blue="0.99216562509536743" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="Oww-ND-BAu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1is-Kk-oJR"/>
+                <constraint firstItem="77u-gl-PIV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4SL-Qy-DgG"/>
+                <constraint firstItem="kYB-5u-jDE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="E3f-2m-Pnc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kYB-5u-jDE" secondAttribute="trailing" constant="16" id="FID-l1-a5m"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HFO-JQ-NqQ" secondAttribute="trailing" constant="16" id="GzW-68-nEX"/>
+                <constraint firstItem="sGv-Ig-sJA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Ifm-VK-SPQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sGv-Ig-sJA" secondAttribute="trailing" constant="16" id="VoY-om-auo"/>
+                <constraint firstItem="77u-gl-PIV" firstAttribute="top" secondItem="Oww-ND-BAu" secondAttribute="bottom" constant="20" id="jZW-PW-ELp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="77u-gl-PIV" secondAttribute="trailing" constant="16" id="m5E-4w-PU3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Oww-ND-BAu" secondAttribute="trailing" constant="16" id="mTG-dI-Qx3"/>
+                <constraint firstItem="kYB-5u-jDE" firstAttribute="top" secondItem="77u-gl-PIV" secondAttribute="bottom" constant="8" id="r8P-JC-LJn"/>
+                <constraint firstItem="Oww-ND-BAu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="rEb-L7-Ud9"/>
+                <constraint firstItem="HFO-JQ-NqQ" firstAttribute="top" secondItem="sGv-Ig-sJA" secondAttribute="bottom" constant="8" id="u5j-Yq-AaZ"/>
+                <constraint firstItem="HFO-JQ-NqQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="wNQ-hb-s9n"/>
+                <constraint firstItem="sGv-Ig-sJA" firstAttribute="top" secondItem="kYB-5u-jDE" secondAttribute="bottom" constant="8" id="zZM-6b-NDw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="linkedin_logo" width="82" height="21"/>
+        <image name="secured" width="36" height="37"/>
+    </resources>
+</document>

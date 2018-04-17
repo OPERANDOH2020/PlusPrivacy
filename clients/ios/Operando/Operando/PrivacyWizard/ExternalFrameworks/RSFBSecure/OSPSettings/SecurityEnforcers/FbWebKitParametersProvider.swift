@@ -75,7 +75,6 @@ class FbWebKitParametersProvider: NSObject, FacebookPostParametersProvider, WKNa
         {
             print(cookie.name + " -- " + cookie.value)
         }
-        
     }
     
     private func loadHijackXHRScript()

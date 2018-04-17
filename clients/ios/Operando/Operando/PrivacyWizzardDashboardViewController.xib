@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,10 +54,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ew-xG-DwE">
-                    <rect key="frame" x="16" y="160" width="343" height="467"/>
+                    <rect key="frame" x="16" y="140" width="343" height="527"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Obw-Je-puh">
-                            <rect key="frame" x="0.0" y="62" width="343" height="343"/>
+                            <rect key="frame" x="0.0" y="91" width="343" height="343"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LDs-qa-Jb8">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="156.5"/>
@@ -325,13 +325,29 @@
                                 <constraint firstAttribute="width" secondItem="Obw-Je-puh" secondAttribute="height" multiplier="1:1" id="ITe-RJ-EQW"/>
                             </constraints>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRd-6G-BXc">
+                            <rect key="frame" x="79.5" y="464" width="184" height="48"/>
+                            <color key="backgroundColor" red="0.41620826721191406" green="0.56967657804489136" blue="0.70590204000473022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="184" id="Foj-qe-NgB"/>
+                                <constraint firstAttribute="height" constant="48" id="OzA-z6-wjz"/>
+                            </constraints>
+                            <state key="normal" title="Social Network Accounts">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="goToSocialNetworkAccounts:" destination="-1" eventType="touchUpInside" id="e4D-z7-bBx"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="tRd-6G-BXc" secondAttribute="bottom" constant="15" id="HTM-Zs-fBH"/>
                         <constraint firstItem="Obw-Je-puh" firstAttribute="leading" secondItem="2ew-xG-DwE" secondAttribute="leading" id="Hjo-MW-kem"/>
-                        <constraint firstItem="Obw-Je-puh" firstAttribute="centerY" secondItem="2ew-xG-DwE" secondAttribute="centerY" id="Jud-ga-adL"/>
                         <constraint firstAttribute="trailing" secondItem="Obw-Je-puh" secondAttribute="trailing" id="PgO-n6-tN4"/>
+                        <constraint firstItem="tRd-6G-BXc" firstAttribute="top" secondItem="Obw-Je-puh" secondAttribute="bottom" constant="30" id="Wtr-S3-yPC"/>
                         <constraint firstItem="Obw-Je-puh" firstAttribute="centerX" secondItem="2ew-xG-DwE" secondAttribute="centerX" id="hqr-DM-YwH"/>
+                        <constraint firstItem="tRd-6G-BXc" firstAttribute="centerX" secondItem="2ew-xG-DwE" secondAttribute="centerX" id="xdU-dP-AsZ"/>
                     </constraints>
                 </view>
             </subviews>
@@ -339,9 +355,9 @@
             <constraints>
                 <constraint firstItem="dcv-v0-mW2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="RBL-BC-mZ1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2ew-xG-DwE" secondAttribute="trailing" constant="16" id="Rls-4B-dyc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2ew-xG-DwE" secondAttribute="bottom" constant="40" id="cuz-Wt-FPT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2ew-xG-DwE" secondAttribute="bottom" id="cuz-Wt-FPT"/>
                 <constraint firstItem="2ew-xG-DwE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="f1v-yS-2Ac"/>
-                <constraint firstItem="2ew-xG-DwE" firstAttribute="top" secondItem="dcv-v0-mW2" secondAttribute="bottom" constant="40" id="jIx-Tn-R2l"/>
+                <constraint firstItem="2ew-xG-DwE" firstAttribute="top" secondItem="dcv-v0-mW2" secondAttribute="bottom" constant="20" id="jIx-Tn-R2l"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dcv-v0-mW2" secondAttribute="trailing" constant="16" id="mM3-U5-n20"/>
                 <constraint firstItem="dcv-v0-mW2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qNr-8M-dkb"/>
             </constraints>

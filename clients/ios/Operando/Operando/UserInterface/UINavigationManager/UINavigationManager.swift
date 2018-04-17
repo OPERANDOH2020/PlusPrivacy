@@ -101,6 +101,10 @@ class UIViewControllerFactory
         return OPFeedbackFormViewController(nibName: "OPFeedbackFormViewController", bundle: nil)
     }
     
+    static var privacyWizzardLogoutDashboardViewController: PrivacyWizzardLogoutDashboardViewController {
+        return PrivacyWizzardLogoutDashboardViewController(nibName: "PrivacyWizzardLogoutDashboardViewController", bundle: nil)
+    }
+    
     // MARK: - Left Menu Storyboard
     static var leftMenuViewController: UILeftSideMenuViewController {
         return leftMenu.instantiateViewController(withIdentifier: "UILeftSideMenuViewControllerStoryboardId") as! UILeftSideMenuViewController

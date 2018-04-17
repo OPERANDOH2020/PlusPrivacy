@@ -11,7 +11,6 @@
         }
     }
 
- console.log("CEVA");
     if (m && m[1] && m[1] !== "0") {
         return "true";
     } else {

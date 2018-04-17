@@ -114,9 +114,39 @@ class UIRootViewController: UIViewController
         self.topBarLabel.text = "Google privacy settings"
     }
     
-    func setupTabBarForSocialNetworks() {
+    func setupTabViewForSocialNetworks() {
         self.topBarView.backgroundColor = UIColor.operandoFBBlue
         self.topBarLabel.text = "Social Networks Settings"
+    }
+    
+    func setupForConnectedAppList(){
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = "Connected App List"
+        self.menuButton.isHidden = true
+        self.backButton.isHidden = false
+    }
+    
+    func setupTabViewForConnectedAppsDashboard() {
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = "Connected Apps"
+        self.settingsButton.isHidden = true
+        self.menuButton.isHidden = false
+        self.backButton.isHidden = true
+    }
+    
+    func setupTabViewForSocialNetworksLogoutDashboard() {
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = "Connected Social Networks"
+        self.settingsButton.isHidden = true
+    }
+    
+    func setupTabViewForSocialNetworksLogoutDashboardFromAppList() {
+        
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = " Connected Social Networks "
+        self.settingsButton.isHidden = true
+        self.menuButton.isHidden = true
+        self.backButton.isHidden = false
     }
     
     func setupTabViewForIdentities() {

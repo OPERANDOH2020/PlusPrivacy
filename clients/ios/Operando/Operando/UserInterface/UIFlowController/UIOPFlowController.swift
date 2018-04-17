@@ -59,12 +59,20 @@ class UIOPFlowController
                 if self.rootController.topBarLabel.text == "Facebook privacy settings" ||
                     self.rootController.topBarLabel.text == "Linkedin privacy settings" ||
                     self.rootController.topBarLabel.text == "Twitter privacy settings" ||
-                    self.rootController.topBarLabel.text == "Google privacy settings" {
+                    self.rootController.topBarLabel.text == "Google privacy settings" ||
+                    self.rootController.topBarLabel.text == "Connected Social Networks"
+                {
                     weakSelf?.displayPrivacyWizardDashboard()
+                    
+                }
+                else if self.rootController.topBarLabel.text == " Connected Social Networks " ||
+                    self.rootController.topBarLabel.text == "Connected App List"
+                {
+                    weakSelf?.displayConnectedAppsDashboard()
                 }
                 else {
-                    weakSelf?.displayDashboard()
                     self.rootController.reset()
+                    weakSelf?.displayDashboard()
                 }
                 
         }, WhenBackPressOnSettingsView: {
@@ -84,17 +92,17 @@ class UIOPFlowController
         let registrationViewController = UIViewControllerFactory.registerViewController
         weak var weakLoginVC = loginVC
         weak var weakSelf = self
-//        let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
-//            self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
-//        {
-//            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
-//        }
+        //        let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin:
+        //            self.dependencies.accountCallbacks?.loginCallback,whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback)
+        //        {
+        //            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true)
+        //        }
         
         let loginViewControllerCallbacks = UISignInViewControllerCallbacks(whenUserWantsToLogin: self.dependencies.accountCallbacks?.loginCallback, whenUserForgotPassword: self.dependencies.accountCallbacks?.forgotPasswordCallback,
-        whenUserPressedRegister: {
-            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true) },
-        whenUserCancelLogin: {
-            weakSelf?.displayDashboard()
+                                                                           whenUserPressedRegister: {
+                                                                            weakLoginVC?.navigationController?.pushViewController(registrationViewController, animated: true) },
+                                                                           whenUserCancelLogin: {
+                                                                            weakSelf?.displayDashboard()
         })
         
         let registerViewControllerCallbacks = UIRegistrationViewControllerCallbacks(whenUserRegisters: self.dependencies.accountCallbacks?.registerCallback) {
@@ -155,9 +163,9 @@ class UIOPFlowController
     }
     
     func displayPrivacyWizardDashboard() {
-
+        
         let vc = UIViewControllerFactory.getPrivacyWizzardDashboardViewController()
-       
+        
         vc.setupWithCallback(callbacks: PrivacyWizzardDashboardCallbacks(pressedFacebook: {
             
             //go to Facebook Privacy settings
@@ -170,9 +178,11 @@ class UIOPFlowController
             self.displayQuestionnaire(wizzardType: .twitter)
         }, pressedGoogle: {
             self.displayQuestionnaire(wizzardType: .google)
+        }, pressedGoToLogoutDashboard: {
+            self.displaySocialNetworksLogoutDashboard()
         }))
-            
-        self.rootController.setupTabBarForSocialNetworks()
+        
+        self.rootController.setupTabViewForSocialNetworks()
         self.rootController.setMainControllerTo(newController: vc)
     }
     
@@ -188,7 +198,7 @@ class UIOPFlowController
         }, pressedRecommended: {
             
             print("pressedRecommended")
-             self.displaySetPrivacyVC()
+            self.displaySetPrivacyVC()
         }))
         
         vc.wizzardType = wizzardType
@@ -213,7 +223,7 @@ class UIOPFlowController
     }
     
     func displaySetPrivacyVC(){
-         let vc = UIViewControllerFactory.getUISetPrivacyViewController()
+        let vc = UIViewControllerFactory.getUISetPrivacyViewController()
         vc.setupWithCallback(callbacks: UISetPrivacyViewControllerCallbacks(doneWithPrivacySettings: {
             
             RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
@@ -332,6 +342,12 @@ class UIOPFlowController
         self.rootController.setMainControllerTo(newController: vc)
     }
     
+    func displaySocialNetworksLogoutDashboard(){
+        let vc = UIViewControllerFactory.privacyWizzardLogoutDashboardViewController
+        self.rootController.setupTabViewForSocialNetworksLogoutDashboard()
+        self.rootController.setMainControllerTo(newController: vc)
+    }
+    
     func displayConnectedAppsDashboard(){
         let privacyDashboard = UIViewControllerFactory.getPrivacyWizzardDashboardViewController()
         
@@ -343,17 +359,20 @@ class UIOPFlowController
             self.displayConnectedAppList(type: .twitter)
         }, pressedGoogle: {
             self.displayConnectedAppList(type: .googleLogin)
-
+        }, pressedGoToLogoutDashboard: {
+            self.displaySocialNetworksLogoutDashboard()
+            self.rootController.setupTabViewForSocialNetworksLogoutDashboardFromAppList()
         }))
         
-        self.rootController.setupTabBarForSocialNetworks()
+        self.rootController.setupTabViewForConnectedAppsDashboard()
         self.rootController.setMainControllerTo(newController: privacyDashboard)
     }
     
     func displayConnectedAppList(type: ACPrivacyWizardScope){
-         let connectedAppList = UIViewControllerFactory.getConnectedAppTableViewController()
-            connectedAppList.setupFor(type: type)
-         self.rootController.setMainControllerTo(newController: connectedAppList)
+        let connectedAppList = UIViewControllerFactory.getConnectedAppTableViewController()
+        connectedAppList.setupFor(type: type)
+        self.rootController.setupForConnectedAppList()
+        self.rootController.setMainControllerTo(newController: connectedAppList)
     }
     
     func displaySettingsViewController() {
@@ -457,9 +476,9 @@ class UIOPFlowController
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
             self.rootController.reset()
         },whenChoosingAppList:{
+            self.rootController.reset()
             weakSelf?.displayConnectedAppsDashboard()
             weakSelf?.sideMenu?.sideMenu?.hideSideMenu()
-            
         })
         
     }

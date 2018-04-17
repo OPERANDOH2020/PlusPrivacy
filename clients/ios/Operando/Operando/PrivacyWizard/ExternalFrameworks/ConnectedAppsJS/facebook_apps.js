@@ -1,6 +1,36 @@
 
 (function () {
 
+
+ var kMessageTypeKey = "messageType";
+ var kLogMessageTypeContentKey = "logContent";
+ var kLogMessageType = "log";
+ 
+ var kStatusMessageMessageType = "statusMessageType";
+ var kStatusMessageContentKey = "statusMessageContent";
+ 
+ var webkitSendMessage = function(message) {
+ alert(message);
+ };
+ 
+ window.console = {};
+ window.console.log = function(logMessage) {
+ var webkitMessage = {};
+ webkitMessage[kMessageTypeKey] = kLogMessageType;
+ webkitMessage[kLogMessageTypeContentKey] = logMessage;
+ 
+ webkitSendMessage(JSON.stringify(webkitMessage));
+ 
+ };
+ 
+ var sendStatusMessage = function(settingName) {
+ var webkitMessage = {};
+ webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+ webkitMessage[kStatusMessageContentKey] = settingName;
+ webkitSendMessage(JSON.stringify(webkitMessage));
+ };
+
+
     var snApps = [];
 
     function getAppData(url) {
@@ -46,6 +76,8 @@
         var sequence = Promise.resolve();
         var apps = $('div._5b6q h3 a');
 
+console.log("LENGHT" + apps.length)
+
         for (var i = 0; i < apps.length; i++) {
             (function (i) {
                 var appId = apps[i].getAttribute('href').split('appid=')[1];
@@ -60,9 +92,9 @@
         }
 
         sequence.then(function () {
-//            callback(snApps);
-            console.log("snApps" + snApps);
-                      return JSON.stringify(snApps);
+
+            sendStatusMessage(JSON.stringify(snApps));
+
         });
 
     };
