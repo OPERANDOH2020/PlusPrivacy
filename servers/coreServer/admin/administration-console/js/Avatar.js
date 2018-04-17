@@ -13,7 +13,7 @@ function DisplayAvatar(hub){
 		});
 	});
 
-	hub.on("UserManagement.js", "gotAvatarDone", function (swarm) {
+	hub.on("UserManagement.js", "gotAvatar", function (swarm) {
 		updateValues(swarm.result);
 	});
 
