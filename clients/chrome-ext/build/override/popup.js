@@ -68,7 +68,6 @@ function onLoad()
     });
 
     document.getElementById("enabled").addEventListener("click", toggleEnabled, false);
-    document.getElementById("clickhide-cancel").addEventListener("click", cancelClickHide, false);
 
     // Set up collapsing of menu items
     var collapsers = document.getElementsByClassName("collapse");

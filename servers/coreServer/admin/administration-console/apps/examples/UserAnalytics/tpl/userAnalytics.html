@@ -23,55 +23,44 @@
 				<div class="col-lg-4">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<form>
+							<br>
 								Choose filter:
 								<select class="btn btn-xs btn-primary" ng-model="currentFilterName.value" ng-change="filterChanged()">
 									<option ng-repeat="filter in existingFilters" value="{{filter.filterName}}">{{filter.filterName}}</option>
 								</select>
 								<hr>
-								<label>Chrome:
-									<input type="checkbox" ng-model="conditions.usesChrome">
-								</label>
-								<label>Android:
-									<input type="checkbox" ng-model="conditions.usesAndroid">
-								</label>
-								<label>iOS:
-									<input type="checkbox" ng-model="conditions.usesiOS">
-								</label>
-								<label>Website:
-									<input type="checkbox" ng-model="conditions.usesPlusPrivacyWebsite">
-								</label>
+								<b>Platform</b>:<br/>
+								<input type="checkbox" ng-model="conditions.usesChrome">
+								<label>Chrome</label>
+								<input type="checkbox" ng-model="conditions.usesAndroid">
+								<label>Android</label>
+								<input type="checkbox" ng-model="conditions.usesiOS">
+								<label>iOS</label>
+								<input type="checkbox" ng-model="conditions.usesPlusPrivacyWebsite">
+								<label>Website</label>
 								<hr>
-								<label>Facebook:
-									<input type="checkbox" ng-model="conditions.Facebook">
-								</label>
-								<label>LinkedIn:
-									<input type="checkbox" ng-model="conditions.LinkedIn">
-								</label>
-								<label>Twitter:
-									<input type="checkbox" ng-model="conditions.Twitter">
-								</label>
-								<label>Google+:
-									<input type="checkbox" ng-model="conditions.GooglePlus">
-								</label>
-								<label>YouTube:
-									<input type="checkbox" ng-model="conditions.YouTube">
-								</label><hr/>
-								<label>Feedback:
-									<input type="checkbox" ng-model="conditions.filledFeedback">
-								</label><br/>
-								<label>Substitute identities:
-									<input type="number" ng-model="conditions.minnrOfAltIdentities"> -
-									<input type="number" ng-model="conditions.maxnrOfAltIdentities">
-								</label><br/>
-								<label>PfB deals accepted:
-									<input type="number" ng-model="conditions.minPfbDeals"> -
-									<input type="number" ng-model="conditions.maxPfbDeals">
-								</label><br/>
-								<label>SignupDate:
-									<input type="date" ng-model="conditions.signupDateAfter"> -
-									<input type="date" ng-model="conditions.signupDateBefore">
-								</label><br/>
+								<b>Social Network</b>:<br/>
+								<input type="checkbox" ng-model="conditions.Facebook">
+								<label>Facebook</label>
+								<input type="checkbox" ng-model="conditions.LinkedIn">
+								<label>LinkedIn</label>
+								<input type="checkbox" ng-model="conditions.Twitter">
+								<label>Twitter</label>
+								<input type="checkbox" ng-model="conditions.GooglePlus">
+								<label>Google</label>
+								<hr/>
+								<b>Substitute identities</b><br/>
+									<input type="number" style="width:140px" ng-model="conditions.minnrOfAltIdentities"> -
+									<input type="number" style="width:140px" ng-model="conditions.maxnrOfAltIdentities">
+									<br/>
+								<b>PfB deals accepted</b></br>
+									<input type="number" style="width:140px" ng-model="conditions.minPfbDeals"> -
+									<input type="number" style="width:140px" ng-model="conditions.maxPfbDeals">
+								</b><br/>
+								<b>SignupDate</b><br/>
+									<input type="date" style="width:140px; height: 24px;" ng-model="conditions.signupDateAfter"> -
+									<input type="date" style="width:140px; height: 24px;" ng-model="conditions.signupDateBefore">
+								</br>
 							</form>
 							<hr>
 							<button class="btn btn-xs btn-primary" ng-click="executeStatsFilter()" type="button">Execute filter</button>

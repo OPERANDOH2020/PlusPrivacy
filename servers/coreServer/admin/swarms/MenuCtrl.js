@@ -61,12 +61,12 @@ var menuCtrl = {
 							url: "apps/examples/ACL-Management/index.html"
 						});
 						self.result.push({
-							icon: "glyphicon glyphicon-lock",
+							icon: "glyphicon glyphicon-download-alt	",
 							name: "Download Analytics",
 							url: "apps/examples/AnalyticsManager/index.html"
 						});
 						self.result.push({
-							icon: "glyphicon glyphicon-transfer",
+							icon: "glyphicon glyphicon-credit-card",
 							name: "Credit Management",
 							url: "apps/examples/CreditManagement/index.html"
 						});
@@ -77,7 +77,7 @@ var menuCtrl = {
 						});
 
 						self.result.push({
-							icon: "glyphicon glyphicon-transfer",
+							icon: "glyphicon glyphicon-stats",
 							name: "User Analytics",
 							url: "apps/examples/UserAnalytics/index.html"
 						});

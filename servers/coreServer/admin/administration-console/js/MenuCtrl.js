@@ -11,7 +11,7 @@ function MenuController(hub) {
 	var template = "<li>" +
 		"<a href=\"" + urlPlaceHolder + "\" target=\"app-content\" class='auto'>" +
 		"<i class='"+iconPlaceHolder+"' style='margin-right: 5px;'></i>" +
-		"<span class=\"font-bold\">" + namePlaceHolder + "</span>" +
+		"<span class=\"font-thin\">" + namePlaceHolder + "</span>" +
 		"</a></li>";
 
 	hub.on("MenuCtrl.js", "failed", function (swarm) {
