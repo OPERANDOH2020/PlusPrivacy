@@ -10,6 +10,8 @@ import UIKit
 
 class ConnectedAppExpandedCell: UITableViewCell {
 
+    @IBOutlet weak var expandedCellDescription: UILabel!
+    @IBOutlet weak var expandedCellTitle: UILabel!
     static let identifier = "ConnectedAppExpandedCell"
     
     @IBOutlet weak var colorView: UIView!
@@ -31,6 +33,19 @@ class ConnectedAppExpandedCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func pressedUnistallButton(_ sender: Any) {
+    }
+    @IBAction func pressedViewPermissionsButton(_ sender: Any) {
+    }
+    // MARK: - Setups and Utils
+   
+    func setupWith(app: ConnectedApp){
+        self.expandedCellTitle.text = app.name
+        self.expandedCellDescription.text = "Privacy Poluttion: "
     }
     
 }

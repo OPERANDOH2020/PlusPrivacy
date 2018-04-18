@@ -59,4 +59,12 @@ class ConnectedAppCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    // MARK: - Setups and Utils
+    
+    func setupWith(app: ConnectedApp){
+        self.appTitleLabel.text = app.name
+        self.appDescriptionLabel.text = "Privacy Poluttion: "
+    }
+    
 }

@@ -13,15 +13,26 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     private var selectedIndexPath: IndexPath?
     private var webView: WKWebView = WKWebView(frame: .zero)
-
+    private var dataSource: [ConnectedApp] = []
+    
+    private var loadAppsUrl = {}
+    private var isLoggedInApp = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: "ConnectedAppCell", bundle: nil), forCellReuseIdentifier: ConnectedAppCell.identifier)
         tableView.register(UINib(nibName: "ConnectedAppExpandedCell", bundle: nil), forCellReuseIdentifier: ConnectedAppExpandedCell.identifier)
         tableView.separatorStyle = .none
         self.webView.isHidden = true
         webView.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height)
+        
+        loadAppsUrl = {
+            let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getAppsListUrl()
+            self.webView.loadWebViewToURL(urlString: socialMediaUrl)
+            self.isLoggedInApp = true
+            self.loadAppsUrl = {}
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,17 +49,17 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         self.webView.navigationDelegate = self
         self.webView.uiDelegate = self
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return dataSource.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,16 +67,18 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if let selectedIndex = self.selectedIndexPath,
             selectedIndex == indexPath {
             
-             let cell = tableView.dequeueReusableCell(withIdentifier: ConnectedAppExpandedCell.identifier)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ConnectedAppExpandedCell.identifier) as? ConnectedAppExpandedCell
+            cell?.setupWith(app: dataSource[indexPath.row])
             return cell!
         }
         else {
-            var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: ConnectedAppCell.identifier)
-            if (cell == nil) {
-                cell = UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConnectedAppCell.identifier) as? ConnectedAppCell else {
+                return UITableViewCell()
             }
             
-            return cell!
+            cell.setupWith(app: dataSource[indexPath.row])
+            
+            return cell
         }
     }
     
@@ -90,16 +103,20 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     func getApps() {
         
         self.webView.loadJQuerry(completion: {
-          
-            self.webView.loadJSFile(scriptName: "facebook_apps", withCompletion: { (data, isloggedError) in
+            
+            self.webView.loadJSFile(scriptName: "RegexUtils", withCompletion: { (_, regexUtilsInseretionError) in
                 
+                let scriptName = ACPrivacyWizard.shared.selectedScope.getNetworks().first! + "_apps"
+                
+                self.webView.loadJSFile(scriptName: scriptName, withCompletion: { (data, isloggedError) in
+                    
+                })
             })
         })
     }
-
+    
     func checkIfLoggedIn(_ completionHandler: @escaping CallbackWithBool ){
         let isLoggedScript =  ACPrivacyWizard.shared.selectedScope.getNetworks().first! + "_is_logged"
-        
         
         self.webView.loadJSFile(scriptName: isLoggedScript, withCompletion: { (islogged, isloggedError) in
             
@@ -118,26 +135,40 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
         completionHandler()
-        print(message)
+        print("MESSAGE: " + message)
         
         if let data = message.data(using: String.Encoding.utf8),
             let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-            let messageDict = jsonObject as? [String: String]
+            let messageDict = jsonObject as? NSDictionary
         {
-            print(messageDict)
+            print("MESSAGE DICT: " + messageDict.debugDescription)
+            
+            self.getConnectedApps(dict: messageDict)
         }
+    }
+    
+    private func getConnectedApps(dict: NSDictionary) {
 
+        self.dataSource = dict.toConnectedApps()
+        ProgressHUD.dismiss()
+        self.tableView.reloadData()
     }
     
     // MARK: - WebView Delegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-    
+        if self.isLoggedInApp == true {
+            
+            self.getApps()
+            return
+        }
+
         checkIfLoggedIn { (isLogged) in
             if isLogged == true {
                 print("LOGGED IN")
                 self.webView.isHidden = true
-                self.getApps()
+                ProgressHUD.show()
+                self.loadAppsUrl()
             }
             else {
                 print("NOT LOGGED IN")

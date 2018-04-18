@@ -1,5 +1,33 @@
 
 (function () {
+ 
+ var kMessageTypeKey = "messageType";
+ var kLogMessageTypeContentKey = "logContent";
+ var kLogMessageType = "log";
+ 
+ var kStatusMessageMessageType = "statusMessageType";
+ var kStatusMessageContentKey = "statusMessageContent";
+ 
+ var webkitSendMessage = function(message) {
+ alert(message);
+ };
+ 
+ window.console = {};
+ window.console.log = function(logMessage) {
+ var webkitMessage = {};
+ webkitMessage[kMessageTypeKey] = kLogMessageType;
+ webkitMessage[kLogMessageTypeContentKey] = logMessage;
+ 
+ webkitSendMessage(JSON.stringify(webkitMessage));
+ 
+ };
+ 
+ var sendStatusMessage = function(settingName) {
+ var webkitMessage = {};
+ webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+ webkitMessage[kStatusMessageContentKey] = settingName;
+ webkitSendMessage(JSON.stringify(webkitMessage));
+ };
 
 var linkedInApps = [];
 
@@ -22,8 +50,7 @@ function getAppsForMobile(res) {
     });
 
 //    callback(linkedInApps);
-    console.log("linkedInApps", linkedInApps);
-    Android.onFinishedLoadingCallback(JSON.stringify(linkedInApps));
+sendStatusMessage(linkedInApps);
 
 }
 

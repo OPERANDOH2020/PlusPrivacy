@@ -79,7 +79,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Action" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-MF-N2j">
-                                        <rect key="frame" x="26" y="0.0" width="109" height="40"/>
+                                        <rect key="frame" x="32" y="0.0" width="103" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                     <constraint firstAttribute="trailing" secondItem="yrO-BZ-wlE" secondAttribute="trailing" id="R7S-mg-mH8"/>
                                     <constraint firstAttribute="bottom" secondItem="z1h-MF-N2j" secondAttribute="bottom" id="S33-iB-KyJ"/>
                                     <constraint firstAttribute="bottom" secondItem="yrO-BZ-wlE" secondAttribute="bottom" id="YC1-Le-zEg"/>
-                                    <constraint firstItem="z1h-MF-N2j" firstAttribute="leading" secondItem="uht-2I-HZA" secondAttribute="trailing" constant="2" id="cc5-hN-iN5"/>
+                                    <constraint firstItem="z1h-MF-N2j" firstAttribute="leading" secondItem="uht-2I-HZA" secondAttribute="trailing" constant="8" id="cc5-hN-iN5"/>
                                     <constraint firstItem="yrO-BZ-wlE" firstAttribute="leading" secondItem="khs-ZX-5dl" secondAttribute="leading" id="g0W-kz-BFh"/>
                                     <constraint firstAttribute="trailing" secondItem="z1h-MF-N2j" secondAttribute="trailing" id="hA4-Qj-kBg"/>
                                     <constraint firstItem="z1h-MF-N2j" firstAttribute="top" secondItem="khs-ZX-5dl" secondAttribute="top" id="koC-P8-5Gf"/>

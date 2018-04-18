@@ -60,7 +60,7 @@ extension WKWebView
                     return;
                 }
                 else {
-                    print("NASOL")
+                    print("No JQUERY")
                 }
                 
                 self.loadJSFile(scriptName: "jquery214min", withCompletion: { (result, error) in
@@ -69,7 +69,7 @@ extension WKWebView
                         completion?()
                     }
                     else {
-                        print("NASOL2")
+                        print("FAILED TO INSERT JQUERRY")
                     }
                 })
             }
@@ -87,7 +87,7 @@ extension WKWebView
                     return;
                 }
                 else {
-                    print("NASOL")
+                    print("No JQUERY")
                 }
                 
                 self.loadAndExecuteScriptNamed(scriptName: "jquery214min", withCompletion: { (result, error) in
@@ -96,7 +96,7 @@ extension WKWebView
                         completion?()
                     }
                     else {
-                        print("NASOL2")
+                        print("FAILED TO INSERT JQUERRY")
                     }
                 })
             }

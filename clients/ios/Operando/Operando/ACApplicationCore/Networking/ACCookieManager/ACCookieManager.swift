@@ -15,6 +15,8 @@ extension WKWebsiteDataStore {
         
         storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
             
+            var cookiesCount = 0
+            
             for record in records {
                 
                 if record.displayName == "facebook.com" {
@@ -25,7 +27,7 @@ extension WKWebsiteDataStore {
                 }
             }
             
-            if records.count == 0 {
+            if cookiesCount == 0 {
                 callback()
             }
         }
@@ -37,17 +39,18 @@ extension WKWebsiteDataStore {
         
         storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
             
+            var cookiesCount = 0
+            
             for record in records {
                 if record.displayName == "linkedin.com" {
                     storage.removeData(ofTypes: [WKWebsiteDataTypeCookies], for: [record], completionHandler: {
                         callback()
                     })
                 }
-                
             }
-                if records.count == 0 {
-                    callback()
-                }
+            if cookiesCount == 0 {
+                callback()
+            }
         }
     }
     
@@ -57,15 +60,18 @@ extension WKWebsiteDataStore {
         
         storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
             
+            var cookiesCount = 0
+            
             for record in records {
                 if record.displayName == "twitter.com" {
                     storage.removeData(ofTypes: [WKWebsiteDataTypeCookies], for: [record], completionHandler: {
                         callback()
                     })
+                cookiesCount += 1
                 }
             }
             
-            if records.count == 0 {
+            if cookiesCount == 0 {
                 callback()
             }
         }
@@ -77,6 +83,8 @@ extension WKWebsiteDataStore {
         
         storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
             
+            var cookiesCount = 0
+            
             for record in records {
                 if record.displayName == "google.com" {
                     storage.removeData(ofTypes: [WKWebsiteDataTypeCookies], for: [record], completionHandler: {
@@ -84,7 +92,7 @@ extension WKWebsiteDataStore {
                     })
                 }
             }
-            if records.count == 0 {
+            if cookiesCount == 0 {
                 callback()
             }
         }

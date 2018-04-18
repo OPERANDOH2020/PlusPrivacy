@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -103,15 +104,25 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-el-E9K">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="54"/>
+                                                <connections>
+                                                    <action selector="pressedUnistallButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YhN-eR-TCs"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.3411764705882353" green="0.6470588235294118" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="2H5-FM-wh0" secondAttribute="bottom" id="2qo-gH-XR2"/>
+                                            <constraint firstItem="CQf-el-E9K" firstAttribute="height" secondItem="Xkf-CB-8vF" secondAttribute="height" id="47H-7e-UNf"/>
                                             <constraint firstItem="2H5-FM-wh0" firstAttribute="leading" secondItem="9E3-Ek-2k6" secondAttribute="trailing" id="NTM-dZ-Ax7"/>
                                             <constraint firstAttribute="trailing" secondItem="2H5-FM-wh0" secondAttribute="trailing" id="OQa-46-72k"/>
                                             <constraint firstItem="9E3-Ek-2k6" firstAttribute="centerY" secondItem="Xkf-CB-8vF" secondAttribute="centerY" id="RZe-dC-1CX"/>
+                                            <constraint firstItem="CQf-el-E9K" firstAttribute="width" secondItem="Xkf-CB-8vF" secondAttribute="width" id="dPe-To-2Op"/>
                                             <constraint firstItem="9E3-Ek-2k6" firstAttribute="leading" secondItem="Xkf-CB-8vF" secondAttribute="leading" constant="8" id="dcl-9d-n42"/>
+                                            <constraint firstItem="CQf-el-E9K" firstAttribute="centerY" secondItem="Xkf-CB-8vF" secondAttribute="centerY" id="gFp-Gd-1Ay"/>
                                             <constraint firstAttribute="width" constant="100" id="liU-be-o6j"/>
+                                            <constraint firstItem="CQf-el-E9K" firstAttribute="centerX" secondItem="Xkf-CB-8vF" secondAttribute="centerX" id="rNk-0I-tXb"/>
                                             <constraint firstItem="2H5-FM-wh0" firstAttribute="top" secondItem="Xkf-CB-8vF" secondAttribute="top" id="t57-vg-3mW"/>
                                         </constraints>
                                     </view>
@@ -131,15 +142,25 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-hx-yax">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="54"/>
+                                                <connections>
+                                                    <action selector="pressedViewPermissionsButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8sb-wD-7Bl"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.3411764705882353" green="0.6470588235294118" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="gQT-aA-ZyY" firstAttribute="top" secondItem="p41-TE-J93" secondAttribute="top" id="1Mr-1B-1hQ"/>
                                             <constraint firstItem="gQT-aA-ZyY" firstAttribute="centerY" secondItem="p41-TE-J93" secondAttribute="centerY" id="DcN-oe-1lj"/>
                                             <constraint firstItem="gQT-aA-ZyY" firstAttribute="leading" secondItem="ddM-Sq-qoZ" secondAttribute="trailing" id="GOS-gS-Gbj"/>
+                                            <constraint firstItem="KVv-hx-yax" firstAttribute="width" secondItem="p41-TE-J93" secondAttribute="width" id="JBC-y2-0fX"/>
                                             <constraint firstItem="ddM-Sq-qoZ" firstAttribute="leading" secondItem="p41-TE-J93" secondAttribute="leading" constant="8" id="Qy2-fu-MGY"/>
                                             <constraint firstAttribute="trailing" secondItem="gQT-aA-ZyY" secondAttribute="trailing" id="SO1-x8-2DQ"/>
+                                            <constraint firstItem="KVv-hx-yax" firstAttribute="height" secondItem="p41-TE-J93" secondAttribute="height" id="Twm-t8-CGt"/>
                                             <constraint firstItem="ddM-Sq-qoZ" firstAttribute="centerY" secondItem="p41-TE-J93" secondAttribute="centerY" id="Vad-hA-j99"/>
+                                            <constraint firstItem="KVv-hx-yax" firstAttribute="centerY" secondItem="p41-TE-J93" secondAttribute="centerY" id="Zy0-DV-4d5"/>
+                                            <constraint firstItem="KVv-hx-yax" firstAttribute="centerX" secondItem="p41-TE-J93" secondAttribute="centerX" id="aFT-o2-ZJq"/>
                                             <constraint firstAttribute="bottom" secondItem="gQT-aA-ZyY" secondAttribute="bottom" id="dP1-Lm-Zsa"/>
                                             <constraint firstAttribute="width" constant="160" id="yCu-di-cF5"/>
                                         </constraints>
@@ -188,6 +209,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="colorView" destination="J6w-HX-8Yc" id="hTS-8P-U7y"/>
+                <outlet property="expandedCellDescription" destination="DVT-Lf-hoX" id="d6Y-Ck-T8P"/>
+                <outlet property="expandedCellTitle" destination="YK1-Ue-cIR" id="U4W-rf-uxc"/>
             </connections>
             <point key="canvasLocation" x="-16.5" y="53.5"/>
         </tableViewCell>

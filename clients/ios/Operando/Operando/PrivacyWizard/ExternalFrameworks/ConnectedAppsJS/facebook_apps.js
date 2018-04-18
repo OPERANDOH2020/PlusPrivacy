@@ -48,6 +48,7 @@
         var permissionsRegex;
         var appVisibility;
 
+ 
         appNameRegex = '<div\\sclass="_5xu4">\\s*<header>\\s*<h3.*?>(.*?)</h3>';
         appIconRegex = /<div\s+class="_5xu4"><i\s+class="img img _2sxw"\s+style="background-image: url\(&#039;(.+?)&#039;\);/;
         permissionsRegex = '<span\\sclass="_5ovn">(.*?)</span>';
@@ -57,7 +58,6 @@
         var iconUrl = RegexUtils.findValueByRegex(self.key, 'App Icon', appIconRegex, 1, crawledPage, true);
         var permissions = RegexUtils.findAllOccurrencesByRegex(self.key, "Permissions Title", permissionsRegex, 1, crawledPage, RegexUtils.cleanAndPretty);
         var visibility = RegexUtils.findValueByRegex_CleanAndPretty(self.key, 'Visibility', appVisibility, 1, crawledPage, true);
-        console.log("iconUrl ", iconUrl);
         var app = {
             appId: appId,
             iconUrl: iconUrl,
@@ -75,9 +75,6 @@
         var doc = parser.parseFromString(res, "text/html");
         var sequence = Promise.resolve();
         var apps = $('div._5b6q h3 a');
-
-console.log("LENGHT" + apps.length)
-
         for (var i = 0; i < apps.length; i++) {
             (function (i) {
                 var appId = apps[i].getAttribute('href').split('appid=')[1];
@@ -90,11 +87,8 @@ console.log("LENGHT" + apps.length)
             })(i);
 
         }
-
         sequence.then(function () {
-
-            sendStatusMessage(JSON.stringify(snApps));
-
+            sendStatusMessage(snApps);
         });
 
     };

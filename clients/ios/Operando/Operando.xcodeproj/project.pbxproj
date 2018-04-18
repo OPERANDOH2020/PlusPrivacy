@@ -231,6 +231,9 @@
 		B93F97CA2085EAF800C82815 /* ACCookieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97C92085EAF800C82815 /* ACCookieManager.swift */; };
 		B93F97CF208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97CD208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift */; };
 		B93F97D0208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */; };
+		B93F97D22087446D00C82815 /* RegexUtils.js in Resources */ = {isa = PBXBuildFile; fileRef = B93F97D12087446D00C82815 /* RegexUtils.js */; };
+		B93F97D520874AF000C82815 /* ConnectedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D420874AF000C82815 /* ConnectedApp.swift */; };
+		B93F97D7208759C800C82815 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
 		C710717420739409000D3AB6 /* twitter_is_logged.js in Resources */ = {isa = PBXBuildFile; fileRef = C710717020739407000D3AB6 /* twitter_is_logged.js */; };
@@ -667,6 +670,9 @@
 		B93F97C92085EAF800C82815 /* ACCookieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCookieManager.swift; sourceTree = "<group>"; };
 		B93F97CD208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWizzardLogoutDashboardViewController.swift; sourceTree = "<group>"; };
 		B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyWizzardLogoutDashboardViewController.xib; sourceTree = "<group>"; };
+		B93F97D12087446D00C82815 /* RegexUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RegexUtils.js; sourceTree = "<group>"; };
+		B93F97D420874AF000C82815 /* ConnectedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedApp.swift; sourceTree = "<group>"; };
+		B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
 		C710717020739407000D3AB6 /* twitter_is_logged.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = twitter_is_logged.js; sourceTree = "<group>"; };
@@ -1332,6 +1338,7 @@
 		9881D2321D0EC845005EE1FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B93F97D32087483E00C82815 /* ConnectedApp */,
 				C7F7960F202A01FF005DE7B3 /* PrivacyWizard */,
 				AD48A8E11F6281FF003E5A88 /* FeedbackForm */,
 				981991161F39F27C004F3264 /* AppSCDsRepository */,
@@ -1569,6 +1576,7 @@
 		98EAF68F1CCF87B800C77649 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */,
 				9827502C1D084A4B00C73411 /* WKWebViewUtilities.swift */,
 				98EAF6901CCF884000C77649 /* OPUtils.swift */,
 				9852C6F91CD0FEA000AF2BE5 /* OPViewUtils.swift */,
@@ -1997,6 +2005,14 @@
 				B93F97CE208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib */,
 			);
 			name = PrivacyWizzardLogoutDashboard;
+			sourceTree = "<group>";
+		};
+		B93F97D32087483E00C82815 /* ConnectedApp */ = {
+			isa = PBXGroup;
+			children = (
+				B93F97D420874AF000C82815 /* ConnectedApp.swift */,
+			);
+			name = ConnectedApp;
 			sourceTree = "<group>";
 		};
 		C7107168206A49A3000D3AB6 /* UISettingsProgress */ = {
@@ -2558,6 +2574,7 @@
 				C7C5D0EA2063C402000352D6 /* activityControls.css */,
 				C76EC53D2056BCDD00B26690 /* twitter.js */,
 				C76EC5382056801500B26690 /* google_activity_controls.js */,
+				B93F97D12087446D00C82815 /* RegexUtils.js */,
 				C76EC5392056801600B26690 /* google_preferences_settings.js */,
 				C76EC5372056801400B26690 /* google_usual_settings.js */,
 				C7BAF33920513C0700A9BFF0 /* linkedin.js */,
@@ -3008,6 +3025,7 @@
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,
 				C7550CEB2081008C0024C6E8 /* twitter_apps.js in Resources */,
 				C7550CEE2081008C0024C6E8 /* linkedin_apps.js in Resources */,
+				B93F97D22087446D00C82815 /* RegexUtils.js in Resources */,
 				ADB2AD501DB80474003E3AC1 /* LeftMenu.storyboard in Resources */,
 				9819317E1F0D1C4000965A7D /* FingerprintPreventing.js in Resources */,
 				C7F795D2202363F9005DE7B3 /* TwitterCell.xib in Resources */,
@@ -3055,6 +3073,7 @@
 				C7F7953D2023620C005DE7B3 /* AMAvailableWriteSetting.swift in Sources */,
 				98EAF6AF1CCF995B00C77649 /* IHKeyboardAvoiding.m in Sources */,
 				C7F79564202363B7005DE7B3 /* ACSwarmCallbackContainer.swift in Sources */,
+				B93F97D520874AF000C82815 /* ConnectedApp.swift in Sources */,
 				985A0D471DCCB0E40010C799 /* Locksmith.swift in Sources */,
 				AD28EAB020503DD700AA998A /* PresentationManager.swift in Sources */,
 				982D31881E842A9B00FE2FB7 /* AFHTTPSessionManager.m in Sources */,
@@ -3129,6 +3148,7 @@
 				C7F795D1202363F9005DE7B3 /* Twitter.swift in Sources */,
 				987084131E8E938E00D9F8E9 /* UIWebView+AFNetworking.m in Sources */,
 				C7F795CA202363F8005DE7B3 /* Action.swift in Sources */,
+				B93F97D7208759C800C82815 /* NSDictionaryExtension.swift in Sources */,
 				9852C6E81CD0DE6B00AF2BE5 /* UINotificationsViewController.swift in Sources */,
 				AD28EA14204FE0B200AA998A /* UINotAvailableView.swift in Sources */,
 				985A0D491DCCB0E40010C799 /* LocksmithError.swift in Sources */,

@@ -38,6 +38,21 @@ enum ACPrivacyWizardScope {
         }
     }
     
+    func getAppsListUrl() -> String {
+        switch self {
+        case .facebook:
+            return "https://m.facebook.com/settings/apps/tabbed/"
+        case .linkedIn:
+            return "https://www.linkedin.com/psettings/permitted-services"
+        case .twitter:
+            return "https://twitter.com/settings/applications?lang=en"
+        case .googleLogin:
+            return "https://myaccount.google.com/permissions"
+        default:
+            return ""
+        }
+    }
+    
     func getNetworkUrl() -> String {
         switch self {
         case .facebook:

@@ -147,6 +147,9 @@ class OPConfigObject: NSObject
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         weak var weakSelf = self
         
+        print("REGISTER IN ZONE 123")
+
+        
         ProgressHUD.show()
         self.userRepository?.loginWith(email: loginInfo.email, password: loginInfo.password) { (error, data) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -154,7 +157,7 @@ class OPConfigObject: NSObject
             DispatchQueue.main.async {
                 ProgressHUD.dismiss()
             }
-           
+            
             if let error = error {
                 
                 if error.localizedDescription == "accountNotActivated" {
@@ -173,7 +176,6 @@ class OPConfigObject: NSObject
                 }
                 return
             }
-            
             self.userRepository?.registerInZone(withCompletion: { (error) in
                 
                 if let error = error {

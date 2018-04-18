@@ -48,7 +48,7 @@ extension UILeftSideMenuViewController {
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "osdk", categoryName: Bundle.localizedStringFor(key: kResearchOSDKLocalizableKey), action: self.callbacks?.whenChoosingMonitor))
         
-        result.append(UILeftSideMenuVCObject(categoryImageName: "about", categoryName: "Apps List", action: self.callbacks?.whenChoosingAppList))
+        result.append(UILeftSideMenuVCObject(categoryImageName: "connectedapps", categoryName: "Connected Apps", action: self.callbacks?.whenChoosingAppList))
         
         result.append(UILeftSideMenuVCObject(categoryImageName: "privacy_policy", categoryName: Bundle.localizedStringFor(key: kPrivacyPolicyLocalizableKey), action: self.callbacks?.whenChoosingPrivacyPolicy))
         
