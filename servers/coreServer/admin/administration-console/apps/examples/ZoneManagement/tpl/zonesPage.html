@@ -18,11 +18,15 @@
 
 				<!--Create new zone button-->
 				<div class="panel-body b-b b-light">
-					<div class="col-lg-6" style="float: right">
-						<input type="text" class="form-control" ng-model="newZone.zoneName" placeholder="Type name for new zone">
 
-						<button style="float: right" class="btn btn-default btn-primary" ng-disabled="newZone.zoneName.length<4" ng-click="createNewZone()" type="button">Create new zone</button>
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="newZone.zoneName" placeholder="Type name for new zone">
+						<div class="input-group-btn">
+							<button style="float: right" class="btn btn-default btn-primary" ng-disabled="newZone.zoneName.length<4" ng-click="createNewZone()" type="button">Create new zone</button>
+						</div>
+
 					</div>
+
 				</div>
 
 				<div>

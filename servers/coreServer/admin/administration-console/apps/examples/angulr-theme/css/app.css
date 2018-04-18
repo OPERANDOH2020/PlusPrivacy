@@ -3156,7 +3156,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-black a {
-    color: #96abbb;
+    color: #f3e4bf;
 }
 
 .bg-black a:hover {
@@ -3209,7 +3209,7 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-black .text-lt {
-    color: #c4d0d9 !important;
+    color: #FFB400 !important;
 }
 
 .bg-black.auto .list-group-item,

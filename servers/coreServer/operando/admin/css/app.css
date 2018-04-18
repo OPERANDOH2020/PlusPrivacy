@@ -3118,8 +3118,8 @@ fieldset[disabled] .i-checks input + i:before {
 }
 
 .bg-primary {
-  color: #f4f3f9;
-  background-color: #7266ba;
+  color: #FFB400;
+  background-color:#4B4B4B;
 }
 
 .bg-primary.lt,
