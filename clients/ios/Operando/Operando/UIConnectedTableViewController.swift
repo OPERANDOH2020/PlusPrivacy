@@ -9,6 +9,12 @@
 import UIKit
 import WebKit
 
+struct UIConnectedTableViewControllerCallbacks {
+    
+    let showPermissions: ConnectedAppPermissions?
+}
+
+
 class UIConnectedTableViewController: UITableViewController, WKNavigationDelegate, WKUIDelegate{
     
     private var selectedIndexPath: IndexPath?
@@ -17,6 +23,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     private var loadAppsUrl = {}
     private var isLoggedInApp = false
+    private var callbacks: UIConnectedTableViewControllerCallbacks?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +47,28 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         super.viewWillAppear(animated)
         
         self.view.addSubview(webView)
+        ProgressHUD.show()
     }
     
-    func setupFor(type: ACPrivacyWizardScope){
+    func setupFor(type: ACPrivacyWizardScope?,callbacks: UIConnectedTableViewControllerCallbacks){
         
-        ACPrivacyWizard.shared.selectedScope = type
+        if let type = type {
+            
+            ACPrivacyWizard.shared.selectedScope = type
+        }
+        
         let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getNetworkUrl()
+        
         self.webView.loadWebViewToURL(urlString: socialMediaUrl)
+        
+        if  ACPrivacyWizard.shared.selectedScope == .twitter {
+            self.webView.customUserAgent = MozillaUserAgentId
+        }
+        
         self.webView.navigationDelegate = self
         self.webView.uiDelegate = self
+        
+        self.callbacks = callbacks
     }
     
     // MARK: - Table view data source
@@ -68,7 +89,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             selectedIndex == indexPath {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: ConnectedAppExpandedCell.identifier) as? ConnectedAppExpandedCell
-            cell?.setupWith(app: dataSource[indexPath.row])
+            cell?.setupWith(app: dataSource[indexPath.row], callbacks: self.callbacks!)
             return cell!
         }
         else {
@@ -159,6 +180,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if self.isLoggedInApp == true {
             
+            ProgressHUD.show()
             self.getApps()
             return
         }
@@ -167,11 +189,11 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             if isLogged == true {
                 print("LOGGED IN")
                 self.webView.isHidden = true
-                ProgressHUD.show()
                 self.loadAppsUrl()
             }
             else {
                 print("NOT LOGGED IN")
+                ProgressHUD.dismiss()
                 self.webView.isHidden = false
             }
         }

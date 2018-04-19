@@ -9,6 +9,13 @@
 import Foundation
 extension String {
     
+    func decodeUrl() -> String
+    {
+        return self.removingPercentEncoding!
+    }
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
         func capturedGroups(withRegex pattern: String) -> [String] {
             var results = [String]()
             

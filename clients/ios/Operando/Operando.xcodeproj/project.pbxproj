@@ -234,6 +234,7 @@
 		B93F97D22087446D00C82815 /* RegexUtils.js in Resources */ = {isa = PBXBuildFile; fileRef = B93F97D12087446D00C82815 /* RegexUtils.js */; };
 		B93F97D520874AF000C82815 /* ConnectedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D420874AF000C82815 /* ConnectedApp.swift */; };
 		B93F97D7208759C800C82815 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */; };
+		B9F8A4C52088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
 		C710717420739409000D3AB6 /* twitter_is_logged.js in Resources */ = {isa = PBXBuildFile; fileRef = C710717020739407000D3AB6 /* twitter_is_logged.js */; };
@@ -673,6 +674,7 @@
 		B93F97D12087446D00C82815 /* RegexUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RegexUtils.js; sourceTree = "<group>"; };
 		B93F97D420874AF000C82815 /* ConnectedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedApp.swift; sourceTree = "<group>"; };
 		B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
+		B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConnectedAppPermissionsListViewController.swift; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
 		C710717020739407000D3AB6 /* twitter_is_logged.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = twitter_is_logged.js; sourceTree = "<group>"; };
@@ -2041,6 +2043,7 @@
 				C7550CE0207F91A10024C6E8 /* ConnectedAppExpandedCell */,
 				C7320C10207E463D00A2746A /* ConnectedAppCell */,
 				C7550CDE207F822A0024C6E8 /* UIConnectedTableViewController.swift */,
+				B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */,
 			);
 			name = ConnectedApps;
 			sourceTree = "<group>";
@@ -3203,6 +3206,7 @@
 				9827502D1D084A4B00C73411 /* WKWebViewUtilities.swift in Sources */,
 				AD28EA43205036C000AA998A /* UICustomPopup.swift in Sources */,
 				98BE1FB31F0299DA00223926 /* UIUserSettingsViewController.swift in Sources */,
+				B9F8A4C52088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift in Sources */,
 				9827500E1D08496C00C73411 /* UIBrowsingNavigationBar.swift in Sources */,
 				987072041E82BD2B00151201 /* WebViewTabManagementPool.swift in Sources */,
 				9870840C1E8E938E00D9F8E9 /* AFImageDownloader.m in Sources */,

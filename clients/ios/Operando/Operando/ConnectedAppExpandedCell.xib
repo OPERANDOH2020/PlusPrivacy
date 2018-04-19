@@ -208,9 +208,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="appImageView" destination="AFi-pc-MPR" id="b7L-pO-6hP"/>
                 <outlet property="colorView" destination="J6w-HX-8Yc" id="hTS-8P-U7y"/>
                 <outlet property="expandedCellDescription" destination="DVT-Lf-hoX" id="d6Y-Ck-T8P"/>
                 <outlet property="expandedCellTitle" destination="YK1-Ue-cIR" id="U4W-rf-uxc"/>
+                <outlet property="viewPermissionsView" destination="p41-TE-J93" id="Ogf-fQ-Ezd"/>
             </connections>
             <point key="canvasLocation" x="-16.5" y="53.5"/>
         </tableViewCell>

@@ -14,7 +14,7 @@ enum ConnectedAppCellStyle {
 }
 
 class ConnectedAppCell: UITableViewCell {
-
+    
     static let identifier = "ConnectedAppCell"
     
     @IBOutlet weak var appDescriptionLabel: UILabel!
@@ -29,6 +29,16 @@ class ConnectedAppCell: UITableViewCell {
         // Initialization code
         self.setupColorView()
         self.selectionStyle = .none
+        self.appImageView.image = nil
+    }
+    
+    func setupWithPermisions(permission:String){
+        self.appDescriptionLabel.isHidden = true
+        self.colorView.isHidden = true
+        self.appImageView?.isHidden = true
+        self.appTitleLabel.isHidden = true
+        self.permissionDescriptionLabel.isHidden = false
+        self.permissionDescriptionLabel.text = permission
     }
     
     func setupLayout(style: ConnectedAppCellStyle) {
@@ -52,10 +62,10 @@ class ConnectedAppCell: UITableViewCell {
         colorView.layer.borderWidth = 1
         colorView.layer.borderColor = UIColor.white.cgColor
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -65,6 +75,26 @@ class ConnectedAppCell: UITableViewCell {
     func setupWith(app: ConnectedApp){
         self.appTitleLabel.text = app.name
         self.appDescriptionLabel.text = "Privacy Poluttion: "
+        
+        if let appIconURL = app.iconURL
+        {
+            var modifiedURL1 = appIconURL.replace(target: "\\", withString: "%");
+             modifiedURL1 = modifiedURL1.replace(target: " ", withString: "");
+            modifiedURL1 = modifiedURL1.decodeUrl()
+            
+            if modifiedURL1.contains(find: ".svg") == true {
+              
+                let view = UIView()
+              
+                
+            }
+            
+//            if let url = URL(string: ){
+//
+//                
+//                self.appImageView?.setImageWith(url)
+//            }
+        }
     }
-    
+        
 }

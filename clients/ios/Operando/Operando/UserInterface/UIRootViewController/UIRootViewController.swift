@@ -126,6 +126,13 @@ class UIRootViewController: UIViewController
         self.backButton.isHidden = false
     }
     
+    func setupForPermissionsList(){
+        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarLabel.text = "Permissions List"
+        self.menuButton.isHidden = true
+        self.backButton.isHidden = false
+    }
+    
     func setupTabViewForConnectedAppsDashboard() {
         self.topBarView.backgroundColor = UIColor.operandoFBBlue
         self.topBarLabel.text = "Connected Apps"

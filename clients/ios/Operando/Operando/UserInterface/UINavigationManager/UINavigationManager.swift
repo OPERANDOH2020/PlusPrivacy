@@ -37,6 +37,10 @@ class UIViewControllerFactory
         return UIConnectedTableViewController()
     }
     
+    static func getUIConnectedAppPermissionsListViewController() -> UIConnectedAppPermissionsListViewController {
+        return UIConnectedAppPermissionsListViewController()
+    }
+    
     static func getPrivacyWizzardDashboardViewController() -> PrivacyWizzardDashboardViewController {
         return PrivacyWizzardDashboardViewController(nibName: "PrivacyWizzardDashboardViewController", bundle: nil)
     }

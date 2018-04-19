@@ -13,7 +13,9 @@ import PPCloak
 typealias NotificationActionCallback = (_ action: NotificationAction, _ notification: OPNotification) -> Void
 typealias ForgotPasswordCallback = ((_ email: String) -> Void)
 typealias NumberOfNotificationsCompletion = (_ num: Int) -> Void
-typealias NumOfNotificationsRequestCallback = (_ callback: NumberOfNotificationsCompletion?) -> Void
+typealias NumOfNotificationsRequestCallback = (_ callback:
+    NumberOfNotificationsCompletion?) -> Void
+typealias ConnectedAppPermissions = ((_ permissions: [String]) -> Void)
 
 struct Dependencies{
     let identityManagementRepo: IdentitiesManagementRepository?
@@ -66,9 +68,11 @@ class UIOPFlowController
                     
                 }
                 else if self.rootController.topBarLabel.text == " Connected Social Networks " ||
-                    self.rootController.topBarLabel.text == "Connected App List"
-                {
+                    self.rootController.topBarLabel.text == "Connected App List"{
                     weakSelf?.displayConnectedAppsDashboard()
+                }
+                else if self.rootController.topBarLabel.text == "Permissions List" {
+                    weakSelf?.displayConnectedAppList()
                 }
                 else {
                     self.rootController.reset()
@@ -370,9 +374,31 @@ class UIOPFlowController
     
     func displayConnectedAppList(type: ACPrivacyWizardScope){
         let connectedAppList = UIViewControllerFactory.getConnectedAppTableViewController()
-        connectedAppList.setupFor(type: type)
+        connectedAppList.setupFor(type: type, callbacks:  UIConnectedTableViewControllerCallbacks(showPermissions: { (permissions) in
+            
+            self.displayConnectedAppPermission(permissions: permissions)
+            
+        }))
         self.rootController.setupForConnectedAppList()
         self.rootController.setMainControllerTo(newController: connectedAppList)
+    }
+    
+    func displayConnectedAppList(){
+        let connectedAppList = UIViewControllerFactory.getConnectedAppTableViewController()
+        connectedAppList.setupFor(type: nil, callbacks:  UIConnectedTableViewControllerCallbacks(showPermissions: { (permissions) in
+            
+            self.displayConnectedAppPermission(permissions: permissions)
+            
+        }))
+        self.rootController.setupForConnectedAppList()
+        self.rootController.setMainControllerTo(newController: connectedAppList)
+    }
+    
+    func displayConnectedAppPermission(permissions: [String]){
+        let vc =  UIViewControllerFactory.getUIConnectedAppPermissionsListViewController()
+        vc.setupWithPermissions(permissions: permissions)
+        self.rootController.setupForPermissionsList()
+        self.rootController.setMainControllerTo(newController: vc)
     }
     
     func displaySettingsViewController() {
