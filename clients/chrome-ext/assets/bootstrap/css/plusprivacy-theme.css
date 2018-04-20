@@ -1399,6 +1399,13 @@ h3.privacy_wizard_suggestions_heading{
     margin: 0px 16px;
 }
 
+.removing-social-app .sk-fading-circle{
+    width:24px;
+    height: 24px;
+    margin: 0px 15px 0px 0px;
+    float: left;
+}
+
 .big-loader .sk-fading-circle .sk-circle:before{
     background-color: #584a28;
 }

@@ -50,7 +50,7 @@ angular.module("login",[]).
                 messengerService.send("registerUser",$scope.new_user, function(response){
                     $scope.submitRequest.button('reset');
                     if(response.status === "success"){
-                        Notification.success({message: "Account successfully created! Check your email to confirm registration!", positionY: 'bottom', positionX: 'center', delay: 3000});
+                        Notification.success({message: "Account successfully created! Check your email to confirm registration!", positionY: 'bottom', positionX: 'center', delay: 3000, templateUrl:"/operando/tpl/notifications/reset-password.html"});
                          $scope.user.email = $scope.new_user.email;
                         $scope.currentView = "login";
 
