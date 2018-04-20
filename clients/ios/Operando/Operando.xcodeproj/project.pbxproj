@@ -234,6 +234,7 @@
 		B93F97D22087446D00C82815 /* RegexUtils.js in Resources */ = {isa = PBXBuildFile; fileRef = B93F97D12087446D00C82815 /* RegexUtils.js */; };
 		B93F97D520874AF000C82815 /* ConnectedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D420874AF000C82815 /* ConnectedApp.swift */; };
 		B93F97D7208759C800C82815 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */; };
+		B95D81CD2089D872008F8B48 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B95D81CC2089D872008F8B48 /* libxml2.tbd */; };
 		B9F8A4C52088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
@@ -674,6 +675,7 @@
 		B93F97D12087446D00C82815 /* RegexUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RegexUtils.js; sourceTree = "<group>"; };
 		B93F97D420874AF000C82815 /* ConnectedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedApp.swift; sourceTree = "<group>"; };
 		B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
+		B95D81CC2089D872008F8B48 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConnectedAppPermissionsListViewController.swift; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95D81CD2089D872008F8B48 /* libxml2.tbd in Frameworks */,
 				98620DE81EF7E6CE00BF4673 /* PPWebContentBlocker.framework in Frameworks */,
 				980635671EFA642B0004527B /* PPCommonTypes.framework in Frameworks */,
 				980635651EFA642B0004527B /* PPCommonUI.framework in Frameworks */,
@@ -1185,6 +1188,7 @@
 		985A0D4D1DCCB0F70010C799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B95D81CC2089D872008F8B48 /* libxml2.tbd */,
 				985A0D4E1DCCB0F70010C799 /* Security.framework */,
 			);
 			name = Frameworks;
@@ -3486,6 +3490,10 @@
 					"$(PROJECT_DIR)/Operando",
 					"$(PROJECT_DIR)/Operando/PrivacyWizard/ExternalFrameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Operando/SystemMonitor/**",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = Operando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3509,6 +3517,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Operando",
 					"$(PROJECT_DIR)/Operando/PrivacyWizard/ExternalFrameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Operando/SystemMonitor/**",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = Operando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

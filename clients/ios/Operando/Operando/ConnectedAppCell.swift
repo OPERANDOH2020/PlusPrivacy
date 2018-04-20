@@ -29,7 +29,7 @@ class ConnectedAppCell: UITableViewCell {
         // Initialization code
         self.setupColorView()
         self.selectionStyle = .none
-        self.appImageView.image = nil
+        self.appImageView.image = #imageLiteral(resourceName: "connected-apps-mob")
     }
     
     func setupWithPermisions(permission:String){
@@ -79,21 +79,16 @@ class ConnectedAppCell: UITableViewCell {
         if let appIconURL = app.iconURL
         {
             var modifiedURL1 = appIconURL.replace(target: "\\", withString: "%");
-             modifiedURL1 = modifiedURL1.replace(target: " ", withString: "");
+            modifiedURL1 = modifiedURL1.replace(target: " ", withString: "");
             modifiedURL1 = modifiedURL1.decodeUrl()
-            
             if modifiedURL1.contains(find: ".svg") == true {
-              
-                let view = UIView()
-              
-                
+            }
+            else if let url = URL(string: modifiedURL1){
+               
+                self.appImageView?.setImageWith(url)
             }
             
-//            if let url = URL(string: ){
-//
-//                
-//                self.appImageView?.setImageWith(url)
-//            }
+            
         }
     }
         

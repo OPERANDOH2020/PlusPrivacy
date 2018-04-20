@@ -25,7 +25,7 @@ class ConnectedAppExpandedCell: UITableViewCell {
         // Initialization code
         self.setupColorView()
         self.selectionStyle = .none
-        self.appImageView.image = nil
+        self.appImageView.image = #imageLiteral(resourceName: "connected-apps-mob")
     }
     
     private func setupColorView(){
