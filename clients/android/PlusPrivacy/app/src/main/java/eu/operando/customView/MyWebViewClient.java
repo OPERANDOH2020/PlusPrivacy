@@ -1,5 +1,6 @@
 package eu.operando.customView;
 
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
@@ -18,6 +19,9 @@ import java.util.Map;
 
 public class MyWebViewClient extends WebViewClient {
 
+    private boolean loadingFinished = true;
+    private boolean redirect = false;
+
     protected SocialNetworkInterface socialNetworkInterface;
 
     public MyWebViewClient(SocialNetworkInterface socialNetworkInterface) {
@@ -25,9 +29,34 @@ public class MyWebViewClient extends WebViewClient {
     }
 
     @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String urlNewString) {
+        if (!loadingFinished) {
+            redirect = true;
+        }
+
+        loadingFinished = false;
+        view.loadUrl(urlNewString);
+        return true;
+    }
+
+    @Override
+    public void onPageStarted(WebView view, String url, Bitmap facIcon) {
+        loadingFinished = false;
+    }
+
+    @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        socialNetworkInterface.onPageFinished();
+
+        if (!redirect) {
+            loadingFinished = true;
+        }
+
+        if (loadingFinished && !redirect) {
+            socialNetworkInterface.onPageFinished();
+        } else {
+            redirect = false;
+        }
     }
 
     @Override

@@ -694,17 +694,26 @@
 
 
 
-//Android.showToast("works");
+Android.showToast("works");
 var headers = {};
 var sequence = Promise.resolve();
+var needed_headers = ["authorization", "x-csrf-token", "x-twitter-auth-type", "x-twitter-client-language", "x-twitter-active-user"];
 
 var mainFunction = function(privacySettingsJsonString) {
 
     var run = true;
+    Android.showToast("before xhook");
     xhook.before(function(request) {
 
         Android.setProgressBar(50, 100);
         headers = request.headers;
+        Android.showToast("request.headers: " + Object.keys(headers).length);
+
+        for(var index = 0; index < needed_headers.length; ++index){
+            if(headers[needed_headers[index]] == null){
+                return;
+            }
+        }
 
         if (run) {
 
@@ -713,6 +722,7 @@ var mainFunction = function(privacySettingsJsonString) {
             xhook.disable();
 
             headers["accept"] = "*/*";
+            delete headers["content-type"];
 
             $.ajax({
                 type: "GET",
@@ -723,11 +733,12 @@ var mainFunction = function(privacySettingsJsonString) {
                 beforeSend: function(xhr) {
 
                     console.log(headers);
+                    Android.showToast("beforeSend");
 
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     for (var key in headers) {
                         if (headers.hasOwnProperty(key)) {
-//                            Android.showToast("[Header JS] " + key + " -> " + headers[key]);
+                            Android.showToast("[Header JS] " + key + " -> " + headers[key]);
                             xhr.setRequestHeader(key, headers[key]);
                         }
                     }
@@ -739,16 +750,17 @@ var mainFunction = function(privacySettingsJsonString) {
                         isEUCountry = true;
                     }
 
-
+                    Android.showToast("settings success first");
                     secureAccount(isEUCountry, privacySettingsJsonString);
                 },
                 error: function(request, textStatus, errorThrown) {
-                    Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
+                    Android.showToast("error1: " + request.status + " " + textStatus + " " + errorThrown);
                 }
             });
         }
     });
 };
+
 
 mainFunction(Android.getPrivacySettings());
 
@@ -798,6 +810,12 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
         });
     });
 
+    sequence = sequence.then(function() {
+        Android.setProgressBar(100, 100);
+        Android.onFinishedLoadingCallback();
+    });
+
+
     var customSubmit = function(url, data, dataType) {
         return new Promise(function(resolve) {
 
@@ -819,11 +837,10 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
                 },
                 success: function(data) {
                     resolve();
-                    Android.setProgressBar(100, 100);
-                    Android.onFinishedLoadingCallback();
+                    Android.showToast("settings success second");
                 },
                 error: function(request, textStatus, errorThrown) {
-                    Android.showToast("error: " + request.status + " " + textStatus + " " + errorThrown);
+                    Android.showToast("error2: " + url + " " + request.status + " " + textStatus + " " + errorThrown);
                 }
             };
 

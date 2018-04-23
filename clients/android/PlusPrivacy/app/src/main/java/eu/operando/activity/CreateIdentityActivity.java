@@ -73,22 +73,6 @@ CreateIdentityActivity extends AppCompatActivity {
 
         getDomains();
 
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                generateIdentity();
-            }
-        });
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Domain domain = domains.get(domainsSpinner.getSelectedItemPosition());
-                String domName = domain.getName();
-                String alias = aliasET.getText().toString();
-                String email = alias + "@" + domName;
-                createIdentity(email, alias, domain);
-            }
-        });
     }
 
     private void initUI() {
@@ -116,8 +100,30 @@ CreateIdentityActivity extends AppCompatActivity {
                     public void run() {
                         domains = result.getDomains();
                         domainsSpinner.setAdapter(new DomainAdapter(CreateIdentityActivity.this, 0, domains));
+
+                        setOnClickListeners();
                     }
                 });
+            }
+        });
+    }
+
+    private void setOnClickListeners() {
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generateIdentity();
+            }
+        });
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Domain domain = domains.get(domainsSpinner.getSelectedItemPosition());
+                String domName = domain.getName();
+                String alias = aliasET.getText().toString();
+                String email = alias + "@" + domName;
+                createIdentity(email, alias, domain);
             }
         });
     }

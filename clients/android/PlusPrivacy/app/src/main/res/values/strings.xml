@@ -274,11 +274,12 @@
     <string name="make_default">Make default</string>
 
     <string-array name="drawer_items">
-        <item>About</item>
-        <item>Privacy Policy</item>
-        <item>Feedback</item>
-        <item>Apps</item>
         <item>Account</item>
+        <item>Connected Apps</item>
+        <item>Feedback</item>
+        <item>Privacy Policy</item>
+        <item>About</item>
+
     </string-array>
 
     <string name="low">low</string>
@@ -376,6 +377,6 @@
     <string name="this_may_take_some_time">This may take some time.</string>
     <string name="getting_apps">Getting apps ...</string>
     <string name="connection_lost">Connection lost</string>
-    <string name="social_netwrok_accounts">Social netwrok accounts</string>
+    <string name="social_netwrok_accounts">Social network accounts</string>
 
 </resources>

@@ -325,22 +325,24 @@ public class MainActivity extends BaseActivity implements DrawerRecyclerViewAdap
 
         switch (position) {
 
-            case 0: //About
-//                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
-                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+            case 0: //Account
+                UserAccountActivity.start(this);
                 break;
-            case 1: //Privacy Policy
-                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
+            case 1: //Apps
+                startActivity(new Intent(MainActivity.this, ConnectedAppsActivity.class));
                 break;
             case 2: //Feedback
                 startFeedbackActivity();
                 break;
-            case 4: //Account
-                UserAccountActivity.start(this);
+            case 3: //Privacy Policy
+                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
                 break;
-            case 3: //Apps
-                startActivity(new Intent(MainActivity.this, ConnectedAppsActivity.class));
+            case 4: //About
+//                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 break;
+
+
         }
         drawerLayout.closeDrawer(Gravity.START);
     }

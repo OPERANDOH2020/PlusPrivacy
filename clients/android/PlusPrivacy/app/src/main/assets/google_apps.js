@@ -1,6 +1,6 @@
 (function () {
 
-
+Android.showToast("google_apps.js injected0-1");
     var googleApps = [];
     var permissionsRegex = /<div[^>]+role="listitem"[^>]*>([^<]+).*?<\/div>/;
     function extractPermissionsFromRawGroup(rawData) {

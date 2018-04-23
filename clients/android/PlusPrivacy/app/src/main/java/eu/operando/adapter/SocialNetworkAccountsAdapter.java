@@ -16,12 +16,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import eu.operando.R;
 
@@ -32,7 +34,7 @@ import eu.operando.R;
 public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
 
     private Context context;
-    private String[] objects = new String[]{
+    private String[] names = new String[]{
             "Facebook", "Linkedin", "Twitter", "Google"
     };
     private int[] logos = new int[]{
@@ -42,19 +44,40 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
             "https://m.facebook.com",
             "https://www.linkedin.com",
             "https://twitter.com",
-            "https://myaccount.google.com",
             "https://mobile.twitter.com",
             "https://api.twitter.com",
+            "https://myaccount.google.com",
+            "https://google.com",
+
     };
+    private Map<Integer, List<String>> domainMap = new HashMap<>();
 
     public SocialNetworkAccountsAdapter(@NonNull Context context, int resource) {
         super(context, resource);
         this.context = context;
+
+        ArrayList<String> fb = new ArrayList<>();
+        ArrayList<String> linkedin = new ArrayList<>();
+        ArrayList<String> twitter = new ArrayList<>();
+        ArrayList<String> google = new ArrayList<>();
+        fb.add(domains[0]);
+        linkedin.add(domains[1]);
+        twitter.add(domains[2]);
+        twitter.add(domains[3]);
+        twitter.add(domains[4]);
+        google.add(domains[5]);
+        google.add(domains[6]);
+
+        domainMap.put(0, fb);
+        domainMap.put(1, linkedin);
+        domainMap.put(2, twitter);
+        domainMap.put(3, google);
+
     }
 
     @Override
     public int getCount() {
-        return objects.length;
+        return names.length;
     }
 
     @NonNull
@@ -100,7 +123,7 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
 
         public void setData(final int position) {
 
-            tv.setText(objects[position]);
+            tv.setText(names[position]);
             logo.setBackgroundResource(logos[position]);
 
             if (!isLogged(position)) {
@@ -113,6 +136,8 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
                     @Override
                     public void onClick(View view) {
                         deleteCookieForDomain(position);
+                        Toast.makeText(context, names[position] + " cookies have been deleted", Toast.LENGTH_SHORT).show();
+                        notifyDataSetChanged();
                     }
                 });
             }
@@ -122,8 +147,9 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
         private boolean isLogged(int position) {
 
             CookieManager cookieManager = CookieManager.getInstance();
-            String cookiestring = cookieManager.getCookie(domains[position]);
+            String cookiestring = cookieManager.getCookie(domainMap.get(position).get(0));
             return cookiestring != null;
+
         }
     }
 
@@ -141,43 +167,8 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             cookieManager.flush();
         }
-        CookieSyncManager.getInstance().sync();
+        csm.sync();
 
-        Log.e("bla", "bla");
-    }
-
-    private void deleteWebViewCookiesForDomain(String domain) {
-        CookieSyncManager csm = CookieSyncManager.createInstance(context);
-        CookieManager cm = CookieManager.getInstance();
-
-    /* http://code.google.com/p/android/issues/detail?id=19294 */
-        if (Build.VERSION.SDK_INT < 11) {
-            if (domain.startsWith(".")) domain = domain.substring(1);
-        }
-
-    /* Cookies are stored by domain, and are not different for different schemes (i.e. http vs
-     * https) (although they do have an optional 'secure' flag.) */
-        String cookieGlob = cm.getCookie(domain);
-        if (cookieGlob != null) {
-            String[] cookies = cookieGlob.split(";");
-            for (String cookieTuple : cookies) {
-                String[] cookieParts = cookieTuple.split("=");
-
-            /* setCookie has changed a lot between different versions of Android with respect to
-             * how it handles cookies like these, which are set in order to clear an existing
-             * cookie.  This way of invoking it seems to work on all versions. */
-                cm.setCookie(domain, cookieParts[0] + "=;");
-            /* These calls have worked for some subset of the the set of all versions of
-             * Android:
-             */
-//            cm.setCookie(domain, cookieParts[0] + "=");
-//              cm.setCookie(domain, cookieParts[0]);
-            }
-            csm.sync();
-            if (Build.VERSION.SDK_INT > 20) {
-                cm.flush();
-            }
-        }
     }
 
     private void deleteCookieForDomain(int position) {
@@ -185,13 +176,17 @@ public class SocialNetworkAccountsAdapter extends ArrayAdapter<String> {
         CookieManager cm = CookieManager.getInstance();
 
         List<Pair<String, String>> otherDomains = new ArrayList<>();
-        int length = domains.length;
-        if (position == 2) {
-            length -= 2;
-        }
-        for (int i = 0; i < length; ++i) {
+//        int length = domains.length;
+//        if (position == 2) {
+//            length -= 2;
+//        }
+
+        for (int i = 0; i < names.length; ++i) {
             if (position != i)
-                otherDomains.add(new Pair<>(domains[i], cm.getCookie(domains[i])));
+                for (String domain : domainMap.get(i)) {
+                    Log.e("0[Domain]", domain);
+                    otherDomains.add(new Pair<>(domain, cm.getCookie(domain)));
+                }
         }
 
         for (int i = 0; i < otherDomains.size(); ++i) {

@@ -33,22 +33,17 @@ public class GoogleApps extends SocialNetworkAppsActivity {
         return GoogleAppList.class;
     }
 
-    public void startInjecting() {
 
-        if (!shouldInject) {
+    @Override
+    public void onPageCommitVisible() {
 
-            setUserAgent();
-            myWebView.loadUrl(getURL_MOBILE());
+    }
 
-            if (android.os.Build.VERSION.SDK_INT >= 21) {
-                CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
-            } else {
-                CookieManager.getInstance().setAcceptCookie(true);
-            }
-            initProgressDialog();
-            shouldInject = true;
+    @Override
+    public void onPageFinished() {
 
-        }
+        onPageListener();
+
     }
 
 }

@@ -69,7 +69,7 @@ public class BaseActivity extends AppCompatActivity implements ConnectivityRecei
         } else {
             if (alertDialog == null || !isShowing) {
                 isShowing = true;
-                showSocialNetworkDialog();
+//                showSocialNetworkDialog();
             }
         }
 

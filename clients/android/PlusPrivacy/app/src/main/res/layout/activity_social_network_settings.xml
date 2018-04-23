@@ -53,17 +53,185 @@
             android:id="@+id/sn_accounts_button"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:background="@color/social_network_button"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:textAllCaps="false"
             android:text="@string/social_netwrok_accounts"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/pager"-->
+            <!--android:layout_below="@id/header"-->
+            <!--android:layout_above="@id/sn_accounts_button"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <LinearLayout
             android:layout_below="@id/header"
-            android:layout_above="@id/sn_accounts_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <RelativeLayout
+                    android:id="@+id/facebook_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_weight="1"
+                    android:background="@color/social_network_settings_facebook">
+
+                    <ImageView
+                        android:alpha="0.6"
+                        android:id="@+id/rotation_dot_facebook"
+                        android:src="@drawable/white_dot"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignTop="@+id/facebook_circle"
+                        android:layout_marginTop="-9dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/facebook_circle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/circle_border_social_network_settings"
+                            android:padding="10dp"
+                            android:src="@drawable/facebook_logo" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/linkedin_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_weight="1"
+                    android:background="@color/social_network_settings_linkedin">
+
+                    <ImageView
+                        android:alpha="0.6"
+                        android:id="@+id/rotation_dot_linkedin"
+                        android:src="@drawable/white_dot"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignTop="@+id/linkedin_circle"
+                        android:layout_marginTop="-9dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/linkedin_circle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/circle_border_social_network_settings"
+                            android:padding="10dp"
+                            android:src="@drawable/linkedin_logo" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <RelativeLayout
+                    android:id="@+id/google_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_marginEnd="40dp"
+                    android:background="@color/social_network_settings_google"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:alpha="0.6"
+                        android:id="@+id/rotation_dot_google"
+                        android:src="@drawable/white_dot"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignTop="@+id/google_circle"
+                        android:layout_marginTop="-9dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/google_circle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/circle_border_social_network_settings"
+                            android:padding="10dp"
+                            android:src="@drawable/google_logo" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/twitter_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:background="@color/social_network_settings_twitter"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:alpha="0.6"
+                        android:id="@+id/rotation_dot_twitter"
+                        android:src="@drawable/white_dot"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignTop="@+id/twitter_circle"
+                        android:layout_marginTop="-9dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/twitter_circle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/circle_border_social_network_settings"
+                            android:padding="10dp"
+                            android:src="@drawable/twitter_logo" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

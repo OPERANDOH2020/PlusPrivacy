@@ -48,7 +48,9 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
         if (!shouldInject) {
 
-            myWebView.loadUrl(getURL());
+            if (!myWebView.getUrl().equals(getURL())) {
+                myWebView.loadUrl(getURL());
+            }
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {
                 CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
@@ -58,6 +60,11 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
             initProgressDialog();
             shouldInject = true;
+
+            if (myWebView.getUrl().equals(getURL())) {
+                onPageListener();
+            }
+
         }
     }
 
@@ -67,7 +74,7 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     public void onPageFinished() {
-
         onPageListener();
+
     }
 }

@@ -52,7 +52,7 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identities);
 
-        if (Storage.isUserLogged()){
+        if (Storage.isUserLogged()) {
             initUI();
             setActions();
         } else {
@@ -96,7 +96,7 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
     @Override
     protected void onResume() {
         super.onResume();
-        if (Storage.isUserLogged()){
+        if (Storage.isUserLogged()) {
             getIdentities();
         }
     }
@@ -122,12 +122,12 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
         Log.d("ide", "call() called with: getResult = [" + result + "]");
         identities = result.getIdentities();
 
-        setRealIdentity(identities);
+        setRealIdentity();
         identitiesELV.setAdapter(new IdentitiesExpandableListViewAdapter(IdentitiesActivity.this,
                 identities));
     }
 
-    private void setRealIdentity(ArrayList<Identity> identities) {
+    private void setRealIdentity() {
         if (identities.size() > 0) {
             for (int index = 0; index < identities.size(); ++index) {
                 Identity i = identities.get(index);
@@ -139,12 +139,14 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
                 }
                 if (i.isDefault()) {
                     defaultIdentity = i;
-                    if (defaultIdentity.equals(realIdentity)) {
-                        defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
-                                R.color.identities_button_inactive_background));
-                    } else {
-                        defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
-                                R.color.identities_button_active_background));
+                    if (defaultRealIdentity != null) {
+                        if (defaultIdentity.equals(realIdentity)) {
+                            defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
+                                    R.color.identities_button_inactive_background));
+                        } else {
+                            defaultRealIdentity.setBackgroundColor(ContextCompat.getColor(this,
+                                    R.color.identities_button_active_background));
+                        }
                     }
                 }
             }
@@ -167,7 +169,7 @@ public class IdentitiesActivity extends AuthenticationRequiredActivity implement
 
     public void updateIdentity(Identity identity, String method) {
 
-        if (identity.isDefault()){
+        if (identity.isDefault()) {
             Toast.makeText(this, R.string.default_identity_toast, Toast.LENGTH_SHORT).show();
             return;
         }

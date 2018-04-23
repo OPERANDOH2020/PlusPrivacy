@@ -72,6 +72,11 @@ public abstract class SocialNetworkAppsBaseWebActivity extends BaseActivity impl
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webSettings.setAllowContentAccess(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setDatabaseEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+
         myWebView.setWebViewClient(getWebViewClient());
 
         webAppInterface = getWebAppInterface();

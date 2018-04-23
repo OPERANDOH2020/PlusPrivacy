@@ -13,6 +13,7 @@ import io.paperdb.Paper;
  */
 
 public class Storage {
+
     private static void write(String key, @Nullable Object value) {
         if (value != null) {
             Paper.book().write(key, value);

@@ -28,4 +28,11 @@ public class FacebookAppList extends SocialNetworkAppsListActivity {
         return R.color.facebook_connected_apps;
     }
 
+    @Override
+    public void removeSocialApp(String appId) {
+
+        setUserAgent();
+        super.removeSocialApp(appId);
+    }
+
 }

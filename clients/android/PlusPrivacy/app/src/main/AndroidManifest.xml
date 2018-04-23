@@ -111,6 +111,12 @@
             android:screenOrientation="portrait"
             android:name=".activity.GoogleWebViewActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activity.SocialNetworkAccountsActivity"
+            android:theme="@style/AppTheme" />
+
         <activity
             android:screenOrientation="portrait"
             android:name=".activity.ScannerActivity"

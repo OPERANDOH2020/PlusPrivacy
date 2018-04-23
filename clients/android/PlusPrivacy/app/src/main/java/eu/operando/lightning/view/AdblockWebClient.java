@@ -151,28 +151,10 @@ public class AdblockWebClient extends WebViewClient {
         return super.shouldInterceptRequest(view, url);
     }
 
-//    private void registerInZone() {
-//        SwarmService.getInstance().startSwarm(new RegisterZoneSwarm("FEEDBACK_SUBMITTED"), new SwarmCallback<GetNotificationsSwarmEntity>() {
-//            @Override
-//            public void call(final GetNotificationsSwarmEntity result) {
-//                mActivity.runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Log.e("RegisterZoneSwarm", result.toString());
-//                    }
-//                });
-//            }
-//        });
-//    }
-
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public void onPageFinished(@NonNull WebView view, String url) {
         Log.e("AdblockWebCLient", url);
-//        if(url.contains("https://docs.google.com/forms/d/e/1FAIpQLSeZFVqG5GOKPT13qMihrgwJiIMYYENKKfbpBYN1Z5Q5ShDVuA/formResponse")){
-//            registerInZone();
-//            Log.e("AdblockWebCLient", "da " + url);
-//        }
 
         if (view.isShown()) {
             mUIController.updateUrl(url, true);

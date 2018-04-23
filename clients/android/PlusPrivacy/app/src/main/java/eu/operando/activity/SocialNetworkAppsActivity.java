@@ -64,7 +64,9 @@ public abstract class SocialNetworkAppsActivity extends SocialNetworkAppsBaseWeb
 
 
 //            setUserAgent();
-            myWebView.loadUrl(getURL_MOBILE());
+            if (!myWebView.getUrl().equals(getURL_MOBILE())){
+                myWebView.loadUrl(getURL_MOBILE());
+            }
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {
                 CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
@@ -78,7 +80,7 @@ public abstract class SocialNetworkAppsActivity extends SocialNetworkAppsBaseWeb
     }
 
     @Override
-    public void onPageListener() {
+    public void  onPageListener() {
 
         synchronized (mutex) {
             if (!triggered) {

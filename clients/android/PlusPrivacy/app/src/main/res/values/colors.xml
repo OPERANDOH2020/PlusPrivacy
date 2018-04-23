@@ -101,6 +101,7 @@
     <!-- social network settings screen -->
     <color name="social_network_settings_main_background">#dff3ff</color>
     <color name="social_network_settings_header_background">#75b8e5</color>
+    <color name="social_network_button">#3781b3</color>
     <color name="social_network_settings_header_background_opaque">#9e75b8e5</color>
     <color name="social_network_settings_facebook">#40599a</color>
     <color name="social_network_settings_facebook_alpha">#8040599a</color>
