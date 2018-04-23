@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ConnectedAppExpandedCellDelegate {
+    func unistallApp(appID: String)
+}
+
 class ConnectedAppExpandedCell: UITableViewCell {
 
     @IBOutlet weak var expandedCellDescription: UILabel!
@@ -15,10 +19,13 @@ class ConnectedAppExpandedCell: UITableViewCell {
     static let identifier = "ConnectedAppExpandedCell"
     private var permissions: [String]? = []
     private var callbacks: UIConnectedTableViewControllerCallbacks?
-    
+    private var appId: String?
     @IBOutlet weak var appImageView: UIImageView!
     @IBOutlet weak var viewPermissionsView: UIView!
     @IBOutlet weak var colorView: UIView!
+    
+    
+    var delegate:ConnectedAppExpandedCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +44,11 @@ class ConnectedAppExpandedCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func pressedUnistallButton(_ sender: Any) {
+        
+        if let appId = self.appId {
+            
+            delegate?.unistallApp(appID: appId)
+        }
     }
     
     @IBAction func pressedViewPermissionsButton(_ sender: Any) {
@@ -48,8 +60,9 @@ class ConnectedAppExpandedCell: UITableViewCell {
    
     func setupWith(app: ConnectedApp,callbacks: UIConnectedTableViewControllerCallbacks){
         self.expandedCellTitle.text = app.name
-        self.expandedCellDescription.text = "Privacy Poluttion: "
+        self.expandedCellDescription.text = "Privacy Polselfion: "
         self.permissions = app.permissions
+        self.appId = app.appId
         self.callbacks = callbacks
         
         if self.permissions == nil ||
@@ -60,9 +73,17 @@ class ConnectedAppExpandedCell: UITableViewCell {
             viewPermissionsView.isHidden = false
         }
         
-        if let appIconURL = app.iconURL,
-            let url = URL(string: appIconURL){
-            self.appImageView?.setImageWith(url)
+        if let appIconURL = app.iconURL
+        {
+            var modifiedURL1 = appIconURL.replace(target: "\\", withString: "%");
+            modifiedURL1 = modifiedURL1.replace(target: " ", withString: "");
+            modifiedURL1 = modifiedURL1.decodeUrl()
+            if modifiedURL1.contains(find: ".svg") == true {
+            }
+            else if let url = URL(string: modifiedURL1){
+                
+                self.appImageView?.setImageWith(url)
+            }
         }
     }
     

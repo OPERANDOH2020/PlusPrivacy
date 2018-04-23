@@ -12,6 +12,7 @@ import PPApiHooksCore
 
 let UISetPrivacyVCStoryboardId = "UISetPrivacyVCStoryboardId"
 let MozillaUserAgentId = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12"
+let MozillaUserAgentId2 = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0"
 
 struct UISetPrivacyViewControllerCallbacks {
     

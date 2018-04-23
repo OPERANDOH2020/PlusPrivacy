@@ -87,8 +87,6 @@ class ConnectedAppCell: UITableViewCell {
                
                 self.appImageView?.setImageWith(url)
             }
-            
-            
         }
     }
         

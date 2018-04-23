@@ -235,6 +235,10 @@
 		B93F97D520874AF000C82815 /* ConnectedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D420874AF000C82815 /* ConnectedApp.swift */; };
 		B93F97D7208759C800C82815 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */; };
 		B95D81CD2089D872008F8B48 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B95D81CC2089D872008F8B48 /* libxml2.tbd */; };
+		B95D81D22089E578008F8B48 /* remove_google_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81CE2089E576008F8B48 /* remove_google_app.js */; };
+		B95D81D32089E578008F8B48 /* remove_facebook_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81CF2089E576008F8B48 /* remove_facebook_app.js */; };
+		B95D81D42089E578008F8B48 /* remove_twitter_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81D02089E577008F8B48 /* remove_twitter_app.js */; };
+		B95D81D52089E578008F8B48 /* remove_linkedin_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81D12089E578008F8B48 /* remove_linkedin_app.js */; };
 		B9F8A4C52088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
@@ -676,6 +680,10 @@
 		B93F97D420874AF000C82815 /* ConnectedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedApp.swift; sourceTree = "<group>"; };
 		B93F97D6208759C800C82815 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		B95D81CC2089D872008F8B48 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		B95D81CE2089E576008F8B48 /* remove_google_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_google_app.js; sourceTree = "<group>"; };
+		B95D81CF2089E576008F8B48 /* remove_facebook_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_facebook_app.js; sourceTree = "<group>"; };
+		B95D81D02089E577008F8B48 /* remove_twitter_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_twitter_app.js; sourceTree = "<group>"; };
+		B95D81D12089E578008F8B48 /* remove_linkedin_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_linkedin_app.js; sourceTree = "<group>"; };
 		B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConnectedAppPermissionsListViewController.swift; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
@@ -2073,6 +2081,10 @@
 		C7550CE6208100720024C6E8 /* ConnectedAppsJS */ = {
 			isa = PBXGroup;
 			children = (
+				B95D81CF2089E576008F8B48 /* remove_facebook_app.js */,
+				B95D81CE2089E576008F8B48 /* remove_google_app.js */,
+				B95D81D12089E578008F8B48 /* remove_linkedin_app.js */,
+				B95D81D02089E577008F8B48 /* remove_twitter_app.js */,
 				C7550CE92081008B0024C6E8 /* facebook_apps.js */,
 				C7550CE82081008A0024C6E8 /* google_apps.js */,
 				C7550CEA2081008C0024C6E8 /* linkedin_apps.js */,
@@ -2955,6 +2967,7 @@
 				AD4AD5511F666D0C008E6E49 /* OPFeedbackFormTVCheckCell.xib in Resources */,
 				AD4AD54D1F666CF8008E6E49 /* OPFeedbackFormTVTextInputCell.xib in Resources */,
 				C7BAF33A20513C0800A9BFF0 /* linkedin.js in Resources */,
+				B95D81D42089E578008F8B48 /* remove_twitter_app.js in Resources */,
 				C7F795AD202363F8005DE7B3 /* linkedin-iOS.js in Resources */,
 				98EAF6761CCF86DC00C77649 /* Assets.xcassets in Resources */,
 				C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */,
@@ -2982,6 +2995,7 @@
 				C7F795E820248DDB005DE7B3 /* PrivacyWizardModule.js in Resources */,
 				98F647591ED30662008EB91E /* PPCommonTypesBundle.bundle in Resources */,
 				98387BC01DB75ACD00A76F01 /* UIDashboardButton.xib in Resources */,
+				B95D81D32089E578008F8B48 /* remove_facebook_app.js in Resources */,
 				9866A7B41DBF4B1000907D05 /* Localizable.strings in Resources */,
 				98D220BA1E7FFD1F00B3BD06 /* UIWebTabsListView.xib in Resources */,
 				9860B4551DB136C600AFE113 /* UIIdentitiesListView.xib in Resources */,
@@ -3014,6 +3028,7 @@
 				C7F795AF202363F8005DE7B3 /* OSP.Settings.js in Resources */,
 				9852C6E51CD0D82700AF2BE5 /* UIOperandoTitleView.xib in Resources */,
 				B93F97D0208603AC00C82815 /* PrivacyWizzardLogoutDashboardViewController.xib in Resources */,
+				B95D81D22089E578008F8B48 /* remove_google_app.js in Resources */,
 				98F647581ED30662008EB91E /* PPCommonUIBundle.bundle in Resources */,
 				C7F795AA202363F8005DE7B3 /* facebook_iOS.js in Resources */,
 				AD4AD5571F666D37008E6E49 /* OPFeedbackFormTVTitleCell.xib in Resources */,
@@ -3027,6 +3042,7 @@
 				C7F795E720248DDB005DE7B3 /* PrivacyWizard.js in Resources */,
 				C7F795AE202363F8005DE7B3 /* osp-settings.js in Resources */,
 				C76EC53A2056801600B26690 /* google_usual_settings.js in Resources */,
+				B95D81D52089E578008F8B48 /* remove_linkedin_app.js in Resources */,
 				C7F7950E20236129005DE7B3 /* UIRibonHeaderView.xib in Resources */,
 				C7F795B6202363F8005DE7B3 /* fbExtractData.js in Resources */,
 				982DF0641DB6618700231BBD /* UIPfbDealTableViewCell.xib in Resources */,

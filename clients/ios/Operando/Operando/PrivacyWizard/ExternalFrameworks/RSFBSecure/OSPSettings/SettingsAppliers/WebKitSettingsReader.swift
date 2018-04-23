@@ -25,6 +25,21 @@ extension WKWebView
         }
     }
     
+    func loadAndExecuteScriptNamed(scriptName: String,stringToReplace:String,with text:String, withCompletion completion: ((_ result: Any?, _ error: Error?) -> Void)?) {
+        
+        guard let filePath = Bundle.main.path(forResource: scriptName, ofType: "js") else {
+            completion?(nil, nil);
+            return
+        }
+        
+        if let jsString = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) {
+            
+            let modifiedJS = jsString.replacingOccurrences(of: stringToReplace, with: text)
+            self.evaluateJavaScript(modifiedJS, completionHandler: completion)
+        }
+        
+    }
+    
     func loadAndExecuteScriptNamed(scriptName: String, withCompletion completion: ((_ result: Any?, _ error: Error?) -> Void)?) {
         guard let filePath = Bundle.main.path(forResource: scriptName, ofType: "js"),
             let privacySettingsJson = ACPrivacyWriter.privacyOptionsJsonString()

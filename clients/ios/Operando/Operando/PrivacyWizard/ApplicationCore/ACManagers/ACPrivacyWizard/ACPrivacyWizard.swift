@@ -41,7 +41,7 @@ enum ACPrivacyWizardScope {
     func getAppsListUrl() -> String {
         switch self {
         case .facebook:
-            return "https://m.facebook.com/settings/apps/tabbed/"
+            return "https://www.facebook.com/settings?tab=applications"
         case .linkedIn:
             return "https://www.linkedin.com/psettings/permitted-services"
         case .twitter:
