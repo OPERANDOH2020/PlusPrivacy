@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import eu.operando.R;
-import eu.operando.adapter.FacebookSettingsListAdapter;
+import eu.operando.adapter.PrivacySettingsListAdapter;
 import eu.operando.tasks.AccordionOnGroupExpandListener;
 import eu.operando.customView.FacebookSettingsInfoDialog;
 import eu.operando.customView.OperandoProgressDialog;
@@ -52,7 +52,7 @@ import retrofit2.Response;
 public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
 
     private ExpandableListView questionsELV;
-    private FacebookSettingsListAdapter elvAdapter;
+    private PrivacySettingsListAdapter elvAdapter;
     public static final String PRIVACY_SETTINGS_TAG = "OSP_PRIVACY_SETTINGS";
     private OperandoProgressDialog progressDialog;
     private List<Question> questions;
@@ -128,7 +128,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
                     if (Storage.isUserLogged()) {
                         getUserPreferences();
                     } else {
-                        elvAdapter = new FacebookSettingsListAdapter(getContext(), questions,
+                        elvAdapter = new PrivacySettingsListAdapter(getContext(), questions,
                                 initCheckedStateFromRecommendedValues(), getSocialNetworkEnum());
                         questionsELV.setAdapter(elvAdapter);
                     }
@@ -162,7 +162,7 @@ public abstract class SocialNetworkFormBaseActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        elvAdapter = new FacebookSettingsListAdapter(getContext(), questions,
+                        elvAdapter = new PrivacySettingsListAdapter(getContext(), questions,
                                 checkedList, getSocialNetworkEnum());
                         questionsELV.setAdapter(elvAdapter);
                     }

@@ -13,8 +13,8 @@ android {
         applicationId "eu.operando"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 25
-        versionName "1.5.2.1"
+        versionCode 26
+        versionName "1.5.2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"

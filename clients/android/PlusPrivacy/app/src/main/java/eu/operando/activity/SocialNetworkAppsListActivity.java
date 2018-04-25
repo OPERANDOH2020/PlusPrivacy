@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -18,8 +17,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
@@ -35,7 +32,7 @@ import eu.operando.utils.WebAppI;
  * Created by Alex on 3/26/2018.
  */
 
-public abstract class SocialNetworkAppsListActivity extends SocialNetworkAppsBaseWebActivity implements MyWebViewClient.SocialNetworkInterface, ScannerListAdapter.RemoveAppInterface, ScannerListAdapter.SocialNetworkColor{
+public abstract class SocialNetworkAppsListActivity extends SocialNetworkWebViewBaseActivity implements MyWebViewClient.SocialNetworkInterface, ScannerListAdapter.RemoveAppInterface, ScannerListAdapter.SocialNetworkColor{
 
     private List<SocialNetworkApp> apps;
     private ExpandableListView listView;

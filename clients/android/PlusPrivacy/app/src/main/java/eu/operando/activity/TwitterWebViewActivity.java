@@ -1,10 +1,7 @@
 package eu.operando.activity;
 
 
-import android.os.Build;
-import android.view.View;
 import android.webkit.CookieManager;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import eu.operando.customView.MyWebViewClient;
@@ -13,7 +10,7 @@ import eu.operando.customView.MyWebViewClient;
  * Created by Alex on 1/23/2018.
  */
 
-public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
+public class TwitterWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     public String getURL_MOBILE() {
         return "https://mobile.twitter.com/settings/safety";

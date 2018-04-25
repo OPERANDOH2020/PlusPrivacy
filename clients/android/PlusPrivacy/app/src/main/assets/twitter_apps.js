@@ -35,10 +35,23 @@
         Android.onFinishedLoadingCallback(JSON.stringify(twitterApps));
     }
 
-    getApps(document.getElementsByTagName('html')[0].innerHTML);
+//    getApps(document.getElementsByTagName('html')[0].innerHTML);
+    doGetRequest("https://twitter.com/settings/applications", getApps);
 
 })();
 
+
+
+function doGetRequest(url, callback) {
+    var oReq = new XMLHttpRequest();
+    oReq.onreadystatechange = function () {
+        if (oReq.readyState == XMLHttpRequest.DONE) {
+            callback(oReq.responseText, true);
+        }
+    };
+    oReq.open("GET", url);
+    oReq.send();
+}
 
 
 

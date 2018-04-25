@@ -19,7 +19,7 @@ import eu.operando.utils.WebAppI;
  * Created by Alex on 3/26/2018.
  */
 
-public abstract class SocialNetworkAppsActivity extends SocialNetworkAppsBaseWebActivity {
+public abstract class SocialNetworkAppsActivity extends SocialNetworkWebViewBaseActivity {
 
     protected TextView actionDescription;
 

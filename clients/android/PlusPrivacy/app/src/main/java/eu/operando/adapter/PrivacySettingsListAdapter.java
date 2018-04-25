@@ -36,7 +36,7 @@ import eu.operando.models.privacysettings.Question;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
+public class PrivacySettingsListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<Question> questions;
@@ -45,7 +45,7 @@ public class FacebookSettingsListAdapter extends BaseExpandableListAdapter {
     private final String FACEBOOK_PREFS = "FACEBOOK_PREFS";
     private SocialNetworkEnum socialNetworkEnum;
 
-    public FacebookSettingsListAdapter(Context context, List<Question> linkedinQuestions, Map<Integer, Integer> checkedList, SocialNetworkEnum socialNetworkEnum) {
+    public PrivacySettingsListAdapter(Context context, List<Question> linkedinQuestions, Map<Integer, Integer> checkedList, SocialNetworkEnum socialNetworkEnum) {
         this.context = context;
         this.questions = linkedinQuestions;
         this.checkedState = checkedList;

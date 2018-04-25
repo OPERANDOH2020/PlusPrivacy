@@ -1,6 +1,5 @@
 package eu.operando.activity;
 
-import android.app.ProgressDialog;
 import android.webkit.WebViewClient;
 import eu.operando.customView.MyWebViewClient;
 import eu.operando.utils.WebAppI;
@@ -10,7 +9,7 @@ import eu.operando.utils.WebAppI;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class FacebookWebViewActivity extends SocialNetworkWebViewActivity {
+public class FacebookWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     public String getURL_MOBILE() {
         return "http://m.facebook.com";

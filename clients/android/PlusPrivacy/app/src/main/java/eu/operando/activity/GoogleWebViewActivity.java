@@ -7,16 +7,14 @@ import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 
-import eu.operando.R;
 import eu.operando.customView.MyWebViewClient;
 
 /**
  * Created by Alex on 2/16/2018.
  */
 
-public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
+public class GoogleWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     private int totalQuestions;
     private boolean shouldInjectUsualSettings = false;
@@ -40,7 +38,7 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     @Override
-    public SocialNetworkWebViewActivity.WebAppInterface getWebAppInterface() {
+    public SocialNetworkPrivacySettingsWebViewActivity.WebAppInterface getWebAppInterface() {
         return new GoogleWebAppInterface(this, privacySettingsString);
     }
 
@@ -115,7 +113,7 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         }
     }
 
-    public class GoogleWebAppInterface extends SocialNetworkWebViewActivity.WebAppInterface {
+    public class GoogleWebAppInterface extends SocialNetworkPrivacySettingsWebViewActivity.WebAppInterface {
 
         private int index = 0;
 

@@ -30,7 +30,7 @@ import eu.operando.utils.WebAppI;
  * Created by Alex on 3/28/2018.
  */
 
-public abstract class SocialNetworkAppsBaseWebActivity extends BaseActivity implements MyWebViewClient.SocialNetworkInterface {
+public abstract class SocialNetworkWebViewBaseActivity extends BaseActivity implements MyWebViewClient.SocialNetworkInterface {
 
     protected WebView myWebView;
     protected WebAppI webAppInterface;
@@ -96,6 +96,7 @@ public abstract class SocialNetworkAppsBaseWebActivity extends BaseActivity impl
         } else {
             cookieManager.setAcceptCookie(true);
         }
+        cookieManager.setCookie("https://twitter.com.twitter.com", "app_shell_visited=1; Max-Age=18; Path=/; Domain=.twitter.com;");
 
         myWebView.loadUrl(getURL_MOBILE());
     }

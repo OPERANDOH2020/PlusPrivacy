@@ -1,17 +1,13 @@
 package eu.operando.activity;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebViewClient;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,14 +20,13 @@ import java.io.InputStream;
 
 import eu.operando.R;
 import eu.operando.customView.MyWebViewClient;
-import eu.operando.storage.Storage;
 import eu.operando.utils.WebAppI;
 
 /**
  * Created by Alex on 1/19/2018.
  */
 
-public abstract class SocialNetworkWebViewActivity extends SocialNetworkAppsBaseWebActivity implements MyWebViewClient.SocialNetworkInterface {
+public abstract class SocialNetworkPrivacySettingsWebViewActivity extends SocialNetworkWebViewBaseActivity implements MyWebViewClient.SocialNetworkInterface {
 
     protected String privacySettingsString;
     protected CookieManager cookieManager;

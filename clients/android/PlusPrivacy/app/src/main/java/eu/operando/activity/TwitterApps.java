@@ -10,12 +10,12 @@ public class TwitterApps extends SocialNetworkAppsActivity {
 
     @Override
     public String getURL_MOBILE() {
-        return "https://twitter.com/settings/applications?lang=en";
+        return "https://twitter.com/settings/applications";
     }
 
     @Override
     protected String getURL() {
-        return "https://twitter.com/settings/applications?lang=en";
+        return "https://twitter.com/settings/applications";
     }
 
     @Override
