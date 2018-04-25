@@ -1,4 +1,40 @@
-removeTwitterApp(Android.getAppId());
+removeTwitterApp("LOCAL_APP_ID");
+
+var kMessageTypeKey = "messageType";
+var kLogMessageTypeContentKey = "logContent";
+var kLogMessageType = "log";
+
+var kStatusMessageMessageType = "statusMessageType";
+var kStatusDoneMessageType = "statusDoneMessageType"
+var kStatusMessageContentKey = "statusMessageContent";
+
+var webkitSendMessage = function(message) {
+    alert(message);
+};
+
+window.console = {};
+window.console.log = function(logMessage) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kLogMessageType;
+    webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    
+    webkitSendMessage(JSON.stringify(webkitMessage));
+    
+};
+
+var sendStatusMessage = function(settingName) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    webkitMessage[kStatusMessageContentKey] = settingName;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
+
+var sendDoneStatus = function() {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusDoneMessageType;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
+
 
 function removeTwitterApp(appId) {
     doGetRequest("https://twitter.com/settings/applications?lang=en", function (content) {
@@ -6,8 +42,8 @@ function removeTwitterApp(appId) {
             var _body = "token=" + appId + "&" + encodeURIComponent("scribeContext[component]")
                 + "=oauth_app&twttr=true&authenticity_token=" + data.token;
             doPOSTRequest("https://twitter.com/oauth/revoke", _body, function (response) {
-//                callback();
-                Android.onAppRemoved(appId);
+
+                          sendDoneStatus()
             })
         });
     })

@@ -42,9 +42,6 @@ function removeLinkedinApp(appId) {
             var _body = "id=" + appId + "&" + "type=OPEN_API" + "&" + "csrfToken=" + data.csrfToken;
             doPOSTRequest("https://www.linkedin.com/psettings/permitted-services/remove", _body, function (response) {
                           
-                          console.log(typeof(appId))
-                          console.log(response)
-                          
                 sendDoneStatus()
             });
         });

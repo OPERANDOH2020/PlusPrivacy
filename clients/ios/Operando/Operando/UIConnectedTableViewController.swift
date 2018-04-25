@@ -218,12 +218,12 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     private func getConnectedApps(dict: NSDictionary) {
         
+        ProgressHUD.dismiss()
         if dict.toConnectedApps().count == 0 {
             return
         }
         
         self.dataSource = dict.toConnectedApps()
-        ProgressHUD.dismiss()
         self.tableView.reloadData()
     }
     

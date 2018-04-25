@@ -1,5 +1,40 @@
 
-removeGoogleApp(Android.getAppId());
+removeGoogleApp("LOCAL_APP_ID");
+
+var kMessageTypeKey = "messageType";
+var kLogMessageTypeContentKey = "logContent";
+var kLogMessageType = "log";
+
+var kStatusMessageMessageType = "statusMessageType";
+var kStatusDoneMessageType = "statusDoneMessageType"
+var kStatusMessageContentKey = "statusMessageContent";
+
+var webkitSendMessage = function(message) {
+    alert(message);
+};
+
+window.console = {};
+window.console.log = function(logMessage) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kLogMessageType;
+    webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    
+    webkitSendMessage(JSON.stringify(webkitMessage));
+    
+};
+
+var sendStatusMessage = function(settingName) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    webkitMessage[kStatusMessageContentKey] = settingName;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
+
+var sendDoneStatus = function() {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusDoneMessageType;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
 
 function removeGoogleApp(appId) {
 
@@ -13,7 +48,7 @@ function removeGoogleApp(appId) {
             }
             url += '&hl=en&_reqid=' + tokens['req_id'] + '&rt=c';
             doPOSTRequest(url, body, function (response) {
-                Android.onAppRemoved(appId);
+                 sendDoneStatus()
             });
         });
     });
