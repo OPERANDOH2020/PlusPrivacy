@@ -1,12 +1,51 @@
-removeLinkedinApp(Android.getAppId());
+removeLinkedinApp("LOCAL_APP_ID");
+
+var kMessageTypeKey = "messageType";
+var kLogMessageTypeContentKey = "logContent";
+var kLogMessageType = "log";
+
+var kStatusMessageMessageType = "statusMessageType";
+var kStatusDoneMessageType = "statusDoneMessageType"
+var kStatusMessageContentKey = "statusMessageContent";
+
+var webkitSendMessage = function(message) {
+    alert(message);
+};
+
+window.console = {};
+window.console.log = function(logMessage) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kLogMessageType;
+    webkitMessage[kLogMessageTypeContentKey] = logMessage;
+    
+    webkitSendMessage(JSON.stringify(webkitMessage));
+    
+};
+
+var sendStatusMessage = function(settingName) {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
+    webkitMessage[kStatusMessageContentKey] = settingName;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
+
+var sendDoneStatus = function() {
+    var webkitMessage = {};
+    webkitMessage[kMessageTypeKey] = kStatusDoneMessageType;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
 
 function removeLinkedinApp(appId) {
-
+    
     doGetRequest("https://www.linkedin.com/psettings/permitted-services", function (content) {
         extractLinkedinToken(content, function (data) {
             var _body = "id=" + appId + "&" + "type=OPEN_API" + "&" + "csrfToken=" + data.csrfToken;
             doPOSTRequest("https://www.linkedin.com/psettings/permitted-services/remove", _body, function (response) {
-                Android.onAppRemoved(appId);
+                          
+                          console.log(typeof(appId))
+                          console.log(response)
+                          
+                sendDoneStatus()
             });
         });
     });

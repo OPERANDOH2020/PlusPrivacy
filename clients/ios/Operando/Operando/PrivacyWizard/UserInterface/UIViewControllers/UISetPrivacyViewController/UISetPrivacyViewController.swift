@@ -155,7 +155,6 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                 }
             }
             else if $0.range(of: "DONE PROGRESS") != nil {
-                print("E DE BINE")
                 let pat = "DONE PROGRESS item=([0-9]+)?total=([0-9]+)?"
                 
                 let matches = $0.capturedGroups(withRegex: pat)
