@@ -1,0 +1,600 @@
+# Copyright (C) 2017 FAQ
+# This file is distributed under the same license as the FAQ package.
+msgid ""
+msgstr ""
+"Project-Id-Version: FAQ 1.5.13\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ultimate-faqs\n"
+"POT-Creation-Date: 2017-01-05 17:46:11+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: Functions/EWD_UFAQ_Add_Social_Media_Buttons.php:4
+msgid "Check out this helpful FAQ"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Add_Views_Column.php:4
+msgid "# of Views"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Add_Views_Column.php:5 Main.php:85
+#: html/DashboardPage.php:182 html/OptionsPage.php:524
+#: html/OptionsPage.php:557 html/OptionsPage.php:655
+msgid "Categories"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Add_Views_Column.php:6
+msgid "Post ID"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:113
+msgid "FAQs added successfully."
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:125
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:128
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:131
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:134 Functions/EWD_UFAQ_Meta_Boxes.php:257
+msgid "No file was uploaded."
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:138
+msgid "Missing a temporary folder"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:141
+msgid "Failed to write file to disk"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:144
+msgid "File upload stopped by extension"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:148
+msgid "No error code avaiable"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:153
+msgid "No file was uploaded here.."
+msgstr ""
+
+#: Functions/EWD_UFAQ_Import.php:158
+msgid "File must be .csv, .xls or .xlsx"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:7
+msgid "Use the following shortcode to add this FAQ to a page:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:17
+msgid "FAQ shortcode for this category"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:22
+msgid "FAQ Details"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:51
+msgid "Author Display Name:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:62
+msgid "Up Votes:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:68
+msgid "Down Votes:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Meta_Boxes.php:207
+msgid " One or more custom field values were incorrect."
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:16
+msgid "FAQ was not created succesfully."
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:32
+msgid "New Question Received"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:34
+msgid "Hello Admin,"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:35
+msgid "You've received a new question titled"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:37
+msgid "The answer reads:<br>"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:40
+msgid ""
+"You can view the question in the admin area by going to the following link:"
+"<br>"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:41
+msgid "See the review"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:42
+msgid "Have a great day,"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Submit_Question.php:43
+msgid "Ultimate FAQs Team"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:7 html/DashboardPage.php:30
+msgid "Full Version"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:9 html/DashboardPage.php:32
+msgid "Upgrade to the full version "
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:9
+msgid ""
+"to take advantage of all the available features of the Ultimate FAQs for "
+"Wordpress!"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:10 html/DashboardPage.php:36
+msgid "What you get by upgrading:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:20 html/DashboardPage.php:46
+msgid "Product Key"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:23 html/DashboardPage.php:49
+msgid "Upgrade"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Upgrade_Box.php:37
+msgid "Upgrade Complete!"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:10
+msgid "UFAQ FAQ ID List"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:11
+msgid "Insert FAQ posts using a comma-separated list of post IDs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:33
+msgid "FAQ ID List"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:36
+msgid "FAQ ID List:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:65
+msgid "Recent FAQs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:66
+msgid "Insert a number of the most recent FAQs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:88 Functions/EWD_UFAQ_Widgets.php:143
+msgid "Number of FAQs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:91 Functions/EWD_UFAQ_Widgets.php:146
+msgid "Number of FAQs:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:120
+msgid "Popular FAQs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:121
+msgid "Insert a number of the most popular FAQs"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:175
+msgid "UFAQ FAQ Category List"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:176
+msgid "Insert FAQ posts using a comma-separated list of categories"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:198
+msgid "FAQ Category List"
+msgstr ""
+
+#: Functions/EWD_UFAQ_Widgets.php:201
+msgid "FAQ Category List:"
+msgstr ""
+
+#: Functions/EWD_UFAQ_WooCommerce_Tab.php:26
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:7
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:9 Main.php:82
+msgid "FAQs"
+msgstr ""
+
+#: Functions/Full_Upgrade.php:8
+msgid "Trial successfully started!"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (FAQ 1.5.13)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:8
+msgid "FAQ"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:10 Main.php:84
+msgid "Add New"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:11
+msgid "Add New FAQ"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:12
+msgid "Edit FAQ"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:13
+msgid "New FAQ"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:14
+msgid "View FAQ"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:15
+msgid "Search FAQs"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:16
+msgid "Nothing found"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:17
+msgid "Nothing found in Trash"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:46
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:56
+msgid "FAQ Categories"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:47
+msgid "FAQ Category"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:48
+msgid "Search FAQ Categories"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:49
+msgid "All FAQ Categories"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:50
+msgid "Parent FAQ Category"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:51
+msgid "Parent FAQ Category:"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:52
+msgid "Edit FAQ Category"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:53
+msgid "Update FAQ Category"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:54
+msgid "Add New FAQ Category"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:55
+msgid "New FAQ Category Name"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:66
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:76
+msgid "FAQ Tags"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:67
+msgid "FAQ Tag"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:68
+msgid "Search FAQ Tags"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:69
+msgid "All FAQ Tags"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:70
+msgid "Parent FAQ Tag"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:71
+msgid "Parent FAQ Tag:"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:72
+msgid "Edit FAQ Tag"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:73
+msgid "Update FAQ Tag"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:74
+msgid "Add New FAQ Tag"
+msgstr ""
+
+#: Functions/Register_EWD_UFAQ_Posts_Taxonomies.php:75
+msgid "New FAQ Tag Name"
+msgstr ""
+
+#: Functions/Update_EWD_UFAQ_Content.php:27
+msgid "The form has not worked correctly. Please contact the plugin developer."
+msgstr ""
+
+#: Main.php:77 html/MainScreen.php:3
+msgid "Dashboard"
+msgstr ""
+
+#: Main.php:79
+msgid "Approved FAQs"
+msgstr ""
+
+#: Main.php:80
+msgid "Awaiting Approval"
+msgstr ""
+
+#: Main.php:86 html/OptionsPage.php:525 html/OptionsPage.php:558
+#: html/OptionsPage.php:661
+msgid "Tags"
+msgstr ""
+
+#: Main.php:87
+msgid "Settings"
+msgstr ""
+
+#: Main.php:88
+msgid "Export"
+msgstr ""
+
+#: Main.php:89
+msgid "Import"
+msgstr ""
+
+#: Main.php:134 html/OptionsPage.php:749
+msgid "Retrieving Results"
+msgstr ""
+
+#: Main.php:289
+msgid "Next"
+msgstr ""
+
+#: Main.php:290
+msgid "Close"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:46
+msgid "Posted "
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:48
+msgid "by "
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:50
+msgid "on "
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:54
+msgid "Back to Top"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:56 html/OptionsPage.php:679
+msgid "Permalink"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:58
+msgid "No result FAQ's contained the term '%s'"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:197
+msgid "Expand All"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:198
+msgid "Collapse All"
+msgstr ""
+
+#: Shortcodes/DisplayFAQs.php:361
+msgid "Did you find this FAQ helpful?"
+msgstr ""
+
+#: Shortcodes/Display_FAQ_Search.php:21 html/OptionsPage.php:667
+msgid "Enter your question"
+msgstr ""
+
+#: Shortcodes/Display_FAQ_Search.php:23 html/OptionsPage.php:673
+msgid "Search"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:15
+msgid "Thank you for submitting an FAQ."
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:16 html/OptionsPage.php:701
+msgid "Submit a Question"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:17 html/OptionsPage.php:707
+msgid "Please fill out the form below to submit a question."
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:18 html/OptionsPage.php:713
+msgid "Send Question"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:27 html/OptionsPage.php:719
+msgid "Question Title"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:29 html/OptionsPage.php:725
+msgid "What question is being answered?"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:31 html/OptionsPage.php:731
+msgid "Proposed Answer"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:33
+msgid "FAQ Author"
+msgstr ""
+
+#: Shortcodes/SubmitFAQ.php:35
+msgid "What name should be displayed with your FAQ?"
+msgstr ""
+
+#: html/AdminHeader.php:2
+msgid "Ultimate FAQ Settings"
+msgstr ""
+
+#: html/DashboardPage.php:32
+msgid ""
+"to take advantage of all the available features of Ultimate FAQs for "
+"Wordpress!"
+msgstr ""
+
+#: html/DashboardPage.php:180
+msgid "Title"
+msgstr ""
+
+#: html/DashboardPage.php:181 html/OptionsPage.php:523
+#: html/OptionsPage.php:556
+msgid "Views"
+msgstr ""
+
+#: html/DashboardPage.php:196
+msgid ""
+"No FAQs to display yet. Create an FAQ and then view it for it to be "
+"displayed here."
+msgstr ""
+
+#: html/DashboardPage.php:238
+msgid "Recent Changes"
+msgstr ""
+
+#: html/DashboardPage.php:248
+msgid "Goes great with:"
+msgstr ""
+
+#: html/ImportPage.php:23
+msgid "Spreadhsheet Containing FAQs"
+msgstr ""
+
+#: html/MainScreen.php:4
+msgid "Orders"
+msgstr ""
+
+#: html/MainScreen.php:5
+msgid "Statuses"
+msgstr ""
+
+#: html/MainScreen.php:6
+msgid "Emails"
+msgstr ""
+
+#: html/MainScreen.php:7
+msgid "Options"
+msgstr ""
+
+#: html/OptionsPage.php:506
+msgid "Order Table"
+msgstr ""
+
+#: html/OptionsPage.php:507
+msgid ""
+"Drag and drop the posts below to reorder them, if you have 'Selected Order' "
+"set for the 'FAQ Ordering' option"
+msgstr ""
+
+#: html/OptionsPage.php:522 html/OptionsPage.php:555
+msgid "Question"
+msgstr ""
+
+#: html/OptionsPage.php:637
+msgid "Posted"
+msgstr ""
+
+#: html/OptionsPage.php:643
+msgid "By"
+msgstr ""
+
+#: html/OptionsPage.php:649
+msgid "On"
+msgstr ""
+
+#: html/OptionsPage.php:685
+msgid "Back To Top"
+msgstr ""
+
+#: html/OptionsPage.php:695
+msgid "Thank you for submitting an FAQ"
+msgstr ""
+
+#: html/OptionsPage.php:737
+msgid "Question Author"
+msgstr ""
+
+#: html/OptionsPage.php:743
+msgid "What name should be displayed with your question?"
+msgstr ""
+
+#: html/OptionsPage.php:755
+msgid "No results FAQ's contained the term '%s'"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (FAQ 1.5.13)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (FAQ 1.5.13)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://www.EtoileWebDesign.com/wordpress-plugins/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A plugin that lets you create FAQs (frequently asked questions), organize "
+"them, publicize them, etc."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Etoile Web Design"
+msgstr ""
