@@ -57,6 +57,52 @@ var facebookFirstPOSTInterceptor = function(message, callback){
     return interceptorCallback;
 };
 
+var twitterAppsRequestInterceptor = function(message, callback){
+
+    var twiterAppsInterceptorCallback = function (request) {
+
+        var headers = request.requestHeaders;
+
+        var getTwitterAppsHeader = headers.find(function(header){
+            return header.name.toLowerCase() === "get-twitter-apps";
+        });
+
+        if(getTwitterAppsHeader){
+            var insecureHeader = headers.find(function(header){
+                return header.name.toLowerCase() === "upgrade-insecure-requests";
+            });
+
+            if(!insecureHeader){
+                request.requestHeaders.push({name:"upgrade-insecure-requests", value:"1"});
+                request.requestHeaders.push({name:"referer", value:"https://twitter.com/"});
+                request.requestHeaders.push({name:"cache-control", value:"max-age=0"});
+            }
+
+            var cookieHeader = headers.find(function(header){
+                return header.name.toLowerCase() === "cookie";
+            });
+
+            cookieHeader.value +="; csrf_same_site=1";
+
+            setTimeout(function () {
+                webRequest.onBeforeSendHeaders.removeListener(twiterAppsInterceptorCallback)
+            }, 1000);
+
+
+            for (var i = 0; i < request.requestHeaders.length; ++i) {
+                var header = request.requestHeaders[i];
+                if (header.name === "get-twitter-apps") {
+                    request.requestHeaders.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+       return {requestHeaders: request.requestHeaders};
+
+    };
+    return twiterAppsInterceptorCallback;
+}
 
 var twitterHeadersRequestInterceptor = function (message, callback) {
 
@@ -196,6 +242,7 @@ var facebookOriginHeader = function(message, callback){
 
 interceptorPools.addBodyRequestInterceptor("facebook", ["*://www.facebook.com/*"],facebookFirstPOSTInterceptor);
 interceptorPools.addHeadersRequestsPoolInterceptor("twitter",["*://api.twitter.com/*"],twitterHeadersRequestInterceptor);
+interceptorPools.addHeadersRequestsPoolInterceptor("twitter-apps",["*://twitter.com/*"],twitterAppsRequestInterceptor);
 interceptorPools.addHeadersRequestsPoolInterceptor("dropbox",["*://www.dropbox.com/*"],dropboxHeadersRequestInterceptor);
 interceptorPools.addHeadersRequestsPoolInterceptor("change-referer",["<all_urls>"], changeReferer);
 interceptorPools.addHeadersRequestsPoolInterceptor("delete-fb-app",["<all_urls>"], facebookOriginHeader);
