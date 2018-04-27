@@ -1851,6 +1851,14 @@ visibility: visible;
     background-image:url("/operando/assets/images/menu_icons/blog.png");
 }
 
+.menu_icon.community_icon {
+    background-image:url("/operando/assets/images/menu_icons/community.png");
+}
+
+.menu_icon.faq_icon {
+    background-image:url("/operando/assets/images/menu_icons/faq.png");
+}
+
 .menu_icon.notifications_icon {
     background-image:url("/operando/assets/images/menu_icons/notifications.png");
 }
