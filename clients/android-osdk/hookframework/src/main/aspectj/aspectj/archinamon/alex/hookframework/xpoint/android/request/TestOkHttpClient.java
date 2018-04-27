@@ -5,6 +5,7 @@ import android.util.Log;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.MultipartBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
@@ -22,15 +23,18 @@ public class TestOkHttpClient {
     private final OkHttpClient client = new OkHttpClient();
 
     public void run() throws Exception {
-        RequestBody requestBody = new FormEncodingBuilder()
-                .add("smth", "data")
+        Log.e("TestOkHttpClient1", "TestOkHttpClient");
+        RequestBody requestBody = new MultipartBuilder()
+                .type(MultipartBuilder.FORM)
+                .addFormDataPart("someParam", "51.498134, -0.201755")
+                .addFormDataPart("bla", "blabla")
                 .build();
         Request request = new Request.Builder()
-                .url("http://httpbin.org")
-//                .url("http://publicobject.com/helloworld.txt")
+                .url("http://httpbin.org/post")
                 .post(requestBody)
                 .build();
         client.setConnectTimeout(15, TimeUnit.SECONDS);
+        Log.e("TestOkHttpClient2", "TestOkHttpClient");
         client.newCall(request).enqueue(new Callback() {
 
             @Override

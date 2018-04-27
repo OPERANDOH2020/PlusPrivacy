@@ -80,8 +80,9 @@ public abstract class Behavior<T> {
 
         String clazz = thisJoinPoint.getSignature().getDeclaringType().toString();
         String methodName = thisJoinPoint.getSignature().getName();
-        Object[] args = thisJoinPoint.getArgs();
-        Log.e("createEvent", clazz + " " + methodName + " " + args[0].toString());
+        Object[] args = thisJoinPoint.getArgs().length != 0 ? thisJoinPoint.getArgs() : new Object[]{""};
+        String strToShow = clazz + " " + methodName + " " + args[0].toString();
+        Log.e("createEvent", strToShow);
 
         AbstractEvent event = EventFactory.getInstance().getEvent(clazz, methodName, args);
         event.setInitialValue(thisJoinPoint.getThis());

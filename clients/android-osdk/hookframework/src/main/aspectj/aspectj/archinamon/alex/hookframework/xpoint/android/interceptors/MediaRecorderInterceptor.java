@@ -17,7 +17,7 @@ public class MediaRecorderInterceptor extends AbstractInterceptor<Void, Void> {
     }
 
     @Override
-    public Void afterCall(Void result) {
+    public Void afterCall(Void result, Object... args) {
         Log.e("MediaRecorderIntercept", "afterCall ");
         return null;
     }

@@ -18,7 +18,7 @@ public class CameraIntentInterceptor extends AbstractInterceptor<Intent, Intent>
     }
 
     @Override
-    public Intent afterCall(Intent result) {
+    public Intent afterCall(Intent result, Object... args) {
         Log.e("CameraIntentInterceptor", "afterCall ");
         return result;
     }

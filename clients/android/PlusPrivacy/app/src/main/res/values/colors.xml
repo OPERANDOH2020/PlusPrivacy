@@ -103,18 +103,23 @@
     <color name="social_network_settings_header_background">#75b8e5</color>
     <color name="social_network_button">#3781b3</color>
     <color name="social_network_settings_header_background_opaque">#9e75b8e5</color>
+
+    <!--Facebook-->
     <color name="social_network_settings_facebook">#40599a</color>
     <color name="social_network_settings_facebook_alpha">#8040599a</color>
     <color name="facebook_connected_apps">#a1b3e4</color>
 
+    <!--Linkedin-->
     <color name="social_network_settings_linkedin">#2878b7</color>
     <color name="social_network_settings_linkedin_child">#68a0ce</color>
     <color name="linkedin_connected_apps">#99c0df</color>
 
+    <!--Twitter-->
     <color name="social_network_settings_twitter">#53a3f8</color>
     <color name="social_network_settings_twitter_child">#89baef</color>
     <color name="twitter_connected_apps">#add1f9</color>
 
+    <!--Google-->
     <color name="social_network_settings_google">#5086f7</color>
     <color name="social_network_settings_google_child">#8aacf2</color>
     <color name="google_connected_apps">#b0c6f2</color>

@@ -18,7 +18,7 @@ public class OnLocationChangedInterceptor extends AbstractInterceptor<Void, Loca
     }
 
     @Override
-    public Void afterCall(Location result) {
+    public Void afterCall(Location result, Object... args) {
         Log.e("MyLocationInterceptor", "afterCall " + result.getLongitude() + " " + result.getLatitude());
 //        return null;
         return null;

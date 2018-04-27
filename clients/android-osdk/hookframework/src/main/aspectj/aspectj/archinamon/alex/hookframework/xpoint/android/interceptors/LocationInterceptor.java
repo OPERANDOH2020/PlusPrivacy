@@ -16,7 +16,7 @@ public class LocationInterceptor extends AbstractInterceptor<Location, Location>
     }
 
     @Override
-    public Location afterCall(Location result) {
+    public Location afterCall(Location result, Object... args) {
         result = new Location(LocationManager.NETWORK_PROVIDER);
         result.setLatitude(30.6);
         result.setLongitude(23.6);

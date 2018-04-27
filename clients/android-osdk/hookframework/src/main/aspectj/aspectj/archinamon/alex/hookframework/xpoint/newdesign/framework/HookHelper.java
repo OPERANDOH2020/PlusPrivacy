@@ -15,7 +15,7 @@ public class HookHelper {
     public final static String INTENT_CONSTRUCTOR = "<init>";
     public final static String INTENT_CONSTRUCTOR_SPEECH_TO_TEXT = "<init>android.speech.action.RECOGNIZE_SPEECH";
     public final static String BATTERY = "getIntExtra";
-    public final static String BUILD_OK_HTTP_REQUEST = "build";
+    public final static String BUILD_OK_HTTP_REQUEST = "newCall";
     public final static String SOCKET_GET_INPUT_STREAM = "getInputStream";
 
 }

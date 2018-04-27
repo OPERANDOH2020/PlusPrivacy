@@ -16,7 +16,7 @@ public class BatteryInterceptor extends AbstractInterceptor<Integer, Integer> {
     }
 
     @Override
-    public Integer afterCall(Integer result) {
+    public Integer afterCall(Integer result, Object... args) {
         Log.w("hookBattery", "afterCall");
         return result;
     }

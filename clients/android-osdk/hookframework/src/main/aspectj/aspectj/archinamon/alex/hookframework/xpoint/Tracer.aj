@@ -28,7 +28,7 @@ privileged aspect Tracer {
         String threadName = thread.getName();
         String threadId = String.valueOf(thread.getId());
 
-		Log.d("Method ->", indent + methodName + "(" + argType + ") { // " + fileName + ":" + line + " [" + threadName + ":" + threadId + "]");
+		//Log.d("Method ->", indent + methodName + "(" + argType + ") { // " + fileName + ":" + line + " [" + threadName + ":" + threadId + "]");
 
 		indentationLevel++;
 	}
@@ -48,6 +48,6 @@ privileged aspect Tracer {
         String threadName = thread.getName();
         String threadId = String.valueOf(thread.getId());
 
-		Log.d("Method <-", indent + "} // " + methodName + "() " + fileName + ":" + line + " [" + threadName + ":" + threadId + "]");
+		//Log.d("Method <-", indent + "} // " + methodName + "() " + fileName + ":" + line + " [" + threadName + ":" + threadId + "]");
 	}
 }

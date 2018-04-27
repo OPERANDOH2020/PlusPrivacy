@@ -18,7 +18,7 @@ public class SensorInterceptor extends AbstractInterceptor<Void, SensorEvent> {
     }
 
     @Override
-    public Void afterCall(SensorEvent result) {
+    public Void afterCall(SensorEvent result, Object... args) {
         Log.w("hookSensors", "afterCall");
         return null;
     }

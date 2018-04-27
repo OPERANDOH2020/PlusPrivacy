@@ -4,11 +4,8 @@
     <modules>
       <module fileurl="file://D:\GitHub\PlusPrivacy\clients\android-osdk\OSDK.iml" filepath="D:\GitHub\PlusPrivacy\clients\android-osdk\OSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-osdk.iml" filepath="$PROJECT_DIR$/android-osdk.iml" />
-      <module fileurl="file://D:\GitHub\PlusPrivacy\clients\android-osdk\android-osdk.iml" filepath="D:\GitHub\PlusPrivacy\clients\android-osdk\android-osdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidsdk/androidsdk.iml" filepath="$PROJECT_DIR$/androidsdk/androidsdk.iml" />
-      <module fileurl="file://D:\GitHub\PlusPrivacy\clients\android-osdk\androidsdk\androidsdk.iml" filepath="D:\GitHub\PlusPrivacy\clients\android-osdk\androidsdk\androidsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\GitHub\PlusPrivacy\clients\android-osdk\app\app.iml" filepath="D:\GitHub\PlusPrivacy\clients\android-osdk\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/hookframework/hookframework.iml" filepath="$PROJECT_DIR$/hookframework/hookframework.iml" />
     </modules>
   </component>

@@ -107,7 +107,7 @@ privileged aspect HookAdapter {
     public pointcut callOkHttp(): call(* com.squareup.okhttp.*.*(..));
 
     Object around():
-            callSocket() || callURL() || callHttpURLConnection() || callOkHttp()
+            callSocket() || callURL() || callHttpURLConnection()
                     || callSocketChannel() || callSocketImpl() || callInetAddress() || callURLConnection() ||
                     callUri() || callApacheHttpClient() || callSocketFactory() || callInetSocketAddress() {
 //        Log.e("callNewSocket", thisJoinPoint.getArgs()[0].toString());
@@ -116,12 +116,13 @@ privileged aspect HookAdapter {
         return proceed();
     }
 
-    public pointcut callRequestBodyOkHttp(): call(* com.squareup.okhttp.FormEncodingBuilder.build());
+    public pointcut callRequestBodyOkHttp(): call(* com.squareup.okhttp.OkHttpClient.newCall(..));
     Object around(): callRequestBodyOkHttp() {
 
+        Log.e("callRequestBody", "callRequestBody");
         return new Behavior<Object>(hookFramework, thisJoinPoint) {
 
-            public boolean check(JoinPoint thisJoinPoint) {
+            /*public boolean check(JoinPoint thisJoinPoint) {
 
                 Field field = null;
                 try {
@@ -136,7 +137,7 @@ privileged aspect HookAdapter {
                     e.printStackTrace();
                 }
                 return true;
-            }
+            }*/
 
             @Override
             public Object pluginNotRegistered() {
@@ -151,7 +152,7 @@ privileged aspect HookAdapter {
             @Override
             public Object afterCallReturn(AbstractEvent event, AbstractInterceptor interceptor) {
                 event.modifyValue(proceed());
-                return interceptor.afterCall(event.getValue());
+                return interceptor.afterCall(event.getValue(), thisJoinPoint.getArgs());
             }
         }.run();
     }

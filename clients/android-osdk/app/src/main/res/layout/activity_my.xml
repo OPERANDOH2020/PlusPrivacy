@@ -46,6 +46,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/speech_to_text" />
 
+            <Button
+                android:id="@+id/scd_btn"
+                android:text="@string/scd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/eula_btn"
+                android:text="@string/eula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/speechto_text_result_tv"
                 android:layout_width="wrap_content"

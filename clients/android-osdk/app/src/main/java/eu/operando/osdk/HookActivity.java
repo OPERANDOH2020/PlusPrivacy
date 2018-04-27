@@ -43,6 +43,7 @@ import aspectj.archinamon.alex.hookframework.xpoint.android.request.TestOkHttpCl
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.framework.HookHelper;
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.plugin.AbstractPlugin;
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.plugin.Plugin;
+import aspectj.archinamon.alex.hookframework.xpoint.newdesign.semanticfirewall.stringmatching.MultipleExactStringMatcher;
 
 /**
  * Created by Alex on 3/20/2018.
@@ -72,14 +73,19 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
 
         initHooks();
 
-        initLocation(LocationManager.NETWORK_PROVIDER);
+        initLocation(LocationManager.GPS_PROVIDER);
         initSensors();
         initBattery();
         initRequest();
+        initTestMatching();
 
         StringBuilder sb = new StringBuilder();
         sb.append("Hello, world");
         ((TextView) findViewById(R.id.greeting)).setText(sb.toString());
+    }
+
+    private void initTestMatching() {
+        new MultipleExactStringMatcher().testMatchers();
     }
 
     private void initRequest() {
@@ -102,7 +108,8 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
     private void initHooks() {
 
         AbstractPlugin plugin = new Plugin(HookHelper.GET_LAST_KNOWN_LOCATION, new LocationInterceptor());
-        plugin.add(HookHelper.ON_LOCATION_CHANGED, new OnLocationChangedInterceptor());
+//        plugin.add(HookHelper.ON_LOCATION_CHANGED, new OnLocationChangedInterceptor());
+        new Plugin(HookHelper.ON_LOCATION_CHANGED, new OnLocationChangedInterceptor());
 
         new Plugin(HookHelper.BATTERY, new BatteryInterceptor());
         new Plugin(HookHelper.ON_SENSOR_CHANGED, new SensorInterceptor());
@@ -116,6 +123,8 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
     private Button recordButton;
     private Button photoButton;
     private Button speechToTextButton;
+    private Button scdBtn;
+    private Button eulaBtn;
     private TextView speechToTextTV;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int SPEECH_REQUEST_CODE = 0;
@@ -124,8 +133,24 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
         recordButton = (Button) findViewById(R.id.record_btn);
         photoButton = (Button) findViewById(R.id.photo_btn);
         speechToTextButton = (Button) findViewById(R.id.speech_to_text_btn);
+        scdBtn = (Button) findViewById(R.id.scd_btn);
+        eulaBtn = (Button) findViewById(R.id.eula_btn);
         speechToTextTV = (TextView) findViewById(R.id.speechto_text_result_tv);
 
+        scdBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        eulaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,7 +237,7 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
                     Location location = locationManager.getLastKnownLocation(provider);
                     // Initialize the location fields
                     if (location != null) {
-                        System.out.println("Provider " + provider + " has been selected.");
+                        Log.e("Provider ", provider + " has been selected.");
                         onLocationChanged(location);
                     } else {
                         Log.e("Provider", "Location not available");
@@ -260,32 +285,32 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           String permissions[], int[] grantResults) {
-//        switch (requestCode) {
-//            case MY_PERMISSIONS_REQUEST_LOCATION: {
-//                // If request is cancelled, the result arrays are empty.
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                    // permission was granted, yay! Do the
-//                    // location-related task you need to do.
-//                    if (ContextCompat.checkSelfPermission(this,
-//                            Manifest.permission.ACCESS_FINE_LOCATION)
-//                            == PackageManager.PERMISSION_GRANTED) {
-//
-//                        //Request location updates:
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION)
+                            == PackageManager.PERMISSION_GRANTED) {
+
+                        //Request location updates:
 //                        hookEvent.requestLocationUpdates(provider, 400, 1, this);
-//                    }
-//                } else {
-//                    // permission denied, boo! Disable the
-//                    // functionality that depends on this permission.
-//                }
-//                return;
-//            }
-//        }
-//    }
+                    }
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+        }
+    }
 
     @Override
     public void onLocationChanged(Location location) {
@@ -346,15 +371,15 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
     @Override
     protected void onResume() {
         super.onResume();
-//        if (checkLocationPermission()) {
-//            if (ContextCompat.checkSelfPermission(this,
-//                    Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//
-//                //Request location updates:
-//                locationManager.requestLocationUpdates(provider, 400, 1, this);
-//            }
-//        }
+        if (checkLocationPermission()) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+
+                //Request location updates:
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 400, 1, this);
+            }
+        }
 //        sensorManager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL);
 //        sensorManager.registerListener(this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
 //        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
@@ -366,7 +391,7 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
     @Override
     protected void onPause() {
         super.onPause();
-//        locationManager.removeUpdates(this);
+        locationManager.removeUpdates(this);
         sensorManager.unregisterListener(this);
     }
 }

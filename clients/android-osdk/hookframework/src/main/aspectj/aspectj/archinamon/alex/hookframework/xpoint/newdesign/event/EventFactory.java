@@ -63,7 +63,7 @@ public class EventFactory {
 //                return new CommonEvent(methodName);
 //        }
         try {
-            Log.e("getAbstractEvent", methodName + args[0].toString());
+            Log.e("getAbstractEvent", methodName /*+ args[0].toString()*/);
             EventSignature eventSignature = hashMap.get(methodName);
             AbstractEvent event = (AbstractEvent) eventSignature.getClazz()
                     .getDeclaredConstructor(String.class).newInstance(
