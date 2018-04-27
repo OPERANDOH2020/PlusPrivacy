@@ -12,9 +12,8 @@ import com.anthonycr.bonsai.Schedulers;
 
 import javax.inject.Inject;
 
-import eu.operando.R;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.activity.TabsManager;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.preference.PreferenceManager;
@@ -40,7 +39,7 @@ public class BrowserPresenter {
     private boolean mShouldClose;
 
     public BrowserPresenter(@NonNull BrowserView view, boolean isIncognito) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mTabsModel = ((UIController) view).getTabModel();
         mView = view;
         mIsIncognito = isIncognito;
@@ -102,8 +101,8 @@ public class BrowserPresenter {
             } else {
                 if (mCurrentTab != null) {
                     // TODO: Restore this when Google fixes the bug where the WebView is
-                    // blank after calling onPause followed by onResume.
-                    // mCurrentTab.onPause();
+                    // blank after calling saveState followed by onLoading.
+                    // mCurrentTab.saveState();
                     mCurrentTab.setIsForegroundTab(false);
                 }
 
@@ -323,6 +322,7 @@ public class BrowserPresenter {
         if (mTabsModel.size() == 1) {
             startingTab.resumeTimers();
         }
+        startingTab.setAdBlock();
 
         mView.notifyTabViewAdded();
 

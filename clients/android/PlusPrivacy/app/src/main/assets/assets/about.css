@@ -1,0 +1,38 @@
+body{
+background:#FFDCA0;
+min-width:320px;
+}
+h4{
+text-align: left;
+text-indent:70px;
+color:#824d00;
+font-size:18px;
+padding:10px;
+}
+
+ul li,
+ul{
+	padding:0;
+	margin:0;
+}
+ul li{
+list-style:none;
+width:50%;
+float:left;
+padding-top:10px;
+padding-bottom:10px;
+
+}
+ul li a{
+background:url(images/github.png) no-repeat left center;
+padding:20px 10px 20px 60px;
+color:#824d00;
+font-size:24px;
+text-decoration:none;
+}
+#header{
+	width:100%;
+	background:url(images/header.png) no-repeat center top;
+	height:270px;
+	display:block;
+}

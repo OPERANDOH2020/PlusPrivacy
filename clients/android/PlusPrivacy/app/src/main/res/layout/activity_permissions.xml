@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/scanner_background"
+    android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolb"
-        layout="@layout/secondary_toolbar"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/scanner_main_color"
+        app:theme="@style/ToolbarStyle"
+        app:title="Permissions"
+        app:titleTextColor="@color/white" />
+
+    <TextView
+        android:id="@+id/no_permissions"
+        android:layout_below="@id/toolbar"
+        android:textColor="@color/scanner_button_background"
+        android:textSize="14sp"
+        android:text="@string/the_app_doesn_t_need_permissions"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <ListView
-        android:layout_below="@id/toolb"
         android:id="@+id/lv"
-        android:background="@android:color/white"
+        android:paddingTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/scanner_background"
+        android:divider="@color/scanner_background"
+        android:dividerHeight="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>

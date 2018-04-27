@@ -9,8 +9,8 @@ import android.support.annotation.NonNull;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.preference.PreferenceManager;
 import eu.operando.lightning.utils.Utils;
 
@@ -25,7 +25,7 @@ public class DebugSettingsFragment extends PreferenceFragment implements Prefere
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         addPreferencesFromResource(R.xml.preference_debug);
 
         mSwitchLeakCanary = (SwitchPreference) findPreference(LEAK_CANARY);

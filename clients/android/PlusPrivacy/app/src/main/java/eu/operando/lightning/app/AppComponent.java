@@ -2,7 +2,7 @@ package eu.operando.lightning.app;
 
 import javax.inject.Singleton;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.activity.SettingsActivity;
 import eu.operando.lightning.activity.BrowserActivity;
 import eu.operando.lightning.activity.ReadingActivity;
@@ -48,7 +48,7 @@ public interface AppComponent {
 
     void inject(LightningPreferenceFragment fragment);
 
-    void inject(BrowserApp app);
+    void inject(PlusPrivacyApp app);
 
     void inject(ReadingActivity activity);
 

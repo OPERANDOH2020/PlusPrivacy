@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:\GitHub\PlusPrivacy\clients\android-osdk\OSDK.iml" filepath="D:\GitHub\PlusPrivacy\clients\android-osdk\OSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-osdk.iml" filepath="$PROJECT_DIR$/android-osdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidsdk/androidsdk.iml" filepath="$PROJECT_DIR$/androidsdk/androidsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="10dp"
+    android:background="@color/identities_background"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/identities_button_inactive_background"
+        android:layout_height="0.1dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:alpha="0.7"
+        android:layout_height="0.1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/identities_list_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/make_default"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1.5  "
+            android:background="@color/identities_button_active_background"
+            android:gravity="center"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
+            android:textColor="@color/notification_button_font_color">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:layout_marginEnd="@dimen/button_icon_margin_right"
+                android:src="@drawable/white_bulb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/make_default"
+                android:textColor="@color/notification_button_font_color"
+                android:textSize="@dimen/button_font_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/copy_to_clipboard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.8"
+            android:background="@color/identities_button_active_background"
+            android:gravity="center"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:textColor="@color/notification_button_font_color">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/button_icon_margin_right"
+                android:src="@drawable/copy_clipboard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/copy"
+                android:textColor="@color/notification_button_font_color"
+                android:textSize="@dimen/button_font_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/remove_identity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:background="@color/identities_button_active_background"
+            android:gravity="center"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
+            android:textColor="@color/notification_button_font_color">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:layout_marginEnd="@dimen/button_icon_margin_right"
+                android:src="@drawable/delete_identity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/remove"
+                android:textAllCaps="false"
+                android:textColor="@color/notification_button_font_color"
+                android:textSize="@dimen/button_font_size" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

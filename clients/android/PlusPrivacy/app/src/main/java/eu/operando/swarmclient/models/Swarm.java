@@ -1,7 +1,5 @@
 package eu.operando.swarmclient.models;
 
-import org.json.JSONObject;
-
 import java.io.Serializable;
 
 /**
@@ -10,6 +8,7 @@ import java.io.Serializable;
 
 public class Swarm implements Serializable {
     private SwarmMeta meta;
+    private Object error;
 
     public Swarm(String swarmingName, String phase, String command, String ctor, String tenantId, Object commandArguments) {
         meta = new SwarmMeta(swarmingName, phase, command, ctor, tenantId, commandArguments);
@@ -23,10 +22,15 @@ public class Swarm implements Serializable {
         return meta;
     }
 
+    public Object getError() {
+        return error;
+    }
+
     @Override
     public String toString() {
         return "Swarm{" +
                 "meta=" + meta +
+                "error =" + error +
                 '}';
     }
 

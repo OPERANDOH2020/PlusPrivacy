@@ -5,7 +5,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
+    android:background="@color/menu_5"
     android:elevation="2dp"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
@@ -21,6 +21,7 @@
         android:layout_height="?attr/actionBarSize"
         android:paddingBottom="0dp"
         android:paddingLeft="0dp"
+        android:background="@color/menu_5"
         android:paddingRight="0dp"
         android:paddingTop="2dp"
         custom:contentInsetEnd="0dp"
@@ -29,7 +30,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/progressBackgroundColor">
+        android:background="@color/menu_5">
 
         <com.anthonycr.progress.AnimatedProgressBar
             android:id="@+id/progress_view"

@@ -8,10 +8,6 @@
             android:title="@string/flash" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="cb_ads"
-            android:title="@string/block_ads" />
-        <CheckBoxPreference
-            android:defaultValue="false"
             android:key="cb_images"
             android:title="@string/block" />
         <CheckBoxPreference

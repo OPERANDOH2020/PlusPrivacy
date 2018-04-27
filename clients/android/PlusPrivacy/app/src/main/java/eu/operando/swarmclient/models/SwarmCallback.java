@@ -3,7 +3,6 @@ package eu.operando.swarmclient.models;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
@@ -17,9 +16,14 @@ public abstract class SwarmCallback<T extends Swarm> {
     private String resultEvent;
     private Class<? extends T> type;
 
+    public Class<? extends T> getType() {
+        return type;
+    }
+
     @SuppressWarnings("unchecked")
     public SwarmCallback() {
         this.type = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        Log.e("SwarmCallback type", type.getName());
     }
 
     public void setResultEvent(String resultEvent) {

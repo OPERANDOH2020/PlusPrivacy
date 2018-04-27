@@ -1,70 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE8CF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/identities_background"
     android:orientation="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_above="@+id/addIdentityBtn"
-                  android:background="#FFE8CF"
+                  android:background="@color/identities_background"
                   android:orientation="vertical">
 
-        <include
-            android:id="@+id/toolb"
-            layout="@layout/secondary_toolbar"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/identities_toolbar"
+            app:title="Identity Management"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/identities_main_color"
+            app:theme="@style/ToolbarStyle"
+            >
+
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fec742">
+            android:paddingLeft="15dp"
+            android:paddingEnd="15dp"
+            android:background="@color/identities_list_background">
 
             <ImageView
                 android:id="@+id/mailIV"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="15dp"
+                android:layout_margin="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/real_identity"/>
+                android:src="@drawable/default_identity"/>
 
-            <TextView
-                android:id="@+id/realIdentityTV"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/mailIV"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"/>
+                android:layout_toEndOf="@id/mailIV"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/realIdentityTV"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@id/mailIV"
-                android:text="@string/real_identity"
-                android:textColor="#af7d08"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/realIdentityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/identities_button_active_background"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/realIdentityTV"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/real_identity"
+                        android:textColor="@color/identities_button_active_background"
+                        android:textSize="14sp"
+                        android:textStyle="italic"/>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/default_real_identity"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:paddingEnd="5dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/notification_button_font_color"
+                    android:background="@color/identities_button_active_background"
+                    >
+
+                    <ImageView
+                        android:src="@drawable/white_bulb"
+                        android:layout_marginEnd="3dp"
+                        android:layout_width="20dp"
+                        android:layout_height="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/notification_button_font_color"
+                        android:textSize="14sp"
+                        android:text="Default"
+                        android:textAllCaps="false"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:background="@color/identities_main_color"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/identitiesIV"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/identities"/>
+                android:src="@drawable/alternative_identities"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -73,24 +130,50 @@
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@id/identitiesIV"
                 android:text="@string/alternative_identities"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"/>
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+
         </RelativeLayout>
-        <ListView
-            android:id="@+id/identitiesLV"
-            android:divider="@android:color/black"
+
+        <ExpandableListView
+
+            android:background="@color/identities_list_background"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/identities_elv"
+            android:divider="@color/identities_background"
+            android:dividerHeight="0dp"
+            android:groupIndicator="@null"
             android:layout_width="match_parent"
-            android:dividerHeight="1dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
     </LinearLayout>
-    <TextView
+
+    <LinearLayout
         android:id="@+id/addIdentityBtn"
-        android:background="#00a493"
-        android:textColor="@android:color/white"
-        android:text="@string/add_identity"
-        android:textSize="24sp"
+        android:background="@color/identities_button_active_background"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="70dp"/>
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:src="@drawable/add_identity"
+            android:layout_marginEnd="10dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:textColor="@android:color/white"
+            android:text="@string/add_identity"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </RelativeLayout>

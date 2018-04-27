@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:id="@+id/fragment_has_submited_feedback_container"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:text="@string/feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:padding="20dp"
+        android:text="@string/thank_you_for_your_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/fragment_feedback_change_response"
+        android:onClick="onClickChangeFeedbackResponse"
+        android:text="@string/change_response"
+        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

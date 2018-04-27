@@ -104,7 +104,7 @@ public class PreferenceManager {
     }
 
     public boolean getAdBlockEnabled() {
-        return mPrefs.getBoolean(Name.BLOCK_ADS, false);
+        return mPrefs.getBoolean(Name.BLOCK_ADS, true);
     }
 
     public boolean getBlockImagesEnabled() {
@@ -112,7 +112,7 @@ public class PreferenceManager {
     }
 
     public boolean getBlockThirdPartyCookiesEnabled() {
-        return mPrefs.getBoolean(Name.BLOCK_THIRD_PARTY, false);
+        return mPrefs.getBoolean(Name.BLOCK_THIRD_PARTY, true);
     }
 
     public boolean getCheckedForTor() {
@@ -182,7 +182,7 @@ public class PreferenceManager {
     }
 
     public boolean getLocationEnabled() {
-        return mPrefs.getBoolean(Name.LOCATION, false);
+        return mPrefs.getBoolean(Name.LOCATION, true);
     }
 
     public boolean getOverviewModeEnabled() {
@@ -289,11 +289,11 @@ public class PreferenceManager {
     }
 
     public boolean getDoNotTrackEnabled() {
-        return mPrefs.getBoolean(Name.DO_NOT_TRACK, false);
+        return mPrefs.getBoolean(Name.DO_NOT_TRACK, true);
     }
 
     public boolean getRemoveIdentifyingHeadersEnabled() {
-        return mPrefs.getBoolean(Name.IDENTIFYING_HEADERS, false);
+        return mPrefs.getBoolean(Name.IDENTIFYING_HEADERS, true);
     }
 
     public boolean getUseBlackStatusBar() {

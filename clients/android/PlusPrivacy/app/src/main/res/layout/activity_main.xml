@@ -1,225 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:layout_height="match_parent">
+    <!-- The main content view -->
 
-    <RelativeLayout
-        android:id="@+id/activity_main"
+    <include
+        layout="@layout/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="match_parent" />
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"/>
+
+    <!--android:layout_gravity="start"-->
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/menu_background"
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/real_identity_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:layout_margin="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_identities"/>
+            android:background="@color/white"
+            android:layout_height="100dp">
 
             <TextView
-                android:id="@+id/tv_identity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:textColor="@color/menu_title"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/your_real_identity"
-                android:textSize="18sp"/>
+                android:text="@string/plusprivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/logo_circle_layout"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/circle_layout">
+
+            <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo_background_transparent" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/real_identity_l"
+            android:layout_below="@id/logo_circle_layout"
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/real_identity"
+                android:textColor="@color/menu_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_identity"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
+                android:layout_height="wrap_content" />
 
-            <ImageView
+            <TextView
+                android:text="@string/real_identity"
+                android:textStyle="italic"
+                android:textColor="@color/menu_text"
+                android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
+                android:layout_height="wrap_content" />
 
-        <RelativeLayout
-            android:id="@+id/apps_rl"
+        </LinearLayout>
+
+        <!-- The navigation drawer -->
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/drawer_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/real_identity_rl"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_scan"/>
-
-            <TextView
-                android:id="@+id/tv_installed_apps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/installed_apps"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:id="@+id/unsafe_apps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_installed_apps"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:text="@string/potentially_unsafe_apps"
-                android:textColor="@color/amaranth_red"
-                android:textSize="18sp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/notifications_rl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/apps_rl"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="7dp"
-                android:layout_marginTop="7dp"
-                android:src="@drawable/ic_notifications"/>
-
-            <TextView
-                android:id="@+id/tv_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="8dp"
-                android:text="You have 3 notifications"
-                android:textSize="18sp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_right_arrow"/>
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_below="@+id/real_identity_l"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="5dp"
+            android:entries="@array/drawer_items" />
 
 
         <RelativeLayout
-            android:id="@+id/btn_identities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/notifications_rl"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
+            android:id="@+id/logout"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/identities_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/logout_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_identities"/>
+                android:src="@drawable/ic_logout" />
 
             <TextView
+                android:text="@string/logout"
+                android:textColor="@color/menu_text"
+                android:layout_below="@id/logout_iv"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/identities_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Identity Management"/>
-        </RelativeLayout>
+                android:layout_height="wrap_content" />
 
-
-        <RelativeLayout
-            android:id="@+id/btn_browser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_identities"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:id="@+id/browser_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_private_browsing"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/browser_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Private Browsing"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/btn_pfb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_browser"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:drawable/dialog_holo_light_frame">
-
-            <ImageView
-                android:id="@+id/deals_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_deals"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/deals_iv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Privacy for Benefit"/>
 
         </RelativeLayout>
 
     </RelativeLayout>
 
-
-</ScrollView>
+</android.support.v4.widget.DrawerLayout>

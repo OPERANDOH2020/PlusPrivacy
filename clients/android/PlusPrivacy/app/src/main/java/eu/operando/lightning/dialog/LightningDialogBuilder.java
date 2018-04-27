@@ -21,9 +21,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
 import eu.operando.lightning.activity.MainBrowserActivity;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.constant.BookmarkPage;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.controller.UIController;
@@ -52,7 +52,7 @@ public class LightningDialogBuilder {
 
     @Inject
     public LightningDialogBuilder() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
     }
 
     /**
@@ -117,7 +117,7 @@ public class LightningDialogBuilder {
             new BrowserDialog.Item(R.string.dialog_copy_link) {
                 @Override
                 public void onClick() {
-                    BrowserApp.copyToClipboard(activity, item.getUrl());
+                    PlusPrivacyApp.copyToClipboard(activity, item.getUrl());
                 }
             },
             new BrowserDialog.Item(R.string.dialog_remove_bookmark) {
@@ -280,7 +280,7 @@ public class LightningDialogBuilder {
             new BrowserDialog.Item(R.string.dialog_copy_link) {
                 @Override
                 public void onClick() {
-                    BrowserApp.copyToClipboard(activity, url);
+                    PlusPrivacyApp.copyToClipboard(activity, url);
                 }
             },
             new BrowserDialog.Item(R.string.dialog_remove_from_history) {
@@ -326,7 +326,7 @@ public class LightningDialogBuilder {
             new BrowserDialog.Item(R.string.dialog_copy_link) {
                 @Override
                 public void onClick() {
-                    BrowserApp.copyToClipboard(activity, url);
+                    PlusPrivacyApp.copyToClipboard(activity, url);
                 }
             },
             new BrowserDialog.Item(R.string.dialog_download_image) {
@@ -362,7 +362,7 @@ public class LightningDialogBuilder {
             new BrowserDialog.Item(R.string.dialog_copy_link) {
                 @Override
                 public void onClick() {
-                    BrowserApp.copyToClipboard(activity, url);
+                    PlusPrivacyApp.copyToClipboard(activity, url);
                 }
             });
     }

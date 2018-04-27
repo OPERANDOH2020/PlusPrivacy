@@ -1,6 +1,5 @@
 package eu.operando.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,26 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.adblockplus.libadblockplus.android.AdblockEngine;
-import org.adblockplus.libadblockplus.android.webview.AdblockWebView;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URLEncoder;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.zip.Inflater;
 
 import eu.operando.R;
-import eu.operando.adblock.AdBlockClient;
 import eu.operando.adblock.AdBlockWebView;
 
 /**
@@ -77,7 +65,6 @@ public class TabFragment extends Fragment {
     }
 
     private void initUI(View rootView) {
-
 
         goBtn = ((ImageView) rootView.findViewById(R.id.btn_go));
         backBtn = ((ImageView) rootView.findViewById(R.id.btn_back));
@@ -131,7 +118,7 @@ public class TabFragment extends Fragment {
                 b.putString("url",url);
             }
         });
-        loadUrl(getArguments().getString("url", "www.google.ro"));
+        loadUrl(getArguments().getString("url", "assets.www.google.ro"));
         webView.setOnLongPressListener(new AdBlockWebView.OnLongPressListener() {
             @Override
             public void onLongPress(String url) {
@@ -152,7 +139,7 @@ public class TabFragment extends Fragment {
     private void go() {
         String url = urlEt.getText().toString();
         if (!android.util.Patterns.WEB_URL.matcher(url).matches()) {
-            url = "http://www.google.com/search?q=" + URLEncoder.encode(url);
+            url = "http://assets.www.google.com/search?q=" + URLEncoder.encode(url);
         }
         url = url.toLowerCase().startsWith("http://") || url.toLowerCase().startsWith("https://") ? url : ("http://" + url);
         webView.loadUrl(url);

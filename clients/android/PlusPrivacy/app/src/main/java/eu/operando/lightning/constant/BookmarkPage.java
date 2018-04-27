@@ -24,7 +24,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.database.HistoryItem;
 import eu.operando.lightning.database.bookmark.BookmarkModel;
 import eu.operando.lightning.utils.Preconditions;
@@ -38,7 +38,7 @@ public final class BookmarkPage {
      */
     public static final String FILENAME = "bookmarks.html";
 
-    private static final String HEADING_1 = "<!DOCTYPE html><html xmlns=http://www.w3.org/1999/xhtml>\n" +
+    private static final String HEADING_1 = "<!DOCTYPE html><html xmlns=http://assets.www.w3.org/1999/xhtml>\n" +
         "<head>\n" +
         "<meta content=en-us http-equiv=Content-Language />\n" +
         "<meta content='text/html; charset=utf-8' http-equiv=Content-Type />\n" +
@@ -59,7 +59,7 @@ public final class BookmarkPage {
         "<p class=ellipses>\n" +
         "<img src='";
 
-    private static final String PART3 = "https://www.google.com/s2/favicons?domain=";
+    private static final String PART3 = "https://assets.www.google.com/s2/favicons?domain=";
 
     private static final String PART4 = "' />";
 
@@ -79,7 +79,7 @@ public final class BookmarkPage {
     @NonNull private final String mTitle;
 
     public BookmarkPage(@NonNull Activity activity) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mFolderIcon = ThemeUtils.getThemedBitmap(activity, R.drawable.ic_folder, false);
         mTitle = mApp.getString(R.string.action_bookmarks);
     }

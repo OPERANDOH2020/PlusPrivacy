@@ -25,7 +25,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         try {
-            CharSequence label = (getPackageManager().getActivityInfo(getComponentName(), 0).nonLocalizedLabel);
+            CharSequence label;
+            if (getIntent().getExtras() != null && !TextUtils.isEmpty(getIntent().getExtras().getString("title"))) {
+                label = getIntent().getExtras().getString("title");
+            } else {
+                label = (getPackageManager().getActivityInfo(getComponentName(), 0).nonLocalizedLabel);
+            }
             if (!TextUtils.isEmpty(label)) {
                 ((TextView) findViewById(R.id.title)).setText(label);
             }

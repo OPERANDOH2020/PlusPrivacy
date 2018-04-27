@@ -46,7 +46,7 @@ class ImageFetcher {
     Bitmap retrieveBitmapFromGoogle(@NonNull Uri uri) {
         FaviconUtils.assertUriSafe(uri);
 
-        String googleFaviconUrl = "https://www.google.com/s2/favicons?domain_url=" + uri.getHost();
+        String googleFaviconUrl = "https://assets.www.google.com/s2/favicons?domain_url=" + uri.getHost();
 
         return retrieveBitmapFromUrl(googleFaviconUrl);
     }

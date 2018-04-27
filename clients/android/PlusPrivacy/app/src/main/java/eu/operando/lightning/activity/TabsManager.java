@@ -29,8 +29,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.constant.BookmarkPage;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.constant.HistoryPage;
@@ -66,7 +66,7 @@ public class TabsManager {
     @Inject Application mApp;
 
     public TabsManager() {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
     }
 
     // TODO remove and make presenter call new tab methods so it always knows
@@ -248,7 +248,7 @@ public class TabsManager {
      * Method used to resume all the tabs in the browser.
      * This is necessary because we cannot pause the
      * WebView when the app is open currently due to a
-     * bug in the WebView, where calling onResume doesn't
+     * bug in the WebView, where calling onLoading doesn't
      * consistently resume it.
      *
      * @param context the context needed to initialize
@@ -271,7 +271,7 @@ public class TabsManager {
      * Method used to pause all the tabs in the browser.
      * This is necessary because we cannot pause the
      * WebView when the app is open currently due to a
-     * bug in the WebView, where calling onResume doesn't
+     * bug in the WebView, where calling onLoading doesn't
      * consistently resume it.
      */
     public void pauseAll() {

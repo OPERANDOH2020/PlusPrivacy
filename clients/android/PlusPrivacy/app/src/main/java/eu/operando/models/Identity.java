@@ -1,10 +1,12 @@
 package eu.operando.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Edy on 12/5/2016.
  */
 
-public class Identity {
+public class Identity implements Serializable{
     //for creation
     private String email;
     private String alias;

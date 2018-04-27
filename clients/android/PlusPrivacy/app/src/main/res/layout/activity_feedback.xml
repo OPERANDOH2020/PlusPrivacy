@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/main_background"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/feedback_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="@string/feedback"
+        app:theme="@style/ToolbarStyle"
+        app:titleTextColor="@color/white">
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.ButtonBarLayout
+        android:id="@+id/feedback_submit"
+        android:layout_width="match_parent"
+        android:background="@color/green_button"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClickSubmit"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="@string/submit"
+            android:onClick="onClickSubmit"
+            android:background="@color/green_button"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.ButtonBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/feedback_list_recycler_view"
+        android:layout_below="@+id/feedback_toolbar"
+        android:layout_above="@+id/feedback_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_below="@+id/feedback_toolbar"
+        android:id="@+id/feedback_frame_content"
+        android:background="@color/transparent"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    </FrameLayout>
+
+</RelativeLayout>

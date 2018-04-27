@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="@color/scanner_background"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/scanner_main_color"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/permission_tv"
+            android:layout_marginStart="15dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/scanner_button_background"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/app_circle_indicator"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="7dp"
+        android:background="@drawable/circle_layout">
+
+        <View
+            android:id="@+id/drawable_circle_indicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_scanner_apps" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

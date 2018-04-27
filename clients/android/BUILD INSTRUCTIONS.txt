@@ -1,0 +1,6 @@
+Requirements: 
+NDK r10e
+Android SDKs: 24, 25, 16, 21
+Build tools for each module
+
+Open the project in Android Studio, install missing dependencies (prompted by Android Studio) and build the project.

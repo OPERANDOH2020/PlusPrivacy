@@ -220,7 +220,7 @@ public final class Utils {
         if (ssl)
             return Constants.HTTPS + domain;
         else
-            return domain.startsWith("www.") ? domain.substring(4) : domain;
+            return domain.startsWith("assets.www.") ? domain.substring(4) : domain;
     }
 
     public static void trimCache(@NonNull Context context) {

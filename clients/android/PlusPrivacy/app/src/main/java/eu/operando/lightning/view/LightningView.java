@@ -44,7 +44,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.constant.BookmarkPage;
 import eu.operando.lightning.constant.Constants;
 import eu.operando.lightning.constant.HistoryPage;
@@ -107,7 +107,7 @@ public class LightningView {
     @Inject LightningDialogBuilder mBookmarksDialogBuilder;
 
     public LightningView(@NonNull Activity activity, @Nullable String url, boolean isIncognito) {
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mActivity = activity;
         mUIController = (UIController) activity;
         mWebView = new WebView(activity);
@@ -134,7 +134,8 @@ public class LightningView {
         mWebView.setSaveEnabled(true);
         mWebView.setNetworkAvailable(true);
         mWebView.setWebChromeClient(new LightningChromeClient(activity, this));
-        mWebView.setWebViewClient(new AdblockWebClient(activity, this, mPreferences.getAdBlockEnabled()));
+//        mWebView.setWebViewClient(new AdblockWebClient(activity, this, mPreferences.getAdBlockEnabled()));
+
         mWebView.setDownloadListener(new LightningDownloadListener(activity));
         mGestureDetector = new GestureDetector(activity, new CustomGestureListener());
         mWebView.setOnTouchListener(new TouchListener());
@@ -142,6 +143,7 @@ public class LightningView {
         initializeSettings();
         initializePreferences(activity);
 
+        setAdBlock();
         if (url != null) {
             if (!url.trim().isEmpty()) {
                 mWebView.loadUrl(url, mRequestHeaders);
@@ -153,6 +155,10 @@ public class LightningView {
         }
     }
 
+
+    public void setAdBlock(){
+        mWebView.setWebViewClient(AdblockWebClient.getInstance(mActivity, this, mPreferences.getAdBlockEnabled()));
+    }
     /**
      * Sets whether this tab was the
      * result of a new intent sent
@@ -577,7 +583,7 @@ public class LightningView {
     public synchronized void onPause() {
         if (mWebView != null) {
             mWebView.onPause();
-            Log.d(TAG, "WebView onPause: " + mWebView.getId());
+            Log.d(TAG, "WebView saveState: " + mWebView.getId());
         }
     }
 
@@ -587,7 +593,7 @@ public class LightningView {
     public synchronized void onResume() {
         if (mWebView != null) {
             mWebView.onResume();
-            Log.d(TAG, "WebView onResume: " + mWebView.getId());
+            Log.d(TAG, "WebView onLoading: " + mWebView.getId());
         }
     }
 

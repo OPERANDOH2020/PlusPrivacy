@@ -25,7 +25,7 @@ import com.anthonycr.grant.PermissionsResultAction;
 import javax.inject.Inject;
 
 import eu.operando.R;
-import eu.operando.BrowserApp;
+import eu.operando.PlusPrivacyApp;
 import eu.operando.lightning.controller.UIController;
 import eu.operando.lightning.dialog.BrowserDialog;
 import eu.operando.lightning.favicon.FaviconModel;
@@ -43,7 +43,7 @@ public class LightningChromeClient extends WebChromeClient {
     LightningChromeClient(@NonNull Activity activity, @NonNull LightningView lightningView) {
         Preconditions.checkNonNull(activity);
         Preconditions.checkNonNull(lightningView);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         mActivity = activity;
         mUIController = (UIController) activity;
         mLightningView = lightningView;

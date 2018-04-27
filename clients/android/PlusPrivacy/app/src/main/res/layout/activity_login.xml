@@ -65,5 +65,14 @@
                   android:gravity="center"
                   android:textSize="16sp"/>
 
+        <TextView
+            android:id="@+id/resetPasswordTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="Reset password"
+            android:textSize="16sp"/>
+
     </LinearLayout>
 </ScrollView>

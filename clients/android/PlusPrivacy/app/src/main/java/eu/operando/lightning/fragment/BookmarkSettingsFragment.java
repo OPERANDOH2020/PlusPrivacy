@@ -36,8 +36,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import eu.operando.PlusPrivacyApp;
 import eu.operando.R;
-import eu.operando.BrowserApp;
 import eu.operando.lightning.database.HistoryItem;
 import eu.operando.lightning.database.bookmark.BookmarkExporter;
 import eu.operando.lightning.database.bookmark.BookmarkLocalSync;
@@ -133,7 +133,7 @@ public class BookmarkSettingsFragment extends PreferenceFragment implements Pref
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BrowserApp.getAppComponent().inject(this);
+        PlusPrivacyApp.getAppComponent().inject(this);
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preference_bookmarks);
 
