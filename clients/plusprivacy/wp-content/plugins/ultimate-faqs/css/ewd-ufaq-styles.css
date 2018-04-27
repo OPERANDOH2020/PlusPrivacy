@@ -1,0 +1,507 @@
+.ewd-ufaq-hidden {
+  display:none;
+}
+
+.ufaq-faq-category-title-toggle {
+  cursor: pointer;
+}
+
+.ufaq-faq-category-body-hidden {
+  display: none;
+}
+
+.ewd-ufaq-clear {
+  clear:both;
+}
+
+.ewd-ufaq-post-margin{
+  text-decoration: none;
+}
+
+.ewd-ufaq-post-margin-symbol{
+    text-decoration: none;
+}
+
+.ufaq-permalink {
+  margin-left: 10px;
+}
+.ufaq-permalink-image {
+	background: url("../images/insert_link.png");
+	height: 21px;
+	width: 30px;
+	margin-top: -25px;
+	margin-left: 90px;
+}
+
+.ewd-ufaq-author-date {
+}
+
+.ewd-ufaq-author {
+  font-weight: 600;
+}
+.ewd-ufaq-date {
+  font-weight: 600;
+}
+.ufaq-faq-categories, .ufaq-faq-tags{
+}
+
+.ufaq {}
+/*.ufaq-faq-title {
+  cursor:pointer;
+}*/
+.ufaq-faq-category-title {
+  width: 100%;
+  clear: both;
+}
+
+.ufaq-faq-category{
+  margin-bottom: 20px;
+}
+
+.ufaq-faq-category-inner {
+  margin-bottom: 48px;
+}
+
+.ufaq-faq-body {
+  padding:10px 25px;
+  padding-left: 55px;
+}
+.ufaq-faq-search{
+  margin:5px 0 !important;
+}
+.ewd-otp-field-label{
+width: auto !important;
+}
+.ufaq-text-input {
+  border-radius: 0 !important;
+  margin:15px !important;
+}
+.ewd-ufaq-submit{
+border-radius: 0 !important;
+}
+.ufaq-faq-header{
+  margin:10px;
+}
+.ufaq-faq-header a:hover{
+  text-decoration: none;
+}
+.ewd-ufaq-post-margin-symbol{
+  display: inline-block;
+  float: left;
+  text-align: center;
+ /* width:35px;
+  height: 35px;*/
+  width: auto;
+  height: auto;
+  margin-right: 15px;
+  padding: 2px 0px 0px 2px;
+  line-height: 1;
+}
+.ewd-ufaq-post-margin-symbol span{
+display: inline-block;
+font-size: 30px;
+margin:0 auto;
+}
+.ufaq-faq-title-text {
+  float:left;
+  width: 90%;
+}
+.ufaq-faq-title h1,
+.ufaq-faq-title h2,
+.ufaq-faq-title h3,
+.ufaq-faq-title h4,
+.ufaq-faq-title h5,
+.ufaq-faq-title h6 {
+  display:inline-block;
+  margin:5px !important;
+}
+
+
+
+
+.ufaq-custom-field-label, .ufaq-custom-field-value {
+  position: relative;
+  float: left;
+  margin-top: 14px;
+}
+.ufaq-custom-field-label {
+  font-weight: bold;
+}
+
+.ufaq-faq-body .comment-respond {
+  margin-top: 24px;
+}
+.ufaq-faq-body li.comment {
+  list-style-type: none;
+}
+.ufaq-faq-body textarea {
+  clear: both;
+  display: block;
+  position: relative;
+  width: 35%;
+  height: 100px;
+}
+.ufaq-faq-body .comment-form-comment label {
+  clear: both;
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.ufaq-faq-body .submit {
+  width: auto;
+  background: transparent;
+  cursor: pointer;
+  color: #111;
+  margin-bottom: 20px;
+}
+.ufaq-faq-body .submit:hover {
+  background: #111;
+  color: #fff;
+}
+.ufaq-faq-body .comment-author img {
+  margin-right: 8px;
+}
+.ufaq-faq-body .comment-body p {
+  margin: 10px 0;
+  margin-top: 10px !important;
+}
+.ufaq-faq-body .reply {
+  text-transform: uppercase;
+}
+
+.ufaq-faq-body .ufaq-back-to-top-link {
+  cursor: pointer;
+}
+
+.ewd-ufaq-ratings {
+  padding: 14px 0 0;
+}
+.ewd-ufaq-down-vote {
+  background-position: 0px 8px !important;
+  height: 50px !important;
+}
+
+
+
+
+/***********************
+Color Block Style
+***********************/
+.ufaq-faq-display-style-Color_Block .ewd-ufaq-post-margin-symbol {
+  background-color: #1188cc;
+  color: #ffffff;
+}
+
+.ewd-ufaq-Circle {
+  border-radius: 18px;
+}
+
+.ewd-ufaq-Square {
+  border-radius: 0px;
+}
+
+
+/***********************
+Block Style
+***********************/
+.ufaq-faq-div {
+  margin: 2px 0;
+  padding:2px 0;
+  clear: both;
+}
+.ufaq-faq-toggle:hover, .ufaq-faq-toggle a:hover{
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none;
+}
+.ufaq-faq-title{
+}
+.ufaq-faq-display-style-Block a, .ufaq-faq-display-style-Block a:visited, .ufaq-faq-display-style-Block a:active{
+  text-decoration: none;
+}
+.ufaq-faq-display-style-Block:hover,
+.ufaq-faq-display-style-Block:hover a,
+.ufaq-faq-display-style-Block:hover h1,
+.ufaq-faq-display-style-Block:hover h2,
+.ufaq-faq-display-style-Block:hover h3,
+.ufaq-faq-display-style-Block:hover h4,
+.ufaq-faq-display-style-Block:hover h5,
+.ufaq-faq-display-style-Block:hover h6 {
+  text-decoration: none !important;
+  color:#fff !important;
+  background: #1188cc;
+}
+.ufaq-faq-display-style-Block.ewd-ufaq-post-active, .ufaq-faq-display-style-Block.ewd-ufaq-post-active a{
+  color:#fff !important;
+  background: #1188cc;
+}
+
+
+/***********************
+List Style
+***********************/
+.ufaq-faq-header-title a{
+  display: inline-block;
+}
+
+
+
+/***********************
+Minimalist Style
+***********************/
+.ufaq-faq-display-style-Minimalist {
+border-bottom: 1px solid #aaa;
+padding: 8px 0;
+}
+.ufaq-faq-display-style-Minimalist .ewd-ufaq-post-margin-symbol {
+float: right;
+height: auto;
+}
+.ufaq-faq-display-style-Minimalist .ewd-ufaq-post-margin-symbol span {
+font-size: 22px;
+}
+
+.ufaq-faq-display-style-Minimalist .ufaq-faq-body {
+padding: 20px 25px 10px;
+padding-left: 40px;
+}
+.ufaq-faq-display-style-Minimalist .ufaq-faq-tags, .ufaq-faq-display-style-Minimalist .ufaq-social-links {
+margin-top: 4px;
+}
+.ufaq-faq-display-style-Minimalist .ufaq-social-links ul {
+float: left;
+margin-bottom: 14px;
+}
+.ufaq-faq-display-style-Minimalist .ufaq-permalink {
+margin: 24px 0;
+}
+.ufaq-faq-display-style-Minimalist .ufaq-permalink-image {
+margin-top: -22px;
+margin-left: 100px;
+}
+
+.ufaq-faq-display-style-Minimalist .ewd-ufaq-author-date {
+  margin-bottom: 14px;
+}
+
+.ufaq-faq-display-style-Minimalist .ufaq-faq-categories {
+  margin: 14px 0;
+}
+
+
+
+/***********************
+Border Block Style
+***********************/
+.ufaq-faq-div {
+  margin: 2px 0;
+  padding:2px 0;
+  clear: both;
+}
+.ufaq-faq-toggle:hover, .ufaq-faq-toggle a:hover{
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none;
+}
+.ufaq-faq-title{
+}
+.ufaq-faq-display-style-Border_Block a, .ufaq-faq-display-style-Border_Block a:visited, .ufaq-faq-display-style-Border_Block a:active{
+  text-decoration: none;
+}
+.ufaq-faq-display-style-Border_Block:hover,
+.ufaq-faq-display-style-Border_Block:hover a,
+.ufaq-faq-display-style-Border_Block:hover h1,
+.ufaq-faq-display-style-Border_Block:hover h2,
+.ufaq-faq-display-style-Border_Block:hover h3,
+.ufaq-faq-display-style-Border_Block:hover h4,
+.ufaq-faq-display-style-Border_Block:hover h5,
+.ufaq-faq-display-style-Border_Block:hover h6 {
+  text-decoration: none !important;
+  color:#fff !important;
+  background: #1188cc;
+}
+.ufaq-faq-display-style-Border_Block.ewd-ufaq-post-active, .ufaq-faq-display-style-Border_Block.ewd-ufaq-post-active a{
+  color:#fff !important;
+  background: #1188cc;
+}
+.ufaq-faq-display-style-Border_Block .ufaq-faq-body {
+  color:#555 !important;
+  background: #fff;
+  border: 3px solid #1188cc;
+  border-bottom: 2px solid #1188cc;
+}
+.ufaq-faq-display-style-Border_Block .ufaq-faq-body a {
+  color:#000 !important;
+  background: transparent;
+}
+
+.ufaq-faq-display-style-Border_Block .ufaq-faq-tags, .ufaq-faq-display-style-Border_Block .ufaq-social-links {
+margin-top: 4px;
+}
+.ufaq-faq-display-style-Border_Block .ufaq-social-links ul {
+float: left;
+margin-bottom: 14px;
+}
+.ufaq-faq-display-style-Border_Block .ufaq-permalink {
+margin: 24px 0;
+}
+.ufaq-faq-display-style-Border_Block .ufaq-permalink-image {
+margin-top: -22px;
+margin-left: 100px;
+}
+
+.ufaq-faq-display-style-Border_Block .ewd-ufaq-author-date {
+  margin-bottom: 14px;
+}
+
+.ufaq-faq-display-style-Border_Block .ufaq-faq-categories {
+  margin: 14px 0;
+}
+
+.ufaq-faq-display-style-Border_Block.ewd-ufaq-post-active .ufaq-faq-title-text {
+  color: #fff !important;
+}
+
+.ufaq-faq-display-style-Border_Block .comment-reply-title {
+  background: transparent !important;
+  color: #000 !important;
+}
+.ufaq-faq-display-style-Border_Block:hover .comment-reply-title {
+  color: #000 !important;
+}
+
+
+
+/***********************
+Contemporary Style
+***********************/
+.ufaq-faq-display-style-Contemporary {
+border-bottom: 1px solid #ccc;
+padding: 0;
+margin: 0;
+}
+.ufaq-faq-display-style-Contemporary:first-of-type {
+border-top: 1px solid #ccc;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-faq-title {
+background: #f7f7f7;
+padding: 8px 0 8px 4px;
+}
+.ufaq-faq-display-style-Contemporary .ewd-ufaq-post-margin-symbol {
+float: right;
+height: auto;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-faq-body {
+padding: 20px 25px 10px;
+padding-left: 40px;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-faq-tags, .ufaq-faq-display-style-Contemporary .ufaq-social-links {
+margin-top: 4px;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-social-links ul {
+float: left;
+margin-bottom: 14px;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-permalink {
+margin-left: 0;
+margin-bottom: 10px;
+}
+.ufaq-faq-display-style-Contemporary .ufaq-back-to-top {
+  margin-bottom: 14px;
+}
+
+
+
+
+
+
+/***********************
+Ratings
+***********************/
+.ewd-ufaq-rating-button {
+  height: 48px;
+  padding-left: 52px;
+  margin-right: 12px;
+  line-height: 48px;
+  float: left;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+.ewd-ufaq-up-vote {
+  background: url("../images/Thumbs-up-icon.png");
+  background-repeat: no-repeat;
+}
+.ewd-ufaq-down-vote {
+  background: url("../images/Thumbs-down-icon.png");
+  background-repeat: no-repeat;
+}
+
+/************************
+* Expand/Collapse
+************************/
+.ewd-ufaq-expand-all,
+.ewd-ufaq-collapse-all {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+/*
+==============================================
+Toggle Font
+==============================================
+*/
+
+@font-face { /* declare fonts */
+  font-family: 'ewd-toggle-icon';
+  src: url("fonts/ewd-toggle-icon.eot");
+    src: url('fonts/ewd-toggle-icon.woff2') format('woff2'),
+         url('fonts/ewd-toggle-icon.woff') format('woff'),
+         url("fonts/ewd-toggle-icon.ttf") format("truetype"),
+    url("fonts/ewd-toggle-icon.svg#ewd-toggle-icon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ewd-ufaq-post-margin-symbol,
+.ewd-ufaq-toggle-all-symbol {
+  font-family: 'ewd-toggle-icon';
+}
+
+
+/*
+==============================================
+PChanges
+==============================================
+*/
+
+.ewd-ufaq-question-update{
+font-size: 1.2em;
+margin-bottom: 20px;
+}
+.ewd-ufaq-question-form .form-field {
+  margin-bottom: 20px;
+}
+
+.rrssb-buttons li a .rrssb-text {
+color: #fff;
+margin-left: 5px;
+}
+
+.ufaq-social-links .rrssb-buttons li {
+margin-bottom: 5px;
+}
+
+.ufaq-permalink{
+clear: both;
+}
+@media only screen and (max-width: 810px) {
+
+.ufaq-faq-title-text {
+width: 80%;
+}
+
+}
+
+

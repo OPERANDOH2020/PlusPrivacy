@@ -741,3 +741,11 @@ li.news_item .entry-summary {
     clear: both;
     display:block;
 }
+
+.ewd-ufaq-post-margin-symbol span{
+    color:#FFB400;
+}
+
+div.ufaq-faq-title h4{
+    color: #41575c;
+}

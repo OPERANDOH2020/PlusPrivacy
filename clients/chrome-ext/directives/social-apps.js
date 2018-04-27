@@ -59,14 +59,17 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                     ModalService.showModal({
                         templateUrl: '/operando/tpl/modals/removeSocialApp.html',
-                        controller:function($scope,$rootScope,cfpLoadingBar){
+                        controller:function($scope,$rootScope,cfpLoadingBar,close){
                             $scope.app = app;
 
                             $scope.removeApp = function(){
                                 $rootScope.$broadcast("removingApp",$scope.app.appId);
                                 cfpLoadingBar.start();
                                 cfpLoadingBar.inc();
+                                $scope.deleteInProgress = true;
                                 messengerService.send("removeSocialApp",{sn:$scope.app.socialNetwork,appId: app.appId},function(response){
+                                    $scope.deleteInProgress = false;
+                                    close("app-deleted",500);
                                     messengerService.send("sendAnalytics","changedAppsOrExtensions");
                                     cfpLoadingBar.complete();
                                     if(response.status === "success"){
@@ -75,11 +78,15 @@ angular.module('socialApps',['cfp.loadingBar'])
                                     }
                                 });
                             }
+                        },
+                        preClose : function(modal){
+                            modal.element.modal('hide');
                         }
 
                     }).then(function (modal) {
                         modal.element.modal();
                     });
+
                 };
 
 

@@ -63,7 +63,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             };
             delete $scope.requestStatus;
             $scope.$apply();
-        },2000);
+        },3000);
     }
 
     var securityErrorFunction = function (error) {
@@ -174,7 +174,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             $scope.requestIsProcessed = false;
             if (data.status === "success") {
                 $scope.info.status = "success";
-                $scope.info.message = 'Check your email!';
+                $scope.info.message = 'Check your email';
                 $scope.requestStatus = "completed";
                 $scope.show_login();
                 $scope.$apply();
