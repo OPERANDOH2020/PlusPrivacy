@@ -504,6 +504,10 @@ a.social_network_link img{
         max-height: 96px;
         margin-top: -10px;
     }
+    .navbar-large .nav > li > a {
+        max-height: 80px;
+        padding: 30px 15px;
+    }
 }
 
 @media (min-width: 768px){
@@ -575,7 +579,7 @@ a.social_network_link img{
 
 @media (max-width: 1200px) {
     .navbar-large .nav > li > a {
-        padding: 30px 13px;
+        padding: 30px 10px;
     }
 }
 
@@ -644,6 +648,7 @@ a.social_network_link img{
         display: block;
     }
 }
+
 
 
 
@@ -748,4 +753,28 @@ li.news_item .entry-summary {
 
 div.ufaq-faq-title h4{
     color: #41575c;
+}
+
+.coin{
+    background: #faefe7;
+    margin: 5px;
+    border: 1px solid #dac2b0;
+    padding:10px;
+}
+.coin:hover{
+    background:#f2e3d8;
+}
+.coin br{
+    display: none;
+}
+.coin img{
+    margin: 0px 15px 0px 0px;
+}
+.coin span{
+    line-height: 48px;
+    font-size:16px
+}
+
+.row.crypto-coins{
+    margin-bottom: 20px;
 }
