@@ -14,6 +14,7 @@ class UIConnectedAppPermissionsListViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "ConnectedAppCell", bundle: nil), forCellReuseIdentifier: ConnectedAppCell.identifier)
+        tableView.separatorStyle = .none
     }
 
     func setupWithPermissions(permissions: [String]){

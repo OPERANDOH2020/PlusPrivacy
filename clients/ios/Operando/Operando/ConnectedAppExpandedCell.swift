@@ -60,7 +60,7 @@ class ConnectedAppExpandedCell: UITableViewCell {
    
     func setupWith(app: ConnectedApp,callbacks: UIConnectedTableViewControllerCallbacks){
         self.expandedCellTitle.text = app.name
-        self.expandedCellDescription.text = "Privacy Polselfion: "
+        self.expandedCellDescription.text = ""
         self.permissions = app.permissions
         self.appId = app.appId
         self.callbacks = callbacks
@@ -84,6 +84,15 @@ class ConnectedAppExpandedCell: UITableViewCell {
                 
                 self.appImageView?.setImageWith(url)
             }
+        }
+        
+        if app.permissions.count != 0 {
+            let score = ACPoluttionManager.shared.calculatePollution(permissions: app.permissions)
+            self.expandedCellDescription.text = "Privacy Pollution: \(score)/10"
+            self.colorView.backgroundColor =  ACPoluttionManager.shared.getColorForPermissionsScore(score: score)
+        }
+        else {
+            self.colorView.isHidden = true
         }
     }
     

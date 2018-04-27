@@ -11,6 +11,7 @@ import UIKit
 enum UIRestrictedFeatureType {
     case identityManagement
     case notifications
+    case socialNetworks
 }
 
 final class UIDefaultFeatureProvider: NSObject {

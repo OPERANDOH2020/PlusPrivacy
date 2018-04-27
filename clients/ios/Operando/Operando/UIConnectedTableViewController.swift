@@ -83,6 +83,11 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if self.dataSource.count == 0 {
+            self.tableView.emptyMessage(message: "No connected app", vc: self)
+        }
+        
         return dataSource.count
     }
     
@@ -122,7 +127,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if selectedIndexPath == indexPath {
             return 189
         }
-        return 87
+        return 92.5
     }
     
     // MARK: - JS Utilis

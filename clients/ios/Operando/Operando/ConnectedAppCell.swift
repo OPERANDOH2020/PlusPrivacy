@@ -22,6 +22,9 @@ class ConnectedAppCell: UITableViewCell {
     @IBOutlet weak var appImageView: UIImageView!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var permissionDescriptionLabel: UILabel!
+    @IBOutlet weak var rightImage: UILabel!
+
+    private var style: ConnectedAppCellStyle = .app
     
     
     override func awakeFromNib() {
@@ -34,14 +37,17 @@ class ConnectedAppCell: UITableViewCell {
     
     func setupWithPermisions(permission:String){
         self.appDescriptionLabel.isHidden = true
-        self.colorView.isHidden = true
         self.appImageView?.isHidden = true
         self.appTitleLabel.isHidden = true
         self.permissionDescriptionLabel.isHidden = false
         self.permissionDescriptionLabel.text = permission
+        
+        self.colorView.backgroundColor = ACPoluttionManager.shared.getPermissionColor(permission: permission)
     }
     
     func setupLayout(style: ConnectedAppCellStyle) {
+        
+        self.style = style
         
         switch style {
         case .app:
@@ -54,6 +60,7 @@ class ConnectedAppCell: UITableViewCell {
             appDescriptionLabel.isHidden = true
             appTitleLabel.isHidden = true
             appImageView.isHidden = true
+            rightImage.isHidden = true
         }
     }
     
@@ -74,7 +81,7 @@ class ConnectedAppCell: UITableViewCell {
     
     func setupWith(app: ConnectedApp){
         self.appTitleLabel.text = app.name
-        self.appDescriptionLabel.text = "Privacy Poluttion: "
+        self.appDescriptionLabel.text = ""
         
         if let appIconURL = app.iconURL
         {
@@ -87,6 +94,15 @@ class ConnectedAppCell: UITableViewCell {
                
                 self.appImageView?.setImageWith(url)
             }
+        }
+        
+        if app.permissions.count != 0 {
+            let score = ACPoluttionManager.shared.calculatePollution(permissions: app.permissions)
+            self.appDescriptionLabel.text = "Privacy Pollution: \(score)/10"
+            self.colorView.backgroundColor =  ACPoluttionManager.shared.getColorForPermissionsScore(score: score)
+        }
+        else {
+            self.colorView.isHidden = true
         }
     }
         

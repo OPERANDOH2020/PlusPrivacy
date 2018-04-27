@@ -12,10 +12,14 @@ class ProgressHUD {
     
     static func show(){
          HUD.show(.progress)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
+            HUD.hide()
+        }
     }
     
     static func show(_ text: String) {
-        HUD.show(HUDContentType.label(text))
+        
+        self.show(text, autoDismissAfter: 5)
     }
     
     static func show(_ text: String, autoDismissAfter: TimeInterval){

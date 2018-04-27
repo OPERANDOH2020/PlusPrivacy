@@ -239,6 +239,8 @@
 		B95D81D32089E578008F8B48 /* remove_facebook_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81CF2089E576008F8B48 /* remove_facebook_app.js */; };
 		B95D81D42089E578008F8B48 /* remove_twitter_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81D02089E577008F8B48 /* remove_twitter_app.js */; };
 		B95D81D52089E578008F8B48 /* remove_linkedin_app.js in Resources */ = {isa = PBXBuildFile; fileRef = B95D81D12089E578008F8B48 /* remove_linkedin_app.js */; };
+		B9D3F5FF2090939D00DA656B /* ACPollutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3F5FE2090939D00DA656B /* ACPollutionManager.swift */; };
+		B9D3F60120920D4200DA656B /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D3F60020920D4200DA656B /* UITableView+Utils.swift */; };
 		B9F8A4C52088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */; };
 		C710716A206A49D1000D3AB6 /* UISettingsProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */; };
 		C710716E206A6059000D3AB6 /* UISettingsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710716D206A6059000D3AB6 /* UISettingsProgress.swift */; };
@@ -684,6 +686,8 @@
 		B95D81CF2089E576008F8B48 /* remove_facebook_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_facebook_app.js; sourceTree = "<group>"; };
 		B95D81D02089E577008F8B48 /* remove_twitter_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_twitter_app.js; sourceTree = "<group>"; };
 		B95D81D12089E578008F8B48 /* remove_linkedin_app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = remove_linkedin_app.js; sourceTree = "<group>"; };
+		B9D3F5FE2090939D00DA656B /* ACPollutionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPollutionManager.swift; sourceTree = "<group>"; };
+		B9D3F60020920D4200DA656B /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		B9F8A4C42088BF6E000B4063 /* UIConnectedAppPermissionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConnectedAppPermissionsListViewController.swift; sourceTree = "<group>"; };
 		C7107169206A49D1000D3AB6 /* UISettingsProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UISettingsProgress.xib; sourceTree = "<group>"; };
 		C710716D206A6059000D3AB6 /* UISettingsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsProgress.swift; sourceTree = "<group>"; };
@@ -1057,6 +1061,7 @@
 				98387BC21DB7633500A76F01 /* UIColor+Utilities.swift */,
 				AD4AD55C1F66B044008E6E49 /* UIImage+Utils.swift */,
 				AD3A20572056B042001B744F /* UILabel+Utils.swift */,
+				B9D3F60020920D4200DA656B /* UITableView+Utils.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2029,6 +2034,14 @@
 			name = ConnectedApp;
 			sourceTree = "<group>";
 		};
+		B9D3F5FD2090937C00DA656B /* ACPoluttionManager */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3F5FE2090939D00DA656B /* ACPollutionManager.swift */,
+			);
+			path = ACPoluttionManager;
+			sourceTree = "<group>";
+		};
 		C7107168206A49A3000D3AB6 /* UISettingsProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -2495,6 +2508,7 @@
 		C7F79554202363B7005DE7B3 /* ACManagers */ = {
 			isa = PBXGroup;
 			children = (
+				B9D3F5FD2090937C00DA656B /* ACPoluttionManager */,
 				C7F79555202363B7005DE7B3 /* ACPrivacyWizard */,
 				C7F79557202363B7005DE7B3 /* ACSwarmManager */,
 			);
@@ -3154,6 +3168,7 @@
 				988E45D61F039B62003D92C5 /* UISettingsView.swift in Sources */,
 				ADF3CA691DB89BEB00BD2B7A /* UILeftSideMenuViewController.swift in Sources */,
 				C7F79569202363B7005DE7B3 /* ACMathOperator.swift in Sources */,
+				B9D3F5FF2090939D00DA656B /* ACPollutionManager.swift in Sources */,
 				C77B8E1A1FD6B6F200B16F6E /* ENSideMenuNavigationController.swift in Sources */,
 				C7F795B4202363F8005DE7B3 /* LocalJSSettingsProvider.swift in Sources */,
 				9870840B1E8E938E00D9F8E9 /* AFAutoPurgingImageCache.m in Sources */,
@@ -3287,6 +3302,7 @@
 				98668B611DB0D1F100FDE63A /* UIOPFlowController.swift in Sources */,
 				9827501A1D0849D400C73411 /* UserIdentityModel.swift in Sources */,
 				AD28EAA620503DD700AA998A /* UIViewController+Visibility.swift in Sources */,
+				B9D3F60120920D4200DA656B /* UITableView+Utils.swift in Sources */,
 				982DF0681DB6796500231BBD /* UIPfbDetailsAlertViewController.swift in Sources */,
 				C7F795B2202363F8005DE7B3 /* HTMLLoginInputDetector.swift in Sources */,
 				C7F7953C2023620C005DE7B3 /* AMReadJQuerySelector.swift in Sources */,
