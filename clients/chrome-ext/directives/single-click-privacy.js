@@ -205,16 +205,15 @@ angular.module("singleClickPrivacy",[])
                                                                     }
                                                                     $scope.$apply();
                                                                     if (jobsFinished !== 0) {
+
+                                                                        var sequence = Promise.resolve();
                                                                         newLoggedInOSPs.forEach(function (osp) {
-                                                                            messengerService.send("userIsAuthenticated", function (data) {
-                                                                                if (data.status === "success") {
-                                                                                    messengerService.send("removePreferences", osp, function (response) {
-                                                                                        if (response.error) {
-                                                                                            console.log("Error occured:", response.error);
-                                                                                        }
-                                                                                    });
-                                                                                }
-                                                                            });
+                                                                            sequence = sequence.then(function(){
+                                                                                return new Promise(function(resolve){
+                                                                                    messengerService.send("removePreferences", osp, resolve);
+                                                                                });
+                                                                            })
+
                                                                         });
                                                                     }
                                                                 });

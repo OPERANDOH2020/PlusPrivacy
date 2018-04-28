@@ -419,6 +419,7 @@ ul.nav.navbar-nav.pull-right li>a>.menu_item_content{
 
 #features{
 padding-left: 0px;
+margin: 0px 30px;
 }
 
 .extension_icon{
@@ -466,30 +467,25 @@ padding-left: 0px;
     border-bottom: 4px solid #FFB400;
 }
 
-.feature-malware-image
-{
-    background-image: url("/operando/assets/images/malware-block.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+#enable_disable_ad_blocker{
+    padding: 10px 40px 10px 20px;
+    position: relative;
+    color: #fdfaf0;
 }
 
-.feature-social-image
-{
-    background-image: url("/operando/assets/images/remove_socials.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+#enable_disable_ad_blocker h4{
+    color:#444;
+    font-size: 23px;
 }
 
-.feature-tracking-image
-{
-    background-image: url("/operando/assets/images/disable-tracking.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+#enable_disable_ad_blocker div.toggle{
+    top:-20px;
 }
+
 
 #can-do-more-content
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 #can-do-more #features
@@ -500,9 +496,7 @@ padding-left: 0px;
 #can-do-more .feature
 {
     list-style-type: none;
-    padding-top: 30px;
     padding-bottom: 20px;
-    border-top: 1px dashed #c0bebb;
     position: relative;
 }
 
@@ -539,13 +533,21 @@ padding-left: 0px;
 
 #can-do-more .feature-image
 {
-    width: 59px;
-    height: 59px;
-    margin: 10px 0px;
-    -webkit-margin-start: 20px;
-    -moz-margin-start: 20px;
+    display: none;
 }
 
+.abp_disabled {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+.feature-description .toggle{
+transform: scale(0.9);
+}
+
+.feature-description h3{
+    font-size: 19px;
+}
 
 .toggle
 {
@@ -561,7 +563,7 @@ padding-left: 0px;
     margin-right:32px;
     position: absolute;
     right: 0;
-    top:20px;
+    top:0px;
 }
 
 .onoffswitch-checkbox {
@@ -816,43 +818,6 @@ color:#FFF;
     display: inline-block;
 }
 
-/*.pp-red{
- background: #d0c09e;
-
-}
-.pp-red:hover{
-    background: rgba(226,27,46,0.35);
-}
-
-.pp-blue{
-    background:#ebe1cc;
-}
-.pp-blue:hover{
-    background: rgba(27,163,226,0.35);
-}
-
-.pp-green{
-    background:#f3ecdc;
-}
-.pp-green:hover{
-    background: rgba(32,226,27,0.35);
-}
-
-.pp-yellow{
-    background:#e3d7bd;
-}
-
-.pp-yellow:hover{
-    background: rgba(226,219,27,0.35);
-}
-
-.pp-orange{
-    background: #dacbac;
-}
-
-.pp-orange:hover{
-    background: rgba(226,149,27,0.35);
-}*/
 
 .tabs-left{
     border-right:0;
@@ -1432,6 +1397,13 @@ h3.privacy_wizard_suggestions_heading{
     width:32px;
     height: 32px;
     margin: 0px 16px;
+}
+
+.removing-social-app .sk-fading-circle{
+    width:24px;
+    height: 24px;
+    margin: 0px 15px 0px 0px;
+    float: left;
 }
 
 .big-loader .sk-fading-circle .sk-circle:before{

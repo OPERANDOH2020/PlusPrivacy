@@ -14,21 +14,7 @@
 var bus = require("bus-service").bus;
 
 var userUpdatedObservable = swarmHub.createObservable();
-var authenticationService = require("authentication-service").authenticationService;
-
 var userService = exports.userService = {
-    /*updateUserInfo: function (user_details, success_callback, error_callback) {
-        var updateUserInfoHandler = swarmHub.startSwarm('UserInfo.js', 'updateUserInfo', user_details);
-        updateUserInfoHandler.onResponse("updatedUserInfo", function(){
-            success_callback();
-            authenticationService.setUser(function(){
-                userUpdatedObservable.notify();
-            });
-        });
-        updateUserInfoHandler.onResponse("userUpdateFailed", function(response){
-            error_callback(response.error);
-        })
-    },*/
 
     changePassword:function(changePasswordData, success_callback, error_callback){
         var changePasswordHandler = swarmHub.startSwarm('UserInfo.js', 'changePassword', changePasswordData.currentPassword, changePasswordData.newPassword);
@@ -44,39 +30,59 @@ var userService = exports.userService = {
     userUpdated : function(callback){
         userUpdatedObservable.observe(callback, true);
     },
-    getUserPreferences:function(preference_key,success_callback, error_callback){
-        var getUserPreferencesHandler =  swarmHub.startSwarm("UserPreferences.js","getPreferences",preference_key);
-        getUserPreferencesHandler.onResponse("success", function(response){
-            success_callback(response.preferences);
-        });
+    getUserPreferences:function(preferenceKey,success_callback, error_callback){
+        chrome.storage.local.get("UserPrefs", function (items) {
+            var userPreferences;
+            if (typeof items === "object" && Object.keys(items).length === 0) {
+                userPreferences = {};
+            }
+            else {
+                userPreferences = JSON.parse(items['UserPrefs']);
+            }
 
-        getUserPreferencesHandler.onResponse("failed", function(response){
-            error_callback(response.error);
-        })
+            var keyPreferences = {};
+
+            if (userPreferences[preferenceKey] !== 'undefined' ) {
+                keyPreferences = userPreferences[preferenceKey];
+            }
+            success_callback(keyPreferences);
+        });
     },
 
     saveUserPreferences:function(data, success_callback, error_callback){
-        var saveUserPreferencesHandler =  swarmHub.startSwarm("UserPreferences.js","saveOrUpdatePreferences",data.preferenceKey, data.preferences);
-        saveUserPreferencesHandler.onResponse("success", function(response){
-            if(success_callback){
-                success_callback(response.preferences);
+        chrome.storage.local.get("UserPrefs", function (items) {
+            var userPreferences;
+            if (typeof items === "object" && Object.keys(items).length === 0) {
+                userPreferences = {};
             }
-        });
+            else {
+                userPreferences = JSON.parse(items['UserPrefs']);
+            }
 
-        saveUserPreferencesHandler.onResponse("failed", function(response){
-            if(error_callback){
-                error_callback(response.error);
-            }
-        })
+            userPreferences[data.preferenceKey] = data.preferences;
+
+            chrome.storage.local.set({UserPrefs: JSON.stringify(userPreferences)});
+            success_callback(data.preferences);
+        });
     },
     removePreferences:function(preferenceKey, success_callback, error_callback){
-        var removePreferencesHandler = swarmHub.startSwarm("UserPreferences.js","removePreferences",preferenceKey);
-        removePreferencesHandler.onResponse("success", function(response){
-            success_callback(response);
+
+        chrome.storage.local.get("UserPrefs", function (items) {
+            var userPreferences;
+            if (typeof items === "object" && Object.keys(items).length === 0) {
+                userPreferences = {};
+            }
+            else {
+                userPreferences = JSON.parse(items['UserPrefs']);
+            }
+
+            if (userPreferences[preferenceKey]) {
+                delete userPreferences[preferenceKey];
+                chrome.storage.local.set({UserPrefs: JSON.stringify(userPreferences)},success_callback);
+            }else{
+                error_callback();
+            }
         });
-        removePreferencesHandler.onResponse("failed", function(response){
-            error_callback(response.error);
-        })
     },
 
     removeAccount:function(success_callback, error_callback){
@@ -99,7 +105,6 @@ var userService = exports.userService = {
         contactMessageHandler.onResponse("error", function(response){
             error_callback();
         });
-
     },
 
     resetExtension:function(){

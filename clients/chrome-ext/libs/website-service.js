@@ -2,8 +2,30 @@ var bus = require("bus-service").bus;
 var authenticationService = require("authentication-service").authenticationService;
 var portObserversPool = require("observers-pool").portObserversPool;
 var socialNetworkService = require("social-network-service").socialNetworkService;
+var interceptorService = require("request-intercepter-service").requestInterceptor;
 
-function doGetRequest(url, callback) {
+function doTwitterAppsRequest(url, callback) {
+
+    var oReq = new XMLHttpRequest();
+    oReq.onreadystatechange = function () {
+        if (oReq.readyState == XMLHttpRequest.DONE) {
+            callback(oReq.responseText, true);
+        }
+    };
+
+    oReq.open("GET", url);
+    oReq.withCredentials = true;
+    interceptorService.interceptHeadersBeforeRequest("twitter-apps");
+    oReq.setRequestHeader("get-twitter-apps","1");
+    oReq.send();
+}
+
+function doGetRequest(url, data, callback) {
+
+    if(data instanceof Function){
+        callback = data;
+    }
+
     var oReq = new XMLHttpRequest();
     oReq.onreadystatechange = function () {
         if (oReq.readyState == XMLHttpRequest.DONE) {
@@ -11,6 +33,16 @@ function doGetRequest(url, callback) {
         }
     };
     oReq.open("GET", url);
+    console.log(arguments.length);
+    if (arguments.length > 2) {
+        if (data.headers) {
+            oReq.withCredentials = true;
+            data.headers.forEach(function (header) {
+                oReq.setRequestHeader(header.name, header.value);
+            });
+        }
+    }
+
     oReq.send();
 }
 
@@ -101,7 +133,7 @@ var websiteService = exports.websiteService = {
             var appVisibility;
 
             appNameRegex = '<div\\sclass="_5xu4">\\s*<header>\\s*<h3.*?>(.*?)</h3>';
-            appIconRegex = /<div\s+class="_5xu4"><i\s+class="img img _2sxw"\s+style="background-image: url\(&quot;(.+?)&quot;\);/;
+            appIconRegex = /<div\s+class="_5xu4"><i\s+class="img img _2sxw"\s+style="background-image: url\(&#039;(.+?)&#039;\);/;
             permissionsRegex = '<span\\sclass="_5ovn">(.*?)</span>';
             appVisibility = '<div\\sclass="_52ja"><span>(.*?)</span></div>';
 
@@ -124,7 +156,13 @@ var websiteService = exports.websiteService = {
             var parser = new DOMParser();
             var doc = parser.parseFromString(res, "text/html");
             var sequence = Promise.resolve();
-            var apps = doc.getElementsByClassName("_5b6s");
+            var appsContainer = doc.getElementsByClassName("_xef");
+
+            var apps = [];
+
+            for(var i = 0; i<appsContainer.length; i++){
+                apps.push(appsContainer[i].children[0].children[0].children[0].children[0]);
+            }
 
             for (var i = 0; i < apps.length; i++) {
                 (function (i) {
@@ -145,7 +183,7 @@ var websiteService = exports.websiteService = {
 
         };
 
-        doGetRequest("https://m.facebook.com/privacy/touch/apps/list/?tab=all", getApps)
+        doGetRequest("https://m.facebook.com/settings/apps/tabbed/", getApps)
 
     },
 
@@ -183,8 +221,12 @@ var websiteService = exports.websiteService = {
             });
             callback(twitterApps);
         }
+        doTwitterAppsRequest("https://twitter.com/settings/applications?lang=en",function(){
+            interceptorService.interceptHeadersBeforeRequest("twitter-apps");
+            var headers = [{name:"get-twitter-apps", value:"1"}];
+            doGetRequest("https://twitter.com/settings/applications?lang=en", {headers:headers}, getApps);
+        });
 
-        doGetRequest("https://twitter.com/settings/applications?lang=en", getApps)
     },
 
     getLinkedInApps: function (callback) {
@@ -665,7 +707,16 @@ var websiteService = exports.websiteService = {
 
             var getDataPromise = function(url){
                 return new Promise(function(resolve, reject){
-                    doGetRequest(url, resolve);
+
+                    switch (socialNetwork) {
+                        case "twitter":
+                            var headers = {headers:[{name:"get-twitter-apps", value:"1"}]};
+                            doGetRequest(url, headers, resolve);
+                            break;
+                        default:
+                            doGetRequest(url, resolve);
+                            break;
+                    }
                 })
             };
 

@@ -75,6 +75,52 @@ var userManagement =
         }
     },
 
+    getAvatar:function(){
+      this.swarm("getUserInfo");
+    },
+
+    getUserInfo:{
+        node:"UsersManager",
+        code:function(){
+            this.result = {};
+            var self = this;
+            getUserInfo(this.meta.userId, S(function(err, result){
+                self.result.name = result.email;
+                self.swarm("getUserZones");
+            }));
+        }
+    },
+
+    getUserZones:{
+        node:"UsersManager",
+        code:function(){
+            var self = this;
+
+            var zonesRank = {
+                "Admin":100,
+                "Analysts":10,
+                "ALL_USERS":0
+            };
+
+            var highestRank = 0;
+            var desiredZoneName = "User";
+
+            zonesOfUser(this.meta.userId,S(function(err, zones){
+                var zoneNames = zones.map(function(zone){return zone.zoneName});
+                for(var zoneName in zonesRank){
+                    if(zoneNames.indexOf(zoneName)>-1){
+                        if(highestRank<zonesRank[zoneName]){
+                            highestRank = zonesRank[zoneName];
+                            desiredZoneName = zoneName;
+                        }
+                    }
+                }
+                self.result.role = desiredZoneName;
+                self.home("gotAvatar");
+            }));
+        }
+    },
+
     filterUsers: function (filter) {
         console.log("Fetching users matching filter :", filter);
         this['filter'] = filter;

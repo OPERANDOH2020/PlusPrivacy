@@ -14,7 +14,7 @@
 angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService','i18nService', function($scope, messengerService, i18nService){
 
     var defaultUser = {remember_me:true};
-    $scope.showABPAndPrivacyPolicyOptions = true;
+    $scope.showAdBlockerSettings = true;
     $scope.user = angular.copy(defaultUser);
     $scope.isAuthenticated = false;
     $scope.requestIsProcessed = false;
@@ -27,15 +27,28 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     };
 
 
+    messengerService.send("getUserPreferences","abp-status",function(response){
+
+        if(response.status === "success" && typeof response.data === "boolean" ){
+            $scope.showAdBlockerSettings = response.data;
+        }
+        else{
+            $scope.showAdBlockerSettings = true;
+        }
+
+        $scope.$apply();
+    });
+
+
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
-        $scope.showABPAndPrivacyPolicyOptions = false;
+        $scope.showAdBlockerSettings = false;
     };
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
-        $scope.showABPAndPrivacyPolicyOptions = true;
+        $scope.showAdBlockerSettings = true;
     };
 
     clearInfoPanel = function(){
@@ -50,7 +63,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             };
             delete $scope.requestStatus;
             $scope.$apply();
-        },2000);
+        },3000);
     }
 
     var securityErrorFunction = function (error) {
@@ -161,7 +174,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             $scope.requestIsProcessed = false;
             if (data.status === "success") {
                 $scope.info.status = "success";
-                $scope.info.message = 'Check your email!';
+                $scope.info.message = 'Check your email';
                 $scope.requestStatus = "completed";
                 $scope.show_login();
                 $scope.$apply();
@@ -177,13 +190,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
 
     $scope.show_forgot_password = function(){
         $scope.loginAreaState = "forgot_password";
-        $scope.showABPAndPrivacyPolicyOptions = false;
+        $scope.showAdBlockerSettings = false;
     }
 
     $scope.show_register = function(){
         $scope.loginAreaState = "register_form";
         $scope.user = angular.copy(defaultUser);
-        $scope.showABPAndPrivacyPolicyOptions = false;
+        $scope.showAdBlockerSettings = false;
     }
 
     $scope.showRegisterTooltip = function($event){
@@ -260,7 +273,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         }
         else if(data.error === "error"){
             messengerService.send("getPopupStateData", function(response){
-                console.log(response);
+
                 if(response.data.state && response.data.state !=="loggedin"){
                     $scope.loginAreaState = response.data.state;
                 }
@@ -269,7 +282,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
                 }
 
                 if($scope.loginAreaState !== "loggedout"){
-                    $scope.showABPAndPrivacyPolicyOptions = false;
+                    $scope.showAdBlockerSettings = false;
                 }
 
                 if(response.data.user){
@@ -325,7 +338,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     chrome.tabs.query({active:true, windowId:chrome.windows.WINDOW_ID_CURRENT}, function (tabs){
         var ourTab = tabs[0];
         if(ourTab.url.indexOf("http")===0||ourTab.url.indexOf("https")===0){
-            $scope.showABPAndPrivacyPolicyOptions = true;
+            $scope.showAdBlockerSettings = true;
         }
     });
 

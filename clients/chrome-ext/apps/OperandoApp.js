@@ -70,11 +70,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
 
         // Now set up the states
         $stateProvider
-            .state('/', {
-                url: "/home",
-                templateUrl: "views/home.html",
-                cache: false
-            })
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
@@ -449,9 +444,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     }]
                 }
             });
-
-        $stateProvider
-            .state("otherwise", { url : '/home'});
+        $urlRouterProvider.otherwise('/home');
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();
@@ -466,22 +459,56 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             ]).then(function () {
             subscriptionsService.init();
             firstRunService.onFirstRun(function(){
-                subscriptionsService.getFeatureSubscriptions(function (subscriptions) {
-                    subscriptions.forEach(function (subscription) {
-                        ext.backgroundPage.sendMessage({
-                            type: "subscriptions.toggle",
-                            url: subscription.url,
-                            title: subscription.title,
-                            homepage: subscription.homepage
+
+                    subscriptionsService.getFeatureSubscriptions(function (subscriptions) {
+                        subscriptions.forEach(function (subscription) {
+
+                            if (subscription.check_if_active_before === true) {
+                                ext.backgroundPage.sendMessage({
+                                    type: "subscriptions.get",
+                                    downloadable: true
+                                }, function (installedSubscriptions) {
+                                    var shouldBeToggled = false;
+
+                                    var interestedSubscription = installedSubscriptions.find(function (installedSubscription) {
+                                        return installedSubscription.url === subscription.url;
+                                    });
+
+                                    if (interestedSubscription) {
+                                        if (interestedSubscription.disabled === true) {
+                                            shouldBeToggled = true;
+                                        }
+                                    } else {
+                                        shouldBeToggled = true;
+                                    }
+
+                                    if (shouldBeToggled === true) {
+                                        ext.backgroundPage.sendMessage({
+                                            type: "subscriptions.toggle",
+                                            url: subscription.url,
+                                            title: subscription.title,
+                                            homepage: subscription.homepage
+                                        });
+                                    }
+                                });
+                            } else {
+                                ext.backgroundPage.sendMessage({
+                                    type: "subscriptions.toggle",
+                                    url: subscription.url,
+                                    title: subscription.title,
+                                    homepage: subscription.homepage
+                                });
+                            }
+
+                        });
+
+                        getPref("subscriptions_exceptionsurl", function (url) {
+                            removeSubscription(url);
+                            firstRunService.setupComplete();
+                            console.log("Setup Completed...")
                         });
                     });
 
-                    getPref("subscriptions_exceptionsurl", function (url) {
-                        removeSubscription(url);
-                        firstRunService.setupComplete();
-                        console.log("Setup Completed...")
-                    });
-                });
             });
 
         });

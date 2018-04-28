@@ -173,8 +173,8 @@ var userInfoSwarming =
                     self.error = err.message;
                     self.home('resetPasswordFailed');
                 } else if (users.length === 0) {
-                    self.error = "No such user! Aborting...";
-                    self.home('resetPasswordFailed');
+                    //do not leak if the user has or not an account
+                    self.home('resetRequestDone');
                 }
                 else {
                     genereateResetPasswordToken(users[0].userId,S(function(err,passwordResetRequest){
