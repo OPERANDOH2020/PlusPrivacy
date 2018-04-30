@@ -1,6 +1,9 @@
 operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
     var userLocale = chrome.i18n.getUILanguage();
     console.log(userLocale);
+    /*if(userLocale.length == 2){
+        userLocale +="-"+userLocale.toUpperCase();
+    }*/
     var polyglot = null;
 
     var load = function () {
