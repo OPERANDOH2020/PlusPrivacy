@@ -7,10 +7,15 @@
       "ext/common.js", */
       "operando/util/require.js",
 
+      "operando/services/swarm-services/socket.io-2.0.3.js",
+      "operando/services/swarm-services/SwarmDebug.js",
+      "operando/services/swarm-services/SwarmClient.js",
+      "operando/services/swarm-services/SwarmHub.js",
+      "operando/util/Constants.js",
+      "operando/util/config/Config.production.js",
 
-
-
-      "operando/util/RegexUtils.js",
+      "server-merged.js",
+      /*"operando/util/RegexUtils.js",
       "operando/libs/observers-pool.js",
       "operando/libs/bus-service.js",
       "operando/libs/swarm-service.js",
@@ -30,16 +35,12 @@
       "operando/libs/popup-service.js",
       "operando/modules/SynchronizedPersistence.js",
       "operando/util/DependencyManager.js",
-      "operando/modules/TabsManager.js",
+      "operando/modules/TabsManager.js",*/
 
 
 
-      "operando/services/swarm-services/socket.io-2.0.3.js",
-      "operando/services/swarm-services/SwarmDebug.js",
-      "operando/services/swarm-services/SwarmClient.js",
-      "operando/services/swarm-services/SwarmHub.js",
-      "operando/util/Constants.js",
-      "operando/util/config/Config.production.js",
+
+
       /*"operando/swarms.js",*/
       "operando/utils/js.cookie.js", 
       "operando/backgrounds/utils/background_utils.js", 
