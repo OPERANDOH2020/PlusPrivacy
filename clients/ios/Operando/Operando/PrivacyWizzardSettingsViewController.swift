@@ -72,15 +72,13 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
                     self.setupSettingsWithRecommended()
                     self.tableView.reloadData()
                     self.spinner.stopAnimating()
+                    self.setupScope()
                 })
             }
         })
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        
+    func setupScope() {
         ACPrivacyWizard.shared.privacySettings = self.allSettings
         
         switch self.wizzardType {
@@ -97,6 +95,12 @@ class PrivacyWizzardSettingsViewController: UIViewController, UITableViewDelegat
             ACPrivacyWizard.shared.selectedScope = .googleLogin
             break
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+       setupScope()
     }
     
     func setup(with privacyWizardRepository:PrivacyWizardRepository, callbacks: PrivacyWizzardSettingsCallbacks){

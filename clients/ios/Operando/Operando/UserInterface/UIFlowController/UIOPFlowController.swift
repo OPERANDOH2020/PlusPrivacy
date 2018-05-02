@@ -67,7 +67,7 @@ class UIOPFlowController
                     weakSelf?.displayPrivacyWizardDashboard()
                     
                 }
-                else if self.rootController.topBarLabel.text == " Connected Social Networks " ||
+                else if self.rootController.topBarLabel.text == "Social network accounts" ||
                     self.rootController.topBarLabel.text == "Connected App List"{
                     weakSelf?.displayConnectedAppsDashboard()
                 }
@@ -184,7 +184,7 @@ class UIOPFlowController
             self.displayQuestionnaire(wizzardType: .google)
         }, pressedGoToLogoutDashboard: {
             self.displaySocialNetworksLogoutDashboard()
-        }))
+        }), observationText: "Change your social networks intrusiveness using the most privacy-friendly settings")
         
         self.rootController.setupTabViewForSocialNetworks()
         self.rootController.setMainControllerTo(newController: vc)
@@ -366,7 +366,7 @@ class UIOPFlowController
         }, pressedGoToLogoutDashboard: {
             self.displaySocialNetworksLogoutDashboard()
             self.rootController.setupTabViewForSocialNetworksLogoutDashboardFromAppList()
-        }))
+        }), observationText: "Apps connected to your social networks")
         
         self.rootController.setupTabViewForConnectedAppsDashboard()
         self.rootController.setMainControllerTo(newController: privacyDashboard)
@@ -379,6 +379,7 @@ class UIOPFlowController
             self.displayConnectedAppPermission(permissions: permissions)
             
         }))
+        
         self.rootController.setupForConnectedAppList()
         self.rootController.setMainControllerTo(newController: connectedAppList)
     }

@@ -75,6 +75,26 @@ extension UIColor{
         return UIColor(colorLiteralRed: 229.0/255, green: 80.0/255, blue: 73.0/255, alpha: 1.0)
     }
     
+    static var operandoFBLightBlue: UIColor {
+        return UIColor(hexString: "#75b8e5")
+    }
+    
+    static var fbPrivacyTopBar: UIColor {
+        return UIColor(hexString: "#354583")
+    }
+    
+    static var twPrivacyTopBar: UIColor {
+        return UIColor(hexString: "#538FED")
+    }
+    
+    static var lkPrivacyTopBar: UIColor {
+        return UIColor(hexString: "#3063A2")
+    }
+    
+    static var goPrivacyTopBar: UIColor {
+        return UIColor(hexString: "#4870EB")
+    }
+    
     static var operandoFBBlue: UIColor {
         return UIColor(colorLiteralRed: 108.0/255, green: 166.0/255, blue: 204.0/255, alpha: 1.0)
     }

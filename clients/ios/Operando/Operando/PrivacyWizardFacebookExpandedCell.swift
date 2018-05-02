@@ -15,6 +15,7 @@ protocol PrivacyWizardFacebookExpandedCellDelegate {
 
 class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource, PrivacyWizardFacebookOptionCellDelegate {
 
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingLabel: UILabel!
     @IBOutlet weak var securedImageView: UIImageView!
@@ -37,6 +38,7 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
         securedImageView.isHidden = !isRecommendedSelected
         setupTableView()
         self.tableView.reloadData()
+        setupMainViewBackgroundColor()
     }
     
     private func setupTableView() {
@@ -88,6 +90,25 @@ class PrivacyWizardFacebookExpandedCell: UITableViewCell, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 44
+    }
+    
+    private func setupMainViewBackgroundColor() {
+        switch ACPrivacyWizard.shared.selectedScope {
+        case .facebook:
+            mainView.backgroundColor = UIColor.fbPrivacyTopBar
+            break
+        case .linkedIn:
+            mainView.backgroundColor = UIColor.lkPrivacyTopBar
+            break
+        case .twitter:
+            mainView.backgroundColor = UIColor.twPrivacyTopBar
+            break
+        case .googleLogin:
+            mainView.backgroundColor = UIColor.goPrivacyTopBar
+            break
+        default:
+            break
+        }
     }
     
 }

@@ -87,6 +87,9 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if self.dataSource.count == 0 {
             self.tableView.emptyMessage(message: "No connected app", vc: self)
         }
+        else {
+            self.tableView.backgroundView = nil
+        }
         
         return dataSource.count
     }

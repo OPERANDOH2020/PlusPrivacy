@@ -24,6 +24,7 @@ class ConnectedAppCell: UITableViewCell {
     @IBOutlet weak var permissionDescriptionLabel: UILabel!
     @IBOutlet weak var rightImage: UILabel!
 
+    @IBOutlet weak var mainView: UIView!
     private var style: ConnectedAppCellStyle = .app
     
     
@@ -43,6 +44,8 @@ class ConnectedAppCell: UITableViewCell {
         self.permissionDescriptionLabel.text = permission
         
         self.colorView.backgroundColor = ACPoluttionManager.shared.getPermissionColor(permission: permission)
+        
+        self.setupMainViewBackgroundColor()
     }
     
     func setupLayout(style: ConnectedAppCellStyle) {
@@ -105,5 +108,24 @@ class ConnectedAppCell: UITableViewCell {
             self.colorView.isHidden = true
         }
     }
-        
+    
+    private func setupMainViewBackgroundColor() {
+        switch ACPrivacyWizard.shared.selectedScope {
+        case .facebook:
+            mainView.backgroundColor = UIColor.fbPrivacyTopBar
+            break
+        case .linkedIn:
+            mainView.backgroundColor = UIColor.lkPrivacyTopBar
+            break
+        case .twitter:
+            mainView.backgroundColor = UIColor.twPrivacyTopBar
+            break
+        case .googleLogin:
+            mainView.backgroundColor = UIColor.goPrivacyTopBar
+            break
+        default:
+            break
+        }
+    }
+      
 }

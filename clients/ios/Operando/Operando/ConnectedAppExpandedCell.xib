@@ -212,6 +212,8 @@
                 <outlet property="colorView" destination="J6w-HX-8Yc" id="hTS-8P-U7y"/>
                 <outlet property="expandedCellDescription" destination="DVT-Lf-hoX" id="d6Y-Ck-T8P"/>
                 <outlet property="expandedCellTitle" destination="YK1-Ue-cIR" id="U4W-rf-uxc"/>
+                <outlet property="unistallButtonView" destination="Xkf-CB-8vF" id="Z0b-h7-z25"/>
+                <outlet property="viewPermissionsButtonView" destination="p41-TE-J93" id="OlK-1u-A8J"/>
                 <outlet property="viewPermissionsView" destination="p41-TE-J93" id="Ogf-fQ-Ezd"/>
             </connections>
             <point key="canvasLocation" x="-16.5" y="53.5"/>

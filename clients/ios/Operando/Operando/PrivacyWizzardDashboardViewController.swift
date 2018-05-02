@@ -24,12 +24,15 @@ class PrivacyWizzardDashboardViewController: UIViewController {
     @IBOutlet weak var linkedinView: UIView!
     @IBOutlet weak var facebookView: UIView!
     
+    @IBOutlet weak var observationLabel: UILabel!
     private var callbacks: PrivacyWizzardDashboardCallbacks?
+    private var observationText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+         self.observationLabel.text = observationText
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -49,8 +52,9 @@ class PrivacyWizzardDashboardViewController: UIViewController {
         }
     }
     
-    func setupWithCallback(callbacks: PrivacyWizzardDashboardCallbacks) {
+    func setupWithCallback(callbacks: PrivacyWizzardDashboardCallbacks,observationText: String) {
         self.callbacks = callbacks
+        self.observationText = observationText
     }
     
     // MARK: - Actions

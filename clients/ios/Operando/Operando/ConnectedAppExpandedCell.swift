@@ -24,6 +24,8 @@ class ConnectedAppExpandedCell: UITableViewCell {
     @IBOutlet weak var viewPermissionsView: UIView!
     @IBOutlet weak var colorView: UIView!
     
+    @IBOutlet weak var unistallButtonView: UIView!
+    @IBOutlet weak var viewPermissionsButtonView: UIView!
     
     var delegate:ConnectedAppExpandedCellDelegate?
     
@@ -93,6 +95,31 @@ class ConnectedAppExpandedCell: UITableViewCell {
         }
         else {
             self.colorView.isHidden = true
+        }
+        
+        setupMainViewBackgroundColor()  
+    }
+    
+    private func setupMainViewBackgroundColor() {
+        switch ACPrivacyWizard.shared.selectedScope {
+        case .facebook:
+            unistallButtonView.backgroundColor = UIColor.fbPrivacyTopBar
+            viewPermissionsView.backgroundColor = UIColor.fbPrivacyTopBar
+            break
+        case .linkedIn:
+            unistallButtonView.backgroundColor = UIColor.lkPrivacyTopBar
+            viewPermissionsView.backgroundColor = UIColor.lkPrivacyTopBar
+            break
+        case .twitter:
+            unistallButtonView.backgroundColor = UIColor.twPrivacyTopBar
+            viewPermissionsView.backgroundColor = UIColor.twPrivacyTopBar
+            break
+        case .googleLogin:
+            unistallButtonView.backgroundColor = UIColor.goPrivacyTopBar
+            viewPermissionsView.backgroundColor = UIColor.goPrivacyTopBar
+            break
+        default:
+            break
         }
     }
     

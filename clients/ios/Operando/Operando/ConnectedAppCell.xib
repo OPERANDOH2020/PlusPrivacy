@@ -104,6 +104,7 @@
                 <outlet property="appImageView" destination="AFi-pc-MPR" id="gUv-iI-skb"/>
                 <outlet property="appTitleLabel" destination="YK1-Ue-cIR" id="QJB-KO-2wc"/>
                 <outlet property="colorView" destination="J6w-HX-8Yc" id="hgD-Mu-iJa"/>
+                <outlet property="mainView" destination="Gbg-ku-gjT" id="iVF-1D-SKd"/>
                 <outlet property="permissionDescriptionLabel" destination="xF9-HU-zAH" id="sf9-T3-UqS"/>
                 <outlet property="rightImage" destination="xF9-HU-zAH" id="xyt-pg-Wp0"/>
             </connections>

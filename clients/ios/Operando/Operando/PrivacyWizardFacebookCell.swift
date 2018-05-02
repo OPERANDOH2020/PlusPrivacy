@@ -10,6 +10,7 @@ import UIKit
 
 class PrivacyWizardFacebookCell: UITableViewCell {
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var securedImageView: UIImageView!
     @IBOutlet weak var settingLabel: UILabel!
     override func awakeFromNib() {
@@ -29,6 +30,28 @@ class PrivacyWizardFacebookCell: UITableViewCell {
         securedImageView.isHidden = true
         
         securedImageView.isHidden = !isRecommendedSelected
+        setupMainViewBackgroundColor()
+      
+    }
+    
+    
+   private func setupMainViewBackgroundColor() {
+        switch ACPrivacyWizard.shared.selectedScope {
+        case .facebook:
+            mainView.backgroundColor = UIColor.fbPrivacyTopBar
+            break
+        case .linkedIn:
+            mainView.backgroundColor = UIColor.lkPrivacyTopBar
+            break
+        case .twitter:
+            mainView.backgroundColor = UIColor.twPrivacyTopBar
+            break
+        case .googleLogin:
+            mainView.backgroundColor = UIColor.goPrivacyTopBar
+            break
+        default:
+            break
+        }
     }
     
 }

@@ -97,21 +97,25 @@ class UIRootViewController: UIViewController
     }
     
     func setupTabViewForFBQuestionnaire(){
-     
+        
         self.topBarLabel.text = "Facebook privacy settings"
+        self.topBarView.backgroundColor = UIColor.fbPrivacyTopBar
     }
     
     func setupTabViewForLinkedinQuestionnaire(){
         
         self.topBarLabel.text = "Linkedin privacy settings"
+        self.topBarView.backgroundColor = UIColor.lkPrivacyTopBar
     }
     
     func setupTabViewForTwitterQuestionnaire(){
         self.topBarLabel.text = "Twitter privacy settings"
+        self.topBarView.backgroundColor = UIColor.twPrivacyTopBar
     }
     
     func setupTabViewForGoogleQuestionnaire(){
         self.topBarLabel.text = "Google privacy settings"
+        self.topBarView.backgroundColor = UIColor.goPrivacyTopBar
     }
     
     func setupTabViewForSocialNetworks() {
@@ -120,17 +124,39 @@ class UIRootViewController: UIViewController
     }
     
     func setupForConnectedAppList(){
-        self.topBarView.backgroundColor = UIColor.operandoFBBlue
         self.topBarLabel.text = "Connected App List"
+        
+        self.setupByPrivacyScope()
+        
         self.menuButton.isHidden = true
         self.backButton.isHidden = false
     }
     
+    private func setupByPrivacyScope() {
+        switch ACPrivacyWizard.shared.selectedScope {
+        case .facebook:
+            self.topBarView.backgroundColor = UIColor.fbPrivacyTopBar
+            break
+        case .linkedIn:
+            self.topBarView.backgroundColor = UIColor.lkPrivacyTopBar
+            break
+        case .twitter:
+            self.topBarView.backgroundColor = UIColor.twPrivacyTopBar
+            break
+        case .googleLogin:
+            self.topBarView.backgroundColor = UIColor.goPrivacyTopBar
+            break
+        default:
+            break
+        }
+    }
+    
     func setupForPermissionsList(){
-        self.topBarView.backgroundColor = UIColor.operandoFBBlue
         self.topBarLabel.text = "Permissions List"
         self.menuButton.isHidden = true
         self.backButton.isHidden = false
+        
+        self.setupByPrivacyScope()
     }
     
     func setupTabViewForConnectedAppsDashboard() {
@@ -142,15 +168,15 @@ class UIRootViewController: UIViewController
     }
     
     func setupTabViewForSocialNetworksLogoutDashboard() {
-        self.topBarView.backgroundColor = UIColor.operandoFBBlue
+        self.topBarView.backgroundColor = UIColor.operandoFBLightBlue
         self.topBarLabel.text = "Connected Social Networks"
         self.settingsButton.isHidden = true
     }
     
     func setupTabViewForSocialNetworksLogoutDashboardFromAppList() {
         
-        self.topBarView.backgroundColor = UIColor.operandoFBBlue
-        self.topBarLabel.text = " Connected Social Networks "
+        self.topBarView.backgroundColor = UIColor.operandoFBLightBlue
+        self.topBarLabel.text = "Social network accounts"
         self.settingsButton.isHidden = true
         self.menuButton.isHidden = true
         self.backButton.isHidden = false
