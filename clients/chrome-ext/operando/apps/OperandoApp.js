@@ -11,7 +11,7 @@
  */
 
 angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClickPrivacy',
-    'notifications','socialApps', 'osp', 'angularModalService', 'operandoCore', 'schemaForm', 'abp',
+    'notifications','socialApps', 'osp', 'angularModalService', 'operandoCore', 'schemaForm', 'adblocker',
     'settingEditor','angular-loading-bar','UIComponent','login','ui.select',
     'ngAnimate','ngMessages','datatables','ngResource','mgcrea.ngStrap'])
     .config([
@@ -179,27 +179,8 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             })
             .state('abp', {
                 url: "/ad-blocking",
-                templateUrl: "views/preferences/abp.html",
-                resolve: {
-                    loadScript: ['$ocLazyLoad', function ($ocLazyLoad) {
+                templateUrl: "views/preferences/abp.html"
 
-                        return $ocLazyLoad.load(
-                            {
-                                name: "Utilities",
-                                files: ['../ext/common.js',
-                                    '../ext/content.js'
-                                ], serie: true
-                            });
-                    }]
-                }
-            })
-            .state('abp.options', {
-                url: "/options",
-                templateUrl: "views/preferences/abp-options.html"
-            })
-            .state('preferences.mobile', {
-                url: "/mobile",
-                templateUrl: "views/preferences/mobile.html"
             })
             .state('deals', {
                 url: "/deals",
@@ -263,102 +244,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         return $ocLazyLoad.load('/operando/controllers/socialAppsController.js');
                     }]
                 }
-            })
-            .state('admin', {
-                url: "/admin",
-                abstract:true,
-                templateUrl: "views/admin/privacy_settings/reading_settings.html",
-                resolve: {
-                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/readSocialNetworkPrivacySettings.js');
-                    }]
-                }
-            })
-            .state("admin.privacy_settings",{
-                url:"/privacy_settings/:sn",
-                params: {
-                    sn: "facebook"
-                },
-                resolve: {
-                    sn:['$stateParams', function ($stateParams) {
-                        return $stateParams.sn;
-                    }],
-                    settings:['ospService', function (ospService) {
-                        return ospService.loadOSPs();
-                    }]
-                },
-                templateUrl:"views/admin/privacy_settings/social_network.html",
-                controller:["$scope","$stateParams","settings", function($scope, $stateParams, settings) {
-
-                    var socialNetworks={
-                        facebook : "Facebook",
-                        linkedin: "LinkedIn",
-                        twitter: "Twitter",
-                        google: "Google"
-
-                    };
-
-                    if (!$stateParams.sn) {
-                        $scope.osp = {
-                            key: 'facebook',
-                            title: socialNetworks['facebook'],
-                            settings: settings['facebook']
-                        }
-
-                    }
-                    else {
-                        $scope.osp = {
-                            key: $stateParams.sn,
-                            title: socialNetworks[$stateParams.sn.toLocaleLowerCase()],
-                            settings: settings[$stateParams.sn]
-                        }
-                    }
-
-                    $scope.sn = $stateParams.sn;
-                }]
-            })
-            .state('analyst', {
-                url: "/analyst",
-                abstract:true,
-                templateUrl: "views/analyst/settings_editor/settings_editor.html",
-                resolve: {
-                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/readSocialNetworkPrivacySettings.js');
-                    }]
-                }
-            })
-            .state('analyst.settings_editor', {
-                url:"/settings_editor/:sn",
-                templateUrl: "views/analyst/settings_editor/home.html",
-                params: {
-                    sn: "facebook"
-                },
-                resolve: {
-                    sn:['$stateParams', function ($stateParams) {
-                        return $stateParams.sn;
-                    }],
-                    settings:['ospService', function (ospService) {
-                        return ospService.loadOSPs();
-                    }]
-                },
-                controller:["$scope","$stateParams","settings", function($scope, $stateParams, settings) {
-                    if (!$stateParams.sn) {
-                        $scope.osp = {
-                            key: 'facebook',
-                            title: 'Facebook',
-                            settings: settings['facebook']
-                        }
-                    }
-                    else {
-                        $scope.osp = {
-                            key: $stateParams.sn,
-                            title: $stateParams.sn,
-                            settings: settings[$stateParams.sn]
-                        }
-                    }
-
-                    $scope.sn = $stateParams.sn;
-                }]
             })
             .state('account', {
                 url: "/account",
@@ -448,73 +333,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     })
     .run(["i18nService",function(i18nService){
         i18nService.load();
-    }])
-
-    .run(["firstRunService","subscriptionsService", "$ocLazyLoad", function(firstRunService, subscriptionsService, $ocLazyLoad){
-
-        $ocLazyLoad.load(
-            ['../ext/common.js',
-                '../ext/content.js',
-                'util/hooks.js'
-            ]).then(function () {
-            subscriptionsService.init();
-            firstRunService.onFirstRun(function(){
-
-                    subscriptionsService.getFeatureSubscriptions(function (subscriptions) {
-                        subscriptions.forEach(function (subscription) {
-
-                            if (subscription.check_if_active_before === true) {
-                                ext.backgroundPage.sendMessage({
-                                    type: "subscriptions.get",
-                                    downloadable: true
-                                }, function (installedSubscriptions) {
-                                    var shouldBeToggled = false;
-
-                                    var interestedSubscription = installedSubscriptions.find(function (installedSubscription) {
-                                        return installedSubscription.url === subscription.url;
-                                    });
-
-                                    if (interestedSubscription) {
-                                        if (interestedSubscription.disabled === true) {
-                                            shouldBeToggled = true;
-                                        }
-                                    } else {
-                                        shouldBeToggled = true;
-                                    }
-
-                                    if (shouldBeToggled === true) {
-                                        ext.backgroundPage.sendMessage({
-                                            type: "subscriptions.toggle",
-                                            url: subscription.url,
-                                            title: subscription.title,
-                                            homepage: subscription.homepage
-                                        });
-                                    }
-                                });
-                            } else {
-                                ext.backgroundPage.sendMessage({
-                                    type: "subscriptions.toggle",
-                                    url: subscription.url,
-                                    title: subscription.title,
-                                    homepage: subscription.homepage
-                                });
-                            }
-
-                        });
-
-                        getPref("subscriptions_exceptionsurl", function (url) {
-                            removeSubscription(url);
-                            firstRunService.setupComplete();
-                            console.log("Setup Completed...")
-                        });
-                    });
-
-            });
-
-        });
-
     }]);
-
 
 
 

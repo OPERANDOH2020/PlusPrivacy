@@ -2,35 +2,23 @@
 
         <div class="tab-content">
             <div ui-view id="ad_blocking_preferences">
-                <section id="can-do-more">
 
-                    <div id="can-do-more-content" ng-controller="abpController">
+
+                    <div id="can-do-more-content" ng-controller="adBlockingController">
 
                         <div id="enable_disable_ad_blocker">
-                        <h4>Enable ad blocking and anti-tracking</h4>
+                        <h3>Installed adblockers</h3>
 
-                            <div class="toggle" ng-if="loaded">
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" ng-checked="abpIsEnabled"
-                                       id="toggle-abp" ng-click="toggleAdBlocking()">
-                                <label class="onoffswitch-label" for="toggle-abp" >
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
-                                </label>
-                            </div>
+
                         </div>
+                        <ul id="installed-adblockers">
 
-                        <ul id="features" ng-class="abpIsEnabled === false?'abp_disabled':''">
-
-                            <li class="feature" ng-repeat="featureSubscription in featureSubscriptions" id="feature-{{featureSubscription.feature}}">
-                                <abp-leakage-prevention subscription="featureSubscription"></abp-leakage-prevention>
+                            <li class="adblockers" ng-repeat="adblocker in adblockers">
+                                <span>{{adblocker.name}}</span>
                             </li>
 
                         </ul>
                     </div>
-
-                </section>
-
-                <button class="btn-primary filter-settings" ui-sref="abp.options">Filter settings</button>
 
             </div>
         </div>

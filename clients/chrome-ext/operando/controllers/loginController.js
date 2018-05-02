@@ -14,7 +14,6 @@
 angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService','i18nService', function($scope, messengerService, i18nService){
 
     var defaultUser = {remember_me:true};
-    $scope.showAdBlockerSettings = true;
     $scope.user = angular.copy(defaultUser);
     $scope.isAuthenticated = false;
     $scope.requestIsProcessed = false;
@@ -26,29 +25,13 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
         status: ""
     };
 
-
-    messengerService.send("getUserPreferences","abp-status",function(response){
-
-        if(response.status === "success" && typeof response.data === "boolean" ){
-            $scope.showAdBlockerSettings = response.data;
-        }
-        else{
-            $scope.showAdBlockerSettings = true;
-        }
-
-        $scope.$apply();
-    });
-
-
     //show login form
     $scope.show_login = function () {
         $scope.loginAreaState = "login_form";
-        $scope.showAdBlockerSettings = false;
     };
 
     $scope.cancel = function () {
         $scope.loginAreaState = "loggedout";
-        $scope.showAdBlockerSettings = true;
     };
 
     clearInfoPanel = function(){
@@ -190,13 +173,11 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
 
     $scope.show_forgot_password = function(){
         $scope.loginAreaState = "forgot_password";
-        $scope.showAdBlockerSettings = false;
     }
 
     $scope.show_register = function(){
         $scope.loginAreaState = "register_form";
         $scope.user = angular.copy(defaultUser);
-        $scope.showAdBlockerSettings = false;
     }
 
     $scope.showRegisterTooltip = function($event){
@@ -204,7 +185,7 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             .tooltipster({
                 contentAsHTML: true,
                 theme: ['tooltipster-plus-privacy'],
-                content: "<div class='register_tooltip'><p>You need to login or sign up with your email address only if you wish to use the email identity management feature. If you choose not to log in, you can still use all the other features of PlusPrivacy, anonymously.</p></div>",
+                content: "<div class='register_tooltip'><p>You need to be logged in only if you wish to use the email identity management feature. Otherwise you can still use all the other features of PlusPrivacy, anonymously.</p></div>",
                 trigger: "custom",
                 interactive: true,
                 animationDuration: 200,
@@ -281,10 +262,6 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
                     $scope.loginAreaState = "loggedout";
                 }
 
-                if($scope.loginAreaState !== "loggedout"){
-                    $scope.showAdBlockerSettings = false;
-                }
-
                 if(response.data.user){
                     $scope.user = response.data.user;
                 }
@@ -334,13 +311,6 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
     //messengerService.on("onReconnect",reconnectFunction);
     messengerService.on("onConnectionError",errorFunction);
     messengerService.on("onConnect",reconnectFunction);
-
-    chrome.tabs.query({active:true, windowId:chrome.windows.WINDOW_ID_CURRENT}, function (tabs){
-        var ourTab = tabs[0];
-        if(ourTab.url.indexOf("http")===0||ourTab.url.indexOf("https")===0){
-            $scope.showAdBlockerSettings = true;
-        }
-    });
 
 }]);
 

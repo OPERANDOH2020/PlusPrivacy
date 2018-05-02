@@ -8,7 +8,6 @@ body
   background:#f5f3ed!important;
 }
 
-body.local #enabled,
 body.local #clickhide,
 body.local #stats-page
 {
@@ -190,44 +189,6 @@ li li
   margin-right: 15px;
   vertical-align: top;
   background-image: url(popup.png);
-}
-
-#enabled{
-font-size: 16px;
-font-family: arial;
-}
-
-#enabled-yes strong
-{
-  font-weight: normal;
-  color: #12610e;
-}
-
-#enabled-no strong
-{
-  font-weight: normal;
-  color: #ac0505;
-}
-
-#enabled .icon
-{
-  background-position: -50px -1px ;
-}
-
-body.disabled #enabled .icon
-{
-  background-position: -50px -17px;
-}
-
-#enabled-no,
-body.disabled #enabled #enabled-yes
-{
-  display: none;
-}
-
-body.disabled #enabled #enabled-no
-{
-  display: inline;
 }
 
 #clickhide .icon,
@@ -555,7 +516,7 @@ input[type=email].ng-invalid.ng-dirty {
   color: #FFF;
   position: absolute;
   top: 0px;
-  margin: 35px 5px 45px;;
+  margin: 5px 5px 45px;;
   padding: 9px;
   font-size: 14px;
   bottom: 20px;
@@ -594,7 +555,7 @@ input[type=email].ng-invalid.ng-dirty {
 }
 
 .local .register_tooltip{
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .tooltipster-content:after{
