@@ -28,6 +28,7 @@ public class TestOkHttpClient {
                 .type(MultipartBuilder.FORM)
                 .addFormDataPart("someParam", "51.498134, -0.201755")
                 .addFormDataPart("bla", "blabla")
+                .addFormDataPart("password", "somepswd")
                 .build();
         Request request = new Request.Builder()
                 .url("http://httpbin.org/post")

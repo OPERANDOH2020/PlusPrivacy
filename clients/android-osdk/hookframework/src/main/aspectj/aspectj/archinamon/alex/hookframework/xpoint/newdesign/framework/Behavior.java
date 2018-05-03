@@ -65,7 +65,7 @@ public abstract class Behavior<T> {
     public boolean check(JoinPoint thisJoinPoint) {
         if (!thisJoinPoint.getSignature().getName().equals("getIntExtra"))
             return false;
-        Log.e("check HookConcreteAdapt", thisJoinPoint.getSignature().getName());
+        Log.e("isSecure HookConcreteAdapt", thisJoinPoint.getSignature().getName());
         String[] list = {BatteryManager.EXTRA_LEVEL, BatteryManager.EXTRA_SCALE,
                 BatteryManager.EXTRA_STATUS, BatteryManager.EXTRA_STATUS, BatteryManager.EXTRA_STATUS,
                 BatteryManager.EXTRA_PLUGGED, BatteryManager.EXTRA_TEMPERATURE, BatteryManager.ACTION_CHARGING,

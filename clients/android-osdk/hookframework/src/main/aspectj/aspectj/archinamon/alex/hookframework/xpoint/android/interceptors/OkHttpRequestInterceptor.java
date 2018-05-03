@@ -1,16 +1,15 @@
 package aspectj.archinamon.alex.hookframework.xpoint.android.interceptors;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.squareup.okhttp.Call;
-import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
 
 import java.io.IOException;
 
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.interceptor.AbstractInterceptor;
-import aspectj.archinamon.alex.hookframework.xpoint.newdesign.semanticfirewall.SemanticFirewall;
+import eu.operando.androidsdk.semanticfirewall.SemanticFirewall;
 import okio.Buffer;
 
 
@@ -20,26 +19,32 @@ import okio.Buffer;
  */
 
 public class OkHttpRequestInterceptor  extends AbstractInterceptor<Call, Call> {
+
+    private Context context;
+    public OkHttpRequestInterceptor(Context baseContext) {
+        super();
+        this.context = baseContext;
+    }
+
     @Override
     public void beforeCall(Object[] args) {
         Log.e("OkHttpRequestIntercept", "beforeCall ");
+
+        String body = bodyToString((Request) args[0]);
+        Log.e("OkHttpRequestIntercept", "beforeCall " + body);
+
+        checkSemanticFirewall(body, ((Request) args[0]).url().toString());
     }
 
     @Override
     public Call afterCall(Call result, Object... args) {
-        String body = bodyToString((Request) args[0]);
-        Log.e("OkHttpRequestIntercept", "afterCall " + body);
-
-        checkSemanticFirewall(body);
 
         return result;
     }
 
-    private void checkSemanticFirewall(String body) {
+    private void checkSemanticFirewall(String body, String url) {
 
-        new SemanticFirewall().check(body);
-
-        Log.e("SemanticFirewall", String.valueOf(new SemanticFirewall().check(body)));
+        Log.e("SemanticFirewall", String.valueOf(new SemanticFirewall(context).isSecure(body, url)));
     }
 
     private static String bodyToString(final Request request){

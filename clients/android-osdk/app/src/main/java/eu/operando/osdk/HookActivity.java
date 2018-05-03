@@ -43,7 +43,7 @@ import aspectj.archinamon.alex.hookframework.xpoint.android.request.TestOkHttpCl
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.framework.HookHelper;
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.plugin.AbstractPlugin;
 import aspectj.archinamon.alex.hookframework.xpoint.newdesign.plugin.Plugin;
-import aspectj.archinamon.alex.hookframework.xpoint.newdesign.semanticfirewall.stringmatching.MultipleExactStringMatcher;
+import eu.operando.androidsdk.semanticfirewall.model.AppDatabase;
 
 /**
  * Created by Alex on 3/20/2018.
@@ -77,16 +77,18 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
         initSensors();
         initBattery();
         initRequest();
-        initTestMatching();
+//        initTestMatching();
 
         StringBuilder sb = new StringBuilder();
         sb.append("Hello, world");
         ((TextView) findViewById(R.id.greeting)).setText(sb.toString());
+
+
     }
 
-    private void initTestMatching() {
-        new MultipleExactStringMatcher().testMatchers();
-    }
+//    private void initTestMatching() {
+//        new MultipleExactStringMatcher().testMatchers();
+//    }
 
     private void initRequest() {
 
@@ -116,8 +118,8 @@ public class HookActivity extends AppCompatActivity implements LocationListener,
         new Plugin(HookHelper.START_MEDIA_RECORDER, new MediaRecorderInterceptor());
         new Plugin(HookHelper.INTENT_CONSTRUCTOR_CAMERA, new CameraIntentInterceptor());
         new Plugin(HookHelper.INTENT_CONSTRUCTOR_SPEECH_TO_TEXT, new SpeechToTextInterceptor());
-        new Plugin(HookHelper.BUILD_OK_HTTP_REQUEST, new OkHttpRequestInterceptor());
-        new Plugin(HookHelper.SOCKET_GET_INPUT_STREAM, new OkHttpRequestInterceptor());
+        new Plugin(HookHelper.BUILD_OK_HTTP_REQUEST, new OkHttpRequestInterceptor(this));
+        new Plugin(HookHelper.SOCKET_GET_INPUT_STREAM, new OkHttpRequestInterceptor(this));
     }
 
     private Button recordButton;

@@ -6,10 +6,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
 
-import eu.operando.osdk.eula.visitedparts.EulaTextBuilder;
-import eu.operando.osdk.eula.visitedparts.ITextBuilderPart;
-import eu.operando.osdk.eula.visitor.ITextBuilderVisitor;
-import eu.operando.osdk.eula.visitor.TextBuilderDisplayVisitor;
+import eu.operando.androidsdk.eula.visitedparts.EulaTextBuilder;
+import eu.operando.androidsdk.eula.visitedparts.ITextBuilderPart;
+import eu.operando.androidsdk.eula.visitor.ITextBuilderVisitor;
+import eu.operando.androidsdk.eula.visitor.TextBuilderDisplayVisitor;
 
 public class MainActivity extends AppCompatActivity {
 
