@@ -409,7 +409,7 @@ exports.setNewPassword = function(user,newPassword,callback){
 };
 
 function hashThisPassword(plainPassword,salt,callback){
-    crypto.pbkdf2(plainPassword, salt, 20000, 512, 'sha512',function(err,res){
+    crypto.pbkdf2(plainPassword, salt, thisAdapter.config.Core.pbkdf2Iterations, 512, 'sha512',function(err,res){
         if(err){
             callback(err)
         }
