@@ -1,4 +1,4 @@
-angular.module("ospApp").controller("ospLoginController", function ($scope, $window, connectionService, userService, Notification) {
+angular.module("ospApp").controller("ospLoginController", function ($scope, connectionService, userService, Notification) {
 
     $scope.requestProcessed = false;
     $scope.user = {
@@ -41,9 +41,10 @@ angular.module("ospApp").controller("ospLoginController", function ($scope, $win
             });
     };
 
-    $scope.goToRegister = function(){
-        $window.location = "/#register";
-    }
+    $scope.goToRegister = function(event){
+        event.preventDefault();
+        window.location.assign("/#register");
+    };
 
     $scope.resendActivationCode = function(){
         $scope.requestProcessed = true;
