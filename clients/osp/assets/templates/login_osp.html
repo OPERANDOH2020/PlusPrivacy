@@ -18,7 +18,7 @@
                     <button class="btn btn-lg btn-primary btn-block"  id="login-btn" name="Submit" value="Login" type="Submit" >Login</button>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <button class="btn btn-lg btn-primary btn-block"  id="register-btn" ng-click="goToRegister()" >Register</button>
+                    <button class="btn btn-lg btn-primary btn-block"  id="register-btn" ng-click="goToRegister($event)" >Register</button>
                 </div>
             </div>
 
@@ -31,9 +31,9 @@
                 </div>
 
                 <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12" ng-if="accountNotActivated" id="account_not_activated">
-                    <a class="btn btn-lg btn-primary btn-block"  id="resendActivationCode" ng-click ="resendActivationCode()" >Resend activation email</a>
-                </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" ng-if="accountNotActivated" id="account_not_activated">
+                        <a class="btn btn-lg btn-primary btn-block"  id="resendActivationCode" ng-click ="resendActivationCode()" >Resend activation email</a>
+                    </div>
                 </div>
 
             </div>
