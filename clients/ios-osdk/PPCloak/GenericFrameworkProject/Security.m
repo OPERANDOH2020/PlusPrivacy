@@ -69,7 +69,7 @@ MAKE_HIDDEN inline void checkNoSwizzlingForOPMonitor(){
     ObjcSymbolsDetectModel *model = (ObjcSymbolsDetectModel*)malloc(sizeof(ObjcSymbolsDetectModel));
     model->frameworkName = "PPCloak";
     model->objcSymbolsToCheck = p;
-    model->numOfObjcSymbols = 1;
+    model->numOfObjcSymbols = 2;
     model->callback = &frameworkDidSwizzleOPMonitor;
     checkObjcSymbolsDefinedBeforeFramework(model);
 }

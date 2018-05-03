@@ -53,7 +53,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     func setupWithCallback(callbacks: UISetPrivacyViewControllerCallbacks) {
         self.callbacks = callbacks
     }
-
+    
     
     // MARK: - Private Methods
     private func setupControls() {
@@ -66,6 +66,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
         
         UIView.constrainView(view: webView, inHostView: self.webViewHostView)
         if #available(iOS 9.0, *) {
+            
             self.webView.customUserAgent = MozillaUserAgentId
         }
     }
@@ -88,18 +89,18 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
+        
         self.alterUserAgentInDefaults()
         ProgressHUD.show("Loading")
         self.displayStatusView(hidden: false)
         self.fbSecurityEnforcer?.enforceWithCallToLogin(callToLoginWithCompletion: { callbackWhenLogInIsDone in
             ProgressHUD.dismiss()
-//            self.addTutorialView()
+            //            self.addTutorialView()
             
             self.whenUserPressedLoggedIn = {
                 UIAlertViewController.presentOkAlert(from: self, title: "Information", message: "Please wait while we collect some data from the page, which will help us in applying your privacy settings. Sometimes this process might take a few minutes. You can help us by doing some scrolling movements on the page.", submitCallback: { (action) in
                     
-           
+                    
                     callbackWhenLogInIsDone?()
                     
                     self.displayStatusView(hidden: false)
@@ -111,7 +112,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             if $0 == "Done" {
                 self.settingsProgressView.setPercetange(value: 100)
                 self.displayStatusView(hidden: true)
-//                self.navigationController?.popViewController(animated: false)
+                //                self.navigationController?.popViewController(animated: false)
                 self.callbacks?.doneWithPrivacySettings()
                 return
             }
@@ -131,7 +132,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                     self.callbacks?.doneWithPrivacySettings()
                     
                 })
-            
+                
                 return
             }
             else if $0 == "DONE-POST" {
@@ -162,10 +163,10 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                 
                 if let items = Int(matches[0]),
                     let total = Int(matches[1]) {
-                   
+                    
                     self.settingsProgressView.setProgressBar(item: items, total: total)
                 }
-            
+                
                 print($0)
             }
             else if $0 == "Please log in!" {

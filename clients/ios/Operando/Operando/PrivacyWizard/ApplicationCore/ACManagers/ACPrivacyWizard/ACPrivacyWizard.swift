@@ -58,7 +58,7 @@ enum ACPrivacyWizardScope {
         case .facebook:
             return "https://www.facebook.com"
         case .linkedIn:
-            return "https://www.linkedin.com/psettings/"
+            return "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fpsettings%2Fprivacy&fromSignIn=true&trk=uno-reg-join-mobile-sign-in"
         case .twitter:
             return "https://mobile.twitter.com/settings/safety"
 //        case .googleLogin:

@@ -46,12 +46,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
         weak var weakSelf = self
         
         finishedLoading = {
-            
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.loginIsDoneInitiateNextStep()
-            //            }
-            
-//            self.finishedLoading = nil
         }
         
     }
@@ -97,10 +92,13 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
                 if let islogged = islogged as? String,
                     islogged == "true" || ACPrivacyWizard.shared.selectedScope == .googlePreferences {
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                        self.webView.loadAndExecuteScriptNamed(scriptName: resource) { (result, error) in
-                            print(error)
-                        }
+                      self.webView.loadAndExecuteScriptNamed(scriptName: "jquery214min", withCompletion: { (result, error) in
+                      
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            self.webView.loadAndExecuteScriptNamed(scriptName: resource) { (result, error) in
+                                print(error)
+                            }
+                        })
                     })
                 }
                 else {

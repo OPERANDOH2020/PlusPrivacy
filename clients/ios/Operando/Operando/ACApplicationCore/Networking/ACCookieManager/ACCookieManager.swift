@@ -9,6 +9,87 @@
 import WebKit
 extension WKWebsiteDataStore {
     
+    func goCookiesExists(callback: @escaping CallbackWithBool){
+        let storage = WKWebsiteDataStore.default()
+        
+        storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
+            
+            var cookiesCount = 0
+            
+            for record in records {
+                
+                if record.displayName.contains(find: "google") {
+                    
+                    callback(true)
+                    return
+                }
+            }
+
+            callback(false)
+        }
+    }
+    
+    func twCookiesExists(callback: @escaping CallbackWithBool){
+        let storage = WKWebsiteDataStore.default()
+        
+        storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
+            
+            var cookiesCount = 0
+            
+            for record in records {
+                
+                if record.displayName == "twitter.com" {
+                    
+                    callback(true)
+                    return
+                }
+            }
+
+            callback(false)
+        }
+    }
+    
+    func lkCookiesExists(callback: @escaping CallbackWithBool){
+        let storage = WKWebsiteDataStore.default()
+        
+        storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
+            
+            var cookiesCount = 0
+            
+            for record in records {
+                
+                if record.displayName == "linkedin.com" {
+                    
+                    callback(true)
+                    return
+                }
+            }
+
+            callback(false)
+        }
+    }
+    
+    func fbCookiesExists(callback: @escaping CallbackWithBool){
+        let storage = WKWebsiteDataStore.default()
+        
+        storage.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { (records) in
+            
+            var cookiesCount = 0
+            
+            for record in records {
+                
+                if record.displayName == "facebook.com" {
+                    
+                    callback(true)
+                    return
+                }
+            }
+            
+            callback(false)
+            
+        }
+    }
+    
     func deleteCookiesFromFacebook(callback: @escaping VoidBlock){
         
         let storage = WKWebsiteDataStore.default()
@@ -86,7 +167,7 @@ extension WKWebsiteDataStore {
             var cookiesCount = 0
             
             for record in records {
-                if record.displayName == "google.com" {
+                if record.displayName.contains(find: "google") {
                     storage.removeData(ofTypes: [WKWebsiteDataTypeCookies], for: [record], completionHandler: {
                         callback()
                     })
