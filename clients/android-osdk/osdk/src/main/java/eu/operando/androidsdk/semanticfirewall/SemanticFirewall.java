@@ -71,19 +71,19 @@ public class SemanticFirewall {
             if(accessedInput != null) {
                 ScdModel.AccessedInputs.PrivacyDescription privacyDescription = accessedInput.getPrivacyDescription();
                 if (privacyDescription.getThirdParties() == null) {
-                    return true;
+                    return false;
                 } else {
                     for (ScdModel.AccessedInputs.PrivacyDescription.ThirdParty thirdParty : privacyDescription.getThirdParties()) {
                         AppDatabase.getInstance(context).firewallLogDao().insert(new FirewallLog(DateTime.now().toDate(), data.first, data.first, data.second));
                         if (!url.contains(thirdParty.getUrl())) {
-                            return true;
+                            return false;
                         }
                     }
                 }
             }
         }
 
-        return false;
+        return true;
     }
 
     public ScdModel.AccessedInputs getAccessedInput(String inputType) {

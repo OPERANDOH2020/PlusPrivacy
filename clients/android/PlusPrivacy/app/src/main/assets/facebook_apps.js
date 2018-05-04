@@ -13,7 +13,6 @@
 
     var handleDataForSingleApp = function (appId, crawledPage) {
 
-        console.log("crawledPage", crawledPage);
         var appNameRegex;
         var appIconRegex;
         var permissionsRegex;
@@ -42,45 +41,69 @@
     }
 
 
-    var getApps = function (res) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(res, "text/html");
-        var sequence = Promise.resolve();
-        var apps = $('div._5b6q h3 a');
+    function getApps (res, callback) {
 
-        for (var i = 0; i < apps.length; i++) {
-            (function (i) {
-                var appId = apps[i].getAttribute('href').split('appid=')[1];
-                sequence = sequence.then(function () {
-                    return getAppData("https://m.facebook.com/" + apps[i].getAttribute('href'));
-                })
-                    .then(function (result) {
-                        handleDataForSingleApp(appId, result);
-                    });
-            })(i);
+        return new Promise(function (resolve, reject) {
 
-        }
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(res, "text/html");
+            var sequence = Promise.resolve();
+            var apps = $('div._5b6q h3 a', res);
 
-        sequence.then(function () {
-//            callback(snApps);
-            console.log("snApps", snApps);
-            Android.onFinishedLoadingCallback(JSON.stringify(snApps));
+            console.log(apps, callback);
+
+            for (var i = 0; i < apps.length; i++) {
+                (function (i) {
+                    var appId = apps[i].getAttribute('href').split('appid=')[1];
+                    sequence = sequence.then(function () {
+                        return getAppData("https://m.facebook.com/" + apps[i].getAttribute('href'));
+                    })
+                        .then(function (result) {
+                            handleDataForSingleApp(appId, result);
+                        });
+                })(i);
+
+            }
+
+            sequence.then(function () {
+
+
+                    console.log("snApps1", snApps);
+                    resolve();
+                    callback();
+//                    Android.onFinishedLoadingCallback(JSON.stringify(snApps));
+            });
+
+
         });
 
     };
 
-    getApps(document.getElementsByTagName('html')[0].innerHTML);
+    var ppp = Promise.resolve();
+    ppp = ppp.then(function(){
+        return getApps(document.getElementsByTagName('html')[0].innerHTML, function(){console.log("fin1")});
+    }).then(function(){
+        return doGetRequest("https://m.facebook.com/settings/apps/tabbed/?tab=inactive", getApps);
+    }).then(function(){
+        console.log("snApps2", snApps);
+//        Android.onFinishedLoadingCallback(JSON.stringify(snApps));
+    });
 
 })();
 
 
 function doGetRequest(url, callback) {
-    var oReq = new XMLHttpRequest();
-    oReq.onreadystatechange = function () {
-        if (oReq.readyState == XMLHttpRequest.DONE) {
-            callback(oReq.responseText, true);
-        }
-    };
-    oReq.open("GET", url);
-    oReq.send();
+
+    return new Promise(function (resolve, reject) {
+        var oReq = new XMLHttpRequest();
+        oReq.onreadystatechange = function () {
+            if (oReq.readyState == XMLHttpRequest.DONE) {
+                callback(oReq.responseText, function(){
+                    resolve();
+                });
+            }
+        };
+        oReq.open("GET", url);
+        oReq.send();
+    });
 }
