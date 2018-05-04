@@ -19,17 +19,6 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
         messengerService.send("logoutCurrentUser");
     };
 
-
-    /*var userDataIsRetrieved = function(response){
-        //messengerService.off("getCurrentUser",userDataIsRetrieved);
-        $scope.user = response.data;
-        $scope.userIsLoggedIn = true;
-        //$state.reload();
-        $scope.$apply();
-        $rootScope.$broadcast("dismissLoginModal");
-    }*/
-
-
     messengerService.send("userIsAuthenticated", function (data) {
         var refreshPageData = function(refresh){
             return function(response){

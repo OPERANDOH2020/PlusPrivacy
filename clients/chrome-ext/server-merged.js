@@ -101,18 +101,6 @@ require.scopes["RegexUtils"] = (function()
     };
     return exports;
 })();
-require.scopes["LocalRepo"] = (function()
-{
-    var exports = {};
-    var LocalRepo = exports.LocalRepo = {};
-
-    function updateRepo(storage, item)
-    {}
-
-    function addRepo(index)
-    {}
-    return exports;
-})();
 require.scopes["observers-pool"] = (function()
 {
     var exports = {};
