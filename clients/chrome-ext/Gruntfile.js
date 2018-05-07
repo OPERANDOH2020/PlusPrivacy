@@ -3,7 +3,6 @@ module.exports = function(grunt){
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-
         copy: {
             main: {
                 src: ['**/*','!**/libs/**'],
@@ -14,26 +13,40 @@ module.exports = function(grunt){
         },
 
         concat: {
-            directives: {
+            dashboard_directives: {
                 src:[
-                    "operando/directives/deals.js",
-                    "operando/directives/extensions.js",
-                    "operando/directives/social-apps.js",
-                    "operando/directives/identities.js",
-                    "operando/directives/notification.js",
-                    "operando/directives/osp-settings.js",
-                    "operando/directives/single-click-privacy.js",
-                    "operando/directives/abp_data_leakage_prevention.js",
-                    "operando/directives/progress-bar.js",
-                    "operando/directives/setting-editor.js",
-                    "operando/directives/loader.js",
-                    "operando/directives/change-state-if.js",
-                    "operando/directives/how-it-works.js",
-                    "operando/directives/login.js"
+                    "operando/directives/dashboard/deals.js",
+                    "operando/directives/dashboard/extensions.js",
+                    "operando/directives/dashboard/social-apps.js",
+                    "operando/directives/dashboard/identities.js",
+                    "operando/directives/dashboard/notification.js",
+                    "operando/directives/dashboard/osp-settings.js",
+                    "operando/directives/dashboard/single-click-privacy.js",
+                    "operando/directives/dashboard/abp_data_leakage_prevention.js",
+                    "operando/directives/dashboard/progress-bar.js",
+                    "operando/directives/dashboard/setting-editor.js",
+                    "operando/directives/dashboard/loader.js",
+                    "operando/directives/dashboard/change-state-if.js",
+                    "operando/directives/dashboard/how-it-works.js",
+                    "operando/directives/dashboard/login.js"
                 ],
-                dest:"dist/directives.js"
+                dest:"dist/directives/dashboard-directives.js"
             },
-            libs: {
+            popup_directives: {
+                src:["operando/directives/popup/popup_menu.js"],
+                dest:"dist/directives/popup-directives.js"
+            },
+            swarm_services:{
+              src:[
+                  "operando/services/swarm-services/socket.io-2.0.3.js",
+                  "operando/util/Constants.js",
+                  "operando/services/swarm-services/SwarmDebug.js",
+                  "operando/services/swarm-services/SwarmClient.js",
+                  "operando/services/swarm-services/SwarmHub.js"
+              ],
+                dest:"dist/backgrounds/swarm-services.js"
+            },
+            background_services: {
                 src:[
                     "build/operando/util/RegexUtils.js",
                     "build/operando/libs/observers-pool.js",
@@ -57,7 +70,11 @@ module.exports = function(grunt){
                     "build/operando/util/DependencyManager.js",
                     "build/operando/modules/TabsManager.js"
                 ],
-                dest:"dist/server.js"
+                dest:"dist/backgrounds/background-services.js"
+            },
+            config:{
+                src:["build/config/*"],
+                dest:"dist/backgrounds/utils/Config.js"
             }
         },
 
@@ -93,10 +110,62 @@ module.exports = function(grunt){
                     indent: '\t',
                     wrapper: function(filepath) {
                         var filename = path.basename(filepath,'.js');
-                        console.log(filename);
                         return ['require.scopes["'+filename+'"] = (function()\n{\n\tvar exports = {};\n','\n return exports;\n})();\n'];
                     }
                 }
+            }
+        },
+        clean:{
+            build:[
+                "build",
+                "dist/directives/dashboard",
+                "dist/directives/popup",
+                "dist/services/swarm-services",
+                "dist/util/config"
+            ],
+            release:{
+                options:{
+                    'no-write': true
+                },
+                src: ['operando']
+            }
+        },
+
+        config: {
+            dev: {
+                options: {
+                    variables: {
+                        'environment': 'operando/util/config/Config.debug.js'
+                    }
+                }
+            },
+            prod: {
+                options: {
+                    variables: {
+                        'environment': 'operando/util/config/Config.production.js'
+                    }
+                }
+            },
+            test: {
+                options: {
+                    variables: {
+                        'environment': 'operando/util/config/Config.testServer.js'
+                    }
+                }
+            }
+        },
+
+        replace: {
+            dist: {
+                options: {
+                    variables: {
+                        'environment': '<%= grunt.config.get("environment") %>'
+                    },
+                    force: true
+                },
+                files: [
+                    {expand: true, flatten: true, src: ['<%= grunt.config.get("environment") %>'], dest: 'build/config'}
+                ]
             }
         }
     });
@@ -104,11 +173,12 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-wrap');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-config');
+    grunt.loadNpmTasks('grunt-replace');
 
-    // Default task(s).
-    grunt.registerTask('min', ['concat']);
-    grunt.registerTask('wrapper', ['wrap','concat']);
-    grunt.registerTask('mirror', ['copy']);
-    grunt.registerTask('build', ['copy','wrap','concat']);
+    grunt.registerTask('default', ['config:dev','replace','copy','wrap','concat','clean']);
+    grunt.registerTask('test', ['config:test','replace','copy','wrap','concat','clean']);
+    grunt.registerTask('release', ['config:prod','replace','copy','wrap','concat','clean']);
 
 }

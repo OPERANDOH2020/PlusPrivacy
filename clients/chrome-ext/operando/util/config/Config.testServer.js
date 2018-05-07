@@ -15,5 +15,5 @@ var ExtensionConfig = {
     OPERANDO_SERVER_HOST:"plusprivacy.club",
     OPERANDO_SERVER_PORT:8080,
     WEBSITE_HOST:"plusprivacy.club",
-    UNINSTALL_URL:"http://localhost/uninstall/?deviceId="
+    UNINSTALL_URL:"https://plusprivacy.club/uninstall/?deviceId="
 }

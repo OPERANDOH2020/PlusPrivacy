@@ -33,7 +33,6 @@ function doGetRequest(url, data, callback) {
         }
     };
     oReq.open("GET", url);
-    console.log(arguments.length);
     if (arguments.length > 2) {
         if (data.headers) {
             oReq.withCredentials = true;

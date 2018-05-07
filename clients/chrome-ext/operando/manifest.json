@@ -1,52 +1,14 @@
 {
   "background": {
     "scripts": [
-      /*"lib/polyfills/url.js", 
-      "lib/polyfills/promise.js", 
-      "lib/polyfills/fetch.js", 
-      "ext/common.js", */
       "util/require.js",
-
-      "services/swarm-services/socket.io-2.0.3.js",
-      "services/swarm-services/SwarmDebug.js",
-      "services/swarm-services/SwarmClient.js",
-      "services/swarm-services/SwarmHub.js",
-      "util/Constants.js",
-      "util/config/Config.production.js",
-
-      "server.js",
-      /*"operando/util/RegexUtils.js",
-      "operando/libs/observers-pool.js",
-      "operando/libs/bus-service.js",
-      "operando/libs/swarm-service.js",
-      "operando/libs/identity-service.js",
-      "operando/libs/device-service.js",
-      "operando/libs/notification-service.js",
-      "operando/libs/authentication-service.js",
-      "operando/libs/pfb-service.js",
-      "operando/libs/social-network-privacy-settings.js",
-      "operando/libs/osp-service.js",
-      "operando/modules/Interceptor.js",
-      "operando/libs/request-intercepter-service.js",
-      "operando/libs/user-service.js",
-      "operando/libs/social-network-service.js",
-      "operando/libs/website-service.js",
-      "operando/libs/script-injector-service.js",
-      "operando/libs/popup-service.js",
-      "operando/modules/SynchronizedPersistence.js",
-      "operando/util/DependencyManager.js",
-      "operando/modules/TabsManager.js",*/
-
-
-
-
-
-      /*"operando/swarms.js",*/
+      "backgrounds/utils/Config.js",
+      "backgrounds/swarm-services.js",
+      "backgrounds/background-services.js",
       "utils/js.cookie.js",
       "backgrounds/utils/background_utils.js",
       "backgrounds/operando_background.js",
       "backgrounds/message_bus.js"
-      /*"devenvPoller__.js"*/
     ]
   }, 
   "browser_action": {
@@ -91,10 +53,7 @@
     "gcm"
   ], 
   "short_name": "__MSG_name__", 
-  /*"storage": {
-    "managed_schema": "managed-storage-schema.json"
-  },*/ 
-  "version": "2.0.0", 
+  "version": "2.0.0",
   "web_accessible_resources": [
     "assets/images/icons/operando_24.png",
     "assets/images/icons/abp-19.png",
