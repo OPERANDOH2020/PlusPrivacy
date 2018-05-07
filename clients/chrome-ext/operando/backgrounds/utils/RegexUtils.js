@@ -22,10 +22,10 @@ if (!String.prototype.unescapeHtmlChars) {
 }
 
 
-RegexUtis = {
+RegexUtils = {
     findValueByRegex : function findValueByRegex(serviceKey, label, regex, index, data, must) {
         var value = this.findMultiValuesByRegex(serviceKey, label, regex, [ index ], data, must)[0];
-        return RegexUtis.cleanAndPretty(value);
+        return RegexUtils.cleanAndPretty(value);
     },
 
     findMultiValuesByRegex : function findMultiValuesByRegex(serviceKey, label, regex, indices, data) {
@@ -84,17 +84,17 @@ RegexUtis = {
     },
 
     cleanAndPretty: function(value) {
-        return RegexUtis.prettify(RegexUtis.clean(value));
+        return RegexUtils.prettify(RegexUtils.clean(value));
     },
 
     findValueByRegex_CleanAndPretty : function findValueByRegex_CleanAndPretty(serviceKey, label, regex, index, data, must) {
-        var value = RegexUtis.findValueByRegex(serviceKey, label, regex, index, data, must);
+        var value = RegexUtils.findValueByRegex(serviceKey, label, regex, index, data, must);
 
-        return RegexUtis.cleanAndPretty(value);
+        return RegexUtils.cleanAndPretty(value);
     },
 
     findValueByRegex_Pretty : function findValueByRegex_Pretty(serviceKey, label, regex, index, data, must) {
-        var value = RegexUtis.findValueByRegex(serviceKey, label, regex, index, data, must);
-        return RegexUtis.prettify(value);
+        var value = RegexUtils.findValueByRegex(serviceKey, label, regex, index, data, must);
+        return RegexUtils.prettify(value);
     }
 };

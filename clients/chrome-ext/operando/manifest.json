@@ -1,7 +1,7 @@
 {
   "background": {
     "scripts": [
-      "util/require.js",
+      "backgrounds/utils/require.js",
       "backgrounds/utils/Config.js",
       "backgrounds/swarm-services.js",
       "backgrounds/background-services.js",

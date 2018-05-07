@@ -136,10 +136,10 @@ var websiteService = exports.websiteService = {
             permissionsRegex = '<span\\sclass="_5ovn">(.*?)</span>';
             appVisibility = '<div\\sclass="_52ja"><span>(.*?)</span></div>';
 
-            var name = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'App Name', appNameRegex, 1, crawledPage, true);
-            var iconUrl = RegexUtis.findValueByRegex(self.key, 'App Icon', appIconRegex, 1, crawledPage, true);
-            var permissions = RegexUtis.findAllOccurrencesByRegex(self.key, "Permissions Title", permissionsRegex, 1, crawledPage, RegexUtis.cleanAndPretty);
-            var visibility = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'Visibility', appVisibility, 1, crawledPage, true);
+            var name = RegexUtils.findValueByRegex_CleanAndPretty(self.key, 'App Name', appNameRegex, 1, crawledPage, true);
+            var iconUrl = RegexUtils.findValueByRegex(self.key, 'App Icon', appIconRegex, 1, crawledPage, true);
+            var permissions = RegexUtils.findAllOccurrencesByRegex(self.key, "Permissions Title", permissionsRegex, 1, crawledPage, RegexUtils.cleanAndPretty);
+            var visibility = RegexUtils.findValueByRegex_CleanAndPretty(self.key, 'Visibility', appVisibility, 1, crawledPage, true);
             var app = {
                 appId: appId,
                 iconUrl: iconUrl,
@@ -192,7 +192,7 @@ var websiteService = exports.websiteService = {
         function getApps(res) {
 
             var rawAppsRegex = '<div\\s?id=\"oauth(?:.+)\"(?:.|\n)*?</div>(?:.|\n)*?</div>(?:.|\n)*?</div>(?:.|\n)*?</div>';
-            var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
+            var rawAppsList = RegexUtils.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
 
             var appNameRegex = 'strong>(.*?)\\s?</strong';
             var appIdRegex = 'id="oauth_application_(.*?)"\\s?class';
@@ -201,13 +201,13 @@ var websiteService = exports.websiteService = {
             var permissionsRegex = '<p\\s+class="description">.+?\\n.+?<small\\s+class="metadata">(?:.+\\:\\s?)?(.+?)</small></p>';
 
             twitterApps = rawAppsList.map(function (rawAppData) {
-                var appName = RegexUtis.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true);
-                var appId = RegexUtis.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true);
+                var appName = RegexUtils.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true);
+                var appId = RegexUtils.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true);
 
-                var iconURL = RegexUtis.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
+                var iconURL = RegexUtils.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
                     .unescapeHtmlChars();
 
-                var permissions = RegexUtis.findAllOccurrencesByRegex(self.key, "Extracting Permissions", permissionsRegex, 1, rawAppData, function (value) {
+                var permissions = RegexUtils.findAllOccurrencesByRegex(self.key, "Extracting Permissions", permissionsRegex, 1, rawAppData, function (value) {
                     return value.unescapeHtmlChars();
                 });
 
@@ -234,7 +234,7 @@ var websiteService = exports.websiteService = {
 
         function getApps(res) {
             var rawAppsRegex = '<li\\s+id=\"permitted-service-(?:.|\n)*?</div>(?:.|\n)*?</li>';
-            var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
+            var rawAppsList = RegexUtils.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
             var appIdRegex = 'data-app-id="(.*?)"\\s?data-app-type';
             var appNameRegex = 'p\\s+class="permitted-service-name">(.*?)</p';
             var iconRegex = 'src=\"(.*?)\"';
@@ -242,9 +242,9 @@ var websiteService = exports.websiteService = {
             linkedInApps = rawAppsList.map(function (rawAppData) {
 
                 return {
-                    appId: RegexUtis.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true),
-                    name: RegexUtis.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true),
-                    iconUrl: RegexUtis.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
+                    appId: RegexUtils.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true),
+                    name: RegexUtils.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true),
+                    iconUrl: RegexUtils.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
                         .unescapeHtmlChars()
                 }
             });
@@ -260,7 +260,7 @@ var websiteService = exports.websiteService = {
         var googleApps = [];
         var permissionsRegex = /<div[^>]+role="listitem"[^>]*>([^<]+).*?<\/div>/;
         var extractPermissionsFromRawGroup = function (rawData) {
-            return RegexUtis.findAllOccurrencesByRegex(self.key, "Permissions in Group", permissionsRegex.source, 1, rawData,
+            return RegexUtils.findAllOccurrencesByRegex(self.key, "Permissions in Group", permissionsRegex.source, 1, rawData,
                 function (value) {
                     return value.trim().unescapeHtmlChars();
                 }
@@ -275,17 +275,17 @@ var websiteService = exports.websiteService = {
             var additionalPermissionGroupRegex = /<div[^>]+?role="listitem"[^>]*>[^<]*<div[^>]+>[^<]+<div[^<]+(<div[\s\S]+?<\/div>)[^<]*<\/div>[^<]*<\/div>[^<]*<\/div>/;
 
             var rawAppsRegex = 'jscontroller[^<]+data-id[^<]+role="listitem".*?role="row".*?role="rowheader".*?role="gridcell".*?<\/div><\/div><\/div><\/div><\/div><\/content>';
-            var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, page);
+            var rawAppsList = RegexUtils.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, page);
             var appIdRegex = '<div class="CMEZce">([^"]+)</div>';
             var iconUrlRegex = '<div class="ShbWnb" aria-hidden="true"><img src="([^"]+)"';
 
 
             googleApps = rawAppsList
                 .map(function (rawAppData) {
-                    var appId = RegexUtis.findValueByRegex(self.key, 'App Id+Name', appIdRegex, 1, rawAppData, true).trim().unescapeHtmlChars();
+                    var appId = RegexUtils.findValueByRegex(self.key, 'App Id+Name', appIdRegex, 1, rawAppData, true).trim().unescapeHtmlChars();
                     var name = appId;
 
-                    var iconUrl = RegexUtis.findValueByRegex(self.key, 'App Icon', iconUrlRegex, 1, rawAppData, true).unescapeHtmlChars();
+                    var iconUrl = RegexUtils.findValueByRegex(self.key, 'App Icon', iconUrlRegex, 1, rawAppData, true).unescapeHtmlChars();
 
                     /* TODO: This condition is probably not even relevant anymore */
                     if ((iconUrl.indexOf("google.com") > -1 && iconUrl.indexOf("android") > -1) ||
@@ -294,14 +294,14 @@ var websiteService = exports.websiteService = {
                         return false;
                     }
 
-                    var rawPermissionGroups = RegexUtis.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupRegex.source, 0, rawAppData,
+                    var rawPermissionGroups = RegexUtils.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupRegex.source, 0, rawAppData,
                         function (value) {
                             return value.trim().unescapeHtmlChars();
                         }
                     );
                     permissionGroups = [];
                     var permissionIconGroups = rawPermissionGroups.map(function (rawGroup) {
-                        var groupData = RegexUtis.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupRegex, [1, 2, 3], rawGroup, true);
+                        var groupData = RegexUtils.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupRegex, [1, 2, 3], rawGroup, true);
 
                         var group = {
                             iconUrl: groupData[0].trim().unescapeHtmlChars(),
@@ -323,13 +323,13 @@ var websiteService = exports.websiteService = {
                         permissionGroups = permissionGroups.concat(permissionIconGroups);
                     }
 
-                    var rawPermissionIconlessGroups = RegexUtis.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupIconlessRegex.source, 0, rawAppData,
+                    var rawPermissionIconlessGroups = RegexUtils.findAllOccurrencesByRegex(self.key, "Permission Groups", permissionGroupIconlessRegex.source, 0, rawAppData,
                         function (value) {
                             return value.trim().unescapeHtmlChars();
                         });
 
                     var permissionIconlessGroups = rawPermissionIconlessGroups.map(function (rawGroup) {
-                        var groupData = RegexUtis.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupIconlessRegex, [1, 2], rawGroup, true);
+                        var groupData = RegexUtils.findMultiValuesByRegex(self.key, "Permission Group", permissionGroupIconlessRegex, [1, 2], rawGroup, true);
 
 
                         var group = {
@@ -353,7 +353,7 @@ var websiteService = exports.websiteService = {
 
 
                     /* Additional permissions that don't have a group. See example #3 above */
-                    var rawAdditionalPermissionsGroup = RegexUtis.findValueByRegex(self.key, "Permission Group", additionalPermissionGroupRegex, 1, rawAppData, false);
+                    var rawAdditionalPermissionsGroup = RegexUtils.findValueByRegex(self.key, "Permission Group", additionalPermissionGroupRegex, 1, rawAppData, false);
 
                     if (rawAdditionalPermissionsGroup) {
                         var additionalPermissions = extractPermissionsFromRawGroup(rawAdditionalPermissionsGroup);
@@ -383,7 +383,7 @@ var websiteService = exports.websiteService = {
 
         function getApps(content) {
             var matchRes = '(?:"viewerData"\\:)(?=.*"Personal")(?=.*"userId"\\:\\s+(\\w+))(?=.*"personalName"\\:\\s+\\"([^"]+)\\"[,]\\s+)';
-            var userId = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
+            var userId = RegexUtils.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
 
             chrome.cookies.getAll({url: "https://www.dropbox.com"}, function (cookies) {
 
@@ -476,14 +476,14 @@ var websiteService = exports.websiteService = {
             var dtsgOption2 = 'name=\\\\?"fb_dtsg\\\\?"\\svalue=\\\\?"(.*?)\\\\?"';
             var dtsgOption3 = 'dtsg"\\s?:\\s?\{"token"\\s?:\\s?"(.*?)';
 
-            var fb_dtsg = RegexUtis.findValueByRegex(self.key, 'fb_dtsg', dtsgOption1, 1, content, false);
+            var fb_dtsg = RegexUtils.findValueByRegex(self.key, 'fb_dtsg', dtsgOption1, 1, content, false);
             if (!fb_dtsg)
-                fb_dtsg = RegexUtis.findValueByRegex(self.key, 'fb_dtsg', dtsgOption2, 1, content, false);
+                fb_dtsg = RegexUtils.findValueByRegex(self.key, 'fb_dtsg', dtsgOption2, 1, content, false);
             if (!fb_dtsg)
-                fb_dtsg = RegexUtis.findValueByRegex(self.key, 'fb_dtsg', dtsgOption3, 1, content, true);
+                fb_dtsg = RegexUtils.findValueByRegex(self.key, 'fb_dtsg', dtsgOption3, 1, content, true);
 
             var userIdOption1 = '"USER_ID" ?: ?"(.*?)"';
-            var userId = RegexUtis.findValueByRegex(self.key, 'USER_ID', userIdOption1, 1, content, true);
+            var userId = RegexUtils.findValueByRegex(self.key, 'USER_ID', userIdOption1, 1, content, true);
 
             var data = {
                 'fb_dtsg': fb_dtsg,
@@ -495,13 +495,13 @@ var websiteService = exports.websiteService = {
 
         function extractTwitterToken(content, callback) {
             var tokenRegex = 'value="(.*?)" name="authenticity_token"';
-            var token = RegexUtis.findValueByRegex(self.key, 'authenticity_token', tokenRegex, 1, content, true);
+            var token = RegexUtils.findValueByRegex(self.key, 'authenticity_token', tokenRegex, 1, content, true);
             callback({token: token});
         }
 
         function extractLinkedinToken(content, callback) {
             var tokenRegex = 'name="csrfToken" value="(.*?)"';
-            var token = RegexUtis.findValueByRegex(self.key, 'authenticity_token', tokenRegex, 1, content, true);
+            var token = RegexUtils.findValueByRegex(self.key, 'authenticity_token', tokenRegex, 1, content, true);
             callback({csrfToken: token});
         }
 
@@ -509,15 +509,15 @@ var websiteService = exports.websiteService = {
         function extractGoogleTokens(content, appId, callback) {
             var now = new Date();
             var paramsOption1 = "\\\[.*,\\\'([\\\w-]+:[\\\w\\\d]+)\\\',.*\\\]\\\s.*(?=(\\\,\\\s*)+\\\].*window\\\.IJ_valuesCb \\\&\\\&)";
-            var match = RegexUtis.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [1], content, true);
+            var match = RegexUtils.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [1], content, true);
             var sidRegex = 'WIZ_global_data.+{[^}]*?:\\\"([-\\\d]+?)\\\"[^:\\\"]+';
-            var sid = RegexUtis.findValueByRegex(self.key, 'f.sid', sidRegex, 1, content, true);
+            var sid = RegexUtils.findValueByRegex(self.key, 'f.sid', sidRegex, 1, content, true);
             var at = match[0];
 
 
             var req_id = 3600 * now.getHours() + 60 * now.getMinutes() + now.getSeconds() + 1E5;
             var fReqRegex = 'data-name="' + appId + '".*?data-handle="(.*?)"';
-            var f_req = RegexUtis.findValueByRegex(self.key, 'f_req', fReqRegex, 1, content, true);
+            var f_req = RegexUtils.findValueByRegex(self.key, 'f_req', fReqRegex, 1, content, true);
 
 
             callback({
@@ -531,7 +531,7 @@ var websiteService = exports.websiteService = {
         function extractDropBoxTokens(content, callback) {
             var tokens = {};
             var matchRes = '(?:"viewerData"\\:)(?=.*"Personal")(?=.*"userId"\\:\\s+(\\w+))(?=.*"personalName"\\:\\s+\\"([^"]+)\\"[,]\\s+)';
-            tokens.userId = RegexUtis.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
+            tokens.userId = RegexUtils.findValueByRegex_CleanAndPretty(self.key, 'Account - UserId', matchRes, 1, content, true);
             chrome.cookies.get({url: "https://www.dropbox.com", name: "t"}, function (cookie) {
                 tokens['t'] = cookie.value;
                 callback(tokens);
@@ -685,9 +685,9 @@ var websiteService = exports.websiteService = {
             var sid;
 
             paramsOption1 = "\\\[.*,\\\'([\\\w-]+:[\\\w\\\d]+)\\\',.*\\\]\\\s.*(?=(\\\,\\\s*)+\\\].*window\\\.IJ_valuesCb \\\&\\\&)";
-            match = RegexUtis.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [1], pageData, true);
+            match = RegexUtils.findMultiValuesByRegex(self.key, 'Revoke Params', paramsOption1, [1], pageData, true);
             var sidRegex = 'WIZ_global_data.+{[^}]*?:\\\"([-\\\d]+?)\\\"[^:\\\"]+';
-            sid = RegexUtis.findValueByRegex(self.key, 'f.sid', sidRegex, 1, pageData, true);
+            sid = RegexUtils.findValueByRegex(self.key, 'f.sid', sidRegex, 1, pageData, true);
 
             var at = match[0];
 

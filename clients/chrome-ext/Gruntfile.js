@@ -48,7 +48,7 @@ module.exports = function(grunt){
             },
             background_services: {
                 src:[
-                    "build/operando/util/RegexUtils.js",
+                    "build/operando/backgrounds/utils/RegexUtils.js",
                     "build/operando/libs/observers-pool.js",
                     "build/operando/libs/bus-service.js",
                     "build/operando/libs/swarm-service.js",
@@ -82,7 +82,7 @@ module.exports = function(grunt){
             advanced: {
                 expand: true,
                 src: [
-                    "operando/util/RegexUtils.js",
+                    "operando/backgrounds/utils/RegexUtils.js",
                     "operando/libs/observers-pool.js",
                     "operando/libs/bus-service.js",
                     "operando/libs/swarm-service.js",
