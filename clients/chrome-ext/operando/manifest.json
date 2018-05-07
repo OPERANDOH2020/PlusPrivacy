@@ -5,7 +5,7 @@
       "backgrounds/utils/Config.js",
       "backgrounds/swarm-services.js",
       "backgrounds/background-services.js",
-      "utils/js.cookie.js",
+      "backgrounds/utils/js.cookie.js",
       "backgrounds/utils/background_utils.js",
       "backgrounds/operando_background.js",
       "backgrounds/message_bus.js"
@@ -13,8 +13,8 @@
   }, 
   "browser_action": {
     "default_icon": {
-      "19": "assets/images/icons/operando/pp-19.png",
-      "38": "assets/images/icons/operando/pp-38.png"
+      "19": "assets/images/icons/pp-19.png",
+      "38": "assets/images/icons/pp-38.png"
     }, 
     "default_popup": "popup.html", 
     "default_title": "PlusPrivacy"
