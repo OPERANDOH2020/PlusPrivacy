@@ -283,10 +283,6 @@ label
   background: url(../assets/images/icons/48X48_OP_Dashboard.png) no-repeat left center;
 }
 
-.operando_wrapper ul > li > div.item_icon.abp_icon{
-  background: url(../assets/images/icons/ad_block_options.png) no-repeat left center;
-}
-
 .operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
   background: url(../assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
 }
