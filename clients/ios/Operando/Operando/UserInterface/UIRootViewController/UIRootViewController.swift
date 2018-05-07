@@ -124,7 +124,7 @@ class UIRootViewController: UIViewController
     }
     
     func setupForConnectedAppList(){
-        self.topBarLabel.text = "Connected App List"
+        self.topBarLabel.text = "Connected Apps "
         
         self.setupByPrivacyScope()
         

@@ -19,9 +19,15 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     private var selectedIndexPath: IndexPath?
     private var webView: WKWebView = WKWebView(frame: .zero)
     private var dataSource: [ConnectedApp] = []
+    private var inactiveDataSource: [ConnectedApp]?
     
     private var loadAppsUrl = {}
+    
     private var isLoggedInApp = false
+    private var scriptWasInserted = false
+    
+    private var haveLoadCell = true
+    
     private var removeApp: String?
     private var callbacks: UIConnectedTableViewControllerCallbacks?
     
@@ -34,6 +40,12 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         tableView.separatorStyle = .none
         self.webView.isHidden = true
         webView.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height)
+        
+        if ACPrivacyWizard.shared.connectedApps.count != 0 {
+            self.isLoggedInApp = true
+            self.scriptWasInserted = true
+            return
+        }
         
         loadAppsUrl = {
             
@@ -48,6 +60,12 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+        if ACPrivacyWizard.shared.connectedApps.count != 0 {
+            self.dataSource = ACPrivacyWizard.shared.connectedApps
+            self.tableView.reloadData()
+            return
+        }
         
         self.view.addSubview(webView)
         ProgressHUD.show()
@@ -78,6 +96,11 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+        if ACPrivacyWizard.shared.selectedScope == .facebook {
+            return 2
+        }
+        
         return 1
     }
     
@@ -89,19 +112,56 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         }
         else {
             self.tableView.backgroundView = nil
+            ACPrivacyWizard.shared.connectedApps = self.dataSource
+        }
+        
+        if section == 1 {
+            
+            if inactiveDataSource == nil {
+                return 1
+            }
+            
+            return (inactiveDataSource?.count)!
         }
         
         return dataSource.count
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.section ==  1 && self.inactiveDataSource == nil{
+            // print("this is the last cell")
+            let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            spinner.startAnimating()
+            spinner.isHidden = false
+            spinner.frame = cell.contentView.frame
+            
+            cell.contentView.addSubview(spinner)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if ACPrivacyWizard.shared.selectedScope == .facebook && indexPath.section == 1 && self.inactiveDataSource == nil {
+            
+            let cell = UITableViewCell()
+            cell.selectionStyle = .none
+            return cell
+        }
         
         if let selectedIndex = self.selectedIndexPath,
             selectedIndex == indexPath {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: ConnectedAppExpandedCell.identifier) as? ConnectedAppExpandedCell
             cell?.delegate = self
-            cell?.setupWith(app: dataSource[indexPath.row], callbacks: self.callbacks!)
+            
+            if indexPath.section == 0 {
+                cell?.setupWith(app: dataSource[indexPath.row], callbacks: self.callbacks!)
+            }
+            else {
+                cell?.setupWith(app: inactiveDataSource![indexPath.row], callbacks: self.callbacks!)
+            }
+            
             return cell!
         }
         else {
@@ -109,13 +169,42 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                 return UITableViewCell()
             }
             
-            cell.setupWith(app: dataSource[indexPath.row])
+            if indexPath.section == 0 {
+                cell.setupWith(app: dataSource[indexPath.row])
+            }
+            else {
+                
+                if inactiveDataSource?[indexPath.row] != nil {
+                    
+                    cell.setupWith(app: inactiveDataSource![indexPath.row])
+                }
+            }
             
             return cell
         }
     }
     
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if ACPrivacyWizard.shared.selectedScope == . facebook{
+                if section == 0 {
+                    return "Active"
+                }
+                else {
+                    return "Inactive"
+                }
+                
+            }
+        
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 && self.inactiveDataSource == nil {
+            return
+        }
         
         if self.selectedIndexPath == indexPath {
             return
@@ -143,9 +232,16 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                 
                 let scriptName = ACPrivacyWizard.shared.selectedScope.getNetworks().first! + "_apps"
                 
-                self.webView.loadJSFile(scriptName: scriptName, withCompletion: { (data, isloggedError) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
                     
-                })
+                    self.webView.loadJSFile(scriptName: scriptName, withCompletion: { (data, isloggedError) in
+                        
+                        print("GET APPS SCRIPT WAS INSERTED")
+                        self.scriptWasInserted = true
+                        
+                    })
+                }
+                
             })
         })
     }
@@ -161,6 +257,23 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         })
         
         self.dataSource = newData
+        
+        
+        if let inactiveDataSourceUnwrapped = self.inactiveDataSource {
+            
+            let inactiveData = inactiveDataSourceUnwrapped.filter({ (app) -> Bool in
+                if app.appId == appID {
+                    return false
+                }
+                
+                return true
+            })
+            
+            self.inactiveDataSource = inactiveData
+        }
+        
+     
+        selectedIndexPath = nil
         self.tableView.reloadData()
         ProgressHUD.dismiss()
     }
@@ -231,7 +344,27 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             return
         }
         
-        self.dataSource = dict.toConnectedApps()
+        let dictApps = dict.toConnectedApps()
+        
+        if let lastApp = dictApps.last ,
+            lastApp.type == "Inactive" {
+            
+            self.inactiveDataSource = []
+            
+            for app in dictApps {
+
+                if app.type == "Active" {
+                    self.dataSource.append(app)
+                }
+                else {
+                    self.inactiveDataSource?.append(app)
+                }
+            }
+        }
+        else {
+            dataSource = dictApps
+        }
+
         self.tableView.reloadData()
     }
     
@@ -245,6 +378,11 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             }
             return
         }
+        
+        if self.isLoggedInApp == true && scriptWasInserted == true{
+            return
+        }
+
         
         if self.isLoggedInApp == true {
             

@@ -12,7 +12,8 @@ class ProgressHUD {
     
     static func show(){
          HUD.show(.progress)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(120)) {
+            print("HIDE HUD")
             HUD.hide()
         }
     }

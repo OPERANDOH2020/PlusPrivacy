@@ -19,6 +19,40 @@ struct UISetPrivacyViewControllerCallbacks {
     let doneWithPrivacySettings: VoidBlock
 }
 
+
+public extension DispatchQueue {
+    private static var _onceTracker = [String]()
+    
+    public class func once(file: String = #file, function: String = #function, line: Int = #line, block:(Void)->Void) {
+        let token = file + ":" + function + ":" + String(line)
+        once(token: token, block: block)
+    }
+    
+    /**
+     Executes a block of code, associated with a unique token, only once.  The code is thread safe and will
+     only execute the code once even in the presence of multithreaded calls.
+     
+     - parameter token: A unique reverse DNS style name such as com.vectorform.<name> or a GUID
+     - parameter block: Block to execute once
+     */
+    public class func once(token: String, block:(Void)->Void) {
+        objc_sync_enter(self)
+        defer { objc_sync_exit(self) }
+        
+        
+        if _onceTracker.contains(token) {
+            return
+        }
+        
+        _onceTracker.append(token)
+        block()
+    }
+    
+    public class func clear() {
+        _onceTracker = []
+    }
+}
+
 class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     
     // MARK: - Properties
@@ -38,6 +72,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var overlayView: UIView!
+    
     
     private var callbacks: UISetPrivacyViewControllerCallbacks?
     
@@ -85,6 +120,7 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
         super.viewWillAppear(animated)
         
         //        self.navigationController?.setNavigationBarHidden(true, animated: true)
+               DispatchQueue.clear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -110,6 +146,8 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
         }, whenDisplayingMessage: {
             
             if $0 == "Done" {
+                
+                print("DONE GOOGLE CICA !123")
                 self.settingsProgressView.setPercetange(value: 100)
                 self.displayStatusView(hidden: true)
                 //                self.navigationController?.popViewController(animated: false)
@@ -118,20 +156,15 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             }
             else if $0 == "Done-GOOGLE" {
                 
-                DispatchQueue.main.async(execute: { () -> Void in
+                print("DONE GOOGLE CICA")
+                
+                self.displayStatusView(hidden: true)
+                self.navigationController?.popViewController(animated: true)
+                
+                DispatchQueue.once {
                     
-                    if self.isDONE == true {
-                        return
-                    }
-                    else {
-                        self.isDONE = true
-                    }
-                    
-                    self.displayStatusView(hidden: true)
-                    self.navigationController?.popViewController(animated: true)
                     self.callbacks?.doneWithPrivacySettings()
-                    
-                })
+                }
                 
                 return
             }

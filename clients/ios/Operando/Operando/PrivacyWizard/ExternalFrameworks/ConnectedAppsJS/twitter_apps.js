@@ -60,7 +60,6 @@
                                };
                                });
  
- 
  sendStatusMessage(twitterApps);
  }
  

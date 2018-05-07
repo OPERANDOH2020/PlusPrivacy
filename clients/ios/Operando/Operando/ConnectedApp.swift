@@ -15,6 +15,10 @@ class ConnectedApp {
     var permissions: [String] = []
     var iconURL: String?
     var name: String?
+    var type: String?
+    
+    init() {
+    }
     
     init(dictionary: NSDictionary){
         
@@ -22,6 +26,9 @@ class ConnectedApp {
         self.visibility = dictionary["visibility"] as? String
         self.iconURL = dictionary["iconUrl"] as? String
         self.name = dictionary["name"] as? String
+        
+        self.type = dictionary["type"] as? String
+        
         if let permisionsUnwrapped = dictionary["permissions"] as? [String] {
              self.permissions = permisionsUnwrapped
         }

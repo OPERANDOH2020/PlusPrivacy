@@ -44,7 +44,7 @@ function removeFbApp(appId) {
             var _body = "_asyncDialog=1&__user=" + data['userId'] + "&__a=1&__req=o&__rev=1562552&app_id=" + appId
                 + "&legacy=false&dialog=true&confirmed=true&ban_user=0&fb_dtsg=" + data['fb_dtsg'];
         
-                       console.log("AICI");
+            console.log("AICI REMOVE");
                        
             doPOSTRequest("https://www.facebook.com/ajax/settings/apps/delete_app.php?app_id=" + encodeURIComponent(appId) + "&legacy=false&dialog=true", _body, function (response) {
 //                callback();

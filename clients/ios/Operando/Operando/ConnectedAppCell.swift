@@ -27,6 +27,7 @@ class ConnectedAppCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
     private var style: ConnectedAppCellStyle = .app
     
+    @IBOutlet weak var rightArrowImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +43,7 @@ class ConnectedAppCell: UITableViewCell {
         self.appTitleLabel.isHidden = true
         self.permissionDescriptionLabel.isHidden = false
         self.permissionDescriptionLabel.text = permission
-        
+        self.rightArrowImage.isHidden = true
         self.colorView.backgroundColor = ACPoluttionManager.shared.getPermissionColor(permission: permission)
         
         self.setupMainViewBackgroundColor()

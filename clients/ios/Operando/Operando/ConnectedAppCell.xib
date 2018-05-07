@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="width" secondItem="J6w-HX-8Yc" secondAttribute="height" multiplier="1:1" id="ztw-rg-IKI"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-HU-zAH">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-HU-zAH">
                                 <rect key="frame" x="33" y="0.0" width="591" height="88.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,6 +106,7 @@
                 <outlet property="colorView" destination="J6w-HX-8Yc" id="hgD-Mu-iJa"/>
                 <outlet property="mainView" destination="Gbg-ku-gjT" id="iVF-1D-SKd"/>
                 <outlet property="permissionDescriptionLabel" destination="xF9-HU-zAH" id="sf9-T3-UqS"/>
+                <outlet property="rightArrowImage" destination="ewj-5p-HF3" id="KtM-BL-mkP"/>
                 <outlet property="rightImage" destination="xF9-HU-zAH" id="xyt-pg-Wp0"/>
             </connections>
             <point key="canvasLocation" x="11" y="8.5"/>

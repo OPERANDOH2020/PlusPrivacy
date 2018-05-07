@@ -68,11 +68,11 @@ class UIOPFlowController
                     
                 }
                 else if self.rootController.topBarLabel.text == "Social network accounts" ||
-                    self.rootController.topBarLabel.text == "Connected App List"{
+                    self.rootController.topBarLabel.text == "Connected Apps "{
                     weakSelf?.displayConnectedAppsDashboard()
                 }
                 else if self.rootController.topBarLabel.text == "Permissions List" {
-                    weakSelf?.displayConnectedAppList()
+                    weakSelf?.displayConnectedAppList(type: ACPrivacyWizard.shared.selectedScope)
                 }
                 else {
                     self.rootController.reset()
@@ -230,7 +230,7 @@ class UIOPFlowController
         let vc = UIViewControllerFactory.getUISetPrivacyViewController()
         vc.setupWithCallback(callbacks: UISetPrivacyViewControllerCallbacks(doneWithPrivacySettings: {
             
-            RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have ben secured")
+            RSCommonUtilities.showOKAlertWithMessage(message: "Your privacy settings have been secured")
             self.displayPrivacyWizardDashboard()
             
         }))
@@ -368,6 +368,7 @@ class UIOPFlowController
             self.rootController.setupTabViewForSocialNetworksLogoutDashboardFromAppList()
         }), observationText: "Apps connected to your social networks")
         
+        ACPrivacyWizard.shared.connectedApps = []
         self.rootController.setupTabViewForConnectedAppsDashboard()
         self.rootController.setMainControllerTo(newController: privacyDashboard)
     }

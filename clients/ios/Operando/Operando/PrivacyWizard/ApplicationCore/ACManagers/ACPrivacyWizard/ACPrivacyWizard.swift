@@ -105,6 +105,8 @@ class ACPrivacyWizard: NSObject {
     var privacyWizardScope: ACPrivacyWizardScope = .all
     var selectedScope: ACPrivacyWizardScope = .all
     
+    var connectedApps:[ConnectedApp] = []
+    
     // MARK: - Lifecycle
     private override init() {
         super.init()

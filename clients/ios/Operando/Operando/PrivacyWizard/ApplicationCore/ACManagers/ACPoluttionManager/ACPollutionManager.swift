@@ -18,15 +18,19 @@ class ACPoluttionManager {
     
     func getColorForPermissionsScore(score: Int) -> UIColor {
         
+        if score == 0 {
+            return UIColor.init(hexString: self.permissionColors[score])
+        }
+        else if score >= 10 {
+             return UIColor.init(hexString: self.permissionColors.last!)
+        }
         return UIColor.init(hexString: self.permissionColors[score-1])
     }
     
     func getPermissionColor(permission:String) -> UIColor {
 
         if let permScore = self.permissionRisks[permission] as? Int {
-            let colorHEX = self.permissionColors[permScore-1]
-            
-            return UIColor.init(hexString: colorHEX)
+            return getColorForPermissionsScore(score: permScore)
         }
         else {
             return UIColor.init(hexString: self.permissionColors[3])
@@ -56,12 +60,11 @@ class ACPoluttionManager {
             
             if counter != 0 {
                 totalScore = totalScore / counter
-                
-                if totalScore > 10 {
-                    totalScore = 10
-                }
             }
-            
+        }
+        
+        if totalScore > 10 {
+            totalScore = 10
         }
         
         return totalScore
@@ -146,6 +149,10 @@ class ACPoluttionManager {
         permissionRisks.setValue(10,  forKey: "View and manage any of your documents and files in Google Drive");
         permissionRisks.setValue(10,  forKey: "View and manage the files in your Google Drive");
         permissionRisks.setValue(10,  forKey: "View your Chrome Remote Desktop computers");
+        permissionRisks.setValue(2, forKey: "Google Pay Sandbox");
+        permissionRisks.setValue(2, forKey: "Google Payments");
+        permissionRisks.setValue(2, forKey: "View and manage your Chrome Web Store apps and extensions");
+        permissionRisks.setValue(2, forKey: "View your Chrome Web Store apps and extensions");
         
         //twitter
         permissionRisks.setValue(2,  forKey: "read-only");
