@@ -107,14 +107,14 @@ input[type="checkbox"] + span {
     vertical-align: middle;
     height: 24px;
     padding-left: 25px;
-    background: url("/operando/assets/images/check-box.png");
+    background: url("/assets/images/check-box.png");
     background-repeat:no-repeat;
     font-size: 17px;
 
 }
 
 input[type="checkbox"]:checked + span {
-    background: url("/operando/assets/images/check-box-selected.png");
+    background: url("/assets/images/check-box-selected.png");
     background-repeat:no-repeat;
     vertical-align: middle;
     height: 24px;
@@ -428,7 +428,7 @@ margin: 0px 30px;
 }
 
 .extension_icon.no_icon img{
-    background: url(/operando/assets/images/extension_icon.png) no-repeat center;
+    background: url(/assets/images/extension_icon.png) no-repeat center;
     width: 32px;
     height: 32px;
 }
@@ -491,7 +491,7 @@ footer{
     text-align: left;
     color:#FFF;
     font-size: 16px;
-    background: url("/operando/assets/images/european_commission.png") no-repeat left -5px;
+    background: url("/assets/images/european_commission.png") no-repeat left -5px;
     line-height: 48px;
     padding-left: 160px;
 }
@@ -612,7 +612,7 @@ color:#FFF;
 }
 
 #wrapper button.view_permissions{
-    background: url("/operando/assets/images/view_permissions.png") no-repeat center;
+    background: url("/assets/images/view_permissions.png") no-repeat center;
     border: none;
     box-shadow: none;
     height: 36px;
@@ -628,7 +628,7 @@ color:#FFF;
 #wrapper button.extension_uninstall,
 #wrapper button.trash
 {
-    background: url("/operando/assets/images/trash.png") no-repeat center;
+    background: url("/assets/images/trash.png") no-repeat center;
     border: none;
     box-shadow: none;
     height: 33px;
@@ -734,7 +734,7 @@ border-left:2px solid #fe9901;
 
 #main .image_container{
     display: block;
-    background: url("/operando/assets/images/home.jpg") no-repeat left center;
+    background: url("/assets/images/home.jpg") no-repeat left center;
     background-size: 100%;
     height: 240px;
     width: 100%;
@@ -791,7 +791,7 @@ border-left:2px solid #fe9901;
 }
 
 #wrapper button.voucher_btn{
-    background: url("/operando/assets/images/voucher.png") no-repeat left center;
+    background: url("/assets/images/voucher.png") no-repeat left center;
     height: 32px;
     width:32px;
     position: absolute;
@@ -833,7 +833,7 @@ border-left:2px solid #fe9901;
 }
 
 a.add_identitiy_popover{
-    background: url("/operando/assets/images/question_identities.png") no-repeat left center;
+    background: url("/assets/images/question_identities.png") no-repeat left center;
     width: 36px;
     height: 36px;
     display: inline-block;
@@ -1010,15 +1010,15 @@ border: none;
     padding: 10px 70px 0px;
 }
 .alert.warning-notification .alert_container{
-    background: url("/operando/assets/images/danger.png") no-repeat left center;
+    background: url("/assets/images/danger.png") no-repeat left center;
 }
 
 .alert.success-notification .alert_container{
-    background: url("/operando/assets/images/info.png") no-repeat left center;
+    background: url("/assets/images/info.png") no-repeat left center;
 }
 
 .alert.info-notification .alert_container{
-    background: url("/operando/assets/images/caution.png") no-repeat left center;
+    background: url("/assets/images/caution.png") no-repeat left center;
 }
 
 .custom_notification{
@@ -1037,7 +1037,7 @@ border: none;
     padding: 10px 0 10px 40px;
     text-align: left;
     border-bottom: 1px solid #d49607;
-    background: url(/operando/assets/images/new_notification.png) no-repeat left center;
+    background: url(/assets/images/new_notification.png) no-repeat left center;
 }
 
 .custom_notification.ui-notification>.message {
@@ -1123,7 +1123,7 @@ border: none;
     cursor: pointer;
 }
 #return-to-top i {
-    background: url("/operando/assets/images/arrow-up.png") no-repeat left center;
+    background: url("/assets/images/arrow-up.png") no-repeat left center;
     color: #fff;
     margin: 0;
     position: relative;
@@ -1388,7 +1388,7 @@ h3.privacy_wizard_suggestions_heading{
 }
 
 .aborted{
-    background: url("/operando/assets/images/canceled.png") no-repeat left center;
+    background: url("/assets/images/canceled.png") no-repeat left center;
     width: 32px;
     height: 32px;
     display: inline-block;
@@ -1525,7 +1525,7 @@ visibility: visible;
 }
 
 #wrapper button.edit-setting-edit{
-    background: url("/operando/assets/images/edit.png") no-repeat left center;
+    background: url("/assets/images/edit.png") no-repeat left center;
     text-indent: -9999em;
     width: 24px;
     height: 24px;
@@ -1534,7 +1534,7 @@ visibility: visible;
 }
 
 #wrapper button.edit-setting-deactivate{
-    background: url("/operando/assets/images/deactivate.png") no-repeat left center;
+    background: url("/assets/images/deactivate.png") no-repeat left center;
     text-indent: -9999em;
     width: 24px;
     height: 24px;
@@ -1543,7 +1543,7 @@ visibility: visible;
 }
 
 #wrapper button.edit-setting-delete{
-    background: url("/operando/assets/images/remove.png") no-repeat left center;
+    background: url("/assets/images/remove.png") no-repeat left center;
     text-indent: -9999em;
     width: 24px;
     height: 24px;
@@ -1552,7 +1552,7 @@ visibility: visible;
 }
 
 #wrapper button.delete-btn{
-    background: url("/operando/assets/images/delete.png") no-repeat left center;
+    background: url("/assets/images/delete.png") no-repeat left center;
     text-indent: -9999em;
     width: 16px;
     height: 16px;
@@ -1568,7 +1568,7 @@ visibility: visible;
 
 .add_new_option {
     padding-left: 48px;
-    background: url("/operando/assets/images/arrow_new_option.png") no-repeat left top;
+    background: url("/assets/images/arrow_new_option.png") no-repeat left top;
     margin-left: 26px;
 }
 
@@ -1638,7 +1638,7 @@ visibility: visible;
 
 .sidebar_expandable_menu .panel-group .panel .panel-heading
 {
-    background: url(/operando/assets/images/arrow-expand.png) no-repeat right 20px center;
+    background: url(/assets/images/arrow-expand.png) no-repeat right 20px center;
     border: none;
     color:#FFF;
     cursor: pointer;
@@ -1656,7 +1656,7 @@ visibility: visible;
 }
 
 .sidebar_expandable_menu .panel-group li.panel a.panel-heading:not(.collapsed){
-    background: url("/operando/assets/images/arrow-collapse.png") no-repeat right 20px center;
+    background: url("/assets/images/arrow-collapse.png") no-repeat right 20px center;
 }
 
 
@@ -1669,136 +1669,136 @@ visibility: visible;
     background-repeat:no-repeat;
 }
 .menu_icon.home_icon {
-    background-image:url("/operando/assets/images/menu_icons/home.png");
+    background-image:url("/assets/images/menu_icons/home.png");
 }
 
 .active .menu_icon.home_icon {
-    background-image:url("/operando/assets/images/menu_icons/home_selected.png");
+    background-image:url("/assets/images/menu_icons/home_selected.png");
 }
 
 .menu_icon.privacy_icon {
-    background-image:url("/operando/assets/images/menu_icons/privacy.png");
+    background-image:url("/assets/images/menu_icons/privacy.png");
 }
 .menu_icon.contact_icon {
-    background-image:url("/operando/assets/images/menu_icons/contact.png");
+    background-image:url("/assets/images/menu_icons/contact.png");
 }
 
 .menu_icon.blog_icon {
-    background-image:url("/operando/assets/images/menu_icons/blog.png");
+    background-image:url("/assets/images/menu_icons/blog.png");
 }
 
 .menu_icon.community_icon {
-    background-image:url("/operando/assets/images/menu_icons/community.png");
+    background-image:url("/assets/images/menu_icons/community.png");
 }
 
 .menu_icon.faq_icon {
-    background-image:url("/operando/assets/images/menu_icons/faq.png");
+    background-image:url("/assets/images/menu_icons/faq.png");
 }
 
 .menu_icon.notifications_icon {
-    background-image:url("/operando/assets/images/menu_icons/notifications.png");
+    background-image:url("/assets/images/menu_icons/notifications.png");
 }
 .menu_icon.notifications_orange_icon{
-    background-image:url("/operando/assets/images/menu_icons/notifications_orange.png");
+    background-image:url("/assets/images/menu_icons/notifications_orange.png");
 }
 
 .menu_icon.social_networks_icon{
-    background-image:url("/operando/assets/images/menu_icons/social_networks.png");
+    background-image:url("/assets/images/menu_icons/social_networks.png");
 }
 
 .active .menu_icon.social_networks_icon{
-    background-image:url("/operando/assets/images/menu_icons/social_networks_selected.png");
+    background-image:url("/assets/images/menu_icons/social_networks_selected.png");
 }
 
 .menu_icon.privacy_deals_icon{
-    background-image:url("/operando/assets/images/menu_icons/privacy_deals.png");
+    background-image:url("/assets/images/menu_icons/privacy_deals.png");
 }
 
 .active .menu_icon.privacy_deals_icon{
-    background-image:url("/operando/assets/images/menu_icons/privacy_deals_selected.png");
+    background-image:url("/assets/images/menu_icons/privacy_deals_selected.png");
 }
 
 .menu_icon.deals_icon{
-    background-image:url("/operando/assets/images/menu_icons/deals.png");
+    background-image:url("/assets/images/menu_icons/deals.png");
 }
 
 .active .menu_icon.deals_icon{
-    background-image:url("/operando/assets/images/menu_icons/deals_selected.png");
+    background-image:url("/assets/images/menu_icons/deals_selected.png");
 }
 
 .menu_icon.offers_icon{
-    background-image:url("/operando/assets/images/menu_icons/offers.png");
+    background-image:url("/assets/images/menu_icons/offers.png");
 }
 
 .menu_icon.facebook_icon{
-    background-image:url("/operando/assets/images/menu_icons/facebook.png");
+    background-image:url("/assets/images/menu_icons/facebook.png");
 }
 
 .active.menu_icon.facebook_icon{
-    background-image:url("/operando/assets/images/menu_icons/facebook_selected.png");
+    background-image:url("/assets/images/menu_icons/facebook_selected.png");
 }
 
 .menu_icon.twitter_icon{
-    background-image:url("/operando/assets/images/menu_icons/twitter.png");
+    background-image:url("/assets/images/menu_icons/twitter.png");
 }
 
 .active.menu_icon.twitter_icon{
-    background-image:url("/operando/assets/images/menu_icons/twitter_selected.png");
+    background-image:url("/assets/images/menu_icons/twitter_selected.png");
 }
 
 .menu_icon.linkedin_icon{
-    background-image:url("/operando/assets/images/menu_icons/linkedin.png");
+    background-image:url("/assets/images/menu_icons/linkedin.png");
 }
 
 .active.menu_icon.linkedin_icon{
-    background-image:url("/operando/assets/images/menu_icons/linkedin_selected.png");
+    background-image:url("/assets/images/menu_icons/linkedin_selected.png");
 }
 
 .menu_icon.google_icon{
-    background-image:url("/operando/assets/images/menu_icons/google.png");
+    background-image:url("/assets/images/menu_icons/google.png");
 }
 
 .active.menu_icon.google_icon{
-    background-image:url("/operando/assets/images/menu_icons/google_selected.png");
+    background-image:url("/assets/images/menu_icons/google_selected.png");
 }
 
 .menu_icon.dropbox_icon{
-    background-image:url("/operando/assets/images/menu_icons/dropbox.png");
+    background-image:url("/assets/images/menu_icons/dropbox.png");
 }
 
 .active.menu_icon.dropbox_icon{
-    background-image:url("/operando/assets/images/menu_icons/dropbox_selected.png");
+    background-image:url("/assets/images/menu_icons/dropbox_selected.png");
 }
 
 .menu_icon.identity_management_icon{
-    background-image:url("/operando/assets/images/menu_icons/identity_management.png");
+    background-image:url("/assets/images/menu_icons/identity_management.png");
 }
 
 .active .menu_icon.identity_management_icon{
-    background-image:url("/operando/assets/images/menu_icons/identity_management_selected.png");
+    background-image:url("/assets/images/menu_icons/identity_management_selected.png");
 }
 
 .menu_icon.extensions_icon{
-    background-image:url("/operando/assets/images/menu_icons/extensions.png");
+    background-image:url("/assets/images/menu_icons/extensions.png");
 }
 
 .active .menu_icon.extensions_icon{
-    background-image:url("/operando/assets/images/menu_icons/extensions_selected.png");
+    background-image:url("/assets/images/menu_icons/extensions_selected.png");
 }
 
 .menu_icon.plugin_icon{
-    background-image:url("/operando/assets/images/menu_icons/plugin.png");
+    background-image:url("/assets/images/menu_icons/plugin.png");
 }
 
 .active.menu_icon.plugin_icon{
-    background-image:url("/operando/assets/images/menu_icons/plugin_selected.png");
+    background-image:url("/assets/images/menu_icons/plugin_selected.png");
 }
 
 .menu_icon.dashboard_icon{
-    background-image:url("/operando/assets/images/menu_icons/dashboard.png");
+    background-image:url("/assets/images/menu_icons/dashboard.png");
 }
 .active.menu_icon.dashboard_icon>a.collapsed{
-    background-image:url("/operando/assets/images/menu_icons/dashboard_selected.png");
+    background-image:url("/assets/images/menu_icons/dashboard_selected.png");
     background-position: 15px 20px;
 }
 .active.menu_icon.dashboard_icon>a.collapsed:after{
@@ -1808,57 +1808,57 @@ visibility: visible;
     height: 16px;
     content: "";
     display: block;
-    background: url(/operando/assets/images/arrow-expand-orange.png) no-repeat center center;
+    background: url(/assets/images/arrow-expand-orange.png) no-repeat center center;
     top:23px
 }
 
 .menu_icon.reading_privacy_icon{
-    background-image:url("/operando/assets/images/menu_icons/reading_privacy.png");
+    background-image:url("/assets/images/menu_icons/reading_privacy.png");
 }
 
 
 .menu_icon.edit_privacy_icon{
-    background-image:url("/operando/assets/images/menu_icons/edit_privacy.png");
+    background-image:url("/assets/images/menu_icons/edit_privacy.png");
 }
 
 
 .menu_icon.mobile_icon{
-    background-image:url("/operando/assets/images/menu_icons/phone.png");
+    background-image:url("/assets/images/menu_icons/phone.png");
 }
 
 .active .menu_icon.mobile_icon{
-    background-image:url("/operando/assets/images/menu_icons/phone_selected.png");
+    background-image:url("/assets/images/menu_icons/phone_selected.png");
 }
 
 .menu_icon.abp_icon{
-    background-image:url("/operando/assets/images/menu_icons/ad_block.png");
+    background-image:url("/assets/images/menu_icons/ad_block.png");
 }
 
 .active .menu_icon.abp_icon{
-    background-image:url("/operando/assets/images/menu_icons/ad_block_selected.png");
+    background-image:url("/assets/images/menu_icons/ad_block_selected.png");
 }
 
 .menu_icon.feedback_icon{
-    background-image:url("/operando/assets/images/menu_icons/feedback.png");
+    background-image:url("/assets/images/menu_icons/feedback.png");
 }
 
 .active .menu_icon.feedback_icon{
-    background-image:url("/operando/assets/images/menu_icons/feedback_selected.png");
+    background-image:url("/assets/images/menu_icons/feedback_selected.png");
 }
 
 .menu_icon.privacy_policy_icon{
-    background-image:url("/operando/assets/images/menu_icons/privacy_policy.png") ;
+    background-image:url("/assets/images/menu_icons/privacy_policy.png") ;
 }
 
 .menu_icon.user-account{
-    background-image:url("/operando/assets/images/menu_icons/user_account.png");
+    background-image:url("/assets/images/menu_icons/user_account.png");
 }
 
 .menu_icon.account{
-    background-image:url("/operando/assets/images/menu_icons/account.png")!important;
+    background-image:url("/assets/images/menu_icons/account.png")!important;
 }
 .menu_icon.logout{
-    background-image:url("/operando/assets/images/menu_icons/logout.png")!important;
+    background-image:url("/assets/images/menu_icons/logout.png")!important;
     cursor: pointer;
 }
 
@@ -1932,7 +1932,7 @@ padding-left: 0px;
 .icon_header{
     border-radius: 48px;
     z-index: 100;
-    background: url(/operando/assets/images/icons/operando_48.png) #FFF no-repeat center center;
+    background: url(/assets/images/icons/operando_48.png) #FFF no-repeat center center;
     width: 96px;
     height: 96px;
     border: 1px solid #FFB400;
@@ -1984,7 +1984,7 @@ top:0;
 }
 
 .privacy_wizard_panel .take_wizard_icon {
-    background: url("/operando/assets/images/privacy_wizard.png") no-repeat left center;
+    background: url("/assets/images/privacy_wizard.png") no-repeat left center;
     background-size: 155px;
     height: 190px;
     max-width: 155px;
@@ -1998,7 +1998,7 @@ top:0;
 }
 
 .single_click_privacy_panel .apply_settings_icon{
-    background: url("/operando/assets/images/single_click.png") no-repeat left center;
+    background: url("/assets/images/single_click.png") no-repeat left center;
     background-size: 155px;
     height: 190px;
     max-width: 155px;
@@ -2244,7 +2244,7 @@ padding-left: 5px;
 }
 
 .voucher_number{
-    background: url("/operando/assets/images/voucher_background.png") repeat-x #FFF;
+    background: url("/assets/images/voucher_background.png") repeat-x #FFF;
     padding: 8px;
     border: 1px solid #CCC;
     text-align: center;
@@ -2307,25 +2307,25 @@ padding-left: 5px;
 
 #sn_preferences h2.facebook_icon,
 #network_tab h2.facebook_icon{
-    background: url("/operando/assets/images/facebook32.png") no-repeat left center;
+    background: url("/assets/images/facebook32.png") no-repeat left center;
 }
 #sn_preferences h2.linkedin_icon,
 #network_tab h2.linkedin_icon{
-    background: url("/operando/assets/images/linkedin32.png") no-repeat left center;
+    background: url("/assets/images/linkedin32.png") no-repeat left center;
 }
 
 #sn_preferences h2.twitter_icon,
 #network_tab h2.twitter_icon{
-    background: url("/operando/assets/images/twitter32.png") no-repeat left center;
+    background: url("/assets/images/twitter32.png") no-repeat left center;
 }
 
 #sn_preferences h2.google_icon,
 #network_tab h2.google_icon{
-    background: url("/operando/assets/images/google32.png") no-repeat left center;
+    background: url("/assets/images/google32.png") no-repeat left center;
 }
 
 #network_tab h2.dropbox_icon{
-    background: url("/operando/assets/images/dropbox32.png") no-repeat left 1px;
+    background: url("/assets/images/dropbox32.png") no-repeat left 1px;
 }
 
 table.table thead .sorting_asc:before {
@@ -2417,7 +2417,7 @@ td.readwriteanddirectmessages{
 }
 
 h4.modal-title.plusprivacy{
-    background: url("/operando/assets/images/icons/operando_48.png") no-repeat left center;
+    background: url("/assets/images/icons/operando_48.png") no-repeat left center;
     padding-left: 60px;
     font-size: 21px;
 }

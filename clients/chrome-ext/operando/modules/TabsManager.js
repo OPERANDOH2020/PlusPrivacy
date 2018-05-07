@@ -149,7 +149,7 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
     var tab = browserTab.tab;
 
     if(data.status === "allow" && data.notificationId){
-        chrome.tabs.executeScript(tab.id, {file: "/operando/modules/pfb/allowSNContent.js"});
+        chrome.tabs.executeScript(tab.id, {file: "/modules/pfb/allowSNContent.js"});
         authenticationService.getCurrentUser(function(response){
             SyncPersistence.set("PfbNotificationsAccepted", "offerUserId", data.offerId.toString()+response.data.userId.toString());
         });
@@ -168,10 +168,10 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
 };
 
 TabsManager.prototype.suggestSubstituteIdentities = function(tabId){
-    injectScript(tabId, "operando/modules/identity/input-track.js", ["jQuery","UserPrefs","DOMElementProvider","Tooltipster"], function(){
-        insertCSS(tabId,"operando/assets/css/change-identity.css");
-        insertCSS(tabId,"operando/utils/tooltipster/tooltipster.bundle.min.css");
-        insertCSS(tabId,"operando/utils/tooltipster/tooltipster-plus-privacy.css");
+    injectScript(tabId, "modules/identity/input-track.js", ["jQuery","UserPrefs","DOMElementProvider","Tooltipster"], function(){
+        insertCSS(tabId,"assets/css/change-identity.css");
+        insertCSS(tabId,"utils/tooltipster/tooltipster.bundle.min.css");
+        insertCSS(tabId,"utils/tooltipster/tooltipster-plus-privacy.css");
     });
 };
 
@@ -197,19 +197,19 @@ TabsManager.prototype.onTabRemoved = function(data,callback){
 };
 
 function establishPlusPrivacyWebsiteCommunication(tabId){
-    insertJavascriptFile(tabId, "operando/modules/communication/message-relay.js");
-    chrome.tabs.executeScript(tabId, {file:'operando/modules/communication/extension-is-installed.js',runAt:"document_start", allFrames:false}, function(){
+    insertJavascriptFile(tabId, "modules/communication/message-relay.js");
+    chrome.tabs.executeScript(tabId, {file:'modules/communication/extension-is-installed.js',runAt:"document_start", allFrames:false}, function(){
     });
 }
 
 function checkConnectWithSNApisUrls(tabId, changeInfo, tab){
 
     if(changeInfo.url && urlIsApiUrl(changeInfo.url)==true){
-        chrome.tabs.insertCSS(tabId, {file: "operando/modules/pfb/css/style.css", runAt:"document_start"},function(){
+        chrome.tabs.insertCSS(tabId, {file: "modules/pfb/css/style.css", runAt:"document_start"},function(){
             var notificationId = new Date().getTime();
             var extensionId = chrome.runtime.id;
             chrome.tabs.executeScript(tabId, {code:"var notificationId="+notificationId+";var extensionId='"+extensionId+"';"}, function(){
-                chrome.tabs.executeScript(tabId, {file:'operando/modules/pfb/hideSNContent.js',runAt:"document_start"}, function(){
+                chrome.tabs.executeScript(tabId, {file:'modules/pfb/hideSNContent.js',runAt:"document_start"}, function(){
                     TabsMng.getTab(tabId).setNotification(notificationId);
                 });
             });

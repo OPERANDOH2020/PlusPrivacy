@@ -102,7 +102,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         return ospService.loadOSPs();
                     }],
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/preferencesController.js');
+                        return $ocLazyLoad.load(['/controllers/preferencesController.js']);
                     }]
                 }
             })
@@ -155,7 +155,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 templateUrl: "views/network.html",
                 resolve:{
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/socialAppsController.js');
+                        return $ocLazyLoad.load('/controllers/socialAppsController.js');
                     }]
                 }
             })
@@ -172,7 +172,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                         return ospService.loadOSPs();
                     }],
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/socialAppController.js');
+                        return $ocLazyLoad.load('/controllers/socialAppController.js');
                     }]
                 },
                 templateUrl:"views/apps/social_apps.html"
@@ -205,7 +205,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 resolve:{
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
                         //TODO load only when is needed
-                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                        return $ocLazyLoad.load('/controllers/appLoginController.js');
                     }]
                 }
             })
@@ -232,7 +232,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 resolve:{
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
                         //TODO load only when is needed
-                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                        return $ocLazyLoad.load('/controllers/appLoginController.js');
                     }]
                 }
             })
@@ -241,7 +241,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 templateUrl: "views/apps/extensions.html",
                 resolve:{
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/socialAppsController.js');
+                        return $ocLazyLoad.load('/controllers/socialAppsController.js');
                     }]
                 }
             })
@@ -268,7 +268,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 ],
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/appLoginController.js');
+                        return $ocLazyLoad.load('/controllers/appLoginController.js');
                     }]
                 }
             })
@@ -277,7 +277,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 templateUrl: "views/account/personal_details.html",
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/accountController.js');
+                        return $ocLazyLoad.load('/controllers/accountController.js');
                     }]
                 }
             })
@@ -298,7 +298,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 templateUrl: "views/feedback.html",
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/operando/controllers/feedbackController.js');
+                        return $ocLazyLoad.load('/controllers/feedbackController.js');
                     }]
                 }
             })
@@ -324,8 +324,8 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 ],
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load(['/operando/controllers/contactController.js',
-                            '/operando/controllers/appLoginController.js']);
+                        return $ocLazyLoad.load(['/controllers/contactController.js',
+                            '/controllers/appLoginController.js']);
                     }]
                 }
             });

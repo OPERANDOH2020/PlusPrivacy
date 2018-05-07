@@ -17,14 +17,14 @@ angular.module('popupMenu', [])
             restrict: 'E',
             replace: true,
             scope: {},
-            templateUrl:'/operando/tpl/menu_item.html',
+            templateUrl:'/tpl/menu_item.html',
             link: function(scope,element, attributes){
                 scope.iconClass = attributes.iconClass;
                 scope.menuLabel = attributes.menuLabel;
                 scope.tabToOpen = attributes.tabToOpen;
 
                 element.on("click", function(){
-                    window.open(chrome.runtime.getURL("operando/operando.html#/" + scope.tabToOpen),"operando");
+                    window.open(chrome.runtime.getURL("operando.html#/" + scope.tabToOpen),"operando");
                 })
             },
 
@@ -39,7 +39,7 @@ angular.module('popupMenu', [])
             restrict: 'E',
             replace: true,
             scope: {status:"@?"},
-            templateUrl: '/operando/tpl/ui/loader.html',
+            templateUrl: '/tpl/ui/loader.html',
             controller: function ($scope) {
 
                 function changeStatus() {

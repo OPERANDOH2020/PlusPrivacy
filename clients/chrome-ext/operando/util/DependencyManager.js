@@ -14,23 +14,23 @@ var DependencyManager = exports.DependencyManager = {
     dependencyRepository : [
         {
             name:"FeedbackProgress",
-            path:"/operando/util/FeedbackProgress.js"
+            path:"/util/FeedbackProgress.js"
         },
         {
             name:"jQuery",
-            path:"/operando/utils/jquery-2.1.4.min.js"
+            path:"/utils/jquery-2.1.4.min.js"
         },
         {
             name:"Tooltipster",
-            path:"/operando/utils/tooltipster/tooltipster.bundle.min.js"
+            path:"/utils/tooltipster/tooltipster.bundle.min.js"
         },
         {
             name:"UserPrefs",
-            path:"/operando/modules/UserPrefs.js"
+            path:"/modules/UserPrefs.js"
         },
         {
             name:"DOMElementProvider",
-            path:"/operando/modules/DOMElementProvider.js"
+            path:"/modules/DOMElementProvider.js"
         }
     ],
 

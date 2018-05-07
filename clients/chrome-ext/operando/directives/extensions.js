@@ -119,7 +119,7 @@ angular.module('extensions', [])
                 });
 
             },
-            templateUrl: '/operando/tpl/extensions.html'
+            templateUrl: '/tpl/extensions.html'
         }
     })
     .directive("permissionsRow", function(ModalService){
@@ -142,7 +142,7 @@ angular.module('extensions', [])
                     var extensionName = $scope.extension.name;
                     var showModal = function (permissionWarnings) {
                         ModalService.showModal({
-                            templateUrl: '/operando/tpl/modals/view_permissions.html',
+                            templateUrl: '/tpl/modals/view_permissions.html',
                             controller: function ($scope, close) {
                                 $scope.permissions = permissions;
                                 $scope.permissionWarnings = permissionWarnings;
@@ -160,7 +160,7 @@ angular.module('extensions', [])
 
                 checkPrivacyPollution();
             },
-            templateUrl: '/operando/tpl/extension_permissions.html'
+            templateUrl: '/tpl/extension_permissions.html'
         }
 
 
@@ -217,7 +217,7 @@ angular.module('extensions', [])
             controller:function($scope){
                 $scope.plusPrivacyExtensionId = chrome.runtime.id;
             },
-            templateUrl: '/operando/tpl/extension_actions.html'
+            templateUrl: '/tpl/extension_actions.html'
         }
     });
 

@@ -22,7 +22,7 @@ angular.module("singleClickPrivacy",[])
                 $scope.enforce = function(){
                     ModalService.showModal({
 
-                        templateUrl: '/operando/tpl/modals/single_click_button_modal.html',
+                        templateUrl: '/tpl/modals/single_click_button_modal.html',
                         controller: ["$scope", "close", "$element", "messengerService", function ($scope, close, $element, messengerService) {
 
                             $scope.enforcePrivacy = function(){
@@ -31,7 +31,7 @@ angular.module("singleClickPrivacy",[])
 
                                 ModalService.showModal({
 
-                                        templateUrl: '/operando/tpl/modals/single_click_enforcement.html',
+                                        templateUrl: '/tpl/modals/single_click_enforcement.html',
                                         controller: ["$scope", "close", "watchDogService", function ($scope, close, watchDogService) {
 
                                             $scope.progresses = {};
@@ -253,7 +253,7 @@ angular.module("singleClickPrivacy",[])
                 }
 
             },
-            templateUrl: '/operando/tpl/single_click_button.html'
+            templateUrl: '/tpl/single_click_button.html'
 
         }
 

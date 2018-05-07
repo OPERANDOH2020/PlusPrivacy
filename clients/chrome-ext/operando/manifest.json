@@ -5,16 +5,16 @@
       "lib/polyfills/promise.js", 
       "lib/polyfills/fetch.js", 
       "ext/common.js", */
-      "operando/util/require.js",
+      "util/require.js",
 
-      "operando/services/swarm-services/socket.io-2.0.3.js",
-      "operando/services/swarm-services/SwarmDebug.js",
-      "operando/services/swarm-services/SwarmClient.js",
-      "operando/services/swarm-services/SwarmHub.js",
-      "operando/util/Constants.js",
-      "operando/util/config/Config.production.js",
+      "services/swarm-services/socket.io-2.0.3.js",
+      "services/swarm-services/SwarmDebug.js",
+      "services/swarm-services/SwarmClient.js",
+      "services/swarm-services/SwarmHub.js",
+      "util/Constants.js",
+      "util/config/Config.production.js",
 
-      "server-merged.js",
+      "server.js",
       /*"operando/util/RegexUtils.js",
       "operando/libs/observers-pool.js",
       "operando/libs/bus-service.js",
@@ -42,17 +42,17 @@
 
 
       /*"operando/swarms.js",*/
-      "operando/utils/js.cookie.js", 
-      "operando/backgrounds/utils/background_utils.js", 
-      "operando/backgrounds/operando_background.js", 
-      "operando/backgrounds/message_bus.js" 
+      "utils/js.cookie.js",
+      "backgrounds/utils/background_utils.js",
+      "backgrounds/operando_background.js",
+      "backgrounds/message_bus.js"
       /*"devenvPoller__.js"*/
     ]
   }, 
   "browser_action": {
     "default_icon": {
-      "19": "operando/assets/images/icons/operando/abp-19.png", 
-      "38": "operando/assets/images/icons/operando/abp-38.png"
+      "19": "assets/images/icons/operando/abp-19.png",
+      "38": "assets/images/icons/operando/abp-38.png"
     }, 
     "default_popup": "popup.html", 
     "default_title": "PlusPrivacy"
@@ -61,16 +61,16 @@
   /*"default_locale": "en_US", */
   "description": "Plus Privacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy.", 
   "icons": {
-    "128": "operando/assets/images/icons/operando/detailed/abp-128.png", 
-    "16": "operando/assets/images/icons/operando/abp-16.png", 
-    "32": "operando/assets/images/icons/operando/abp-32.png", 
-    "48": "operando/assets/images/icons/operando/detailed/abp-48.png", 
-    "64": "operando/assets/images/icons/operando/detailed/abp-64.png"
+    "128": "assets/images/icons/operando/detailed/abp-128.png",
+    "16": "assets/images/icons/operando/abp-16.png",
+    "32": "assets/images/icons/operando/abp-32.png",
+    "48": "assets/images/icons/operando/detailed/abp-48.png",
+    "64": "assets/images/icons/operando/detailed/abp-64.png"
   }, 
   "manifest_version": 2, 
   "minimum_chrome_version": "29.0", 
   "name": "PlusPrivacy",
-  "options_page": "/operando/operando.html#home", 
+  "options_page": "operando.html#home",
   "permissions": [
     "tabs", 
     "activeTab", 
@@ -96,16 +96,16 @@
   },*/ 
   "version": "2.0.0", 
   "web_accessible_resources": [
-    "operando/assets/images/icons/operando_24.png", 
-    "operando/assets/images/icons/abp-19.png", 
-    "operando/assets/images/icons/operando/operando.png", 
-    "operando/assets/images/close_popup.png", 
-    "operando/assets/images/privacy_safe.png", 
-    "operando/assets/images/privacy_unsafe.png", 
-    "operando/assets/images/icons/pp-42-logo.png", 
-    "operando/assets/images/icons/operando_24.png", 
-    "operando/assets/images/icons/pp-42-logo-orange.png", 
-    "operando/assets/images/google-logo.png", 
-    "operando/modules/pfb/modal/allow_social_network_modal.html"
+    "assets/images/icons/operando_24.png",
+    "assets/images/icons/abp-19.png",
+    "assets/images/icons/operando/operando.png",
+    "assets/images/close_popup.png",
+    "assets/images/privacy_safe.png",
+    "assets/images/privacy_unsafe.png",
+    "assets/images/icons/pp-42-logo.png",
+    "assets/images/icons/operando_24.png",
+    "assets/images/icons/pp-42-logo-orange.png",
+    "assets/images/google-logo.png",
+    "modules/pfb/modal/allow_social_network_modal.html"
   ]
 }

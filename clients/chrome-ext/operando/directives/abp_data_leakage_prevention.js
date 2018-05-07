@@ -20,8 +20,6 @@ angular.module("adblocker", [])
 
 
 
-
-
         var filterExtensionsData = function(extensions){
             var filteredExtensions = [];
             extensions.forEach(function(extension){
@@ -37,7 +35,6 @@ angular.module("adblocker", [])
                    icons:extension.icon
                })
             });
-            console.log(filteredExtensions);
             return filteredExtensions;
         }
 

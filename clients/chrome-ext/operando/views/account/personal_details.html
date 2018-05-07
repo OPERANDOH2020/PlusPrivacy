@@ -26,21 +26,21 @@
                             <label>Change your password</label>
                             <input type="password" class="form-control" placeholder="Current password" ng-model = "user.currentPassword" required name="currentPassword">
                             <div class="invalid-field" ng-messages="account.changePasswordForm.currentPassword.$error" ng-show="account.changePasswordForm.currentPassword.$touched">
-                                <div ng-messages-include="/operando/tpl/messages/messages.html"></div>
+                                <div ng-messages-include="/tpl/messages/messages.html"></div>
                             </div>
                         </fieldset>
                         <fieldset class="form-group has-feedback" ng-class="{'has-success':account.changePasswordForm.newPassword.$valid}">
                             <input type="password" class="form-control"  placeholder="New password" ng-model = "user.newPassword" required different-from="user.currentPassword" name="newPassword">
                             <span class="glyphicon glyphicon-ok form-control-feedback" ng-if="account.changePasswordForm.newPassword.$valid"></span>
                             <div class="invalid-field" ng-messages="account.changePasswordForm.newPassword.$error" ng-show="account.changePasswordForm.newPassword.$touched">
-                                <div ng-messages-include="/operando/tpl/messages/messages.html"></div>
+                                <div ng-messages-include="/tpl/messages/messages.html"></div>
                             </div>
                         </fieldset>
                         <fieldset class="form-group has-feedback" ng-class="{'has-success':account.changePasswordForm.confirmPassword.$valid}">
                             <input type="password" class="form-control"  placeholder="Repeat password" ng-model = "user.confirmPassword" required compare-to="user.newPassword" name="confirmPassword" >
                             <span class="glyphicon glyphicon-ok form-control-feedback" ng-if="account.changePasswordForm.confirmPassword.$valid"></span>
                             <div class="invalid-field" ng-messages="account.changePasswordForm.confirmPassword.$error" ng-show="account.changePasswordForm.confirmPassword.$touched">
-                                <div ng-messages-include="/operando/tpl/messages/messages.html"></div>
+                                <div ng-messages-include="/tpl/messages/messages.html"></div>
                             </div>
                         </fieldset>
 

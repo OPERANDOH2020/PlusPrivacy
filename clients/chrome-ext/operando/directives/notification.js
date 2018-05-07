@@ -105,7 +105,7 @@ angular.module('notifications')
                     $scope.$apply();
                 });
             },
-            templateUrl: '/operando/tpl/notifications/notification-counter.html'
+            templateUrl: '/tpl/notifications/notification-counter.html'
         }
     });
 
@@ -123,7 +123,7 @@ angular.module('notifications').
                     $rootScope.$broadcast('notificationCounterUpdate', notifications);
                 });
             },
-            templateUrl: '/operando/tpl/notifications/notifications.html'
+            templateUrl: '/tpl/notifications/notifications.html'
         }
     })
     .directive('notification', function () {
@@ -157,7 +157,7 @@ angular.module('notifications').
                     }
                 }
             },
-            templateUrl: '/operando/tpl/notifications/notification.html'
+            templateUrl: '/tpl/notifications/notification.html'
         }
     });
 

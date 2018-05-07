@@ -25,6 +25,6 @@ var dataToPassInPopup = {
 };
 
 var datab64 = btoa(JSON.stringify(dataToPassInPopup));
-iframe.src ="chrome-extension://"+extensionId+"/operando/modules/pfb/modal/allow_social_network_modal.html#"+datab64;
+iframe.src ="chrome-extension://"+extensionId+"/modules/pfb/modal/allow_social_network_modal.html#"+datab64;
 iframe.className="plusprivacyIframe";
 document.getElementsByTagName('html')[0].appendChild(iframe);

@@ -277,22 +277,22 @@ label
 }
 
 .operando_wrapper ul > li > div.item_icon.user_icon{
-  background: url(../operando/assets/images/icons/48X48_OP_User.png) no-repeat left center;
+  background: url(../assets/images/icons/48X48_OP_User.png) no-repeat left center;
 }
 .operando_wrapper ul > li > div.item_icon.dashboard_icon{
-  background: url(../operando/assets/images/icons/48X48_OP_Dashboard.png) no-repeat left center;
+  background: url(../assets/images/icons/48X48_OP_Dashboard.png) no-repeat left center;
 }
 
 .operando_wrapper ul > li > div.item_icon.abp_icon{
-  background: url(../operando/assets/images/icons/ad_block_options.png) no-repeat left center;
+  background: url(../assets/images/icons/ad_block_options.png) no-repeat left center;
 }
 
 .operando_wrapper ul > li > div.item_icon.privacy_policy_icon{
-  background: url(../operando/assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
+  background: url(../assets/images/icons/24x24-privacy-policy.png) no-repeat left center;
 }
 
 .operando_wrapper ul > li > div.item_icon.about_icon{
-  background: url(../operando/assets/images/icons/operando_logo.png) no-repeat left center;
+  background: url(../assets/images/icons/operando_logo.png) no-repeat left center;
 }
 
 .operando_wrapper ul > li > div.user_logged_in{
@@ -322,7 +322,7 @@ label
 
 .user_area{
   /*height: 70px;*/
-  background: url(../operando/assets/images/icons/user.png) no-repeat left 5px;
+  background: url(../assets/images/icons/user.png) no-repeat left 5px;
 }
 
 .logout_btn{
@@ -463,7 +463,7 @@ ul.popup-login-area{
 #close_popup{
   width: 12px;
   height: 12px;
-  background: url("../operando/assets/images/close.png") no-repeat left center;
+  background: url("../assets/images/close.png") no-repeat left center;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -776,7 +776,7 @@ input[type="checkbox"] + span {
   vertical-align: middle;
   height: 22px;
   padding-left: 23px;
-  background: url("/operando/assets/images/check-box.png");
+  background: url("/assets/images/check-box.png");
   background-repeat:no-repeat;
   font-size: 15px;
   font-weight:normal;
@@ -785,7 +785,7 @@ input[type="checkbox"] + span {
 }
 
 input[type="checkbox"]:checked + span {
-  background: url("/operando/assets/images/check-box-selected.png");
+  background: url("/assets/images/check-box-selected.png");
   background-repeat:no-repeat;
   vertical-align: middle;
   height: 22px;

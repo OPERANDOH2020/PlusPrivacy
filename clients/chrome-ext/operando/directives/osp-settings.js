@@ -267,7 +267,7 @@ angular.module('osp', ['cfp.loadingBar'])
                 });
             }],
 
-            templateUrl: '/operando/tpl/osp/osps.html'
+            templateUrl: '/tpl/osp/osps.html'
         }
     })
     .directive('ospSetting', function () {
@@ -286,7 +286,7 @@ angular.module('osp', ['cfp.loadingBar'])
             controller: function ($scope) {
                 //console.log($scope.settingValue.name);
             },
-            templateUrl: '/operando/tpl/osp/osp.html'
+            templateUrl: '/tpl/osp/osp.html'
         }
     })
     .directive('readSnSettings', function () {
@@ -396,8 +396,8 @@ angular.module('osp', ['cfp.loadingBar'])
                              sequence = sequence.then(function () {
                                  chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
                                      if (tabId == currentTab.id && changeInfo.status == "complete" && tabIsNew == true) {
-                                         insertJavascriptFile(currentTab.id, "operando/utils/jquery-2.1.4.min.js", function () {
-                                             insertJavascriptFile(currentTab.id, "operando/modules/osp/readSocialNetworkSettings.js", function () {
+                                         insertJavascriptFile(currentTab.id, "utils/jquery-2.1.4.min.js", function () {
+                                             insertJavascriptFile(currentTab.id, "modules/osp/readSocialNetworkSettings.js", function () {
                                              });
                                          });
                                      }
@@ -435,7 +435,7 @@ angular.module('osp', ['cfp.loadingBar'])
                     })();
                 }
             },
-            templateUrl: '/operando/tpl/osp/read_settings_btn.html'
+            templateUrl: '/tpl/osp/read_settings_btn.html'
 
         }
     });

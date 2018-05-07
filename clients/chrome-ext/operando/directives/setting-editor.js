@@ -45,6 +45,6 @@ angular.module("settingEditor", ['ng']).directive("settingEditor", ["$rootScope"
 
 
         }],
-        templateUrl: "/operando/tpl/settings-editor/edit-setting.html"
+        templateUrl: "/tpl/settings-editor/edit-setting.html"
     }
 }]);

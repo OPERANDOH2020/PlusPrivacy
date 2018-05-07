@@ -331,7 +331,7 @@
 }
 
 .webui-popover-title{
-    background: url('chrome-extension://__MSG_@@extension_id__/operando/assets/images/icons/operando_24.png') no-repeat 10px center #FFF;
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icons/operando_24.png') no-repeat 10px center #FFF;
     color:#F5A43C;
     padding-left: 35px;
     text-transform: uppercase;

@@ -71,14 +71,14 @@ controller("accountCtrl", ["$scope","messengerService","Notification","ModalServ
 
     $scope.deleteAccount = function(){
         ModalService.showModal({
-            templateUrl: '/operando/tpl/modals/delete_account.html',
+            templateUrl: '/tpl/modals/delete_account.html',
             controller: function ($scope, close) {
 
                 $scope.removeAccount = function () {
                     messengerService.send("removeAccount", function (response) {
                         if (response.status === "success") {
                             ModalService.showModal({
-                                templateUrl: '/operando/tpl/modals/account_is_deleted.html',
+                                templateUrl: '/tpl/modals/account_is_deleted.html',
                                 controller: function ($scope, close) {
                                     $scope.close = function (result) {
                                         close(result, 500);

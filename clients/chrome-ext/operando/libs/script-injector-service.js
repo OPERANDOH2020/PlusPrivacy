@@ -10,14 +10,14 @@ var scriptInjectorService = exports.scriptInjectorService = {
         chrome.tabs.executeScript(data.tabId, {
             code: data.code
         }, function () {
-            insertCSS(data.tabId, "operando/assets/css/feedback.css");
-            injectScript(data.tabId, "operando/modules/osp/writeFacebookSettings.js", ["FeedbackProgress", "jQuery"]);
+            insertCSS(data.tabId, "assets/css/feedback.css");
+            injectScript(data.tabId, "modules/osp/writeFacebookSettings.js", ["FeedbackProgress", "jQuery"]);
         });
     },
 
     insertLinkedinIncreasePrivacyScript:function(data){
-        injectScript(data.tabId, "operando/modules/osp/writeLinkedinSettings.js", ["FeedbackProgress", "jQuery"], function(){
-            insertCSS(data.tabId, "operando/assets/css/feedback.css");
+        injectScript(data.tabId, "modules/osp/writeLinkedinSettings.js", ["FeedbackProgress", "jQuery"], function(){
+            insertCSS(data.tabId, "assets/css/feedback.css");
         });
     },
 
@@ -25,8 +25,8 @@ var scriptInjectorService = exports.scriptInjectorService = {
         chrome.tabs.executeScript(data.tabId, {
             code: data.code
         }, function () {
-            insertCSS(data.tabId, "operando/assets/css/feedback.css");
-            injectScript(data.tabId, "operando/modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery","Tooltipster"]);
+            insertCSS(data.tabId, "assets/css/feedback.css");
+            injectScript(data.tabId, "modules/osp/writeTwitterSettings.js", ["FeedbackProgress", "jQuery","Tooltipster"]);
         });
     },
 
@@ -34,15 +34,15 @@ var scriptInjectorService = exports.scriptInjectorService = {
         chrome.tabs.executeScript(data.tabId, {
             code: data.code
         },function(){
-            injectScript(data.tabId, "operando/modules/osp/writeGoogleSettings.js", ["FeedbackProgress", "jQuery"], function(){
-                insertCSS(data.tabId, "operando/assets/css/feedback.css");
+            injectScript(data.tabId, "modules/osp/writeGoogleSettings.js", ["FeedbackProgress", "jQuery"], function(){
+                insertCSS(data.tabId, "assets/css/feedback.css");
             });
         });
     },
 
     insertActivityControlsWizardFiles:function(data){
-      injectScript(data.tabId,"operando/modules/osp/activityControlsWizard.js",["jQuery"],function(){
-          insertCSS(data.tabId, "operando/assets/css/activityControlsWizard.css");
+      injectScript(data.tabId,"modules/osp/activityControlsWizard.js",["jQuery"],function(){
+          insertCSS(data.tabId, "assets/css/activityControlsWizard.css");
       });
     },
 

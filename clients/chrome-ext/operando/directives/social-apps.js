@@ -58,7 +58,7 @@ angular.module('socialApps',['cfp.loadingBar'])
                     app['socialNetwork'] = $scope.sn;
 
                     ModalService.showModal({
-                        templateUrl: '/operando/tpl/modals/removeSocialApp.html',
+                        templateUrl: '/tpl/modals/removeSocialApp.html',
                         controller:function($scope,$rootScope,cfpLoadingBar,close){
                             $scope.app = app;
 
@@ -143,6 +143,6 @@ angular.module('socialApps',['cfp.loadingBar'])
                 checkIfLoggedIn();
 
             },
-            templateUrl:"/operando/tpl/apps/sn_apps.html"
+            templateUrl:"/tpl/apps/sn_apps.html"
         }
     });

@@ -10,7 +10,7 @@ controller("appLoginController", ["$scope", "ModalService","$state", function ($
     $scope.displayLoginModal = function () {
 
         ModalService.showModal({
-            templateUrl: '/operando/tpl/modals/not_logged_in.html',
+            templateUrl: '/tpl/modals/not_logged_in.html',
             controller: ["$scope", "close", "messengerService", function ($scope, close) {
 
                 $scope.close = function (result) {

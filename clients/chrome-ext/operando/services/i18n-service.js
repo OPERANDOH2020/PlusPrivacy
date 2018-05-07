@@ -10,12 +10,12 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
         var deferred = $q.defer();
 
 
-        $http.get("/operando/locales/" + userLocale + ".json").then(function (res) {
+        $http.get("/locales/" + userLocale + ".json").then(function (res) {
             polyglot = new Polyglot({locale: userLocale.substr(0, 2)});
             polyglot.extend(res.data);
             deferred.resolve("success");
         }, function () {
-            $http.get("/operando/locales/en-US.json").then(function (res) {
+            $http.get("/locales/en-US.json").then(function (res) {
                 polyglot = new Polyglot({locale: "en"});
                 polyglot.extend(res.data);
                 deferred.resolve("success");

@@ -22,7 +22,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             ModalService.showModal({
 
-                templateUrl: '/operando/tpl/modals/single_click_enforcement.html',
+                templateUrl: '/tpl/modals/single_click_enforcement.html',
                 controller: ["$scope", "close", "$element", function ($scope, close, $element) {
 
                     $scope.close = function (result) {

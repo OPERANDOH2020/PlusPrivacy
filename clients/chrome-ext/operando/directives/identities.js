@@ -44,7 +44,7 @@ angular.module('identities', [])
                     $scope.add_new_sid = function () {
                         var identities = $scope.identities;
                         ModalService.showModal({
-                            templateUrl: '/operando/tpl/modals/add_sid.html',
+                            templateUrl: '/tpl/modals/add_sid.html',
                             controller: ["$scope", "$element", "close", "messengerService", "Notification", function ($scope, $element, close, messengerService, Notification) {
 
                                 $scope.identity = {};
@@ -112,7 +112,7 @@ angular.module('identities', [])
 
                     refreshIdentities();
                 },
-                templateUrl: '/operando/tpl/identities.html'
+                templateUrl: '/tpl/identities.html'
             }
         }]
     )
@@ -148,7 +148,7 @@ angular.module('identities', [])
 
                         ModalService.showModal({
 
-                            templateUrl: '/operando/tpl/modals/delete_sid.html',
+                            templateUrl: '/tpl/modals/delete_sid.html',
                             controller: ["$scope", "close", "messengerService", function ($scope, close, messengerService) {
                                 $scope.identity = identity;
                                 $scope.deleteIdentity = function () {
@@ -186,7 +186,7 @@ angular.module('identities', [])
                     }
 
                 },
-                templateUrl: '/operando/tpl/identityRow.html'
+                templateUrl: '/tpl/identityRow.html'
             }
         }
     );

@@ -4,7 +4,7 @@ angular.module('UIComponent').
             restrict: 'E',
             replace: true,
             scope: {status: "=?"},
-            templateUrl: '/operando/tpl/ui/loader.html',
+            templateUrl: '/tpl/ui/loader.html',
             controller: function ($scope) {
                 if (angular.isDefined($scope.status)) {
                     switch ($scope.status) {
@@ -32,7 +32,7 @@ angular.module('UIComponent').
             scope: {
                 data : "="
             },
-            templateUrl: "/operando/tpl/ui/copy-to-clipboard.html",
+            templateUrl: "/tpl/ui/copy-to-clipboard.html",
             link: function ($scope, element) {
 
                 var last_clicked_el = null;

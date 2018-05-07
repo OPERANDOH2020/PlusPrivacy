@@ -34,7 +34,7 @@ angular.module('op-popup', ['operandoCore', 'popupMenu', 'validation', 'validati
                         return i18nService.load();
                     }]
                 },
-                templateUrl:"/operando/views/popup_view.html"
+                templateUrl:"/views/popup_view.html"
             });
         $urlRouterProvider.otherwise('/');
     });

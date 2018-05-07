@@ -14,7 +14,7 @@ angular.module("UIComponent").directive("howItWorks",["i18nService",function(i18
 
                 ModalService.showModal({
 
-                    templateUrl: '/operando/tpl/modals/how_does_it_work.html',
+                    templateUrl: '/tpl/modals/how_does_it_work.html',
                     controller: ["$scope", "close", "watchDogService", function ($scope, close, watchDogService) {
                         $scope.explanation = explanation;
                     }]

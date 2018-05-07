@@ -19,10 +19,10 @@ angular.module('pfbdeals', [])
                 link: function ($scope, element, attrs) {
 
                     if ($scope.dealsType == "available-deals") {
-                        templateContent = '/operando/tpl/deals/pfb-available-deals.html';
+                        templateContent = '/tpl/deals/pfb-available-deals.html';
                     }
                     else {
-                        templateContent = '/operando/tpl/deals/pfb-my-deals.html';
+                        templateContent = '/tpl/deals/pfb-my-deals.html';
                     }
                 },
                 controller: function ($scope) {
@@ -32,7 +32,7 @@ angular.module('pfbdeals', [])
                             $scope.$apply();
                         });
                 },
-                templateUrl: "/operando/tpl/deals/all-deals.html"
+                templateUrl: "/tpl/deals/all-deals.html"
             }
         }]
     )
@@ -81,7 +81,7 @@ angular.module('pfbdeals', [])
                         })
                     }
                 }],
-                templateUrl: '/operando/tpl/deals/pfbdealRow.html'
+                templateUrl: '/tpl/deals/pfbdealRow.html'
             }
         }
     )
@@ -99,6 +99,6 @@ angular.module('pfbdeals', [])
             link:function(){
 
             },
-            templateUrl:'/operando/tpl/deals/voucher.html'
+            templateUrl:'/tpl/deals/voucher.html'
         }
     });

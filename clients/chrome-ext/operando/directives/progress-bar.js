@@ -32,7 +32,7 @@ angular.module("UIComponent",[])
 
 
             },
-            templateUrl: '/operando/tpl/ui/progress_bar.html'
+            templateUrl: '/tpl/ui/progress_bar.html'
 
         }
     });
