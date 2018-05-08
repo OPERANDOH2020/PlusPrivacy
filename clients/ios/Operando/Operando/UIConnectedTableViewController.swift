@@ -26,8 +26,6 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     private var isLoggedInApp = false
     private var scriptWasInserted = false
     
-    private var haveLoadCell = true
-    
     private var removeApp: String?
     private var callbacks: UIConnectedTableViewControllerCallbacks?
     
@@ -97,7 +95,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         
-        if ACPrivacyWizard.shared.selectedScope == .facebook {
+        if ACPrivacyWizard.shared.selectedScope == .facebook && isLoggedInApp {
             return 2
         }
         
@@ -107,13 +105,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        if self.dataSource.count == 0 {
-            self.tableView.emptyMessage(message: "No connected app", vc: self)
-        }
-        else {
-            self.tableView.backgroundView = nil
-            ACPrivacyWizard.shared.connectedApps = self.dataSource
-        }
+       
+        ACPrivacyWizard.shared.connectedApps = self.dataSource
         
         if section == 1 {
             
@@ -187,7 +180,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if ACPrivacyWizard.shared.selectedScope == . facebook{
+        if ACPrivacyWizard.shared.selectedScope == . facebook && isLoggedInApp {
                 if section == 0 {
                     return "Active"
                 }
@@ -272,7 +265,14 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             self.inactiveDataSource = inactiveData
         }
         
-     
+        
+        if self.dataSource.count == 0 {
+            self.tableView.emptyMessage(message: "No connected app", vc: self)
+        }
+        else {
+            self.tableView.backgroundView = nil
+        }
+        
         selectedIndexPath = nil
         self.tableView.reloadData()
         ProgressHUD.dismiss()
@@ -325,6 +325,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                 if type == "statusMessageType" {
                     
                     self.getConnectedApps(dict: messageDict)
+                   
                 }
                 else if type == "statusDoneMessageType" {
                     
@@ -363,6 +364,13 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         }
         else {
             dataSource = dictApps
+        }
+        
+        if self.dataSource.count == 0 {
+            self.tableView.emptyMessage(message: "No connected app", vc: self)
+        }
+        else {
+            self.tableView.backgroundView = nil
         }
 
         self.tableView.reloadData()

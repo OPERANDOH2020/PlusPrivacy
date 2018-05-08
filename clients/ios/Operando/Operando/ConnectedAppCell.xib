@@ -23,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-ku-gjT">
                         <rect key="frame" x="20" y="10" width="624" height="88.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-5p-HF3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-blue" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-5p-HF3">
                                 <rect key="frame" x="583" y="0.0" width="33" height="88.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="9Ms-iT-Tae"/>
@@ -113,7 +113,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="arrow-blue" width="14" height="14"/>
         <image name="connected-apps-mob" width="84" height="84"/>
-        <image name="notifications_arrow_right" width="14" height="14"/>
     </resources>
 </document>

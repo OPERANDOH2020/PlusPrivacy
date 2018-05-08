@@ -120,7 +120,10 @@ var appType = "Active";
  var ppp = Promise.resolve();
  ppp = ppp.then(function(){
         
-                return getApps(document.getElementsByTagName('html')[0].innerHTML, function(){console.log("fin1")});
+//                return getApps(document.getElementsByTagName('html')[0].innerHTML, function(){console.log("fin1")});
+                
+                 return doGetRequest("https://m.facebook.com/settings/apps/tabbed/?tab=active", getApps);
+                
                 }).then(function(){
                         
                          appType = "Inactive"

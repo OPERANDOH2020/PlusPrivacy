@@ -28,6 +28,7 @@ class ProgressHUD {
     }
     
     static func dismiss() {
+        print("DISMISS HUD")
         HUD.hide(animated: true)
     }
     
