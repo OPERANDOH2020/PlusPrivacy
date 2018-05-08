@@ -42,12 +42,19 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         
         if ACPrivacyWizard.shared.connectedApps.count != 0 {
             self.isLoggedInApp = true
+            
+            if ACPrivacyWizard.shared.inactiveConnectedApps == nil && ACPrivacyWizard.shared.selectedScope == .facebook{
+                
+                
+                let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getAppsListUrl()
+                self.webView.loadWebViewToURL(urlString: socialMediaUrl)
+                return
+            }
             self.scriptWasInserted = true
-            return
+            
         }
         
         loadAppsUrl = {
-            
             
             let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getAppsListUrl()
             self.webView.loadWebViewToURL(urlString: socialMediaUrl)
@@ -59,8 +66,9 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+        
         self.inactiveDataSource = ACPrivacyWizard.shared.inactiveConnectedApps
+        self.view.addSubview(webView)
         
         if ACPrivacyWizard.shared.connectedApps.count != 0 {
             self.dataSource = ACPrivacyWizard.shared.connectedApps
@@ -68,7 +76,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             return
         }
         
-        self.view.addSubview(webView)
+        
         ProgressHUD.show()
     }
     
@@ -108,7 +116,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-       
+        
         ACPrivacyWizard.shared.connectedApps = self.dataSource
         ACPrivacyWizard.shared.inactiveConnectedApps = self.inactiveDataSource
         
@@ -125,14 +133,15 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
+        
         if indexPath.section ==  1 && self.inactiveDataSource == nil{
             // print("this is the last cell")
             let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             spinner.startAnimating()
             spinner.isHidden = false
             spinner.frame = cell.contentView.frame
-
+            spinner.frame.origin.y = -25
+            
             cell.contentView.addSubview(spinner)
         }
     }
@@ -143,6 +152,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             
             let cell = UITableViewCell()
             cell.textLabel?.text = self.progressText
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.textLabel?.textAlignment = .center
             cell.selectionStyle = .none
             self.progressCellIndexPath = indexPath
             return cell
@@ -183,18 +194,18 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         }
     }
     
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if ACPrivacyWizard.shared.selectedScope == . facebook && isLoggedInApp {
-                if section == 0 {
-                    return "Active"
-                }
-                else {
-                    return "Inactive"
-                }
-                
+            if section == 0 {
+                return "Active"
             }
+            else {
+                return "Inactive"
+            }
+            
+        }
         
         return nil
     }
@@ -331,7 +342,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                 if type == "statusMessageType" {
                     
                     self.getConnectedApps(dict: messageDict)
-                   
+                    
                 }
                 else if type == "statusCount"{
                     DispatchQueue.main.async(execute: { () -> Void in
@@ -339,7 +350,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                             self.progressText = messageDict["text"] as? String
                             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
                         }
-                })
+                    })
                 }
                 else if type == "statusDoneMessageType" {
                     
@@ -367,7 +378,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             self.inactiveDataSource = []
             
             for app in dictApps {
-
+                
                 if app.type == "Active" {
                     self.dataSource.append(app)
                 }
@@ -386,7 +397,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         else {
             self.tableView.backgroundView = nil
         }
-
+        
         self.tableView.reloadData()
     }
     
@@ -404,7 +415,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if self.isLoggedInApp == true && scriptWasInserted == true{
             return
         }
-
+        
         
         if self.isLoggedInApp == true {
             

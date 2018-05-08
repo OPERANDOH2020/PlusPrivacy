@@ -27,7 +27,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-ku-gjT">
                                 <rect key="frame" x="20" y="10" width="569" height="83"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-blue-down" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-5p-HF3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-blue-down" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-5p-HF3">
                                         <rect key="frame" x="528" y="0.0" width="33" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="33" id="9Ms-iT-Tae"/>
@@ -220,7 +220,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow-blue-down" width="14" height="14"/>
+        <image name="arrow-right-blue-down" width="42" height="42"/>
         <image name="connected-apps-mob" width="84" height="84"/>
         <image name="eye" width="42" height="42"/>
         <image name="trash-can" width="31" height="42"/>
