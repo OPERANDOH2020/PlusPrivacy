@@ -18,11 +18,11 @@ var DependencyManager = exports.DependencyManager = {
         },
         {
             name:"jQuery",
-            path:"/utils/jquery-2.1.4.min.js"
+            path:"/ui-libs/jquery-2.1.4.min.js"
         },
         {
             name:"Tooltipster",
-            path:"/utils/tooltipster/tooltipster.bundle.min.js"
+            path:"/ui-libs/tooltipster/tooltipster.bundle.min.js"
         },
         {
             name:"UserPrefs",

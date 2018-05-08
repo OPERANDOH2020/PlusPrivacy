@@ -396,7 +396,7 @@ angular.module('osp', ['cfp.loadingBar'])
                              sequence = sequence.then(function () {
                                  chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
                                      if (tabId == currentTab.id && changeInfo.status == "complete" && tabIsNew == true) {
-                                         insertJavascriptFile(currentTab.id, "utils/jquery-2.1.4.min.js", function () {
+                                         insertJavascriptFile(currentTab.id, "ui-libs/jquery-2.1.4.min.js", function () {
                                              insertJavascriptFile(currentTab.id, "modules/osp/readSocialNetworkSettings.js", function () {
                                              });
                                          });

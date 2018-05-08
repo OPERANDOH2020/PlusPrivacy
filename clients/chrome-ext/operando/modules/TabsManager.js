@@ -170,8 +170,8 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
 TabsManager.prototype.suggestSubstituteIdentities = function(tabId){
     injectScript(tabId, "modules/identity/input-track.js", ["jQuery","UserPrefs","DOMElementProvider","Tooltipster"], function(){
         insertCSS(tabId,"assets/css/change-identity.css");
-        insertCSS(tabId,"utils/tooltipster/tooltipster.bundle.min.css");
-        insertCSS(tabId,"utils/tooltipster/tooltipster-plus-privacy.css");
+        insertCSS(tabId,"ui-libs/tooltipster/tooltipster.bundle.min.css");
+        insertCSS(tabId,"ui-libs/tooltipster/tooltipster-plus-privacy.css");
     });
 };
 
