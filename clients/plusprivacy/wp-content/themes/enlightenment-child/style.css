@@ -19,21 +19,21 @@ License: GNU General Public License v2.0
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 300;
-    src: url('fonts/OpenSans-Light-webfont.woff') format('woff2');
+    src: url('fonts/OpenSans-Light-webfont.woff') format('woff2'), url('fonts/OpenSans-Light-webfont.eot');
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    src: url('fonts/OpenSans-Bold-webfont.woff') format('truetype');
+    src:url('fonts/OpenSans-Bold-webfont.woff') format('woff2'), url('fonts/OpenSans-Bold-webfont.eot');
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('fonts/OpenSans-Regular-webfont.woff') format('woff2');
+    src: url('fonts/OpenSans-Regular-webfont.woff') format('woff2'), url('fonts/OpenSans-Regular-webfont.eot');
 }
 
 .navbar .nav > li > a {
