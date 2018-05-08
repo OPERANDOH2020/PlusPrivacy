@@ -3,6 +3,7 @@ var kLogMessageTypeContentKey = "logContent";
 var kLogMessageType = "log";
 var kStatusMessageMessageType = "statusMessageType";
 var kStatusMessageContentKey = "statusMessageContent";
+var kStatusCount = "statusCount";
 
 var webkitSendMessage = function(message) {
     alert(message);
@@ -18,7 +19,11 @@ window.console.log = function(logMessage) {
     webkitSendMessage(JSON.stringify(webkitMessage));
 };
 
-
+var sendCountStatus = function(text) {
+    var webkitMessage = {text};
+    webkitMessage[kMessageTypeKey] = kStatusCount;
+    webkitSendMessage(JSON.stringify(webkitMessage));
+};
 var sendStatusMessage = function(settingName) {
     
     var webkitMessage = {};
@@ -83,18 +88,17 @@ var appType = "Active";
                     var sequence = Promise.resolve();
                     var apps = $('div._5b6q h3 a', res);
                     
-                    console.log("LENGHT = " + apps.length)
-                    
                     for (var i = 0; i < apps.length; i++) {
                     (function (i) {
                      
-                     console.log("INDEX = " + i + "LENGHT = " + apps.length)
+                     
                      
                      var appId = apps[i].getAttribute('href').split('appid=')[1];
                      sequence = sequence.then(function () {
                                               return getAppData("https://m.facebook.com/" + apps[i].getAttribute('href'));
                                               })
                      .then(function (result) {
+                           sendCountStatus( i + "/" + apps.length)
                            handleDataForSingleApp(appId, result);
                            });
                      })(i);

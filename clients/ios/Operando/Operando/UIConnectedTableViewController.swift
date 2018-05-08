@@ -28,7 +28,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     private var removeApp: String?
     private var callbacks: UIConnectedTableViewControllerCallbacks?
-    
+    private var progressText: String?
+    private var progressCellIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
+        self.inactiveDataSource = ACPrivacyWizard.shared.inactiveConnectedApps
+        
         if ACPrivacyWizard.shared.connectedApps.count != 0 {
             self.dataSource = ACPrivacyWizard.shared.connectedApps
             self.tableView.reloadData()
@@ -107,6 +110,7 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         
        
         ACPrivacyWizard.shared.connectedApps = self.dataSource
+        ACPrivacyWizard.shared.inactiveConnectedApps = self.inactiveDataSource
         
         if section == 1 {
             
@@ -121,14 +125,14 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+
         if indexPath.section ==  1 && self.inactiveDataSource == nil{
             // print("this is the last cell")
             let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             spinner.startAnimating()
             spinner.isHidden = false
             spinner.frame = cell.contentView.frame
-            
+
             cell.contentView.addSubview(spinner)
         }
     }
@@ -138,7 +142,9 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if ACPrivacyWizard.shared.selectedScope == .facebook && indexPath.section == 1 && self.inactiveDataSource == nil {
             
             let cell = UITableViewCell()
+            cell.textLabel?.text = self.progressText
             cell.selectionStyle = .none
+            self.progressCellIndexPath = indexPath
             return cell
         }
         
@@ -326,6 +332,14 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
                     
                     self.getConnectedApps(dict: messageDict)
                    
+                }
+                else if type == "statusCount"{
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        if let indexPath = self.progressCellIndexPath {
+                            self.progressText = messageDict["text"] as? String
+                            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                        }
+                })
                 }
                 else if type == "statusDoneMessageType" {
                     

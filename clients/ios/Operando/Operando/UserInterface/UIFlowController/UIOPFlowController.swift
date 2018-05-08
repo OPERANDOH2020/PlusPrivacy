@@ -369,6 +369,7 @@ class UIOPFlowController
         }), observationText: "Apps connected to your social networks")
         
         ACPrivacyWizard.shared.connectedApps = []
+        ACPrivacyWizard.shared.inactiveConnectedApps = nil
         self.rootController.setupTabViewForConnectedAppsDashboard()
         self.rootController.setMainControllerTo(newController: privacyDashboard)
     }
