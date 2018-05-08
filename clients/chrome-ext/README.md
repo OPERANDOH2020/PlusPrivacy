@@ -35,6 +35,6 @@ A localhost server is needed. For installing a PlusPrivacy server please see
     //or
     grunt test
 
-After the build process the working directory should contain the following directory:
+After the build process finishes, the working directory should contain the following directory:
     - dist
 Drag and drop it in Chrome -> More tools -> Extensions to install it.
