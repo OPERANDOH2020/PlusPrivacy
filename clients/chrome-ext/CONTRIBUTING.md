@@ -16,6 +16,6 @@ A cross-platform browser extension is needed. Currently the extension works only
 * Fork the repository on GitHub.
 * Change working branch to **cross-platform**
 * Make your changes 
-* [Build and test](https://github.com/OPERANDOH2020/PlusPrivacy/blob/cross-platform/README.md) using the test server (plusprivacy.club)
+* [Build and test](https://github.com/OPERANDOH2020/PlusPrivacy/blob/cross-platform/clients/chrome-ext/README.md) using the test server (plusprivacy.club)
 * Push to your fork and submit a pull request.
 
