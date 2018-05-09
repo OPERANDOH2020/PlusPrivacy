@@ -1,0 +1,97 @@
+.pp_identity_popup,
+.pp_twitter_popup{
+    all:initial;
+    height: auto!important;
+    padding: 10px!important;
+    color:#FFF;
+    position: relative;
+    display: inline-block;
+    clear: both;
+    overflow: hidden;
+
+}
+.pp_twitter_popup{
+    width:480px;
+    padding: 10px!important;
+}
+button.pp_button{
+    background: #FFB400!important;
+    margin: 10px 0px 10px 10px!important;
+    border-radius: 0px!important;
+    font-size: 16px!important;
+    border:none!important;
+    color:#FFF!important;
+    padding: 8px 14px !important;
+    cursor:pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+    max-width: 52px!important;
+}
+
+select.pp_select{
+    color: #000!important;
+    height: 34px!important;
+    box-sizing: content-box!important;
+    padding: 0px!important;
+    border: none!important;
+    box-shadow: none!important;
+    display: inline-block;
+    font-size: 12px;
+    margin: 0px;
+    border-radius: 0px;
+    font-family: sans-serif;
+    background: white;
+}
+select.pp_select option{
+    font-size: 12px!important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+}
+
+div.pp_container{
+    width: auto;
+}
+
+div.pp-popup-header{
+all:initial;
+color:#FFF;
+background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icons/pp-19.png') no-repeat left center transparent;
+padding-left: 24px!important;
+font-size: 13px!important;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+}
+
+div.pp-popup-close{
+    right:5px;
+    top:5px;
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/close_popup.png') no-repeat left center transparent;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    cursor: pointer;
+}
+
+div.pp-twitter-header{
+    all:initial;
+    color:#FFF;
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icons/operando/operando.png') no-repeat left center transparent;
+    padding-left: 32px!important;
+    font-size: 15px!important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif ;
+}
+
+
+.tooltipster-content{
+ padding: 8px!important;
+}
+#pp_identities{
+    display: inline-block;
+    font-size: 12px;
+    margin: 0px;
+    border-radius: 0px;
+    font-family: sans-serif;
+}
+#accept_identity_substitution,
+#deny_identity_substitution{
+    font-size:12px!important;
+    font-family: sans-serif;
+    display: inline-block;
+}

@@ -1,0 +1,55 @@
+<div class="operando_wrapper" ng-controller="menuCtrl" ng-init="initPopup()">
+
+    <ul ng-controller="loginCtrl" class="popup-login-area">
+
+        <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-hide="loginAreaState == 'forgot_password' || loginAreaState =='register_form'||loginAreaState == 'login_form'"></menu-item>
+        <li id="operando_abp" ng-show="showAdBlockerSettings">
+
+                <div id="enabled" class="menu-item" role="button">
+                    <div class="icon"></div>
+                    <span id="enabled-yes">Ads blocked on this site</span>
+                    <span id="enabled-no">Ads not blocked on this site</span>
+                </div>
+        </li>
+
+        <li id="login_area" ng-switch="loginAreaState">
+            <div ng-if="info.status">
+                <div class="panel panel-{{info.status=='error'?'danger':info.status}}">
+                    <ui-loader ng-if="(requestIsProcessed || requestStatus) && (info.status!='error')"  status="{{requestStatus}}"></ui-loader>
+                    <div class="panel-heading">
+                        <span class="glyphicon" ng-class="info.status=='error'?'glyphicon-exclamation-sign':''" aria-hidden="true"></span>
+                        <span>{{info.message}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-switch-when="networkError" class="login_form">
+                <div class="spinner network_error">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+
+            <div ng-switch-when="loggedout" class="login_form">
+                <div ng-include src="'tpl/panel/logout_state.html'"></div>
+            </div>
+
+            <div ng-switch-when="login_form">
+                <div ng-include src="'tpl/panel/login_form_state.html'"></div>
+            </div>
+
+            <div ng-switch-when="loggedin" class="user_logged_in">
+                <div ng-include src="'tpl/panel/loggedin_state.html'"></div>
+            </div>
+
+            <div ng-switch-when="forgot_password" class="forgot_password_in">
+                <div ng-include src="'tpl/panel/forgot_password_state.html'"></div>
+            </div>
+
+            <div ng-switch-when="register_form">
+                <div ng-include src="'tpl/panel/register_form_state.html'"></div>
+            </div>
+        </li>
+    </ul>
+</div>

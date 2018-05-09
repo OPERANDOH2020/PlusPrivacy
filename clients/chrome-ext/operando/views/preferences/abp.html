@@ -1,0 +1,26 @@
+<div id="abp_preferences_tab" class="content_tab">
+
+        <div class="tab-content">
+            <div ui-view id="ad_blocking_preferences">
+
+
+                    <div id="can-do-more-content" ng-controller="adBlockingController">
+
+                        <div id="enable_disable_ad_blocker">
+                        <h3>Installed adblockers</h3>
+
+
+                        </div>
+                        <ul id="installed-adblockers">
+
+                            <li class="adblockers" ng-repeat="adblocker in adblockers">
+                                <span>{{adblocker.name}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+
+            </div>
+        </div>
+</div>
+
