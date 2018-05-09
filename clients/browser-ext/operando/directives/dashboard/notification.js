@@ -79,7 +79,16 @@ angular.module('notifications', ['ui-notification'])
             loadUserNotifications(callback);
         };
 
-        chrome.gcm.onMessage.addListener(treatPushNotification);
+        if(chrome.gcm){
+            chrome.gcm.onMessage.addListener(treatPushNotification);
+        }
+        else{
+            //TODO implement it for other browsers.
+
+        }
+
+
+
         return {
             dismissNotification: dismissNotification,
             notifyUserNow:notifyUserNow,

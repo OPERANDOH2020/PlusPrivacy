@@ -43,7 +43,7 @@ operandoCore
         function increaseGooglePrivacy(settings, callback, jobFinished) {
             var jobDone = false;
             chrome.tabs.getCurrent(function (currentTab) {
-                chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "selected": false}, function (tab) {
+                chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "active": false}, function (tab) {
                     googleTabId = tab.id;
 
                     closeTabListener(googleTabId, function () {
@@ -132,7 +132,7 @@ operandoCore
         function increaseFacebookPrivacy(settings, callback, jobFinished) {
 
             var jobDone = false;
-            chrome.tabs.create({url: FACEBOOK_PRIVACY_URL, "selected": false}, function (tab) {
+            chrome.tabs.create({url: FACEBOOK_PRIVACY_URL, "active": false}, function (tab) {
                 facebookTabId = tab.id;
                 closeTabListener(facebookTabId, function () {
                     if (jobDone == false) {
@@ -198,7 +198,7 @@ operandoCore
 
         function increaseLinkedInPrivacy(settings, callback, jobFinished) {
             var jobDone = false;
-            chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "selected": false}, function (tab) {
+            chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "active": false}, function (tab) {
                 linkedinTabId = tab.id;
 
                 closeTabListener(linkedinTabId, function () {
@@ -242,7 +242,7 @@ operandoCore
 
             var jobDone = false;
             chrome.tabs.getCurrent(function (currentTab) {
-                chrome.tabs.create({url: TWITTER_PRIVACY_URL, "selected": false}, function (tab) {
+                chrome.tabs.create({url: TWITTER_PRIVACY_URL, "active": false}, function (tab) {
                     twitterTabId = tab.id;
                     closeTabListener(twitterTabId, function () {
                         if (jobDone == false) {

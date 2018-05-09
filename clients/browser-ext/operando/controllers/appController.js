@@ -12,7 +12,7 @@
 
 angular.module("operando").
 controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$state", function ($scope, $rootScope, messengerService, $window, $state) {
-    $scope.appVersion = chrome.app.getDetails().version;
+    $scope.appVersion = chrome.runtime.getManifest().version;
     $scope.userIsLoggedIn = false;
     $scope.state = $state;
     $scope.logout = function () {
