@@ -48,3 +48,6 @@ A localhost server is needed. For installing a PlusPrivacy server please see
 
 After the build process finishes, the working directory should contain the following directory:**dist**.
 Drag and drop it in Chrome -> More tools -> Extensions to install it.
+
+# Contributors
+Contributions of code, including suggestions of new features and functionality, are welcome. Please see the [contributions page](https://github.com/OPERANDOH2020/PlusPrivacy/blob/cross-platform/clients/chrome-ext/CONTRIBUTING.md)
