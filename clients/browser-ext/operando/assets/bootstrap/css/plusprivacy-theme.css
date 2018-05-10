@@ -1,3 +1,6 @@
+html{
+    height: calc(100% - 198px);
+}
 body{
     background: #C9BEA1;
 }
@@ -389,7 +392,6 @@ ul.nav.navbar-nav.pull-right li>a>.menu_item_content{
 }
 
 #wrapper{
-    height: calc(100% - 198px);
     overflow: auto;
     min-width: 1100px;
     margin: 0px 35px 0 20px;
@@ -1578,8 +1580,10 @@ visibility: visible;
 }
 
 .sidebar_expandable_menu{
- height: auto;
- zoom:90%;
+height: auto;
+zoom:90%;
+-moz-transform: scale(0.9);
+-moz-transform-origin: 0 0;
 }
 
 .sidebar_expandable_menu .col-xs-2{
@@ -1621,7 +1625,6 @@ visibility: visible;
     background: #fdfaef;
     min-height: 100%;
     padding: 0px 20px;
-
 }
 
 .sidebar_expandable_menu .panel-group  .panel{

@@ -30,7 +30,6 @@ angular.module('notifications', ['ui-notification'])
             var sequence = Promise.resolve();
             notifications.filter(function(notification){
                 return notification.type == "info-notification";
-                return true;
             }).forEach(function(notification){
                 sequence = sequence.then(function () {
                     return new Promise(function (resolve, reject) {
