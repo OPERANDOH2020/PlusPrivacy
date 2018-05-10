@@ -135,9 +135,8 @@ angular.module("op-popup").controller("loginCtrl", ['$scope', 'messengerService'
             console.log(response);
             $scope.requestIsProcessed = false;
             if (response.status === "success") {
-                setTimeout(function(){
-                    messengerService.send("goToDashboard");
-                },500);
+                messengerService.send("goToDashboard");
+                window.close();
             }
             else{
                 securityErrorFunction(response.error);

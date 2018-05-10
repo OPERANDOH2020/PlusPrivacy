@@ -92,7 +92,7 @@ var websiteService = exports.websiteService = {
 
     goToDashboard: function () {
         if (authenticationService.isLoggedIn()) {
-            chrome.runtime.openOptionsPage();
+            chrome.tabs.create({url: chrome.runtime.getURL("operando.html#/home"), "active": true});
         }
         else {
             portObserversPool.trigger("goToDashboard", "sendMeAuthenticationToken");
