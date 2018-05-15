@@ -26,12 +26,15 @@ function crypto_donation_button($atts)
         if ($cryptoCurrencyService->hasCryptoCurrency($atts['cryptocurrency'])) {
             $cryptoCurrency = $cryptoCurrencyService->getCryptoCurrency($atts['cryptocurrency']);
             $modalId = "modal-".md5(uniqid(rand(), true));
+            ob_start();
             include("assets/templates/coin-template.php");
+            $template_content = ob_get_clean();
+            return $template_content;
         } else {
-            echo "Cryptocurrency ".$atts['cryptocurrency']." is not supported!";
+            return "Cryptocurrency ".$atts['cryptocurrency']." is not supported!";
         }
     } else {
-        echo "Cryptocurrency should be defined";
+        return "Cryptocurrency should be defined";
     }
 
 }
