@@ -760,6 +760,7 @@ div.ufaq-faq-title h4{
     margin: 5px;
     border: 1px solid #dac2b0;
     padding:10px;
+    cursor: pointer;
 }
 .coin:hover{
     background:#f2e3d8;
@@ -777,4 +778,33 @@ div.ufaq-faq-title h4{
 
 .row.crypto-coins{
     margin-bottom: 20px;
+}
+
+
+input.address_hash{
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 30px;
+}
+
+.hash_container{
+    background: #FFF;
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.hash_container .copy_hash{
+    padding: 9px;
+}
+
+.hash_container .address_hash{
+    font-size: 13px;
+    text-align: center;
+}
+
+.donate_modal .close {
+    margin-top: -26px;
+
 }

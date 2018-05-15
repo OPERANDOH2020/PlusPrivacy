@@ -6,24 +6,34 @@
     <span><?php echo $cryptoCurrency->name;?></span>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="<?php echo $modalId?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+<div class="modal fade" id="<?php echo $modalId?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content donate_modal" >
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h3 class="modal-title">Donate <?php echo $cryptoCurrency->name;?></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img src="<?php echo $cryptoCurrency->getQrCode();?>">
 
-                <span><?php echo $cryptoCurrency->getHash();?></span>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div align="center">
+                    <img width="320px" height="320px;" src="<?php echo $cryptoCurrency->getQrCode();?>">
+                </div>
+                <br/>
+                <p align="center">Please use this <?php echo $cryptoCurrency->name;?> address to donate. Thanks!</p>
+
+
+                <div class="hash_container" align="center">
+                    <div class="input-group">
+                         <input style="background-image: url(<?php echo $cryptoCurrency->icon;?>)" type="text" class="form-control address_hash" readonly="readonly" value="<?php echo $cryptoCurrency->getAddress();?>">
+                         <span class="input-group-btn">
+                            <button class="btn btn-default copy_hash" type="button">Copy</button>
+                        </span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

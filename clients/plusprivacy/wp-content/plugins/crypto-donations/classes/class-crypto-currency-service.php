@@ -1,29 +1,30 @@
 <?php
 
 include("class-crypto-currency.php");
+include("util/functions.php");
 
 class CryptoCurrencyService
 {
 
-    private $crypto_hashes = array(
-        "bitcoin" => "hash_bictoin",
-        "monero" => "hash_monero",
-        "ether" => "hash_ether",
-        "bitcoin_cash" => "hash_bitcoin_cash",
-        "litecoin" => "hash_litecoin"
-    );
-
-
     private $availableCryptoCurrencies = array();
+    private $existingCryptoCurrencies = array();
 
     function __construct()
     {
-        $bitcoin = new CryptoCurrency("bitcoin", "Bitcoin", $this->getCryptoIcon("bitcoin"), $this->getCryptoQRCode("bitcoin"), $this->crypto_hashes['bitcoin']);
-        $monero = new CryptoCurrency("monero", "Monero", $this->getCryptoIcon("monero"), $this->getCryptoQRCode("monero"), $this->crypto_hashes['monero']);
-        $ether = new CryptoCurrency("ether", "Ether", $this->getCryptoIcon("ether"), $this->getCryptoQRCode("ether"), $this->crypto_hashes['ether']);
-        $bitcoin_cash = new CryptoCurrency("bitcoin_cash","Bitcoin Cash", $this->getCryptoIcon("bitcoin_cash"), $this->getCryptoQRCode("bitcoin_cash"), $this->crypto_hashes['bitcoin_cash']);
-        $litecoin = new CryptoCurrency("litecoin","Litecoin", $this->getCryptoIcon("litecoin"), $this->getCryptoQRCode("litecoin"), $this->crypto_hashes['litecoin']);
-        array_push($this->availableCryptoCurrencies, $bitcoin, $monero, $ether, $bitcoin_cash, $litecoin);
+        $string = file_get_contents(plugins_url('../config/cryptocurrencies.json', __FILE__));
+        $crypto_currencies_json = json_decode($string, true);
+
+        foreach ($crypto_currencies_json as $crypto_currency => $crypto_raw) {
+            $crypto_key = $crypto_raw['key'];
+            $crypto_name = $crypto_raw['name'];
+            $crypto_address = $crypto_raw['address'];
+            $crypto_icon = $this->getCryptoIcon($crypto_key);
+            $crypto_qr_code = $this->getCryptoQRCode($crypto_key);
+            $new_crypto_currency =  new  CryptoCurrency($crypto_key,$crypto_name,$crypto_icon,$crypto_qr_code,$crypto_address);
+            array_push($this->availableCryptoCurrencies, $new_crypto_currency);
+            array_push($this->existingCryptoCurrencies, $crypto_key);
+        }
+
     }
 
     private function getCryptoIcon($crypto)
@@ -37,7 +38,8 @@ class CryptoCurrencyService
     }
 
     public function hasCryptoCurrency($name){
-        if($this->crypto_hashes[$name]){
+
+        if(arrayContainsElement($this->existingCryptoCurrencies,$name)){
             return true;
         }
         return false;

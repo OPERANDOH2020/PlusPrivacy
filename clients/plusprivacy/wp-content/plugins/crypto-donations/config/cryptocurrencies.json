@@ -1,0 +1,22 @@
+{
+    "bitcoin":{
+      "key":"bitcoin",
+      "name":"Bitcoin",
+      "address":"11fiWCk8g8uPHqzEgpFULPyJBFVKNaZbT"
+    },
+    "ether":{
+      "key":"ether",
+      "name":"Ether",
+      "address":"0x10ec66ad9d0d90fbefef4dde91e234598e2a44dd"
+    },
+    "bitcoin_cash":{
+      "key":"bitcoin_cash",
+      "name":"Bitcoin Cash",
+      "address":"1BqBGqe6P2w2cGpMjXN4yUEgkeRiseUrfi"
+    },
+    "litecoin":{
+      "key":"litecoin",
+      "name":"Litecoin",
+      "address":"LWAjw2PJxsZwU4i6qnNaoCHmNGTTpNF8yk"
+    }
+}
