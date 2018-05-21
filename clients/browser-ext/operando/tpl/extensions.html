@@ -4,9 +4,9 @@
         <table class="table table-bordered" id="extensions_table" datatable="ng" dt-column-defs="dtColumnDefs"  dt-options="dtOptions" dt-instance="dtInstance"  >
             <thead>
             <tr>
-                <th>Extension/App name</th>
+                <th style="width: 50%">Extension/App name</th>
                 <th>Intrusiveness</th>
-                <th class="no-sort"></th>
+                <th ng-if="isFirefox == false" class="no-sort"></th>
             </tr>
             </thead>
 
@@ -25,7 +25,7 @@
                 </td>
 
 
-                <td actions-row extension="extension"></td>
+                <td ng-if="isFirefox == false" actions-row extension="extension"></td>
 
             </tr>
             </tbody>

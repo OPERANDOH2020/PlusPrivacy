@@ -1804,12 +1804,20 @@ zoom:90%;
     background-image:url("/assets/images/menu_icons/extensions_selected.png");
 }
 
-.menu_icon.plugin_icon{
-    background-image:url("/assets/images/menu_icons/plugin.png");
+.menu_icon.plugin_chrome_icon{
+    background-image:url("/assets/images/menu_icons/chrome.png");
 }
 
-.active.menu_icon.plugin_icon{
-    background-image:url("/assets/images/menu_icons/plugin_selected.png");
+.active.menu_icon.plugin_chrome_icon{
+    background-image:url("/assets/images/menu_icons/chrome_selected.png");
+}
+
+.menu_icon.plugin_firefox_icon{
+    background-image:url("/assets/images/menu_icons/firefox.png");
+}
+
+.active.menu_icon.plugin_firefox_icon{
+    background-image:url("/assets/images/menu_icons/firefox_selected.png");
 }
 
 .menu_icon.dashboard_icon{

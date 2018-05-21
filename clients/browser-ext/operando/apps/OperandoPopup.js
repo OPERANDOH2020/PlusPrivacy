@@ -14,8 +14,8 @@ angular.module('op-popup', ['operandoCore', 'popupMenu', 'validation', 'validati
     .config([
         '$compileProvider',
         function ($compileProvider) {   //to accept chrome protocol
-            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|chrome-extension-resource):/);
-            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|chrome-extension-resource):/);
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|chrome-extension-resource|moz-extension):/);
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|chrome-extension-resource|moz|moz-extension):/);
 
         }
     ])

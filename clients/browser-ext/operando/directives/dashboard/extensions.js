@@ -11,12 +11,54 @@
  */
 
 angular.module('extensions', [])
+    .service("ExtensionService",function(){
+
+
+        var isBrowserFirefox = null;
+        var checked = false;
+
+        var checkIfIsBrowserFirefox = function(callback){
+            if(checked){
+                callback(isBrowserFirefox);
+            }
+            else {
+
+                function gotBrowserInfo(info) {
+                    if (info.name === "Firefox") {
+                        isBrowserFirefox = true;
+                        callback(true);
+                    }
+                    else {
+                        isBrowserFirefox = false;
+                        callback(false);
+                    }
+                }
+
+                if (chrome.runtime.getBrowserInfo) {
+                    var gettingInfo = browser.runtime.getBrowserInfo();
+                    gettingInfo.then(gotBrowserInfo);
+                }
+                else {
+                    isBrowserFirefox = false;
+                    callback(false);
+                }
+                checked = true;
+            }
+        };
+
+
+        return {
+            isBrowserFirefox: checkIfIsBrowserFirefox
+        }
+    })
     .directive('extensions', function () {
         return {
             restrict: 'E',
             replace: true,
             scope: {},
-            controller: function ($scope, DTColumnDefBuilder, DTOptionsBuilder,$q,$timeout) {
+            controller: function ($scope, DTColumnDefBuilder, DTOptionsBuilder,$q,$timeout,ExtensionService) {
+
+
 
                 $scope.dtInstance={};
 
@@ -33,11 +75,15 @@ angular.module('extensions', [])
 
                 $scope.dtColumnDefs = [
                     DTColumnDefBuilder.newColumnDef(0),
-                    DTColumnDefBuilder.newColumnDef(1),
-                    DTColumnDefBuilder.newColumnDef(2).notSortable()
+                    DTColumnDefBuilder.newColumnDef(1)
                 ];
 
                 $scope.extensions = [];
+
+
+
+
+
                 function orderExtensions(extensions) {
                     extensionsList = Array.prototype.slice.call(extensions).sort(function (a, b) {
                         return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -47,10 +93,38 @@ angular.module('extensions', [])
                 }
 
                 var prepareExtension = function(extension){
+
+                    console.log(extension);
+
+
                     if (extension.icons && extension.icons instanceof Array) {
                         extension['icon'] = extension.icons.pop();
                         delete extension['icons'];
                     }
+
+                    if (extension['icon'].url.indexOf("chrome://") !== 0) {
+
+                        if (extension.optionsUrl && extension.optionsUrl.indexOf("moz-extension") === 0) {
+                            var rawId = extension.optionsUrl.split("://")[1];
+                            var id = rawId.substr(0, rawId.indexOf("/"));
+                            extension['icon'].url = "moz-extension://" + id + "/" + extension['icon'].url;
+                        }
+                        else {
+                            if (extension.hostPermissions.length > 0) {
+                                var selfPermission = extension.hostPermissions.filter(function (hostPermission) {
+                                    return hostPermission.indexOf("moz-extension://") === 0;
+                                });
+                                if (selfPermission.length > 0) {
+                                    var rawId = selfPermission[0].split("://")[1];
+                                    var id = rawId.substr(0, rawId.indexOf("/"));
+                                    extension['icon'].url = "moz-extension://" + id + "/" + extension['icon'].url;
+                                }
+                            }
+                        }
+                    }
+
+                    console.log(extension['icon'].url);
+
                     return extension;
                 }
 
@@ -69,6 +143,17 @@ angular.module('extensions', [])
 
                 function getExtensions(callback) {
                     chrome.management.getAll(function (results) {
+
+                        results = results.filter(function(extension){
+                           return extension.type!=="theme";
+                        });
+
+                        if($scope.extensionsTypes == "enabled"){
+                            results = results.filter(function(extension){
+                                return extension.enabled == true;
+                            });
+                        }
+
                         results.forEach(addExtension);
 
                         $scope.$apply();
@@ -80,11 +165,18 @@ angular.module('extensions', [])
                     });
                 }
 
-                    getExtensions(function(){
+                ExtensionService.isBrowserFirefox(function(isFirefox){
+                    $scope.isFirefox =  isFirefox;
+                    $scope.extensionsTypes = "all";
+                    if(isFirefox == false){
+                        $scope.dtColumnDefs.push(DTColumnDefBuilder.newColumnDef(2).notSortable());
+                    }
+                    else{
+                        $scope.extensionsTypes = "enabled";
+                    }
 
-
-                    });
-
+                    getExtensions();
+                });
 
                 chrome.management.onUninstalled.addListener(function (extension_id) {
 
@@ -95,7 +187,6 @@ angular.module('extensions', [])
                         }
                     }
 
-                    //$scope.dtInstance.rerender();
 
                     $timeout(function () {
                         $scope.$apply()
@@ -132,7 +223,9 @@ angular.module('extensions', [])
             link: function ($scope, element, attrs, extensionsCtrl) {
                 function checkPrivacyPollution(){
 
-                    $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
+                    if($scope.extension.permissions){
+                        $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
+                    }
                     $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
 
                 }
@@ -155,7 +248,13 @@ angular.module('extensions', [])
                             modal.element.modal();
                         });
                     }
-                    chrome.management.getPermissionWarningsById($scope.extension.id, showModal);
+                    if(chrome.management.getPermissionWarningsById){
+                        chrome.management.getPermissionWarningsById($scope.extension.id, showModal);
+                    }
+                    else{
+                        showModal();
+                    }
+
                 }
 
                 checkPrivacyPollution();
@@ -195,13 +294,13 @@ angular.module('extensions', [])
                         showConfirmDialog = false;
                     }
 
-                    chrome.management.uninstall($scope.extension.id, {showConfirmDialog: showConfirmDialog}, function () {
-                        if (chrome.runtime.lastError) {
-                            console.log(chrome.runtime.lastError.message);
-                        }else{
-                            messengerService.send("sendAnalytics","changedAppsOrExtensions");
-                        }
-                    });
+                    if(chrome.management.uninstall){
+                        chrome.management.uninstall($scope.extension.id, {showConfirmDialog: showConfirmDialog}, function () {
+                            if (chrome.runtime.lastError) {
+                                console.log(chrome.runtime.lastError.message);
+                            }
+                        });
+                    }
                 }
 
                 $scope.toggleEnabled = function () {

@@ -189,8 +189,8 @@
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
                             ng-controller="socialAppsController">
                             <li>
-                                <a ui-sref="extensions" ui-sref-active="active" class="menu_icon plugin_icon">
-                                    Chrome extensions</a>
+                                <a ui-sref="extensions" ui-sref-active="active" class="menu_icon" ng-class="isFirefox?'plugin_firefox_icon':'plugin_chrome_icon'">
+                                    {{browserExtensionsLabel}}</a>
                             </li>
                             <li ng-repeat="sn in sns">
                                 <a

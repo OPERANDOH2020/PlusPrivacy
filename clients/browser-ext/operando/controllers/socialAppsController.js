@@ -1,7 +1,18 @@
 angular.module("operando").
-controller("socialAppsController", ["$scope","ospService", function ($scope,ospService) {
+controller("socialAppsController", ["$scope","ospService","ExtensionService", function ($scope,ospService,ExtensionService) {
     $scope.sns = ['google','facebook', 'linkedin', 'twitter','dropbox'];
 
+
+    ExtensionService.isBrowserFirefox(function(isFirefox){
+        $scope.isFirefox = isFirefox;
+
+        if(isFirefox){
+            $scope.browserExtensionsLabel = "Firefox Add-ons"
+        }
+        else{
+            $scope.browserExtensionsLabel = "Chrome Extensions";
+        }
+    });
 
     var socialNetworks = {
         facebook: "Facebook",

@@ -17,8 +17,8 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     .config([
         '$compileProvider',
         function ($compileProvider) {   //to accept chrome protocol
-            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|data):/);
-            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|data):/);
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|data|moz-extension):/);
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome|chrome-extension|data|moz-extension):/);
 
         }
     ])
