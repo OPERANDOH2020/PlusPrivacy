@@ -285,6 +285,9 @@ div.tab-content{
     display: block;
     padding: 20px;
 }
+#not_authenticated_tab h4{
+    font-weight: 400;
+}
 
 #home_tab:after,
 #reading_settings_tab:after,
@@ -2531,7 +2534,6 @@ h4.modal-title.plusprivacy{
 
 #feedback_tab{
     margin: 0 auto;
-    width: 640px;
 }
 
 #feedback_tab ul{

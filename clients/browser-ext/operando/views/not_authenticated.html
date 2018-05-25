@@ -2,7 +2,7 @@
     <div id="not_authenticated_tab"  ng-controller="appLoginController">
 
         <div>
-            <h4>To use the {{featureName}} feature, you need to log in with your email address</h4>
+            <h4 ng-bind-html="featureMessage | trusthtml"></h4>
             <p><button class="btn-primary" ng-click="displayLoginModal()">Login or sign up</button></p>
         </div>
 

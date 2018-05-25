@@ -107,6 +107,24 @@ var userService = exports.userService = {
         });
     },
 
+    feedbackMessage:function(feedback, success_callback, error_callback){
+        //to preserve the old, more complex feedback form we kept the same format.
+        var feedbackRaw = {"Any other feedback?":feedback.message};
+        var xhrReq = new XMLHttpRequest();
+        xhrReq.addEventListener("load",function(){
+            if(this.responseText){
+                success_callback(JSON.parse(this.responseText));
+            }
+            else{
+                error_callback("Failed submitting feedback message!");
+            }
+        });
+        var resourceURI = ExtensionConfig.SERVER_HOST_PROTOCOL+"://"+ExtensionConfig.OPERANDO_SERVER_HOST + ":" + ExtensionConfig.OPERANDO_SERVER_PORT+"/feedback/responses";
+        xhrReq.open("POST",resourceURI);
+        xhrReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhrReq.send(JSON.stringify(feedbackRaw));
+
+    },
     resetExtension:function(){
             chrome.storage.sync.clear(function(){
                 chrome.storage.local.clear(function(){
@@ -119,6 +137,9 @@ var userService = exports.userService = {
        swarmHub.startSwarm("analytics.js","actionPerformed",analyticsLabel);
     },
 
+    /**TODO
+     * this service should be removed in the future. it is no longer used.
+     **/
     provideFeedbackQuestions:function(success_callback, error_callback){
         function requestListener(){
             if(this.responseText){
@@ -136,6 +157,9 @@ var userService = exports.userService = {
         xhrReq.send();
     },
 
+    /**TODO
+     * this service should be removed in the future. it is no longer used.
+     **/
     sendFeedback:function(feedback, success_callback, error_callback){
         function requestListener(){
             if(this.responseText){
@@ -169,6 +193,9 @@ var userService = exports.userService = {
         xhrReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhrReq.send(JSON.stringify(feedback));
     },
+    /**TODO
+     * this service should be removed in the future. it is no longer used.
+     **/
     hasUserSubmittedAFeedback:function(callback){
         chrome.storage.local.get("UserPrefs", function (items) {
             var userPreferences;

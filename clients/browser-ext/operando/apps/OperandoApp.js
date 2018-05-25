@@ -293,12 +293,21 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             url: "/privacy-policy",
             templateUrl: "views/privacy_policy.html"
             })
-            .state('feedback', {
+            /*.state('feedback', {
                 url: "/feedback",
                 templateUrl: "views/feedback.html",
                 resolve: {
                     loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load('/controllers/feedbackController.js');
+                    }]
+                }
+            })*/
+            .state('feedback', {
+                url: "/feedback",
+                templateUrl: "views/feedback_form.html",
+                resolve: {
+                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('/controllers/messageFeedbackController.js');
                     }]
                 }
             })
