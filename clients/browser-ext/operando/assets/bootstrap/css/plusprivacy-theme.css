@@ -617,6 +617,7 @@ color:#FFF;
 .operando #wrapper .btn-primary-black:focus,
 .btn-primary-black:focus{
     outline: none;
+    background: #ffb400;
 }
 
 .operando .btn-primary.refresh_identity{

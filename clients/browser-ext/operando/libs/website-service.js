@@ -1,4 +1,5 @@
 var bus = require("bus-service").bus;
+var chromeUserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.9 Safari/537.36";
 var authenticationService = require("authentication-service").authenticationService;
 var portObserversPool = require("observers-pool").portObserversPool;
 var socialNetworkService = require("social-network-service").socialNetworkService;
@@ -119,7 +120,8 @@ var websiteService = exports.websiteService = {
 
         function getAppData(url) {
             return new Promise(function (resolve, reject) {
-                doGetRequest(url, function (data) {
+                var headers = [{name:"User-Agent",value:chromeUserAgent}];
+                doGetRequest(url, {headers:headers}, function (data) {
                     resolve(data);
                 })
             })
@@ -173,7 +175,6 @@ var websiteService = exports.websiteService = {
                             handleDataForSingleApp(appId, result);
                         });
                 })(i);
-
             }
 
             sequence.then(function () {
@@ -181,8 +182,8 @@ var websiteService = exports.websiteService = {
             });
 
         };
-
-        doGetRequest("https://m.facebook.com/settings/apps/tabbed/", getApps)
+        var headers = [{name:"User-Agent",value:chromeUserAgent}];
+        doGetRequest("https://m.facebook.com/settings/apps/tabbed/", {headers:headers},getApps)
 
     },
 
@@ -220,11 +221,8 @@ var websiteService = exports.websiteService = {
             });
             callback(twitterApps);
         }
-        doTwitterAppsRequest("https://twitter.com/settings/applications?lang=en",function(){
-            interceptorService.interceptHeadersBeforeRequest("twitter-apps");
-            var headers = [{name:"get-twitter-apps", value:"1"}];
-            doGetRequest("https://twitter.com/settings/applications?lang=en", {headers:headers}, getApps);
-        });
+        interceptorService.interceptHeadersBeforeRequest("twitter-apps");
+        doTwitterAppsRequest("https://twitter.com/settings/applications?lang=en",getApps);
 
     },
 
@@ -555,7 +553,7 @@ var websiteService = exports.websiteService = {
         }
 
         function removeTwitterApp(appId) {
-            doGetRequest("https://twitter.com/settings/applications?lang=en", function (content) {
+            doTwitterAppsRequest("https://twitter.com/settings/applications?lang=en", function (content) {
                 extractTwitterToken(content, function (data) {
                     var _body = "token=" + appId + "&" + encodeURIComponent("scribeContext[component]")
                         + "=oauth_app&twttr=true&authenticity_token=" + data.token;
@@ -709,8 +707,8 @@ var websiteService = exports.websiteService = {
 
                     switch (socialNetwork) {
                         case "twitter":
-                            var headers = {headers:[{name:"get-twitter-apps", value:"1"}]};
-                            doGetRequest(url, headers, resolve);
+                            doTwitterAppsRequest(url,resolve);
+
                             break;
                         default:
                             doGetRequest(url, resolve);
