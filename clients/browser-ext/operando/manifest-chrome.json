@@ -47,8 +47,7 @@
     "contentSettings", 
     "cookies", 
     "management", 
-    "tabs", 
-    "clipboardWrite", 
+    "clipboardWrite",
     "gcm"
   ], 
   "short_name": "__MSG_name__", 

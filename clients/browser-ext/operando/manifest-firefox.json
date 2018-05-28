@@ -48,7 +48,6 @@
     "notifications",
     "cookies",
     "management",
-    "tabs",
     "clipboardWrite"
   ],
   "short_name": "__MSG_name__",
