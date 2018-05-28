@@ -1,0 +1,68 @@
+{
+  "background": {
+    "scripts": [
+      "backgrounds/utils/require.js",
+      "backgrounds/utils/Config.js",
+      "backgrounds/swarm-services.js",
+      "backgrounds/background-services.js",
+      "backgrounds/utils/js.cookie.js",
+      "backgrounds/utils/background_utils.js",
+      "backgrounds/operando_background.js",
+      "backgrounds/message_bus.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "assets/images/icons/pp-19.png",
+      "38": "assets/images/icons/pp-38.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "PlusPrivacy"
+  },
+
+  "description": "Plus Privacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy.",
+  "icons": {
+    "16": "assets/images/icons/operando/pp-16.png",
+    "32": "assets/images/icons/operando/pp-32.png",
+    "48": "assets/images/icons/operando/detailed/pp-48.png",
+    "64": "assets/images/icons/operando/detailed/pp-64.png",
+    "128": "assets/images/icons/operando/detailed/pp-128.png"
+  },
+  "manifest_version": 2,
+  "minimum_chrome_version": "29.0",
+  "name": "PlusPrivacy",
+  "options_ui": {
+    "page": "operando.html#home"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "storage",
+    "unlimitedStorage",
+    "notifications",
+    "cookies",
+    "management",
+    "tabs",
+    "clipboardWrite"
+  ],
+  "short_name": "__MSG_name__",
+  "version": "2.0.0",
+  "web_accessible_resources": [
+    "assets/images/icons/pp_24.png",
+    "assets/images/icons/pp-19.png",
+    "assets/images/icons/operando/operando.png",
+    "assets/images/close_popup.png",
+    "assets/images/privacy_safe.png",
+    "assets/images/privacy_unsafe.png",
+    "assets/images/icons/pp-42-logo.png",
+    "assets/images/icons/pp-42-logo-orange.png",
+    "assets/images/google-logo.png",
+    "modules/pfb/modal/allow_social_network_modal.html"
+  ]
+}

@@ -1,14 +1,26 @@
 module.exports = function(grunt){
     var path = require('path');
+    var browser = grunt.option("browser")||'chrome';
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
         copy: {
             main: {
-                src: ['**/*','!**/libs/**'],
+                src: ['**/*','!**/libs/**','!manifest*'],
                 expand: true,
                 cwd: 'operando',
                 dest: 'dist'
+            },
+            manifest:{
+                src:["manifest-"+browser.toLocaleLowerCase()+".json"],
+                expand: true,
+                cwd: 'operando',
+                dest:"dist",
+                rename: function(dest, src) {
+                    return dest+"/" + src.replace("-"+browser.toLocaleLowerCase(),'');
+                }
+
             }
         },
 
@@ -180,5 +192,4 @@ module.exports = function(grunt){
     grunt.registerTask('default', ['config:dev','replace','copy','wrap','concat','clean']);
     grunt.registerTask('test', ['config:test','replace','copy','wrap','concat','clean']);
     grunt.registerTask('release', ['config:prod','replace','copy','wrap','concat','clean']);
-
 }
