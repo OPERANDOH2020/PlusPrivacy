@@ -27,12 +27,74 @@ body{
     html {
         zoom:76%;
     }
+
+
+    .operando .navbar-nav > li > a{
+        padding-top: 8px;
+    }
+    .navbar .navbar-brand{
+        padding: 10px 15px;
+    }
+    img.image_logo{
+        height: 21px;
+    }
+    .navbar.operando-navbar{
+        height:60px;
+    }
+
+    .operando .navbar.operando-navbar .navbar-nav > li > a{
+        font-size: 13px;
+    }
+
+    .tab-content #main h3{
+        font-size: 19px;
+    }
+
+    #wrapper #main .image_container{
+        height: 150px;
+    }
+
+  .tab-content #main p{
+        font-size: 16px;
+    }
+
+    .operando footer {
+        height: 50px;
+    }
+    footer #footer-copyright-content p#european_commission{
+        font-size: 13px;
+        line-height: 20px;
+        padding-left: 160px;
+        background-size: 96px;
+    }
+    html{
+        height: calc(100% - 150px);
+    }
+
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1400px) and (max-height: 900px) {
     html {
         zoom:90%;
     }
+
+    .tab-content #main p{
+        font-size: 18px;
+    }
+
+    .operando footer {
+        height: 60px;
+    }
+    footer #footer-copyright-content p#european_commission{
+        font-size: 14px;
+        line-height: 33px;
+        padding-left: 160px;
+        background-size: 128px;
+    }
+    html{
+        height: calc(100% - 178px);
+    }
+
 }
 
 
