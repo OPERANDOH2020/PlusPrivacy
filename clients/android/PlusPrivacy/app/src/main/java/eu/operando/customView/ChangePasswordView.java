@@ -3,6 +3,7 @@ package eu.operando.customView;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -19,7 +20,7 @@ import eu.operando.storage.Storage;
 
 public class ChangePasswordView extends LinearLayout {
 
-    private final int SUCCES_DRAWABLE = R.drawable.succes_match;
+    private final int SUCCESS_DRAWABLE = R.drawable.succes_match;
     private final int ERROR_DRAWABLE = R.drawable.error_match;
     private final int COLOR_EMPTY_INDICATOR = R.color.account_empty_indicator;
 
@@ -50,6 +51,10 @@ public class ChangePasswordView extends LinearLayout {
         this.context = context;
         init();
         setData();
+    }
+
+    public PasswordConfirmationView getPasswordConfirmationView() {
+        return passwordConfirmationView;
     }
 
     private void init() {
@@ -103,14 +108,23 @@ public class ChangePasswordView extends LinearLayout {
                 if (!hasFocus) {
                     if (currentPassword.getText().toString().length() == 0) {
                         currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+
                     } else {
                         currentPassword.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 if (Storage.readCredentials().second.equals(currentPassword.getText().toString())) {
-                                    currentPassword.setCompoundDrawables(null, null, passwordConfirmationView.getScaledDrawable(SUCCES_DRAWABLE), null);
+                                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP || Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP_MR1) {
+                                        currentPassword.setCompoundDrawables(null, null, passwordConfirmationView.getScaledDrawable(SUCCESS_DRAWABLE), null);
+                                    } else {
+                                        currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, passwordConfirmationView.getScaledDrawable(SUCCESS_DRAWABLE), null);
+                                    }
                                 } else {
-                                    currentPassword.setCompoundDrawables(null, null, passwordConfirmationView.getScaledDrawable(ERROR_DRAWABLE), null);
+                                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
+                                        currentPassword.setCompoundDrawables(null, null, passwordConfirmationView.getScaledDrawable(ERROR_DRAWABLE), null);
+                                    } else {
+                                        currentPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, passwordConfirmationView.getScaledDrawable(ERROR_DRAWABLE), null);
+                                    }
                                 }
                             }
                         }, 300);
@@ -129,8 +143,9 @@ public class ChangePasswordView extends LinearLayout {
             public void run() {
 //                pd.hide();
                 showOnPasswordChangedDialog();
-                removeAllInputFromEditText();
                 Storage.saveCredentials(Storage.readCredentials().first, passwordConfirmationView.getNewPassword());
+                removeAllInputFromEditText();
+
             }
         });
     }

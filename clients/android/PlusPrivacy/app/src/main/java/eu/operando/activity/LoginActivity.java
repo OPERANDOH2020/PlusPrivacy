@@ -36,9 +36,18 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText;
 
     public static void start(Context context) {
+        start(context, false);
+    }
+
+    public static void start(Context context, boolean fromMainActivity) {
         Intent starter = new Intent(context, LoginActivity.class);
+        if (fromMainActivity) {
+            starter.putExtra("fromMainActivity", fromMainActivity);
+        }
         context.startActivity(starter);
         ((Activity) context).overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+
+
     }
 
     @Override
@@ -50,19 +59,24 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void autoLoginOrComplete() {
-        Pair<String, String> credentials = Storage.readCredentials();
-        if (credentials.first != null && credentials.second != null) {
-//            login(credentials.first,credentials.second);
-//            MainActivity.start(this, true);
-//            finish();
-            login(credentials.first, credentials.second);
-            return;
-        }
-        credentials = Storage.readRegisterCredentials();
+
+        Pair<String, String> credentials = Storage.readRegisterCredentials();
         if (credentials.first != null && credentials.second != null) {
             emailText.setText(credentials.first);
             passwordText.setText(credentials.second);
             Storage.clearRegisterCredentials();
+        }
+
+        if (Storage.isUserLogged()) {
+            credentials = Storage.readCredentials();
+            login(credentials.first, credentials.second);
+            return;
+        } else {
+            boolean extra = getIntent().getBooleanExtra("fromMainActivity", false);
+            if (!extra) {
+                MainActivity.start(LoginActivity.this, false);
+                finish();
+            }
         }
     }
 
@@ -92,11 +106,10 @@ public class LoginActivity extends AppCompatActivity {
                 showResetPasswordDialog();
             }
         });
-        //FIXME
-//        swarmLogin("kkkk@mailinator.com","aaaa",new ProgressDialog(this));
     }
 
     private void login(String email, String password) {
+
         if (email.isEmpty() && password.isEmpty()) {
             Toast.makeText(this, "Please enter an e-mail address and a password.", Toast.LENGTH_SHORT).show();
             return;
@@ -126,13 +139,16 @@ public class LoginActivity extends AppCompatActivity {
                                 if (result.isAuthenticated()) {
                                     Storage.saveUserID(result.getUserId());
                                     MainActivity.start(LoginActivity.this, false);
+                                    finish();
                                     storeCredentials(username, password);
                                     registerZone();
                                     finish();
                                 } else {
-                                    showFailedLoginDialog();
-//                                    emailText.setText("");
-//                                    passwordText.setText("");
+                                    if (Storage.isUserLogged()) {
+                                        MainActivity.start(LoginActivity.this, false);
+                                    } else {
+                                        showFailedLoginDialog();
+                                    }
                                 }
                             }
                         }, 100);

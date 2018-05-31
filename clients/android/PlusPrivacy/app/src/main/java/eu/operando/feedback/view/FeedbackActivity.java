@@ -53,6 +53,7 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
     }
 
     private void initUI() {
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.feedback_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -89,6 +90,7 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                presenter.onDestroy();
                 return true;
         }
         return super.onOptionsItemSelected(item);

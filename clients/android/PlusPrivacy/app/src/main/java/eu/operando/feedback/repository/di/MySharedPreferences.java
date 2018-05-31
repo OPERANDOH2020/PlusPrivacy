@@ -14,16 +14,10 @@ import eu.operando.storage.Storage;
 public class MySharedPreferences {
 
     private SharedPreferences mSharedPreferences;
-    private String userID;
 
     @Inject
     public MySharedPreferences(SharedPreferences mSharedPreferences) {
         this.mSharedPreferences = mSharedPreferences;
-        userID = Storage.readUserID();
-    }
-
-    public String getUserID(){
-        return userID;
     }
 
     public SharedPreferences getmSharedPreferences() {

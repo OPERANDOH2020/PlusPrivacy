@@ -13,9 +13,12 @@ android {
         applicationId "eu.operando"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 23
-        versionName "1.5.1"
+        versionCode 26
+        versionName "1.5.2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {
@@ -45,26 +48,25 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':libadblockplus-android-webview')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
     // dependency injection
     def daggerVersion = '2.10'
     compile "com.google.dagger:dagger:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
-
     // view binding
     // memory leak analysis
     def leakCanaryVersion = '1.5.1'
     debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
-
     def supportLibVersion = '25.3.1'
     compile "com.android.support:palette-v7:$supportLibVersion"
     compile "com.android.support:appcompat-v7:$supportLibVersion"
     compile "com.android.support:design:$supportLibVersion"
     compile "com.android.support:recyclerview-v7:$supportLibVersion"
     compile "com.android.support:support-v4:$supportLibVersion"
-
-    compile 'io.socket:socket.io-client:0.7.0'
+    compile('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'io.paperdb:paperdb:2.1'
@@ -79,12 +81,9 @@ dependencies {
     compile 'org.jsoup:jsoup:1.10.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     provided 'javax.annotation:jsr250-api:1.0'
-//    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    //    compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.squareup.mimecraft:mimecraft:1.1.0'
     compile 'com.github.amlcurran.showcaseview:library:5.4.3'
-
-    compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
-        transitive = true;
-    }
-
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

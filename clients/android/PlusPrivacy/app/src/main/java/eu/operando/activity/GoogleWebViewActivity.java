@@ -7,19 +7,18 @@ import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 
-import eu.operando.R;
 import eu.operando.customView.MyWebViewClient;
 
 /**
  * Created by Alex on 2/16/2018.
  */
 
-public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
+public class GoogleWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     private int totalQuestions;
     private boolean shouldInjectUsualSettings = false;
+//    private final String URL_MOBILE = "https://accounts.google.com/signin/v2/identifier?service=accountsettings&passive=1209600&osid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&followup=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Factivitycontrols&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
     private final String URL_MOBILE = "https://myaccount.google.com/activitycontrols";
     private final String URL = "https://myaccount.google.com/activitycontrols";
     private final String PREFERENCES_URL = "https://www.google.com/preferences";
@@ -39,13 +38,18 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     @Override
-    public SocialNetworkWebViewActivity.WebAppInterface getWebAppInterface() {
+    public SocialNetworkPrivacySettingsWebViewActivity.WebAppInterface getWebAppInterface() {
         return new GoogleWebAppInterface(this, privacySettingsString);
     }
 
     @Override
     public String getJsFile() {
         return "google_preferences_settings.js";
+    }
+
+    @Override
+    public String getIsLoggedJsFile() {
+        return "google_is_logged.js";
     }
 
     @Override
@@ -63,14 +67,12 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            socialNetworkInterface.onPageListener();
             googlePageListener(url);
         }
 
         @Override
         public void onPageCommitVisible(WebView view, String url) {
             super.onPageCommitVisible(view, url);
-            socialNetworkInterface.onPageListener();
             googlePageListener(url);
         }
     }
@@ -92,11 +94,11 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
     }
 
     @Override
-    public void startInjectingOnClick(View view) {
+    public void startInjecting() {
 
         if (!shouldInject) {
 
-//            setAgent();
+//            setUserAgent();
             myWebView.loadUrl(PREFERENCES_URL);
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -106,13 +108,12 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
             }
 
             shouldInject = true;
-            shouldInjectUsualSettings = true;
 
             initProgressDialog();
         }
     }
 
-    public class GoogleWebAppInterface extends SocialNetworkWebViewActivity.WebAppInterface {
+    public class GoogleWebAppInterface extends SocialNetworkPrivacySettingsWebViewActivity.WebAppInterface {
 
         private int index = 0;
 
@@ -140,6 +141,8 @@ public class GoogleWebViewActivity extends SocialNetworkWebViewActivity {
             myWebView.post(new Runnable() {
                 @Override
                 public void run() {
+                    shouldInjectUsualSettings = true;
+
                     myWebView.loadUrl("https://myaccount.google.com/activitycontrols");
                 }
             });

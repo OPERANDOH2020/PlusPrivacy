@@ -1,17 +1,16 @@
 package eu.operando.activity;
 
 
-import android.view.View;
 import android.webkit.CookieManager;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import eu.operando.customView.MyWebViewClient;
 
 /**
  * Created by Alex on 1/23/2018.
  */
 
-public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
+public class TwitterWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     public String getURL_MOBILE() {
         return "https://mobile.twitter.com/settings/safety";
@@ -23,7 +22,7 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
     @Override
     public WebViewClient getWebViewClient() {
-        return new TwitterWebViewClient(this);
+        return new MyWebViewClient(this);
     }
 
     @Override
@@ -36,11 +35,19 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
         return "twitter.js";
     }
 
-    public void startInjectingOnClick(View view) {
+    @Override
+    public String getIsLoggedJsFile() {
+        return "twitter_is_logged.js";
+    }
+
+    @Override
+    public void startInjecting() {
 
         if (!shouldInject) {
 
-            myWebView.loadUrl(getURL());
+            if (!myWebView.getUrl().equals(getURL())) {
+                myWebView.loadUrl(getURL());
+            }
 
             if (android.os.Build.VERSION.SDK_INT >= 21) {
                 CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
@@ -50,26 +57,21 @@ public class TwitterWebViewActivity extends SocialNetworkWebViewActivity {
 
             initProgressDialog();
             shouldInject = true;
+
+            if (myWebView.getUrl().equals(getURL())) {
+                onPageListener();
+            }
+
         }
     }
 
-    public class TwitterWebViewClient extends MyWebViewClient {
+    @Override
+    public void onPageCommitVisible() {
 
-        public TwitterWebViewClient(SocialNetworkInterface socialNetworkInterface) {
-            super(socialNetworkInterface);
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-            socialNetworkInterface.onPageListener();
-
-        }
-
-        @Override
-        public void onPageCommitVisible(WebView view, String url) {
-//            super.onPageCommitVisible(view, url);
-        }
     }
 
+    public void onPageFinished() {
+        onPageListener();
+
+    }
 }

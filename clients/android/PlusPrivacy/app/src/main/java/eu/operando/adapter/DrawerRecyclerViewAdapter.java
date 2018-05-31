@@ -11,7 +11,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import eu.operando.R;
+import eu.operando.models.DrawerItem;
+import eu.operando.storage.Storage;
 
 /**
  * Created by Matei_Alexandru on 01.11.2017.
@@ -22,19 +28,29 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
 
     private IDrawerClickCallback callback;
     private Context context;
-    private String[] mDataset;
-    int[] icons = new int[]{
-            R.drawable.ic_info,
-            R.drawable.ic_privacy,
-//            R.drawable.ic_settings,
-            R.drawable.ic_feedback,
-            R.drawable.ic_account
-    };
+    private List<DrawerItem> items;
 
     public DrawerRecyclerViewAdapter(Context context) {
         this.context = context;
         this.callback = (IDrawerClickCallback) context;
-        mDataset = context.getResources().getStringArray(R.array.drawer_items);
+        items = new ArrayList<>();
+
+        String[] mDataset = context.getResources().getStringArray(R.array.drawer_items);
+        int[] icons = new int[]{
+                R.drawable.ic_account,
+                R.drawable.ic_apps,
+                R.drawable.ic_feedback,
+                R.drawable.ic_privacy,
+                R.drawable.ic_info,
+        };
+
+        for (int i = 0; i < icons.length; ++i){
+            items.add(new DrawerItem(mDataset[i], icons[i], i));
+        }
+
+        if (!Storage.isUserLogged()){
+            items.remove(0);
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,12 +84,12 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
     public void onBindViewHolder(DrawerRecyclerViewAdapter.ViewHolder holder, final int position) {
 
         Log.e("position", String.valueOf(position));
-        holder.iv.setImageDrawable(ContextCompat.getDrawable(context, icons[position]));
-        holder.tv.setText(mDataset[position]);
+        holder.iv.setImageDrawable(ContextCompat.getDrawable(context, items.get(position).getDrawable()));
+        holder.tv.setText(items.get(position).getTitle());
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callback.selectItem(position);
+                callback.selectMenuItem(items.get(position).getId());
             }
         };
         holder.ll.setOnClickListener(listener);
@@ -88,7 +104,10 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+//        if (!Storage.isUserLogged()) {
+//            return mDataset.length - 1;
+//        }
+        return items.size();
     }
 
 
@@ -100,6 +119,6 @@ public class DrawerRecyclerViewAdapter extends RecyclerView.Adapter<DrawerRecycl
     }
 
     public interface IDrawerClickCallback {
-        void selectItem(int index);
+        void selectMenuItem(int index);
     }
 }

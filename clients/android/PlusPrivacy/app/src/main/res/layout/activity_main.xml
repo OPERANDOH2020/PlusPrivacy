@@ -55,6 +55,7 @@
 
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/real_identity_l"
             android:layout_below="@id/logo_circle_layout"
             android:layout_width="match_parent"
@@ -98,6 +99,7 @@
 
         <RelativeLayout
             android:id="@+id/logout"
+
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
@@ -116,6 +118,34 @@
                 android:text="@string/logout"
                 android:textColor="@color/menu_text"
                 android:layout_below="@id/logout_iv"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/login"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/login_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_logout" />
+
+            <TextView
+                android:text="@string/login"
+                android:textColor="@color/menu_text"
+                android:layout_below="@id/login_iv"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

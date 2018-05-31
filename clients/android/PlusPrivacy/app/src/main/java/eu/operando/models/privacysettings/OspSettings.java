@@ -1,5 +1,6 @@
 package eu.operando.models.privacysettings;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class OspSettings {
+public class OspSettings implements Serializable{
 
     private List<Question> facebook;
     private List<Question> linkedin;
@@ -52,5 +53,15 @@ public class OspSettings {
 
     public void setGoogle(List<Question> google) {
         this.google = google;
+    }
+
+    @Override
+    public String toString() {
+        return "OspSettings{" +
+                "facebook=" + facebook +
+                ", linkedin=" + linkedin +
+                ", twitter=" + twitter +
+                ", google=" + google +
+                '}';
     }
 }

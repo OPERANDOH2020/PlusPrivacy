@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">hookFramework</string>
+
+    <string name="title_location_permission">Title</string>
+    <string name="text_location_permission">Text</string>
+    <string name="ok">Ok</string>
+    <string name="record">Record</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="speech_to_text">Speech to Text</string>
+</resources>

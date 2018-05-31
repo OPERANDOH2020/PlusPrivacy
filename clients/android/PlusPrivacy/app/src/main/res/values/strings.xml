@@ -2,7 +2,7 @@
     <string name="app_name">PlusPrivacy</string>
     <string name="your_real_identity">Your real identity:</string>
     <string name="installed_apps">Installed apps:</string>
-    <string name="potentially_unsafe_apps">Potentially unsafe apps:</string>
+    <string name="potentially_unsafe_apps">Potentially unsafe:</string>
     <string name="real_identity">Your real identity</string>
     <string name="identities">Identities</string>
     <string name="alternative_identities">Alternative identities</string>
@@ -12,7 +12,7 @@
     <string name="url">URL</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="no_account_yet_create_one">No account yet? Create one</string>
+    <string name="no_account_yet_create_one"><u>No account yet? Create one</u></string>
 
     <string name="action_new_tab">New Tab</string>
     <string name="action_share">Share</string>
@@ -259,7 +259,9 @@
     <string name="start">Start</string>
     <string name="dialog_sign_in_failed">Sign In Failed</string>
     <string name="check_your_email_and_password">Check your email and password</string>
-    <string name="social_network_settings">Social Network Settings</string>
+    <string name="social_network_privacy">Social networks privacy</string>
+    <string name="connected_apps">Connected Apps</string>
+    <string name="social_network_settings">Social networks settings</string>
     <string name="feedback">Feedback</string>
     <string name="required_field"><![CDATA[<font color=\'#FF0000\'>&nbsp*</font>]]></string>
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
@@ -272,11 +274,12 @@
     <string name="make_default">Make default</string>
 
     <string-array name="drawer_items">
-        <item>About</item>
-        <item>Privacy Policy</item>
-        <!--<item>Settings</item>-->
-        <item>Feedback</item>
         <item>Account</item>
+        <item>Connected Apps</item>
+        <item>Feedback</item>
+        <item>Privacy Policy</item>
+        <item>About</item>
+
     </string-array>
 
     <string name="low">low</string>
@@ -288,9 +291,10 @@
     <string name="dismiss">Dismiss</string>
     <string name="copy">Copy</string>
     <string name="remove">Remove</string>
-    <string name="identity_management">Identity Management</string>
+    <string name="identity_management">Email identities</string>
     <string name="logout">Logout</string>
     <string name="social_networks_header">Maximize privacy on social networks</string>
+    <string name="connected_apps_header">Apps connected to your social networks</string>
     <string name="coming_soon">Coming soon</string>
 
     <string name="remove_identity">Remove identity ?</string>
@@ -316,6 +320,7 @@
     <string name="password_rules">Password rules:</string>
     <string name="password_changed">Password changed</string>
     <string name="update_password_err">Password doesn\'t match or the field is empty</string>
+    <string name="invalid_password">Invalid password</string>
     <string name="password_restriction">Contains at least 6 characters.\nContains 2 different types of characters.</string>
     <string name="delete_account_question">Are you sure to delete this account ? All the account data will pe wiped.</string>
     <string name="delete_account_confirmation">Your account has been deleted.</string>
@@ -362,5 +367,16 @@
         Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
     </string>
     <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
+    <string name="authentication_required">You need to login or sign up with your email address only if you wish to use the email identity management feature. If you choose not to log in, you can still use all the other features of PlusPrivacy, anonymously.</string>
+    <string name="reset_password"><u>Reset password</u></string>
+    <string name="log_in_with_my_email">Log in with my email</string>
+    <string name="remain_anonymous">Remain anonymous</string>
+    <string name="social_networks_overlay_dialog_message">The settings will be saved after you are logged</string>
+    <string name="no_apps_installed">No apps installed</string>
+    <string name="applying_settings">Applying settings...</string>
+    <string name="this_may_take_some_time">This may take some time.</string>
+    <string name="getting_apps">Getting apps ...</string>
+    <string name="connection_lost">Connection lost</string>
+    <string name="social_netwrok_accounts">Social network accounts</string>
 
 </resources>

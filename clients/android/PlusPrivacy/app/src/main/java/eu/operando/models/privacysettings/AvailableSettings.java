@@ -1,11 +1,13 @@
 package eu.operando.models.privacysettings;
 
+import java.io.Serializable;
+
 /**
  * Created by Matei_Alexandru on 04.09.2017.
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class AvailableSettings {
+public class AvailableSettings implements Serializable{
 
     private String name;
     private String index;

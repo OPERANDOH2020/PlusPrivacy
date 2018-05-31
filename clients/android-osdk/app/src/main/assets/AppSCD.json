@@ -8,7 +8,11 @@
     {
       "inputType": "loc",
       "privacyDescription": {
-        "usageLevel": 6
+        "usageLevel": 6,
+        "thirdParties":[{
+          "name": "http://httpbin.org",
+          "url": "http://httpbin.org"
+        }]
       },
       "accessFrequency": "F1",
       "userControl": "C1"

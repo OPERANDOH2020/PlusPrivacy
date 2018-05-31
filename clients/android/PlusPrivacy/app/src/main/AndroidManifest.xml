@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".PlusPrivacyApp"
@@ -17,6 +18,14 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="89d9e0d7caf9cde65df1b22cd21511f9997c05fc" />
+
+        <receiver
+            android:name=".utils.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:screenOrientation="portrait"
@@ -47,6 +56,34 @@
             android:name=".activity.SocialNetworkPrivacySettingsActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:screenOrientation="portrait"
+            android:name=".activity.ConnectedAppsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.FacebookApps"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.TwitterApps"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.LinkedinApps"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.GoogleApps"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.FacebookAppList"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.TwitterAppList"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.LinkedinAppList"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.GoogleAppList"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".activity.FacebookSettingsActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -74,6 +111,12 @@
             android:screenOrientation="portrait"
             android:name=".activity.GoogleWebViewActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activity.SocialNetworkAccountsActivity"
+            android:theme="@style/AppTheme" />
+
         <activity
             android:screenOrientation="portrait"
             android:name=".activity.ScannerActivity"

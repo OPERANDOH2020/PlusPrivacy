@@ -1,1 +1,1 @@
-include ':app', ':androidsdk'
+include ':app', ':osdk', ':hookframework'

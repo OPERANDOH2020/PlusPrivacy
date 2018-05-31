@@ -1,6 +1,5 @@
 package eu.operando.activity;
 
-import android.app.ProgressDialog;
 import android.webkit.WebViewClient;
 import eu.operando.customView.MyWebViewClient;
 
@@ -9,14 +8,14 @@ import eu.operando.customView.MyWebViewClient;
  * Copyright © 2017 RomSoft. All rights reserved.
  */
 
-public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity {
+public class LinkedinWebViewActivity extends SocialNetworkPrivacySettingsWebViewActivity {
 
     public String getURL_MOBILE() {
-        return "http://linkedin.com";
+        return "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fpsettings%2Fprivacy&fromSignIn=true&trk=uno-reg-join-mobile-sign-in";
     }
 
     public String getURL() {
-        return "http://linkedin.com/psettings/privacy";
+        return "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fpsettings%2Fprivacy&fromSignIn=true&trk=uno-reg-join-mobile-sign-in";
     }
 
     @Override
@@ -32,6 +31,11 @@ public class LinkedinWebViewActivity extends SocialNetworkWebViewActivity {
     @Override
     public String getJsFile() {
         return "linkedin.js";
+    }
+
+    @Override
+    public String getIsLoggedJsFile() {
+        return "linkedin_is_logged.js";
     }
 
 }

@@ -2,7 +2,6 @@ package eu.operando.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -21,6 +20,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,11 +35,10 @@ import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmService.models.LoginSwarmEntity;
-import eu.operando.swarmclient.SwarmClient;
 import eu.operando.swarmclient.models.SwarmCallback;
 import eu.operando.utils.PermissionUtils;
 
-public class MainActivity extends AppCompatActivity implements DrawerRecyclerViewAdapter.IDrawerClickCallback {
+public class MainActivity extends BaseActivity implements DrawerRecyclerViewAdapter.IDrawerClickCallback {
 
     private AlertDialog disconnectDialog;
     private ProgressDialog loadingDialog;
@@ -58,7 +57,9 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     @Override
     protected void onResume() {
         super.onResume();
-        initNotifications();
+        if (Storage.isUserLogged()) {
+            initNotifications();
+        }
     }
 
     @Override
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
 //        autoLogin();
         initUI();
 
-        SwarmClient.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
+        /*SwarmService.getInstance().setConnectionListener(new SwarmClient.ConnectionListener() {
             @Override
             public void onConnect() {
                 runOnUiThread(new Runnable() {
@@ -104,19 +105,7 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
                     }
                 });
             }
-        });
-    }
-
-    private void autoLogin() {
-        if (getIntent().getBooleanExtra("autologin", false)) {
-            Pair<String, String> credentials = Storage.readCredentials();
-            if (credentials.first != null && credentials.second != null) {
-                swarmLogin(credentials.first, credentials.second);
-                return;
-            }
-        } else {
-            initUI();
-        }
+        });*/
     }
 
     private void setStatusBarColor() {
@@ -125,33 +114,6 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
         }
-    }
-
-    private void swarmLogin(final String username, final String password) {
-
-        loadingDialog = new ProgressDialog(this);
-        loadingDialog.setCancelable(false);
-        loadingDialog.setMessage("Please wait...");
-        loadingDialog.show();
-
-        SwarmService.getInstance().login(username, password, new SwarmCallback<LoginSwarmEntity>() {
-            @Override
-            public void call(final LoginSwarmEntity result) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingDialog.dismiss();
-                        if (!result.isAuthenticated()) {
-                            Storage.clearData();
-                            finish();
-                        } else {
-                            Storage.saveUserID(result.getUserId());
-                            initUI();
-                        }
-                    }
-                });
-            }
-        });
     }
 
     private void initUI() {
@@ -222,12 +184,27 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logOut();
-            }
-        });
+        View logoutBtn = findViewById(R.id.logout);
+        if (Storage.isUserLogged()) {
+            logoutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    logOut();
+                }
+            });
+        } else {
+            logoutBtn.setVisibility(View.GONE);
+            View loginBtn = findViewById(R.id.login);
+            loginBtn.setVisibility(View.VISIBLE);
+            loginBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LoginActivity.start(MainActivity.this, true);
+                    finish();
+                }
+            });
+        }
+
     }
 
     private void setToolbar() {
@@ -275,7 +252,13 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
     }
 
     private void setInfo() {
-        ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
+
+
+        if (Storage.isUserLogged()) {
+            LinearLayout realIdentityLayout = (LinearLayout) findViewById(R.id.real_identity_l);
+            realIdentityLayout.setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.real_identity)).setText(Storage.readUserID());
+        }
         showUnsafeApps();
 //        initNotifications();
     }
@@ -315,41 +298,51 @@ public class MainActivity extends AppCompatActivity implements DrawerRecyclerVie
         startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
     }
 
+    private boolean logoutTriggered = false;
+
     private void logOut() {
         Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
 //        SwarmService.getInstance().logout(null);
-        Storage.clearData();
-        LoginActivity.start(MainActivity.this);
+        Storage.clearLoginCredentials();
+        logoutTriggered = true;
         finish();
+        LoginActivity.start(MainActivity.this);
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SwarmService.getInstance().logout(null);
+        if (Storage.isUserLogged() || logoutTriggered) {
+            SwarmService.getInstance().logout(null);
+        }
+
     }
 
+
     @Override
-    public void selectItem(int position) {
+    public void selectMenuItem(int position) {
 
         switch (position) {
 
-            case 0: //About
-//                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
-                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+            case 0: //Account
+                UserAccountActivity.start(this);
                 break;
-            case 1: //Privacy Policy
-                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
+            case 1: //Apps
+                startActivity(new Intent(MainActivity.this, ConnectedAppsActivity.class));
                 break;
-//            case 2: //Settings
-//                SettingsActivity.start(this);
-//                break;
             case 2: //Feedback
                 startFeedbackActivity();
                 break;
-            case 3: //Account
-                UserAccountActivity.start(this);
+            case 3: //Privacy Policy
+                HtmlActivity.start(this, "file:///android_asset/privacy_policy.html", "Privacy Policy");
                 break;
+            case 4: //About
+//                HtmlActivity.start(this, "file:///android_asset/about.html", "About PlusPrivacy");
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                break;
+
+
         }
         drawerLayout.closeDrawer(Gravity.START);
     }

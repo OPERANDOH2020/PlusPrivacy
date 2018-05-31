@@ -3,12 +3,17 @@ package eu.operando.feedback.repository;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.google.gson.JsonElement;
+
 import javax.inject.Inject;
 
 import eu.operando.PlusPrivacyApp;
 import eu.operando.feedback.entity.FeedbackQuestionListEntity;
+import eu.operando.feedback.entity.FeedbackResultSwarmModel;
 import eu.operando.feedback.entity.FeedbackSubmitEntitty;
 import eu.operando.feedback.repository.di.MySharedPreferences;
+import eu.operando.swarmService.SwarmService;
+import eu.operando.swarmclient.models.SwarmCallback;
 
 /**
  * Created by Matei_Alexandru on 03.10.2017.
@@ -16,6 +21,9 @@ import eu.operando.feedback.repository.di.MySharedPreferences;
  */
 
 public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
+
+    private final String HAS_SUBMITTED_FEEDBACK = "hasSubmitted";
+    private final String RESPONSE = "responses";
 
     @Inject
     public MySharedPreferences mySharedPreferences;
@@ -29,7 +37,7 @@ public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
 
         SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
         String jsonFeedbackResponse = settings.getString(
-                mySharedPreferences.getUserID(),
+                RESPONSE,
                 ""
         );
         return new FeedbackSubmitEntitty(jsonFeedbackResponse);
@@ -37,11 +45,13 @@ public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
 
     @Override
     public void setFeedbackResponse(FeedbackSubmitEntitty feedbackSubmitEntitty, FeedbackRepository.OnSubmitFeedbackModelListener listener) {
+
+        submitFeedback();
         SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
         SharedPreferences.Editor editor = settings.edit();
 
         editor.putString(
-                mySharedPreferences.getUserID(),
+                RESPONSE,
                 feedbackSubmitEntitty.getJsonElement().toString()
         );
         editor.apply();
@@ -50,12 +60,33 @@ public class SharedPreferencesFeedbackDataStore implements FeedbackDataStore {
     }
 
     @Override
-    public FeedbackQuestionListEntity getFeedbackQuestionList(FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener) {
-        return null;
+    public void getFeedbackQuestionList(FeedbackRepository.OnFinishedLoadingModelListener onFinishedLoadingModelListener) {
     }
 
     @Override
     public boolean hasUserSubmittedAFeedback(final FeedbackRepository.HasUserSubmittedAFeedbackModelListener listener) {
+
+        SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
+        boolean hasSubmitted = settings.getBoolean(
+                HAS_SUBMITTED_FEEDBACK,
+                false
+        );
+
+        if (hasSubmitted) {
+            listener.onHasUserSubmittedFeedbackRep(null, listener);
+        } else {
+            listener.onHasUserNotSubmittedFeedbackRep();
+        }
+
         return false;
+    }
+
+    public void submitFeedback() {
+
+        SharedPreferences settings = mySharedPreferences.getmSharedPreferences();
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putBoolean(HAS_SUBMITTED_FEEDBACK, true);
+        editor.apply();
     }
 }

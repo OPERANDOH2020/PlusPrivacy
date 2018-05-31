@@ -139,7 +139,8 @@ public class TabFragment extends Fragment {
     private void go() {
         String url = urlEt.getText().toString();
         if (!android.util.Patterns.WEB_URL.matcher(url).matches()) {
-            url = "http://assets.www.google.com/search?q=" + URLEncoder.encode(url);
+//            url = "http://assets.www.google.com/search?q=" + URLEncoder.encode(url);
+            url = "http://www.google.com/search?q=" + URLEncoder.encode(url);
         }
         url = url.toLowerCase().startsWith("http://") || url.toLowerCase().startsWith("https://") ? url : ("http://" + url);
         webView.loadUrl(url);

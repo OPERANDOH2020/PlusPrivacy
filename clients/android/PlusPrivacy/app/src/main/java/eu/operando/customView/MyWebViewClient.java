@@ -1,8 +1,10 @@
 package eu.operando.customView;
 
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -17,6 +19,9 @@ import java.util.Map;
 
 public class MyWebViewClient extends WebViewClient {
 
+    private boolean loadingFinished = true;
+    private boolean redirect = false;
+
     protected SocialNetworkInterface socialNetworkInterface;
 
     public MyWebViewClient(SocialNetworkInterface socialNetworkInterface) {
@@ -24,15 +29,40 @@ public class MyWebViewClient extends WebViewClient {
     }
 
     @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String urlNewString) {
+        if (!loadingFinished) {
+            redirect = true;
+        }
+
+        loadingFinished = false;
+        view.loadUrl(urlNewString);
+        return true;
+    }
+
+    @Override
+    public void onPageStarted(WebView view, String url, Bitmap facIcon) {
+        loadingFinished = false;
+    }
+
+    @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        socialNetworkInterface.onPageListener();
+
+        if (!redirect) {
+            loadingFinished = true;
+        }
+
+        if (loadingFinished && !redirect) {
+            socialNetworkInterface.onPageFinished();
+        } else {
+            redirect = false;
+        }
     }
 
     @Override
     public void onPageCommitVisible(WebView view, String url) {
         super.onPageCommitVisible(view, url);
-        socialNetworkInterface.onPageListener();
+        socialNetworkInterface.onPageCommitVisible();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -46,11 +76,16 @@ public class MyWebViewClient extends WebViewClient {
             Log.e("{HEADER Aos}" + key, value);
         }
 
+        String cookies = CookieManager.getInstance().getCookie(request.getUrl().toString());
+        Log.d("Cookie", "[" + request.getUrl().toString() + "] All the cookies in a string:" + cookies);
+
         return super.shouldInterceptRequest(view, request);
     }
 
-    public interface SocialNetworkInterface{
-        void onPageListener();
+    public interface SocialNetworkInterface {
+        void onPageCommitVisible();
+
+        void onPageFinished();
     }
 }
 

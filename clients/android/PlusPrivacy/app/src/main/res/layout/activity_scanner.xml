@@ -19,12 +19,32 @@
         app:title="Installed Apps"
         app:titleTextColor="@color/white" />
 
-    <ExpandableListView
-        android:background="@color/scanner_main_color"
-        android:divider="@null"
-        android:groupIndicator="@null"
-        android:id="@+id/app_list_view"
-        android:layout_marginBottom="10dp"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/no_apps_installed"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ExpandableListView
+            android:background="@color/scanner_main_color"
+            android:divider="@null"
+            android:groupIndicator="@null"
+            android:id="@+id/app_list_view"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webview"
+        android:visibility="invisible"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 </LinearLayout>

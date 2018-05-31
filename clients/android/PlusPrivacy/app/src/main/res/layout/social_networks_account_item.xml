@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_view"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/social_network_settings_header_background">
+
+    <RelativeLayout
+        android:id="@+id/account_item"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/sn_logo"
+            android:background="@drawable/facebook_menu_item"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/sn_tv"
+            android:text="Facebook"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_toRightOf="@id/sn_logo"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/sn_btn"
+            android:text="@string/logout"
+            android:background="@color/social_network_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/sn_btn"
+        android:background="@color/social_network_settings_main_background"
+        android:layout_height="20dp"/>
+
+</LinearLayout>

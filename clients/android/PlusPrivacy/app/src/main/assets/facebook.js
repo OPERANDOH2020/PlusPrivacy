@@ -1,37 +1,8 @@
-(function(privacySettingsJsonString) {
+(function (privacySettingsJsonString) {
 
     var privacySettings = JSON.parse(privacySettingsJsonString);
 
-    // var kMessageTypeKey = "messageType";
-    // var kLogMessageTypeContentKey = "logContent";
-    // var kLogMessageType = "log";
-    //
-    // var kStatusMessageMessageType = "statusMessageType";
-    // var kStatusMessageContentKey = "statusMessageContent";
-    //
-    // var webkitSendMessage = function(message) {
-    //     alert(message);
-    // };
-    //
-    // window.console = {};
-    // window.console.log = function(logMessage) {
-    //     var webkitMessage = {};
-    //     webkitMessage[kMessageTypeKey] = kLogMessageType;
-    //     webkitMessage[kLogMessageTypeContentKey] = logMessage;
-    //
-    //     webkitSendMessage(JSON.stringify(webkitMessage));
-    //
-    // };
-    //
-    // var sendStatusMessage = function(settingName) {
-    //     var webkitMessage = {};
-    //     webkitMessage[kMessageTypeKey] = kStatusMessageMessageType;
-    //     webkitMessage[kStatusMessageContentKey] = settingName;
-    //     webkitSendMessage(JSON.stringify(webkitMessage));
-    // };
-
-
-    Object.prototype.formStringToObject = function() {
+    Object.prototype.formStringToObject = function () {
         if (!(this instanceof String)) {
             console.log('typeof this is not a string, its ' + (JSON.stringify(this)) + ' and its ');
             var fakeData = {};
@@ -40,14 +11,14 @@
 
         var array = this.split('&');
         var resultData = {};
-        array.forEach(function(currentValue, index, array) {
+        array.forEach(function (currentValue, index, array) {
             var splitAgain = currentValue.split('=');
             resultData[splitAgain[0]] = decodeURIComponent(splitAgain[1]);
         });
         return resultData;
     };
 
-    Object.prototype.toFormObject = function() {
+    Object.prototype.toFormObject = function () {
         var formData = new FormData();
         var keys = Object.keys(this);
         for (var i = 0; i < keys.length; i++) {
@@ -57,8 +28,7 @@
         return formData;
     };
 
-
-    Object.prototype.toFormString = function() {
+    Object.prototype.toFormString = function () {
         var formString = "";
         var keys = Object.keys(this);
         for (var i = 0; i < keys.length; i++) {
@@ -75,21 +45,19 @@
         return formString;
     };
 
+    function hijackNextPOSTRequestWithTemplate(template, callback) {
 
-    function
-    hijackNextPOSTRequestWithTemplate(template, callback) {
-
-        (function(open, send) {
+        (function (open, send) {
             var unalteredOpen = open;
             var unalteredSend = send;
 
-            XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+            XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
                 console.log('opened a ' + method + ' to ' + url);
                 this.lastRequestMethod = method;
                 open.call(this, method, url, true, user, pass);
             };
 
-            XMLHttpRequest.prototype.send = function(body) {
+            XMLHttpRequest.prototype.send = function (body) {
 
                 console.log("FOR LAST REQUEST METHOD " + this.lastRequestMethod);
                 console.log("BODY IS " + body);
@@ -118,7 +86,8 @@
                             callback(template);
                         }
                     }
-                };
+                }
+                ;
 
                 send.call(this, body);
             };
@@ -128,12 +97,12 @@
 
     function postToFacebook(settings, item, total) {
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
 
             if (settings.page) {
-                doGET(settings.page, function(response) {
+                doGET(settings.page, function (response) {
 
-                    extractHeaders(response, function(response) {
+                    extractHeaders(response, function (response) {
 
                         var data = response;
                         for (var prop in settings.data) {
@@ -141,14 +110,14 @@
                         }
 
                         console.log("WE ARE SECURING FOR URL " + settings.url + JSON.stringify(data));
-                        makePOSTRequest(settings.url, settings.page, data, function() {
+                        makePOSTRequest(settings.url, settings.page, data, function () {
 
                             resolve("Done");
 
                             console.log("result...", item, total);
                             Android.setProgressBar(item + 1, total);
 
-                        }, function() {
+                        }, function () {
                             console.log('Error for page ' + settings.page);
                             reject("Error");
                         });
@@ -160,7 +129,7 @@
                             url: settings.url,
                             data: data,
                             dataType: "text",
-                            beforeSend: function(request) {
+                            beforeSend: function (request) {
                                 console.log("BEFORE SEND IN AJAX");
                                 if (settings.headers) {
                                     for (var i = 0; i < settings.headers.length; i++) {
@@ -174,14 +143,14 @@
                                 request.setRequestHeader("X-Alt-Referer", settings.page);
 
                             },
-                            success: function(result) {
+                            success: function (result) {
                                 resolve(result);
                             },
-                            error: function(a, b, c) {
+                            error: function (a, b, c) {
                                 console.log(a, b, c);
                                 reject(b);
                             },
-                            complete: function(request, status) {
+                            complete: function (request, status) {
                                 console.log("Request completed...");
                             }
 
@@ -198,25 +167,23 @@
 
 
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() {
+        xmlHttp.onreadystatechange = function () {
             switch (xmlHttp.readyState) {
                 case 0: // UNINITIALIZED
                 case 1: // LOADING
                 case 2: // LOADED
                     break;
-                case 3:
-                    { // INTERACTIVE
-                        console.log("CASE 3");
-                        console.log(xmlHttp.status);
-                        // console.log(xmlHttp.responseText);
-                    }
-                case 4:
-                    { // COMPLETED
-                        console.log("CASE 4");
-                        console.log(xmlHttp.status);
-                        // console.log(xmlHttp.responseText);
-                        onSuccess();
-                    }
+                case 3: { // INTERACTIVE
+                    console.log("CASE 3");
+                    console.log(xmlHttp.status);
+                    // console.log(xmlHttp.responseText);
+                }
+                case 4: { // COMPLETED
+                    console.log("CASE 4");
+                    console.log(xmlHttp.status);
+                    // console.log(xmlHttp.responseText);
+                    onSuccess();
+                }
                     break;
                 default:
                     onError();
@@ -249,49 +216,49 @@
             "jazoest": null
         };
 
-        hijackNextPOSTRequestWithTemplate(fbdata, function(filledData) {
+        hijackNextPOSTRequestWithTemplate(fbdata, function (filledData) {
             filledData.__req = parseInt(filledData.__req, 36);
             window.fbdata = filledData;
             var total = privacySettings.length;
-            var sequence = Promise.resolve();
-            privacySettings.forEach(function(settings, index) {
 
-			    sequence = sequence.then(function() {
+            var sequence = Promise.resolve();
+            privacySettings.forEach(function (settings, index) {
+
+                sequence = sequence.then(function () {
                     return postToFacebook(settings, index, total);
-                }).then(function(result) {
+                }).then(function (result) {
                     console.log(result);
 
-                }).catch(function(err) {
+                }).catch(function (err) {
                     console.log(err);
                 });
             });
 
-            sequence = sequence.then(function(result) {
+            sequence = sequence.then(function (result) {
                 Android.onFinishedLoadingCallback();
                 callback();
             });
 
+
         });
     }
 
-    secureAccount(function() {
+    secureAccount(function () {
         console.log('Done securing account!');
 //        sendStatusMessage("Done");
         Android.onFinishedLoadingCallback();
     });
 
-
     function doGET(page, callback) {
 
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() {
+        xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 callback(xmlHttp.responseText);
         }
         xmlHttp.open("GET", page, true);
         xmlHttp.send(null);
     }
-
 
     function extractHeaders(content, callback) {
         var csrfToken = /\[\"DTSGInitialData\",\[\],\{"token":"([a-zA-Z0-9]*)"\},[0-9]*\]/;

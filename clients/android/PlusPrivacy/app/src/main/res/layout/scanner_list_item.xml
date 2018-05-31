@@ -6,57 +6,74 @@
     android:background="@color/scanner_background">
 
     <RelativeLayout
+        android:id="@+id/item_box"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:background="@color/scanner_main_color"
         android:paddingBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:paddingTop="10dp"
-        >
+        android:paddingTop="10dp">
 
-        <ImageView
-            android:id="@+id/app_icon"
+        <RelativeLayout
+            android:id="@+id/image_container"
+            android:layout_marginStart="15dp"
+            android:clickable="false"
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp" />
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <WebView
+                android:id="@+id/app_icon_wv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:visibility="gone" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/app_icon" />
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/image_container" />
 
         <TextView
             android:id="@+id/app_privacy_polution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/app_name"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/app_icon" />
+            android:layout_toEndOf="@id/image_container" />
 
         <ImageView
             android:id="@+id/arrow"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="8dp"
-            android:layout_marginRight="8dp"
-            android:scaleType="centerInside"
-            android:background="@drawable/group_indicator_scanner" />
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/group_indicator_scanner"
+            android:scaleType="centerInside" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="7dp"
-        android:paddingTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:paddingTop="10dp">
 
         <RelativeLayout
             android:id="@+id/app_circle_indicator"
@@ -77,9 +94,8 @@
 
     <View
         android:layout_width="match_parent"
+        android:layout_height="5dp"
         android:layout_alignParentTop="true"
-        android:background="@color/scanner_background"
-        android:layout_height="5dp">
-    </View>
+        android:background="@color/scanner_background"></View>
 
 </RelativeLayout>

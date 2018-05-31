@@ -13,10 +13,12 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,16 +35,18 @@ import eu.operando.utils.PasswordStrength;
  * Created by Alex on 12/14/2017.
  */
 
-public class UserAccountActivity extends BaseActivity implements ChangePasswordView.ChangePasswordListener{
+public class UserAccountActivity extends BaseActivity implements ChangePasswordView.ChangePasswordListener {
 
     private final int ANIMATION_DURATION = 500;
 
     private LinearLayout changeBtn;
     private LinearLayout deleteAccountBtn;
+    private LinearLayout mainLayout;
     private TextView deleteTv;
     private RelativeLayout changePasswordCollapsed;
     private ChangePasswordView changePasswordExpanded;
     private ProgressDialog pd;
+
 
     public static void start(Context context) {
 
@@ -66,6 +70,7 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
         setToolbar();
         changeBtn = (LinearLayout) findViewById(R.id.change_btn);
         deleteAccountBtn = (LinearLayout) findViewById(R.id.delete_account_btn);
+        mainLayout = (LinearLayout) findViewById(R.id.main_layout);
         deleteTv = (TextView) findViewById(R.id.delete_account_tv);
         changePasswordCollapsed = (RelativeLayout) findViewById(R.id.change_password_rl);
         changePasswordExpanded = (ChangePasswordView) findViewById(R.id.change_password_expanded);
@@ -80,23 +85,47 @@ public class UserAccountActivity extends BaseActivity implements ChangePasswordV
         setOnDeleteAccountClickListener();
     }
 
+
     @Override
     public void onUpdatePasswordClickListener(String currPass, String newPass) {
         PasswordStrength ps = new PasswordStrength(this, newPass);
-        if (currPass.equals(Storage.readCredentials().second) && newPass.length() >= 6 &&
-                ps.hasUpperCaseLetters() && ps.hasLowerCaseLetters()) {
+        if (!currPass.equals(Storage.readCredentials().second)) {
+            Toast.makeText(UserAccountActivity.this, R.string.update_password_err, Toast.LENGTH_SHORT).show();
+        }
+        else if (newPass.length() < 6 || ps.calculatePasswordStrength() < 2 ) {
+            onInvalidPassword();
+        } else {
             pd.show();
             SwarmService.getInstance().changePassword(currPass, newPass, new SwarmCallback<Swarm>() {
                 @Override
                 public void call(Swarm result) {
                     Log.e("passwordChanged", result.toString());
-
+                    pd.cancel();
                     changePasswordExpanded.onPasswordChangedListener();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            onCancelClickListener();
+                        }
+                    });
                 }
             });
-        } else {
-            Toast.makeText(UserAccountActivity.this, R.string.update_password_err, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void onInvalidPassword() {
+
+        changePasswordExpanded.getPasswordConfirmationView().showPopup();
+        mainLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                changePasswordExpanded.getPasswordConfirmationView().hidePopup();
+                mainLayout.setOnTouchListener(null);
+
+                return false;
+            }
+        });
     }
 
     @Override

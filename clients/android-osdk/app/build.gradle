@@ -1,14 +1,45 @@
+buildscript {
+    ext.kotlin_version = '1.1.51'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        //Kotlin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //APT
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+
 apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.archinamon.aspectj'
+
+
+aspectj {
+    debugInfo !isTCBuild()
+
+    includeAspectsFromJar 'hookframework'
+
+}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "eu.operando.osdk"
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,11 +55,23 @@ android {
     }
 }
 
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:design:26.1.0'
     testCompile 'junit:junit:4.12'
-    compile project(':androidsdk')
+    compile project(':osdk')
+    compile project(path: ':hookframework')
+}
+
+def isTCBuild() {
+    return project.properties.containsKey('teamcity')
 }

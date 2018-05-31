@@ -12,18 +12,6 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/start_injecting_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:background="@color/white"
-            android:onClick="startInjectingOnClick"
-            android:padding="5dp"
-            android:text="@string/start"
-            android:textAllCaps="false" />
-
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -70,17 +58,18 @@
                 android:layout_gravity="center" />
 
             <TextView
+                android:id="@+id/action_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Applying settings..."
+                android:text="@string/applying_settings"
                 android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="This may take some time."
+                android:text="@string/this_may_take_some_time"
                 android:textColor="@color/white" />
 
         </LinearLayout>

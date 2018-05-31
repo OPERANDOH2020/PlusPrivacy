@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">OSDK</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_hook">HookActivity</string>
+    <string name="scd">SCD</string>
+    <string name="eula">EULA</string>
 </resources>

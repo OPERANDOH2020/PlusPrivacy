@@ -8,8 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/androidsdk" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/hookframework" />
+            <option value="$PROJECT_DIR$/osdk" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

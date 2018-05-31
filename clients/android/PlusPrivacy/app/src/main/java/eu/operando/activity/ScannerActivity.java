@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
@@ -26,7 +28,7 @@ import java.util.List;
 
 import eu.operando.R;
 import eu.operando.adapter.ScannerListAdapter;
-import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.tasks.AccordionOnGroupExpandListener;
 import eu.operando.models.InstalledApp;
 import eu.operando.storage.Storage;
 import eu.operando.utils.PermissionUtils;
@@ -34,7 +36,6 @@ import eu.operando.utils.PermissionUtils;
 public class ScannerActivity extends BaseActivity {
 
     private ExpandableListView listView;
-    private boolean shouldRefresh = true;
     private HashSet<String> unknownPerms;
     private ImageView indicatorIv;
     private int privacyScore;
@@ -53,6 +54,9 @@ public class ScannerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
         initUI();
+        reloadApps();
+        rotateIndicator();
+
     }
 
     private void initUI() {
@@ -65,6 +69,12 @@ public class ScannerActivity extends BaseActivity {
 
         listView.addHeaderView(myHeader);
         indicatorIv = (ImageView) myHeader.findViewById(R.id.privacy_indicator);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.e("onListView", "click");
+            }
+        });
 
         unknownPerms = new HashSet<>();
 //        if(/*PreferenceManager.getDefaultSharedPreferences(this).getBoolean("once",true)&&*/ BuildConfig.DEBUG) {
@@ -85,6 +95,11 @@ public class ScannerActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void setData() {
 
         List<InstalledApp> list = Storage.readAppList();
@@ -100,7 +115,7 @@ public class ScannerActivity extends BaseActivity {
             }
         });
         setPrivacyScoreTv(list);
-        rotateIndicator();
+
         setDataListView(list);
 
     }
@@ -173,17 +188,6 @@ public class ScannerActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (shouldRefresh) {
-            reloadApps();
-
-        } else {
-            shouldRefresh = true;
-        }
-    }
-
     private void reloadApps() {
         Storage.saveAppList(PermissionUtils.getApps(this, false));
         setData();
@@ -193,10 +197,6 @@ public class ScannerActivity extends BaseActivity {
     public void onBackPressed() {
         finish();
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-    }
-
-    public void infoClicked() {
-        shouldRefresh = false;
     }
 
     private void setToolbar() {
@@ -209,7 +209,7 @@ public class ScannerActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.scanner, menu);
+        inflater.inflate(R.menu.facebook_menu, menu);
         return true;
     }
 

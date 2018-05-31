@@ -3,21 +3,22 @@ package eu.operando.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
+import eu.operando.AuthenticationRequiredActivity;
 import eu.operando.R;
 import eu.operando.adapter.NotificationsExpandableListViewAdapter;
-import eu.operando.customView.AccordionOnGroupExpandListener;
+import eu.operando.tasks.AccordionOnGroupExpandListener;
 import eu.operando.models.Notification;
+import eu.operando.storage.Storage;
 import eu.operando.swarmService.SwarmService;
 import eu.operando.swarmService.models.GetNotificationsSwarmEntity;
 import eu.operando.swarmclient.models.SwarmCallback;
 
-public class NotificationsActivity extends BaseActivity {
+public class NotificationsActivity extends AuthenticationRequiredActivity {
 
     private ExpandableListView notificationsLV;
     private ExpandableListAdapter adapter;
@@ -32,15 +33,18 @@ public class NotificationsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        initUI();
-        setData();
+        if (Storage.isUserLogged()){
+            initUI();
+            setData();
+        } else {
+            setViewForAuthenticationRequired();
+        }
+
     }
 
     private void initUI() {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.notification_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setToolbar();
 
         notificationsLV = (ExpandableListView) findViewById(R.id.notifications_elv);
         notificationsLV.setOnGroupExpandListener(new AccordionOnGroupExpandListener(notificationsLV));
