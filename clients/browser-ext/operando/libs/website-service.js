@@ -414,7 +414,7 @@ var websiteService = exports.websiteService = {
                     ],
                     custom_cookies: [{
                         name: "__Host-ss",
-                        value: host_ss_cookie.value
+                        value: host_ss_cookie?host_ss_cookie.value:""
                     }]
                 }
 
@@ -618,7 +618,7 @@ var websiteService = exports.websiteService = {
                             ],
                             custom_cookies: [{
                                 name: "__Host-ss",
-                                value: host_ss_cookie.value
+                                value: host_ss_cookie?host_ss_cookie.value:""
                             }]
                         };
 

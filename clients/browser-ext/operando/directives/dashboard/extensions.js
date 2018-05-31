@@ -94,9 +94,6 @@ angular.module('extensions', [])
 
                 var prepareExtension = function(extension){
 
-                    console.log(extension);
-
-
                     if (extension.icons && extension.icons instanceof Array) {
                         extension['icon'] = extension.icons.pop();
                         delete extension['icons'];
@@ -123,7 +120,6 @@ angular.module('extensions', [])
                         }
                     }
 
-                    console.log(extension['icon'].url);
 
                     return extension;
                 }
