@@ -48,5 +48,20 @@ $(document).ready(function () {
         }
     })(jQuery);
 
+
+
+    function resizeMenu(){
+        setTimeout(function(){
+            $("#wrapper .content_wrapper").css("min-height",
+                $($(".sidebar_expandable_menu .col-xs-2")[0]).outerHeight()+30
+            );
+        },100);
+
+    }
+
+    $(window).load(resizeMenu).resize(resizeMenu);
+    $(window).bind('hashchange',resizeMenu);
+
+
 });
 
