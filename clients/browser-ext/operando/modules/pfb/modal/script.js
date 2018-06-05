@@ -30,7 +30,7 @@ loginWithSocialNetwork.addEventListener("click", function () {
             offerId: offer?offer.offerId:parentTab
         }
     });
-    port.postMessage({action: "acceptPfbDeal", data: offer.offerId});
+    port.postMessage({action: "acceptPfbDeal", data:offer?offer.offerId:undefined});
 });
 
 port.postMessage({action: "getLastVisitedUrl", data: data.notificationId});
@@ -106,7 +106,7 @@ function checkOfferResponse(response) {
 }
 
 port.onMessage.addListener(function (data) {
-    console.log(data);
+
     switch (data.action) {
         case "getLastVisitedUrl":
             checkForOffers(data.message);

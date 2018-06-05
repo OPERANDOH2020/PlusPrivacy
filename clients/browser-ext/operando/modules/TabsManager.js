@@ -110,6 +110,8 @@ var TabsManager = function(){
     chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
         onUpdatedListener(tabId,changeInfo,tab);
 
+        console.log(changeInfo);
+
         if (authenticationService.isLoggedIn()) {
             checkConnectWithSNApisUrls(tabId, changeInfo, tab);
         }
@@ -147,7 +149,6 @@ TabsManager.prototype.allowSocialNetworkPopup = function (data) {
     var browserTab = TabsMng.getBrowserTabByNotificationId(data.notificationId);
     browserTab.removeNotification();
     var tab = browserTab.tab;
-
     if(data.status === "allow" && data.notificationId){
         chrome.tabs.executeScript(tab.id, {file: "/modules/pfb/allowSNContent.js"});
         authenticationService.getCurrentUser(function(response){
@@ -203,12 +204,11 @@ function establishPlusPrivacyWebsiteCommunication(tabId){
 }
 
 function checkConnectWithSNApisUrls(tabId, changeInfo, tab){
-
     if(changeInfo.url && urlIsApiUrl(changeInfo.url)==true){
         chrome.tabs.insertCSS(tabId, {file: "modules/pfb/css/style.css", runAt:"document_start"},function(){
             var notificationId = new Date().getTime();
-            var extensionId = chrome.runtime.id;
-            chrome.tabs.executeScript(tabId, {code:"var notificationId="+notificationId+";var extensionId='"+extensionId+"';"}, function(){
+            var modalSrc = chrome.runtime.getURL("/modules/pfb/modal/allow_social_network_modal.html");
+            chrome.tabs.executeScript(tabId, {code:"var notificationId="+notificationId+";var modalSrc='"+modalSrc+"';"}, function(){
                 chrome.tabs.executeScript(tabId, {file:'modules/pfb/hideSNContent.js',runAt:"document_start"}, function(){
                     TabsMng.getTab(tabId).setNotification(notificationId);
                 });
