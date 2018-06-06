@@ -1367,7 +1367,6 @@ div.popover{
 .table tr>td.td_radio,
 .table tr>td.actions{
     text-align: center;
-    position: relative;
 }
 
 .preferences_form{
