@@ -1,15 +1,25 @@
 (function($) {
+
+    var alreadyInProgress = false;
+
     $.fn.goTo = function() {
         var windowHeight = jQuery(window).height();
 
         var itemHeight = $(this).height();
-        $('html, body').animate({
-            scrollTop: $(this).offset().top-(windowHeight-itemHeight)/2 + 'px'
-        }, 500);
+
+        if(alreadyInProgress == false){
+            alreadyInProgress = true;
+            console.log((Math.round($(this).offset().top-((windowHeight-itemHeight)/2))).toString() + 'px');
+            $('body,html').animate({
+                scrollTop: (Math.round($(this).offset().top-((windowHeight-itemHeight)/2))).toString() + 'px'
+            }, 500,function(){
+                alreadyInProgress = false;
+            });
+        }
+
         return this;
     }
 })(jQuery);
-
 
 (function($){
     $.fn.hasAttr = function(name) {
@@ -97,7 +107,6 @@ function changeIndex(index){
 
     detectCurrentSetting(jQuery(containerClassName)[index]);
     jQuery(containerClassName).addClass("pp_item_overlay");
-
     jQuery(jQuery(containerClassName)[index]).removeClass("pp_item_overlay");
     jQuery(jQuery(containerClassName)[index]).goTo();
     port.postMessage({action: "waitingGoogleActivityCommand", data: {status:"currentIndex", index:index}});

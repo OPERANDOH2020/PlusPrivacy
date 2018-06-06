@@ -110,8 +110,6 @@ var TabsManager = function(){
     chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
         onUpdatedListener(tabId,changeInfo,tab);
 
-        console.log(changeInfo);
-
         if (authenticationService.isLoggedIn()) {
             checkConnectWithSNApisUrls(tabId, changeInfo, tab);
         }

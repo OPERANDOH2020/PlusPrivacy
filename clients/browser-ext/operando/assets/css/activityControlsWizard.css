@@ -5,9 +5,9 @@ overwritten google css
 .y4VOmd{
     height: 56px!important;
 }
-body{
-    overflow:hidden!important;
-}
+
+html { overflow: hidden; height: auto; }
+body { overflow: hidden!important; height: 100%; }
 
 /*related settings*/
 .YwhQ0 > .hyMrOd{
@@ -24,7 +24,7 @@ div[jsaction='JIbuQc:Wh8OAb']{
 }
 
 .pp_global_overlay {
-    position: fixed;
+    /*position: fixed;*/
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     cursor: pointer;
@@ -69,7 +69,6 @@ div[jsaction='JIbuQc:Wh8OAb'] .downArrow img{
     vertical-align: super;
     font-size: 16px;
     color:#ffb400;
-    background-image: url('chrome-extension://__MSG_@@extension_id__/assets/images/icons/pp-42-logo-orange.png');
     background-repeat:no-repeat;
     background-position: left center;
     padding-left: 36px;
@@ -199,7 +198,8 @@ button.orange:hover{
 .modal-header h2{
     color: #FFF;
     margin: 0px;
-    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icons/pp-42-logo.png') no-repeat left center;
+    background-repeat:no-repeat;
+    background-position: left center;
     font-weight: 300;
     padding-left: 50px;
 
@@ -208,7 +208,8 @@ button.orange:hover{
 /* Modal Body */
 .modal-body {
     padding: 20px 10px;
-    background:url('chrome-extension://__MSG_@@extension_id__/assets/images/google-logo.png') no-repeat 10px center;
+    background-repeat:no-repeat;
+    background-position: 10px center;
     font-size: 17px;
     padding-left: 50px;
 }

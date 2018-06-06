@@ -41,9 +41,13 @@ var scriptInjectorService = exports.scriptInjectorService = {
     },
 
     insertActivityControlsWizardFiles:function(data){
-      injectScript(data.tabId,"modules/osp/activityControlsWizard.js",["jQuery"],function(){
-          insertCSS(data.tabId, "assets/css/activityControlsWizard.css");
-      });
+        injectScript(data.tabId,"modules/osp/activityControlsWizard.js",["jQuery"]);
+        insertCSS(data.tabId, "assets/css/activityControlsWizard.css");
+
+        var backgroundCSS =".modal-header h2{background-image:url('"+chrome.runtime.getURL("/assets/images/icons/pp-42-logo.png")+"')}";
+        backgroundCSS+=".modal-body {background-image:url('"+chrome.runtime.getURL("assets/images/google-logo.png")+"')}";
+        backgroundCSS+=".downArrow span {background-image:url('"+chrome.runtime.getURL("assets/images/icons/pp-42-logo-orange.png")+"')}";
+        insertCSSCode(data.tabId, backgroundCSS);
     },
 
     facebookMessage : function (callback){

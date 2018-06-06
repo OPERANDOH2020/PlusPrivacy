@@ -34,6 +34,13 @@ function insertCSS(id, file){
     });
 }
 
+function insertCSSCode(id, code){
+    chrome.tabs.insertCSS(id, {
+        code: code,
+        allFrames:true
+    });
+}
+
 function injectScript(id, file, dependencies, callback) {
     if (dependencies.length > 0) {
         var currentDep = dependencies[0];
