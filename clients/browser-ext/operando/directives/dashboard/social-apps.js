@@ -92,7 +92,6 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                 var conf = readCookieConf[$scope.sn];
 
-
                 function checkIfLoggedIn() {
 
                     chrome.cookies.get({url: conf.url, name: conf.cookie_name}, function (cookie) {
@@ -120,13 +119,19 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                             }
 
-                            messengerService.send(action, function (response) {
-                                if (response.status == "success") {
-                                    $scope.apps = response.data;
-                                    $scope.requestIsMade = true;
-                                    $scope.$apply();
-                                }
+                            messengerService.send("verifyTrackingIsDown",function(){
+                                messengerService.send(action, function (response) {
+                                    setTimeout(function(){
+                                        messengerService.send("updateTrackingImplicitValue");
+                                    },2000);
+                                    if (response.status == "success") {
+                                        $scope.apps = response.data;
+                                        $scope.requestIsMade = true;
+                                        $scope.$apply();
+                                    }
+                                });
                             });
+
 
                         }
                         else {

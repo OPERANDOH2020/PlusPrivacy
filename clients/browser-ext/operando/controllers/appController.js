@@ -26,12 +26,10 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
                 $scope.userIsLoggedIn = true;
 
                 if(refresh){
-                    console.log("dau refresh");
                     $rootScope.$broadcast("dismissLoginModal");
                     $state.reload();
                 }
                 else{
-                    console.log("nu dau refresh inca");
                     refresh = true;
                 }
                 $scope.$apply();
@@ -63,7 +61,6 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
     }
 
     function logoutHandler(){
-        console.log("afara");
         if($scope.userIsLoggedIn === true){
             $state.reload();
         }
@@ -72,7 +69,6 @@ controller("appCtrl", ["$scope","$rootScope", "messengerService","$window","$sta
 
 
     $scope.checkCondition = function() {
-        console.log($state.includes('extensions') || $state.includes('network'));
         return ($state.includes('extensions') || $state.includes('network'))?"home":"extensions";
     }
 

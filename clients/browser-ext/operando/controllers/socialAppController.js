@@ -54,7 +54,7 @@ controller("socialAppController",["$scope", "$stateParams", "messengerService","
     }
 
     var socialNetworkReadyHandler  =  function (event, socialNetwork) {
-        retrieveUserLoggedInAccount(socialNetwork);
+            retrieveUserLoggedInAccount(socialNetwork);
     };
 
     $scope.$on("socialNetworkReady", socialNetworkReadyHandler);

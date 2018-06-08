@@ -112,7 +112,6 @@ angular.module("singleClickPrivacy",[])
 
 
                                             var enforce = function () {
-                                                console.log("enforce");
                                                 $scope.securedOSPs = [];
 
                                                 var promise = Promise.resolve();
@@ -169,7 +168,6 @@ angular.module("singleClickPrivacy",[])
 
                                                             (function(newLoggedInOSPs){
                                                                 watchDogService.maximizeEnforcement(newLoggedInOSPs, function (ospname, current, total) {
-                                                                    console.log(ospname);
                                                                     $scope.progresses[ospname] = {
                                                                         ospName: ospname,
                                                                         current: current,

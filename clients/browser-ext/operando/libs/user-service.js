@@ -12,8 +12,9 @@
 
 
 var bus = require("bus-service").bus;
-
 var userUpdatedObservable = swarmHub.createObservable();
+var trackingVerificationsInProgress = 0;
+var browserTrackingImplicitValue = null;
 var userService = exports.userService = {
 
     changePassword:function(changePasswordData, success_callback, error_callback){
@@ -212,6 +213,48 @@ var userService = exports.userService = {
                 feedbackResponses = userPreferences['feedback-responses'];
             }
             callback(feedbackResponses);
+        });
+    },
+
+    verifyTrackingIsDown:function(callback){
+        trackingVerificationsInProgress++;
+        var getProtection = browser.privacy.websites.trackingProtectionMode.get({});
+
+        getProtection.then(function(got){
+
+            if(browserTrackingImplicitValue === null){
+                browserTrackingImplicitValue  = got.value;
+            }
+            console.log(browserTrackingImplicitValue,got.value );
+
+            if (got.value === "always") {
+                var setting = browser.privacy.websites.trackingProtectionMode.set({
+                    value: "private_browsing"
+                });
+                setting.then(callback);
+
+            }else{
+                callback();
+            }
+
+        });
+    },
+
+    updateTrackingImplicitValue:function(){
+        trackingVerificationsInProgress--;
+        if(trackingVerificationsInProgress === 0){
+            browser.privacy.websites.trackingProtectionMode.set({
+                value : browserTrackingImplicitValue
+            });
+        }
+    },
+
+
+    getTrackingProtection:function(callback){
+
+        var getProtection = browser.privacy.websites.trackingProtectionMode.get({});
+        getProtection.then(function(got){
+            callback(got.value);
         });
     }
 

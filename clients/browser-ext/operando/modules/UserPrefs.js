@@ -87,7 +87,7 @@ UserPrefs.prototype = {
 
             if(prefs[key]){
                 if(prefs[key].indexOf(object)>-1){
-                    prefs[key].splice(prefs[key].indexOf(object),1)
+                    prefs[key].splice(prefs[key].indexOf(object),1);
                     chrome.storage.local.set({UserPrefs: JSON.stringify(prefs)});
                 }
             }

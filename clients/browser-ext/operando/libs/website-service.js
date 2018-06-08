@@ -4,21 +4,26 @@ var authenticationService = require("authentication-service").authenticationServ
 var portObserversPool = require("observers-pool").portObserversPool;
 var socialNetworkService = require("social-network-service").socialNetworkService;
 var interceptorService = require("request-intercepter-service").requestInterceptor;
+var userService = require("user-service").userService;
 
 function doTwitterAppsRequest(url, callback) {
 
     var oReq = new XMLHttpRequest();
     oReq.onreadystatechange = function () {
         if (oReq.readyState == XMLHttpRequest.DONE) {
+            userService.updateTrackingImplicitValue();
             callback(oReq.responseText, true);
         }
     };
 
-    oReq.open("GET", url);
-    oReq.withCredentials = true;
-    interceptorService.interceptHeadersBeforeRequest("twitter-apps");
-    oReq.setRequestHeader("get-twitter-apps","1");
-    oReq.send();
+    userService.verifyTrackingIsDown(function(){
+        oReq.open("GET", url);
+        oReq.withCredentials = true;
+        interceptorService.interceptHeadersBeforeRequest("twitter-apps");
+        oReq.setRequestHeader("get-twitter-apps","1");
+        oReq.send();
+    });
+
 }
 
 function doGetRequest(url, data, callback) {
@@ -30,24 +35,31 @@ function doGetRequest(url, data, callback) {
     var oReq = new XMLHttpRequest();
     oReq.onreadystatechange = function () {
         if (oReq.readyState == XMLHttpRequest.DONE) {
+            userService.updateTrackingImplicitValue();
             callback(oReq.responseText, true);
         }
     };
-    oReq.open("GET", url);
-    if (arguments.length > 2) {
-        if (data.headers) {
-            oReq.withCredentials = true;
-            data.headers.forEach(function (header) {
-                oReq.setRequestHeader(header.name, header.value);
-            });
-        }
-    }
+    var args = arguments;
+    userService.verifyTrackingIsDown(function(){
 
-    oReq.send();
+        oReq.open("GET", url);
+        if (args.length > 2) {
+            if (data.headers) {
+                oReq.withCredentials = true;
+                data.headers.forEach(function (header) {
+                    oReq.setRequestHeader(header.name, header.value);
+                });
+            }
+        }
+        oReq.send();
+    });
 }
 
 function doPOSTRequest(url, data, callback) {
     var xhr = new XMLHttpRequest();
+
+    userService.verifyTrackingIsDown(function(){
+
     xhr.open('POST', url, true);
 
     if (data.headers) {
@@ -60,9 +72,11 @@ function doPOSTRequest(url, data, callback) {
     }
 
     xhr.onload = function () {
+        userService.updateTrackingImplicitValue();
         callback(this.responseText);
     };
     xhr.send(data._body ? data._body : data);
+    });
 }
 
 var websiteService = exports.websiteService = {

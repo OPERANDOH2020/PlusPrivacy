@@ -11,7 +11,11 @@ body{
     }
 
     .operando h2{
-        font-size: 15px;
+        font-size: 16px;
+    }
+
+    .operando h3{
+        font-size: 14px;
     }
     .operando .operando-navbar{
         min-width: 900px;
@@ -42,6 +46,14 @@ body{
         height:60px;
     }
 
+    .operando #sn_preferences h2{
+        padding: 7px 0px 8px 25px;
+        background-size: 18px!important;
+        line-height: 12px;
+    }
+    .operando #sn_preferences h2.sn_icon{
+        padding-left: 24px;
+    }
     .operando .navbar.operando-navbar .navbar-nav > li > a{
         font-size: 11px;
         line-height: 12px;
@@ -56,7 +68,7 @@ body{
     }
 
     .tab-content #main h3{
-        font-size: 19px;
+        font-size: 18px;
     }
     .operando #wrapper{
         min-width: 900px;
@@ -66,7 +78,7 @@ body{
     }
 
     .tab-content #main p{
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .operando .col-xs-2 ul.tabs-left li a {
@@ -76,6 +88,18 @@ body{
         height: 50px;
         min-width: 900px;
     }
+
+    .operando .nav.navbar-nav.pull-right .menu_icon {
+        background-position: 0px center;
+        padding-left: 35px;
+    }
+
+    .operando .app_version{
+        margin-top: -102px;
+        width: 198px;
+        font-size: 12px;
+    }
+
     footer #footer-copyright-content p#european_commission{
         font-size: 10px;
         line-height: 20px;
@@ -101,6 +125,11 @@ body{
 
     .operando .sidebar_expandable_menu .col-xs-2{
         width: 250px;
+    }
+
+    .operando .app_version{
+        width:225px;
+        margin-top:-102px;
     }
 
     .operando .content_wrapper .content {
@@ -266,7 +295,7 @@ body{
 }
 
 
-@media screen and (max-width: 1280px) and (max-height: 960px) {
+@media screen and (max-width: 1280px) and (min-width: 1155px)  and (max-height: 960px) {
 
     html {
         zoom:70%;
@@ -274,6 +303,9 @@ body{
 
     .operando h2{
         font-size: 20px;
+    }
+    .operando h4{
+        font-size: 14px;
     }
     .operando .operando-navbar{
         min-width: 1000px;
@@ -312,7 +344,11 @@ body{
     .operando .nav.navbar-nav.pull-right .menu_icon {
         background-position: 5px center;
         padding-left: 45px;
+    }
 
+    .operando .app_version{
+        margin-top: -102px;
+        width: 225px;
     }
 
     .tab-content #main h3{
@@ -363,7 +399,11 @@ body{
 
 
     .operando h2{
-        font-size: 24px;
+        font-size: 21px;
+    }
+
+    .operando h4{
+        font-size: 12px;
     }
     .operando .operando-navbar{
         min-width: 1000px;
@@ -400,13 +440,44 @@ body{
     }
 
     .operando .nav.navbar-nav.pull-right .menu_icon {
-        background-position: 5px center;
-        padding-left: 45px;
+        background-position: 10px center;
+        padding-left: 35px;
+        background-size: 16px;
+        font-size: 12px;
+    }
 
+    .operando .nav.navbar-nav.pull-right .menu_icon.notifications_orange_icon{
+        background-size: 15px 20px ;
+        padding-left: 20px;
+    }
+
+    .operando .nav.navbar-nav.pull-right .menu_icon.user-account{
+        background-size: 22px 22px ;
+    }
+
+    .operando .modal-content .btn-primary, .operando #wrapper .btn-primary, .login_container_wrapper button.btn-primary, .notification_content a,
+    .operando .modal-content .btn-primary-black, .operando #wrapper .btn-primary-black, .btn-primary-black{
+        font-size:12px!important;
+    }
+
+    .operando .social_networks_action_progress_container h4 + .action_progress,
+    .operando .custom-progress-bar{
+        margin: 3px 10px 10px 10px;
+    }
+
+    .operando table.table thead th.sorting_asc,
+    .operando table.table thead th.sorting_desc,
+    .operando table.table thead th.sorting {
+        padding: 10px 0px 10px 20px;
+        font-size: 12px;
+    }
+
+    .operando table.table thead .sorting_asc::before {
+        top:3px;
     }
 
     .tab-content #main h3{
-        font-size: 19px;
+        font-size: 16px;
     }
     .operando #wrapper{
         min-width: 1000px;
@@ -416,11 +487,13 @@ body{
     }
 
     .operando .sub-menu .menu_icon{
-        background-position: 45px 15px;
+        background-position: 50px 13px;
+        background-size: 18px;
     }
 
     .operando .primary-menu > li > a.menu_icon {
-        background-position: 15px 15px;
+        background-position: 15px 13px;
+        background-size: 18px;
     }
 
     .tab-content #main p{
@@ -428,7 +501,124 @@ body{
     }
 
     .operando .col-xs-2 ul.tabs-left li a {
-        line-height: 30px;
+        line-height: 21px;
+        font-size: 11px;
+    }
+
+    .operando #wrapper button.view_permissions{
+        float:left;
+        margin-top: -4px;
+        padding: 15px 21px;
+        height:25px;
+    }
+
+    .operando .single_click_privacy_panel .apply_settings_icon{
+        background-size: 100px;
+        height: 145px;
+        max-width: 118px;
+    }
+    .operando td.privacy_pollution span {
+        font-size: 12px;
+        float:left
+    }
+
+    .operando .app_version{
+        margin-top: -102px;
+        width: 225px;
+    }
+
+    .operando h3{
+        font-size: 16px;
+    }
+    .operando .single_click_privacy_panel .col-xs-7,
+    .operando .privacy_wizard_panel .col-xs-7{
+        height: 145px;
+    }
+
+    .operando .single_click_privacy_panel p,
+    .operando .privacy_wizard_panel p,
+    .operando .extension_name,
+    .operando table td,
+    .operando table td div p{
+        font-size:12px;
+    }
+
+    .operando a{
+        font-size: 11px;
+    }
+
+    .operando .sn_actions .how_it_works {
+        bottom: -35px;
+    }
+
+    .operando #sn_preferences h2.sn_icon{
+        padding-left: 30px;
+        background-size: 24px;
+    }
+    .operando input[type="radio"].no_content::after,
+    .operando input[type="radio"] + span,
+    .operando form label,
+    .operando .modal.how-it-works-modal p{
+        font-size: 12px;
+    }
+    .operando input[type="radio"] + span,
+    .operando form label{
+        line-height: 20px;
+        padding: 0 0 0 20px;
+    }
+
+    .operando input[type="radio"].no_content:before,
+    .operando input[type="radio"] + span:before{
+        height: 12px;
+        width: 12px;
+    }
+
+    .operando table.table thead th,
+    .operando table tr.thead td{
+        font-size:12px;
+        padding: 10px 10px 10px 10px;
+    }
+
+
+    .operando .permissionGroup{
+        -moz-transform: scale(0.8,0.8);
+        -moz-transform-origin: 0 50%;
+    }
+
+    .operando #wrapper button.extension_uninstall,
+    .operando #wrapper button.trash{
+        padding: 15px 15px;
+    }
+
+    .operando #network_tab h2.sn_icon{
+        background-size: 24px;
+        padding-left: 30px;
+    }
+
+    .operando #network_tab h2{
+        height: 27px;
+    }
+
+    .operando .table > tbody > tr > td,
+    .operando .table > thead > tr > td{
+        padding: 4px 8px 4px 8px;
+    }
+
+    .operando table td.td_text span{
+        line-height: 32px;
+    }
+
+    .operando input[type="checkbox"],
+    .operando input[type="radio"]{
+        margin: 10px 0 0;
+    }
+
+    .operando #main .presentation{
+        margin-top: 20px;
+    }
+
+    .operando #personal_details div.row{
+        -webkit-transform: translate(-5%, -5%) scale(0.9, 0.9);
     }
     .operando footer {
         height: 50px;
@@ -467,6 +657,10 @@ body{
     }
     html{
         height: calc(100% - 178px);
+    }
+
+    .operando .app_version{
+        margin-top: -112px;
     }
 
 }
@@ -788,6 +982,7 @@ div.tab-content{
 ul.nav.navbar-nav.pull-right li,
 ul.nav.navbar-nav.pull-right li>a{
     height: 100%;
+    text-shadow: none;
 }
 
 ul.nav.navbar-nav.pull-right li>a>.menu_item_content{
@@ -3122,14 +3317,14 @@ div.scpNotLoggedIn{
 
 .app_version{
     z-index: 200;
-    font-size: 13px;
+    font-size: 11px;
     text-align: center;
     color: #999;
-    bottom: 111px;
-    position: fixed;
-    left: 22px;
-    width: 300px;
+    position: sticky;
+    left: 20px;
+    width: 270px;
     height: 32px;
     line-height: 32px;
     background: #3B3B3B;
+    margin-top: -132px;
 }
