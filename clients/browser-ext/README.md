@@ -38,9 +38,9 @@ Building the extension
 Change working directory to PlusPrivacy/clients/chrome-ext and run
 
     npm install
-### Building the extension for development environment
+### Building the extension for Google Chrome
     grunt --browser=chrome
-A localhost server is needed. For installing a PlusPrivacy server please see
+A localhost server is needed. For installing a PlusPrivacy server please see this [installation guide](https://github.com/salboaie/SwarmESB/wiki/Install-guide).
 ### Building the extension for release/testing environment
     grunt release --browser=chrome
     //or
