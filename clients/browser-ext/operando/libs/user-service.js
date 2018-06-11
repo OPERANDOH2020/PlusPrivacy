@@ -225,7 +225,6 @@ var userService = exports.userService = {
             if(browserTrackingImplicitValue === null){
                 browserTrackingImplicitValue  = got.value;
             }
-            console.log(browserTrackingImplicitValue,got.value );
 
             if (got.value === "always") {
                 var setting = browser.privacy.websites.trackingProtectionMode.set({
