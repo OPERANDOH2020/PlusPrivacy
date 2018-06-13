@@ -139,9 +139,13 @@ public class StartPage {
                         searchUrl = Constants.YANDEX_SEARCH;
                         break;
                     default:
-                        // DEFAULT GOOGLE_SEARCH;
-                        icon = "file:///android_asset/google.png";
-                        searchUrl = Constants.GOOGLE_SEARCH;
+//                        // DEFAULT GOOGLE_SEARCH;
+//                        icon = "file:///android_asset/google.png";
+//                        searchUrl = Constants.GOOGLE_SEARCH;
+                        // DUCK_SEARCH;
+                        icon = "file:///android_asset/duckduckgo.png";
+                        // "https://duckduckgo.com/assets/logo_homepage.normal.v101.png";
+                        searchUrl = Constants.DUCK_SEARCH;
                         break;
 
                 }

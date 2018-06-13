@@ -31,7 +31,8 @@ public final class Constants {
     public static final String YANDEX_SEARCH = "https://yandex.ru/yandsearch?lr=21411&text=";
 
     // Custom local page schemes
-    public static final String SCHEME_HOMEPAGE = "about:home";
+//    public static final String SCHEME_HOMEPAGE = "about:home";
+    public static final String SCHEME_HOMEPAGE = "https://duckduckgo.com";
     public static final String SCHEME_BLANK = "about:blank";
     public static final String SCHEME_BOOKMARKS = "about:bookmarks";
 

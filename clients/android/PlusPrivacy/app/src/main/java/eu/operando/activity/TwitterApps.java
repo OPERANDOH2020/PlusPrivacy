@@ -33,7 +33,7 @@ public class TwitterApps extends SocialNetworkAppsActivity {
         return TwitterAppList.class;
     }
 
-    @Override
+//    @Override
     public void onPageCommitVisible() {
 
     }
@@ -46,20 +46,26 @@ public class TwitterApps extends SocialNetworkAppsActivity {
 
     public void startInjecting() {
 
-        if (!shouldInject) {
 
-            setUserAgent();
-            myWebView.loadUrl(getURL_MOBILE());
+//        myWebView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+                if (!shouldInject) {
+                    setUserAgent();
+                    myWebView.loadUrl(getURL());
 
-            if (android.os.Build.VERSION.SDK_INT >= 21) {
-                CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
-            } else {
-                CookieManager.getInstance().setAcceptCookie(true);
-            }
-            initProgressDialog();
-            shouldInject = true;
+                    if (android.os.Build.VERSION.SDK_INT >= 21) {
+                        CookieManager.getInstance().setAcceptThirdPartyCookies(myWebView, true);
+                    } else {
+                        CookieManager.getInstance().setAcceptCookie(true);
+                    }
+                    initProgressDialog();
+                    shouldInject = true;
 
-        }
+                }
+//            }
+//        }, 10000);
+
     }
 
 }

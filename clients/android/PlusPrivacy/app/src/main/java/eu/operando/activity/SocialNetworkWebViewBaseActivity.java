@@ -96,7 +96,7 @@ public abstract class SocialNetworkWebViewBaseActivity extends BaseActivity impl
         } else {
             cookieManager.setAcceptCookie(true);
         }
-        cookieManager.setCookie("https://twitter.com.twitter.com", "app_shell_visited=1; Max-Age=18; Path=/; Domain=.twitter.com;");
+//        cookieManager.setCookie("https://twitter.com.twitter.com", "app_shell_visited=1; Max-Age=18; Path=/; Domain=.twitter.com;");
 
         myWebView.loadUrl(getURL_MOBILE());
     }
@@ -145,15 +145,32 @@ public abstract class SocialNetworkWebViewBaseActivity extends BaseActivity impl
     }
 
     public void setUserAgent() {
+
 //        String newUA = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.4) Gecko/20100101 Firefox/4.0";
-        String newUA = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0";
+//        String newUA = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0";
+//        String newUA = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.4)AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Safari/537.36";
+        String newUA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36";
+//        String newUA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.45 Safari/535.19";
+//        String newUA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12";
+//        String newUA = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/20 Safari/537.31";
+
+
+        myWebView.setInitialScale(100);
+        myWebView.getSettings().setMinimumFontSize(16);
         myWebView.getSettings().setUserAgentString(newUA);
-        myWebView.getSettings().setUseWideViewPort(false);
+        myWebView.getSettings().setUseWideViewPort(true);
         myWebView.getSettings().setLoadWithOverviewMode(true);
+
+        myWebView.getSettings().setSupportZoom(true);
+        myWebView.getSettings().setBuiltInZoomControls(false);
+
+        myWebView.getSettings().setDisplayZoomControls(false);
+
+        myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        myWebView.setScrollbarFadingEnabled(false);
+
         myWebView.clearHistory();
-
     }
-
 
     public void onPageCommitVisible() {
         onPageListener();

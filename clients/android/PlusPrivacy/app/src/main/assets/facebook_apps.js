@@ -86,7 +86,7 @@
         return doGetRequest("https://m.facebook.com/settings/apps/tabbed/?tab=inactive", getApps);
     }).then(function(){
         console.log("snApps2", snApps);
-//        Android.onFinishedLoadingCallback(JSON.stringify(snApps));
+        Android.onFinishedLoadingCallback(JSON.stringify(snApps));
     });
 
 })();

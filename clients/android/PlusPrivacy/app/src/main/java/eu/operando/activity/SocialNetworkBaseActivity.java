@@ -68,7 +68,8 @@ public abstract class SocialNetworkBaseActivity extends BaseActivity {
         snAccounts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SocialNetworkBaseActivity.this, SocialNetworkAccountsActivity.class));
+                startActivity(new Intent(SocialNetworkBaseActivity.this,
+                        SocialNetworkAccountsActivity.class));
             }
         });
 

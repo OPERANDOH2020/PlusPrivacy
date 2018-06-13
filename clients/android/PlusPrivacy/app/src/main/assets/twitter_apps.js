@@ -30,11 +30,13 @@
                 'name': appName,
                 'permissions': permissions
             };
-        });
 
+        });
+//        Android.showToast(document.getElementsByTagName('html')[0].innerHTML);
         Android.onFinishedLoadingCallback(JSON.stringify(twitterApps));
     }
 
+//    console.log("CONTENT", document.getElementsByTagName('html')[0].innerHTML)
 //    getApps(document.getElementsByTagName('html')[0].innerHTML);
     doGetRequest("https://twitter.com/settings/applications", getApps);
 

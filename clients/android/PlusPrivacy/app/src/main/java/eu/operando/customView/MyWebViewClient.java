@@ -21,6 +21,7 @@ public class MyWebViewClient extends WebViewClient {
 
     private boolean loadingFinished = true;
     private boolean redirect = false;
+    private int twitterRedirect = 0;
 
     protected SocialNetworkInterface socialNetworkInterface;
 
@@ -30,11 +31,14 @@ public class MyWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String urlNewString) {
+//
         if (!loadingFinished) {
             redirect = true;
         }
-
         loadingFinished = false;
+//
+//        return super.shouldOverrideUrlLoading(view, urlNewString);
+
         view.loadUrl(urlNewString);
         return true;
     }
@@ -44,6 +48,24 @@ public class MyWebViewClient extends WebViewClient {
         loadingFinished = false;
     }
 
+    //twitter
+//    @Override
+//    public void onPageFinished(WebView view, String url) {
+//        super.onPageFinished(view, url);
+//
+//        if (url.equals("https://twitter.com/settings/applications")) {
+//            if (twitterRedirect == 1) {
+//                socialNetworkInterface.onPageFinished();
+//            } else {
+//                twitterRedirect++;
+//            }
+//        } else {
+//            socialNetworkInterface.onPageFinished();
+//        }
+//
+//    }
+
+    //linkedin
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);

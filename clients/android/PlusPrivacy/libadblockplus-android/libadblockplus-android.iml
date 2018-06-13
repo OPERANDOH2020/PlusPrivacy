@@ -26,10 +26,14 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+      <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
-          <option name="jvmTarget" value="1.8" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="libadblockplus-android_debug" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
           <option name="languageVersion" value="1.1" />
           <option name="apiVersion" value="1.1" />
           <option name="pluginOptions">
@@ -121,8 +125,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.1@jar" level="project" />
-    <orderEntry type="library" exported="" name="org.jetbrains:annotations:13.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="org.jetbrains.kotlin:kotlin-stdlib:1.1.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.1@jar" level="project" />
   </component>
 </module>

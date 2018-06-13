@@ -224,12 +224,12 @@ public class PreferenceManager {
     }
 
     public int getSearchChoice() {
-        return mPrefs.getInt(Name.SEARCH, 1);
+        return mPrefs.getInt(Name.SEARCH, 7);
     }
 
     @NonNull
     public String getSearchUrl() {
-        return mPrefs.getString(Name.SEARCH_URL, Constants.GOOGLE_SEARCH);
+        return mPrefs.getString(Name.SEARCH_URL, Constants.DUCK_SEARCH);
     }
 
     public boolean getTextReflowEnabled() {
