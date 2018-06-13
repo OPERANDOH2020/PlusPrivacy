@@ -220,7 +220,7 @@ angular.module('extensions', [])
                 function checkPrivacyPollution(){
 
                     if($scope.extension.permissions){
-                        $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
+                        $scope.extension.privacyPollution = computePrivacyPollution($scope.extension);
                     }
                     $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
 

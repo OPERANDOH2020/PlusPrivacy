@@ -84,27 +84,27 @@ var permissionConfig= {
 };
 
 
-function computePrivacyPollution(list){
+function computePrivacyPollutionByPermissions(list) {
     var over7 = false;
     var counter = 0;
-    var value = list.reduce(function(prev, current){
+    var value = list.reduce(function (prev, current) {
 
-        if(!permissionConfig[current]){
+        if (!permissionConfig[current]) {
             permissionConfig[current] = 5;
         }
 
-        if(permissionConfig[current] >7){
+        if (permissionConfig[current] > 7) {
             over7 = true;
         }
         counter++;
         return permissionConfig[current] + prev;
     }, 1);
-    if(over7){
-        value += (5 * counter)-1;
-        value = value/counter - 5;
+    if (over7) {
+        value += (5 * counter) - 1;
+        value = value / counter - 5;
     } else {
-        if(counter){
-            value = value/counter;
+        if (counter) {
+            value = value / counter;
         }
     }
 
@@ -112,7 +112,102 @@ function computePrivacyPollution(list){
 }
 
 
+function computePrivacyPollution(extension){
+    if(extension.homepageUrl === ""){
+        return computePrivacyPollutionByPermissions(extension.permissions);
+    }
+    else{
+        var webstorePage = "https://chrome.google.com/webstore/detail/"+extension.id;
+
+
+        $.ajax({
+            type: "GET",
+            url: webstorePage,
+            success: function(data){
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(data, "text/html");
+                extractInfoFromDoc(doc);
+            },
+            dataType: "html"
+        });
+    }
+}
+
+
+function extractInfoFromDoc(doc){
+    var $doc=$(doc);
+    var mainContent = $doc.find(".e-f")[0];
+
+    var rating = $(mainContent).find(".rsw-stars")[0];
+    var rating_number = $(rating).attr("g:rating_override");
+    rating_number = Math.round(rating_number*100)/100;
+    console.log(rating_number);
+
+    var users = $(mainContent).find(".e-f-ih")[0];
+    if(users){
+        var usersTitle = $(users).attr("title");
+        var users_number = usersTitle.replace( /\D+/g, '');
+        console.log(users_number);
+    }
+
+    getAlexaRankData("zoso.ro", function(data){
+        console.log(data);
+    });
+
+}
+
 function getPrivacyPollutionColor(number){
     return colours[number];
+}
+
+function getAlexaRankData(siteUrl, callback){
+    var url = "http://www.alexa.com/siteinfo/"+siteUrl;
+
+    requestRank(url, callback);
+}
+
+function extractAlexaRanking(alexaDoc, callback){
+
+    var $alexaDoc=$(alexaDoc);
+
+
+    var globleRank = $alexaDoc.find(".globleRank")[0];
+
+
+       var globalRanking = $(globleRank).children().children().next().children().next().next().prev().text().toString().replace(/\s/g, "");
+
+    callback(globalRanking);
+
+    /*$('.countryRank').filter(function () {
+        var data = $(this);
+        rankData.countryRank = {};
+        rankData.countryRank.rank = data.children().children().next().children().next().next().prev().text().toString().replace(/\s/g, "");
+        rankData.countryRank.country = data.children().children().children()['0'].attribs.title.toString();
+    });
+    $('#engagement-content').filter(function () {
+        var data = $(this);
+
+        var engagementData = data.children().children().children().children().next().children().next().prev().text().toString().split('\n');
+        rankData.engagement = {};
+
+        rankData.engagement.bounceRate = engagementData[1].replace(/\s/g, "");
+        rankData.engagement.dailyPageViewPerVisitor = engagementData[2].replace(/\s/g, "");
+        rankData.engagement.dailyTimeOnSite = engagementData[3].replace(/\s/g, "");
+    });*/
+
+
+}
+
+function requestRank(url,callback){
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function(data){
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(data, "text/html");
+            extractAlexaRanking(doc,callback);
+        },
+        dataType: "html"
+    });
 }
 
