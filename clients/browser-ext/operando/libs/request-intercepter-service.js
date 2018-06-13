@@ -82,7 +82,14 @@ var twitterAppsRequestInterceptor = function(message, callback){
                 return header.name.toLowerCase() === "cookie";
             });
 
-            cookieHeader.value +="; csrf_same_site=1";
+            if(!cookieHeader){
+                cookieHeader = {
+                    name:"cookie"
+                }
+            }
+            else{
+                cookieHeader.value +="; csrf_same_site=1";
+            }
 
             setTimeout(function () {
                 webRequest.onBeforeSendHeaders.removeListener(twiterAppsInterceptorCallback)

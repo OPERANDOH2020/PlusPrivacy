@@ -14,7 +14,9 @@
 var bus = require("bus-service").bus;
 var userUpdatedObservable = swarmHub.createObservable();
 var trackingVerificationsInProgress = 0;
+var thirdPartyCookiesVerificationsInProgress = 0;
 var browserTrackingImplicitValue = null;
+var browserAcceptThirdPartyCookiesImplicitValue = null;
 var userService = exports.userService = {
 
     changePassword:function(changePasswordData, success_callback, error_callback){
@@ -216,45 +218,89 @@ var userService = exports.userService = {
         });
     },
 
-    verifyTrackingIsDown:function(callback){
+    verifyTrackingIsDown: function (callback) {
         trackingVerificationsInProgress++;
-        var getProtection = browser.privacy.websites.trackingProtectionMode.get({});
 
-        getProtection.then(function(got){
+        userService.verifyThirdPartyCookies(function () {
 
-            if(browserTrackingImplicitValue === null){
-                browserTrackingImplicitValue  = got.value;
-            }
+            if (chrome.privacy && chrome.privacy.websites && chrome.privacy.websites.trackingProtectionMode) {
+                 chrome.privacy.websites.trackingProtectionMode.get({},function (got) {
 
-            if (got.value === "always") {
-                var setting = browser.privacy.websites.trackingProtectionMode.set({
-                    value: "private_browsing"
+                    if (browserTrackingImplicitValue === null) {
+                        browserTrackingImplicitValue = got.value;
+                    }
+
+                    if (got.value === "always") {
+                        chrome.privacy.websites.trackingProtectionMode.set({
+                            value: "private_browsing"
+                        },callback);
+
+                    } else {
+                        callback();
+                    }
+
                 });
-                setting.then(callback);
-
-            }else{
+            }
+            else {
                 callback();
             }
-
         });
     },
 
-    updateTrackingImplicitValue:function(){
-        trackingVerificationsInProgress--;
-        if(trackingVerificationsInProgress === 0){
-            browser.privacy.websites.trackingProtectionMode.set({
-                value : browserTrackingImplicitValue
+    updateTrackingImplicitValue: function () {
+
+        if (chrome.privacy && chrome.privacy.websites && chrome.privacy.websites.trackingProtectionMode) {
+            trackingVerificationsInProgress--;
+            if (trackingVerificationsInProgress === 0) {
+                chrome.privacy.websites.trackingProtectionMode.set({
+                    value: browserTrackingImplicitValue
+                });
+            }
+        }
+
+        userService.updateThirdPartyCookiesImplicitValue();
+
+    },
+
+
+    verifyThirdPartyCookies: function (callback) {
+
+        if (chrome.privacy && chrome.privacy.websites && chrome.privacy.websites.cookieConfig) {
+
+            thirdPartyCookiesVerificationsInProgress++;
+
+            chrome.privacy.websites.cookieConfig.get({},function (got) {
+
+                if (browserAcceptThirdPartyCookiesImplicitValue === null) {
+                    browserAcceptThirdPartyCookiesImplicitValue = got.value;
+                }
+
+                if (got.value.behavior === "reject_third_party") {
+                    chrome.privacy.websites.cookieConfig.set({
+                        value: {behavior: "allow_all"}
+                    },callback);
+
+                } else {
+                    callback();
+                }
+
             });
+
+        }
+        else {
+            callback();
         }
     },
 
-
-    getTrackingProtection:function(callback){
-
-        var getProtection = browser.privacy.websites.trackingProtectionMode.get({});
-        getProtection.then(function(got){
-            callback(got.value);
-        });
+    updateThirdPartyCookiesImplicitValue:function(){
+        if(chrome.privacy && chrome.privacy.websites && chrome.privacy.websites.cookieConfig){
+            thirdPartyCookiesVerificationsInProgress--;
+            if(thirdPartyCookiesVerificationsInProgress === 0){
+                chrome.privacy.websites.cookieConfig.set({
+                    value : browserAcceptThirdPartyCookiesImplicitValue
+                });
+            }
+        }
     }
 
 };

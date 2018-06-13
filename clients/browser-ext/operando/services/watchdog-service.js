@@ -27,6 +27,7 @@ operandoCore
 
             callbacks[tabId] = callback;
             messengerService.requestNotification("onTabRemoved", tabId, function (responsedTabId) {
+                messengerService.send("updateThirdPartyCookiesImplicitValue");
                 if (callbacks[responsedTabId]) {
                     callbacks[responsedTabId]();
                     delete callbacks[responsedTabId];
@@ -41,6 +42,7 @@ operandoCore
          * @param jobFinished
          */
         function increaseGooglePrivacy(settings, callback, jobFinished) {
+            messengerService.send("verifyThirdPartyCookies");
             var jobDone = false;
             chrome.tabs.getCurrent(function (currentTab) {
                 chrome.tabs.create({url: GOOGLE_PRIVACY_URL, "active": false}, function (tab) {
@@ -130,7 +132,7 @@ operandoCore
         }
 
         function increaseFacebookPrivacy(settings, callback, jobFinished) {
-
+            messengerService.send("verifyThirdPartyCookies");
             var jobDone = false;
             chrome.tabs.create({url: FACEBOOK_PRIVACY_URL, "active": false}, function (tab) {
                 facebookTabId = tab.id;
@@ -198,6 +200,7 @@ operandoCore
 
         function increaseLinkedInPrivacy(settings, callback, jobFinished) {
             var jobDone = false;
+            messengerService.send("verifyThirdPartyCookies");
             chrome.tabs.create({url: LINKEDIN_PRIVACY_URL, "active": false}, function (tab) {
                 linkedinTabId = tab.id;
 
@@ -239,7 +242,7 @@ operandoCore
         }
 
         function increaseTwitterPrivacy(settings, callback, jobFinished) {
-
+            messengerService.send("verifyThirdPartyCookies");
             var jobDone = false;
             chrome.tabs.getCurrent(function (currentTab) {
                 chrome.tabs.create({url: TWITTER_PRIVACY_URL, "active": false}, function (tab) {
