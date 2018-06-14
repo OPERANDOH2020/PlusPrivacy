@@ -23,6 +23,7 @@ import eu.operando.models.InstalledApp;
 public class PermissionUtils {
     public static final HashMap<String, Integer> permissionRisks;
     public static final HashMap<String, String> permissionDescriptions;
+    public static List< String> whiteList;
     public static final int[] colors;
     public static final int SAFE_THRESHOLD = 8;
 
@@ -407,7 +408,27 @@ public class PermissionUtils {
         permissionDescriptions.put("View and manage the files in your Google Drive", "View and manage the files in your Google Drive");
         permissionDescriptions.put("View your Chrome Remote Desktop computers", "View your Chrome Remote Desktop computers");
 
+        whiteList = new ArrayList<>();
+        whiteList.add("rms.star");
+        whiteList.add("ch.protonmail.android");
+        whiteList.add("com.duckduckgo.mobile.android");
+        whiteList.add("com.domobile.applock");
+        whiteList.add("com.symantec.applock");
+        whiteList.add("org.mozilla.focus");
+        whiteList.add("com.glasswire.android");
+        whiteList.add("org.torproject.android");
+        whiteList.add("org.thoughtcrime.securesms");
+        whiteList.add("com.resilio.sync");
+        whiteList.add("com.protonvpn.android");
+        whiteList.add("com.lastpass.lpandroid");
+        whiteList.add("org.telegram.messenger");
+        whiteList.add("com.simplemobiletools.calendar");
+        whiteList.add("org.secuso.privacyfriendlyactivitytracker");
+        whiteList.add("org.secuso.privacyfriendlyweather");
+        whiteList.add("privacy-friendly-android-apps");
+        whiteList.add("org.openintents.filemanager");
     }
+
 
     @ColorInt
     public static int getColor(AbstractApp app) {
@@ -415,6 +436,10 @@ public class PermissionUtils {
             return colors[0];
         }
         return colors[app.getPollutionScore() - 1];
+    }
+
+    public static boolean isOnWhiteList(AbstractApp app){
+        return whiteList.contains(app.getPackageName());
     }
 
     public static void calculatePollutionScore(AbstractApp app) {

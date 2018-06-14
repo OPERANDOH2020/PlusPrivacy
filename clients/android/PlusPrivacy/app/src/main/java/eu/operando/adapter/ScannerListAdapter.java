@@ -242,6 +242,8 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
         TextView appPrivacyPolution;
         View appCircleIndicator;
         ImageView groupIndicator;
+        ImageView privacySecureIv;
+        RelativeLayout appCircleIndicatorRl;
 
         public GroupHolder(View itemView) {
             super(itemView);
@@ -254,6 +256,8 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
             appPrivacyPolution = (TextView) itemView.findViewById(R.id.app_privacy_polution);
             appCircleIndicator = itemView.findViewById(R.id.drawable_circle_indicator);
             groupIndicator = (ImageView) itemView.findViewById(R.id.arrow);
+            privacySecureIv = (ImageView) itemView.findViewById(R.id.privacy_secure_iv);
+            appCircleIndicatorRl = (RelativeLayout) itemView.findViewById(R.id.app_circle_indicator);
         }
 
         public void setData(AbstractApp item, boolean isExpanded) {
@@ -264,7 +268,16 @@ public class ScannerListAdapter extends BaseExpandableListAdapter {
                 ));
             }
             groupIndicator.setSelected(isExpanded);
-            setAppCircleIndicator(item);
+
+            if (PermissionUtils.isOnWhiteList(item)){
+                privacySecureIv.setVisibility(View.VISIBLE);
+                appCircleIndicatorRl.setVisibility(View.INVISIBLE);
+            } else {
+                privacySecureIv.setVisibility(View.INVISIBLE);
+                appCircleIndicatorRl.setVisibility(View.VISIBLE);
+                setAppCircleIndicator(item);
+            }
+
             appName.setText(item.getAppName());
 
             if (item instanceof SocialNetworkApp) {

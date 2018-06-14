@@ -43,7 +43,7 @@ public class AdBlockWebView extends WebView {
         getSettings().setLoadWithOverviewMode(true);
     }
 
-    private WebViewClient getWebViewClient() {
+    public WebViewClient getWebViewClient() {
         return new AdBlockClient(getContext()) {
             @Override
             public void onPageFinished(WebView view, String url) {

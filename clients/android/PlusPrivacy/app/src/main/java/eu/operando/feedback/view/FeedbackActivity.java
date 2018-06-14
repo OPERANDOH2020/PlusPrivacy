@@ -74,7 +74,7 @@ public class FeedbackActivity extends BaseActivity implements FeedbackView, Feed
 
     @Override
     protected void onPause() {
-        presenter.saveState();
+//        presenter.saveState();
         super.onPause();
     }
 

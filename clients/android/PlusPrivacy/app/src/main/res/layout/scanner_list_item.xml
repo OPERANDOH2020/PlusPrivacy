@@ -79,7 +79,7 @@
             android:id="@+id/app_circle_indicator"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle_layout">
+            android:background="@drawable/circle_layout_gray">
 
             <View
                 android:id="@+id/drawable_circle_indicator"
@@ -88,6 +88,13 @@
                 android:layout_centerInParent="true"
                 android:background="@drawable/circle_scanner_apps" />
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/privacy_secure_iv"
+            android:visibility="visible"
+            android:src="@drawable/privacy_oriented"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
 
     </RelativeLayout>
 

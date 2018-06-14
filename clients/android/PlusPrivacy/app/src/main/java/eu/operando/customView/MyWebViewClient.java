@@ -48,38 +48,38 @@ public class MyWebViewClient extends WebViewClient {
         loadingFinished = false;
     }
 
-    //twitter
-//    @Override
-//    public void onPageFinished(WebView view, String url) {
-//        super.onPageFinished(view, url);
-//
-//        if (url.equals("https://twitter.com/settings/applications")) {
-//            if (twitterRedirect == 1) {
-//                socialNetworkInterface.onPageFinished();
-//            } else {
-//                twitterRedirect++;
-//            }
-//        } else {
-//            socialNetworkInterface.onPageFinished();
-//        }
-//
-//    }
-
-    //linkedin
+//    twitter
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
 
-        if (!redirect) {
-            loadingFinished = true;
+        if (url.equals("https://twitter.com/settings/applications")) {
+            if (twitterRedirect == 1) {
+                socialNetworkInterface.onPageFinished();
+            } else {
+                twitterRedirect++;
+            }
+        } else {
+            socialNetworkInterface.onPageFinished();
         }
 
-        if (loadingFinished && !redirect) {
-            socialNetworkInterface.onPageFinished();
-        } else {
-            redirect = false;
-        }
     }
+
+    //linkedin
+//    @Override
+//    public void onPageFinished(WebView view, String url) {
+//        super.onPageFinished(view, url);
+//
+//        if (!redirect) {
+//            loadingFinished = true;
+//        }
+//
+//        if (loadingFinished && !redirect) {
+//            socialNetworkInterface.onPageFinished();
+//        } else {
+//            redirect = false;
+//        }
+//    }
 
     @Override
     public void onPageCommitVisible(WebView view, String url) {
