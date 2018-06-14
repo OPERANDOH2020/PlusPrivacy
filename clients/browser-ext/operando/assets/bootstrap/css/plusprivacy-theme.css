@@ -1036,6 +1036,12 @@ ul.nav.navbar-nav.pull-right li>a>.menu_item_content{
     display:none;
 }
 
+.privacy_oriented{
+    background: url("/assets/images/privacy_oriented.png") no-repeat left center;
+    padding-left: 30px;
+    display: inline-block;
+}
+
 .extension .extension_icon img.disabled{
     -webkit-filter: grayscale(90%);
     filter: grayscale(90%);

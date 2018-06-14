@@ -209,7 +209,7 @@ angular.module('extensions', [])
             templateUrl: '/tpl/extensions.html'
         }
     })
-    .directive("permissionsRow", function(ModalService){
+    .directive("permissionsRow", function(ModalService, ExtensionService){
 
         return{
             restrict: 'A',
@@ -219,10 +219,24 @@ angular.module('extensions', [])
             link: function ($scope, element, attrs, extensionsCtrl) {
                 function checkPrivacyPollution(){
 
-                    if($scope.extension.permissions){
-                        $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
-                    }
-                    $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
+
+                    ExtensionService.isBrowserFirefox(function(isFirefox){
+
+                        var browser = isFirefox === true?"firefox":"chrome";
+
+                        if(extensionIsWhitelisted(browser, $scope.extension.id)){
+                            $scope.isWhitelisted = true;
+                        }
+                        else{
+                            $scope.isWhitelisted = false;
+                            if($scope.extension.permissions){
+                                $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
+                            }
+                            $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
+                        }
+                    });
+
+
 
                 }
 

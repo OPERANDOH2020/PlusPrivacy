@@ -78,10 +78,81 @@ var permissionConfig= {
     "webview":2,
     "webNavigation":3,
     "webRequest":	10,
-    "webRequestBlocking":5,
+    "webRequestBlocking":5
 
 
 };
+
+var whitelisted_extensiosn = [
+    {
+        name: "Adblock Plus",
+        chrome_id: "cfhdojbkjhnklbpkdaibdccddilifddb",
+        firefox_id: "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}"
+    }, {
+        name: "PlusPrivacy",
+        id: "boagbmhcbemflaclmnbeebgbfhbegekc",
+        firefox_id:"{d7dbba27-6af6-484c-a84e-9c59c458f0df}"
+    },
+    {
+        name: "uBlock Origin",
+        chrome_id: "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+        firefox_id:"uBlock0@raymondhill.net"
+    },
+    {
+        name: "Privacy Badger",
+        chrome_id: "pkehgijcmpdhfbdbbnkijodmdjhbjlgp",
+        firefox_id:"jid1-MnnxcxisBPnSXQ@jetpack"
+    },
+    {
+        name: "HTTPS Everywhere",
+        chrome_id: "gcbommkclmclpchllfjekcdonpmejbdp",
+        firefox_id:"https-everywhere@eff.org"
+    }, {
+        name: "CanvasFingerprintBlock",
+        chrome_id: "ipmjngkmngdcdpmgmiebdmfbkcecdndc",
+        firefox_id:"{94249bf3-29a3-4bb5-aa30-013883e8f2f4}"
+    }, {
+        name: "AdBlock",
+        chrome_id: "gighmmpiobklfepjocnamgkkbiglidom",
+        firefox_id:"jid1-NIfFY2CA8fy1tg@jetpack"
+    }, {
+        name: "Ghostery – Privacy Ad Blocker",
+        chrome_id: "mlomiejdfkolichcflejclcbmpeaniij",
+        firefox_id:"firefox@ghostery.com"
+    }, {
+        name: "Fair AdBlocker",
+        chrome_id: "lgblnfidahcdcjddiepkckcfdhpknnjh"
+    },
+    {
+        name: "Adblocker Genesis Plus",
+        chrome_id: "jacihiikpacjaggdldhcdfjpbibbfjmh"
+    }, {
+        name: "uBlock Plus Adblocker",
+        chrome_id: "oofnbdifeelbaidfgpikinijekkjcicg"
+    }, {
+        name: "uBlock Adblocker Plus",
+        chrome_id: "pnhflmgomffaphmnbcogleagmloijbkd"
+    }, {
+        name: "AdGuard AdBlocker",
+        chrome_id: "bgnkhhnnamicmpeenaelnjfhikgbkllg",
+        firefox_id:"adguardadblocker@adguard.com"
+    }, {
+        name: "Social Network Adblocker",
+        chrome_id: "dmgjckeibmdfndlflobjhddhmemajjld"
+    }, {
+        name: "Decentraleyes",
+        chrome_id: "ldpochfccmkkmhdbclfhpagapcfdljkj",
+        firefox_id:"jid1-BoFifL9Vbdl2zQ@jetpack"
+    }, {
+        name: "ScriptSafe",
+        chrome_id: "oiigbmnaadbkfbmpbfijlflahbdbdgdf",
+        firefox_id:"scriptsafe@protonmail.com"
+    }, {
+        name: "Privacy Cleaner",
+        chrome_id: "liiikhhbkpmpomjmdofandjmdgapiahi"
+    }
+];
+
 
 
 function computePrivacyPollution(list){
@@ -109,6 +180,14 @@ function computePrivacyPollution(list){
     }
 
     return Math.ceil(value);
+}
+
+
+
+function extensionIsWhitelisted(browser, extensionId){
+
+    var extensionsIds = whitelisted_extensiosn.map(function(extension){return extension[browser+"_id"]});
+    return extensionsIds.indexOf(extensionId) > -1 ? true : false;
 }
 
 
