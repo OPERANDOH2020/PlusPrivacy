@@ -20,6 +20,7 @@ class RSCommonUtilities: NSObject {
     class func showOKAlertWithMessage(message: String)
     {
         let alert = UIAlertView(title: "", message: message, delegate: nil, cancelButtonTitle: "Ok");
+        
         alert.show();
     }
     

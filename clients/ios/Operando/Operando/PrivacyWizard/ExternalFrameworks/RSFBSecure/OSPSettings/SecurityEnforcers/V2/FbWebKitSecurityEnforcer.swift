@@ -103,6 +103,7 @@ class FbWebKitSecurityEnforcer: NSObject, WKNavigationDelegate, WKUIDelegate
                 }
                 else {
                     self.whenDisplayingMessage?("Please log in!")
+                    
                 }
             })
         })

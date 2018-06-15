@@ -727,19 +727,35 @@ var sendStatusMessage = function(settingName) {
 var headers = {};
 var sequence = Promise.resolve();
 
+
 var mainFunction = function(privacySettingsJsonString) {
+    var progressStatus = 20;
     
+    var myInterval = setInterval(increaseProgress,800);
+  
+    function increaseProgress(){
+        progressStatus+=2;
+        var text = "DONE PROGRESS " + "item=" + progressStatus + "total=" + 100;
+        console.log(text);
+        sendStatusMessage(text);
+       
+        if(progressStatus>90){
+        
+            clearInterval(myInterval);
+        }
+    }
     
-    var text = "DONE PROGRESS " + "item=" + 25 + "total=" + 100
+  
+    /*var text = "DONE PROGRESS " + "item=" + 25 + "total=" + 100
     console.log(text)
-    sendStatusMessage(text);
+    sendStatusMessage(text);*/
     
     var run = true;
     xhook.before(function(request) {
                  
-                 var text = "DONE PROGRESS " + "item=" + 50 + "total=" + 100
-                 console.log(text)
-                 sendStatusMessage(text);
+                 //var text = "DONE PROGRESS " + "item=" + 50 + "total=" + 100
+                 //console.log(text)
+                 //sendStatusMessage(text);
                  headers = request.headers;
                  
                  if (run) {
@@ -857,9 +873,9 @@ function secureAccount(isEUCountry, privacySettingsJsonString) {
                            success: function(data) {
                            resolve();
                            
-                           var text = "DONE PROGRESS " + "item=" + 50 + "total=" + 100
-                           console.log(text)
-                           sendStatusMessage(text);
+                           //var text = "DONE PROGRESS " + "item=" + 50 + "total=" + 100
+                           //console.log(text)
+                           //sendStatusMessage(text);
                            
                            sendStatusMessage("Done");
                            },

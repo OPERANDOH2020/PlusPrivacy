@@ -29,6 +29,8 @@
 
      var privacySettings = JSON.parse(privacySettingsJsonString);
      var csrfToken = {};
+  
+ 	  console.log('Will begin securing account');
 
      function preparePostRequest(settings, headers, resolve, reject) {
 

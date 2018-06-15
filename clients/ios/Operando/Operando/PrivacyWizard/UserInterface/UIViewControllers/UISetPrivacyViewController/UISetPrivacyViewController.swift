@@ -60,6 +60,8 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
     private var fbSecurityEnforcer: FbWebKitSecurityEnforcer?
     private var isDONE = false
     
+    private var pleaseLogin = false
+    
     @IBOutlet weak var settingsProgressView: UISettingsProgress!
     private var webView: WKWebView = WKWebView(frame: .zero)
     private var tutorialView: UITutorialView?
@@ -147,7 +149,6 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
             
             if $0 == "Done" {
                 
-                print("DONE GOOGLE CICA !123")
                 self.settingsProgressView.setPercetange(value: 100)
                 self.displayStatusView(hidden: true)
                 //                self.navigationController?.popViewController(animated: false)
@@ -197,15 +198,24 @@ class UISetPrivacyViewController: UIViewController, UITutorialViewDelegate {
                 if let items = Int(matches[0]),
                     let total = Int(matches[1]) {
                     
+                    if items <= total {
+                        self.settingsProgressView.isHidden = false
+                        self.displayStatusView(hidden: false)
+                    }
+                    
                     self.settingsProgressView.setProgressBar(item: items, total: total)
                 }
                 
                 print($0)
             }
             else if $0 == "Please log in!" {
+               
                 self.settingsProgressView.isHidden = true
-                RSCommonUtilities.showOKAlertWithMessage(message: "Please log in!")
                 self.displayStatusView(hidden: true)
+                OPViewUtils.displayAlertWithMessage(message: "Please log in!", withTitle: "", addCancelAction: false, withConfirmation: {
+                    
+                    self.pleaseLogin = true
+                })
             }
             else {
                 print($0)
