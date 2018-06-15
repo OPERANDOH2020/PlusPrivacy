@@ -132,8 +132,19 @@ angular.module('extensions', [])
             link: function ($scope, element, attrs, extensionsCtrl) {
                 function checkPrivacyPollution(){
 
-                    $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
-                    $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
+
+                    if(extensionIsWhitelisted($scope.extension.id)){
+                        $scope.isWhitelisted = true;
+                    }
+
+                    else {
+                        $scope.isWhitelisted = false;
+
+                        if ($scope.extension.permissions) {
+                            $scope.extension.privacyPollution = computePrivacyPollution($scope.extension.permissions);
+                        }
+                        $scope.extension.privacyPollutionColor = getPrivacyPollutionColor($scope.extension.privacyPollution);
+                    }
 
                 }
 

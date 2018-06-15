@@ -100,7 +100,6 @@ angular.module('notifications')
                 });
 
                 $scope.$on('notificationCounterUpdate', function (event, notifications) {
-                    console.log(notifications);
                     $scope.notifications.counter = notifications.length;
                     $scope.$apply();
                 });

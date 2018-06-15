@@ -78,10 +78,70 @@ var permissionConfig= {
     "webview":2,
     "webNavigation":3,
     "webRequest":	10,
-    "webRequestBlocking":5,
+    "webRequestBlocking":5
 
 
 };
+
+var whitelisted_extensiosn = [
+    {
+        name: "Adblock Plus",
+        id: "cfhdojbkjhnklbpkdaibdccddilifddb"
+    }, {
+        name: "PlusPrivacy",
+        id: "boagbmhcbemflaclmnbeebgbfhbegekc"
+    },
+    {
+        name: "uBlock Origin",
+        id: "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+    },
+    {
+        name: "Privacy Badger",
+        id: "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"
+    },
+    {
+        name: "HTTPS Everywhere",
+        id: "gcbommkclmclpchllfjekcdonpmejbdp"
+    }, {
+        name: "CanvasFingerprintBlock",
+        id: "ipmjngkmngdcdpmgmiebdmfbkcecdndc"
+    }, {
+        name: "AdBlock",
+        id: "gighmmpiobklfepjocnamgkkbiglidom"
+    }, {
+        name: "Ghostery – Privacy Ad Blocker",
+        id: "mlomiejdfkolichcflejclcbmpeaniij"
+    }, {
+        name: "Fair AdBlocker",
+        id: "lgblnfidahcdcjddiepkckcfdhpknnjh"
+    },
+    {
+        name: "Adblocker Genesis Plus",
+        id: "jacihiikpacjaggdldhcdfjpbibbfjmh"
+    }, {
+        name: "uBlock Plus Adblocker",
+        id: "oofnbdifeelbaidfgpikinijekkjcicg"
+    }, {
+        name: "uBlock Adblocker Plus",
+        id: "pnhflmgomffaphmnbcogleagmloijbkd"
+    }, {
+        name: "AdGuard AdBlocker",
+        id: "bgnkhhnnamicmpeenaelnjfhikgbkllg"
+    }, {
+        name: "Social Network Adblocker",
+        id: "dmgjckeibmdfndlflobjhddhmemajjld"
+    }, {
+        name: "Decentraleyes",
+        id: "ldpochfccmkkmhdbclfhpagapcfdljkj"
+    }, {
+        name: "ScriptSafe",
+        id: "oiigbmnaadbkfbmpbfijlflahbdbdgdf"
+
+    }, {
+        name: "Privacy Cleaner",
+        id: "liiikhhbkpmpomjmdofandjmdgapiahi"
+    }
+];
 
 
 function computePrivacyPollution(list){
@@ -111,6 +171,12 @@ function computePrivacyPollution(list){
     return Math.ceil(value);
 }
 
+
+function extensionIsWhitelisted( extensionId){
+
+    var extensionsIds = whitelisted_extensiosn.map(function(extension){return extension["id"]});
+    return extensionsIds.indexOf(extensionId) > -1 ? true : false;
+}
 
 function getPrivacyPollutionColor(number){
     return colours[number];

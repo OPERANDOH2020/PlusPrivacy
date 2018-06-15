@@ -33,7 +33,6 @@ function doGetRequest(url, data, callback) {
         }
     };
     oReq.open("GET", url);
-    console.log(arguments.length);
     if (arguments.length > 2) {
         if (data.headers) {
             oReq.withCredentials = true;
@@ -710,8 +709,7 @@ var websiteService = exports.websiteService = {
 
                     switch (socialNetwork) {
                         case "twitter":
-                            var headers = {headers:[{name:"get-twitter-apps", value:"1"}]};
-                            doGetRequest(url, headers, resolve);
+                            doTwitterAppsRequest(url,resolve);
                             break;
                         default:
                             doGetRequest(url, resolve);
