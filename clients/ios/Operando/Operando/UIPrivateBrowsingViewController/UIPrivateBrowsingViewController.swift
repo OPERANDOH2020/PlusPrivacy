@@ -62,19 +62,21 @@ class UIPrivateBrowsingViewController: UIViewController, WKNavigationDelegate
         
         self.logic = WebTabsControllerLogic(model: model, callbacks: callbacks)
         
-        showAlertController()
+        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
+            messageStatus == true {
+            
+            return
+        }
+        else {
+            showAlertController()
+        }
+        
     }
     
     // MARK: - Alert Box
     
     func showAlertController()
     {
-        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
-            messageStatus == true {
-            
-            return
-        }
-        
         //simple alert dialog
         let alertController = UIAlertController(title: "Private Browsing!", message: "PlusPrivacy's Private Browser protects your privacy while you surf the Internet by blocking tacking scripts, 3rd party cookies, location requests and ads.", preferredStyle: UIAlertControllerStyle.alert);
         // Add Action

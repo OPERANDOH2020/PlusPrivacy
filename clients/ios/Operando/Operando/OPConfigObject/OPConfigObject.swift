@@ -119,11 +119,11 @@ class OPConfigObject: NSObject
     
     private func showAlertControllerWithResendEmail(block:VoidBlock?)
     {
-        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
-            messageStatus == true {
-            
-            return
-        }
+//        if let messageStatus = CredentialsStore.getPrivateMessageStatus(),
+//            messageStatus == true {
+//
+//            return
+//        }
         
         //simple alert dialog
         let alertController = UIAlertController(title: "", message: "Account is not activated", preferredStyle: UIAlertControllerStyle.alert);
@@ -161,6 +161,9 @@ class OPConfigObject: NSObject
             if let error = error {
                 
                 if error.localizedDescription == "accountNotActivated" {
+                    
+                    DispatchQueue.main.async {
+                    
                     self.showAlertControllerWithResendEmail(block: {
                     
                         self.userRepository?.resendActionEmail(email: loginInfo.email, completion: { (error) in
@@ -168,6 +171,7 @@ class OPConfigObject: NSObject
                         })
                         
                     })
+                    }
                 }
                 else {
                     DispatchQueue.main.async {
