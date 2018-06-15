@@ -20,7 +20,9 @@ class ACRestClient: NSObject {
     typealias Callback = (AnyObject?, NSError?) -> ()
     
     fileprivate var session: URLSession?
-    fileprivate let API_URL = "https://plusprivacy.club:8080"
+    fileprivate let API_URL = {
+           return SwarmClientHelper.ServerURL
+    }
     
     static let shared = ACRestClient()
     
@@ -32,11 +34,11 @@ class ACRestClient: NSObject {
     
     // MARK: - Public Methods
     func get(_ path: String, params: QueryParams, cb: @escaping Callback) {
-        get(API_URL, path: path, params: params, cb: cb)
+        get(API_URL(), path: path, params: params, cb: cb)
     }
     
     func post(_ path: String, params: QueryParams?, body: NSDictionary, cb: @escaping Callback) {
-        post(API_URL, path: path, params: params, body: body, cb: cb)
+        post(API_URL(), path: path, params: params, body: body, cb: cb)
     }
     
     // MARK: - Private Methods

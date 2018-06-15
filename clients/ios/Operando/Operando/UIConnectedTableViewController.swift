@@ -31,6 +31,8 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     private var progressText: String?
     private var progressCellIndexPath: IndexPath?
     
+    private var callbackCounter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +46,6 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
             self.isLoggedInApp = true
             
             if ACPrivacyWizard.shared.inactiveConnectedApps == nil && ACPrivacyWizard.shared.selectedScope == .facebook{
-                
                 
                 let socialMediaUrl = ACPrivacyWizard.shared.selectedScope.getAppsListUrl()
                 self.webView.loadWebViewToURL(urlString: socialMediaUrl)
@@ -123,6 +124,11 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
         if section == 1 {
             
             if inactiveDataSource == nil {
+                
+                if callbackCounter == 2 {
+                    return 0
+                }
+                
                 return 1
             }
             
@@ -365,8 +371,17 @@ class UIConnectedTableViewController: UITableViewController, WKNavigationDelegat
     
     private func getConnectedApps(dict: NSDictionary) {
         
+        callbackCounter = callbackCounter + 1
+        
         ProgressHUD.dismiss()
         if dict.toConnectedApps().count == 0 {
+           
+            if callbackCounter == 2 {
+                
+                self.tableView.emptyMessage(message: "No connected app", vc: self)
+                self.tableView.reloadData()
+            }
+            
             return
         }
         
