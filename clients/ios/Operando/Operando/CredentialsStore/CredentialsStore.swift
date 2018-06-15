@@ -106,6 +106,7 @@ class CredentialsStore: NSObject
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: DefaultsUsernameKey)
         defaults.removeObject(forKey: DefaultsPasswordKey)
+    	UserDefaults.removeMainPersistentDomain()
         defaults.synchronize()
         
     }

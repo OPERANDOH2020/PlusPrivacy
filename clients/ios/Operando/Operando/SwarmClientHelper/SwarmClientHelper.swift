@@ -441,7 +441,9 @@ class SwarmClientHelper: NSObject, SwarmClientProtocol,
                     return
                 }
                 
-                completion?(nil)
+                self.killSocketAndReconnect(with: { (_) in
+                     completion?(nil)
+                })
             }
             
             self.whenThereWasAnError = { error in

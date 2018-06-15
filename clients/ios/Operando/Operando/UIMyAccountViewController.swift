@@ -123,7 +123,8 @@ class UIMyAccountViewControllerLogic: NSObject, UITableViewDelegate, UITableView
                     OPErrorContainer.displayError(error: error)
                 }
                 else {
-                    
+                    let _ = CredentialsStore.deleteCredentials()
+                    UserDefaults.setSynchronizedBool(value: false, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
                 }
             })
         }
