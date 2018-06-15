@@ -410,6 +410,7 @@ public class PermissionUtils {
 
         whiteList = new ArrayList<>();
         whiteList.add("rms.star");
+        whiteList.add("com.example.android.apis");
         whiteList.add("ch.protonmail.android");
         whiteList.add("com.duckduckgo.mobile.android");
         whiteList.add("com.domobile.applock");
@@ -427,6 +428,13 @@ public class PermissionUtils {
         whiteList.add("org.secuso.privacyfriendlyweather");
         whiteList.add("privacy-friendly-android-apps");
         whiteList.add("org.openintents.filemanager");
+        whiteList.add("org.adblockplus.adblockplussbrowser");
+        whiteList.add("org.adblockplus.browser");
+        whiteList.add("com.adguard.android.contentblocker");
+        whiteList.add("org.malwarebytes.antimalware");
+        whiteList.add("com.ghostery.android.ghostery");
+        whiteList.add("com.antivirus");
+        whiteList.add("com.bitdefender.security");
     }
 
 

@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +24,10 @@ import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -103,6 +110,14 @@ public class ScannerActivity extends BaseActivity {
     private void setData() {
 
         List<InstalledApp> list = Storage.readAppList();
+        list = sortList(list);
+
+        setPrivacyScoreTv(list);
+        setDataListView(list);
+    }
+
+    private List<InstalledApp> sortList(List<InstalledApp> list) {
+
         Collections.sort(list, new Comparator<InstalledApp>() {
             @Override
             public int compare(InstalledApp app1, InstalledApp app2) {
@@ -114,10 +129,15 @@ public class ScannerActivity extends BaseActivity {
                     return 0;
             }
         });
-        setPrivacyScoreTv(list);
 
-        setDataListView(list);
-
+        List<InstalledApp> copyList = new ArrayList<>(list);
+        for(InstalledApp app: list){
+            if (PermissionUtils.isOnWhiteList(app)){
+                copyList.remove(app);
+                copyList.add(app);
+            }
+        }
+        return copyList;
     }
 
     private void setDataListView(List<InstalledApp> list) {
@@ -239,11 +259,23 @@ public class ScannerActivity extends BaseActivity {
         dialog.show();
 
         View closeIv = convertView.findViewById(R.id.fb_dialog_close_iv);
+        TextView infoTv = (TextView) convertView.findViewById(R.id.installed_apps_info_tv);
+        setSpannableString(infoTv);
         closeIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         });
+    }
+
+    private void setSpannableString(TextView textview) {
+        
+        SpannableString ss = new SpannableString(textview.getText() + "   . ");
+        Drawable d = getResources().getDrawable(R.drawable.privacy_oriented);
+        d.setBounds(0, 0, 35, 35);
+        ImageSpan span = new ImageSpan(d, ImageSpan.ALIGN_BASELINE);
+        ss.setSpan(span, textview.getText().length() + 1, textview.getText().length() + 3, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        textview.setText(ss);
     }
 }

@@ -363,9 +363,12 @@
     <string name="installed_apps_info_txt">Each application has a privacy rating also called privacy score.
         When the score is lower, the application is privacy friendly.
         The score is visually represented by a palette of colors from dark green to bright red.\n
-        \nFor more information about the data that can be leaked, tap on the "View permissions" button and see the list of app permissions.
-        Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.
+        \nWe have a whitelist of apps that are privacy friendly. Each app from the whitelist is
+        visually represented by a special icon
     </string>
+    <string name="installed_apps_info_txt_part2">\nFor more information about the data that can be
+        leaked, tap on the "View permissions" button and see the list of app permissions.
+        Most of the permissions are privacy unfriendly and categorized using the Privacy Rainbow method.</string>
     <string name="the_app_doesn_t_need_permissions">The app doesn\'t need permissions.</string>
     <string name="authentication_required">You need to login or sign up with your email address only if you wish to use the email identity management feature. If you choose not to log in, you can still use all the other features of PlusPrivacy, anonymously.</string>
     <string name="reset_password"><u>Reset password</u></string>
