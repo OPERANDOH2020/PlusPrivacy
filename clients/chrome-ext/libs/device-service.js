@@ -44,7 +44,6 @@ var deviceService = exports.deviceService = {
         deviceService.getDeviceId(function(deviceId){
             var handler = swarmHub.startSwarm("UDESwarm.js","registerDeviceId",deviceId);
             handler.onResponse("device_registered",function (swarm) {
-                console.log("Device id is: ",deviceId);
             });
 
             handler.onResponse("failed",function (swarm) {

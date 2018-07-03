@@ -115,9 +115,7 @@ angular.module('osp', ['cfp.loadingBar'])
             }
 
             for (key in availableSettings) {
-                console.log(key, availableSettings[key].name);
                 if (availableSettings[key].name === settingValue) {
-                    console.log(key);
                     return key;
                 }
             }
@@ -258,7 +256,6 @@ angular.module('osp', ['cfp.loadingBar'])
                     if (args.settingValue == undefined) {
                         args.settingValue = "undefined";
                     }
-                    console.log(args.settingKey, args.settingValue);
 
                     $scope.config[args.settingKey].userSetting = args.settingValue;
 
@@ -375,12 +372,10 @@ angular.module('osp', ['cfp.loadingBar'])
                                              }
                                              else {
                                                  if (msg.status == "finishedCommand") {
-                                                     //console.log(getSettingKeyValue($scope.osp, msg.settingKey, msg.settingValue));
                                                      $scope.$parent.$broadcast("received-setting", {
                                                          settingKey: msg.settingKey,
                                                          settingValue: ospService.getSettingKeyValue($scope.osp, msg.settingKey, msg.settingValue)
                                                      });
-                                                     console.log( msg.settingKey, msg.settingValue);
                                                      currentCallback();
                                                  }
                                              }

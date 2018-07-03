@@ -779,8 +779,8 @@ color:#FFF;
     background: url("/operando/assets/images/view_permissions.png") no-repeat center;
     border: none;
     box-shadow: none;
-    height: 36px;
-    padding: 17px 28px;
+    height: 34px;
+    padding: 11px 28px;
     background-size: 45%;
 }
 
@@ -2828,4 +2828,10 @@ div.scpNotLoggedIn{
     height: 32px;
     line-height: 32px;
     background: #3B3B3B;
+}
+
+.privacy_oriented{
+    background: url("/operando/assets/images/privacy_oriented.png") no-repeat left center;
+    padding-left: 30px;
+    display: inline-block;
 }

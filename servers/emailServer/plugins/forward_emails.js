@@ -111,14 +111,6 @@ exports.decide_action = function (next,connection) {
                             "to": realEmail,
                             "conversation":conversation
                         });
-                    }else if(conversation.sender.toLocaleLowerCase().match('apache@'+host)){
-                        plugin.loginfo('wordpress email');
-                        connection.results.add(plugin,{
-                            "action":"sendWordpressEmail",
-                            "to":realEmail,
-                            "from":"pressrelease@"+host,
-                            "replyTo": "contact@"+host
-                        })
                     }else{
                         plugin.loginfo("Delivering to user");
                         var token = jwt.sign(JSON.stringify(conversation), encriptionKey, {algorithm: "HS256"});
@@ -133,17 +125,6 @@ exports.decide_action = function (next,connection) {
 
                     connection.relaying = true;
                     next()
-                }else
-                if(sender.toLocaleLowerCase().match('apache@'+host)){
-                    //TODO rewrite this
-                    connection.results.add(plugin,{
-                        "action":"sendWordpressEmail",
-                        "to":alias,
-                        "from":"pressrelease@"+host,
-                        "replyTo": "contact@"+host
-                    });
-                    connection.relaying = true;
-                    next();
                 }else{
                     next(DENYDISCONNECT)
                 }
@@ -204,10 +185,6 @@ exports.perform_action = function (next, connection) {
             }
             var reply_to_token = jwt.sign(JSON.stringify(conversation),encriptionKey,{algorithm:"HS256"});
             addReplyTo("reply_anonymously_to_sender_"+reply_to_token+"@"+host);
-            break;
-        case "sendWordpressEmail":
-            changeTo(decision.to,true);
-            addReplyTo(decision.replyTo);
             break;
     }
 
