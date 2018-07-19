@@ -314,7 +314,6 @@ angular.module('extensions', [])
                 }
 
                 $scope.toggleEnabled = function () {
-                    messengerService.send("sendAnalytics","changedAppsOrExtensions");
                     switchState(!$scope.extension.enabled);
                 }
 
