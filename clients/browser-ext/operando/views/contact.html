@@ -2,7 +2,7 @@
 
     <div class="panel-group col-xs-12" ng-controller="contactController">
         <div class="panel panel-default panel-notifications">
-            <div class="panel-heading">Contact</div>
+            <div class="panel-heading">{{"contact"|i18n}}</div>
             <div class="panel-body">
 
                 <div class="row">
@@ -11,7 +11,7 @@
 
                         <form ng-submit="sendMessage()" id="contact_form" name="contactForm" ng-show="requestWasMade!==true">
                             <div class="form-group">
-                                <label class="col-md-2 control-label"> Subject(*)</label>
+                                <label class="col-md-2 control-label"> {{"subject"|i18n}}(*)</label>
                                 <div class="col-md-10 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
@@ -22,7 +22,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Your Message(*)</label>
+                                <label class="col-md-2 control-label">{{"yourMessage"|i18n}}(*)</label>
                                 <div class="col-md-10 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
@@ -34,14 +34,14 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
-                                  <i>Fields marked with * are required</i>
+                                    <i>{{"fieldsRequired"|i18n}}</i>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
-                                    <input type="submit" style="float:left" value="Send" class="btn btn-primary" ng-disabled="contactForm.$invalid || sendingMessage === true">
+                                    <input type="submit" style="float:left" value="{{'send'|i18n}}" class="btn btn-primary" ng-disabled="contactForm.$invalid || sendingMessage === true">
                                     <ui-loader style="float:left" class="contact-loader" ng-if="sendingMessage === true" ng-cloak=""></ui-loader>
                                 </div>
                             </div>
@@ -50,14 +50,14 @@
                         <div ng-show="messageSent == true">
                             <div class="alert alert-success fade in alert-dismissable" style="margin-top:18px;">
                                 <span class="glyphicon glyphicon-ok"></span>
-                                <strong>Message sent!</strong> Thank you for getting in touch!
+                                <strong>{{"messageSent"|i18n}}</strong> {{"thankYouGettingTouch"|i18n}}
                             </div>
                         </div>
 
                         <div ng-show="messageSent == false">
                             <div class="alert alert-danger fade in alert-dismissable" style="margin-top:18px;">
                                 <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                <strong>An error occurred!</strong>Please try again later.
+                                <strong>{{"error"|i18n}}</strong>{{"tryAgain"|i18n}}
                             </div>
                         </div>
                     </div>

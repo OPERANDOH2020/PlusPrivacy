@@ -1,16 +1,16 @@
 <div>
     <div ng-if="isLoggedInSocialNetwork == false" class="notLoggedIn">
-        You are not logged in <span class="social_network_name">{{sn}}</span>! <a href="{{sn_url}}" target="_blank">Log in</a>
+        {{"notLoggedIn"|i18n}} <span class="social_network_name">{{sn}}</span>! <a href="{{sn_url}}" target="_blank">{{"login"|i18n}}</a>
     </div>
 
 <table class="table table-bordered social_apps_table" ng-if="isLoggedInSocialNetwork == true">
     <thead>
     <tr>
-        <th>Logo</th>
-        <th>App name</th>
-        <th ng-if="sn=='facebook'">Visibility</th>
-        <th ng-if="sn!='linkedin'">Permissions</th>
-        <th>Actions</th>
+        <th>{{"logo"|i18n}}</th>
+        <th>{{"appName"|i18n}}</th>
+        <th ng-if="sn=='facebook'">{{"visibility"|i18n}}</th>
+        <th ng-if="sn!='linkedin'">{{"permissions"|i18n}}</th>
+        <th>{{"actions"|i18n}}</th>
     </tr>
     </thead>
 <tr ng-repeat="app in apps">
@@ -52,7 +52,7 @@
     <td colspan="5">
         <ui-loader ng-if="requestIsMade==false"></ui-loader>
         <div ng-if="requestIsMade==true">
-            <p>No {{sn}} apps installed</p>
+            <p>{{"noAppsInstalled"|i18n:"sn":sn}}</p>
         </div>
     </td>
 </tr>

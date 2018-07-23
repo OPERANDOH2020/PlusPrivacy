@@ -22,6 +22,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
 
         }
     ])
+    .run(["i18nService",function(i18nService){
+        i18nService.load().then(function(){
+            console.log("bau");
+        });
+    }])
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.includeBar = true;
@@ -73,7 +78,13 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
-                cache: false
+                cache: false,
+                /*resolve:{
+                    i18n: ['i18nService', function (i18nService) {
+                        console.log("asdasd");
+                        return i18nService.load();
+                    }]
+                }*/
             })
             .state("socialNetworks", {
                 url: "/social-networks",
@@ -293,15 +304,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             url: "/privacy-policy",
             templateUrl: "views/privacy_policy.html"
             })
-            /*.state('feedback', {
-                url: "/feedback",
-                templateUrl: "views/feedback.html",
-                resolve: {
-                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('/controllers/feedbackController.js');
-                    }]
-                }
-            })*/
+
             .state('feedback', {
                 url: "/feedback",
                 templateUrl: "views/feedback_form.html",
@@ -339,10 +342,7 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                 }
             });
         $urlRouterProvider.otherwise('/home');
-    })
-    .run(["i18nService",function(i18nService){
-        i18nService.load();
-    }]);
+    });
 
 
 

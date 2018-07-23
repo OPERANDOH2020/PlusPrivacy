@@ -1,10 +1,10 @@
 angular.module("operando").
-controller("appLoginController", ["$scope", "ModalService","$state", function ($scope, ModalService, $state) {
+controller("appLoginController", ["$scope", "ModalService","i18nService","$state", function ($scope, ModalService, i18nService, $state) {
 
     $scope.featureMessages = {
-        "identityManagement":"To use Identity management feature, you need to log in with your email address.",
-        "deals":"To use the deals feature, you need to log in with your email address.",
-        "contact":"To use the contact feature, you need to log in with your email address. If you don't want to authenticate or to reveal your real address to us, you can send your request via the <a href='operando.html#/feedback'>feedback</a> form or send an email at <a href='mailto:contact@plusprivacy.com'>contact@plusprivacy.com</a>."
+        "identityManagement":i18nService._("identityManagementUsage"),
+        "deals":i18nService._("dealsUsage"),
+        "contact":i18nService._("contactUsage")
     };
 
 

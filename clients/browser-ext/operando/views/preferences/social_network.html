@@ -9,7 +9,7 @@
                     <div class="username_bounce3"></div>
                 </div>
                 <span ng-if="socialNetworkEmail">({{socialNetworkEmail.account}})</span>
-                <span ng-if="authenticated === false"> - You are not logged in.</span>
+                <span ng-if="authenticated === false"> - {{"notLoggedIn"|i18n}}</span>
             </h2>
             <div class="sn_actions">
                 <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>

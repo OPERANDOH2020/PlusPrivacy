@@ -26,6 +26,6 @@ angular.module("UIComponent").directive("howItWorks",["i18nService",function(i18
                 });
             }
         }],
-        template: '<a class="how_it_works" ng-click="howItWorks();">How does it work?</a>'
+        template: '<a class="how_it_works" ng-click="howItWorks();">{{"howDoesItWork"|i18n}}</a>'
     }
 }]);

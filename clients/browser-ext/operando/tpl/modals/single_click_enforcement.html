@@ -4,12 +4,12 @@
             <div class="modal-body">
 
                 <div>
-                    <h4 style="text-align:center">Updating your privacy settings</h4>
+                    <h4 style="text-align:center">{{"updatingPrivacySettings"|i18n}}</h4>
                     <hr/>
 
                     <div ng-if="isLoggedIn === false" class="social_network_log_in_container">
                         <ui-loader class="social_network_log_in" ></ui-loader>
-                        <span class="sn_not_connected">Please log into {{socialNetwork}}!</span>
+                        <span class="sn_not_connected">{{"pleaseLogInto"|i18n}} {{socialNetwork}}!</span>
                     </div>
                     <div ng-if="(progresses | isEmpty) && (osps.length > 0)">
                         <ui-loader ></ui-loader>
@@ -17,7 +17,7 @@
                     <div ng-repeat="(ospKey,progress) in progresses" ng-if="singleOsp || noSocialNetworkAvailable == false">
                         <div class="social_networks_action_progress_container">
                             <h4>{{progress.ospName}}</h4>
-                            <div ng-if="progress.status == 'notLoggedIn'" class="notLoggedIn scpNotLoggedIn">({{"not-logged-in"|i18n}})<a href="{{loginUrls[ospKey]}}" target="_blank">{{"login"|i18n}}</a></div>
+                            <div ng-if="progress.status == 'notLoggedIn'" class="notLoggedIn scpNotLoggedIn">({{"notLoggedIn"|i18n}})<a href="{{loginUrls[ospKey]}}" target="_blank">{{"login"|i18n}}</a></div>
                             <div class="action_progress"><ui-loader status="progress.status"></ui-loader></div>
                         </div>
                         <progress-bar ng-if = "progress.status !='aborted' && progress.status !='notLoggedIn'" current="progress.current" total="progress.total"
@@ -43,16 +43,16 @@
                 <span ng-if="completed">
                     <span ng-if="completedFeedback" class="alldone">{{completedFeedback}}</span>
                     <span ng-if="!completedFeedback">
-                        <span ng-if="operationPartialSucceed" class="somedone">Some settings were applied</span>
-                        <span ng-if="operationSucceed" class="alldone">All settings were updated</span>
-                        <span ng-if="operationAborted" class="nonedone">All processes were aborted</span>
+                        <span ng-if="operationPartialSucceed" class="somedone">{{"someSettingsWereApplied"|i18n}}</span>
+                        <span ng-if="operationSucceed" class="alldone">{{"allSettingsWereUpdated"|i18n}}</span>
+                        <span ng-if="operationAborted" class="nonedone">{{"allProcessesWereAborted"|i18n}}</span>
                     </span>
                 </span>
                 <button type="button" ng-click="cancel()" ng-if="!completed" class="btn btn-primary-black" data-dismiss="modal">
-                    <span>Cancel</span>
+                    <span>{{"cancel"|i18n}}</span>
                 </button>
                 <button type="button" ng-click="close('Yes')" ng-if="completed" class="btn btn-primary-black" data-dismiss="modal">
-                    <span>Close</span>
+                    <span>{{"close"|i18n}}</span>
                 </button>
 
             </div>

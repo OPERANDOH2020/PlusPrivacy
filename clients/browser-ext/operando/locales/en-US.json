@@ -8,6 +8,7 @@
     "keepMeLoggedIn": "Keep me logged in",
     "forgotPassword": "Forgot Password",
     "cancel": "Cancel",
+    "close":"Close",
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm password",
@@ -27,6 +28,65 @@
     "identities-popup-text":"You can provide an alternative identity to websites and people instead of your real email address. Emails sent to your alternative identity will be relayed to the email address with which you are registered to PlusPrivacy. When you reply to these emails, they will be relayed to the original sender, with your alternative identity placed in the From field of the email message. This allows you to communicate without disclosing your real email address.<br/>You can delete an alternative identity any time, in which case emails sent to it will bounce.",
     "please-login-with-social-networks":"You need to be logged into your social networks accounts. Currently you are not logged into %{socialNetworks}. Please log in to at least one social network and try again.",
     "try-again":"Try again",
-    "not-logged-in":"You are not logged in",
-    "passwordIsRequired":"Password is required"
+    "notLoggedIn":"You are not logged in",
+    "passwordIsRequired":"Password is required",
+    "home":"Home",
+    "socialNetworks":"Social Networks",
+    "connectedApps":"Connected Apps",
+    "connected-apps":"connected apps",
+    "consentDeals":"Consent Deals",
+    "myIdentities":"My Identities",
+    "adBlockingAntiTracking":"Ad blocking & anti-tracking",
+    "feedback":"Feedback",
+    "footer_text":"This service is supported by the European Commission under the Horizon 2020 Programme (H2020), as part of the OPERANDO project (GA no. 653704).",
+    "version":"Version: %{appVersion}",
+    "faq":"FAQ",
+    "community":"Community",
+    "blog":"Blog",
+    "contact":"Contact",
+    "account":"Account",
+    "plusprivacy_welcome_message":"Welcome to PlusPrivacy – your online privacy dashboard",
+    "plusprivacy_message1":"PlusPrivacy provides you with a unified dashboard for protecting yourself from a variety of threats to your privacy. It will enable you to control the privacy settings in your social network accounts, hide your email identity, block ads, trackers and malware and prevent unwanted apps and browser extensions from tracking you and collecting your private data. PlusPrivacy is open source and you can use it anonymously.",
+    "plusprivacy_message2":"In the future PlusPrivacy will also help you to tightly control who has access to your data and ensure that your privacy is protected to the full extent of General Data Protection Regulation (GDPR).",
+    "plusprivacy_message3":"The sidebar will help you to explore PlusPrivacy. Take back your online privacy!",
+    "identityManagementUsage":"To use Identity management feature, you need to log in with your email address.",
+    "dealsUsage":"To use the deals feature, you need to log in with your email address.",
+    "contactUsage":"To use the contact feature, you need to log in with your email address. If you don't want to authenticate or to reveal your real address to us, you can send your request via the <a href='operando.html#/feedback'>feedback</a> form or send an email at <a href='mailto:contact@plusprivacy.com'>contact@plusprivacy.com</a>.",
+    "howDoesItWork":"How does it work?",
+    "singleClickPrivacyMessage":"Clicking the \"Single click privacy\" button will automatically change all the privacy options in your social network accounts to their most privacy-friendly settings. If you want to edit privacy settings manually, select the social network on the sidebar.",
+    "fieldsRequired":"Fields marked with * are required",
+    "subject":"Subject",
+    "yourMessage":"Your Message",
+    "yourFeedback":"Your Feedback",
+    "messageSent":"Message sent.",
+    "feedbackSent":"Feedback sent.",
+    "thankYouGettingTouch":"Thank you for getting in touch.",
+    "error":"An error occured.",
+    "tryAgain":"Please try again later.",
+    "send":"Send",
+    "pleaseLogInto":"Please log into",
+    "updatingPrivacySettings":"Updating your privacy settings",
+    "someSettingsWereApplied":"Some settings were applied",
+    "allSettingsWereUpdated":"All settings were updated",
+    "allProcessesWereAborted ":"All processes were aborted",
+    "loginOrSignup":"Login or sign up",
+    "extensionName":"Extension/App name",
+    "appName":"App name",
+    "intrusiveness":"Intrusiveness",
+    "visibility":"Visibility",
+    "permissions":"Permissions",
+    "logo":"Logo",
+    "noAppsInstalled":"No %{sn} apps installed",
+    "actions":"Actions",
+    "permissionWarnings":"Permission Warnings"
+
+
+
+
+
+
+
+
+
+
   }

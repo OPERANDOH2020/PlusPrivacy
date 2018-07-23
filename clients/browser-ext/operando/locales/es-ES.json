@@ -27,6 +27,6 @@
   "identities-popup-text": "Usted puede proporcionar una identidad alternativa a los sitios web y personas en lugar de su dirección de correo electrónico real. Los correos electrónicos enviados a su identidad alternativa se remitirán a la dirección de correo electrónico con la que está registrado en PlusPrivacy. Cuando usted responde a estos correos electrónicos, ellos serán retransmitidos al remitente original, con su identidad alternativa colocada en el campo de del mensaje de correo electrónico. Esto le permite comunicarse sin revelar su dirección de correo electrónico real.<br/>Puede borrar una identidad alternativa en cualquier momento, en cuyo caso los correos electrónicos enviados a él rebotarán.",
   "please-login-with-social-networks": "Necesitas iniciar sesión en tus cuentas de redes sociales. Actualmente no ha iniciado sesión en %{socialNetworks}. Por favor inicie sesión en al menos una red social e inténtelo de nuevo.",
   "try-again": "Volver a intentarlo",
-  "not-logged-in": "No has iniciado sesión",
+  "notLoggedIn": "No has iniciado sesión",
   "passwordIsRequired": "Se requiere contraseña"
 }

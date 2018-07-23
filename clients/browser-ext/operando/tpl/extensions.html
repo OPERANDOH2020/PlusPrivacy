@@ -4,8 +4,8 @@
         <table class="table table-bordered" id="extensions_table" datatable="ng" dt-column-defs="dtColumnDefs"  dt-options="dtOptions" dt-instance="dtInstance"  >
             <thead>
             <tr>
-                <th style="width: 50%">Extension/App name</th>
-                <th>Intrusiveness</th>
+                <th style="width: 50%">{{"extensionName"|i18n}}</th>
+                <th>{{"intrusiveness"|i18n}}</th>
                 <th ng-if="isFirefox == false" class="no-sort"></th>
             </tr>
             </thead>

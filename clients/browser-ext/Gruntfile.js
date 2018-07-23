@@ -54,7 +54,8 @@ module.exports = function(grunt){
                   "operando/util/Constants.js",
                   "operando/services/swarm-services/SwarmDebug.js",
                   "operando/services/swarm-services/SwarmClient.js",
-                  "operando/services/swarm-services/SwarmHub.js"
+                  "operando/services/swarm-services/SwarmHub.js",
+                  "operando/backgrounds/utils/polyglot.min.js"
               ],
                 dest:"dist/backgrounds/swarm-services.js"
             },
@@ -66,6 +67,7 @@ module.exports = function(grunt){
                     "build/operando/libs/swarm-service.js",
                     "build/operando/libs/identity-service.js",
                     "build/operando/libs/device-service.js",
+                    "build/operando/libs/i18n-service.js",
                     "build/operando/libs/notification-service.js",
                     "build/operando/libs/authentication-service.js",
                     "build/operando/libs/pfb-service.js",
@@ -100,6 +102,7 @@ module.exports = function(grunt){
                     "operando/libs/swarm-service.js",
                     "operando/libs/identity-service.js",
                     "operando/libs/device-service.js",
+                    "operando/libs/i18n-service.js",
                     "operando/libs/notification-service.js",
                     "operando/libs/authentication-service.js",
                     "operando/libs/pfb-service.js",

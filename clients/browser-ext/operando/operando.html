@@ -83,7 +83,7 @@
                 <li>
                     <a class="menu_icon faq_icon" href="https://plusprivacy.com/faq/" target="_blank">
                         <div class="menu_item_content">
-                            <span class="email">FAQ</span>
+                            <span class="email">{{"faq"|i18n}}</span>
                         </div>
                     </a>
                 </li>
@@ -91,7 +91,7 @@
                 <li>
                     <a class="menu_icon community_icon" href="https://plusprivacy.com/community/" target="_blank">
                         <div class="menu_item_content">
-                            <span class="email">Community</span>
+                            <span class="email">{{"community"|i18n}}</span>
                         </div>
                     </a>
                 </li>
@@ -99,7 +99,7 @@
                 <li>
                     <a class="menu_icon blog_icon" href="https://plusprivacy.com/blog/" target="_blank">
                         <div class="menu_item_content">
-                            <span class="email">Blog</span>
+                            <span class="email">{{"blog"|i18n}}</span>
                         </div>
                     </a>
                 </li>
@@ -108,7 +108,7 @@
                 <li ui-sref-active="active">
                     <a class="menu_icon contact_icon" ui-sref="contact">
                         <div class="menu_item_content">
-                            <span class="email">Contact</span>
+                            <span class="email">{{"contact"|i18n}}</span>
                         </div>
                     </a>
                 </li>
@@ -116,7 +116,7 @@
                 <li ui-sref-active="active">
                     <a class="menu_icon privacy_policy_icon" ui-sref="privacyPolicy">
                         <div class="menu_item_content">
-                            <span class="email">Privacy Policy</span>
+                            <span class="email">{{"privacyPolicy"|i18n}}</span>
                         </div>
                     </a>
                 </li>
@@ -141,13 +141,13 @@
 
                     <ul class="dropdown-menu dropdown-menu-default" ng-if="userIsLoggedIn">
                         <li ng-class="{active: $state.includes('account')}">
-                            <a class="menu_icon account" ui-sref="account.personal-details">Account</a>
+                            <a class="menu_icon account" ui-sref="account.personal-details">{{"account"|i18n}}</a>
                         </li>
                         <li class="divider"></li>
 
                         <li>
                             <a class="menu_icon logout" ng-click="logout()">
-                                Log Out </a>
+                                {{"logout"|i18n}} </a>
                         </li>
                     </ul>
                 </li>
@@ -167,11 +167,11 @@
                     aria-multiselectable="true">
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon home_icon" ui-sref="home">Home</a>
+                        <a class="menu_icon home_icon" ui-sref="home">{{"home"|i18n}}</a>
                     </li>
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks"  change-state-if="{condition:$state.includes('socialNetworks') || $state.includes('preferences'),state:'home'}">Social Networks</a>
+                        <a class="menu_icon social_networks_icon" ui-sref="socialNetworks"  change-state-if="{condition:$state.includes('socialNetworks') || $state.includes('preferences'),state:'home'}">{{"socialNetworks"|i18n}}</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="sn_content" ng-if="$state.includes('socialNetworks') || $state.includes('preferences')"
                             ng-controller="socialAppsController">
                             <li ng-repeat="osp in osps">
@@ -184,7 +184,7 @@
                     </li>
 
                     <li  class="no-sub-menu">
-                        <a class="menu_icon extensions_icon" ui-sref="extensions" change-state-if="{condition:$state.includes('extensions') || $state.includes('network'),state:'home'}" >Connected apps</a>
+                        <a class="menu_icon extensions_icon" ui-sref="extensions" change-state-if="{condition:$state.includes('extensions') || $state.includes('network'),state:'home'}" >{{"connectedApps"|i18n}}</a>
                         <ul class="panel-group nav nav-tabs tabs-left sub-menu pq_social_network" id="apps_content" ng-if="$state.includes('extensions') || $state.includes('network') "
                             ng-controller="socialAppsController">
                             <li>
@@ -195,25 +195,25 @@
                                 <a
                                         class="menu_icon" ng-class="sn+'_icon'"
                                         ui-sref-active="active"
-                                        ui-sref="network.apps({sn:sn})">{{sn}} connected apps</a>
+                                        ui-sref="network.apps({sn:sn})">{{sn}} {{"connected-apps"|i18n}}</a>
                             </li>
                         </ul>
                     </li>
 
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon privacy_deals_icon" ui-sref="deals">Consent Deals</a>
+                        <a class="menu_icon privacy_deals_icon" ui-sref="deals">{{"consentDeals"|i18n}}</a>
                     </li>
 
                     <li ui-sref-active="active" class="no-sub-menu">
-                        <a class="menu_icon identity_management_icon" ui-sref="identityManagement">My Identities</a>
+                        <a class="menu_icon identity_management_icon" ui-sref="identityManagement">{{"myIdentities"|i18n}}</a>
                     </li>
 
                     <li ui-sref-active="active" class="no-sub-menu"><a class="menu_icon abp_icon"
-                                                                       ui-sref="abp">Ad blocking & anti-tracking</a></li>
+                                                                       ui-sref="abp">{{"adBlockingAntiTracking"|i18n}}</a></li>
                     <li ui-sref-active="active" class="no-sub-menu">
                         <a class="menu_icon feedback_icon"
-                                                                       ui-sref="feedback">Feedback</a>
+                                                                       ui-sref="feedback">{{"feedback"|i18n}}</a>
                     </li>
 
                 </ul>
@@ -234,9 +234,7 @@
         <div id="footer-copyright">
             <div id="footer-copyright-content" class="clearfix">
 
-                <p id="european_commission">This service is supported by the European Commission under the Horizon 2020 Programme (H2020), as part
-                    of the OPERANDO project (GA no. 653704).
-                </p>
+                <p id="european_commission">{{"footer_text"|i18n}}</p>
 
             </div>
         </div>
@@ -244,6 +242,6 @@
 </div>
 </div>
 </div>
-<div class="app_version">Version: {{appVersion}}</div>
+<div class="app_version">{{"version"|i18n:"appVersion":appVersion}}</div>
 </body>
 </html>
