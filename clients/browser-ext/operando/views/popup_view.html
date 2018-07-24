@@ -3,14 +3,6 @@
     <ul ng-controller="loginCtrl" class="popup-login-area">
 
         <menu-item icon-class="dashboard_icon" menu-label="{{'privacyDashboard'|i18n}}" tab-to-open = "home" ng-hide="loginAreaState == 'forgot_password' || loginAreaState =='register_form'||loginAreaState == 'login_form'"></menu-item>
-        <li id="operando_abp" ng-show="showAdBlockerSettings">
-
-                <div id="enabled" class="menu-item" role="button">
-                    <div class="icon"></div>
-                    <span id="enabled-yes">Ads blocked on this site</span>
-                    <span id="enabled-no">Ads not blocked on this site</span>
-                </div>
-        </li>
 
         <li id="login_area" ng-switch="loginAreaState">
             <div ng-if="info.status">

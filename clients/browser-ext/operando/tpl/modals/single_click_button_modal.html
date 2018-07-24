@@ -3,16 +3,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">Single Click Privacy Enforcement</h3>
+                <h3 class="modal-title">{{"singleClickPrivacyEnforcement"|i18n}}</h3>
             </div>
             <div class="modal-body">
 
-                <p>This will configure optimal privacy settings in all your social network accounts. Continue?</p>
+                <p>{{"singleClickConfirmation"|i18n}}</p>
 
             </div>
             <div class="modal-footer">
-                <button type="button" ng-click="enforcePrivacy()" class="btn btn-primary" data-dismiss="modal">Yes</button>
-                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">No</button>
+                <button type="button" ng-click="enforcePrivacy()" class="btn btn-primary" data-dismiss="modal">{{"yes"|i18n}}</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">{{"no"|i18n}}</button>
             </div>
         </div>
     </div>

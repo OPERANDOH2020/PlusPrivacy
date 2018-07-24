@@ -1,19 +1,19 @@
 <div class="tab-pane active" id="personal_details" ng-controller="accountCtrl as account">
 
 
-    <h2>Account Details</h2>
+    <h2>{{"accountDetails"|i18n}}</h2>
 
     <div class="row">
         <div class="col-lg-12" ng-switch on="passwordIsEditMode">
 
             <div ng-switch-when="false">
-                <label>Password</label>
+                <label>{{"password"|i18n}}</label>
 
                 <div class="input-group">
                     <input type="password" class="form-control" value="************" disabled>
 
                                 <span class="input-group-btn" ng-switch on="passwordIsEditMode">
-                                    <button ng-click="changePassword()" class="btn btn-secondary" type="button">Change
+                                    <button ng-click="changePassword()" class="btn btn-secondary" type="button">{{"change"|i18n}}
                                     </button>
                                 </span>
                 </div>
@@ -23,7 +23,7 @@
                 <div>
                     <form ng-submit="account.savePassword()" name="account.changePasswordForm" >
                         <fieldset class="form-group">
-                            <label>Change your password</label>
+                            <label>{{"changePassword"|i18n}}</label>
                             <input type="password" class="form-control" placeholder="Current password" ng-model = "user.currentPassword" required name="currentPassword">
                             <div class="invalid-field" ng-messages="account.changePasswordForm.currentPassword.$error" ng-show="account.changePasswordForm.currentPassword.$touched">
                                 <div ng-messages-include="/tpl/messages/messages.html"></div>
@@ -45,7 +45,7 @@
                         </fieldset>
 
                         <div>
-                            <button class="btn btn-primary" type="submit" ng-click="loading($event)" ng-disabled="account.changePasswordForm.$invalid" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request">Save</button>
+                            <button class="btn btn-primary" type="submit" ng-click="loading($event)" ng-disabled="account.changePasswordForm.$invalid" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request">{{"save"|i18n}}</button>
                         </div>
                     </form>
                 </div>
@@ -58,9 +58,9 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div><label>Remove your account</label></div>
+            <div><label>{{"removeAccount"|i18n}}</label></div>
             <div>
-                <button class="btn-primary" ng-click="deleteAccount()">Delete account</button>
+                <button class="btn-primary" ng-click="deleteAccount()">{{"deleteAccount"|i18n}}</button>
             </div>
         </div>
     </div>

@@ -14,9 +14,6 @@ body.local #stats-page
   display: none;
 }
 
-body.local #operando_abp{
-  display: none;
-}
 
 body.nohtml #clickhide,
 body.disabled #clickhide
@@ -420,10 +417,6 @@ ul.popup-login-area{
   float:left;
 }
 
-
-#operando_abp{
-  background: #ece7df;
-}
 
 #share,#show-iconnumber,.operando_hide{
     display: none;

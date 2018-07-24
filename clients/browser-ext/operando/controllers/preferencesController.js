@@ -10,8 +10,8 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-angular.module('operando').controller('PreferencesController', ["$scope", "$attrs", "cfpLoadingBar", "ospService", "$state", "watchDogService", "ModalService", "messengerService",
-    function ($scope, $attrs, cfpLoadingBar, ospService, $state, watchDogService, ModalService, messengerService) {
+angular.module('operando').controller('PreferencesController', ["$scope", "$attrs", "cfpLoadingBar", "ospService", "$state", "watchDogService", "ModalService", "messengerService","i18nService",
+    function ($scope, $attrs, cfpLoadingBar, ospService, $state, watchDogService, ModalService, messengerService, i18nService) {
 
         var settings = [];
 
@@ -92,7 +92,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 $scope.close("Aborted");
                             }
                             else{
-                                $scope.completedFeedback = socialNetwork + " privacy settings were updated!";
+                                $scope.completedFeedback = i18nService._("privaySettingsWereUpdated",{"socialNetwork":socialNetwork});
                                 $scope.completed = true;
                                 $scope.$apply();
                             }
@@ -116,6 +116,8 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
 
             retrieveUserLoggedInAccount(value);
             $scope.socialNetwork = value;
+
+            $scope.updateSettingsLabel = i18nService._("updateSettings",{ospTitle:$scope.osp.title});
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
                 $scope.schema = _schema;

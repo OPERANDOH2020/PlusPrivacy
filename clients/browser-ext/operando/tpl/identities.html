@@ -34,7 +34,7 @@
     </div>
 
 
-    <div ng-if="max_identities_nr - identities.length>0" style="margin-top: 20px"><span class="identities_number">{{"identitiesLeft"|i18n}} : <strong>{{max_identities_nr - identities.length}}</strong></span></div>
+    <div ng-if="max_identities_nr - identities.length>0" style="margin-top: 20px"><span class="identities_number">{{"identitiesLeft"|i18n}} : {{max_identities_nr - identities.length}}</span></div>
     <div ng-if="max_identities_nr - identities.length==0" style="margin-top: 20px"><span class="identities_number">{{"cannotAddMoreIdentities"|i18n}}</span></div>
 </div>
 

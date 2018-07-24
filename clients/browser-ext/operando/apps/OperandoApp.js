@@ -283,14 +283,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
                     }]
                 }
             })
-            .state('account.activity', {
-                url: "/activity",
-                templateUrl: "views/account/activity.html"
-            })
-            .state('account.billing', {
-                url: "/billing",
-                templateUrl: "views/account/billing.html"
-            })
             .state('privacyPolicy', {
             url: "/privacy-policy",
             templateUrl: "views/privacy_policy.html"

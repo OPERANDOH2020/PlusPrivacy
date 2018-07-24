@@ -12,7 +12,7 @@
                 <span ng-if="authenticated === false"> - {{"notLoggedIn"|i18n}}</span>
             </h2>
             <div class="sn_actions">
-                <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>
+                <button class="btn-primary" ng-click="submitPreferences()">{{updateSettingsLabel}}</button>
                 <how-it-works popup-target="social-network-settings-{{osp.key}}"></how-it-works>
             </div>
         </div>
@@ -22,7 +22,7 @@
 
         <div class="actions_container bottom">
             <div class="sn_actions">
-                <button class="btn-primary" ng-click="submitPreferences()">Update <span>{{osp.title}}</span> settings</button>
+                <button class="btn-primary" ng-click="submitPreferences()">{{updateSettingsLabel}}</button>
             </div>
         </div>
     </div>

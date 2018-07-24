@@ -1,5 +1,5 @@
 angular.module("operando").
-controller("socialAppController",["$scope", "$stateParams", "messengerService","ospService", function ($scope, $stateParams, messengerService,ospService) {
+controller("socialAppController",["$scope", "$stateParams", "messengerService","ospService", "i18nService", function ($scope, $stateParams, messengerService,ospService, i18nService) {
 
     var socialNetworks = {
         facebook: "Facebook",
@@ -11,6 +11,7 @@ controller("socialAppController",["$scope", "$stateParams", "messengerService","
 
     $scope.sn = $stateParams.sn;
 
+    $scope.appsConnectedToAccountLabel = i18nService._("appsConnectedToAccount",{sn:socialNetworks[$scope.sn]});
     ospService.getOSPSettings(function(settings){
         if (!$stateParams.sn) {
             $scope.osp = {

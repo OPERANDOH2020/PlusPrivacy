@@ -59,7 +59,10 @@
     "dealsUsage":"To use the deals feature, you need to log in with your email address.",
     "contactUsage":"To use the contact feature, you need to log in with your email address. If you don't want to authenticate or to reveal your real address to us, you can send your request via the <a href='operando.html#/feedback'>feedback</a> form or send an email at <a href='mailto:contact@plusprivacy.com'>contact@plusprivacy.com</a>.",
     "howDoesItWork":"How does it work?",
+    "singleClickSocialNetworkPrivacy":"Single click social network privacy",
     "singleClickPrivacyMessage":"Clicking the \"Single click privacy\" button will automatically change all the privacy options in your social network accounts to their most privacy-friendly settings. If you want to edit privacy settings manually, select the social network on the sidebar.",
+    "singleClickPrivacyEnforcement":"Single Click Privacy Enforcement",
+    "singleClickConfirmation":"This will configure optimal privacy settings in all your social network accounts. Continue?",
     "fieldsRequired":"Fields marked with * are required",
     "subject":"Subject",
     "yourMessage":"Your Message",
@@ -103,7 +106,23 @@
     "save":"Save",
     "removeApp":"RemoveApp",
     "removeAppQuestion":"Do you want to remove %{appName} from %{socialNetwork}?",
-    "appRemovedFromSocialNetwork":"App removed from %{socialNetwork}."
+    "appRemovedFromSocialNetwork":"App removed from %{socialNetwork}.",
+    "noDealsRightNow":"No deals right now",
+    "accountDetails":"Account Details",
+    "change":"Change",
+    "changePassword":"Change your password",
+    "removeAccount":"Remove your account",
+    "deleteAccount":"Delete account",
+    "accountDeletion":"Are you sure you want to delete your PlusPrivacy account?",
+    "accountDeletionConfirmation":"Yes, delete my PlusPrivacy account",
+    "appsConnectedToAccount":"Apps connected to your %{sn} account",
+    "notifications":"Notifications",
+    "updateSettings":"Update %{ospTitle} settings",
+    "privaySettingsWereUpdated":"%{socialNetwork} privacy settings were updated.",
+    "yes":"Yes",
+    "no":"No"
+
+
 
 
 
