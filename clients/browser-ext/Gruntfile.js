@@ -34,7 +34,6 @@ module.exports = function(grunt){
                     "operando/directives/dashboard/notification.js",
                     "operando/directives/dashboard/osp-settings.js",
                     "operando/directives/dashboard/single-click-privacy.js",
-                    "operando/directives/dashboard/abp_data_leakage_prevention.js",
                     "operando/directives/dashboard/progress-bar.js",
                     "operando/directives/dashboard/setting-editor.js",
                     "operando/directives/dashboard/loader.js",
@@ -54,8 +53,7 @@ module.exports = function(grunt){
                   "operando/util/Constants.js",
                   "operando/services/swarm-services/SwarmDebug.js",
                   "operando/services/swarm-services/SwarmClient.js",
-                  "operando/services/swarm-services/SwarmHub.js",
-                  "operando/backgrounds/utils/polyglot.min.js"
+                  "operando/services/swarm-services/SwarmHub.js"
               ],
                 dest:"dist/backgrounds/swarm-services.js"
             },

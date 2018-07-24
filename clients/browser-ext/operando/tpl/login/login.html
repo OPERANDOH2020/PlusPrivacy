@@ -3,13 +3,13 @@
         <div class="icon_header"></div>
         <form class="form-signin" ng-submit="login()" ng-switch-when="login">
 
-            <h2 class="form-signin-heading">Login</h2>
-            <label for="login_input_email" class="sr-only">Email address</label>
-            <input type="email" id="login_input_email" class="form-control" placeholder="Email address" required=""
+            <h2 class="form-signin-heading">{{"login"|i18n}}</h2>
+            <label for="login_input_email" class="sr-only">{{"emailAddress"|i18n}}</label>
+            <input type="email" id="login_input_email" class="form-control" placeholder="{{'emailAddress'|i18n}}" required=""
                    ng-model="user.email"
                    autofocus="">
-            <label for="login_input_password" class="sr-only">Password</label>
-            <input type="password" id="login_input_password" class="form-control" placeholder="Password" required=""
+            <label for="login_input_password" class="sr-only">{{"password"|i18n}}</label>
+            <input type="password" id="login_input_password" class="form-control" placeholder="{{'password'|i18n}}" required=""
                    ng-model="user.password">
 
 
@@ -17,20 +17,20 @@
 
                 <div class="checkbox col-lg-12">
 
-                    <a class="forgot-password" ng-click="show_forgot_password()">Forgot Password?</a>
+                    <a class="forgot-password" ng-click="show_forgot_password()">{{"forgotPasswordQuestion"|i18n}}</a>
 
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-5">
-                    <button class="btn-primary btn-block" type="submit"  ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Logging in...">Login</button>
+                    <button class="btn-primary btn-block" type="submit"  ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{'loggingIn'|i18n}}">{{"login"|i18n}}</button>
                 </div>
                 <div class="col-lg-2">
-                    <span class="or_separator">OR</span>
+                    <span class="or_separator">{{"or"|i18n}}</span>
                 </div>
                 <div class="col-lg-5">
-                    <button class="btn btn-primary-black btn-block" ng-click="show_signup()">Sign Up</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_signup()">{{"signUp"|i18n}}</button>
                 </div>
             </div>
 
@@ -38,48 +38,48 @@
 
         <form class="form-signup" ng-submit="signup()" ng-switch-when="signup">
 
-            <h2 class="form-sigup-heading">Sign Up</h2>
+            <h2 class="form-sigup-heading">{{"signUp"|i18n}}</h2>
 
-            <label for="signup_input_email" class="sr-only">Email address</label>
-            <input type="email" id="signup_input_email" class="form-control" placeholder="Email address" required=""
+            <label for="signup_input_email" class="sr-only">{{"emailAddress"|i18n}}</label>
+            <input type="email" id="signup_input_email" class="form-control" placeholder="{{'emailAddress'|i18n}}" required=""
                    ng-model="new_user.email"
                    autofocus="">
 
 
-            <label for="signup_input_password" class="sr-only">Password</label>
-            <input type="password" id="signup_input_password" class="form-control" placeholder="Password" required=""
+            <label for="signup_input_password" class="sr-only">{{"password"|i18n}}</label>
+            <input type="password" id="signup_input_password" class="form-control" placeholder="{{'password'|i18n}}" required=""
                    ng-model="new_user.password">
 
-            <label for="signup_input_repeat_password" class="sr-only">Repeat Password</label>
-            <input type="password" id="signup_input_repeat_password" class="form-control" placeholder="Confirm Password" required=""
+            <label for="signup_input_repeat_password" class="sr-only">{{"confirmPassword"|i18n}}</label>
+            <input type="password" id="signup_input_repeat_password" class="form-control" placeholder="{{'confirmPassword'|i18n}}" required=""
                    ng-model="new_user.repeat_password">
 
 
             <div class="row">
                 <div class="col-lg-7">
-                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">Sign up</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{'processingRequest'|i18n}}">{{"signUp"|i18n}}</button>
                 </div>
                 <div class="col-lg-2">
-                    <span class="or_separator">OR</span>
+                    <span class="or_separator">{{"or"|i18n}}</span>
                 </div>
                 <div class="col-lg-3">
-                    <button class="btn btn-primary-black btn-block" ng-click="show_login()">Sign In</button>
+                    <button class="btn btn-primary-black btn-block" ng-click="show_login()">{{"signIn"|i18n}}</button>
                 </div>
             </div>
 
         </form>
 
         <form class="form-signup" ng-submit="recover_password()" ng-switch-when="forgot_password">
-            <h2 class="form-sigup-heading">Recover Password</h2>
+            <h2 class="form-sigup-heading">{{"recoverPassword"|i18n}}</h2>
 
-            <label for="recover_input_email" class="sr-only">Email address</label>
-            <input type="email" id="recover_input_email" class="form-control" placeholder="Your email address" required=""
+            <label for="recover_input_email" class="sr-only">{{"emailAddress"|i18n}}</label>
+            <input type="email" id="recover_input_email" class="form-control" placeholder="{{'yourEmailAddress'|i18n}}" required=""
                    ng-model="user.reset_email"
                    autofocus="">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing request...">{{"resetPassword"|i18n}}</button>
+                    <button class="btn-primary btn-block" type="submit" ng-click="loading($event)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{'processingRequest'|i18n}}">{{"resetPassword"|i18n}}</button>
                 </div>
                 <div class="col-lg-12">
                     <span class="or_separator">OR</span>

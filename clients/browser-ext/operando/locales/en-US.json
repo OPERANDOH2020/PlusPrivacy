@@ -7,12 +7,18 @@
     "signUp": "Sign Up",
     "keepMeLoggedIn": "Keep me logged in",
     "forgotPassword": "Forgot Password",
+    "forgotPasswordQuestion":"Forgot Password?",
     "cancel": "Cancel",
     "close":"Close",
     "email": "Email",
+    "emailAddress":"Email address",
     "password": "Password",
     "confirmPassword": "Confirm password",
+    "loggingIn":"Logging in...",
+    "processingRequest":"Processing request...",
     "resetPassword": "Reset password",
+    "recoverPassword": "Recover password",
+    "yourEmailAddress":"Your email address",
     "passwordsNotMatch": "Passwords don't match",
     "emailIsUnavailable": "Email is unavailable",
     "back": "Back",
@@ -78,13 +84,26 @@
     "logo":"Logo",
     "noAppsInstalled":"No %{sn} apps installed",
     "actions":"Actions",
-    "permissionWarnings":"Permission Warnings"
-
-
-
-
-
-
+    "permissionWarnings":"Permission Warnings",
+    "or":"OR",
+    "noAdblockingInPlusPrivacy":"This version of PlusPrivacy does not include ad blocking functionality. Please use it together with your favorite ad blocker.",
+    "alternativeIdentities":"Alternative identities",
+    "identities_explanation":"The selected identity will be automatically suggested as your email address when you register at web sites. Emails sent to any of your alternative identities will be relayed to your real email address. If you delete an alternative identity, emails sent to it will bounce.",
+    "cannotAddMoreIdentities":"You cannot add more identities",
+    "identitiesLeft":"Number of identities left",
+    "addIdentity":"Add identity",
+    "deleteIdentity":"Delete identity",
+    "delete":"Delete",
+    "deleteSid":"Do you want to delete identity %{sid}?",
+    "alias":"Alias",
+    "domain":"Domain",
+    "chooseDomain":"Choose a domain name",
+    "selectOrSearchDomain":"Select or search a domain",
+    "regenerate":"Regenerate",
+    "save":"Save",
+    "removeApp":"RemoveApp",
+    "removeAppQuestion":"Do you want to remove %{appName} from %{socialNetwork}?",
+    "appRemovedFromSocialNetwork":"App removed from %{socialNetwork}."
 
 
 

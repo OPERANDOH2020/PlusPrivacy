@@ -59,8 +59,10 @@ angular.module('socialApps',['cfp.loadingBar'])
 
                     ModalService.showModal({
                         templateUrl: '/tpl/modals/removeSocialApp.html',
-                        controller:function($scope,$rootScope,cfpLoadingBar,close){
+                        controller:function($scope,$rootScope,cfpLoadingBar,close,i18nService){
                             $scope.app = app;
+                            var socialNetworkName = app.socialNetwork.charAt(0).toUpperCase() + app.socialNetwork.substr(1);
+                            $scope.removeAppQuestion = i18nService._("removeAppQuestion",{"appName":app.name, "socialNetwork":socialNetworkName});
 
                             $scope.removeApp = function(){
                                 $rootScope.$broadcast("removingApp",$scope.app.appId);
@@ -72,7 +74,7 @@ angular.module('socialApps',['cfp.loadingBar'])
                                     close("app-deleted",500);
                                     cfpLoadingBar.complete();
                                     if(response.status === "success"){
-                                        Notification.success({message: "App removed from "+app['socialNetwork'], positionY: 'bottom', positionX: 'center', delay: 5000});
+                                        Notification.success({message:i18nService._("appRemovedFromSocialNetwork",{"socialNetwork":socialNetworkName}), positionY: 'bottom', positionX: 'center', delay: 5000});
                                         $rootScope.$broadcast("appRemoved",$scope.app.appId);
                                     }
                                 });

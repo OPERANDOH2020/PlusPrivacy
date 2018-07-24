@@ -37,7 +37,6 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
 
         sequence = sequence.then(function(status){
            if(status === "success"){
-               console.log("DONE");
                notifyObservers();
            }
         });
@@ -62,19 +61,22 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
         var translationArgs = [];
         translationArgs.push(key);
         if (polyglot !== null) {
-            if(params){
+
+            if(Array.isArray(params)){
                 if(params.length == 2 ){
                     var obj = {};
                     obj[params[0]] = params[1];
                     translationArgs.push(obj);
                 }
             }
+            else{
+                translationArgs.push(params);
+            }
             return polyglot.t.apply(polyglot,translationArgs);
 
         }
         else{
             console.error("i18nService not initialized");
-
 
             var toBeCalledLater = function(){
                 var seq = Promise.resolve();
@@ -86,8 +88,6 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
                         });
 
                     });
-
-
 
                 });
 
@@ -136,7 +136,6 @@ operandoCore.factory("i18nService", ["$http", "$q", function ($http, $q) {
                         invoked = true;
                         var tr = i18nService._(object, params);
                         data[object] = tr;
-                        console.log(data);
                     })
                 }
                 else{

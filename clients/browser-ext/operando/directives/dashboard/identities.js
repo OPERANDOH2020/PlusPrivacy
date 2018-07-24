@@ -148,9 +148,11 @@ angular.module('identities', [])
 
                         ModalService.showModal({
 
-                            templateUrl: '/tpl/modals/delete_sid.html',
-                            controller: ["$scope", "close", "messengerService", function ($scope, close, messengerService) {
+                            templateUrl: '/tpl/modals/delete_sid.html?tag='+Math.random(),
+                            controller: ["$scope", "close", "messengerService","i18nService", function ($scope, close, messengerService,i18nService) {
+
                                 $scope.identity = identity;
+                                $scope.deleteSidQuestion = i18nService._("deleteSid",["sid",$scope.identity.email]);
                                 $scope.deleteIdentity = function () {
                                     messengerService.send("removeIdentity", identity, function (response) {
 

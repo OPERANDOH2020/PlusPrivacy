@@ -10,7 +10,7 @@
 
 
             <tr class="thead">
-                <td colspan="3">Alternative identities</td>
+                <td colspan="3">{{"alternativeIdentities"|i18n}}</td>
             </tr>
 
 
@@ -21,22 +21,20 @@
         </table>
 
     </div>
-        <p><small>The selected identity will be automatically suggested as your email address when you register at web sites. Emails sent to any of your alternative identities will be relayed to your real email address. If you delete an alternative identity, emails sent to it will bounce.</small></p>
+        <p><small>{{"identities_explanation"|i18n}}</small></p>
     </div>
 
 
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button class="btn-primary add_new_identity_btn" ng-disabled="identities.length == max_identities_nr" ng-click="add_new_sid()">Add identity</button>
+    <div class="btn-group" role="group" aria-label="Add identity">
+        <button class="btn-primary add_new_identity_btn" ng-disabled="identities.length == max_identities_nr" ng-click="add_new_sid()">{{"addIdentity"|i18n}}</button>
         <a type="button" class="add_identitiy_popover" data-placement="right" data-html="true", data-container="body"
-           data-content="You can provide an alternative identity to websites and people instead of your real email address. Emails sent to your alternative identity will be relayed to the email address with which you are registered to PlusPrivacy. When you reply to these emails, they will be relayed to the original sender, with your alternative identity placed in the From field of the email message. This allows you to communicate without disclosing your real email address.<br/>
-You can delete an alternative identity any time, in which case emails sent to it will bounce." data-trigger="hover"
+           data-content="{{'identities-popup-text'|i18n}}" data-trigger="hover"
            data-auto-close="true"
            bs-popover></a>
     </div>
 
 
-
-    <div ng-if="max_identities_nr - identities.length>0" style="margin-top: 20px"><span class="identities_number">You have {{max_identities_nr - identities.length}} identities left</span></div>
-    <div ng-if="max_identities_nr - identities.length==0" style="margin-top: 20px"><span class="identities_number">You cannot add more identities</span></div>
+    <div ng-if="max_identities_nr - identities.length>0" style="margin-top: 20px"><span class="identities_number">{{"identitiesLeft"|i18n}} : <strong>{{max_identities_nr - identities.length}}</strong></span></div>
+    <div ng-if="max_identities_nr - identities.length==0" style="margin-top: 20px"><span class="identities_number">{{"cannotAddMoreIdentities"|i18n}}</span></div>
 </div>
 

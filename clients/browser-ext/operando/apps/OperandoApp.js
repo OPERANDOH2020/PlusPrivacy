@@ -11,7 +11,7 @@
  */
 
 angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClickPrivacy',
-    'notifications','socialApps', 'osp', 'angularModalService', 'operandoCore', 'schemaForm', 'adblocker',
+    'notifications','socialApps', 'osp', 'angularModalService', 'operandoCore', 'schemaForm',
     'settingEditor','angular-loading-bar','UIComponent','login','ui.select',
     'ngAnimate','ngMessages','datatables','ngResource','mgcrea.ngStrap'])
     .config([
@@ -24,7 +24,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     ])
     .run(["i18nService",function(i18nService){
         i18nService.load().then(function(){
-            console.log("bau");
         });
     }])
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -37,7 +36,6 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
     }])
     .filter("trusthtml", ['$sce', function($sce) {
         return function(htmlCode){
-            return $sce.trustAsHtml(htmlCode);
         }
     }])
     .filter('isEmpty', [function() {
@@ -73,18 +71,11 @@ angular.module('operando', ['extensions', 'identities', 'pfbdeals', 'singleClick
             serie: true
         });
 
-        // Now set up the states
         $stateProvider
             .state('home', {
                 url: "/home",
                 templateUrl: "views/home.html",
                 cache: false,
-                /*resolve:{
-                    i18n: ['i18nService', function (i18nService) {
-                        console.log("asdasd");
-                        return i18nService.load();
-                    }]
-                }*/
             })
             .state("socialNetworks", {
                 url: "/social-networks",

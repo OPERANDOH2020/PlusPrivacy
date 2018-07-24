@@ -3,13 +3,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">Add identity</h3>
+                <h3 class="modal-title">{{"addIdentity"|i18n}}</h3>
             </div>
             <div class="modal-body">
                 <form name="addSidForm" class="clearfix">
 
                     <div class="form-group col-lg-6">
-                        <label for="email">Alias:</label>
+                        <label for="email">{{"alias"|i18n}}:</label>
                         <input type="text" class="form-control" id="email"  ng-model="identity.alias" ng-change="refreshSID()" />
                     </div>
 
@@ -18,23 +18,21 @@
                     </div>
 
                     <div class="form-group col-lg-5">
-                        <label for="domain">Domain:</label>
+                        <label for="domain">{{"domain"|i18n}}:</label>
 
                         <ui-select id="domain" ng-model="identity.domain" ng-change="refreshSID()"
-                                   title="Choose a setting" theme="selectize" class="mCustomScrollbar">
-                            <ui-select-match placeholder="Select or search a domain">{{$select.selected.name}}</ui-select-match>
+                                   title="{{'chooseDomain'|i18n}}" theme="selectize" class="mCustomScrollbar">
+                            <ui-select-match placeholder="{{'selectOrSearchDomain'|i18n}}">{{$select.selected.name}}</ui-select-match>
 
                             <ui-select-choices repeat="domain in domains.availableDomains | filter: $select.search"">
                                 <span ng-bind-html="domain.name"></span>
                             </ui-select-choices>
                         </ui-select>
 
-
                     </div>
 
-
                     <div class="form-group col-lg-12">
-                        <label for="usr">Email:</label>
+                        <label for="usr">{{"email"|i18n}}:</label>
                         <input type="text" class="form-control" id="usr" disabled ng-model="identity.email"/>
                     </div>
 
@@ -43,12 +41,12 @@
 
             <div class="modal-footer">
                 <div class="form-group col-lg-6">
-                    <button type="button" ng-click="generateIdentity()" class="btn btn-primary refresh_identity">Regenerate</button>
+                    <button type="button" ng-click="generateIdentity()" class="btn btn-primary refresh_identity">{{"regenerate"|i18n}}</button>
                 </div>
 
                 <div class="form-group col-lg-6">
-                    <button type="button" ng-click="saveIdentity()" class="btn btn-primary">Save</button>
-                    <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">Cancel</button>
+                    <button type="button" ng-click="saveIdentity()" class="btn btn-primary">{{"save"|i18n}}</button>
+                    <button type="button" ng-click="close('Yes')" class="btn btn-primary-black" data-dismiss="modal">{{"cancel"|i18n}}</button>
                 </div>
 
             </div>

@@ -44,8 +44,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 
 var getDeviceIdAction = bus.getAction("getDeviceId");
-var translationAction = bus.getAction("loadTranslations");
-translationAction();
 getDeviceIdAction(function (deviceId) {
     chrome.runtime.setUninstallURL(ExtensionConfig.UNINSTALL_URL + deviceId);
 });
