@@ -92,7 +92,7 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
                                 $scope.close("Aborted");
                             }
                             else{
-                                $scope.completedFeedback = i18nService._("privaySettingsWereUpdated",{"socialNetwork":socialNetwork});
+                                $scope.completedFeedback = i18nService._("privacySettingsWereUpdated",{"socialNetwork":socialNetwork});
                                 $scope.completed = true;
                                 $scope.$apply();
                             }
