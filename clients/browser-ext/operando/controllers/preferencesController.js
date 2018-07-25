@@ -110,14 +110,13 @@ angular.module('operando').controller('PreferencesController', ["$scope", "$attr
             });
         }
 
-
         $attrs.$observe('socialNetwork', function (value) {
-
 
             retrieveUserLoggedInAccount(value);
             $scope.socialNetwork = value;
 
             $scope.updateSettingsLabel = i18nService._("updateSettings",{ospTitle:$scope.osp.title});
+            $scope.socialNetworksPrivacySettingsLabel =i18nService._("socialNetworksPrivacySettingsLabel",{socialNetwork:$scope.osp.title});;
 
             ospService.generateAngularForm($scope.socialNetwork, function (_schema) {
                 $scope.schema = _schema;

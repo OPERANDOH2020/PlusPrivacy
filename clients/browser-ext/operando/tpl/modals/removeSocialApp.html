@@ -9,7 +9,7 @@
                 <p ng-bind-html="removeAppQuestion"></p>
             </div>
             <div class="modal-body" ng-if="deleteInProgress">
-                <p><ui-loader class="removing-social-app"></ui-loader> Deleting {{app.name}}...</p>
+                <p><ui-loader class="removing-social-app"></ui-loader>{{deletingLabel}}</p>
             </div>
             <div class="modal-footer">
 

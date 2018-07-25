@@ -2,7 +2,7 @@
 <div ng-if="extension.id != plusPrivacyExtensionId">
     <label class="extension_enabled_container">
         <input type="checkbox" class="btn-primary" ng-checked="extension.enabled" ng-click="toggleEnabled()"/>
-        <span class="enabled-text">Enable</span>
+        <span class="enabled-text">{{"enable"|i18n}}</span>
     </label>
     <button class="extension_uninstall" ng-if="extension.mayDisable" ng-click="uninstall('user preference')"></button>
 </div>

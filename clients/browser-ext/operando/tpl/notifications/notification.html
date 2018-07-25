@@ -5,21 +5,19 @@
             <div class="notification_content" ng-bind-html="notification.description"></div>
             <br/>
             <div class="notification_actions">
-                <button class="btn-primary" ng-click="takeAction(notification.action_name)">Take action</button>
+                <button class="btn-primary" ng-click="takeAction(notification.action_name)">{{"takeAction"|i18n}}</button>
             </div>
     </div>
 
     <label class="dont_show_again">
     <div ng-if="dismissed === false">
     <input type="checkbox" ng-change="doNotShowNexTime()" ng-model="dismissed" />
-        <span>Never show this warning again</span>
+        <span>{{"neverShowAgain"|i18n}}</span>
     </div>
 
     <div ng-if="dismissed === true">
-        <span>Notification dismissed</span>
+        <span>{{"notificationDismissed"|}}</span>
     </div>
     </label>
-
-
 
 </div>

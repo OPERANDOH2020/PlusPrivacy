@@ -120,7 +120,35 @@
     "updateSettings":"Update %{ospTitle} settings",
     "privaySettingsWereUpdated":"%{socialNetwork} privacy settings were updated.",
     "yes":"Yes",
-    "no":"No"
+    "no":"No",
+    "required":"Required",
+    "tooShort":"tooShort",
+    "tooLong":"Too long",
+    "invalidEmailAddress":"Invalid email address",
+    "mustMatchPreviousEntry":"Must match the previous entry",
+    "mustBeDifferent":"Must be different than current password",
+    "invalidPassword":"Invalid password",
+    "deletingApp":"Deleting %{appName}...",
+    "takeAction":"Take action",
+    "neverShowAgain":"Never show this warning again",
+    "notificationDismissed":"Notification dismissed",
+    "noNewNotifications":"No new notifications",
+    "notificationsWereAlreadyRead":"All notifications were already read",
+    "resendActivationEmail":"Resend activation email",
+    "copyToClipboard":"Copy to clipboard",
+    "copied":"Copied",
+    "enable":"Enable",
+    "privacyOriented":"Privacy-oriented",
+    "singleClickPrivacy":"Single click privacy",
+    "socialNetworksPrivacySettingsLabel":"%{socialNetwork} privacy settings"
+
+
+
+
+
+
+
+
 
 
 

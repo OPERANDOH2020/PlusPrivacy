@@ -61,6 +61,7 @@ angular.module('socialApps',['cfp.loadingBar'])
                         templateUrl: '/tpl/modals/removeSocialApp.html',
                         controller:function($scope,$rootScope,cfpLoadingBar,close,i18nService){
                             $scope.app = app;
+                            $scope.deletingLabel = i18nService._("deletingApp",{"appName":$scope.app.name});
                             var socialNetworkName = app.socialNetwork.charAt(0).toUpperCase() + app.socialNetwork.substr(1);
                             $scope.removeAppQuestion = i18nService._("removeAppQuestion",{"appName":app.name, "socialNetwork":socialNetworkName});
 
