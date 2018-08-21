@@ -1,8 +1,8 @@
 {
-    "account": "Account",
-    "accountDeletion": "Account deletion",
-    "accountDeletionConfirmation": "Yes, delete my PlusPrivacy account",
-    "accountDeletionQuestion": "Are you sure you want to delete your PlusPrivacy account?",
+    "account": "Cont",
+    "accountDeletion": "Ștergere cont",
+    "accountDeletionConfirmation": "Da, șterge contul meu PlusPrivacy",
+    "accountDeletionQuestion": "Ești sigur că vrei să ștergi contul tău PlusPrivacy?",
     "accountDeletionText": "When you delete your account, all the data linked to it is wiped: email address, account password, alternative email identities etc., and our servers forget that this account ever existed. To prevent man in the middle attacks, alternative email identities in the form identity@plusprivacy.com that were present in the deleted account become permanently unavailable for future use by any user of PlusPrivacy, including yourself if you re-register for the service with the same email address. After you delete your account, you can continue to use our services anonymously as described above.",
     "accountDetails": "Account Details",
     "accountNotActivated": "Account was not activated",
