@@ -47,9 +47,16 @@ var identityService = exports.identityService = {
         var removeIdentityHandler = swarmHub.startSwarm('identity.js', 'removeIdentity', identity);
         removeIdentityHandler.onResponse("deleteIdentity_success",function(swarm){
             identities = identities.filter(function(oldIdentity){
-                return oldIdentity.email!=identity.email
-            })
-            success_callback(swarm.default_identity);
+                return oldIdentity.email!=identity.email;
+            });
+
+            var defaultIdentity = identities.find(function(identity){
+                return identity.email === swarm.default_identity.email;
+            });
+
+            defaultIdentity.isDefault = true;
+
+            success_callback(swarm.identity);
         });
 
         removeIdentityHandler.onResponse("deleteIdentity_error",function(swarm){
