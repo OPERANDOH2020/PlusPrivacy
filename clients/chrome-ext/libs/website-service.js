@@ -22,7 +22,7 @@ function doTwitterAppsRequest(url, callback) {
 
 function doGetRequest(url, data, callback) {
 
-    if(data instanceof Function){
+    if (data instanceof Function) {
         callback = data;
     }
 
@@ -70,7 +70,7 @@ var websiteService = exports.websiteService = {
         var maxAuthenticationsAllowed = 1;
         authenticationService.authenticateWithToken(data.userId, data.authenticationToken, function (res) {
             console.log("authenticated here");
-            if(maxAuthenticationsAllowed >0){
+            if (maxAuthenticationsAllowed > 0) {
                 chrome.runtime.openOptionsPage();
             }
             maxAuthenticationsAllowed--;
@@ -159,7 +159,7 @@ var websiteService = exports.websiteService = {
 
             var apps = [];
 
-            for(var i = 0; i<appsContainer.length; i++){
+            for (var i = 0; i < appsContainer.length; i++) {
                 apps.push(appsContainer[i].children[0].children[0].children[0].children[0]);
             }
 
@@ -167,8 +167,8 @@ var websiteService = exports.websiteService = {
                 (function (i) {
                     var appId = apps[i].getAttribute('href').split('appid=')[1];
                     sequence = sequence.then(function () {
-                            return getAppData("https://m.facebook.com/" + apps[i].getAttribute('href'));
-                        })
+                        return getAppData("https://m.facebook.com/" + apps[i].getAttribute('href'));
+                    })
                         .then(function (result) {
                             handleDataForSingleApp(appId, result);
                         });
@@ -191,39 +191,52 @@ var websiteService = exports.websiteService = {
 
         function getApps(res) {
 
-            var rawAppsRegex = '<div\\s?id=\"oauth(?:.+)\"(?:.|\n)*?</div>(?:.|\n)*?</div>(?:.|\n)*?</div>(?:.|\n)*?</div>';
-            var rawAppsList = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', rawAppsRegex, 0, res);
 
-            var appNameRegex = 'strong>(.*?)\\s?</strong';
-            var appIdRegex = 'id="oauth_application_(.*?)"\\s?class';
-
-            var iconRegex = '<img\\s+class="app-img"\\s+src="(.*?)"';
-            var permissionsRegex = '<p\\s+class="description">.+?\\n.+?<small\\s+class="metadata">(?:.+\\:\\s?)?(.+?)</small></p>';
-
-            twitterApps = rawAppsList.map(function (rawAppData) {
-                var appName = RegexUtis.findValueByRegex_Pretty(self.key, 'App Name+Id', appNameRegex, 1, rawAppData, true);
-                var appId = RegexUtis.findValueByRegex(self.key, 'Revokde-Id', appIdRegex, 1, rawAppData, true);
-
-                var iconURL = RegexUtis.findValueByRegex(self.key, 'App Icon', iconRegex, 1, rawAppData, true)
-                    .unescapeHtmlChars();
-
-                var permissions = RegexUtis.findAllOccurrencesByRegex(self.key, "Extracting Permissions", permissionsRegex, 1, rawAppData, function (value) {
-                    return value.unescapeHtmlChars();
-                });
-
-                return {
-                    'appId': appId,
-                    'iconUrl': iconURL,
-                    'name': appName,
-                    'permissions': permissions
-                };
+            JSON.parse(res).applications.forEach(function (app) {
+                twitterApps.push({
+                    'appId': app.token,
+                    'iconUrl': app.img_url,
+                    'name': app.name,
+                    'permissions': {
+                        can_read_dms: app.can_read_dms,
+                        can_write: app.can_write,
+                        can_read: app.can_read,
+                        email_access: app.email_access
+                    }
+                })
             });
+
             callback(twitterApps);
+
         }
-        doTwitterAppsRequest("https://twitter.com/settings/applications?lang=en",function(){
-            interceptorService.interceptHeadersBeforeRequest("twitter-apps");
-            var headers = [{name:"get-twitter-apps", value:"1"}];
-            doGetRequest("https://twitter.com/settings/applications?lang=en", {headers:headers}, getApps);
+
+        doTwitterAppsRequest("https://twitter.com/settings/sessions", function (rawAppData) {
+            var authenticationScriptRegex = '<link rel="dns-prefetch" href="https:\\/\\/t.co">\\s+<link rel="preload" href="((?:.+))" as="script">';
+            var rawAuthenticationScriptUrl = RegexUtis.findAllOccurrencesByRegex(self.key, 'List of Raw Apps', authenticationScriptRegex, 1, rawAppData);
+            doTwitterAppsRequest(rawAuthenticationScriptUrl, function (scriptData) {
+                var authenticationBearerRegex = '"E\\/\\/N":function\\(e,t,i\\){"use strict";t.a="((?:.+))"},EGZi';
+                var authenticationBearer = "Bearer " + RegexUtis.findValueByRegex(self.key, 'List of Raw Apps', authenticationBearerRegex, 1, scriptData);
+
+                chrome.cookies.getAll({url: "https://twitter.com"}, function (cookies) {
+
+                    var csrf_cookie = cookies.find(function (cookie) {
+                        return cookie.name === "ct0";
+                    });
+
+                    interceptorService.interceptHeadersBeforeRequest("twitter-apps");
+                    var headers = [
+                        {name: "authorization", value: authenticationBearer},
+                        {name: "x-twitter-auth-type", value: "OAuth2Session"},
+                        {name: "x-twitter-active-user", value: "yes"},
+                        {name: "x-csrf-token", value: csrf_cookie.value},
+                        {name: "get-twitter-apps", value: 1}
+                    ];
+                    doGetRequest("https://api.twitter.com/1.1/oauth/list", {headers: headers}, getApps);
+
+                })
+            });
+
+
         });
 
     },
@@ -494,9 +507,9 @@ var websiteService = exports.websiteService = {
         }
 
         function extractTwitterToken(content, callback) {
-            var tokenRegex = 'value="(.*?)" name="authenticity_token"';
-            var token = RegexUtis.findValueByRegex(self.key, 'authenticity_token', tokenRegex, 1, content, true);
-            callback({token: token});
+            var authTokenRegex = '<input type="hidden" value="(.*?)" name="authenticity_token"';
+            var authenticity_token = RegexUtis.findValueByRegex(self.key, 'authenticity_token', authTokenRegex, 1, content, true);
+            callback({authenticity_token: authenticity_token});
         }
 
         function extractLinkedinToken(content, callback) {
@@ -555,10 +568,10 @@ var websiteService = exports.websiteService = {
         }
 
         function removeTwitterApp(appId) {
-            doGetRequest("https://twitter.com/settings/applications?lang=en", function (content) {
+            doTwitterAppsRequest("https://twitter.com/settings/sessions", function (content) {
                 extractTwitterToken(content, function (data) {
                     var _body = "token=" + appId + "&" + encodeURIComponent("scribeContext[component]")
-                        + "=oauth_app&twttr=true&authenticity_token=" + data.token;
+                        + "=oauth_app&twttr=true&authenticity_token=" + data.authenticity_token;
                     doPOSTRequest("https://twitter.com/oauth/revoke", _body, function (response) {
                         callback();
                     })
@@ -701,15 +714,15 @@ var websiteService = exports.websiteService = {
     },
 
 
-    getMyLoggedinEmail: function(socialNetwork, success_callback, error_callback){
-        socialNetworkService.getSocialNetworkEmailHandler(socialNetwork, function(data){
+    getMyLoggedinEmail: function (socialNetwork, success_callback, error_callback) {
+        socialNetworkService.getSocialNetworkEmailHandler(socialNetwork, function (data) {
 
-            var getDataPromise = function(url){
-                return new Promise(function(resolve, reject){
+            var getDataPromise = function (url) {
+                return new Promise(function (resolve, reject) {
 
                     switch (socialNetwork) {
                         case "twitter":
-                            doTwitterAppsRequest(url,resolve);
+                            doTwitterAppsRequest(url, resolve);
                             break;
                         default:
                             doGetRequest(url, resolve);
@@ -720,15 +733,15 @@ var websiteService = exports.websiteService = {
 
             var sequence = Promise.resolve();
 
-            sequence = sequence.then(function(){
+            sequence = sequence.then(function () {
                 return getDataPromise(data.url);
-            }).then(function(content){
+            }).then(function (content) {
                 var regex = new RegExp(data.regex);
                 var match = regex.exec(content);
-                if(match && match[1]){
-                    success_callback({type:data.type, account: match[1]});
+                if (match && match[1]) {
+                    success_callback({type: data.type, account: match[1]});
                 }
-                else{
+                else {
                     error_callback();
                 }
 

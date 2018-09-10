@@ -20,13 +20,22 @@
         </td>
         <td class="app_name"><h4>{{app.name}}</h4></td>
         <td ng-if="sn=='facebook'" class="app_visibility">{{app.visibility}}</td>
-        <td class="app_permissions" ng-if="sn == 'facebook' || sn == 'twitter'">
+        <td class="app_permissions" ng-if="sn == 'facebook'">
             <table class="table table-bordered">
             <tr ng-repeat="permission in app.permissions">
                 <td class="{{permission|removeWhiteSpace}}" >{{permission}}</td>
             </tr>
             </table>
         </td>
+
+    <td class="app_permissions" ng-if="sn == 'twitter'">
+        <table class="table table-bordered">
+            <tr ng-repeat="(key,value) in app.permissions" ng-if="value == true">
+                <td class="{{key}}">{{key|i18n}}</td>
+            </tr>
+        </table>
+    </td>
+
     <td class="app_permissions" ng-if="sn=='google'">
         <div ng-repeat="permissionGroup in app.permissionGroups" class="permissionGroup">
             <div class="google_group_permissions">

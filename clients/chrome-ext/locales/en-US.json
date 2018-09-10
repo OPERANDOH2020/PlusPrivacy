@@ -28,5 +28,9 @@
     "please-login-with-social-networks":"You need to be logged into your social networks accounts. Currently you are not logged into %{socialNetworks}. Please log in to at least one social network and try again.",
     "try-again":"Try again",
     "not-logged-in":"You are not logged in",
-    "passwordIsRequired":"Password is required"
+    "passwordIsRequired":"Password is required",
+    "can_read_dms":"Can read your direct messages",
+    "can_write":"Can post tweets in your behalf",
+    "can_read":"Can read your tweets",
+    "email_access":"Can read your email address"
   }

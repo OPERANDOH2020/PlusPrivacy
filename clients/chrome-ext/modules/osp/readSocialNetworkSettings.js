@@ -19,8 +19,6 @@ port.onMessage.addListener(function (msg) {
             setting = "Not available";
         }
 
-        console.log(msg.setting.settingKey, setting);
-        console.log(msg.setting.settingKey, setting);
         port.postMessage({status: "finishedCommand", settingKey:msg.setting.settingKey, settingValue:setting});
     }
 });
