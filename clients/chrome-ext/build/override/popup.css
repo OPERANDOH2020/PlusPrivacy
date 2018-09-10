@@ -556,8 +556,8 @@ input[type=email].ng-invalid.ng-dirty {
   position: absolute;
   top: 0px;
   margin: 35px 5px 45px;;
-  padding: 9px;
-  font-size: 14px;
+  padding: 8px;
+  font-size: 13px;
   bottom: 20px;
   border: 1px solid #DE912f;
   border-radius: 4px;
@@ -565,7 +565,7 @@ input[type=email].ng-invalid.ng-dirty {
 }
 
 .local .register_tooltip{
-  margin: 5px 5px 45px;
+  margin: 5px 5px 35px;
   font-size: 13px;
 }
 
