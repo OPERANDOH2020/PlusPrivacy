@@ -32,7 +32,8 @@
   "minimum_chrome_version": "29.0",
   "name": "PlusPrivacy",
   "options_ui": {
-    "page": "operando.html#home"
+    "page": "operando.html#home",
+    "open_in_tab": true
   },
   "permissions": [
     "tabs",
@@ -52,7 +53,7 @@
     "privacy"
   ],
   "short_name": "__MSG_name__",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "web_accessible_resources": [
     "assets/images/icons/pp_24.png",
     "assets/images/icons/pp-19.png",

@@ -1,6 +1,6 @@
 {
-  "name": "PlusPrivacy",
-  "version": "2.0.0",
+  "name": "plusprivacy",
+  "version": "2.4.0",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-config": "^1.0.0",

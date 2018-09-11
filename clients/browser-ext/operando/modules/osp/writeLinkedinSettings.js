@@ -91,7 +91,7 @@ function sendPostRequest(settings, headers, resolve, reject){
                 },
                 error: function (a, b, c) {
                     console.log(a, b, c);
-                    reject(b);
+                    resolve(b);
                 },
                 complete: function (request, status) {
                     console.log("Request completed...");
@@ -142,7 +142,7 @@ function sendPostRequest(settings, headers, resolve, reject){
                 },
                 error: function (a, b, c) {
                     console.log(a, b, c);
-                    reject(b);
+                    resolve(b);
                 },
                 complete: function (request, status) {
                     console.log("Request completed...");

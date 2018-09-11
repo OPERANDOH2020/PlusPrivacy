@@ -35,7 +35,7 @@
     "connectedApps": "Connected Apps",
     "consentDeals": "Consent Deals",
     "contact": "Contact",
-    "contactUsage": "To use the contact feature, you need to log in with your email address. If you don't want to authenticate or to reveal your real address to us, you can send your request via the <a href='operando.html#/feedback'>feedback</a> form or send an email at <a href='mailto:contact@plusprivacy.com'>contact@plusprivacy.com</a>.",
+    "contactUsage": "To use the contact feature, you need to log in with your email address. If you don't want to authenticate or to reveal your real address to us, you can send your request via the <a href='operando.html#!/feedback'>feedback</a> form or send an email at <a href='mailto:contact@plusprivacy.com'>contact@plusprivacy.com</a>.",
     "cookies": "Cookies",
     "cookiesText": "In case you choose to log in, for authentication we use so-called session cookies that store data on your computer. The cookies are deleted at the end of the respective session.",
     "copied": "Copied",
@@ -159,5 +159,10 @@
     "yes": "Yes",
     "yourEmailAddress": "Your email address",
     "yourFeedback": "Your Feedback",
-    "yourMessage": "Your Message"
+    "yourMessage": "Your Message",
+    "can_read_dms":"Can read your direct messages",
+    "can_write":"Can post tweets in your behalf",
+    "can_read":"Can read your tweets",
+    "email_access":"Can read your email address"
+
 }

@@ -3070,10 +3070,12 @@ td.publicprofilerequired,
 td.sendfacebooknotifications{
     background: greenyellow;
 }
-td.emailaddress{
+td.emailaddress,
+td.email_access{
     background: gold;
 }
-td.friendlist
+td.friendlist,
+td.can_read
 {
     background: orange;
 }
@@ -3086,7 +3088,9 @@ td.readandwrite{
 }
 td.currentcity,
 td.postonyourbehalf,
-td.readwriteanddirectmessages{
+td.readwriteanddirectmessages,
+td.can_write,
+td.can_read_dms{
     background: red;
     color:#FFF;
 }
