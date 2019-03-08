@@ -1,9 +1,7 @@
 <?php
 function install_plusprivacy() {
     wp_register_script('check-installation', get_stylesheet_directory_uri() . '/js/check-installation.js', array('jquery'),'2.2.1', true);
-    wp_register_script('install_plusprivacy', get_stylesheet_directory_uri() . '/js/installPlusPrivacy.js', array('jquery'),'2.2.1', true);
     wp_enqueue_script('check-installation');
-    wp_enqueue_script('install_plusprivacy');
 }
 
 add_action( 'wp_enqueue_scripts', 'install_plusprivacy', 999 );
