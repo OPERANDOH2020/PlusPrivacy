@@ -9,7 +9,7 @@
  *    RAFAEL MASTALERU (ROMSOFT)
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
-
+const MAX_IDENTITIES_NUMBER = 100;
 var identitySwarming = {
     meta: {
         name: "identity.js"
@@ -20,7 +20,6 @@ var identitySwarming = {
     },
 
     start: function () {
-        console.log("Swarm extension started");
     },
 
     generateIdentity: function(){
@@ -29,7 +28,6 @@ var identitySwarming = {
     },
 
     createIdentity: function (identity) {
-        console.log(identity);
         if (identity) {
             this.identity = identity;
             this.action = "createIdentity";
@@ -113,7 +111,7 @@ var identitySwarming = {
                 else {
                     self.identities = identities;
 
-                    if(self.identities.length >= 20){
+                    if(self.identities.length >= MAX_IDENTITIES_NUMBER){
                         self.error.message = "You reached the maximum number of substitute identities!";
                         self.swarm("error");
                     }

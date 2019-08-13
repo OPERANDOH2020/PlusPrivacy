@@ -53,7 +53,7 @@
     "privacy"
   ],
   "short_name": "__MSG_name__",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "web_accessible_resources": [
     "assets/images/icons/pp_24.png",
     "assets/images/icons/pp-19.png",

@@ -10,7 +10,7 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
-
+const MAX_IDENTITIES_NUMBER = 100;
 angular.module('identities', [])
     .directive('identities', ["messengerService", function (messengerService) {
             return {
@@ -20,7 +20,7 @@ angular.module('identities', [])
 
                 controller: function ($scope, ModalService) {
 
-                    $scope.max_identities_nr = 20;
+                    $scope.max_identities_nr = MAX_IDENTITIES_NUMBER;
                     $scope.identities = [];
 
 
