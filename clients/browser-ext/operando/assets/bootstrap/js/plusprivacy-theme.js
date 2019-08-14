@@ -53,7 +53,7 @@ $(document).ready(function () {
     function resizeMenu(){
         setTimeout(function(){
             $("#wrapper .content_wrapper").css("min-height",
-                $($(".sidebar_expandable_menu .col-xs-2")[0]).outerHeight()+30
+                $($(".sidebar_expandable_menu .col-xs-2")[0]).outerHeight()-65
             );
         },100);
 

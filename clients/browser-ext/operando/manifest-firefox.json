@@ -52,8 +52,8 @@
     "clipboardWrite",
     "privacy"
   ],
-  "short_name": "__MSG_name__",
-  "version": "2.5.0",
+  "short_name": "Plus Privacy",
+  "version": "2.5.1",
   "web_accessible_resources": [
     "assets/images/icons/pp_24.png",
     "assets/images/icons/pp-19.png",
